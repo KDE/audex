@@ -1005,7 +1005,12 @@ void Audex::execute_finish() {
 bool Audex::p_mkdir(const QString& absoluteFilePath) {
 
   QDir dir(absoluteFilePath);
-  if (!dir.exists()) {
+  if (dir.exists()) {
+    if (!dir.isReadable()) {
+      emit error(i18n("Unable to open folder \"%1\".", absoluteFilePath), i18n("Please check your path and permissions"))
+      return FALSE;
+    }
+  } else {
     if (!dir.mkpath(absoluteFilePath)) {
       emit error(i18n("Unable to create folder \"%1\".", absoluteFilePath), i18n("Please check your path (write access?)"));
       return FALSE;
