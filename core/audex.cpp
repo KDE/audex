@@ -638,7 +638,7 @@ bool Audex::check() {
 
   quint64 free = tmp_dir->freeSpace() / 1024;
   if (free < 800*1024) {
-    slot_warning(i18n("Free space on temporary folder \"%1\" is less than 800 MiB. Problems with low space possible.", tmp_dir->tmpPathBase()));
+    slot_warning(i18n("Free space on temporary folder \"%1\" is less than 800 MiB.", tmp_dir->tmpPathBase()));
   } else if (free < 200*1024) {
     slot_error(i18n("Temporary folder \"%1\" needs at least 200 MiB of free space.", tmp_dir->tmpPathBase()), i18n("Please free space or set another path."));
     return FALSE;
