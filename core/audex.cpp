@@ -546,7 +546,7 @@ bool Audex::construct_target_filename(QString& targetFilename,
   QString targetStrippedFilename = targetFilename.mid(lastSlash+1);
   target_dir = targetPath;
 
-  p_mkdir(targetPath);
+  if (!p_mkdir(targetPath)) return FALSE;
 
   KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
   quint64 free = diskfreespace.available() / 1024;
