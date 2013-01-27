@@ -1007,7 +1007,7 @@ bool Audex::p_mkdir(const QString& absoluteFilePath) {
   QDir dir(absoluteFilePath);
   if (dir.exists()) {
     if (!dir.isReadable()) {
-      emit error(i18n("Unable to open folder \"%1\".", absoluteFilePath), i18n("Please check your path and permissions"))
+      emit error(i18n("Unable to open folder \"%1\".", absoluteFilePath), i18n("Please check your path and permissions"));
       return FALSE;
     }
   } else {
