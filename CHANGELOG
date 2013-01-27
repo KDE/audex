@@ -1,0 +1,113 @@
+Changelog 0.77 beta 1 (Borås release)
+* Removed store discid file feature as this is useless considering info file feature
+* Integrated new playlist module (relative filenames in playlists and playlist merging)
+* Minor bugfixes and typo fixes...
+
+Changelog 0.76 beta 2 (well-work release)
+* Some minor code fixes
+* Cue sheet writer now follows the file format specs (not using OGG and FLAC anymore)
+* Some minor bugfixes...
+
+Changelog 0.76 beta 1 (uddebo release)
+* Fix google cover fetcher
+* Fix compile issues with GCC 4.7
+* Small bugfixes...
+
+Changelog 0.75 beta 1 (kray release)
+* New variable: Total number of audio tracks
+* New variable: Audex name and version
+* New variable: Encoder name and version
+* Extended eyeD3 command line (total number of tracks, Audex name and version, Encoder name and version)
+* New feature: Use Unity DBus API to show overall progress, and current track number.
+
+Changelog 0.74 beta 1 (daktari release)
+* New feature: Simple cue sheet support (but does not detect pregaps yet)
+* New feature: Single file rip
+* New feature: Adds MD5 to hashlist options
+* Fixes some issues with cover browser
+* Uses external image viewer to show cover
+* Bugfix in Ogg Vorbis settings widget
+* Ogg Vorbis setting widget now allows to set fractional quality values
+* Bugfix in commandline for FAAC
+* 2 digits track number option for filenames
+* New parameters for file name scheme variables: left (see kde.maniatek.com/audex for full documentation)
+* New helptext for scheme wizard dialogs
+* Pattern of playlists, hashlists and cover files now need a $suffix variable
+* Some more small bugfixes...
+
+Changelog 0.73 beta 1 (alive release)
+* New feature: Use eyeD3 for MP3 tagging if available
+* Bugfix: Crash on cancel
+* Fixes some compile issues with GCC 4.5
+* Some cosmetic fixes
+* English language fix: Uses the word "folder" instead of "directory"
+* Uses KDiskFreeSpaceInfo for calculating free space on a device
+* New feature: Uses mimetype icons for profiles and allows user to change these
+* Settings in profile editing dialog now grouped with tabs
+* Fixes a crash when adding a new profile via the UI
+* New feature: New simple view of the ripping progress dialog
+* Adds more detail to CDDB errors
+* Some small bugfixes... (thx to all reporters!)
+
+Changelog 0.72 beta 1 (last-for-long-time release)
+* Some bugfixes...
+
+Changelog 0.71 beta 5 (hot summer release)
+* Slightly improved czech translation (Pavel Fric)
+* Slightly improved german translation (this is already not perfect!)
+* Minor bugfix.
+
+Changelog 0.71 beta 4 (justice release)
+* Updated header information (all GPLv3+ now)
+
+Changelog 0.71 beta 3 (urban release)
+* Dutch translation (Kenny Verstraete)
+* Portuguese (Márcio Moraes)
+* Bugfix: Slider update
+* Bugfix: Update profiles after loaded from external file
+
+Changelog 0.71 beta 2 (anticipation release)
+* Some minor bugfixes...
+
+Changelog 0.71 (beautiful spring release)
+* Czech translation (Pavel Fric)
+* German translation (Thomas Kamps)
+* New feature: Replace spaces with underscores in path- und filenames
+* New feature: Context menu for track listview
+* Bugfix: "Copy profile" function does not update listview
+* Bugfix: Corrected FLAC command line preset
+* Bugfix: Taking over changes in CD data for tags
+* Changed FAAC filename suffix from AAC to M4A
+* Optimized FAAC command line preset
+* Does not overwrite discid file on multi cd any more
+* Many small bugfixes... (thx to all reporters!)
+
+Changelog 0.70 (patchwork easter release):
+* Many GUI changes/fixes
+* More user-friendly common encoder quality selection (ogg vorbis,mp3,flac,faac,wav,custom)
+* KIO slave transfer
+* ListView -> TreeView and checkboxes to select which tracks to rip
+* Squash "/"-or-"\""-in-filename-bug
+* Merge playlist, checksum file on multi-cd
+* Recognizes "(disc 1)" "(disc 2)" in cd title
+* Many, many small bugfixes... (thx to all reporters!)
+
+Changelog 0.62 (cold winter release):
+* Removed leaning effect of cover reflection and added a slight blur effect to the reflection
+* Profile combobox now works as expected (I hope... :-) )
+* Perform auto cddb/cover lookup
+* Resized coverfetch dialog (640x480 minimum size)
+* New variable $cover for sending a temporary cover file to a command line endcoder
+* Small bugfixes... (thx to all reporters!)
+
+Changelog 0.61 (xmas release):
+* Many bugfixes
+* Beyond the "confusing" xml naming scheme, you can use "normal" variables instead
+
+Changelog 0.6 (free weekend release):
+* New XML-based scheme definitions.
+* Assistant will help you creating profiles.
+* Cover fetching from amazon works again (rewritten).
+* Store SFV files for the music files.
+* Store text files with predefined information.
+* A lot of Bugfixes...

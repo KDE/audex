@@ -1,0 +1,30 @@
+[Desktop Entry]
+X-KDE-Solid-Predicate=[ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Audio' ]
+Type=Service
+Actions=ripaudiocd;
+
+[Desktop Action ripaudiocd]
+Exec=audex
+Icon=audex
+Name=Extract Digital Audio with Audex
+Name[cs]=Vytahujte digitální zvuk s Audexem
+Name[da]=Udtræk digital lyd med Audex
+Name[de]=Audio-CD mit Audex auslesen
+Name[en_GB]=Extract Digital Audio with Audex
+Name[es]=Extrae audio digital con Audex
+Name[et]=Ekstrakti digitaalheli Audexi abil
+Name[fr]=Extraire des données audio numériques avec Audex
+Name[gl]=Extrae audio dixital con Audex
+Name[it]=Estrai audio digitale con Audex
+Name[km]=ស្រង់​អូឌីយ៉ូ​ឌីជីថល​ចេញ​ដោយ​ប្រើ​ Audex
+Name[nl]=Digitaal geluid met Audex extraheren
+Name[pl]=Zewnętrzny dźwięk cyfrowy z Audex
+Name[pt]=Extrair o Áudio Digital com o Audex
+Name[pt_BR]=Extrair o áudio digital com o Audex
+Name[sk]=Extrahovať digitálne autio s Audex
+Name[sv]=Extrahera digitalljud med Audex
+Name[tr]=Audex ile Sayısal Sesleri Aktarın
+Name[uk]=Видобути цифрові звукові дані за допомогою Audex
+Name[x-test]=xxExtract Digital Audio with Audexxx
+
+#/usr/share/kde4/apps/solid/actions/audex-rip-audiocd.desktop

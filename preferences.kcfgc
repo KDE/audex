@@ -1,0 +1,4 @@
+File=audex.kcfg
+ClassName=Preferences
+Singleton=true
+Mutators=true

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <include>QtCore/qdir.h</include>
+  <include>libkcompactdisc/kcompactdisc.h</include>
+  <kcfgfile name="audexrc" />
+  <group name="general">
+    <entry name="firstStart" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="overwriteExistingFiles" type="Bool">
+      <label>Overwrite existing files</label>
+      <default>false</default>
+    </entry>
+    <entry name="deletePartialFiles" type="Bool">
+      <label>Delete partial files after cancel</label>
+      <default>true</default>
+    </entry>
+    <entry name="ejectCDTray" type="Bool">
+      <label>Eject CD tray after extraction finished</label>
+      <default>false</default>
+    </entry>
+    <entry name="cddbLookupAuto" type="Bool">
+      <label>Perform CDDB lookup automatically</label>
+      <default>true</default>
+    </entry>
+    <entry name="coverLookupAuto" type="Bool">
+      <label>Perform cover lookup (amazon) automatically</label>
+      <default>true</default>
+    </entry>
+    <entry name="wikipediaLocale" type="Int">
+      <label>Wikipedia localization</label>
+      <default>0</default>
+    </entry>
+    <entry name="fetchCount" type="Int">
+      <label>Number of covers to fetch</label>
+      <default>8</default>
+    </entry>
+    <entry name="cdDevice" type="String">
+      <label>CD Device</label>
+      <default code="true">KCompactDisc::defaultCdromDeviceName()</default>
+    </entry>
+    <entry name="paranoiaMode" type="Bool">
+      <label>Full paranoia mode (best quality)</label>
+      <default>true</default>
+    </entry>
+    <entry name="neverSkip" type="Bool">
+      <label>Never skip on read error</label>
+      <default>true</default>
+    </entry>
+    <entry name="basePath" type="Path">
+      <label>Base path to store music files</label>
+      <default code="true">QDir::homePath()+QString::fromLatin1("/Music")</default>
+    </entry>
+    <entry name="upload" type="Bool">
+      <label>Upload files to server</label>
+      <default>false</default>
+    </entry>
+    <entry name="url" type="Url">
+      <label>URL of server</label>
+    </entry>
+  </group>
+</kcfg>
