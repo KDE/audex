@@ -1,7 +1,7 @@
 Changelog 0.77 beta 1 (Borås release)
 * Removed store discid file feature as this is useless considering info file feature
 * Integrated new playlist module (relative filenames in playlists and playlist merging)
-* Minor bugfixes and typo fixes...
+* Minor bugfixes, code modifications and typo fixes...
 
 Changelog 0.76 beta 2 (well-work release)
 * Some minor code fixes
