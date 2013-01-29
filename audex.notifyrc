@@ -1,14 +1,62 @@
 [Global]
 IconName=Audex
 Comment=Audex CDDA Ripping
+Comment[cs]=Získání digitálního zvuku z CD pomocí Audexu
+Comment[de]=Audio-CDs mit Audex auslesen
+Comment[nl]=Audex CDDA-ripping
+Comment[pt]=Extracção de CDDA do Audex
+Comment[pt_BR]=Extração de CDDA do Audex
+Comment[sv]=Audex lagring av CDDA
+Comment[uk]=Інструмент видобування даних з CDDA Audex
+Comment[x-test]=xxAudex CDDA Rippingxx
 Name=Audex
+Name[cs]=Audex
+Name[de]=Audex
+Name[nl]=Audex
+Name[pt]=Audex
+Name[pt_BR]=Audex
+Name[sv]=Audex
+Name[uk]=Audex
+Name[x-test]=xxAudexxx
 
 [Event/allTracksRipped]
 Name=All tracks ripped
+Name[cs]=Všechny stopy byly získány
+Name[de]=Alle Titel ausgelesen
+Name[nl]=Alle tracks geript
+Name[pt]=Foram extraídas todas as faixas
+Name[pt_BR]=Todas as faixas foram extraídas
+Name[sv]=Alla spår lagrade
+Name[uk]=Видобуто всі доріжки
+Name[x-test]=xxAll tracks rippedxx
 Comment=All tracks finished ripping
+Comment[cs]=U všech stop bylo dokončeno získávání dat
+Comment[de]=Alle Titel fertig ausgelesen
+Comment[nl]=Rippen van alle tracks is gereed
+Comment[pt]=Terminou a extracção de todas as faixas
+Comment[pt_BR]=Todas as faixas terminaram a sua extração
+Comment[sv]=Alla spår avslutande lagring
+Comment[uk]=Завершено видобування даних всіх доріжок
+Comment[x-test]=xxAll tracks finished rippingxx
 Action=Sound|PassivePopup
 Sound=KDE-Sys-App-Positive.ogg
 
 [Event/trackRipped]
 Name=Track Ripped
+Name[cs]=Stopa byla získána
+Name[de]=Stück ausgelesen
+Name[nl]=Track is geript
+Name[pt]=Faixa Extraída
+Name[pt_BR]=Faixa extraída
+Name[sv]=Spår lagrat
+Name[uk]=Доріжку видобуто
+Name[x-test]=xxTrack Rippedxx
 Comment=Track finished ripping
+Comment[cs]=Bylo dokončeno získání stopy
+Comment[de]=Das Stück ist fertig ausgelesen.
+Comment[nl]=Rippen van track is gereed
+Comment[pt]=Terminou a extracção da faixa
+Comment[pt_BR]=Extração da faixa concluída
+Comment[sv]=Lagring av spår klar
+Comment[uk]=Видобування доріжки завершено
+Comment[x-test]=xxTrack finished rippingxx

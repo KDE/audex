@@ -7,5 +7,13 @@ Actions=ripaudiocd;
 Exec=audex
 Icon=audex
 Name=Extract Digital Audio with Audex
+Name[cs]=Vytahujte digitální zvuk s Audexem
+Name[de]=Audio-CD mit Audex auslesen
+Name[nl]=Digitale audio extraheren met Audex
+Name[pt]=Extrair o Áudio Digital com o Audex
+Name[pt_BR]=Extrair o áudio digital com o Audex
+Name[sv]=Extrahera digitalljud med Audex
+Name[uk]=Видобути цифрові звукові дані за допомогою Audex
+Name[x-test]=xxExtract Digital Audio with Audexxx
 
 #/usr/share/kde4/apps/solid/actions/audex-rip-audiocd.desktop
