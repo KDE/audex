@@ -697,6 +697,7 @@ void Audex::execute_finish() {
 
     //store the cover
     if (!cdda_model->isCoverEmpty()) {
+
       QImage image(cdda_model->coverImage());
       if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()) {
         QSize size = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
@@ -707,33 +708,21 @@ void Audex::execute_finish() {
       QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
 
       PatternParser patternparser;
-      QString coverName = patternparser.parseSimplePattern(pattern,
+      QString filename = patternparser.parseSimplePattern(pattern,
         cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
         cdda_model->artist(), cdda_model->title(),
         QString("%1").arg(cdda_model->year()), cdda_model->genre(),
         format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-      QString fileName;
-      bool dir_exists = TRUE;
-      if (QFileInfo(coverName).isAbsolute()) {
-        dir_exists = p_mkdir(QFileInfo(coverName).dir().absolutePath());
-        fileName = coverName;
-      } else {
-        fileName = target_dir+"/"+coverName;
-      }
 
-      bool to_store = TRUE;
-      if (!overwrite) {
-        QFileInfo info(fileName);
-        if (info.exists()) {
-          to_store = FALSE;
-          emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
+      if (p_prepare_dir(filename, target_dir, overwrite)) {
+        if (image.save(filename, format.toAscii().data())) {
+          emit info(i18n("Cover \"%1\" successfully saved.", QFileInfo(filename).fileName()));
+          co = filename;
+        } else {
+          emit error(i18n("Unable to save cover \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
         }
       }
-      if ((to_store) && (dir_exists)) {
-        image.save(fileName, format.toAscii().data());
-        emit info(i18n("Cover \"%1\" successfully saved.", coverName));
-        co = fileName;
-      }
+
     }
 
   }
@@ -749,36 +738,17 @@ void Audex::execute_finish() {
     bool is_absFilePath = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool();
 
     PatternParser patternparser;
-    QString playlistName = patternparser.parseSimplePattern(pattern,
+    QString filename = patternparser.parseSimplePattern(pattern,
         cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
         cdda_model->artist(), cdda_model->title(),
         QString("%1").arg(cdda_model->year()), cdda_model->genre(),
         format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-    QString fileName;
-    bool dir_exists = TRUE;
-    if (QFileInfo(playlistName).isAbsolute()) {
-      dir_exists = p_mkdir(QFileInfo(playlistName).dir().absolutePath());
-      fileName = playlistName;
-    } else {
-      fileName = target_dir+"/"+playlistName;
-    }
 
-    bool to_store = TRUE;
-    if ((!cdda_model->isMultiCD()) || (cdda_model->cdNum() < 1)) {
-      if (!overwrite) {
-        QFileInfo info(fileName);
-        if (info.exists()) {
-          to_store = FALSE;
-          emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
-        }
-      }
-    }
+    if (p_prepare_dir(filename, target_dir, (overwrite && !cdda_model->isMultiCD() && (cdda_model->cdNum() < 1)))) {
+      
+      QFile file(filename);
 
-    if ((to_store) && (dir_exists)) {
-
-      QFile file(fileName);
-      bool fexists = file.exists() && cdda_model->isMultiCD() && (cdda_model->cdNum() > 0);
-      if (fexists) {
+      if (file.exists() && cdda_model->isMultiCD() && (cdda_model->cdNum() > 0)) {
         if (file.open(QFile::ReadOnly)) {
           QByteArray ba = file.readAll();
           playlist.addPlaylist(ba);
@@ -802,9 +772,9 @@ void Audex::execute_finish() {
 
         QString relFilePath;
         if (!is_absFilePath) {
-          relFilePath = QFileInfo(fileName).absoluteDir().absolutePath(); 
+          relFilePath = QFileInfo(filename).absoluteDir().absolutePath();
         }
-        
+
         QTextStream out(&file);
         if (format == "M3U") {
           out << playlist.toM3U(relFilePath);
@@ -814,9 +784,13 @@ void Audex::execute_finish() {
           out << playlist.toXSPF();
         }
         file.close();
-        emit info(i18n("Playlist \"%1\" successfully created.", playlistName));
-        pl = fileName;
+        emit info(i18n("Playlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
+        pl = filename;
 
+      } else {
+
+        emit error(i18n("Unable to save playlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+        
       }
       
     }
@@ -827,30 +801,15 @@ void Audex::execute_finish() {
   if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_INDEX)).toBool())) {
 
     PatternParser patternparser;
-    QString infoName = patternparser.parseSimplePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
+    QString filename = patternparser.parseSimplePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
         cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
         cdda_model->artist(), cdda_model->title(),
         QString("%1").arg(cdda_model->year()), cdda_model->genre(),
         profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-    QString fileName;
-    bool dir_exists = TRUE;
-    if (QFileInfo(infoName).isAbsolute()) {
-      dir_exists = p_mkdir(QFileInfo(infoName).dir().absolutePath());
-      fileName = infoName;
-    } else {
-      fileName = target_dir+"/"+infoName;
-    }
 
-    bool to_store = TRUE;
-    if (!overwrite) {
-      QFileInfo info(fileName);
-      if (info.exists()) {
-        to_store = FALSE;
-        emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
-      }
-    }
-    if ((to_store) && (dir_exists)) {
-      QFile file(fileName);
+    if (p_prepare_dir(filename, target_dir, overwrite)) {
+
+      QFile file(filename);
       if (file.open(QFile::WriteOnly | QFile::Truncate)) {
         QTextStream out(&file);
         QStringList text = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
@@ -859,9 +818,12 @@ void Audex::execute_finish() {
           cdda_model->discid(), p_size_of_all_files(target_filename_list), cdda_model->lengthOfAudioTracksInSelection(), cdda_model->numOfAudioTracksInSelection());
         out << text.join("\n");
         file.close();
-        emit info(i18n("Infofile \"%1\" successfully created.", infoName));
-        in = fileName;
+        emit info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));
+        in = filename;
+      } else {
+        emit error(i18n("Unable to save info file \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
       }
+      
     }
 
   }
@@ -873,32 +835,15 @@ void Audex::execute_finish() {
     QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
 
     PatternParser patternparser;
-    QString hashName = patternparser.parseSimplePattern(pattern,
+    QString filename = patternparser.parseSimplePattern(pattern,
         cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
         cdda_model->artist(), cdda_model->title(),
         QString("%1").arg(cdda_model->year()), cdda_model->genre(),
         format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-    QString fileName;
-    bool dir_exists = TRUE;
-    if (QFileInfo(hashName).isAbsolute()) {
-      dir_exists = p_mkdir(QFileInfo(hashName).dir().absolutePath());
-      fileName = hashName;
-    } else {
-      fileName = target_dir+"/"+hashName;
-    }
 
-    bool to_store = TRUE;
-    if ((!cdda_model->isMultiCD()) || (cdda_model->cdNum()<1)) {
-      if (!overwrite) {
-        QFileInfo info(fileName);
-        if (info.exists()) {
-          to_store = FALSE;
-          emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
-        }
-      }
-    }
-    if ((to_store) && (dir_exists)) {
-      QFile file(fileName);
+    if (p_prepare_dir(filename, target_dir, (overwrite && !cdda_model->isMultiCD() && (cdda_model->cdNum() < 1)))) {
+
+      QFile file(filename);
       bool fexists = file.exists() && cdda_model->isMultiCD() && (cdda_model->cdNum() > 0);
       bool success;
       if (fexists)
@@ -914,10 +859,13 @@ void Audex::execute_finish() {
         } else if (format == "MD5") {
           out << hashlist.getMD5(target_filename_list).join("\n");
         }
-        emit info(i18n("Hashlist \"%1\" successfully created.", hashName));
-        hl = fileName;
         file.close();
+        emit info(i18n("Hashlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
+        hl = filename;
+      } else {
+        emit error(i18n("Unable to save hashlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
       }
+      
     }
 
   }
@@ -928,30 +876,15 @@ void Audex::execute_finish() {
     QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
 
     PatternParser patternparser;
-    QString cueName = patternparser.parseSimplePattern(pattern,
+    QString filename = patternparser.parseSimplePattern(pattern,
         cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
         cdda_model->artist(), cdda_model->title(),
         QString("%1").arg(cdda_model->year()), cdda_model->genre(),
         "cue", profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-    QString fileName;
-    bool dir_exists = TRUE;
-    if (QFileInfo(cueName).isAbsolute()) {
-      dir_exists = p_mkdir(QFileInfo(cueName).dir().absolutePath());
-      fileName = cueName;
-    } else {
-      fileName = target_dir+"/"+cueName;
-    }
 
-    bool to_store = TRUE;
-    if (!overwrite) {
-      QFileInfo info(fileName);
-      if (info.exists()) {
-        to_store = FALSE;
-        emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
-      }
-    }
-    if ((to_store) && (dir_exists)) {
-      QFile file(fileName);
+    if (p_prepare_dir(filename, target_dir, overwrite)) {
+
+      QFile file(filename);
       bool success = file.open(QFile::WriteOnly | QFile::Truncate);
       if (success) {
         QTextStream out(&file);
@@ -961,10 +894,13 @@ void Audex::execute_finish() {
         } else {
           out << cuesheetwriter.cueSheet(target_filename_list).join("\n");
         }
-        emit info(i18n("Cue sheet \"%1\" successfully created.", cueName));
-        cs = fileName;
         file.close();
+        emit info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));
+        cs = filename;
+      } else {
+        emit error(i18n("Unable to save cue sheet \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
       }
+
     }
 
   }
@@ -999,6 +935,44 @@ void Audex::execute_finish() {
   }
 
   emit finished(_finished_successful);
+
+}
+
+bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative, const bool overwrite) {
+
+  QString result;
+  
+  QFileInfo fileinfo(filename);
+  if (fileinfo.isAbsolute()) {
+    if (!p_mkdir(fileinfo.dir().absolutePath())) {
+      return FALSE;
+    } else {
+      result = filename;
+    }
+  } else {
+    if (!targetDirIfRelative.isEmpty()) {
+      QDir dir(targetDirIfRelative);
+      if (!dir.isReadable()) {
+        emit error(i18n("Unable to open folder \"%1\".", targetDirIfRelative), i18n("Please check your path and permissions"));
+        return FALSE;
+      }
+      result = targetDirIfRelative+"/"+filename;
+    } else {
+      result = filename;
+    }
+  }
+
+  if (!overwrite) {
+    QFileInfo info(result);
+    if (info.exists()) {
+      emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
+      return FALSE;
+    }
+  }
+  
+  filename = result;
+
+  return TRUE;
 
 }
 

@@ -245,6 +245,7 @@ private:
   int current_encoder_percent;
   int last_measuring_point_encoder_percent;
 
+  bool p_prepare_dir(QString& filename, const QString& targetDirIfRelative, const bool overwrite = FALSE);
   bool p_mkdir(const QString& absoluteFilePath);
   qreal p_size_of_all_files(const QStringList& filenames) const;
   
