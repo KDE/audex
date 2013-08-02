@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Audex
+Name[bs]=Audex
 Name[cs]=Audex
 Name[da]=Audex
 Name[de]=Audex
@@ -17,6 +18,7 @@ Name[tr]=Audex
 Name[uk]=Audex
 Name[x-test]=xxAudexxx
 GenericName=CDDA Ripping
+GenericName[bs]=CDDA vađenje
 GenericName[cs]=Získání digitálního zvuku z CD
 GenericName[da]=CDDA-ripning
 GenericName[de]=Audio-CDs auslesen
@@ -43,6 +45,7 @@ X-DCOP-ServiceType=Unique
 X-DCOP-ServiceName=audex
 X-DocPath=http://userbase.kde.org/Audex
 Comment=Rip audio tracks from your audio CDs
+Comment[bs]=Vađenje audio numera s audio CDa
 Comment[cs]=Získejte zvukové stopy ze svých CD
 Comment[da]=Rip lydspor fra dine lyd-cd'er
 Comment[de]=Liest Musiktitel von Ihren Audio-CDs aus

@@ -1,6 +1,7 @@
 [Global]
 IconName=Audex
 Comment=Audex CDDA Ripping
+Comment[bs]=Audex CDDA izdvajanje
 Comment[cs]=Získání digitálního zvuku z CD pomocí Audexu
 Comment[da]=Audex CDDA-ripning
 Comment[de]=Audio-CDs mit Audex auslesen
@@ -18,6 +19,7 @@ Comment[tr]=Audex CDDA Dönüştürme
 Comment[uk]=Інструмент видобування даних з CDDA Audex
 Comment[x-test]=xxAudex CDDA Rippingxx
 Name=Audex
+Name[bs]=Audex
 Name[cs]=Audex
 Name[da]=Audex
 Name[de]=Audex
@@ -37,6 +39,7 @@ Name[x-test]=xxAudexxx
 
 [Event/allTracksRipped]
 Name=All tracks ripped
+Name[bs]=Izvađen sadržaj svih staza
 Name[cs]=Všechny stopy byly získány
 Name[da]=Alle spor rippet
 Name[de]=Alle Titel ausgelesen
@@ -54,6 +57,7 @@ Name[tr]=Tüm parçalar dönüştürüldü
 Name[uk]=Видобуто всі доріжки
 Name[x-test]=xxAll tracks rippedxx
 Comment=All tracks finished ripping
+Comment[bs]=Završeno vađenje sadržaja svih staza
 Comment[cs]=U všech stop bylo dokončeno získávání dat
 Comment[da]=Alle spor færdige med ripning
 Comment[de]=Alle Titel fertig ausgelesen
@@ -75,6 +79,7 @@ Sound=KDE-Sys-App-Positive.ogg
 
 [Event/trackRipped]
 Name=Track Ripped
+Name[bs]=Izvađen sadržaj staze
 Name[cs]=Stopa byla získána
 Name[da]=Spor rippet
 Name[de]=Stück ausgelesen
@@ -92,6 +97,7 @@ Name[tr]=Parça Dönüştürüldü
 Name[uk]=Доріжку видобуто
 Name[x-test]=xxTrack Rippedxx
 Comment=Track finished ripping
+Comment[bs]=Završeno vađenje sadržaja svih staze
 Comment[cs]=Bylo dokončeno získání stopy
 Comment[da]=Spor færdigt med ripning
 Comment[de]=Das Stück ist fertig ausgelesen.
