@@ -160,7 +160,7 @@ void MainWindow::configure() {
         m->load();
         KCDDB::Config* cfg = new KCDDB::Config();
         cfg->readConfig();
-        dialog->addPage(m, cfg, QString("CDDB settings"), "text-xmcd");
+        dialog->addPage(m, cfg, i18n("CDDB settings"), "text-xmcd");
         connect(dialog, SIGNAL(okClicked()), m, SLOT(save()));
         connect(dialog, SIGNAL(applyClicked()), m, SLOT(save()));
         connect(dialog, SIGNAL(defaultClicked()), m, SLOT(defaults()));
