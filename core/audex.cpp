@@ -147,16 +147,16 @@ const QStringList& Audex::encoderProtocol() {
 void Audex::start_extract() {
 
   if (_finished) return;
-  
+
   if (p_single_file) {
-    
+
     if (ex_track_count >= 1) {
       if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(TRUE);
       return;
     }
-    
+
     ex_track_index++;
-    
+
     QString artist = cdda_model->artist();
     QString title = cdda_model->title();
     QString year = cdda_model->year();
@@ -167,14 +167,14 @@ void Audex::start_extract() {
     if (!cdda_model->isMultiCD()) cdnum = 0; else cdnum = cdda_model->cdNum();
     int nooftracks = cdda_model->numOfAudioTracks();
     bool overwrite = Preferences::overwriteExistingFiles();
-    
+
     QString targetFilename;
     if (!construct_target_filename_for_singlefile(targetFilename, cdnum, nooftracks, artist, title, year, genre, suffix, basepath, overwrite)) {
       request_finish(FALSE);
       return;
     }
     ex_track_target_filename = targetFilename;
-    
+
     //if empty (maybe because it already exists) skip
     if (!targetFilename.isEmpty()) {
 
@@ -182,7 +182,7 @@ void Audex::start_extract() {
         1,
         artist,
         title);
-        
+
       QString sourceFilename = tmp_path+QString("%1").arg(cdda_model->discid())+".wav";
       ex_track_source_filename = sourceFilename;
       wave_file_writer->open(sourceFilename);
@@ -197,15 +197,15 @@ void Audex::start_extract() {
       cdda_extract_thread->start(); process_counter++;
 
       ex_track_count++;
-      
+
     } else {
-     
+
       if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(TRUE);
-      
+
     }
-    
+
   } else {
-  
+
     if (ex_track_count >= cdda_model->numOfAudioTracksInSelection()) {
       if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(TRUE);
       return;
@@ -289,7 +289,7 @@ void Audex::start_extract() {
       start_extract();
 
     }
-    
+
   }
 
 }
@@ -313,16 +313,16 @@ void Audex::finish_extract() {
 void Audex::start_encode() {
 
   if (_finished) return;
-  
+
   if (p_single_file) {
-    
+
     if (en_track_count >= 1) {
       request_finish(TRUE);
       return;
     }
-    
+
     if (encoder_wrapper->isProcessing()) return;
-    
+
     AudexJob* job = jobs->orderJob();
     if (!job) return;
 
@@ -349,7 +349,7 @@ void Audex::start_encode() {
       request_finish(FALSE);
     }
     process_counter++;
-    
+
   } else {
 
     if (en_track_count >= cdda_model->numOfAudioTracksInSelection()) {
@@ -397,7 +397,7 @@ void Audex::start_encode() {
       }
     }
     process_counter++;
-    
+
   }
 
 }
@@ -477,7 +477,7 @@ void Audex::progress_extract(int percent_of_track, int sector, int overall_secto
 void Audex::progress_encode(int percent) {
   emit progressEncodeTrack(percent);
   if (percent > 0) {
-    emit progressEncodeOverall( ((en_track_count>0 ? ((en_track_count-1)*100.0f) : 0) + (percent*1.0f)) / 
+    emit progressEncodeOverall( ((en_track_count>0 ? ((en_track_count-1)*100.0f) : 0) + (percent*1.0f)) /
                                  (float)cdda_model->numOfAudioTracksInSelection() );
   }
   current_encoder_percent = percent;
@@ -532,7 +532,7 @@ bool Audex::construct_target_filename(QString& targetFilename,
         bool overwrite_existing_files, bool is_first_track) {
 
   Q_UNUSED(is_first_track);
-  
+
   PatternParser patternparser;
   targetFilename = ((basepath.right(1)=="/")?basepath:basepath+"/")+patternparser.parseFilenamePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString(),
         trackno, cdno, gindex, nooftracks, artist, title, tartist, ttitle, year, genre, ext, fat_compatible, replacespaceswithunderscores, _2digitstracknum);
@@ -579,7 +579,7 @@ bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
         const QString& date, const QString& genre,
         const QString& ext, const QString& basepath,
         bool overwrite_existing_files) {
- 
+
   PatternParser patternparser;
   targetFilename = ((basepath.right(1)=="/")?basepath:basepath+"/")+patternparser.parseSimplePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString(),
         cdno, nooftracks, artist, title, date, genre, ext, FALSE);
@@ -626,11 +626,11 @@ bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
   delete file;
 
   return TRUE;
-  
+
 }
 
 bool Audex::check() {
-  
+
   if (tmp_dir->error()) {
     slot_error(i18n("Temporary folder \"%1\" error.", tmp_dir->tmpPath()), i18n("Please check."));
     return FALSE;
@@ -645,7 +645,7 @@ bool Audex::check() {
   }
 
   return TRUE;
-  
+
 }
 
 void Audex::request_finish(bool successful) {
@@ -658,11 +658,11 @@ void Audex::request_finish(bool successful) {
   }
 
   if (process_counter > 0) {
-    
+
     encoder_wrapper->cancel();
     cdda_extract_thread->cancel();
     QTimer::singleShot(2000, this, SLOT(check_if_thread_still_running()));
-    
+
   } else {
 
     execute_finish();
@@ -691,7 +691,7 @@ void Audex::execute_finish() {
   if (p_single_file) {
     target_single_filename = cdda_model->customData("filename").toString();
   }
-  
+
   QString co;
   if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
 
@@ -745,7 +745,7 @@ void Audex::execute_finish() {
         format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
 
     if (p_prepare_dir(filename, target_dir, (overwrite && !cdda_model->isMultiCD() && (cdda_model->cdNum() < 1)))) {
-      
+
       QFile file(filename);
 
       if (file.exists() && cdda_model->isMultiCD() && (cdda_model->cdNum() > 0)) {
@@ -790,9 +790,9 @@ void Audex::execute_finish() {
       } else {
 
         emit error(i18n("Unable to save playlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
-        
+
       }
-      
+
     }
 
   }
@@ -823,7 +823,7 @@ void Audex::execute_finish() {
       } else {
         emit error(i18n("Unable to save info file \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
       }
-      
+
     }
 
   }
@@ -865,11 +865,11 @@ void Audex::execute_finish() {
       } else {
         emit error(i18n("Unable to save hashlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
       }
-      
+
     }
 
   }
-  
+
   QString cs;
   if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()) && (target_filename_list.count() > 0)) {
 
@@ -904,8 +904,8 @@ void Audex::execute_finish() {
     }
 
   }
-  
-  
+
+
   if ((_finished_successful) && (Preferences::upload()) && (target_filename_list.count() > 0)) {
 
     QString targetpath = QFileInfo(target_filename_list.at(0)).absolutePath().mid(Preferences::basePath().length());
@@ -941,7 +941,7 @@ void Audex::execute_finish() {
 bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative, const bool overwrite) {
 
   QString result;
-  
+
   QFileInfo fileinfo(filename);
   if (fileinfo.isAbsolute()) {
     if (!p_mkdir(fileinfo.dir().absolutePath())) {
@@ -969,7 +969,7 @@ bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative,
       return FALSE;
     }
   }
-  
+
   filename = result;
 
   return TRUE;
