@@ -18,6 +18,14 @@
 
 #include "encoderassistant.h"
 
+long makeVersionNumber(int major, int minor, int patch)
+{
+    long versionNumber=   ((major & 0xFF) << 16)
+                        | ((minor & 0xFF) << 8)
+                        | (patch & 0xFF);
+    return versionNumber;
+}
+
 const QString EncoderAssistant::name(const EncoderAssistant::Encoder encoder) {
 
   switch (encoder) {
@@ -37,7 +45,7 @@ const QString EncoderAssistant::name(const EncoderAssistant::Encoder encoder) {
 }
 
 const QString EncoderAssistant::encoderName(const Encoder encoder) {
-  
+
   switch (encoder) {
 
     case EncoderAssistant::LAME : return ENCODER_LAME_ENCODER_NAME;
@@ -51,7 +59,7 @@ const QString EncoderAssistant::encoderName(const Encoder encoder) {
   }
 
   return "";
-  
+
 }
 
 const QString EncoderAssistant::icon(const EncoderAssistant::Encoder encoder) {
@@ -96,7 +104,7 @@ bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize) {
 
     case EncoderAssistant::LAME : if (maxCoverSize) *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE; return TRUE;
     case EncoderAssistant::OGGENC :
-    case EncoderAssistant::FLAC :
+    case EncoderAssistant::FLAC : return TRUE;
     case EncoderAssistant::FAAC :
     case EncoderAssistant::WAVE :
     case EncoderAssistant::CUSTOM :
@@ -165,6 +173,56 @@ const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder)
 
 }
 
+long EncoderAssistant::versionNumber(const EncoderAssistant::Encoder encoder) {
+
+    QString v = version(encoder);
+    long versionNumber = 0;
+
+    switch (encoder) {
+
+    case EncoderAssistant::LAME :
+
+    case EncoderAssistant::OGGENC :
+
+    case EncoderAssistant::FLAC :
+
+    case EncoderAssistant::FAAC:
+    {
+        // At present all encoders seem to use 2 or 3 version number items
+        // separated by . so we use the same code for all
+        // convert to a number for easy version comparison.
+        // Each of the 3 version components must be < 255
+        QStringList version = v.split(".");
+        int major = 0;
+        int minor = 0;
+        int patch = 0;
+
+
+        if (version.count() > 0) {
+            major = version[0].toUInt();
+            versionNumber = (major & 0xFF) << 16;
+        }
+        if (version.count() > 1) {
+           minor = version[1].toUInt();
+           versionNumber = versionNumber | (minor & 0xFF) << 8;
+        }
+        if (version.count() > 2) {
+            patch = version[2].toUInt();
+            versionNumber = versionNumber | (patch & 0xFF);
+        }
+    }
+    break;
+
+    case EncoderAssistant::WAVE :
+
+    case EncoderAssistant::CUSTOM :
+
+    default : ;
+
+    }
+    return versionNumber;
+}
+
 const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder, const Parameters& parameters) {
 
   switch (encoder) {
@@ -187,10 +245,10 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       if ((v.startsWith("3.95")) || (v.startsWith("3.96")) || (v.startsWith("3.97"))) {
         cmd += QString(" --vbr-new");
       }
-      
+
       //if we have eyeD3, use this for tagging as lame can't handle unicode
       if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA) == 0) {
-       
+
 	cmd += QString::fromUtf8(" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
 	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" --set-text-frame=TPE2:\"$"VAR_ALBUM_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
 	                         "\" -Y \"$"VAR_DATE"\" -n $"VAR_TRACK_NO" -N $"VAR_NO_OF_TRACKS" --set-text-frame=\"TCON:$"VAR_GENRE"\" "\
@@ -199,9 +257,9 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
           cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--add-image=\" post=\":FRONT_COVER\"}");
         }
 	cmd += QString::fromUtf8(" --set-encoding=latin1 $"VAR_OUTPUT_FILE" && eyeD3 --to-v2.3 $"VAR_OUTPUT_FILE);
-	
+
       } else {
-        
+
         if (embed_cover) {
           cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--ti \"}");
         }
@@ -209,9 +267,9 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
                              "\" --tl \"$"VAR_ALBUM_TITLE"\" --ty \"$"VAR_DATE"\" --tn \"$"VAR_TRACK_NO"/$"VAR_NO_OF_TRACKS"\" --tc \"$"VAR_AUDEX" / Encoder $"VAR_ENCODER"\" "\
                              "--tg \"$"VAR_GENRE"\" ${"VAR_CD_NO" pre=\"--tv TPOS=\"}"\
                              " $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
-        
+
       }
-      
+
       return cmd;
     }
 
@@ -242,7 +300,16 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
 
     case EncoderAssistant::FLAC : {
       int compression = parameters.valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION);
+      bool embed_cover = parameters.valueToBool(ENCODER_FLAC_EMBED_COVER_KEY);
       QString cmd = ENCODER_FLAC_BIN;
+
+      if (embed_cover) {
+          long versionNumber=EncoderAssistant::versionNumber(EncoderAssistant::FLAC);
+
+          if (versionNumber >= makeVersionNumber(1,1,3) ) {
+              cmd += QString::fromUtf8(" --picture=\\|\\|\\|\\|$"VAR_COVER_FILE);
+          }
+      }
       cmd += QString(" -%1").arg(compression);
       cmd += QString::fromUtf8(" -T Artist=\"$"VAR_TRACK_ARTIST"\" -T Title=\"$"VAR_TRACK_TITLE"\" -T Album=\"$"VAR_ALBUM_TITLE\
                                "\" -T Date=\"$"VAR_DATE"\" -T Tracknumber=\"$"VAR_TRACK_NO"\" -T Genre=\"$"VAR_GENRE\
@@ -347,6 +414,7 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder, const Quality 
     case EncoderAssistant::FLAC :
 
       parameters.setValue(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION);
+      parameters.setValue(ENCODER_FLAC_EMBED_COVER_KEY, ENCODER_FLAC_EMBED_COVER);
 
       break;
 

@@ -23,6 +23,9 @@
 */
 
 #include "coverfetcher.h"
+#include <algorithm>
+#include <QScriptEngine>
+#include <QScriptValueIterator>
 
 CoverFetcher::CoverFetcher(QObject *parent) : QObject(parent) {
   Q_UNUSED(parent);
@@ -34,43 +37,77 @@ CoverFetcher::~CoverFetcher() {
   clear();
 }
 
-void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int fetchNo) {
+void CoverFetcher::fetched_external_ip(KJob* job) {
 
-  if (_status != NOS) return;
+  kDebug() << "got IP...";
+  if (!job) {
+    kDebug() << "no job error ...";
+    emit nothingFetched();
+    return;
+  } else if (job && job->error()) {
+    kDebug() << "reply error ...";
+    emit nothingFetched();
+    return;
+  }
+  // http://www.telize.com/ip returns plaintext ip address
+  KIO::StoredTransferJob* const storedJob = static_cast<KIO::StoredTransferJob*>(job);
+  external_ip = ((QString) storedJob->data()).trimmed();
 
-  if (fetchNo == 0) return;
+  kDebug() << "IP " << external_ip;
 
-  fetch_no = fetchNo;
-
-  QString ss = searchstring;
-  ss.replace("&", "");
-
+  // Max images per request on Google API is 8, thus the std::min
   QString url;
-  url = "http://images.google.com/images?gbv=1&q=" + KUrl::toPercentEncoding(ss, "/");
+  url= QString("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%1&rsz=%2&userip=%3")
+          .arg(KUrl::toPercentEncoding(search_string, "/").data())
+          .arg(std::min(fetch_no,8))
+          .arg(KUrl::toPercentEncoding(external_ip).data());
 
   kDebug() << "searching covers (" << url << ")...";
 
-  _status = SEARCHING; emit statusChanged(SEARCHING);
+  _status = SEARCHING;
+  emit statusChanged(SEARCHING);
 
   job = KIO::storedGet(url);
   connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
 }
 
+void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int fetchNo) {
+
+  kDebug() << "Fetch Thumbs ...";
+  if (_status != NOS || fetchNo == 0)
+  {
+      emit nothingFetched();
+      return;
+  }
+
+  fetch_no = fetchNo;
+
+  search_string = searchstring;
+  search_string.replace("&", "");
+
+  // Google requires the user IP
+  QString url("http://www.telize.com/ip");
+
+  job = KIO::storedGet(url);
+  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_external_ip(KJob*)));
+
+}
+
 void CoverFetcher::stopFetchThumbnails() {
-  
+
   if ((_status != FETCHING_THUMBNAIL) && (_status != SEARCHING)) return;
-  
+
   if (job) job->kill();
-  
+
   _status = NOS; emit statusChanged(NOS);
-  
+
 }
 
 void CoverFetcher::startFetchCover(const int no) {
-  
+
   if (_status != NOS) return;
-  
+
   if ((cover_urls.count()==0) || (no >= cover_urls.count()) || (no < 0)) {
     emit nothingFetched();
     return;
@@ -81,7 +118,7 @@ void CoverFetcher::startFetchCover(const int no) {
 
   job = KIO::storedGet(KUrl(cover_urls[no]));
   connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
-  
+
 }
 
 const QByteArray CoverFetcher::thumbnail(int index) {
@@ -99,9 +136,10 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   QByteArray buffer;
 
   if (job && job->error()) {
-    kDebug() << "There was an error communicating with Google.";
+    kDebug() << "There was an error communicating with Google. "<< job->errorString();
     emit error(i18n("There was an error communicating with Google."), i18n("Try again later. Otherwise make a bug report."));
     _status = NOS; emit statusChanged(NOS);
+    emit nothingFetched();
     return;
   }
   if (job) {
@@ -112,7 +150,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   if (buffer.count() == 0) {
     kDebug() << "Google server: empty response";
     emit error(i18n("Google server: Empty response."),
-	i18n("Try again later. Make a bug report."));
+               i18n("Try again later. Make a bug report."));
     _status = NOS;  emit statusChanged(NOS);
     return;
   }
@@ -121,7 +159,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
 
       case SEARCHING : {
         kDebug() << "searching finished.";
-	//kDebug() << QString::fromUtf8(buffer.data());
+        //kDebug() << QString::fromUtf8(buffer.data());
         parse_html_response(QString::fromUtf8(buffer.data()));
         _status = NOS; emit statusChanged(NOS);
         fetch_cover_thumbnail();
@@ -140,7 +178,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
           fetch_cover_thumbnail();
         }
       } break;
-      
+
       case FETCHING_COVER : {
         kDebug() << "cover fetched.";
 	_status = NOS; emit statusChanged(NOS);
@@ -162,39 +200,44 @@ void CoverFetcher::parse_html_response(const QString& xml) {
   cover_tbnids.clear();
   cover_thumbnails.clear();
 
-  QRegExp rx("<a\\shref=\"(\\/imgres\\?imgurl=[^\"]+)\">[\\s\\n]*<img[^>]+src=\"([^>]+)\"></a>");
-  QString html = xml;
-  html.replace(QLatin1String("&amp;"), QLatin1String("&"));
-  rx.setMinimal(TRUE);
-  
-  int pos = 0; int i = 0;
-  while (((pos = rx.indexIn(xml, pos)) != -1) && (i < fetch_no)) {
+  QScriptValue responseData;
+  QScriptEngine engine;
+  responseData = engine.evaluate("("+xml+")");
 
-    KUrl url("http://www.google.com"+rx.cap(1));
-    cover_urls << url.queryItemValue("imgurl");
-    QString w = url.queryItemValue("w");
-    QString h = url.queryItemValue("h");
-    QString sz = url.queryItemValue("sz");
-    cover_names << i18n("%1x%2, %3 KiB", w, h, sz);
-    cover_tbnids << url.queryItemValue("tbnid");
-    
-    if (!rx.cap(2).isEmpty()) {
-      cover_urls_thumbnails << rx.cap(2);
-    } else {
-      cover_urls_thumbnails << cover_urls.last();
+
+  QScriptValue resultsData=responseData.property("responseData").property("results");
+
+  if (resultsData.isArray()) {
+
+    QScriptValueIterator it(resultsData);
+
+    while (it.hasNext()) {
+
+      it.next();
+      if (it.flags() & QScriptValue::SkipInEnumeration) continue;
+
+      QScriptValue entry = it.value();
+
+      QString link =  QUrl::fromPercentEncoding(entry.property("url").toString().toAscii());
+      QString thumbUrl = QUrl::fromPercentEncoding(entry.property("tbUrl").toString().toAscii());
+      QString w = entry.property("width").toString();
+      QString h = entry.property("height").toString();
+
+      cover_urls << link;
+      cover_names << i18n("%1x%2", w, h);
+      cover_urls_thumbnails << thumbUrl;
+
+      kDebug() << "URL " << link << "- " << thumbUrl<< " -"<<cover_names;
+
     }
-    
-    pos += rx.matchedLength();
-    
-    ++i;
-    
-  }
 
+  }
 }
 
 bool CoverFetcher::fetch_cover_thumbnail() {
 
   if (cover_urls_thumbnails.count() == 0) {
+    kDebug() << "nothing fetched.";
     emit nothingFetched();
     return FALSE;
   }

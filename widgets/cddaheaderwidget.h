@@ -100,6 +100,7 @@ protected:
   void paintEvent(QPaintEvent *event);
   void mouseMoveEvent(QMouseEvent *event);
   void mousePressEvent(QMouseEvent *event);
+  void fetchCoverFinished(bool showDialog);
 
 private slots:
 
@@ -118,6 +119,8 @@ private slots:
 
   void set_cover(const QByteArray& cover);
   void fetch_first_cover();
+  void fetch_cover_failed();
+  void auto_fetch_cover_failed();
   
   void context_menu(const QPoint& point);
 

@@ -113,7 +113,7 @@ kde4_add_ui_files(audex_SRCS
 kde4_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
 kde4_add_executable(audex ${audex_SRCS})
-target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDE4_KIO_LIBRARY} ${KDEMULTIMEDIA_LIBRARIES} ${QT_QTXML_LIBRARY} )
+target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDE4_KIO_LIBRARY} ${KDEMULTIMEDIA_LIBRARIES} ${QT_QTXML_LIBRARY} ${QT_QTSCRIPT_LIBRARY} )
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
 install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)

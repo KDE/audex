@@ -30,6 +30,8 @@ flacWidget::flacWidget(Parameters *parameters, QWidget *parent) : flacWidgetUI(p
 
   horizontalSlider_compression->setValue(parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION));
   kintspinbox_compression->setValue(parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION));
+
+  checkBox_embedcover->setChecked(parameters->valueToBool(ENCODER_FLAC_EMBED_COVER_KEY));
   klineedit_suffix->setText(parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX));
 
   connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_slider(int)));
@@ -38,6 +40,7 @@ flacWidget::flacWidget(Parameters *parameters, QWidget *parent) : flacWidgetUI(p
   connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_spinbox(int)));
   connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
+  connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
   connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   changed = FALSE;
@@ -53,6 +56,7 @@ bool flacWidget::save() {
   bool success = TRUE;
 
   parameters->setValue(ENCODER_FLAC_COMPRESSION_KEY, horizontalSlider_compression->value());
+  parameters->setValue(ENCODER_FLAC_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
   parameters->setValue(ENCODER_FLAC_SUFFIX_KEY, klineedit_suffix->text());
 
   changed = FALSE;
@@ -81,6 +85,7 @@ void flacWidget::trigger_changed() {
 
   changed = (
     horizontalSlider_compression->value() != parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION) ||
+    checkBox_embedcover->isChecked() != parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY) ||
     klineedit_suffix->text() != parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX)
   );
 

@@ -50,6 +50,7 @@
 
 #define ENCODER_FLAC_SUFFIX_KEY			"suffix"
 #define ENCODER_FLAC_COMPRESSION_KEY		"compression"
+#define ENCODER_FLAC_EMBED_COVER_KEY            "embed_cover"
 
 #define ENCODER_FAAC_SUFFIX_KEY			"suffix"
 #define ENCODER_FAAC_QUALITY_KEY		"quality"
@@ -133,7 +134,7 @@
 #define ENCODER_FLAC_SUFFIX			"flac"
 
 #define ENCODER_FLAC_COMPRESSION		5
-
+#define ENCODER_FLAC_EMBED_COVER		"true"
 
 
 #define ENCODER_FAAC_NAME			i18n("MP4 (AAC)")
@@ -195,6 +196,7 @@ namespace EncoderAssistant {
   bool available(const Encoder encoder);
   bool canEmbedCover(const Encoder encoder, int *maxCoverSize = NULL);
   const QString version(const Encoder encoder);
+  long versionNumber(const Encoder encoder);
   const QString pattern(const Encoder encoder, const Parameters& parameters);
 
   enum Quality {

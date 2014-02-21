@@ -49,6 +49,7 @@ public slots:
 signals:
   void coverFetched(const QByteArray& cover);
   void allCoverThumbnailsFetched();
+  void nothingFetched();
   
 protected slots:
   virtual void slotButtonClicked(int button);

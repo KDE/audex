@@ -294,7 +294,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
 
   kDebug() << "coverSize:" << coverSize;
   this->cover_size = coverSize;
-  
+
   this->i_cover_checksum = 1;
 
   this->padding = padding;
@@ -318,7 +318,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
 
   cover_browser_dialog = NULL;
   fetching_cover_in_progress = FALSE;
-  
+
   setContextMenuPolicy(Qt::CustomContextMenu);
 
   timer.setInterval(40);
@@ -327,7 +327,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
   setMinimumSize(QSize(cover_size+(padding*2), (int)(cover_size*1.4)+(padding*2)));
 
   tmp_dir = new TmpDir("audex", "cover");
-    
+
   update();
 
 }
@@ -342,13 +342,13 @@ QSize CDDAHeaderWidget::sizeHint() const {
 }
 
 void CDDAHeaderWidget::setCover(CachedImage *cover) {
-  
+
   if (cover) {
     i_cover_checksum = cover->checksum();
   } else {
     i_cover_checksum = 0;
   }
-  
+
   if (this->i_cover.isNull()) {
     if (cover) {
       this->i_cover = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
@@ -388,6 +388,8 @@ void CDDAHeaderWidget::setEnabled(bool enabled) {
 
 void CDDAHeaderWidget::googleAuto() {
 
+  kDebug() << "Google AUTO cover fetch" ;
+
   if ((cdda_model->discInfo()==CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
@@ -396,8 +398,10 @@ void CDDAHeaderWidget::googleAuto() {
   action_collection->action("fetch")->setEnabled(FALSE);
 
   cover_browser_dialog = new CoverBrowserDialog(this);
-  
+
   connect(cover_browser_dialog, SIGNAL(allCoverThumbnailsFetched()), this, SLOT(fetch_first_cover()));
+  connect(cover_browser_dialog, SIGNAL(nothingFetched()), this, SLOT(auto_fetch_cover_failed()));
+
   QString artist = cdda_model->artist();
   QString title = cdda_model->title();
   int lastColonPos = title.lastIndexOf(':');
@@ -503,7 +507,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     p.drawText(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset, link2);
     link1_rect = QRect(xOffset, yOffset+link1_rect.y(), link1_rect.width(), link1_rect.height());
     link2_rect = QRect(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset+link2_rect.y(), link2_rect.width(), link2_rect.height());
-    
+
   } else { //disabled
 
     QFont font(QApplication::font());
@@ -589,7 +593,7 @@ void CDDAHeaderWidget::update() {
   action_collection->action("save")->setEnabled(activate);
   action_collection->action("view")->setEnabled(activate);
   action_collection->action("remove")->setEnabled(activate);
-  
+
   repaint();
 
 }
@@ -651,6 +655,8 @@ void CDDAHeaderWidget::cover_is_down() {
 
 void CDDAHeaderWidget::google() {
 
+  kDebug() << "Google cover fetch" ;
+
   if ((cdda_model->discInfo() == CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
@@ -659,8 +665,10 @@ void CDDAHeaderWidget::google() {
   action_collection->action("fetch")->setEnabled(FALSE);
 
   cover_browser_dialog = new CoverBrowserDialog(this);
-  
+
   connect(cover_browser_dialog, SIGNAL(coverFetched(const QByteArray&)), this, SLOT(set_cover(const QByteArray&)));
+  connect(cover_browser_dialog, SIGNAL(nothingFetched()), this, SLOT(fetch_cover_failed()));
+
   QString artist = cdda_model->artist();
   QString title = cdda_model->title();
   int lastColonPos = title.lastIndexOf(':');
@@ -699,7 +707,7 @@ void CDDAHeaderWidget::save() {
 }
 
 void CDDAHeaderWidget::view_cover() {
-  
+
   QString tmp_path = tmp_dir->tmpPath();
   if (tmp_dir->error()) {
     QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
@@ -707,10 +715,10 @@ void CDDAHeaderWidget::view_cover() {
     if (tmp_path.right(1) != "/") tmp_path += "/";
     kDebug() << "Temporary folder in use:" << tmp_path;
   }
-  
+
   QString filename = tmp_path+QString("%1.jpeg").arg(cdda_model->coverChecksum());
   cdda_model->saveCoverToFile(filename);
-  
+
   QDesktopServices::openUrl(KUrl(filename));
 
 }
@@ -780,6 +788,26 @@ void CDDAHeaderWidget::fetch_first_cover() {
       cover_browser_dialog->startFetchCover(0);
     }
   }
+}
+
+void CDDAHeaderWidget::fetchCoverFinished(bool showDialog) {
+  if (cover_browser_dialog) {
+    if (showDialog) {
+      ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
+    }
+    delete cover_browser_dialog;
+    cover_browser_dialog = NULL;
+  }
+  fetching_cover_in_progress = FALSE;
+  action_collection->action("fetch")->setEnabled(TRUE);
+}
+
+void CDDAHeaderWidget::auto_fetch_cover_failed() {
+  fetchCoverFinished(FALSE);
+}
+
+void CDDAHeaderWidget::fetch_cover_failed() {
+  fetchCoverFinished(TRUE);
 }
 
 void CDDAHeaderWidget::context_menu(const QPoint& point) {

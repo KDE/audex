@@ -82,6 +82,7 @@ void CoverBrowserDialog::all_fetched() {
 
 void CoverBrowserDialog::nothing_fetched() {
   ui.label->setText(i18n("No Covers Found"));
+  emit nothingFetched();
 }
 
 void CoverBrowserDialog::cover_fetched(const QByteArray& cover) {

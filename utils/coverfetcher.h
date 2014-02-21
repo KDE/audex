@@ -69,6 +69,7 @@ signals:
 
 private slots:
   void fetched_html_data(KJob* job);
+  void fetched_external_ip(KJob* job);
 
 private:
   int fetch_no;
@@ -84,6 +85,8 @@ private:
   Status _status;
 
   int f_i;
+  QString external_ip;
+  QString search_string;
 
   void parse_html_response(const QString& html);
   bool fetch_cover_thumbnail();
