@@ -34,7 +34,9 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   bool updated = firstStart();
 
-  cdda_model = new CDDAModel(this, KCompactDisc::cdromDeviceUrl(Preferences::cdDevice()).path());
+  QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
+  int dev_index = Preferences::cdDevice().toInt();
+  cdda_model = new CDDAModel(this, KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path());
   if (!cdda_model) {
     kDebug() << "Unable to create CDDAModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
@@ -107,7 +109,7 @@ void MainWindow::cddb_submit() {
 }
 
 void MainWindow::rip() {
-  
+
   if (cdda_model->discInfo() == CDDAModel::DiscNoInfo) {
 
     if (KMessageBox::warningYesNo(this, i18n("No disc information set. Do you really want to continue?"),
@@ -120,13 +122,13 @@ void MainWindow::rip() {
 
   if ((profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool()) &&
       (cdda_model->numOfAudioTracksInSelection() < cdda_model->numOfAudioTracks())) {
-    
+
     if (KMessageBox::warningYesNo(this, i18n("Single file rip selected but not all audio tracks to rip selected. Do you really want to continue?"),
 				i18n("Not all audio tracks selected for single file rip"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no(),
 				"singlefile_selection_warn")== KMessageBox::No) return;
-    
+
   }
 
   ExtractingProgressDialog *dialog = new ExtractingProgressDialog(profile_model, cdda_model, this);
@@ -302,7 +304,9 @@ void MainWindow::disable_submit() {
 void MainWindow::configuration_updated(const QString& dialog_name) {
   Q_UNUSED(dialog_name);
   Preferences::self()->writeConfig();
-  QString dev = KCompactDisc::cdromDeviceUrl(Preferences::cdDevice()).path();
+  QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
+  int dev_index = Preferences::cdDevice().toInt();
+  QString dev = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
   if (dev != cdda_model->device()) {
     cdda_model->setDevice(dev);
   }
