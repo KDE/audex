@@ -276,21 +276,21 @@ const QString CDDAModel::title() const {
 }
 
 void CDDAModel::setCategory(const QString& c) {
-  
+
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
-  
+
   QStringList validCategories;
-  validCategories << "blues" << "classical" << "country" 
+  validCategories << "blues" << "classical" << "country"
       << "data" << "folk" << "jazz" << "misc" << "newage" << "reggae"
       << "rock" << "soundtrack";
   if (!validCategories.contains(c)) return;
-  
+
   if (c != cd_info.get(KCDDB::Category).toString()) {
     cd_info.set(KCDDB::Category, c);
     modify();
     reset();
   }
-  
+
 }
 
 const QString CDDAModel::category() const {
@@ -779,7 +779,7 @@ bool CDDAModel::submitCDDB() {
   confirm();
 
   emit cddbDataSubmited(TRUE);
-  
+
   return TRUE;
 
 }
@@ -898,7 +898,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
       case KCDDB::NoRecordFound : ;
       case KCDDB::MultipleRecordFound : ;
       case KCDDB::Success : ;
-      default : if (disc_info == DiscNoInfo) 
+      default : if (disc_info == DiscNoInfo)
 	          error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database. Please enter the data manually. Maybe try another CDDB server."), Error::ERROR, this);
 		else
 		  error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database."), Error::ERROR, this);
@@ -912,9 +912,9 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
     KCDDB::CDInfoList cddb_info = cddb->lookupResponse();
     KCDDB::CDInfoList::iterator it;
     QStringList list;
-    for ( it = cddb_info.begin(); it != cddb_info.end(); ++it) {
-      list.append(QString("%1, %2, %3").arg((*it).get(KCDDB::Artist).toString())
-          .arg((*it).get(KCDDB::Title).toString()).arg((*it).get(KCDDB::Genre).toString()));
+    for (it = cddb_info.begin(); it != cddb_info.end(); ++it) {
+      list.append(QString("%1, %2, %3, %4").arg((it->get(KCDDB::Artist).toString())
+          .arg(it->get(KCDDB::Title).toString()).arg(it->get(KCDDB::Genre).toString()).arg(it->get(KCDDB::Year).toString()));
     }
 
     bool ok = FALSE;
