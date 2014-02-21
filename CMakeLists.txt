@@ -18,6 +18,9 @@ include(CPack)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+
 find_package(KDE4 REQUIRED)
 find_package(KdeMultimedia REQUIRED)
 find_package(Cdparanoia REQUIRED)
