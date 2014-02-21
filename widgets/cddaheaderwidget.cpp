@@ -186,7 +186,7 @@ static inline int blend(int a, int b, int blendA, int blendB) {
 // bilinear blend
 static inline int blend(unsigned int *s, int blendX, int blendY, int shift) {
 
-  int src[] = {
+  unsigned int src[] = {
     (s[0] >> shift) & 0xff,
     (s[1] >> shift) & 0xff,
     (s[2] >> shift) & 0xff,
