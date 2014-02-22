@@ -1,9 +1,0 @@
-- todo
-+ done, but not tested
-* done and alpha tested
-
-Version 0.8
-- Selectable cover fetching engines
-- Accurate ripping (ripping twice and check checksums)
-* Cue sheets
-- Using libs instead of external processes
