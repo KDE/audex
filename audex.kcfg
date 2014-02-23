@@ -37,6 +37,8 @@
     <entry name="fetchCount" type="Int">
       <label>Number of covers to fetch</label>
       <default>8</default>
+      <min>1</min>
+      <max>99</max>
     </entry>
     <entry name="cdDevice" type="String">
       <label>CD Device</label>
