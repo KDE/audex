@@ -16,30 +16,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GENERALSETTINGSWIDGET_H
-#define GENERALSETTINGSWIDGET_H
+#ifndef DEVICEWIDGET_H
+#define DEVICEWIDGET_H
 
 #include <QDir>
 
 #include <KLineEdit>
 #include <KStandardDirs>
+#include <libkcompactdisc/kcompactdisc.h>
 
 #include "preferences.h"
 
-#include "ui_generalsettingswidgetUI.h"
+#include "ui_devicewidgetUI.h"
 
-class generalSettingsWidgetUI : public QWidget, public Ui::GeneralSettingsWidgetUI {
+class deviceWidgetUI : public QWidget, public Ui::DeviceWidgetUI {
 public:
-  explicit generalSettingsWidgetUI(QWidget *parent) : QWidget(parent) {
+  explicit deviceWidgetUI(QWidget *parent) : QWidget(parent) {
     setupUi(this);
   }
 };
 
-class generalSettingsWidget : public generalSettingsWidgetUI {
+class deviceWidget : public deviceWidgetUI {
   Q_OBJECT
 public:
-  explicit generalSettingsWidget(QWidget* parent = 0);
-  ~generalSettingsWidget();
+  explicit deviceWidget(QWidget* parent = 0);
+  ~deviceWidget();
 };
 
 #endif

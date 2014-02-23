@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>291</width>
-    <height>495</height>
+    <width>281</width>
+    <height>323</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout_4">
@@ -88,6 +88,29 @@
      </layout>
     </widget>
    </item>
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="title">
+      <string>Paths</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <layout class="QVBoxLayout">
+        <item>
+         <widget class="QLabel" name="label_basePath">
+          <property name="text">
+           <string>Base path to store music files:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="KUrlRequester" name="urlreq_basePath"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="1" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
@@ -120,60 +143,7 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="title">
-      <string>Device</string>
-     </property>
-     <layout class="QGridLayout" name="_2">
-      <item row="0" column="0">
-       <layout class="QHBoxLayout" name="_3">
-        <item>
-         <widget class="KComboBox" name="kcfg_cdDevice"/>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="kcfg_paranoiaMode">
-        <property name="text">
-         <string>Full paranoia mode (best quality)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="kcfg_neverSkip">
-        <property name="text">
-         <string>Never skip on read error</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
    <item row="3" column="0">
-    <widget class="QGroupBox" name="groupBox_3">
-     <property name="title">
-      <string>Paths</string>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="0">
-       <layout class="QVBoxLayout">
-        <item>
-         <widget class="QLabel" name="label_basePath">
-          <property name="text">
-           <string>Base path to store music files:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KUrlRequester" name="urlreq_basePath"/>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="4" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -199,16 +169,8 @@
    <extends>QFrame</extends>
    <header>kurlrequester.h</header>
   </customwidget>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>kcfg_cdDevice</tabstop>
-  <tabstop>kcfg_paranoiaMode</tabstop>
-  <tabstop>kcfg_neverSkip</tabstop>
   <tabstop>urlreq_basePath</tabstop>
  </tabstops>
  <resources/>

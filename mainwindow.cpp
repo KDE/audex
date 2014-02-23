@@ -150,6 +150,9 @@ void MainWindow::configure() {
   KPageWidgetItem *generalPage = dialog->addPage(new generalSettingsWidget(), i18n("General settings"));
   generalPage->setIcon(KIcon(KApplication::windowIcon()));
 
+  KPageWidgetItem *devicePage = dialog->addPage(new deviceWidget(), i18n("Device settings"));
+  devicePage->setIcon(KIcon("drive-optical"));
+
   KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
   profilePage->setIcon(KIcon("document-multiple"));
 

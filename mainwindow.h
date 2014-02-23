@@ -55,6 +55,7 @@
 
 #include "preferences.h"
 #include "widgets/generalsettingswidget.h"
+#include "widgets/devicewidget.h"
 #include "widgets/profilewidget.h"
 #include "widgets/remoteserversettingswidget.h"
 #include "widgets/cddaheaderwidget.h"

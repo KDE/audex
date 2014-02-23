@@ -50,6 +50,12 @@
       <label>Never skip on read error</label>
       <default>true</default>
     </entry>
+    <entry name="sampleOffset" type="Int">
+      <label>Sample offset</label>
+      <default>0</default>
+      <min>-10000</min>
+      <max>10000</max>
+    </entry>
     <entry name="basePath" type="Path">
       <label>Base path to store music files</label>
       <default code="true">QDir::homePath()+QString::fromLatin1("/Music")</default>

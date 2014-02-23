@@ -62,6 +62,7 @@ set(audex_SRCS
   utils/cddasolid.cpp
   widgets/cddaheaderwidget.cpp
   widgets/generalsettingswidget.cpp
+  widgets/devicewidget.cpp
   widgets/profilewidget.cpp
   widgets/remoteserversettingswidget.cpp
   widgets/lamewidget.cpp
@@ -89,6 +90,7 @@ set(audex_SRCS
 
 kde4_add_ui_files(audex_SRCS
   widgets/generalsettingswidgetUI.ui
+  widgets/devicewidgetUI.ui
   widgets/profilewidgetUI.ui
   widgets/remoteserversettingswidgetUI.ui
   widgets/lamewidgetUI.ui

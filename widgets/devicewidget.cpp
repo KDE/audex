@@ -16,30 +16,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GENERALSETTINGSWIDGET_H
-#define GENERALSETTINGSWIDGET_H
+#include "devicewidget.h"
 
-#include <QDir>
+deviceWidget::deviceWidget(QWidget* parent) : deviceWidgetUI(parent) {
 
-#include <KLineEdit>
-#include <KStandardDirs>
+  QStringList devices = KCompactDisc::cdromDeviceNames();
+  kcfg_cdDevice->clear();
 
-#include "preferences.h"
-
-#include "ui_generalsettingswidgetUI.h"
-
-class generalSettingsWidgetUI : public QWidget, public Ui::GeneralSettingsWidgetUI {
-public:
-  explicit generalSettingsWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
+  if (devices.isEmpty()) {
+    kcfg_cdDevice->addItem(i18n("None detected"));
+  } else {
+    foreach (const QString &dev, devices) {
+      kcfg_cdDevice->addItem(dev + " (" + KCompactDisc::cdromDeviceUrl(dev).path() + ")");
+    }
   }
-};
 
-class generalSettingsWidget : public generalSettingsWidgetUI {
-  Q_OBJECT
-public:
-  explicit generalSettingsWidget(QWidget* parent = 0);
-  ~generalSettingsWidget();
-};
+}
 
-#endif
+deviceWidget::~deviceWidget() {
+
+}
