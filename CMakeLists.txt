@@ -28,11 +28,11 @@ find_package(Cdparanoia REQUIRED)
 include(MacroLibrary)
 
 include_directories(
-    ${KDE4_INCLUDES}
-    ${KDEMULTIMEDIA_INCLUDE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_BINARY_DIR}
-    ${CDPARANOIA_INCLUDE_DIR}
+  ${KDE4_INCLUDES}
+  ${KDEMULTIMEDIA_INCLUDE_DIR}
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  ${CMAKE_BINARY_DIR}
+  ${CDPARANOIA_INCLUDE_DIR}
 )
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
@@ -59,6 +59,7 @@ set(audex_SRCS
   utils/cachedimage.cpp
   utils/cuesheetwriter.cpp
   utils/tmpdir.cpp
+  utils/cddasolid.cpp
   widgets/cddaheaderwidget.cpp
   widgets/generalsettingswidget.cpp
   widgets/profilewidget.cpp
@@ -115,7 +116,16 @@ kde4_add_ui_files(audex_SRCS
 kde4_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
 kde4_add_executable(audex ${audex_SRCS})
-target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDE4_KIO_LIBRARY} ${KDEMULTIMEDIA_LIBRARIES} ${QT_QTXML_LIBRARY} ${QT_QTSCRIPT_LIBRARY} )
+target_link_libraries(audex
+  ${CDPARANOIA_LIBRARIES}
+  ${KDE4_KDEUI_LIBS}
+  ${KDE4_KUTILS_LIBS}
+  ${KDE4_KIO_LIBRARY}
+  ${KDE4_SOLID_LIBS}
+  ${KDEMULTIMEDIA_LIBRARIES}
+  ${QT_QTXML_LIBRARY}
+  ${QT_QTSCRIPT_LIBRARY}
+)
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
 install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)
