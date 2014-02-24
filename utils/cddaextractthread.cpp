@@ -39,6 +39,8 @@ CDDAExtractThread::CDDAExtractThread(QObject* parent, const QString& device) : Q
   paranoia_mode = 3;
   paranoia_retries = 20;
   never_skip = TRUE;
+  sample_offset = 0;
+  sample_offset_done = FALSE;
   track = 1;
   b_interrupt = FALSE;
   b_error = FALSE;
@@ -65,7 +67,12 @@ void CDDAExtractThread::run() {
 
   b_interrupt = FALSE;
   b_error = FALSE;
-  
+
+  if ((sample_offset) && (!sample_offset_done)) {
+    paranoia->sampleOffset(sample_offset);
+    sample_offset_done = TRUE;
+  }
+
   if (track == 0) {
     first_sector = paranoia->firstSectorOfDisc();
     last_sector = paranoia->lastSectorOfDisc();
@@ -219,7 +226,7 @@ void CDDAExtractThread::createStatus(long sector, int status) {
   case PARANOIA_CB_SKIP:
     //skipped sector
     kDebug() << "Skip";
-    warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); 
+    warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     extract_protocol.append(i18n("SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_DRIFT:

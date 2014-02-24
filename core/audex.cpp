@@ -42,10 +42,11 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
   }
 
   cdda_extract_thread = new CDDAExtractThread(this, cdda_model->device());
-  if (!encoder_wrapper) {
+  if (!cdda_extract_thread) {
     kDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
     return;
   }
+  cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
 
   jobs = new AudexJobs();
   connect(jobs, SIGNAL(newJobAvailable()), this, SLOT(start_encode()));

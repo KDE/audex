@@ -138,6 +138,32 @@ int CDDAParanoia::lastSectorOfDisc() {
   return -1;
 }
 
+void CDDAParanoia::sampleOffset(const int offset) {
+
+  int sample_offset = offset;
+
+  // Hack from cdda paranoia
+  if (paranoia_drive) {
+
+    mutex.lock();
+
+    int toc_offset = 0;
+    toc_offset += sample_offset / 588;
+    sample_offset %= 588;
+    if (sample_offset < 0) {
+      sample_offset += 588;
+      toc_offset--;
+    }
+
+    for (int i = 0; i < paranoia_drive->tracks+1; ++i)
+      paranoia_drive->disc_toc[i].dwStartSector += toc_offset;
+
+    mutex.unlock();
+
+  }
+
+}
+
 int CDDAParanoia::numOfTracks() {
   if (paranoia_drive) return (paranoia_drive->tracks<0)?0:paranoia_drive->tracks;
   return 0;

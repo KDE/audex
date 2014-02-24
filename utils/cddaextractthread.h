@@ -39,6 +39,7 @@ public slots:
   void setParanoiaMode(int mode) { paranoia_mode = mode; }
   void setMaxRetries(int r) { paranoia_retries = r; }
   void setNeverSkip(bool b) { never_skip = b; }
+  void setSampleOffset(const int offset) { sample_offset = offset; }
   void setTrackToRip(unsigned int t) { track = t; } // if t==0 rip whole cd
   void skipTrack(unsigned int t) { overall_sectors_read += paranoia->numOfFramesOfTrack(t); }
 
@@ -78,6 +79,8 @@ private:
   int paranoia_mode;
   int paranoia_retries;
   bool never_skip;
+  int sample_offset;
+  bool sample_offset_done;
 
   unsigned int track;
 

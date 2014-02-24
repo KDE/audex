@@ -67,9 +67,11 @@ public:
 
   int firstSectorOfTrack(int track);
   int lastSectorOfTrack(int track);
-  
+
   int firstSectorOfDisc();
   int lastSectorOfDisc();
+
+  void sampleOffset(const int offset);
 
   int numOfTracks();
   int numOfAudioTracks();
