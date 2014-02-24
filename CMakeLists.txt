@@ -58,7 +58,6 @@ set(audex_SRCS
   utils/cachedimage.cpp
   utils/cuesheetwriter.cpp
   utils/tmpdir.cpp
-  utils/cddasolid.cpp
   widgets/cddaheaderwidget.cpp
   widgets/generalsettingswidget.cpp
   widgets/devicewidget.cpp
