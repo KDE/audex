@@ -61,9 +61,9 @@
 #include "widgets/cddaheaderwidget.h"
 
 #include "dialogs/extractingprogressdialog.h"
+#include "dialogs/errordialog.h"
 
 #include "utils/encoderassistant.h"
-#include "utils/errordialog.h"
 
 class MainWindow : public KXmlGuiWindow {
 

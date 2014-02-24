@@ -29,6 +29,7 @@
 #include "preferences.h"
 
 #include "utils/coverfetcher.h"
+#include "dialogs/errordialog.h"
 
 #include "ui_coverbrowserwidgetUI.h"
 
@@ -41,16 +42,16 @@ public:
   ~CoverBrowserDialog();
 
   inline int count() { return cover_fetcher.count(); }
-  
+
 public slots:
   void fetchThumbnails(const QString& searchstring, const int fetchCount = 0);
   void startFetchCover(const int no);
-  
+
 signals:
   void coverFetched(const QByteArray& cover);
   void allCoverThumbnailsFetched();
   void nothingFetched();
-  
+
 protected slots:
   virtual void slotButtonClicked(int button);
 
@@ -62,9 +63,9 @@ private slots:
   void add_item(const QByteArray& cover, const QString& caption, int no);
   void all_fetched();
   void nothing_fetched();
-  
+
   void cover_fetched(const QByteArray& cover);
-  
+
   void error(const QString& description, const QString& solution);
 
 private:

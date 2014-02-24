@@ -49,6 +49,7 @@
 #include "models/cddamodel.h"
 #include "dialogs/coverbrowserdialog.h"
 #include "dialogs/cddaheaderdatadialog.h"
+#include "dialogs/errordialog.h"
 #include "utils/coverfetcher.h"
 #include "utils/cachedimage.h"
 #include "utils/tmpdir.h"
@@ -121,7 +122,7 @@ private slots:
   void fetch_first_cover();
   void fetch_cover_failed();
   void auto_fetch_cover_failed();
-  
+
   void context_menu(const QPoint& point);
 
 private:
@@ -160,7 +161,7 @@ private:
 
   bool fetching_cover_in_progress;
   CoverBrowserDialog *cover_browser_dialog;
-  
+
   TmpDir *tmp_dir;
 
 };

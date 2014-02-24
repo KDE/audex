@@ -17,7 +17,6 @@
  */
 
 #include "coverbrowserdialog.h"
-#include "utils/errordialog.h"
 
 CoverBrowserDialog::CoverBrowserDialog(QWidget *parent) : KDialog(parent) {
 
@@ -110,7 +109,7 @@ void CoverBrowserDialog::setup() {
   connect(&cover_fetcher, SIGNAL(nothingFetched()), this, SLOT(nothing_fetched()));
   connect(&cover_fetcher, SIGNAL(fetchedCover(const QByteArray&)), this, SLOT(cover_fetched(const QByteArray&)));
   connect(&cover_fetcher, SIGNAL(error(const QString&, const QString&)), this, SLOT(error(const QString&, const QString&)));
-  
+
   ui.listWidget->setIconSize(QSize(constIconSize, constIconSize));
   ui.listWidget->setWordWrap(TRUE);
   ui.listWidget->setViewMode(QListView::IconMode);

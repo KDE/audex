@@ -17,7 +17,6 @@
  */
 
 #include "cddaheaderwidget.h"
-#include "utils/errordialog.h"
 
 static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOverX, FadeStyle fadeStyle = FadeDown) {
 

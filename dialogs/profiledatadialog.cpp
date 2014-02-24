@@ -17,7 +17,6 @@
  */
 
 #include "profiledatadialog.h"
-#include "utils/errordialog.h"
 
 ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent) {
 
@@ -83,7 +82,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   connect(ui.kpushbutton_hashlist, SIGNAL(clicked()), this, SLOT(hashlist_settings()));
   connect(ui.kpushbutton_cuesheet, SIGNAL(clicked()), this, SLOT(cuesheet_settings()));
   connect(ui.kpushbutton_singlefile, SIGNAL(clicked()), this, SLOT(singlefile_settings()));
-  
+
   connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cover(bool)));
   connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_playlist(bool)));
   connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(enable_settings_info(bool)));
@@ -118,7 +117,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     ui.checkBox_underscore->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
     connect(ui.checkBox_underscore, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    
+
     ui.checkBox_2digitstracknum->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX)).toBool());
     connect(ui.checkBox_2digitstracknum, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
@@ -137,17 +136,17 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     ui.checkBox_hashlist->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool());
     enable_settings_hashlist(ui.checkBox_hashlist->isChecked());
     connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    
+
     ui.checkBox_cuesheet->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool());
     enable_settings_cuesheet(ui.checkBox_cuesheet->isChecked());
     connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    
+
     ui.checkBox_singlefile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool());
     enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
     connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
     disable_playlist(ui.checkBox_singlefile->isChecked());
-    
+
     //profile data cover data
     pdcd_scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
     pdcd_size = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
@@ -167,10 +166,10 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     //profile data hashlist data
     pdhd_format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
     pdhd_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString();
-    
+
     //profile data cue sheet data
     pdud_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
-    
+
     //profile data single file data
     pdsd_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
 
@@ -427,7 +426,7 @@ void ProfileDataDialog::hashlist_settings() {
 }
 
 void ProfileDataDialog::cuesheet_settings() {
-  
+
   ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(pdud_pattern, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
@@ -437,11 +436,11 @@ void ProfileDataDialog::cuesheet_settings() {
   delete dialog;
 
   trigger_changed();
-  
+
 }
 
 void ProfileDataDialog::singlefile_settings() {
-  
+
   ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(pdsd_pattern, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
@@ -451,7 +450,7 @@ void ProfileDataDialog::singlefile_settings() {
   delete dialog;
 
   trigger_changed();
-  
+
 }
 
 void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encoder) {

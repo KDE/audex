@@ -42,6 +42,7 @@
 #include "dialogs/profiledatacuesheetdialog.h"
 #include "dialogs/profiledatasinglefiledialog.h"
 #include "dialogs/patternwizarddialog.h"
+#include "dialogs/errordialog.h"
 
 #include "ui_profiledatawidgetUI.h"
 
@@ -69,7 +70,7 @@ private slots:
   void enable_settings_singlefile(bool enabled);
 
   void disable_playlist(bool disabled);
-  
+
   void enable_filenames(bool enabled);
   void disable_filenames(bool disabled);
 
@@ -116,9 +117,9 @@ private:
 
   QString pdhd_format;
   QString pdhd_pattern;
-  
+
   QString pdud_pattern;
-  
+
   QString pdsd_pattern;
 
   bool save();

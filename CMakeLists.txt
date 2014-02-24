@@ -49,7 +49,6 @@ set(audex_SRCS
   utils/wavefilewriter.cpp
   utils/cddaparanoia.cpp
   utils/encoderwrapper.cpp
-  utils/errordialog.cpp
   utils/cddaextractthread.cpp
   utils/upload.cpp
   utils/encoderassistant.cpp
@@ -85,6 +84,7 @@ set(audex_SRCS
   dialogs/simplepatternwizarddialog.cpp
   dialogs/extractingprogressdialog.cpp
   dialogs/protocoldialog.cpp
+  dialogs/errordialog.cpp
   core/audex.cpp
 )
 
