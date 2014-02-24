@@ -17,7 +17,6 @@
  */
 
 #include "mainwindow.h"
-#include "utils/errordialog.h"
 
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 

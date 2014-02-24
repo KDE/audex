@@ -1,7 +1,10 @@
-#ifndef _AUDEX_ERROR_DIALOG_
-#define _AUDEX_ERROR_DIALOG_
+#ifndef ERROR_DIALOG_H
+#define ERROR_DIALOG_H
 
 #include <QtCore/QString>
+
+#include <KDE/KMessageBox>
+
 class QWidget;
 
 namespace ErrorDialog {

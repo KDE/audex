@@ -63,6 +63,7 @@
 #include "dialogs/extractingprogressdialog.h"
 
 #include "utils/encoderassistant.h"
+#include "utils/errordialog.h"
 
 class MainWindow : public KXmlGuiWindow {
 
