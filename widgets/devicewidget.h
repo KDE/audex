@@ -41,6 +41,8 @@ class deviceWidget : public deviceWidgetUI {
 public:
   explicit deviceWidget(QWidget* parent = 0);
   ~deviceWidget();
+private slots:
+  void toggle_accuraterip(bool enabled);
 };
 
 #endif

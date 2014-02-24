@@ -52,11 +52,25 @@
       <label>Never skip on read error</label>
       <default>true</default>
     </entry>
+    <entry name="accurateRip" type="Bool">
+      <label>Enable accurate ripping</label>
+      <default>false</default>
+    </entry>
+    <entry name="accurateRipDatabaseCheck" type="Bool">
+      <label>Accuraterip database check (online)</label>
+      <default>true</default>
+    </entry>
     <entry name="sampleOffset" type="Int">
       <label>Sample offset</label>
       <default>0</default>
       <min>-10000</min>
       <max>10000</max>
+    </entry>
+    <entry name="accurateRipReadCount" type="Int">
+      <label>Accuraterip database check (online)</label>
+      <default>6</default>
+      <min>1</min>
+      <max>20</max>
     </entry>
     <entry name="basePath" type="Path">
       <label>Base path to store music files</label>
