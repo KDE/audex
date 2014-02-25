@@ -33,21 +33,8 @@ deviceWidget::deviceWidget(QWidget* parent) : deviceWidgetUI(parent) {
     }
   }
 
-  connect(kcfg_accurateRip, SIGNAL(toggled(bool)), this, SLOT(toggle_accuraterip(bool)));
-  toggle_accuraterip(kcfg_accurateRip->isChecked());
-
 }
 
 deviceWidget::~deviceWidget() {
-
-}
-
-void deviceWidget::toggle_accuraterip(bool enabled) {
-
-  kcfg_accurateRipDatabaseCheck->setEnabled(enabled);
-  label->setEnabled(enabled);
-  kcfg_sampleOffset->setEnabled(enabled);
-  label_2->setEnabled(enabled);
-  kcfg_accurateRipReadCount->setEnabled(enabled);
 
 }

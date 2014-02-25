@@ -16,31 +16,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEVICEWIDGET_H
-#define DEVICEWIDGET_H
+#ifndef DISCIDCALCULATOR_H
+#define DISCIDCALCULATOR_H
 
-#include <QDir>
+#include <QObject>
 
-#include <KLineEdit>
-#include <KStandardDirs>
-#include <libkcompactdisc/kcompactdisc.h>
+#define FRAMES2SEC(frames) ((frames) / 75)
 
-#include "preferences.h"
+class DiscIDCalculator : public QObject {
 
-#include "ui_devicewidgetUI.h"
-
-class deviceWidgetUI : public QWidget, public Ui::DeviceWidgetUI {
 public:
-  explicit deviceWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
+  static quint32 FreeDBId(const QList<quint32>& discSignature);
+  static quint32 AccurateRipId1(const QList<quint32>& discSignature);
+  static quint32 AccurateRipId2(const QList<quint32>& discSignature);
+
+  static int p_checksum(int n) {
+    /* a number like 2344 becomes 2+3+4+4 (13) */
+    int ret = 0;
+    while (n > 0) {
+      ret = ret + (n % 10);
+      n = n / 10;
+    }
+    return ret;
   }
-};
 
-class deviceWidget : public deviceWidgetUI {
-  Q_OBJECT
-public:
-  explicit deviceWidget(QWidget* parent = 0);
-  ~deviceWidget();
 };
 
 #endif

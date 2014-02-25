@@ -33,6 +33,7 @@ extern "C" {
 // from cdda_interface.h
 #define CD_FRAMESIZE_RAW    2352
 #define CDROM_FRAMESIZE_RAW 2048
+#define PREGAP              150
 
 // from cdda_paranoia.h
 #define PARANOIA_CB_READ           0
@@ -90,7 +91,9 @@ public:
   int frameOffsetOfTrack(int n);
   bool isAudioTrack(int n);
 
-  quint32 discid();
+  // First element is first track after lead-in, list of offsets, last element offset of lead-out
+  // PREGAP is 150 frames = 2 seconds
+  QList<quint32> discSignature(const qint32 pregap = PREGAP);
 
   void reset();
 
@@ -111,16 +114,6 @@ private:
 
   bool _paranoia_init();
   void _paranoia_free();
-
-  int checksum(int n) {
-    /* a number like 2344 becomes 2+3+4+4 (13) */
-    int ret = 0;
-    while (n > 0) {
-      ret = ret + (n % 10);
-      n = n / 10;
-    }
-    return ret;
-  }
 
 };
 

@@ -184,7 +184,7 @@ void Audex::start_extract() {
         artist,
         title);
 
-      QString sourceFilename = tmp_path+QString("%1").arg(cdda_model->discid())+".wav";
+      QString sourceFilename = tmp_path+QString("%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()))+".wav";
       ex_track_source_filename = sourceFilename;
       wave_file_writer->open(sourceFilename);
 
@@ -261,7 +261,7 @@ void Audex::start_extract() {
           tartist,
           ttitle);
 
-        QString sourceFilename = tmp_path+QString("%1").arg(cdda_model->discid())+"."+QString("%1").arg(ex_track_index)+".wav";
+        QString sourceFilename = tmp_path+QString("%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()))+"."+QString("%1").arg(ex_track_index)+".wav";
         ex_track_source_filename = sourceFilename;
         wave_file_writer->open(sourceFilename);
 
@@ -486,18 +486,6 @@ void Audex::progress_encode(int percent) {
 
 void Audex::write_to_wave(const QByteArray& data) {
   wave_file_writer->write(data);
-}
-
-void Audex::start_ftp_transfer(const QString& filename) {
-  emit ftpUploadStart(filename);
-}
-
-void Audex::progress_ftp_transfer(const int percent, const int overall) {
-  emit ftpUploadProgress(percent, overall);
-}
-
-void Audex::finished_ftp_transfer(const QString& filename) {
- emit ftpUploadFinished(filename);
 }
 
 void Audex::slot_error(const QString& description, const QString& solution) {
@@ -816,7 +804,7 @@ void Audex::execute_finish() {
         QStringList text = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
         patternparser.parseInfoText(text, cdda_model->artist(), cdda_model->title(),
           QString("%1").arg(cdda_model->year()), cdda_model->genre(),
-          cdda_model->discid(), p_size_of_all_files(target_filename_list), cdda_model->lengthOfAudioTracksInSelection(), cdda_model->numOfAudioTracksInSelection());
+          DiscIDCalculator::FreeDBId(cdda_model->discSignature()), p_size_of_all_files(target_filename_list), cdda_model->lengthOfAudioTracksInSelection(), cdda_model->numOfAudioTracksInSelection());
         out << text.join("\n");
         file.close();
         emit info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));

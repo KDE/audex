@@ -231,10 +231,6 @@ Qt::ItemFlags CDDAModel::flags(const QModelIndex &index) const {
 
 }
 
-unsigned int CDDAModel::discid() const {
-  return compact_disc->discId();
-}
-
 void CDDAModel::setArtist(const QString& a) {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
   if (a != cd_info.get(KCDDB::Artist).toString()) {
@@ -616,7 +612,7 @@ int CDDAModel::lengthOfTrack(int n) const {
   return compact_disc->trackLength(n);
 }
 
-const QList<unsigned> CDDAModel::discSignature() const {
+const QList<quint32> CDDAModel::discSignature() const {
   return compact_disc->discSignature();
 }
 

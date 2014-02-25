@@ -40,6 +40,7 @@
 #include "utils/hashlist.h"
 #include "utils/parameters.h"
 #include "utils/cuesheetwriter.h"
+#include "utils/discidcalculator.h"
 
 #include "preferences.h"
 
@@ -146,10 +147,6 @@ private slots:
 
   void write_to_wave(const QByteArray& data);
 
-  void start_ftp_transfer(const QString& filename);
-  void progress_ftp_transfer(const int percent, const int overall);
-  void finished_ftp_transfer(const QString& filename);
-
   void slot_error(const QString& message, const QString& details = QString());
   void slot_warning(const QString& message);
   void slot_info(const QString& message);
@@ -167,10 +164,6 @@ signals:
 
   void speedExtract(double times);
   void speedEncode(double times);
-
-  void ftpUploadStart(const QString& filename);
-  void ftpUploadProgress(const int percent, const int overall);
-  void ftpUploadFinished(const QString& filename);
 
   void finished(bool successful);
 
@@ -204,7 +197,7 @@ private:
         bool fat_compatible, bool replacespaceswithunderscores,
         bool _2digitstracknum,
         bool overwrite_existing_files, bool is_first_track);
-        
+
   bool construct_target_filename_for_singlefile(QString& targetFilename,
         int cdno, int nooftracks,
         const QString& artist, const QString& title,
@@ -248,7 +241,7 @@ private:
   bool p_prepare_dir(QString& filename, const QString& targetDirIfRelative, const bool overwrite = FALSE);
   bool p_mkdir(const QString& absoluteFilePath);
   qreal p_size_of_all_files(const QStringList& filenames) const;
-  
+
 };
 
 #endif

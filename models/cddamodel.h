@@ -81,7 +81,6 @@ public:
 
   Qt::ItemFlags flags(const QModelIndex &index) const;
 
-  unsigned int discid() const;
   void setArtist(const QString& a);
   const QString artist() const;
   void setTitle(const QString& t);
@@ -144,8 +143,8 @@ public:
   int lengthOfAudioTracks() const;
   int lengthOfAudioTracksInSelection() const;
   int lengthOfTrack(int n) const;
-  
-  const QList<unsigned> discSignature() const;
+
+  const QList<quint32> discSignature() const;
 
   bool isAudioTrack(int n) const;
 
@@ -226,7 +225,7 @@ signals:
 
   void cddbLookupStarted();
   void cddbLookupDone(const bool successful);
-  
+
   void cddbDataModified();
   void cddbDataSubmited(const bool successful);
 

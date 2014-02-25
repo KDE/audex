@@ -34,19 +34,19 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
 
   QString title = QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title());
   ui.label_header->setText(title);
-  
+
   p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
 
   if (p_single_file) {
-   
+
     ui.label_extracting->setText(i18n("Ripping whole CD as single track"));
     ui.label_encoding->setText(i18n("Encoding"));
-    
+
   } else {
-  
+
     ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->numOfAudioTracks()));
     ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
-    
+
   }
 
   audex = new Audex(this, profile_model, cdda_model);
@@ -70,7 +70,9 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   finished = FALSE;
 
   progressbar_np_flag = FALSE;
-  unity_message=QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
+
+  unity_message = QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
+
 }
 
 ExtractingProgressDialog::~ExtractingProgressDialog() {
@@ -80,7 +82,7 @@ ExtractingProgressDialog::~ExtractingProgressDialog() {
 }
 
 int ExtractingProgressDialog::exec() {
-  
+
   KConfigGroup grp(KGlobal::config(), "ExtractingProgressDialog");
 
   resize(600, 400);
@@ -96,9 +98,9 @@ int ExtractingProgressDialog::exec() {
   int rv = KDialog::exec();
 
   grp.writeEntry("Simple", (Qt::DownArrow==ui.details_button->arrowType()));
-  
+
   return rv;
-  
+
 }
 
 void ExtractingProgressDialog::calc_overall_progress() {
@@ -107,22 +109,22 @@ void ExtractingProgressDialog::calc_overall_progress() {
 }
 
 void ExtractingProgressDialog::toggle_details() {
-  
+
   if (Qt::UpArrow == ui.details_button->arrowType()) {
-    
+
     ui.details_button->setArrowType(Qt::DownArrow);
     ui.details->setVisible(FALSE);
     ui.label_overall->setVisible(FALSE);
     ui.label_overall_track->setVisible(TRUE);
     ui.progressBar_overall->setVisible(TRUE);
     resize(width(), 32);
-    
+
   } else {
-    
+
     ui.details_button->setArrowType(Qt::UpArrow);
     ui.details->setVisible(TRUE);
     ui.label_overall_track->setVisible(FALSE);
-    
+
     if (cdda_model->numOfAudioTracksInSelection() < 2) {
       ui.label_overall->setVisible(FALSE);
       ui.progressBar_overall->setVisible(FALSE);
@@ -130,13 +132,13 @@ void ExtractingProgressDialog::toggle_details() {
       ui.label_overall->setVisible(TRUE);
     }
     resize(width(), 400);
-    
+
   }
-  
+
 }
 
 void ExtractingProgressDialog::slotButtonClicked(int button) {
-  
+
   switch(button) {
     case Cancel:
       cancel();
@@ -153,7 +155,7 @@ void ExtractingProgressDialog::slotButtonClicked(int button) {
     default:
       KDialog::slotButtonClicked(button);
   }
-  
+
 }
 
 void ExtractingProgressDialog::cancel() {
@@ -177,30 +179,30 @@ void ExtractingProgressDialog::cancel() {
 }
 
 void ExtractingProgressDialog::show_changed_extract_track(int no, int total, const QString& artist, const QString& title) {
-  
+
   Q_UNUSED(artist);
   Q_UNUSED(title);
-  
+
   if (!p_single_file) {
-    
+
     ui.label_extracting->setText((1==total) ? i18n("Ripping Track") : i18n("Ripping Track %1 of %2", no, total));
     ui.label_overall_track->setText((1==total) ? i18n("Overall Progress") : i18n("Overall Progress (Ripping Track %1 of %2)", no, total));
     current_track = no;
     update_unity();
-    
+
   } else {
-    
+
     ui.label_extracting->setText(i18n("Ripping whole CD as single track"));
     ui.label_overall_track->setText(i18n("Overall Progress"));
-    
+
   }
-  
+
 }
 
 void ExtractingProgressDialog::show_changed_encode_track(int no, int total, const QString& filename) {
 
   Q_UNUSED(filename);
-  
+
   if (no == 0) {
     ui.label_encoding->setText("<i>"+i18n("Waiting for an encoding job...")+"</i>");
     ui.label_speed_encoding->clear();
@@ -220,7 +222,7 @@ void ExtractingProgressDialog::show_progress_extract_overall(int percent) {
 
   current_extract_overall = percent;
   calc_overall_progress();
-  
+
 }
 
 void ExtractingProgressDialog::show_progress_encode_track(int percent) {
@@ -246,7 +248,7 @@ void ExtractingProgressDialog::show_progress_encode_overall(int percent) {
 
   current_encode_overall = percent;
   calc_overall_progress();
-  
+
 }
 
 void ExtractingProgressDialog::show_speed_encode(double speed) {
@@ -268,9 +270,9 @@ void ExtractingProgressDialog::conclusion(bool successful) {
   QFlags<KDialog::ButtonCode> buttons = Close;
 
   finished = TRUE;
-  
+
   update_unity();
-  
+
   QPalette pal(ui.label_extracting->palette());
   KColorScheme kcs(QPalette::Active);
   if (successful) {
@@ -295,14 +297,14 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     if (audex->encoderProtocol().count() > 0) { buttons |= User1; }
     if (audex->extractProtocol().count() > 0) { buttons |= User2; }
   }
-  
+
   ui.progressBar_extracting->setEnabled(FALSE);
   ui.progressBar_encoding->setEnabled(FALSE);
   ui.progressBar_overall->setEnabled(FALSE);
   ui.label_speed_extracting->setEnabled(FALSE);
   ui.label_speed_encoding->setEnabled(FALSE);
   ui.label_overall->setEnabled(FALSE);
-  
+
   ui.label_extracting->setPalette(pal);
   ui.label_encoding->setPalette(pal);
   setButtons(buttons);
@@ -371,16 +373,16 @@ void ExtractingProgressDialog::open_extract_protocol_dialog() {
 }
 
 void ExtractingProgressDialog::update_unity() {
-    QList<QVariant> args;
-    int progress = ui.progressBar_overall->value();
-    bool show_progress = progress>-1 && progress < 100 && !finished;
-    QMap<QString, QVariant> props;
-    props["count-visible"]=current_track>0 && !finished;
-    props["count"]=current_track;
-    props["progress-visible"]=show_progress;
-    props["progress"]=show_progress ? (double)(progress/100.0) : 0.0;
-    args.append("application://audex.desktop");
-    args.append(props);
-    unity_message.setArguments(args);
-    QDBusConnection::sessionBus().send(unity_message);
+  QList<QVariant> args;
+  int progress = ui.progressBar_overall->value();
+  bool show_progress = progress>-1 && progress < 100 && !finished;
+  QMap<QString, QVariant> props;
+  props["count-visible"]=current_track>0 && !finished;
+  props["count"]=current_track;
+  props["progress-visible"]=show_progress;
+  props["progress"]=show_progress ? (double)(progress/100.0) : 0.0;
+  args.append("application://audex.desktop");
+  args.append(props);
+  unity_message.setArguments(args);
+  QDBusConnection::sessionBus().send(unity_message);
 }

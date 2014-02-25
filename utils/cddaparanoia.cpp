@@ -268,12 +268,15 @@ bool CDDAParanoia::isAudioTrack(int n) {
   return TRUE;
 }
 
-quint32 CDDAParanoia::discid() {
-  quint32 cksum = 0;
-  for (int i = 1; i <= numOfTracks(); i++) {
-    cksum += checksum((frameOffsetOfTrack(i)+150) / 75);
-  }
-  return ((cksum % 0xff) << 24 | length() << 8 | numOfTracks());
+QList<quint32> CDDAParanoia::discSignature(const qint32 pregap) {
+
+  QList<quint32> result;
+
+  for (int i = 1; i <= numOfTracks()+1; ++i)
+    result.append(frameOffsetOfTrack(i)+pregap);
+
+  return result;
+
 }
 
 void CDDAParanoia::reset() {
