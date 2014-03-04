@@ -3,8 +3,9 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-  <include>QtCore/qdir.h</include>
   <include>libkcompactdisc/kcompactdisc.h</include>
+  <include>QtCore/qdir.h</include>
+  <include>QDesktopServices</include>
   <kcfgfile name="audexrc" />
   <group name="general">
     <entry name="firstStart" type="Bool">
@@ -60,7 +61,7 @@
     </entry>
     <entry name="basePath" type="Path">
       <label>Base path to store music files</label>
-      <default code="true">QDir::homePath()+QString::fromLatin1("/Music")</default>
+      <default code="true">QDesktopServices::storageLocation(QDesktopServices::MusicLocation)</default>
     </entry>
     <entry name="upload" type="Bool">
       <label>Upload files to server</label>
