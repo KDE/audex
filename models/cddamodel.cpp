@@ -62,7 +62,7 @@ CDDAModel::~CDDAModel() {
 
 void CDDAModel::setDevice(const QString& device) {
   this->_device = device;
-  compact_disc->setDevice(device, 50, FALSE);
+  if (!device.isEmpty()) compact_disc->setDevice(device, 50, FALSE);
 }
 
 int CDDAModel::rowCount(const QModelIndex &parent) const {

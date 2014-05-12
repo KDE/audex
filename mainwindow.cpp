@@ -35,7 +35,11 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
   int dev_index = Preferences::cdDevice().toInt();
-  cdda_model = new CDDAModel(this, KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path());
+  QString device_path;
+  if ((dev_index >= 0) && (dev_index < deviceUrls.count())) {
+    device_path = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
+  }
+  cdda_model = new CDDAModel(this, device_path);
   if (!cdda_model) {
     kDebug() << "Unable to create CDDAModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
@@ -308,9 +312,12 @@ void MainWindow::configuration_updated(const QString& dialog_name) {
   Preferences::self()->writeConfig();
   QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
   int dev_index = Preferences::cdDevice().toInt();
-  QString dev = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
-  if (dev != cdda_model->device()) {
-    cdda_model->setDevice(dev);
+  QString device_path;
+  if ((dev_index >= 0) && (dev_index < deviceUrls.count())) {
+    device_path = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
+  }
+  if (device_path != cdda_model->device()) {
+    cdda_model->setDevice(device_path);
   }
 }
 
