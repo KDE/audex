@@ -191,11 +191,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       }
     }
   }
-  
+
   if ((is_filename_pattern) || (is_simple_pattern)) {
     if (qName == VAR_SUFFIX) { /*TEMP*/found_suffix = TRUE; p_element += suffix; }
   }
-  
+
   if (is_command_pattern) {
     if (qName == VAR_INPUT_FILE) p_element += "\""+input+"\"";
     if (qName == VAR_OUTPUT_FILE) p_element += "\""+output+"\"";
@@ -266,7 +266,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
     }
 
   }
-  
+
   if (is_text_pattern) {
     if (qName == VAR_CD_SIZE) {
       QChar iec;
@@ -307,20 +307,20 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       p_element += QString("%1").arg(discid, 0, base);
     }
   }
-  
+
   if (qName == VAR_NO_OF_TRACKS) p_element += QString("%1").arg(nooftracks);
   if (qName == VAR_AUDEX) p_element += QString("Audex Version %1").arg(AUDEX_VERSION);
-  
+
   if ((!p_element.isEmpty()) && (is_command_pattern)) {
-  
+
     QString pre = atts.value("pre");
     QString post = atts.value("post");
     p_text += pre+p_element+post;
-  
+
   } else {
-   
+
     p_text += p_element;
-    
+
   }
 
   return TRUE;
@@ -334,7 +334,7 @@ bool SaxHandler::endElement(const QString& namespaceURI, const QString& localNam
 
   if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
   if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
-  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = FALSE; p_text.replace("//", "/"); /*TEMP*/if (!found_suffix) p_text = p_text.simplified()+"."+suffix; else p_text = p_text.simplified(); return TRUE; }
+  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
   if (qName == VAR_TEXT_PATTERN) { is_text_pattern = FALSE; return TRUE; }
 
   return TRUE;
@@ -448,7 +448,7 @@ const QString PatternParser::parseFilenamePattern(const QString& pattern,
   reader.setContentHandler(&handler);
   reader.setErrorHandler(&handler);
   reader.parse(inputSource);
-  
+
   return handler.text();
 
 }
@@ -481,7 +481,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
   handler.setDemoMode(demomode);
   handler.set2DigitsTrackNum(FALSE);
   handler.setEncoder(encoder);
-  
+
   QXmlInputSource inputSource;
   inputSource.setData("<commandpattern>"+p_xmlize_pattern(pattern)+"</commandpattern>");
   QXmlSimpleReader reader;
@@ -562,7 +562,7 @@ const QString PatternParser::p_xmlize_pattern(const QString& pattern) {
        newpattern += "&amp;";
        continue;
      }
-    
+
      switch (s) {
 
        //outside var
