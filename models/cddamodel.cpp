@@ -20,6 +20,8 @@
 
 CDDAModel::CDDAModel(QObject *parent, const QString& device) : QAbstractTableModel(parent) {
 
+  cddb_transaction_pending = FALSE;
+
   compact_disc = new KCompactDisc();
   if (!compact_disc) {
     kDebug() << "Unable to create KCompactDisc object. Low mem?";
@@ -733,6 +735,12 @@ void CDDAModel::lookupCDDB() {
 
   kDebug() << "lookupCDDB called";
 
+  if (cddb_transaction_pending) {
+    kDebug() << "CDDB transaction already in progress.";
+    return;
+  }
+  cddb_transaction_pending = TRUE;
+
   emit cddbLookupStarted();
 
   cddb->config().reparse();
@@ -746,6 +754,14 @@ bool CDDAModel::submitCDDB() {
   if (compact_disc->isNoDisc() || (compact_disc->discId()==0)) return TRUE;
 
   kDebug() << "submitCDDB called";
+
+  if (cddb_transaction_pending) {
+    kDebug() << "CDDB transaction already in progress.";
+    error = Error(i18n("CDDB transaction already in progress."), i18n("A CDDB transaction is already in progress. Please wait until it has finished and try again."), Error::ERROR, this);
+    return FALSE;
+  }
+
+  cddb_transaction_pending = TRUE;
 
   cddb->config().reparse();
   cddb->setBlockingMode(TRUE);
@@ -773,6 +789,8 @@ bool CDDAModel::submitCDDB() {
   error = Error();
 
   confirm();
+
+  cddb_transaction_pending = FALSE;
 
   emit cddbDataSubmited(TRUE);
 
@@ -951,6 +969,8 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
     setTitle(newTitle);
   }
   reset();
+
+  cddb_transaction_pending = FALSE;
 
   emit cddbLookupDone(TRUE);
 

@@ -251,6 +251,7 @@ private:
   DiscType disc_type;
   DiscInfo disc_info;
   Error error;
+  bool cddb_transaction_pending;
 
   QSet<int> sel_tracks;
   void _toggle(const unsigned int track);
