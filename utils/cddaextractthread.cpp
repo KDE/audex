@@ -24,16 +24,15 @@ void paranoiaCallback(long sector, int status) {
   aet->createStatus(sector, status);
 }
 
-CDDAExtractThread::CDDAExtractThread(QObject* parent, const QString& device) : QThread(parent) {
+CDDAExtractThread::CDDAExtractThread(QObject* parent, CDDAParanoia *_paranoia) : QThread(parent) {
 
-  paranoia = new CDDAParanoia(this);
+  paranoia = _paranoia;
   if (!paranoia) {
-    kDebug() << "Unable to create paranoia class. low mem?";
+    kDebug() << "Paranoia object not found. low mem?";
     emit error(i18n("Internal device error."), i18n("Check your device and make a bug report."));
     return;
   }
   connect(paranoia, SIGNAL(error(const QString&, const QString&)), this, SLOT(slot_error(const QString&, const QString&)));
-  paranoia->setDevice(device);
 
   overall_sectors_read = 0;
   paranoia_mode = 3;
@@ -50,8 +49,6 @@ CDDAExtractThread::CDDAExtractThread(QObject* parent, const QString& device) : Q
 }
 
 CDDAExtractThread::~CDDAExtractThread() {
-
-  delete paranoia;
 
 }
 

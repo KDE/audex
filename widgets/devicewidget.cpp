@@ -22,17 +22,6 @@ deviceWidget::deviceWidget(QWidget* parent) : deviceWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
-  QStringList devices = KCompactDisc::cdromDeviceNames();
-  kcfg_cdDevice->clear();
-
-  if (devices.isEmpty()) {
-    kcfg_cdDevice->addItem(i18n("None detected"));
-  } else {
-    foreach (const QString &dev, devices) {
-      kcfg_cdDevice->addItem(dev + " (" + KCompactDisc::cdromDeviceUrl(dev).path() + ")");
-    }
-  }
-
 }
 
 deviceWidget::~deviceWidget() {

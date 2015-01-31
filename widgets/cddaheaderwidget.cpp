@@ -389,7 +389,7 @@ void CDDAHeaderWidget::googleAuto() {
 
   kDebug() << "Google AUTO cover fetch" ;
 
-  if ((cdda_model->discInfo()==CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
+  if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
   cursor_on_cover = FALSE;
@@ -518,7 +518,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     font.setBold(TRUE);
     font.setItalic(TRUE);
     p.setFont(font);
-    p.drawText(rect(), Qt::AlignCenter | Qt::AlignVCenter, i18n("No CD in drive"));
+    p.drawText(rect(), Qt::AlignCenter | Qt::AlignVCenter, i18n("No audio CD detected"));
 
   }
 
@@ -561,7 +561,7 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event) {
   if (event->button() == Qt::LeftButton) {
     if ((cursor_on_cover) && (!fetching_cover_in_progress)) {
       if (cdda_model->isCoverEmpty()) {
-	if (cdda_model->discInfo() == CDDAModel::DiscNoInfo) {
+	if (cdda_model->empty()) {
 	  load();
 	} else {
 	  google();
@@ -577,7 +577,7 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event) {
 
 void CDDAHeaderWidget::update() {
 
-  action_collection->action("fetch")->setEnabled(cdda_model->discInfo() != CDDAModel::DiscNoInfo);
+  action_collection->action("fetch")->setEnabled(!cdda_model->empty());
 
   bool activate = FALSE;
   if (cdda_model->isCoverEmpty()) {
@@ -656,7 +656,7 @@ void CDDAHeaderWidget::google() {
 
   kDebug() << "Google cover fetch" ;
 
-  if ((cdda_model->discInfo() == CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
+  if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
   cursor_on_cover = FALSE;

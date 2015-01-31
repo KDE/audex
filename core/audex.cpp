@@ -41,7 +41,7 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
     return;
   }
 
-  cdda_extract_thread = new CDDAExtractThread(this, cdda_model->device());
+  cdda_extract_thread = new CDDAExtractThread(this, cdda_model->paranoia());
   if (!cdda_extract_thread) {
     kDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
     return;

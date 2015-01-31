@@ -30,7 +30,7 @@
 class CDDAExtractThread : public QThread {
   Q_OBJECT
 public:
-  CDDAExtractThread(QObject* parent = 0, const QString& device = "/dev/cdrom");
+  CDDAExtractThread(QObject* parent, CDDAParanoia *_paranoia);
   ~CDDAExtractThread();
 
 public slots:

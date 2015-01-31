@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   if ((dev_index >= 0) && (dev_index < deviceUrls.count())) {
     device_path = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
   }
-  cdda_model = new CDDAModel(this, device_path);
+  cdda_model = new CDDAModel(this);
   if (!cdda_model) {
     kDebug() << "Unable to create CDDAModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
@@ -50,10 +50,9 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
     return;
   }
 
-  connect(cdda_model, SIGNAL(driveStatusChanged(const CDDAModel::DriveStatus)), this, SLOT(drive_status_changed(const CDDAModel::DriveStatus)));
-  connect(cdda_model, SIGNAL(discStatusChanged(const CDDAModel::DiscStatus)), this, SLOT(disc_status_changed(const CDDAModel::DiscStatus)));
-  connect(cdda_model, SIGNAL(discChanged(const CDDAModel::DiscType)), this, SLOT(disc_changed(const CDDAModel::DiscType)));
-  connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), this, SLOT(disc_info_changed(const CDDAModel::DiscInfo)));
+  connect(cdda_model, SIGNAL(audioDiscDetected()), this, SLOT(new_audio_disc_detected()));
+  connect(cdda_model, SIGNAL(audioDiscRemoved()), this, SLOT(audio_disc_removed()));
+
   connect(cdda_model, SIGNAL(cddbLookupStarted()), this, SLOT(cddb_lookup_start()));
   connect(cdda_model, SIGNAL(cddbLookupDone(const bool)), this, SLOT(cddb_lookup_done(const bool)));
   connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_submit()));
@@ -113,13 +112,13 @@ void MainWindow::cddb_submit() {
 
 void MainWindow::rip() {
 
-  if (cdda_model->discInfo() == CDDAModel::DiscNoInfo) {
+  if (cdda_model->empty()) {
 
     if (KMessageBox::warningYesNo(this, i18n("No disc information set. Do you really want to continue?"),
-				i18n("Disc information not found"),
-				KStandardGuiItem::yes(),
-				KStandardGuiItem::no(),
-				"no_disc_info_warn")== KMessageBox::No) return;
+                                i18n("Disc information not found"),
+                                KStandardGuiItem::yes(),
+                                KStandardGuiItem::no(),
+                                "no_disc_info_warn")== KMessageBox::No) return;
 
   }
 
@@ -185,67 +184,27 @@ void MainWindow::configure() {
 
 }
 
-void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
-  switch (status) {
-    case CDDAModel::DriveNoStatus :
-      status_label->setText(i18n("No status information available"));
-      enable_layout(FALSE);
-      break;
-    case CDDAModel::DriveEmpty :
-      status_label->setText(i18n("No disc in drive"));
-      enable_layout(TRUE);
-      break;
-    case CDDAModel::DriveReady :
-      status_label->setText(i18n("Audio disc in drive"));
-      enable_layout(TRUE);
-      resizeColumns();
-      if (Preferences::cddbLookupAuto()) {
-        kDebug() << "Performing CDDB auto lookup";
-        QTimer::singleShot(0, this, SLOT(cddb_lookup()));
-      }
-      break;
-    case CDDAModel::DriveOpen :
-      status_label->setText(i18n("Drive tray open"));
-      enable_layout(FALSE);
-      break;
-    case CDDAModel::DriveNotReady :
-      status_label->setText(i18n("Drive not ready"));
-      enable_layout(FALSE);
-      break;
-    case CDDAModel::DriveError :
-    status_label->setText(i18n("Drive error"));
-      enable_layout(FALSE);
-      break;
-    default :
-      break;
+void MainWindow::new_audio_disc_detected() {
+
+  status_label->setText(i18n("Audio disc detected"));
+  enable_layout(TRUE);
+  resizeColumns();
+  if (Preferences::cddbLookupAuto()) {
+    kDebug() << "Performing CDDB auto lookup";
+    QTimer::singleShot(0, this, SLOT(cddb_lookup()));
   }
-}
 
-void MainWindow::disc_status_changed(const CDDAModel::DiscStatus status) {
-  Q_UNUSED(status);
-}
-
-void MainWindow::disc_changed(const CDDAModel::DiscType type) {
-  Q_UNUSED(type);
   update_layout();
+
 }
 
-void MainWindow::disc_info_changed(const CDDAModel::DiscInfo info) {
-  Q_UNUSED(info);
-  switch (info) {
-    case CDDAModel::DiscNoInfo :
-      break;
-    case CDDAModel::DiscManualInfo :
-      break;
-    case CDDAModel::DiscCDTEXTInfo :
-    case CDDAModel::DiscCDDBInfo :
-    case CDDAModel::DiscPhononMetadataInfo :
-      if (Preferences::coverLookupAuto()) cdda_header_widget->googleAuto();
-      break;
-    default :
-      break;
-  }
+void MainWindow::audio_disc_removed() {
+
+  status_label->setText(i18n("No audio disc detected"));
+  enable_layout(FALSE);
+
   update_layout();
+
 }
 
 void MainWindow::cddb_lookup_start() {
@@ -261,6 +220,7 @@ void MainWindow::cddb_lookup_done(const bool successful) {
   status_label->setText(status_label_prev);
   update_layout();
   disable_submit();
+  if (Preferences::coverLookupAuto()) cdda_header_widget->googleAuto();
 }
 
 void MainWindow::update_layout() {
@@ -310,15 +270,6 @@ void MainWindow::disable_submit() {
 void MainWindow::configuration_updated(const QString& dialog_name) {
   Q_UNUSED(dialog_name);
   Preferences::self()->writeConfig();
-  QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
-  int dev_index = Preferences::cdDevice().toInt();
-  QString device_path;
-  if ((dev_index >= 0) && (dev_index < deviceUrls.count())) {
-    device_path = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
-  }
-  if (device_path != cdda_model->device()) {
-    cdda_model->setDevice(device_path);
-  }
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>268</width>
+    <width>274</width>
     <height>269</height>
    </rect>
   </property>
@@ -18,27 +18,20 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <layout class="QHBoxLayout" name="_3">
-        <item>
-         <widget class="KComboBox" name="kcfg_cdDevice"/>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0">
        <widget class="QCheckBox" name="kcfg_paranoiaMode">
         <property name="text">
          <string>Full paranoia mode (best quality)</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="1" column="0">
        <widget class="QCheckBox" name="kcfg_neverSkip">
         <property name="text">
          <string>Never skip on read error</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="2" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
          <widget class="QLabel" name="label">
@@ -91,11 +84,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
   <customwidget>
    <class>KIntSpinBox</class>
    <extends>QSpinBox</extends>
