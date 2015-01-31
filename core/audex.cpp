@@ -176,6 +176,8 @@ void Audex::start_extract() {
     }
     ex_track_target_filename = targetFilename;
 
+    cdda_model->setCustomData("filename", targetFilename);
+
     //if empty (maybe because it already exists) skip
     if (!targetFilename.isEmpty()) {
 
@@ -860,7 +862,11 @@ void Audex::execute_finish() {
   }
 
   QString cs;
-  if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()) && (target_filename_list.count() > 0)) {
+  if (
+     (_finished_successful) &&
+     (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()) &&
+     (((target_filename_list.count() > 0) && !p_single_file) || p_single_file)
+  ) {
 
     QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
 
