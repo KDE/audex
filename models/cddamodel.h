@@ -28,17 +28,19 @@
 #include <QModelIndexList>
 #include <QSet>
 #include <QRegExp>
+#include <QTimer>
 
 #include <KDebug>
 #include <KLocale>
 #include <KInputDialog>
 #include <KMimeType>
-#include <libkcompactdisc/kcompactdisc.h>
 
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
 
+#include "utils/cddadevices.h"
+#include "utils/cddaparanoia.h"
 #include "utils/cachedimage.h"
 
 #include "utils/error.h"
@@ -67,10 +69,10 @@ class CDDAModel : public QAbstractTableModel {
   Q_OBJECT
 
 public:
-  CDDAModel(QObject *parent = 0, const QString& device = "/dev/cdrom");
+  CDDAModel(QObject *parent = 0);
   ~CDDAModel();
 
-  void setDevice(const QString& device);
+  inline CDDAParanoia *paranoia() const { return pn; }
   inline const QString& device() const { return _device; }
 
   int rowCount(const QModelIndex &parent = QModelIndex()) const;
@@ -150,6 +152,8 @@ public:
 
   void clear();
 
+  inline bool empty() { return _empty; }
+
   inline const QSet<int>& selectedTracks() const { return sel_tracks; }
   void toggle(int row);
   bool isTrackInSelection(int n) const;
@@ -162,66 +166,15 @@ public:
 
   Error lastError() const;
 
-  enum DriveStatus {
-    DriveNoStatus,
-    DriveEmpty,
-    DriveReady,
-    DriveOpen,
-    DriveNotReady,
-    DriveError
-  };
-
-  enum DiscStatus {
-    DiscNoStatus,
-    DiscPlaying,
-    DiscPaused,
-    DiscStopped
-  };
-
-  enum DiscType {
-    DiscNoType,
-    DiscContainsAudioTracks,
-    DiscContainsNoAudioTracks
-  };
-
-  enum DiscInfo {
-    DiscNoInfo,
-    DiscManualInfo, /*user input*/
-    DiscCDTEXTInfo,
-    DiscCDDBInfo,
-    DiscPhononMetadataInfo
-  };
-
-  DriveStatus driveStatus() const;
-  const QString driveStatusString() const;
-
-  DiscStatus discStatus() const;
-  const QString discStatusString() const;
-
-  DiscType discType() const;
-  const QString discTypeString() const;
-
-  DiscInfo discInfo() const;
-  const QString discInfoString() const;
-
 public slots:
   void lookupCDDB();
   bool submitCDDB();
+
   void eject();
 
-  void play(const unsigned int track = 1);
-  void playPos(const unsigned int position);
-  unsigned int position() const;
-  void prev();
-  void next();
-  void pause();
-  void stop();
-
 signals:
-  void driveStatusChanged(const CDDAModel::DriveStatus status);
-  void discStatusChanged(const CDDAModel::DiscStatus status);
-  void discChanged(const CDDAModel::DiscType type);
-  void discInfoChanged(const CDDAModel::DiscInfo info);
+  void audioDiscDetected();
+  void audioDiscRemoved();
 
   void cddbLookupStarted();
   void cddbLookupDone(const bool successful);
@@ -233,23 +186,24 @@ signals:
   void selectionChanged(const int num_selected);
 
 private slots:
-  void slot_disc_changed(unsigned int tracks);
-  void slot_disc_information(KCompactDisc::DiscInfo info);
-  void slot_disc_status_changed(KCompactDisc::DiscStatus status);
+  void new_audio_disc_available(const QString& udi);
+  void audio_disc_removed(const QString& udi);
+
+  void disc_information_modified();
 
   void lookup_cddb_done(KCDDB::Result result);
 
 private:
   QString _device;
-  KCompactDisc *compact_disc;
+  QString _udi;
+  CDDAParanoia *pn;
+  CDDADevices *devices;
+
   KCDDB::Client *cddb;
   KCDDB::CDInfo cd_info;
   CachedImage *_cover;
   bool modified;
-  DriveStatus drive_status;
-  DiscStatus disc_status;
-  DiscType disc_type;
-  DiscInfo disc_info;
+  bool _empty; // no metadata available yet
   Error error;
   bool cddb_transaction_pending;
 

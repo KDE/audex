@@ -18,21 +18,20 @@
 
 #include "cddamodel.h"
 
-CDDAModel::CDDAModel(QObject *parent, const QString& device) : QAbstractTableModel(parent) {
+CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
 
-  cddb_transaction_pending = FALSE;
+  pn = 0;
+  _device.clear();
+  _udi.clear();
 
-  compact_disc = new KCompactDisc();
-  if (!compact_disc) {
-    kDebug() << "Unable to create KCompactDisc object. Low mem?";
-    error = Error(i18n("Unable to create KCompactDisc object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
+  devices = new CDDADevices(this);
+  if (!devices) {
+    kDebug() << "Unable to create devices object. low mem?";
+    error = Error(i18n("Unable to create devices object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
     return;
   }
-
-  setDevice(device);
-  connect(compact_disc, SIGNAL(discChanged(unsigned int)), this, SLOT(slot_disc_changed(unsigned int)));
-  connect(compact_disc, SIGNAL(discInformation(KCompactDisc::DiscInfo)), this, SLOT(slot_disc_information(KCompactDisc::DiscInfo)));
-  connect(compact_disc, SIGNAL(discStatusChanged(KCompactDisc::DiscStatus)), this, SLOT(slot_disc_status_changed(KCompactDisc::DiscStatus)));
+  connect(devices, SIGNAL(audioDiscDetected(const QString&)), this, SLOT(new_audio_disc_available(const QString&)));
+  connect(devices, SIGNAL(audioDiscRemoved(const QString&)), this, SLOT(audio_disc_removed(const QString&)));
 
   cddb = new KCDDB::Client();
   if (!cddb) {
@@ -42,15 +41,15 @@ CDDAModel::CDDAModel(QObject *parent, const QString& device) : QAbstractTableMod
   }
   connect(cddb, SIGNAL(finished(KCDDB::Result)), this, SLOT(lookup_cddb_done(KCDDB::Result)));
 
+  cddb_transaction_pending = FALSE;
+
   _cover = new CachedImage();
 
   cd_info.clear();
   modified = FALSE;
+  _empty = TRUE;
 
-  drive_status = DriveNoStatus;
-  disc_status = DiscNoStatus;
-  disc_type = DiscNoType;
-  disc_info = DiscNoInfo;
+  QTimer::singleShot(2000, devices, SLOT(scanBus()));
 
 }
 
@@ -58,17 +57,15 @@ CDDAModel::~CDDAModel() {
 
   delete _cover;
   delete cddb;
-  delete compact_disc;
+  delete devices;
 
-}
+  if (pn) delete pn;
 
-void CDDAModel::setDevice(const QString& device) {
-  this->_device = device;
-  if (!device.isEmpty()) compact_disc->setDevice(device, 50, FALSE);
 }
 
 int CDDAModel::rowCount(const QModelIndex &parent) const {
-  return parent.isValid()?0:compact_disc->tracks();
+  if (!pn) return 0;
+  return parent.isValid()?0:pn->numOfTracks();
 }
 
 int CDDAModel::columnCount(const QModelIndex &parent) const {
@@ -78,7 +75,7 @@ int CDDAModel::columnCount(const QModelIndex &parent) const {
 
 QVariant CDDAModel::data(const QModelIndex &index, int role) const {
 
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) {
+  if (!pn) {
     return QVariant();
   }
 
@@ -126,17 +123,13 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
       case CDDA_MODEL_COLUMN_ARTIST_INDEX :
 			if (isAudioTrack(index.row()+1)) {
                           QString a = cd_info.track(index.row()).get(KCDDB::Artist).toString();
-			  if (a.isEmpty()) return compact_disc->trackArtist(index.row()+1);
                           return a;
                         }
 			break;
       case CDDA_MODEL_COLUMN_TITLE_INDEX :
 			if (isAudioTrack(index.row()+1)) {
                           QString t = cd_info.track(index.row()).get(KCDDB::Title).toString();
-                          if (t.isEmpty()) {
-			    if (disc_info == DiscNoInfo) return i18n("Track %1", index.row()+1);
-			    return compact_disc->trackTitle(index.row()+1);
-			  }
+                          if (t.isEmpty()) return i18n("Track %1", index.row()+1);
 			  return t;
                         }
 			break;
@@ -151,7 +144,7 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
 
 bool CDDAModel::setData(const QModelIndex &index, const QVariant &value, int role) {
 
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) {
+  if (!pn) {
     return FALSE;
   }
 
@@ -234,48 +227,38 @@ Qt::ItemFlags CDDAModel::flags(const QModelIndex &index) const {
 }
 
 void CDDAModel::setArtist(const QString& a) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (a != cd_info.get(KCDDB::Artist).toString()) {
-    if (a.isEmpty()) {
-      cd_info.set(KCDDB::Artist, compact_disc->discArtist());
-    } else {
-      cd_info.set(KCDDB::Artist, a);
-    }
+    cd_info.set(KCDDB::Artist, a);
     modify();
     reset();
   }
 }
 
 const QString CDDAModel::artist() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QString();
+  if (!pn) return QString();
   QString a = cd_info.get(KCDDB::Artist).toString();
-  if (a.isEmpty()) return compact_disc->discArtist();
   return a;
 }
 
 void CDDAModel::setTitle(const QString& t) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (t != cd_info.get(KCDDB::Title).toString()) {
-    if (t.isEmpty()) {
-      cd_info.set(KCDDB::Title, compact_disc->discTitle());
-    } else {
-      cd_info.set(KCDDB::Title, t);
-    }
+    cd_info.set(KCDDB::Title, t);
     modify();
     reset();
   }
 }
 
 const QString CDDAModel::title() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QString();
+  if (!pn) return QString();
   QString t = cd_info.get(KCDDB::Title).toString();
-  if (t.isEmpty()) return compact_disc->discTitle();
   return t;
 }
 
 void CDDAModel::setCategory(const QString& c) {
 
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
 
   QStringList validCategories;
   validCategories << "blues" << "classical" << "country"
@@ -292,12 +275,12 @@ void CDDAModel::setCategory(const QString& c) {
 }
 
 const QString CDDAModel::category() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QString();
+  if (!pn) return QString();
   return cd_info.get(KCDDB::Category).toString();
 }
 
 void CDDAModel::setGenre(const QString& g) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (g != cd_info.get(KCDDB::Genre).toString()) {
     cd_info.set(KCDDB::Genre, g);
     modify();
@@ -306,12 +289,12 @@ void CDDAModel::setGenre(const QString& g) {
 }
 
 const QString CDDAModel::genre() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QString();
+  if (!pn) return QString();
   return cd_info.get(KCDDB::Genre).toString();
 }
 
 void CDDAModel::setYear(const QString& year) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (year != cd_info.get(KCDDB::Year).toString()) {
     cd_info.set(KCDDB::Year, year);
     modify();
@@ -320,12 +303,12 @@ void CDDAModel::setYear(const QString& year) {
 }
 
 const QString CDDAModel::year() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QString();
+  if (!pn) return QString();
   return cd_info.get(KCDDB::Year).toString();
 }
 
 void CDDAModel::setExtendedData(const QStringList& e) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (e != cd_info.get(KCDDB::Comment).toStringList()) {
     cd_info.set(KCDDB::Comment, e);
     modify();
@@ -334,12 +317,12 @@ void CDDAModel::setExtendedData(const QStringList& e) {
 }
 
 const QStringList CDDAModel::extendedData() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QStringList();
+  if (!pn) return QStringList();
   return cd_info.get(KCDDB::Comment).toStringList();
 }
 
 void CDDAModel::setCDNum(const int n) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (n != cd_info.get("DNO").toInt()) {
     cd_info.set("DNO", n);
     modify();
@@ -348,13 +331,13 @@ void CDDAModel::setCDNum(const int n) {
 }
 
 int CDDAModel::cdNum() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return -1;
+  if (!pn) return -1;
   if (!isMultiCD()) return 0;
   return cd_info.get("DNO").toInt();
 }
 
 void CDDAModel::setTrackOffset(const int n) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (n != cd_info.get("DTRACKOFFSET").toInt()) {
     cd_info.set("DTRACKOFFSET", n);
     modify();
@@ -363,13 +346,14 @@ void CDDAModel::setTrackOffset(const int n) {
 }
 
 int CDDAModel::trackOffset() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return 1;
+  if (!pn) return -1;
   return cd_info.get("DTRACKOFFSET").toInt();
 }
 
 int CDDAModel::guessMultiCD(QString& newTitle) const {
 
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return -1;
+  if (!pn) return -1;
+
   QString t = cd_info.get(KCDDB::Title).toString();
   QRegExp rx1("[\\(|\\[]* *([c|C][d|D]|[d|D][i|I][s|S][k|c|K|C]) *[0-9]* *[\\)|\\]]* *$");
   int i = rx1.indexIn(t);
@@ -391,7 +375,7 @@ int CDDAModel::guessMultiCD(QString& newTitle) const {
 }
 
 void CDDAModel::setMultiCD(const bool multi) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (multi != cd_info.get("DMULTICD").toBool()) {
     cd_info.set("DMULTICD", multi);
     modify();
@@ -400,12 +384,12 @@ void CDDAModel::setMultiCD(const bool multi) {
 }
 
 bool CDDAModel::isMultiCD() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
+  if (!pn) return FALSE;
   return cd_info.get("DMULTICD").toBool();
 }
 
 void CDDAModel::setCustomData(const QString& type, const QVariant& data) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (data != cd_info.get(type)) {
     cd_info.set(type, data);
     modify();
@@ -414,12 +398,12 @@ void CDDAModel::setCustomData(const QString& type, const QVariant& data) {
 }
 
 const QVariant CDDAModel::customData(const QString& type) const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QVariant();
+  if (!pn) return QVariant();
   return cd_info.get(type);
 }
 
 void CDDAModel::setCustomDataPerTrack(const int n, const QString& type, const QVariant& data) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (data != cd_info.track(n).get(type)) {
     cd_info.track(n).set(type, data);
     modify();
@@ -428,7 +412,7 @@ void CDDAModel::setCustomDataPerTrack(const int n, const QString& type, const QV
 }
 
 const QVariant CDDAModel::getCustomDataPerTrack(const int n, const QString& type) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return QVariant();
+  if (!pn) return QVariant();
   return cd_info.track(n).get(type);
 }
 
@@ -488,7 +472,7 @@ const QString CDDAModel::coverSupportedMimeTypeList() const {
 }
 
 bool CDDAModel::guessVarious() const {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
+  if (!pn) return FALSE;
   QString a;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
     if ((i > 0) && (cd_info.track(i).get(KCDDB::Artist).toString().toLower() != a.toLower())) return TRUE;
@@ -498,7 +482,7 @@ bool CDDAModel::guessVarious() const {
 }
 
 void CDDAModel::setVarious(bool various) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   if (various != cd_info.get("DVARIOUS").toBool()) {
     cd_info.set("DVARIOUS", various);
     modify();
@@ -506,12 +490,12 @@ void CDDAModel::setVarious(bool various) {
 }
 
 bool CDDAModel::isVarious() {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
+  if (!pn) return FALSE;
   return cd_info.get("DVARIOUS").toBool();
 }
 
 void CDDAModel::swapArtistAndTitleOfTracks() {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
     QVariant tmp = cd_info.track(i).get(KCDDB::Artist);
     cd_info.track(i).set(KCDDB::Artist, cd_info.track(i).get(KCDDB::Title));
@@ -522,7 +506,7 @@ void CDDAModel::swapArtistAndTitleOfTracks() {
 }
 
 void CDDAModel::swapArtistAndTitle() {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   QVariant tmp = cd_info.get(KCDDB::Title);
   cd_info.set(KCDDB::Title, cd_info.get(KCDDB::Artist));
   cd_info.set(KCDDB::Artist, tmp);
@@ -531,7 +515,7 @@ void CDDAModel::swapArtistAndTitle() {
 }
 
 void CDDAModel::splitTitleOfTracks(const QString& divider) {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
     int splitPos = cd_info.track(i).get(KCDDB::Title).toString().indexOf(divider);
     if (splitPos >= 0) {
@@ -547,7 +531,7 @@ void CDDAModel::splitTitleOfTracks(const QString& divider) {
 }
 
 void CDDAModel::capitalizeTracks() {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
     cd_info.track(i).set(KCDDB::Artist, capitalize(cd_info.track(i).get(KCDDB::Artist).toString()));
     cd_info.track(i).set(KCDDB::Title, capitalize(cd_info.track(i).get(KCDDB::Title).toString()));
@@ -557,7 +541,7 @@ void CDDAModel::capitalizeTracks() {
 }
 
 void CDDAModel::capitalizeHeader() {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   cd_info.set(KCDDB::Artist, capitalize(cd_info.get(KCDDB::Artist).toString()));
   cd_info.set(KCDDB::Title, capitalize(cd_info.get(KCDDB::Title).toString()));
   modified = TRUE; emit cddbDataModified();
@@ -565,7 +549,7 @@ void CDDAModel::capitalizeHeader() {
 }
 
 void CDDAModel::setTitleArtistsFromHeader() {
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
     cd_info.track(i).set(KCDDB::Artist, cd_info.get(KCDDB::Artist));
   }
@@ -574,7 +558,8 @@ void CDDAModel::setTitleArtistsFromHeader() {
 }
 
 int CDDAModel::numOfTracks() const {
-  return compact_disc->tracks();
+  if (!pn) return 0;
+  return pn->numOfTracks();
 }
 
 int CDDAModel::numOfAudioTracks() const {
@@ -590,7 +575,8 @@ int CDDAModel::numOfAudioTracksInSelection() const {
 }
 
 int CDDAModel::length() const {
-  return compact_disc->discLength();
+  if (!pn) return 0;
+  return pn->length();
 }
 
 int CDDAModel::lengthOfAudioTracks() const {
@@ -611,15 +597,18 @@ int CDDAModel::lengthOfAudioTracksInSelection() const {
 }
 
 int CDDAModel::lengthOfTrack(int n) const {
-  return compact_disc->trackLength(n);
+  if (!pn) return 0;
+  return pn->lengthOfTrack(n);
 }
 
 const QList<quint32> CDDAModel::discSignature() const {
-  return compact_disc->discSignature();
+  if (!pn) return QList<quint32>();
+  return pn->discSignature();
 }
 
 bool CDDAModel::isAudioTrack(int n) const {
-  return compact_disc->isAudio(n);
+  if (!pn) return FALSE;
+  return pn->isAudioTrack(n);
 }
 
 void CDDAModel::clear() {
@@ -672,66 +661,9 @@ Error CDDAModel::lastError() const {
   return error;
 }
 
-CDDAModel::DriveStatus CDDAModel::driveStatus() const {
-  return drive_status;
-}
-
-const QString CDDAModel::driveStatusString() const {
-  switch (drive_status) {
-    case DriveEmpty : return i18n("No disc in drive");
-    case DriveReady : return i18n("Disc in drive");
-    case DriveOpen : return i18n("Drive tray open");
-    case DriveNotReady : return i18n("Drive not ready");
-    case DriveError : return i18n("Drive error");
-    default : ;
-  }
-  return i18n("No drive status available");
-}
-
-CDDAModel::DiscStatus CDDAModel::discStatus() const {
-  return disc_status;
-}
-
-const QString CDDAModel::discStatusString() const {
-  switch (disc_status) {
-    case DiscPlaying : return i18n("Disc playing");
-    case DiscPaused : return i18n("Disc paused");
-    case DiscStopped : return i18n("Disc stopped");
-    default : ;
-  }
-  return i18n("No disc status available");
-}
-
-CDDAModel::DiscType CDDAModel::discType() const {
-  return disc_type;
-}
-
-const QString CDDAModel::discTypeString() const {
-  switch (disc_type) {
-    case DiscContainsAudioTracks : return i18n("Audio disc");
-    case DiscContainsNoAudioTracks : return i18n("No audio disc");
-    default : ;
-  }
-  return i18n("No disc type information available");
-}
-
-CDDAModel::DiscInfo CDDAModel::discInfo() const {
-  return disc_info;
-}
-
-const QString CDDAModel::discInfoString() const {
-  switch (disc_info) {
-    case DiscCDTEXTInfo : return i18n("CD-Text");
-    case DiscCDDBInfo : return i18n("CDDB");
-    case DiscPhononMetadataInfo : return i18n("Phonon Metadata");
-    default : ;
-  }
-  return i18n("No disc information available");
-}
-
 void CDDAModel::lookupCDDB() {
 
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (!pn) return;
 
   kDebug() << "lookupCDDB called";
 
@@ -745,13 +677,13 @@ void CDDAModel::lookupCDDB() {
 
   cddb->config().reparse();
   cddb->setBlockingMode(FALSE);
-  cddb->lookup(compact_disc->discSignature());
+  cddb->lookup(pn->discSignature());
 
 }
 
 bool CDDAModel::submitCDDB() {
 
-  if (compact_disc->isNoDisc() || (compact_disc->discId()==0)) return TRUE;
+  if (!pn) return TRUE;
 
   kDebug() << "submitCDDB called";
 
@@ -768,7 +700,7 @@ bool CDDAModel::submitCDDB() {
   if (category().isEmpty()) {
     setCategory("rock");
   }
-  KCDDB::Result result = cddb->submit(cd_info, compact_disc->discSignature());
+  KCDDB::Result result = cddb->submit(cd_info, pn->discSignature());
 
   if (result != KCDDB::Success) {
     switch (result) {
@@ -799,104 +731,61 @@ bool CDDAModel::submitCDDB() {
 }
 
 void CDDAModel::eject() {
-  compact_disc->eject();
+  devices->eject(_udi);
 }
 
-void CDDAModel::play(const unsigned int track) {
-  compact_disc->playTrack(track);
-}
+void CDDAModel::new_audio_disc_available(const QString& udi) {
 
-void CDDAModel::playPos(const unsigned int position) {
-  compact_disc->playPosition(position);
-}
+  if (pn) return;
 
-unsigned int CDDAModel::position() const {
-  return compact_disc->trackPosition();
-}
+  _device = devices->blockDevice(udi);
+  _udi = udi;
 
-void CDDAModel::prev() {
-  compact_disc->prev();
-}
+  pn = new CDDAParanoia(this);
+  if (!pn) {
+    kDebug() << "Unable to create paranoia class. low mem?";
+    error = Error(i18n("Unable to create CDDA paranoia object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
+    return;
+  }
+  pn->setDevice(_device);
 
-void CDDAModel::next() {
-  compact_disc->next();
-}
-
-void CDDAModel::pause() {
-  compact_disc->pause();
-}
-
-void CDDAModel::stop() {
-  compact_disc->stop();
-}
-
-void CDDAModel::slot_disc_changed(unsigned int tracks) {
-
-  kDebug() << "driveChanged (" << tracks << ")";
+  kDebug() << "new audio disc detected (" << udi << ", " << _device << ")";
 
   clear();
   confirm();
 
   sel_tracks.clear();
-  for (unsigned int i = 1; i <= tracks; ++i) {
+  for (int i = 1; i <= pn->numOfTracks(); ++i) {
     if (isAudioTrack(i)) sel_tracks.insert(i);
   }
 
   emit hasSelection(0 != sel_tracks.size());
 
-  if (tracks > 0) disc_type = DiscContainsAudioTracks; else disc_type = DiscContainsNoAudioTracks;
-  emit discChanged(disc_type);
+  emit audioDiscDetected();
 
 }
 
-void CDDAModel::slot_disc_information(KCompactDisc::DiscInfo info) {
+void CDDAModel::audio_disc_removed(const QString& udi) {
 
-  kDebug() << "infoChanged (" << info << ")";
+  kDebug() << "audio disc removed (" << udi << ")";
 
-  switch (info) {
-    case KCompactDisc::Cdtext : disc_info = DiscCDTEXTInfo; break;
-    case KCompactDisc::Cddb : disc_info = DiscCDDBInfo; break;
-    case KCompactDisc::PhononMetadata : disc_info = DiscPhononMetadataInfo; break;
-  }
+  _device.clear();
+  _udi.clear();
+
+  if (pn) delete pn;
+  pn = NULL;
+
+  emit audioDiscRemoved();
+
+}
+
+void CDDAModel::disc_information_modified() {
+
+  kDebug() << "disc info changed";
 
   set_default_values();
   setVarious(guessVarious());
   reset();
-
-  emit discInfoChanged(disc_info);
-
-}
-
-void CDDAModel::slot_disc_status_changed(KCompactDisc::DiscStatus status) {
-
-  kDebug() << "statusChanged (" << status << ")";
-
-  DriveStatus ds = drive_status;
-
-  switch (status) {
-
-    case KCompactDisc::Playing : disc_status = DiscPlaying; drive_status = DriveReady; break;
-    case KCompactDisc::Paused : disc_status = DiscPaused; drive_status = DriveReady; break;
-    case KCompactDisc::Stopped : disc_status = DiscStopped; drive_status = DriveReady; break;
-
-    case KCompactDisc::Ejected : disc_status = DiscNoStatus; drive_status = DriveOpen; break;
-    case KCompactDisc::NoDisc : disc_status = DiscNoStatus; drive_status = DriveEmpty; break;
-    case KCompactDisc::NotReady : disc_status = DiscNoStatus; drive_status = DriveNotReady; break;
-    case KCompactDisc::Error : disc_status = DiscNoStatus; drive_status = DriveError; break;
-
-    default : break;
-
-  }
-
-  if (disc_status == DiscNoStatus) {
-    disc_info = DiscNoInfo;
-    emit discInfoChanged(disc_info);
-  }
-
-  if (ds != drive_status) emit driveStatusChanged(drive_status);
-  emit discStatusChanged(disc_status);
-
-  stop();
 
 }
 
@@ -912,10 +801,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
       case KCDDB::NoRecordFound : ;
       case KCDDB::MultipleRecordFound : ;
       case KCDDB::Success : ;
-      default : if (disc_info == DiscNoInfo)
-	          error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database. Please enter the data manually. Maybe try another CDDB server."), Error::ERROR, this);
-		else
-		  error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database."), Error::ERROR, this);
+      default : error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database."), Error::ERROR, this);
     }
     emit cddbLookupDone(FALSE);
     return;
@@ -938,7 +824,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
       NULL);
 
     if (ok) {
-      // The user selected and item and pressed OK
+      // The user selected an item and pressed OK
       int c = 0;
       for (QStringList::Iterator it = list.begin(); it != list.end(); ++it) {
         if (*it==res) break;
@@ -948,16 +834,15 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
     } else {
       emit cddbLookupDone(TRUE);
       return;
-      // user pressed Cancel
+      // user pressed cancel
     }
 
   }
 
   cd_info = info;
   set_default_values();
-  disc_info = DiscCDDBInfo;
   setVarious(guessVarious());
-  if(isVarious() && QLatin1String("Various")==artist()) {
+  if (isVarious() && QLatin1String("Various") == artist()) {
     setArtist(i18n("Various Artists"));
   }
 
@@ -972,9 +857,9 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
 
   cddb_transaction_pending = FALSE;
 
-  emit cddbLookupDone(TRUE);
+  _empty = FALSE;
 
-  emit discInfoChanged(disc_info);
+  emit cddbLookupDone(TRUE);
 
 }
 
@@ -1014,7 +899,8 @@ void CDDAModel::set_default_values() {
 
 void CDDAModel::modify() {
 
-  modified = TRUE; emit cddbDataModified();
-  if (disc_info==DiscNoInfo) { disc_info = DiscManualInfo; emit discInfoChanged(disc_info); }
+  modified = TRUE;
+  _empty = FALSE;
+  emit cddbDataModified();
 
 }

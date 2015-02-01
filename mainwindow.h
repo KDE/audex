@@ -83,10 +83,8 @@ private Q_SLOTS:
   void rip();
   void configure();
 
-  void drive_status_changed(const CDDAModel::DriveStatus status);
-  void disc_status_changed(const CDDAModel::DiscStatus status);
-  void disc_changed(const CDDAModel::DiscType type);
-  void disc_info_changed(const CDDAModel::DiscInfo info);
+  void new_audio_disc_detected();
+  void audio_disc_removed();
 
   void cddb_lookup_start();
   void cddb_lookup_done(const bool successful);
@@ -124,8 +122,6 @@ private:
 
   QLabel *profile_label;
   KComboBox *profile_combobox;
-  QLabel *status_label;
-  QString status_label_prev;
 
   void setup_actions();
   void setup_layout();

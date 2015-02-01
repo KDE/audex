@@ -25,7 +25,7 @@ Playlist::Playlist() {
 Playlist::Playlist(const QByteArray& playlist) {
 
   addPlaylist(playlist);
-  
+
 }
 
 Playlist::~Playlist() {
@@ -43,7 +43,7 @@ void Playlist::addPlaylist(const QByteArray& playlist) {
   } else if (format == "xspf") {
     p_add_XSPF(playlist);
   }
-  
+
 }
 
 void Playlist::clear() {
@@ -64,10 +64,10 @@ QByteArray Playlist::toM3U(const QString& playlistPath) const {
   playlist.append("#EXTM3U");
 
   for (int i = 0; i < p_playlist.count(); ++i) {
-    
+
     PlaylistItem pi = p_playlist[i];
     if (pi.filename().isEmpty()) continue;
-    
+
     if (!pi.artist().isEmpty()) {
       playlist.append(QString("#EXTINF:%1,%2 - %3").arg(pi.length()).arg(pi.artist()).arg(pi.title()));
     } else {
@@ -112,14 +112,14 @@ QByteArray Playlist::toPLS(const QString& playlistPath) const {
     }
 
     playlist.append(QString("Length%1=%2").arg(i+1).arg(pi.length()));
-    
+
   }
 
   playlist.append(QString("NumberOfEntries=%1").arg(j));
   playlist.append(QString("Version=2"));
 
   return playlist.join("\n").append("\n").toUtf8();
-  
+
 }
 
 QByteArray Playlist::toXSPF() const {
@@ -158,7 +158,7 @@ QByteArray Playlist::toXSPF() const {
       ch.appendChild(text);
       track.appendChild(ch);
     }
-    
+
     ch = doc.createElement("title");
     text = doc.createTextNode(pi.title());
     ch.appendChild(text);
@@ -194,7 +194,7 @@ const QString Playlist::p_playlist_format(const QByteArray& playlist) {
   if (playlist.contains("<playlist") && playlist.contains("<trackList")) return "xspf";
 
   return QString();
-  
+
 }
 
 void Playlist::p_add_M3U(const QByteArray& playlist) {
@@ -330,7 +330,7 @@ void Playlist::p_add_XSPF(const QByteArray& playlist) {
 const PlaylistItem Playlist::p_parse_m3u_metadata_line(const QString& line) {
 
   PlaylistItem pi;
-  
+
   QString info = line.section(':', 1);
   QString l = info.section(',', 0, 0);
   bool ok;
@@ -339,7 +339,7 @@ const PlaylistItem Playlist::p_parse_m3u_metadata_line(const QString& line) {
     return pi;
   }
   pi.setLength(length);
-  
+
   QString track_info = info.section(',', 1);
   QStringList list = track_info.split('-');
   if (list.length() <= 1) {
