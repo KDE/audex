@@ -114,12 +114,13 @@ void CDDADevices::p_solid_device_removed(const QString& udi)
 
   OpticalAudioDisc *disc = p_discs.value(udi, NULL);
 
-  kDebug() << "Optical audio disc removed:" << udi;
-
-  if (disc) delete disc;
-
-  p_discs.remove(udi);
-  emit audioDiscRemoved(udi);
+  if (disc)
+  {
+    kDebug() << "Optical audio disc removed:" << udi;
+    delete disc;
+    p_discs.remove(udi);
+    emit audioDiscRemoved(udi);
+  }
 
 }
 
@@ -127,18 +128,8 @@ bool CDDADevices::p_is_optical_audio_disc(const Solid::Device& device) const
 {
 
   if (device.is<Solid::OpticalDisc>())
-  {
-    const Solid::OpticalDisc *disc = device.as<Solid::OpticalDisc>();
-    kDebug() << "Detected disc type:" << disc->discType();
-    //TODO: There are some drives always reporting discType unknown (-1).
-    //Needs some more testing
-    /*if ((disc->discType() == Solid::OpticalDisc::CdRom) ||
-      (disc->discType() == Solid::OpticalDisc::CdRecordable) ||
-      (disc->discType() == Solid::OpticalDisc::CdRewritable)) {
-      return (disc->availableContent() & Solid::OpticalDisc::Audio);
-    }*/
-    return (disc->availableContent() & Solid::OpticalDisc::Audio);
-  }
+    return (device.as<Solid::OpticalDisc>()->availableContent() & Solid::OpticalDisc::Audio);
+
   return false;
 
 }
