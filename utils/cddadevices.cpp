@@ -1,7 +1,7 @@
 /*
  * AUDEX CDDA EXTRACTOR
  *
- * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,9 +19,10 @@
  *
  */
 
-#include "cddasolid.h"
+#include "cddadevices.h"
 
-CDDASolid::CDDASolid(QObject *parent) {
+CDDADevices::CDDADevices(QObject *parent)
+{
 
   Q_UNUSED(parent);
 
@@ -30,75 +31,74 @@ CDDASolid::CDDASolid(QObject *parent) {
 
 }
 
-CDDASolid::~CDDASolid() {
+CDDADevices::~CDDADevices()
+{
 
   p_clear();
 
 }
 
-const QString CDDASolid::blockDevice(const QString& udi) const {
+const QString CDDADevices::blockDevice(const QString& udi) const
+{
 
   OpticalAudioDisc *disc = p_discs.value(udi, NULL);
   if (!disc) return QString();
 
-  const Solid::GenericInterface *gen = disc->device.as<Solid::GenericInterface>();
-  return gen->allProperties().value("DeviceFile").toString();
+  Solid::Device device(disc->device.parentUdi());
+  if (device.is<Solid::Block>()) return device.as<Solid::Block>()->device();
+
+  return QString();
 
 }
 
-int CDDASolid::discCount() const {
+int CDDADevices::discCount() const
+{
 
   return p_discs.count();
 
 }
 
-void CDDASolid::scanBus() {
+void CDDADevices::scanBus()
+{
 
   p_clear();
 
   QList<Solid::Device> list = Solid::Device::listFromType(Solid::DeviceInterface::OpticalDisc, QString());
 
-  for (int i = 0; i < list.count(); ++i) {
+  for (int i = 0; i < list.count(); ++i)
     p_solid_device_added(list.value(i).udi());
-  }
 
 }
 
-void CDDASolid::requestEject(const QString& udi) {
+void CDDADevices::eject(const QString& udi)
+{
 
   OpticalAudioDisc *disc = p_discs.value(udi, NULL);
   if (!disc) return;
 
-  Solid::Device device = disc->device;
-  if (!p_is_optical_audio_disc_in_drive(device)) return;
-  const Solid::GenericInterface *gen = device.as<Solid::GenericInterface>();
-
-  QString driveUdi = gen->allProperties().value("block.storage_device").toString();
-  Solid::Device device2(driveUdi);
-  if (device2.is<Solid::OpticalDrive>()) {
-    Solid::OpticalDrive *opticalDrive = device2.as<Solid::OpticalDrive>();
-    opticalDrive->eject();
-  }
+  Solid::Device device(disc->device.parentUdi());
+  device.as<Solid::OpticalDrive>()->eject();
 
 }
 
-void CDDASolid::setName(const QString& udi, const QString& name) {
+void CDDADevices::setName(const QString& udi, const QString& name)
+{
 
   OpticalAudioDisc *disc = p_discs.value(udi, NULL);
   if (!disc) return;
 
-  if (disc->name != name) {
-    disc->name = name;
-  }
+  if (disc->name != name) disc->name = name;
 
 }
 
-void CDDASolid::p_solid_device_added(const QString& udi) {
+void CDDADevices::p_solid_device_added(const QString& udi)
+{
 
   Solid::Device device(udi);
 
   kDebug() << "Device found:" << device.udi();
-  if (p_is_optical_audio_disc_in_drive(device)) {
+  if (p_is_optical_audio_disc(device))
+  {
     kDebug() << "is audio.";
     OpticalAudioDisc *disc = new OpticalAudioDisc();
     disc->name = i18n("Audio Disc");
@@ -109,7 +109,8 @@ void CDDASolid::p_solid_device_added(const QString& udi) {
 
 }
 
-void CDDASolid::p_solid_device_removed(const QString& udi) {
+void CDDADevices::p_solid_device_removed(const QString& udi)
+{
 
   OpticalAudioDisc *disc = p_discs.value(udi, NULL);
 
@@ -122,9 +123,11 @@ void CDDASolid::p_solid_device_removed(const QString& udi) {
 
 }
 
-bool CDDASolid::p_is_optical_audio_disc_in_drive(const Solid::Device& device) const {
+bool CDDADevices::p_is_optical_audio_disc(const Solid::Device& device) const
+{
 
-  if (device.is<Solid::OpticalDisc>()) {
+  if (device.is<Solid::OpticalDisc>())
+  {
     const Solid::OpticalDisc *disc = device.as<Solid::OpticalDisc>();
     kDebug() << "Detected disc type:" << disc->discType();
     //TODO: There are some drives always reporting discType unknown (-1).
@@ -140,10 +143,12 @@ bool CDDASolid::p_is_optical_audio_disc_in_drive(const Solid::Device& device) co
 
 }
 
-void CDDASolid::p_clear() {
+void CDDADevices::p_clear()
+{
 
   QHash<QString, OpticalAudioDisc*>::const_iterator i = p_discs.constBegin();
-  while (i != p_discs.constEnd()) {
+  while (i != p_discs.constEnd())
+  {
     if (i.value()) delete i.value();
     ++i;
   }

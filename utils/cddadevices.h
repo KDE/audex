@@ -1,7 +1,7 @@
 /*
  * AUDEX CDDA EXTRACTOR
  *
- * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,8 +19,8 @@
  *
  */
 
-#ifndef CDDASOLID_H
-#define CDDASOLID_H
+#ifndef CDDADEVICES_H
+#define CDDADEVICES_H
 
 #include <QAbstractTableModel>
 #include <QString>
@@ -39,18 +39,20 @@
 #include <Solid/Block>
 #include <Solid/GenericInterface>
 
-struct OpticalAudioDisc {
+struct OpticalAudioDisc
+{
   QString name;
   Solid::Device device;
 };
 
-class CDDASolid : public QObject {
+class CDDADevices : public QObject
+{
 
   Q_OBJECT
 
 public:
-  CDDASolid(QObject *parent = 0);
-  ~CDDASolid();
+  CDDADevices(QObject *parent = 0);
+  ~CDDADevices();
 
   const QString blockDevice(const QString& udi) const;
 
@@ -60,7 +62,7 @@ public:
 public slots:
   void scanBus();
 
-  void requestEject(const QString& udi);
+  void eject(const QString& udi);
 
   //set display name
   void setName(const QString& udi, const QString& name);
@@ -76,7 +78,7 @@ private slots:
 private:
   QHash<QString, OpticalAudioDisc*> p_discs;
 
-  bool p_is_optical_audio_disc_in_drive(const Solid::Device& device) const;
+  bool p_is_optical_audio_disc(const Solid::Device& device) const;
 
   void p_clear();
 

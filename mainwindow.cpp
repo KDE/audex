@@ -186,7 +186,6 @@ void MainWindow::configure() {
 
 void MainWindow::new_audio_disc_detected() {
 
-  status_label->setText(i18n("Audio disc detected"));
   enable_layout(TRUE);
   resizeColumns();
   if (Preferences::cddbLookupAuto()) {
@@ -200,7 +199,6 @@ void MainWindow::new_audio_disc_detected() {
 
 void MainWindow::audio_disc_removed() {
 
-  status_label->setText(i18n("No audio disc detected"));
   enable_layout(FALSE);
 
   update_layout();
@@ -208,8 +206,7 @@ void MainWindow::audio_disc_removed() {
 }
 
 void MainWindow::cddb_lookup_start() {
-  status_label_prev = status_label->text();
-  status_label->setText(i18n("Fetching CDDB information..."));
+
 }
 
 void MainWindow::cddb_lookup_done(const bool successful) {
@@ -217,7 +214,6 @@ void MainWindow::cddb_lookup_done(const bool successful) {
     ErrorDialog::show(this, i18n("CDDB lookup failed, with the following error:\n%1", cdda_model->lastError().message()),
                      cdda_model->lastError().details(), i18n("CDD Lookup Failure"));
   }
-  status_label->setText(status_label_prev);
   update_layout();
   disable_submit();
   if (Preferences::coverLookupAuto()) cdda_header_widget->googleAuto();
@@ -248,6 +244,7 @@ void MainWindow::enable_layout(bool enabled) {
     actionCollection()->action("submit")->setEnabled(enabled);
   else
     actionCollection()->action("submit")->setEnabled(FALSE);
+  actionCollection()->action("eject")->setEnabled(enabled);
   actionCollection()->action("rip")->setEnabled(enabled);
   actionCollection()->action("splittitles")->setEnabled(enabled);
   actionCollection()->action("swapartistsandtitles")->setEnabled(enabled);
@@ -497,8 +494,9 @@ void MainWindow::setup_layout() {
   cdda_header_dock->setWidget(cdda_header_widget);
   addDockWidget(Qt::LeftDockWidgetArea, cdda_header_dock);
 
-  status_label = new QLabel();
-  statusBar()->addWidget(status_label);
+  statusBar()->hide();
+  statusBar()->setMaximumHeight(0);
+
 }
 
 void MainWindow::select_all() {

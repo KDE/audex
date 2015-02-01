@@ -24,14 +24,14 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
   _device.clear();
   _udi.clear();
 
-  solid = new CDDASolid(this);
-  if (!solid) {
-    kDebug() << "Unable to create solid object. low mem?";
-    error = Error(i18n("Unable to create Solid object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
+  devices = new CDDADevices(this);
+  if (!devices) {
+    kDebug() << "Unable to create devices object. low mem?";
+    error = Error(i18n("Unable to create devices object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
     return;
   }
-  connect(solid, SIGNAL(audioDiscDetected(const QString&)), this, SLOT(new_audio_disc_available(const QString&)));
-  connect(solid, SIGNAL(audioDiscRemoved(const QString&)), this, SLOT(audio_disc_removed(const QString&)));
+  connect(devices, SIGNAL(audioDiscDetected(const QString&)), this, SLOT(new_audio_disc_available(const QString&)));
+  connect(devices, SIGNAL(audioDiscRemoved(const QString&)), this, SLOT(audio_disc_removed(const QString&)));
 
   cddb = new KCDDB::Client();
   if (!cddb) {
@@ -49,7 +49,7 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
   modified = FALSE;
   _empty = TRUE;
 
-  QTimer::singleShot(2000, solid, SLOT(scanBus()));
+  QTimer::singleShot(2000, devices, SLOT(scanBus()));
 
 }
 
@@ -57,7 +57,7 @@ CDDAModel::~CDDAModel() {
 
   delete _cover;
   delete cddb;
-  delete solid;
+  delete devices;
 
   if (pn) delete pn;
 
@@ -731,12 +731,14 @@ bool CDDAModel::submitCDDB() {
 }
 
 void CDDAModel::eject() {
-  solid->requestEject(_udi);
+  devices->eject(_udi);
 }
 
 void CDDAModel::new_audio_disc_available(const QString& udi) {
 
-  _device = solid->blockDevice(udi);
+  if (pn) return;
+
+  _device = devices->blockDevice(udi);
   _udi = udi;
 
   pn = new CDDAParanoia(this);
@@ -747,7 +749,7 @@ void CDDAModel::new_audio_disc_available(const QString& udi) {
   }
   pn->setDevice(_device);
 
-  kDebug() << "new audio disc detected (" << udi << ")";
+  kDebug() << "new audio disc detected (" << udi << ", " << _device << ")";
 
   clear();
   confirm();
@@ -772,6 +774,8 @@ void CDDAModel::audio_disc_removed(const QString& udi) {
 
   if (pn) delete pn;
   pn = NULL;
+
+  emit audioDiscRemoved();
 
 }
 

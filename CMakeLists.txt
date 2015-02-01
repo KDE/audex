@@ -48,7 +48,7 @@ set(audex_SRCS
   utils/playlist.cpp
   utils/wavefilewriter.cpp
   utils/cddaparanoia.cpp
-  utils/cddasolid.cpp
+  utils/cddadevices.cpp
   utils/encoderwrapper.cpp
   utils/cddaextractthread.cpp
   utils/upload.cpp

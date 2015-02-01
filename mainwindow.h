@@ -122,8 +122,6 @@ private:
 
   QLabel *profile_label;
   KComboBox *profile_combobox;
-  QLabel *status_label;
-  QString status_label_prev;
 
   void setup_actions();
   void setup_layout();

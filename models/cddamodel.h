@@ -39,7 +39,7 @@
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
 
-#include "utils/cddasolid.h"
+#include "utils/cddadevices.h"
 #include "utils/cddaparanoia.h"
 #include "utils/cachedimage.h"
 
@@ -197,7 +197,7 @@ private:
   QString _device;
   QString _udi;
   CDDAParanoia *pn;
-  CDDASolid *solid;
+  CDDADevices *devices;
 
   KCDDB::Client *cddb;
   KCDDB::CDInfo cd_info;
