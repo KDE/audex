@@ -18,13 +18,15 @@
 
 #include "profiledataplaylistdialog.h"
 
-ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, const QString &pattern, const bool absFilePath, QWidget *parent) : KDialog(parent) {
+ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, const QString &pattern, const bool absFilePath, const bool utf8, QWidget *parent) : KDialog(parent)
+{
 
   Q_UNUSED(parent);
 
   this->format = format;
   this->pattern = pattern;
   this->absFilePath = absFilePath;
+  this->utf8 = utf8;
 
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
@@ -46,34 +48,46 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, cons
     ui.kcombobox_format->setCurrentIndex(i);
   }
   enable_abs_file_path(!(format == "XSPF"));
+  enable_utf8(!(format == "XSPF"));
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
-  
+
   ui.klineedit_pattern->setText(pattern);
   connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   ui.checkBox_abs_file_path->setChecked(absFilePath);
   connect(ui.checkBox_abs_file_path, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
-  enableButtonApply(FALSE);
+  ui.checkBox_utf8->setChecked(utf8);
+  connect(ui.checkBox_utf8, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+
+  enableButtonApply(false);
   showButtonSeparator(true);
 
 }
 
-ProfileDataPlaylistDialog::~ProfileDataPlaylistDialog() {
+ProfileDataPlaylistDialog::~ProfileDataPlaylistDialog()
+{
 }
 
-void ProfileDataPlaylistDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
+void ProfileDataPlaylistDialog::slotButtonClicked(int button)
+{
+  if (button == KDialog::Ok)
+  {
     save();
     accept();
-  } else if (button == KDialog::Apply) {
+  }
+  else if (button == KDialog::Apply)
+  {
     save();
-  } else {
+  }
+  else
+  {
     KDialog::slotButtonClicked(button);
   }
 }
 
-void ProfileDataPlaylistDialog::pattern_wizard() {
+void ProfileDataPlaylistDialog::pattern_wizard()
+{
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
@@ -89,22 +103,33 @@ void ProfileDataPlaylistDialog::pattern_wizard() {
 
 }
 
-void ProfileDataPlaylistDialog::trigger_changed() {
+void ProfileDataPlaylistDialog::trigger_changed()
+{
   enable_abs_file_path(ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != "XSPF");
-  if (ui.checkBox_abs_file_path->isChecked() != absFilePath) { enableButtonApply(TRUE); return; }
-  if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  enable_utf8(ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != "XSPF");
+  if (ui.checkBox_abs_file_path->isChecked() != absFilePath) { enableButtonApply(true); return; }
+  if (ui.checkBox_utf8->isChecked() != utf8) { enableButtonApply(true); return; }
+  if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(true); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
-void ProfileDataPlaylistDialog::enable_abs_file_path(bool enabled) {
+void ProfileDataPlaylistDialog::enable_abs_file_path(bool enabled)
+{
   ui.checkBox_abs_file_path->setEnabled(enabled);
 }
 
-bool ProfileDataPlaylistDialog::save() {
+void ProfileDataPlaylistDialog::enable_utf8(bool enabled)
+{
+  ui.checkBox_utf8->setEnabled(enabled);
+}
+
+bool ProfileDataPlaylistDialog::save()
+{
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
   pattern = ui.klineedit_pattern->text();
   absFilePath = ui.checkBox_abs_file_path->isChecked();
-  enableButtonApply(FALSE);
-  return TRUE;
+  utf8 = ui.checkBox_utf8->isChecked();
+  enableButtonApply(false);
+  return true;
 }

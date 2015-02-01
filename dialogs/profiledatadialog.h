@@ -46,7 +46,8 @@
 
 #include "ui_profiledatawidgetUI.h"
 
-class ProfileDataDialog : public KDialog {
+class ProfileDataDialog : public KDialog
+{
 
   Q_OBJECT
 
@@ -110,6 +111,7 @@ private:
   QString pdpd_format;
   QString pdpd_pattern;
   bool pdpd_abs_file_path;
+  bool pdpd_utf8;
 
   QStringList pdid_text;
   QString pdid_pattern;

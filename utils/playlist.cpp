@@ -18,11 +18,13 @@
 
 #include "playlist.h"
 
-Playlist::Playlist() {
+Playlist::Playlist()
+{
 
 }
 
-Playlist::Playlist(const QByteArray& playlist) {
+Playlist::Playlist(const QByteArray& playlist)
+{
 
   addPlaylist(playlist);
 
@@ -32,82 +34,108 @@ Playlist::~Playlist() {
 
 }
 
-void Playlist::addPlaylist(const QByteArray& playlist) {
+void Playlist::addPlaylist(const QByteArray& playlist)
+{
 
   QString format = p_playlist_format(playlist);
 
-  if (format == "m3u") {
+  if (format == "m3u")
+  {
     p_add_M3U(playlist);
-  } else if (format == "pls") {
+  }
+  else if (format == "pls")
+  {
     p_add_PLS(playlist);
-  } else if (format == "xspf") {
+  }
+  else if (format == "xspf")
+  {
     p_add_XSPF(playlist);
   }
 
 }
 
-void Playlist::clear() {
+void Playlist::clear()
+{
 
   p_playlist.clear();
 
 }
 
-void Playlist::appendItem(const PlaylistItem& item) {
+void Playlist::appendItem(const PlaylistItem& item)
+{
 
   p_playlist.append(item);
 
 }
 
-QByteArray Playlist::toM3U(const QString& playlistPath) const {
+QByteArray Playlist::toM3U(const QString& playlistPath, const bool utf8) const {
 
   QStringList playlist;
   playlist.append("#EXTM3U");
 
-  for (int i = 0; i < p_playlist.count(); ++i) {
+  for (int i = 0; i < p_playlist.count(); ++i)
+  {
 
     PlaylistItem pi = p_playlist[i];
     if (pi.filename().isEmpty()) continue;
 
-    if (!pi.artist().isEmpty()) {
+    if (!pi.artist().isEmpty())
+    {
       playlist.append(QString("#EXTINF:%1,%2 - %3").arg(pi.length()).arg(pi.artist()).arg(pi.title()));
-    } else {
+    }
+    else
+    {
       playlist.append(QString("#EXTINF:%1,%2").arg(pi.length()).arg(pi.title()));
     }
-    if (!playlistPath.isEmpty()) {
+    if (!playlistPath.isEmpty())
+    {
       QDir dir(playlistPath);
       playlist.append(dir.relativeFilePath(pi.filename()));
-    } else {
+    }
+    else
+    {
       playlist.append(pi.filename());
     }
 
   }
 
-  return playlist.join("\n").append("\n").toUtf8();
+  if (utf8)
+    return playlist.join("\n").append("\n").toUtf8();
+  else
+    return playlist.join("\n").append("\n").toLatin1();
 
 }
 
-QByteArray Playlist::toPLS(const QString& playlistPath) const {
+QByteArray Playlist::toPLS(const QString& playlistPath, const bool utf8) const
+{
 
   QStringList playlist;
   playlist.append("[Playlist]");
 
   int j = 0;
-  for (int i = 0; i < p_playlist.count(); ++i) {
+  for (int i = 0; i < p_playlist.count(); ++i)
+  {
     PlaylistItem pi = p_playlist[i];
 
     if (pi.filename().isEmpty()) continue;
     ++j;
 
-    if (!playlistPath.isEmpty()) {
+    if (!playlistPath.isEmpty())
+    {
       QDir dir(playlistPath);
       playlist.append(QString("File%1=%2").arg(i+1).arg(dir.relativeFilePath(pi.filename())));
-    } else {
+    }
+    else
+    {
       playlist.append(QString("File%1=%2").arg(i+1).arg(pi.filename()));
     }
 
-    if (!pi.artist().isEmpty()) {
+    if (!pi.artist().isEmpty())
+    {
       playlist.append(QString("Title%1=%2 - %3").arg(i+1).arg(pi.artist()).arg(pi.title()));
-    } else {
+    }
+    else
+    {
       playlist.append(QString("Title%1=%2").arg(i+1).arg(pi.title()));
     }
 
@@ -118,11 +146,15 @@ QByteArray Playlist::toPLS(const QString& playlistPath) const {
   playlist.append(QString("NumberOfEntries=%1").arg(j));
   playlist.append(QString("Version=2"));
 
-  return playlist.join("\n").append("\n").toUtf8();
+  if (utf8)
+    return playlist.join("\n").append("\n").toUtf8();
+  else
+    return playlist.join("\n").append("\n").toLatin1();
 
 }
 
-QByteArray Playlist::toXSPF() const {
+QByteArray Playlist::toXSPF() const
+{
 
   QDomDocument doc;
   QDomElement root = doc.createElement("playlist");
@@ -137,7 +169,8 @@ QByteArray Playlist::toXSPF() const {
   QDomElement tracklist = doc.createElement("trackList");
 
   int j = 0;
-  for (int i = 0; i < p_playlist.count(); ++i) {
+  for (int i = 0; i < p_playlist.count(); ++i)
+  {
 
     PlaylistItem pi = p_playlist[i];
 
@@ -152,7 +185,8 @@ QByteArray Playlist::toXSPF() const {
     ch.appendChild(text);
     track.appendChild(ch);
 
-    if (!pi.artist().isEmpty()) {
+    if (!pi.artist().isEmpty())
+    {
       ch = doc.createElement("creator");
       text = doc.createTextNode(pi.artist());
       ch.appendChild(text);
@@ -169,7 +203,8 @@ QByteArray Playlist::toXSPF() const {
     ch.appendChild(text);
     track.appendChild(ch);
 
-    if (pi.length() > 0) {
+    if (pi.length() > 0)
+    {
       ch = doc.createElement("duration");
       text = doc.createTextNode(QString::number(pi.length()*1000));
       ch.appendChild(text);
@@ -180,14 +215,15 @@ QByteArray Playlist::toXSPF() const {
 
   }
 
-   root.appendChild(tracklist);
-   doc.appendChild(root);
-   QByteArray xml_header("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-   return doc.toByteArray().prepend(xml_header);
+  root.appendChild(tracklist);
+  doc.appendChild(root);
+  QByteArray xml_header("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+  return doc.toByteArray().prepend(xml_header);
 
 }
 
-const QString Playlist::p_playlist_format(const QByteArray& playlist) {
+const QString Playlist::p_playlist_format(const QByteArray& playlist)
+{
 
   if (playlist.contains("#EXTM3U") || playlist.contains("#EXTINF")) return "m3u";
   if (playlist.toLower().contains("[playlist]")) return "pls";
@@ -197,51 +233,57 @@ const QString Playlist::p_playlist_format(const QByteArray& playlist) {
 
 }
 
-void Playlist::p_add_M3U(const QByteArray& playlist) {
+void Playlist::p_add_M3U(const QByteArray& playlist)
+{
 
-  QBuffer buffer;
-  buffer.setData(playlist);
-  buffer.open(QIODevice::ReadOnly);
+  QTextStream stream(playlist, QIODevice::ReadOnly);
 
-  QString line = QString::fromUtf8(buffer.readLine()).trimmed();
-  bool extended = FALSE;
-  if (line.startsWith("#EXTM3U")) {
-    extended = TRUE;
-    line = QString::fromUtf8(buffer.readLine()).trimmed();
+  QString line = stream.readLine().trimmed();
+
+  bool extended = false;
+  if (line.startsWith("#EXTM3U"))
+  {
+    extended = true;
+    line = stream.readLine().trimmed();
   }
 
   PlaylistItem pi;
-  forever {
+  while (!line.isNull())
+  {
 
-    if (line.startsWith('#')) {
-      if (extended && line.startsWith("#EXT")) {
+    if (line.startsWith('#'))
+    {
+      if (extended && line.startsWith("#EXT"))
+      {
         pi = p_parse_m3u_metadata_line(line);
       }
-    } else if (!line.isEmpty()) {
+    }
+    else if (!line.isEmpty())
+    {
       pi.setFilename(line);
-      if (!pi.filename().isEmpty()) {
+      if (!pi.filename().isEmpty())
+      {
         p_playlist.append(pi);
         pi.clear();
       }
     }
 
-    if (buffer.atEnd()) break;
-    line = QString::fromUtf8(buffer.readLine()).trimmed();
+    line = stream.readLine().trimmed();
 
   }
 
 }
 
-void Playlist::p_add_PLS(const QByteArray& playlist) {
+void Playlist::p_add_PLS(const QByteArray& playlist)
+{
 
-  QBuffer buffer;
-  buffer.setData(playlist);
-  buffer.open(QIODevice::ReadOnly);
+  QTextStream stream(playlist, QIODevice::ReadOnly);
 
-  QString line = QString::fromUtf8(buffer.readLine()).trimmed();
+  QString line = stream.readLine().trimmed();
 
   QMap<int, PlaylistItem> items;
-  forever {
+  while (!line.isNull())
+  {
 
     int equals = line.indexOf('=');
     QString key = line.left(equals).toLower();
@@ -251,31 +293,35 @@ void Playlist::p_add_PLS(const QByteArray& playlist) {
     n_re.indexIn(key);
     int n = n_re.cap(0).toInt();
 
-    if (key.startsWith("file")) {
+    if (key.startsWith("file"))
+    {
       items[n].setFilename(value);
-    } else if (key.startsWith("title")) {
+    }
+    else if (key.startsWith("title"))
+    {
       items[n].setTitle(value);
-    } else if (key.startsWith("length")) {
+    }
+    else if (key.startsWith("length"))
+    {
       bool ok;
       int seconds = value.toInt(&ok);
-      if (ok) {
-        items[n].setLength(seconds);
-      }
+      if (ok) items[n].setLength(seconds);
     }
 
-    if (buffer.atEnd()) break;
-    line = QString::fromUtf8(buffer.readLine()).trimmed();
+    line = stream.readLine().trimmed();
   }
 
   QMap<int, PlaylistItem>::const_iterator i = items.constBegin();
-  while (i != items.constEnd()) {
+  while (i != items.constEnd())
+  {
     p_playlist.append(i.value());
     ++i;
   }
 
 }
 
-void Playlist::p_add_XSPF(const QByteArray& playlist) {
+void Playlist::p_add_XSPF(const QByteArray& playlist)
+{
 
   QDomDocument doc;
   QString errorMsg;
@@ -294,17 +340,21 @@ void Playlist::p_add_XSPF(const QByteArray& playlist) {
   QMap<int, PlaylistItem> items_no_tracknum;
   QDomElement child = tracklistElement.firstChildElement("track");
   int m = 0;
-  while (!child.isNull()) {
+  while (!child.isNull())
+  {
 
     bool ok;
     int n = child.firstChildElement("trackNum").text().toInt(&ok);
-    if (!ok) {
+    if (!ok)
+    {
       items_no_tracknum[m].setFilename(child.firstChildElement("location").text());
       items_no_tracknum[m].setArtist(child.firstChildElement("creator").text());
       items_no_tracknum[m].setTitle(child.firstChildElement("title").text());
       items_no_tracknum[m].setLength(child.firstChildElement("duration").text().toInt() / 1000);
       ++m;
-    } else {
+    }
+    else
+    {
       items[n].setFilename(child.firstChildElement("location").text());
       items[n].setArtist(child.firstChildElement("creator").text());
       items[n].setTitle(child.firstChildElement("title").text());
@@ -315,19 +365,22 @@ void Playlist::p_add_XSPF(const QByteArray& playlist) {
   }
 
   QMap<int, PlaylistItem>::const_iterator i = items.constBegin();
-  while (i != items.constEnd()) {
+  while (i != items.constEnd())
+  {
     p_playlist.append(i.value());
     ++i;
   }
   QMap<int, PlaylistItem>::const_iterator j = items_no_tracknum.constBegin();
-  while (j != items_no_tracknum.constEnd()) {
+  while (j != items_no_tracknum.constEnd())
+  {
     p_playlist.append(j.value());
     ++j;
   }
 
 }
 
-const PlaylistItem Playlist::p_parse_m3u_metadata_line(const QString& line) {
+const PlaylistItem Playlist::p_parse_m3u_metadata_line(const QString& line)
+{
 
   PlaylistItem pi;
 
@@ -335,14 +388,13 @@ const PlaylistItem Playlist::p_parse_m3u_metadata_line(const QString& line) {
   QString l = info.section(',', 0, 0);
   bool ok;
   int length = l.toInt(&ok);
-  if (!ok) {
-    return pi;
-  }
+  if (!ok) return pi;
   pi.setLength(length);
 
   QString track_info = info.section(',', 1);
   QStringList list = track_info.split('-');
-  if (list.length() <= 1) {
+  if (list.length() <= 1)
+  {
     pi.setTitle(track_info);
     return pi;
   }

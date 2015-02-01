@@ -727,6 +727,7 @@ void Audex::execute_finish() {
     QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString();
     QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString();
     bool is_absFilePath = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool();
+    bool is_utf8 = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool();
 
     PatternParser patternparser;
     QString filename = patternparser.parseSimplePattern(pattern,
@@ -766,13 +767,12 @@ void Audex::execute_finish() {
           relFilePath = QFileInfo(filename).absoluteDir().absolutePath();
         }
 
-        QTextStream out(&file);
         if (format == "M3U") {
-          out << playlist.toM3U(relFilePath);
+          file.write(playlist.toM3U(relFilePath, is_utf8));
         } else if (format == "PLS") {
-          out << playlist.toPLS(relFilePath);
+          file.write(playlist.toPLS(relFilePath, is_utf8));
         } else if (format == "XSPF") {
-          out << playlist.toXSPF();
+          file.write(playlist.toXSPF());
         }
         file.close();
         emit info(i18n("Playlist \"%1\" successfully created.", QFileInfo(filename).fileName()));

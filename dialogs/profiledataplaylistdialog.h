@@ -28,17 +28,19 @@
 
 #include "ui_profiledataplaylistwidgetUI.h"
 
-class ProfileDataPlaylistDialog : public KDialog {
+class ProfileDataPlaylistDialog : public KDialog
+{
 
   Q_OBJECT
 
 public:
-  ProfileDataPlaylistDialog(const QString& format, const QString& pattern, const bool absFilePath, QWidget *parent = 0);
+  ProfileDataPlaylistDialog(const QString& format, const QString& pattern, const bool absFilePath, const bool utf8, QWidget *parent = 0);
   ~ProfileDataPlaylistDialog();
 
   QString format;
   QString pattern;
   bool absFilePath;
+  bool utf8;
 
 protected slots:
   virtual void slotButtonClicked(int button);
@@ -48,7 +50,8 @@ protected slots:
 private slots:
   void trigger_changed();
   void enable_abs_file_path(bool enabled);
-  
+  void enable_utf8(bool enabled);
+
 private:
   Ui::ProfileDataPlaylistWidgetUI ui;
 

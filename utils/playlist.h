@@ -22,26 +22,30 @@
 #include <QString>
 #include <QStringList>
 #include <QDomDocument>
-#include <QBuffer>
+#include <QTextStream>
 #include <QDir>
 #include <QFileInfo>
 
 #include <KDebug>
 #include <KLocale>
 
-class PlaylistItem {
+class PlaylistItem
+{
 
 public:
-  PlaylistItem() {
+  PlaylistItem()
+  {
     p_length = 0;
   }
-  PlaylistItem(const PlaylistItem& other) {
+  PlaylistItem(const PlaylistItem& other)
+  {
     p_filename = other.p_filename;
     p_artist = other.p_artist;
     p_title = other.p_title;
     p_length = other.p_length;
   }
-  PlaylistItem& operator=(const PlaylistItem& other) {
+  PlaylistItem& operator=(const PlaylistItem& other)
+  {
     p_filename = other.p_filename;
     p_artist = other.p_artist;
     p_title = other.p_title;
@@ -50,7 +54,8 @@ public:
   }
   ~PlaylistItem() { }
 
-  bool operator==(const PlaylistItem& other) {
+  bool operator==(const PlaylistItem& other)
+  {
     return (p_filename==other.p_filename && p_title==other.p_title && p_artist==other.p_artist && p_length==other.p_length);
   }
 
@@ -64,7 +69,7 @@ public:
   const QString title() { return p_title; }
   void setLength(const int length) { p_length = length; }
   int length() { return p_length; }
-  
+
 private:
   QString p_filename;
   QString p_artist;
@@ -75,7 +80,8 @@ private:
 
 typedef QList<PlaylistItem> PlaylistItemList;
 
-class Playlist {
+class Playlist
+{
 
 public:
   Playlist();
@@ -83,19 +89,19 @@ public:
   ~Playlist();
 
   void addPlaylist(const QByteArray& playlist);
-  
+
   void clear();
 
   void appendItem(const PlaylistItem& item);
 
   //if playlistPath is set, then filename paths will be relative to playlistPath
-  QByteArray toM3U(const QString& playlistPath = "") const;
-  QByteArray toPLS(const QString& playlistPath = "") const;
+  QByteArray toM3U(const QString& playlistPath = "", const bool utf8 = false) const;
+  QByteArray toPLS(const QString& playlistPath = "", const bool utf8 = false) const;
   QByteArray toXSPF() const;
 
 private:
   PlaylistItemList p_playlist;
-  
+
   //guess the playlist format: m3u, pls, xspf
   const QString p_playlist_format(const QByteArray& playlist);
 

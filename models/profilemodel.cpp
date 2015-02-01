@@ -73,6 +73,7 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
       case PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_PL_FORMAT_KEY];
       case PROFILE_MODEL_COLUMN_PL_NAME_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_PL_NAME_KEY];
       case PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_PL_ABS_FILE_PATH_KEY];
+      case PROFILE_MODEL_COLUMN_PL_UTF8_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_PL_UTF8_KEY];
       case PROFILE_MODEL_COLUMN_INF_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_INF_KEY];
       case PROFILE_MODEL_COLUMN_INF_TEXT_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_INF_TEXT_KEY];
       case PROFILE_MODEL_COLUMN_INF_NAME_INDEX : return p_cache.at(index.row())[PROFILE_MODEL_INF_NAME_KEY];
@@ -206,6 +207,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  }
 	  break;
 	case PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX : break;
+        case PROFILE_MODEL_COLUMN_PL_UTF8_INDEX : break;
 	case PROFILE_MODEL_COLUMN_INF_INDEX : break;
 	case PROFILE_MODEL_COLUMN_INF_TEXT_INDEX : break;
 	case PROFILE_MODEL_COLUMN_INF_NAME_INDEX :
@@ -335,6 +337,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX : p_cache[index.row()][PROFILE_MODEL_PL_FORMAT_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_PL_NAME_INDEX : p_cache[index.row()][PROFILE_MODEL_PL_NAME_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX : p_cache[index.row()][PROFILE_MODEL_PL_ABS_FILE_PATH_KEY] = value; break;
+        case PROFILE_MODEL_COLUMN_PL_UTF8_INDEX : p_cache[index.row()][PROFILE_MODEL_PL_UTF8_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_INF_INDEX : p_cache[index.row()][PROFILE_MODEL_INF_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_INF_TEXT_INDEX : p_cache[index.row()][PROFILE_MODEL_INF_TEXT_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_INF_NAME_INDEX : p_cache[index.row()][PROFILE_MODEL_INF_NAME_KEY] = value; break;
@@ -722,11 +725,11 @@ const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex() {
 }
 
 const QString ProfileModel::getSelectedEncoderNameAndVersion() {
- 
+
   EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
-  
+
   return QString("%1 %2").arg(EncoderAssistant::encoderName(encoder)).arg(EncoderAssistant::version(encoder));
-  
+
 }
 
 Error ProfileModel::lastError() const {
@@ -762,6 +765,7 @@ const Profile ProfileModel::p_new_profile() {
   p[PROFILE_MODEL_PL_FORMAT_KEY] = DEFAULT_PL_FORMAT;
   p[PROFILE_MODEL_PL_NAME_KEY] = DEFAULT_PL_NAME;
   p[PROFILE_MODEL_PL_ABS_FILE_PATH_KEY] = DEFAULT_PL_ABS_FILE_PATH;
+  p[PROFILE_MODEL_PL_UTF8_KEY] = DEFAULT_PL_UTF8;
   p[PROFILE_MODEL_INF_KEY] = DEFAULT_INF;
   p[PROFILE_MODEL_INF_TEXT_KEY] = DEFAULT_INF_TEXT;
   p[PROFILE_MODEL_INF_NAME_KEY] = DEFAULT_INF_NAME;
@@ -866,6 +870,7 @@ void ProfileModel::p_save(KConfig *config) {
     subGroup.writeEntry(PROFILE_MODEL_PL_FORMAT_KEY, p_cache[i][PROFILE_MODEL_PL_FORMAT_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_PL_NAME_KEY, p_cache[i][PROFILE_MODEL_PL_NAME_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_PL_ABS_FILE_PATH_KEY, p_cache[i][PROFILE_MODEL_PL_ABS_FILE_PATH_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_PL_UTF8_KEY, p_cache[i][PROFILE_MODEL_PL_UTF8_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_INF_KEY, p_cache[i][PROFILE_MODEL_INF_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_INF_TEXT_KEY, p_cache[i][PROFILE_MODEL_INF_TEXT_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_INF_NAME_KEY, p_cache[i][PROFILE_MODEL_INF_NAME_KEY]);
@@ -923,6 +928,7 @@ void ProfileModel::p_load(KConfig *config) {
     p[PROFILE_MODEL_PL_FORMAT_KEY] = subGroup.readEntry(PROFILE_MODEL_PL_FORMAT_KEY, DEFAULT_PL_NAME);
     p[PROFILE_MODEL_PL_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_PL_NAME_KEY, DEFAULT_PL_NAME);
     p[PROFILE_MODEL_PL_ABS_FILE_PATH_KEY] = subGroup.readEntry(PROFILE_MODEL_PL_ABS_FILE_PATH_KEY, DEFAULT_PL_ABS_FILE_PATH);
+    p[PROFILE_MODEL_PL_UTF8_KEY] = subGroup.readEntry(PROFILE_MODEL_PL_UTF8_KEY, DEFAULT_PL_UTF8);
     p[PROFILE_MODEL_INF_KEY] = subGroup.readEntry(PROFILE_MODEL_INF_KEY, DEFAULT_INF);
     p[PROFILE_MODEL_INF_TEXT_KEY] = subGroup.readEntry(PROFILE_MODEL_INF_TEXT_KEY, DEFAULT_INF_TEXT);
     p[PROFILE_MODEL_INF_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_INF_NAME_KEY, DEFAULT_INF_NAME);

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>374</width>
-    <height>91</height>
+    <height>126</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -54,6 +54,13 @@
     </widget>
    </item>
    <item row="3" column="0" colspan="2">
+    <widget class="QCheckBox" name="checkBox_utf8">
+     <property name="text">
+      <string>UTF-8 coding in playlist</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>

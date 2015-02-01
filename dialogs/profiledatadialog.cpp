@@ -18,12 +18,14 @@
 
 #include "profiledatadialog.h"
 
-ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent) {
+ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent)
+{
 
   Q_UNUSED(parent);
 
   profile_model = profileModel;
-  if (!profile_model) {
+  if (!profile_model)
+  {
     kDebug() << "ProfileModel is NULL!";
     return;
   }
@@ -34,7 +36,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
   setMainWidget(widget);
 
-  if (profile_row >= 0) {
+  if (profile_row >= 0)
+  {
 
     lame_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX)).toString());
     oggenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX)).toString());
@@ -67,7 +70,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
   QMap<int,QString> encoders = EncoderAssistant::availableEncoderNameList();
   QMap<int,QString>::const_iterator i = encoders.constBegin();
-  while (i != encoders.constEnd()) {
+  while (i != encoders.constEnd())
+  {
     ui.kcombobox_encoder->addItem(i.value(), i.key());
     ++i;
   }
@@ -92,7 +96,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_filenames(bool)));
   connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_playlist(bool)));
 
-  if (profile_row >= 0) {
+  if (profile_row >= 0)
+  {
 
     setCaption(i18n("Modify Profile"));
 
@@ -157,6 +162,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     pdpd_format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString();
     pdpd_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString();
     pdpd_abs_file_path = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool();
+    pdpd_utf8 = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool();
 
     //profile data info data
     pdid_text = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
@@ -173,9 +179,11 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     //profile data single file data
     pdsd_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
 
-    enableButtonApply(FALSE);
+    enableButtonApply(false);
 
-  } else {
+  }
+  else
+  {
 
     setCaption(i18n("Create Profile"));
 
@@ -225,12 +233,13 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   enable_filenames(!ui.checkBox_singlefile->isChecked());
 
   ui.klineedit_name->setFocus();
-  showButtonSeparator(TRUE);
+  showButtonSeparator(true);
   resize(0, 0);  // For some reason dialog start of big...
 
 }
 
-ProfileDataDialog::~ProfileDataDialog() {
+ProfileDataDialog::~ProfileDataDialog()
+{
 
   delete lame_widget;
   delete oggenc_widget;
@@ -241,23 +250,29 @@ ProfileDataDialog::~ProfileDataDialog() {
 
 }
 
-void ProfileDataDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    if (save()) {
+void ProfileDataDialog::slotButtonClicked(int button)
+{
+
+  if (button == KDialog::Ok)
+  {
+    if (save())
       accept();
-    } else {
+    else
       ErrorDialog::show(this, error.message(), error.details());
-    }
-  } else if (button == KDialog::Apply) {
-    if (!save()) {
-      ErrorDialog::show(this, error.message(), error.details());
-    }
-  } else {
+  }
+  else if (button == KDialog::Apply)
+  {
+    if (!save()) ErrorDialog::show(this, error.message(), error.details());
+  }
+  else
+  {
     KDialog::slotButtonClicked(button);
   }
+
 }
 
-void ProfileDataDialog::set_encoder(const int encoder) {
+void ProfileDataDialog::set_encoder(const int encoder)
+{
 
   set_encoder_widget((EncoderAssistant::Encoder)encoder);
 
@@ -265,13 +280,16 @@ void ProfileDataDialog::set_encoder(const int encoder) {
 
 }
 
-void ProfileDataDialog::set_encoder_by_combobox(const int index) {
+void ProfileDataDialog::set_encoder_by_combobox(const int index)
+{
 
    set_encoder_widget((EncoderAssistant::Encoder)ui.kcombobox_encoder->itemData(index).toInt());
 
 }
 
-void ProfileDataDialog::trigger_changed() {
+void ProfileDataDialog::trigger_changed()
+{
+
   enableButtonApply(
       ui.klineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
       ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() ||
@@ -289,6 +307,7 @@ void ProfileDataDialog::trigger_changed() {
       pdpd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString() ||
       pdpd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString() ||
       pdpd_abs_file_path != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool() ||
+      pdpd_utf8 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool() ||
       pdid_text != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList() ||
       pdid_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString() ||
       pdid_suffix != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString() ||
@@ -308,46 +327,57 @@ void ProfileDataDialog::trigger_changed() {
       wave_widget->isChanged() ||
       custom_widget->isChanged()
   );
+
 }
 
-void ProfileDataDialog::enable_settings_cover(bool enabled) {
+void ProfileDataDialog::enable_settings_cover(bool enabled)
+{
   ui.kpushbutton_cover->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_settings_playlist(bool enabled) {
+void ProfileDataDialog::enable_settings_playlist(bool enabled)
+{
   ui.kpushbutton_playlist->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_settings_info(bool enabled) {
+void ProfileDataDialog::enable_settings_info(bool enabled)
+{
   ui.kpushbutton_info->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_settings_hashlist(bool enabled) {
+void ProfileDataDialog::enable_settings_hashlist(bool enabled)
+{
   ui.kpushbutton_hashlist->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_settings_cuesheet(bool enabled) {
+void ProfileDataDialog::enable_settings_cuesheet(bool enabled)
+{
   ui.kpushbutton_cuesheet->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_settings_singlefile(bool enabled) {
+void ProfileDataDialog::enable_settings_singlefile(bool enabled)
+{
   ui.kpushbutton_singlefile->setEnabled(enabled);
 }
 
-void ProfileDataDialog::disable_playlist(bool disabled) {
+void ProfileDataDialog::disable_playlist(bool disabled)
+{
   ui.checkBox_playlist->setEnabled(!disabled);
   ui.kpushbutton_playlist->setEnabled(!disabled);
 }
 
-void ProfileDataDialog::enable_filenames(bool enabled) {
+void ProfileDataDialog::enable_filenames(bool enabled)
+{
   ui.groupBox_filenames->setEnabled(enabled);
 }
 
-void ProfileDataDialog::disable_filenames(bool disabled) {
+void ProfileDataDialog::disable_filenames(bool disabled)
+{
   ui.groupBox_filenames->setEnabled(!disabled);
 }
 
-void ProfileDataDialog::pattern_wizard() {
+void ProfileDataDialog::pattern_wizard()
+{
 
   PatternWizardDialog *dialog = new PatternWizardDialog(ui.klineedit_pattern->text(), this);
 
@@ -361,7 +391,8 @@ void ProfileDataDialog::pattern_wizard() {
 
 }
 
-void ProfileDataDialog::cover_settings() {
+void ProfileDataDialog::cover_settings()
+{
 
   ProfileDataCoverDialog *dialog = new ProfileDataCoverDialog(pdcd_scale, pdcd_size, pdcd_format, pdcd_pattern, this);
 
@@ -378,15 +409,17 @@ void ProfileDataDialog::cover_settings() {
 
 }
 
-void ProfileDataDialog::playlist_settings() {
+void ProfileDataDialog::playlist_settings()
+{
 
-  ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(pdpd_format, pdpd_pattern, pdpd_abs_file_path, this);
+  ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(pdpd_format, pdpd_pattern, pdpd_abs_file_path, pdpd_utf8, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
   pdpd_format = dialog->format;
   pdpd_pattern = dialog->pattern;
   pdpd_abs_file_path = dialog->absFilePath;
+  pdpd_utf8 = dialog->utf8;
 
   delete dialog;
 
@@ -394,7 +427,8 @@ void ProfileDataDialog::playlist_settings() {
 
 }
 
-void ProfileDataDialog::info_settings() {
+void ProfileDataDialog::info_settings()
+{
 
   ProfileDataInfoDialog *dialog = new ProfileDataInfoDialog(pdid_text, pdid_pattern, pdid_suffix, this);
 
@@ -410,7 +444,8 @@ void ProfileDataDialog::info_settings() {
 
 }
 
-void ProfileDataDialog::hashlist_settings() {
+void ProfileDataDialog::hashlist_settings()
+{
 
   ProfileDataHashlistDialog *dialog = new ProfileDataHashlistDialog(pdhd_pattern, pdhd_format, this);
 
@@ -425,7 +460,8 @@ void ProfileDataDialog::hashlist_settings() {
 
 }
 
-void ProfileDataDialog::cuesheet_settings() {
+void ProfileDataDialog::cuesheet_settings()
+{
 
   ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(pdud_pattern, this);
 
@@ -439,7 +475,8 @@ void ProfileDataDialog::cuesheet_settings() {
 
 }
 
-void ProfileDataDialog::singlefile_settings() {
+void ProfileDataDialog::singlefile_settings()
+{
 
   ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(pdsd_pattern, this);
 
@@ -453,9 +490,11 @@ void ProfileDataDialog::singlefile_settings() {
 
 }
 
-void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encoder) {
+void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encoder)
+{
 
-  switch (encoder) {
+  switch (encoder)
+  {
 
     case EncoderAssistant::LAME : ui.stackedWidget_encoder->setCurrentWidget(lame_widget); break;
     case EncoderAssistant::OGGENC : ui.stackedWidget_encoder->setCurrentWidget(oggenc_widget); break;
@@ -469,49 +508,59 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
 
 }
 
-bool ProfileDataDialog::save() {
+bool ProfileDataDialog::save()
+{
 
   int row;
-  if (profile_row < 0) {
+  if (profile_row < 0)
+  {
     row = profile_model->rowCount();
     profile_model->insertRows(row, 1);
-  } else {
+  }
+  else
+  {
     row = profile_row;
   }
 
-  bool success = TRUE;
+  bool success = true;
 
   error = Error();
 
   if (success) success = lame_widget->save();
   if (!success) error = lame_widget->lastError();
 
-  if (success) {
+  if (success)
+  {
     success = oggenc_widget->save();
     if (!success) error = oggenc_widget->lastError();
   }
 
-  if (success) {
+  if (success)
+  {
     success = flac_widget->save();
     if (!success) error = flac_widget->lastError();
   }
 
-  if (success) {
+  if (success)
+  {
     success = faac_widget->save();
     if (!success) error = faac_widget->lastError();
   }
 
-  if (success) {
+  if (success)
+  {
     success = wave_widget->save();
     if (!success) error = wave_widget->lastError();
   }
 
-  if (success) {
+  if (success)
+  {
     success = custom_widget->save();
     if (!success) error = custom_widget->lastError();
   }
 
-  if (success) {
+  if (success)
+  {
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.klineedit_name->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX), ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
@@ -529,6 +578,7 @@ bool ProfileDataDialog::save() {
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX), pdpd_format);
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX), pdpd_pattern);
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX), pdpd_abs_file_path);
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX), pdpd_utf8);
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX), pdid_text);
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX), pdid_pattern);
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX), pdid_suffix);
@@ -549,15 +599,16 @@ bool ProfileDataDialog::save() {
 
   if (!success) error = profile_model->lastError();
 
-  if (!success) {
+  if (!success)
+  {
     if (profile_row < 0) profile_model->removeRows(row, 1);
-    return FALSE;
+    return false;
   }
 
   profile_model->commit();
 
-  if (profile_row >= 0) enableButtonApply(FALSE);
+  if (profile_row >= 0) enableButtonApply(false);
 
-  return TRUE;
+  return true;
 
 }
