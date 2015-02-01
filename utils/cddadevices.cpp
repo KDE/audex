@@ -139,7 +139,7 @@ bool CDDADevices::p_is_optical_audio_disc(const Solid::Device& device) const
     }*/
     return (disc->availableContent() & Solid::OpticalDisc::Audio);
   }
-  return FALSE;
+  return false;
 
 }
 

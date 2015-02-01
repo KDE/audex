@@ -25,6 +25,7 @@
 #include <QAbstractTableModel>
 #include <QString>
 #include <QStringList>
+#include <QHash>
 
 #include <KIcon>
 #include <KDebug>
