@@ -43,6 +43,7 @@
 #include <KUrl>
 #include <KColorScheme>
 #include <KMessageBox>
+#include <KTemporaryFile>
 
 #include "preferences.h"
 
@@ -51,7 +52,6 @@
 #include "dialogs/cddaheaderdatadialog.h"
 #include "dialogs/errordialog.h"
 #include "utils/coverfetcher.h"
-#include "utils/cachedimage.h"
 #include "utils/tmpdir.h"
 
 // fixed point defines
@@ -81,7 +81,7 @@ public:
   explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent = 0, const int coverSize = 128, const int padding = 20);
   ~CDDAHeaderWidget();
   QSize sizeHint() const;
-  void setCover(CachedImage *cover);
+  void setCover(const QImage& image);
 
   bool isEnabled() const;
 

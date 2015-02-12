@@ -47,7 +47,7 @@ bool EncoderWrapper::encode(int n,
 	int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
-	const QString& genre, const QString& date, const QString& suffix, CachedImage *cover,
+	const QString& genre, const QString& date, const QString& suffix, const QImage& cover,
 	bool fat_compatible, const QString& tmppath,
 	const QString& input, const QString& output) {
 
@@ -58,7 +58,7 @@ bool EncoderWrapper::encode(int n,
 
   PatternParser patternparser;
   QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, nooftracks, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath, encoder_name);
- 
+
   kDebug() << "executing command " << command;
   proc.setShellCommand(command);
   proc.start();

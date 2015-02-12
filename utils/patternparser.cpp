@@ -31,7 +31,6 @@ SaxHandler::SaxHandler() : QXmlDefaultHandler() {
   is_command_pattern = FALSE;
   is_simple_pattern = FALSE;
   is_text_pattern = FALSE;
-  cover = NULL;
   /*TEMP*/found_suffix = FALSE;
 }
 
@@ -204,8 +203,6 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString format = STANDARD_EMBED_COVER_FORMAT;
       if (!atts.value("format").isEmpty()) format = atts.value("format");
 
-      if ((cover) && (!cover->supportedFormats().contains(format.toAscii().toLower()))) format = STANDARD_EMBED_COVER_FORMAT;
-
       QString filename;
       bool stop = FALSE;
       if (demomode) {
@@ -231,7 +228,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         if ((!finfo.exists()) && (!stop)) {
 
           bool success;
-          if ((!cover) || ((cover) && (cover->isEmpty()))) {
+          if (cover.isNull() == 0) {
             if (IS_TRUE(atts.value("usenocover"))) {
               QImage c = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
               if ((x != -1) && (y != -1)) {
@@ -242,7 +239,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
               stop = TRUE;
             }
           } else {
-            success = cover->save(filename, QSize(x, y));
+            success = cover.scaled(QSize(x, y), Qt::IgnoreAspectRatio, Qt::SmoothTransformation).save(filename);
           }
 
           if (!stop) {
@@ -458,7 +455,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
         int trackno, int cdno, int trackoffset, int nooftracks,
         const QString& artist, const QString& title,
         const QString& tartist, const QString& ttitle,
-        const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
+        const QString& date, const QString& genre, const QString& suffix, const QImage& cover,
         bool fatcompatible, const QString& tmppath, const QString& encoder, const bool demomode) {
 
   SaxHandler handler;

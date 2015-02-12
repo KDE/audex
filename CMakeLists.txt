@@ -56,7 +56,6 @@ set(audex_SRCS
   utils/hashlist.cpp
   utils/3rdparty/crc32.cpp
   utils/parameters.cpp
-  utils/cachedimage.cpp
   utils/cuesheetwriter.cpp
   utils/tmpdir.cpp
   utils/discidcalculator.cpp

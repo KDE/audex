@@ -336,7 +336,7 @@ void Audex::start_encode() {
     QString year = cdda_model->year();
     QString genre = cdda_model->genre();
     QString suffix = p_suffix;
-    CachedImage *cover = cdda_model->cover();
+    QImage cover = cdda_model->coverImage();
 
     QString targetFilename = job->targetFilename();
     en_track_target_filename = targetFilename;
@@ -375,7 +375,7 @@ void Audex::start_encode() {
     QString year = cdda_model->year();
     QString genre = cdda_model->genre();
     QString suffix = p_suffix;
-    CachedImage *cover = cdda_model->cover();
+    QImage cover = cdda_model->coverImage();
     bool fat32_compatible = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
 
     QString targetFilename = job->targetFilename();

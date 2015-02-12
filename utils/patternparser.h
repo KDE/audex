@@ -34,8 +34,6 @@
 
 #include "config.h"
 
-#include "utils/cachedimage.h"
-
 #define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? TRUE : FALSE)
 
 #define VAR_FILENAME_PATTERN                            "filenamepattern"
@@ -95,7 +93,7 @@ public:
   void setDate(const QString& date) { this->date = date; }
   void setGenre(const QString& genre) { this->genre = genre; }
   void setSuffix(const QString& suffix) { this->suffix = suffix; }
-  void setCover(CachedImage *cover) { this->cover = cover; }
+  void setCover(const QImage& cover) { this->cover = cover; }
   void setFAT32Compatible(const bool fat32compatible) { this->fat32compatible = fat32compatible; }
   void setReplaceSpacesWithUnderscores(const bool replacespaceswithunderscores) { this->replacespaceswithunderscores = replacespaceswithunderscores; }
   void set2DigitsTrackNum(const bool _2digitstracknum) { this->_2digitstracknum = _2digitstracknum; }
@@ -123,7 +121,7 @@ private:
   QString date;
   QString genre;
   QString suffix;
-  CachedImage *cover;
+  QImage cover;
   bool fat32compatible;
   bool replacespaceswithunderscores;
   bool _2digitstracknum;
@@ -171,7 +169,7 @@ public:
         int trackno, int cdno, int trackoffset, int nooftracks,
         const QString& artist, const QString& title,
         const QString& tartist, const QString& ttitle,
-        const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
+        const QString& date, const QString& genre, const QString& suffix, const QImage& cover,
         bool fat32compatible, const QString& tmppath, const QString& encoder,
         const bool demomode = FALSE);
 

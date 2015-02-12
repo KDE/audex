@@ -41,7 +41,6 @@
 
 #include "utils/cddadevices.h"
 #include "utils/cddaparanoia.h"
-#include "utils/cachedimage.h"
 
 #include "utils/error.h"
 
@@ -116,9 +115,7 @@ public:
   void setCustomDataPerTrack(const int n, const QString& type, const QVariant& data);
   const QVariant getCustomDataPerTrack(const int n, const QString& type);
 
-  CachedImage* cover() const;
   const QImage coverImage() const;
-  quint16 coverChecksum() const;
   bool setCover(const QByteArray& data);
   bool setCover(const QString& filename);
   bool saveCoverToFile(const QString& filename);
@@ -201,7 +198,7 @@ private:
 
   KCDDB::Client *cddb;
   KCDDB::CDInfo cd_info;
-  CachedImage *_cover;
+  QImage _cover;
   bool modified;
   bool _empty; // no metadata available yet
   Error error;

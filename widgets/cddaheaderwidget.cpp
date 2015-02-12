@@ -294,8 +294,6 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
   kDebug() << "coverSize:" << coverSize;
   this->cover_size = coverSize;
 
-  this->i_cover_checksum = 1;
-
   this->padding = padding;
 
   animation_up = FALSE;
@@ -340,31 +338,25 @@ QSize CDDAHeaderWidget::sizeHint() const {
   return QSize((cover_size*1.5)+(padding*2), (int)(cover_size*1.4)+(padding*2));
 }
 
-void CDDAHeaderWidget::setCover(CachedImage *cover) {
-
-  if (cover) {
-    i_cover_checksum = cover->checksum();
-  } else {
-    i_cover_checksum = 0;
-  }
+void CDDAHeaderWidget::setCover(const QImage& cover) {
 
   if (this->i_cover.isNull()) {
-    if (cover) {
-      this->i_cover = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
-    } else {
+    if (cover.isNull()) {
       QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
       this->i_cover = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    } else {
+      this->i_cover = cover.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     }
     animation_up = TRUE;
     fade_in = TRUE;
     scale_factor = 0.7;
     opacity_factor = 0.0;
   } else {
-    if (cover) {
-      this->i_cover_holding = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
-    } else {
+    if (cover.isNull()) {
       QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
       this->i_cover_holding = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    } else {
+      this->i_cover_holding = cover.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     }
     animation_down = TRUE;
     scale_down = TRUE;
@@ -581,11 +573,9 @@ void CDDAHeaderWidget::update() {
 
   bool activate = FALSE;
   if (cdda_model->isCoverEmpty()) {
-    if (i_cover_checksum) setCover(NULL);
+    if (!i_cover.isNull()) setCover(QImage());
   } else {
-    kDebug() << "current cover checksum:" << i_cover_checksum;
-    kDebug() << "new cover checksum:" << cdda_model->coverChecksum();
-    if (i_cover_checksum != cdda_model->coverChecksum()) setCover(cdda_model->cover());
+    setCover(cdda_model->coverImage());
     activate = TRUE;
   }
 
@@ -707,18 +697,13 @@ void CDDAHeaderWidget::save() {
 
 void CDDAHeaderWidget::view_cover() {
 
-  QString tmp_path = tmp_dir->tmpPath();
-  if (tmp_dir->error()) {
-    QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
-    tmp_path = dirs.size()?dirs[0]:"/var/tmp/";
-    if (tmp_path.right(1) != "/") tmp_path += "/";
-    kDebug() << "Temporary folder in use:" << tmp_path;
-  }
+  KTemporaryFile cover;
+  cover.setSuffix(".jpeg");
+  cover.setAutoRemove(false);
 
-  QString filename = tmp_path+QString("%1.jpeg").arg(cdda_model->coverChecksum());
-  cdda_model->saveCoverToFile(filename);
+  cdda_model->saveCoverToFile(cover.fileName());
 
-  QDesktopServices::openUrl(KUrl(filename));
+  QDesktopServices::openUrl(KUrl(cover.fileName()));
 
 }
 

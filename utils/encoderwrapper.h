@@ -26,7 +26,6 @@
 #include <KLocale>
 #include <KProcess>
 
-#include "utils/cachedimage.h"
 #include "utils/patternparser.h"
 
 class EncoderWrapper : public QObject {
@@ -45,7 +44,7 @@ public slots:
 	int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
-	const QString& genre, const QString& date, const QString& suffix, CachedImage *cover,
+	const QString& genre, const QString& date, const QString& suffix, const QImage& cover,
 	bool fat_compatible, const QString& tmppath,
 	const QString& input, const QString& output);
   void cancel();

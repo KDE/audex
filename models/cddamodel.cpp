@@ -43,8 +43,6 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
 
   cddb_transaction_pending = FALSE;
 
-  _cover = new CachedImage();
-
   cd_info.clear();
   modified = FALSE;
   _empty = TRUE;
@@ -55,7 +53,6 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
 
 CDDAModel::~CDDAModel() {
 
-  delete _cover;
   delete cddb;
   delete devices;
 
@@ -416,59 +413,50 @@ const QVariant CDDAModel::getCustomDataPerTrack(const int n, const QString& type
   return cd_info.track(n).get(type);
 }
 
-CachedImage* CDDAModel::cover() const {
+const QImage CDDAModel::coverImage() const {
   return _cover;
 }
 
-const QImage CDDAModel::coverImage() const {
-  return _cover->coverImage();
-}
-
-quint16 CDDAModel::coverChecksum() const {
-  return _cover->checksum();
-}
-
 bool CDDAModel::setCover(const QByteArray& data) {
-  if (_cover->load(data)) {
-    reset();
-    return TRUE;
-  } else {
-    error = _cover->lastError();
-  }
-  return FALSE;
+  return _cover.loadFromData(data);
 }
 
 bool CDDAModel::setCover(const QString& filename) {
-  if (_cover->load(filename)) {
-    reset();
-    return TRUE;
-  } else {
-    error = _cover->lastError();
-  }
-  return FALSE;
+  return _cover.load(filename);
 }
 
 bool CDDAModel::saveCoverToFile(const QString& filename) {
-  if (_cover->save(filename)) {
-    return TRUE;
-  } else {
-    error = _cover->lastError();
-  }
-  return FALSE;
+  return _cover.save(filename);
 }
 
 bool CDDAModel::isCoverEmpty() const {
-  return _cover->isEmpty();
+  return (_cover.isNull() == 0);
 }
 
 void CDDAModel::clearCover() {
-  if (_cover->isEmpty()) return;
-  _cover->clear();
+  _cover = QImage();
   reset();
 }
 
 const QString CDDAModel::coverSupportedMimeTypeList() const {
-  return _cover->supportedMimeTypeList();
+
+  QList<QByteArray> supp_list = QImageReader::supportedImageFormats();
+  QMap<QString,QStringList> map;
+  for (int i = 0; i < supp_list.count(); ++i) {
+    map[KMimeType::findByUrl("dummy."+QString(supp_list[i]).toLower())->comment()].append("*."+QString(supp_list[i]).toLower());
+  }
+  QString result = "*.jpg *.jpeg *.png *.gif|"+i18n("Common image formats")+" (*.jpg, *.jpeg, *.png, *.gif)";
+  QMap<QString,QStringList>::const_iterator i = map.constBegin();
+  while (i != map.constEnd()) {
+     if (i.key()==KMimeType::defaultMimeTypePtr()->comment()) { ++i; continue; }
+     result += "\n";
+     QStringList extensions = i.value();
+     extensions.removeDuplicates();
+     result += extensions.join(" ")+"|"+i.key()+" ("+extensions.join(", ")+")";
+    ++i;
+  }
+  return result;
+
 }
 
 bool CDDAModel::guessVarious() const {
