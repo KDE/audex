@@ -1,5 +1,7 @@
-/* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2014 Marco Nelles (audex@maniatek.com)
+/*
+ * AUDEX CDDA EXTRACTOR
+ *
+ * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,6 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 
 #ifndef PROFILEMODEL_HEADER
@@ -110,10 +113,10 @@ enum ProfileColumns {
   PROFILE_MODEL_COLUMN_HL_INDEX,
   PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX,
   PROFILE_MODEL_COLUMN_HL_NAME_INDEX,
-  
+
   PROFILE_MODEL_COLUMN_CUE_INDEX,
   PROFILE_MODEL_COLUMN_CUE_NAME_INDEX,
-  
+
   PROFILE_MODEL_COLUMN_SF_INDEX,
   PROFILE_MODEL_COLUMN_SF_NAME_INDEX,
 

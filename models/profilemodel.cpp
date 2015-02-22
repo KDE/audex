@@ -1,5 +1,7 @@
-/* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2014 Marco Nelles (audex@maniatek.com)
+/*
+ * AUDEX CDDA EXTRACTOR
+ *
+ * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -14,6 +16,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 
 #include "profilemodel.h"
@@ -722,11 +725,11 @@ const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex() {
 }
 
 const QString ProfileModel::getSelectedEncoderNameAndVersion() {
- 
+
   EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
-  
+
   return QString("%1 %2").arg(EncoderAssistant::encoderName(encoder)).arg(EncoderAssistant::version(encoder));
-  
+
 }
 
 Error ProfileModel::lastError() const {
