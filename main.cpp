@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
  * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
- * <http://kde.maniatek.com/audex>
+ * <http://sourceforge.net/projects/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ int main (int argc, char *argv[]) {
                        KAboutData::License_GPL,
                        ki18n("Copyright © 2007–2015 by Marco Nelles"),
                        KLocalizedString(),
-                       "http://kde.maniatek.com/audex",
+                       "http://sourceforge.net/projects/audex",
                        "audex@maniatek.com");
   aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer, main developer"), "marco@maniatek.de");
   aboutData.addCredit(ki18n("Craig Drummond"), ki18n("GUI improvements, development"), 0, "");
