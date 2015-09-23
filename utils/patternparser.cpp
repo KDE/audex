@@ -373,6 +373,7 @@ const QString SaxHandler::make_fat32_compatible(const QString& string) {
   s.replace(":", "_");
   s.replace("*", "_");
   s.replace("?", "_");
+  s.replace("\"", "_");
   s.replace("<", "_");
   s.replace(">", "_");
   s.replace("|", "_");
