@@ -37,14 +37,14 @@ CDDAExtractThread::CDDAExtractThread(QObject* parent, CDDAParanoia *_paranoia) :
   overall_sectors_read = 0;
   paranoia_mode = 3;
   paranoia_retries = 20;
-  never_skip = TRUE;
+  never_skip = true;
   sample_offset = 0;
-  sample_offset_done = FALSE;
+  sample_offset_done = false;
   track = 1;
-  b_interrupt = FALSE;
-  b_error = FALSE;
-  read_error = FALSE;
-  scratch_detected = FALSE;
+  b_interrupt = false;
+  b_error = false;
+  read_error = false;
+  scratch_detected = false;
 
 }
 
@@ -62,12 +62,12 @@ void CDDAExtractThread::run() {
 
   if (b_interrupt) return;
 
-  b_interrupt = FALSE;
-  b_error = FALSE;
+  b_interrupt = false;
+  b_error = false;
 
   if ((sample_offset) && (!sample_offset_done)) {
     paranoia->sampleOffset(sample_offset);
-    sample_offset_done = TRUE;
+    sample_offset_done = true;
   }
 
   if (track == 0) {
@@ -126,7 +126,7 @@ void CDDAExtractThread::run() {
     if (0 == buf) {
 
       kDebug() << "Unrecoverable error in paranoia_read (sector " << current_sector << ")";
-      b_error = TRUE;
+      b_error = true;
       break;
 
     } else {
@@ -166,7 +166,7 @@ void CDDAExtractThread::run() {
 }
 
 void CDDAExtractThread::cancel() {
-  b_interrupt = TRUE;
+  b_interrupt = true;
 }
 
 bool CDDAExtractThread::isProcessing() {
@@ -196,8 +196,8 @@ void CDDAExtractThread::createStatus(long sector, int status) {
     //no problem
     last_read_sector = sector;  //this seems to be rather useless
     read_sectors++;
-    read_error = FALSE;
-    scratch_detected = FALSE;
+    read_error = false;
+    scratch_detected = false;
     break;
   case PARANOIA_CB_VERIFY:
     //kDebug() << "Verifying jitter";
@@ -213,7 +213,7 @@ void CDDAExtractThread::createStatus(long sector, int status) {
   case PARANOIA_CB_SCRATCH:
     //scratch detected
     kDebug() << "Scratch detected";
-    if (!scratch_detected) { scratch_detected = TRUE; warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
+    if (!scratch_detected) { scratch_detected = true; warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
     extract_protocol.append(i18n("SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_REPAIR:
@@ -250,7 +250,7 @@ void CDDAExtractThread::createStatus(long sector, int status) {
     break;
   case PARANOIA_CB_READERR:
     kDebug() << "Read error";
-    if (!read_error) { read_error = TRUE; warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
+    if (!read_error) { read_error = true; warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
     extract_protocol.append(i18n("READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   }

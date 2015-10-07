@@ -239,7 +239,7 @@ bool CoverFetcher::fetch_cover_thumbnail() {
   if (cover_urls_thumbnails.count() == 0) {
     kDebug() << "nothing fetched.";
     emit nothingFetched();
-    return FALSE;
+    return false;
   }
 
   _status = FETCHING_THUMBNAIL; emit statusChanged(FETCHING_THUMBNAIL);
@@ -247,6 +247,6 @@ bool CoverFetcher::fetch_cover_thumbnail() {
   job = KIO::storedGet(KUrl(cover_urls_thumbnails.takeFirst()));
   connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
-  return TRUE;
+  return true;
 
 }

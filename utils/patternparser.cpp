@@ -22,17 +22,17 @@ SaxHandler::SaxHandler() : QXmlDefaultHandler() {
   trackno = 1;
   cdno = 0;
   trackoffset = 0;
-  fat32compatible = FALSE;
+  fat32compatible = false;
   discid = 0;
   size = 0;
   length = 0;
   nooftracks = 0;
-  is_filename_pattern = FALSE;
-  is_command_pattern = FALSE;
-  is_simple_pattern = FALSE;
-  is_text_pattern = FALSE;
+  is_filename_pattern = false;
+  is_command_pattern = false;
+  is_simple_pattern = false;
+  is_text_pattern = false;
   cover = NULL;
-  /*TEMP*/found_suffix = FALSE;
+  /*TEMP*/found_suffix = false;
 }
 
 SaxHandler::~SaxHandler() {
@@ -45,10 +45,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   Q_UNUSED(namespaceURI);
   Q_UNUSED(localName);
 
-  if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = TRUE; return TRUE; }
-  if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = TRUE; return TRUE; }
-  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = TRUE; return TRUE; }
-  if (qName == VAR_TEXT_PATTERN) { is_text_pattern = TRUE; return TRUE; }
+  if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = true; return true; }
+  if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = true; return true; }
+  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = true; return true; }
+  if (qName == VAR_TEXT_PATTERN) { is_text_pattern = true; return true; }
 
   p_element.clear();
 
@@ -193,7 +193,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   }
 
   if ((is_filename_pattern) || (is_simple_pattern)) {
-    if (qName == VAR_SUFFIX) { /*TEMP*/found_suffix = TRUE; p_element += suffix; }
+    if (qName == VAR_SUFFIX) { /*TEMP*/found_suffix = true; p_element += suffix; }
   }
 
   if (is_command_pattern) {
@@ -207,7 +207,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       if ((cover) && (!cover->supportedFormats().contains(format.toAscii().toLower()))) format = STANDARD_EMBED_COVER_FORMAT;
 
       QString filename;
-      bool stop = FALSE;
+      bool stop = false;
       if (demomode) {
 
         filename = tmppath+"audexcover.123."+format.toLower();
@@ -239,7 +239,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
               }
               success = c.save(filename, format.toAscii());
             } else {
-              stop = TRUE;
+              stop = true;
             }
           } else {
             success = cover->save(filename, QSize(x, y));
@@ -323,7 +323,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
 
   }
 
-  return TRUE;
+  return true;
 
 }
 
@@ -332,23 +332,23 @@ bool SaxHandler::endElement(const QString& namespaceURI, const QString& localNam
   Q_UNUSED(namespaceURI);
   Q_UNUSED(localName);
 
-  if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
-  if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
-  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
-  if (qName == VAR_TEXT_PATTERN) { is_text_pattern = FALSE; return TRUE; }
+  if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = false; p_text.replace("//", "/"); p_text = p_text.simplified(); return true; }
+  if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = false; p_text.replace("//", "/"); p_text = p_text.simplified(); return true; }
+  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = false; p_text.replace("//", "/"); p_text = p_text.simplified(); return true; }
+  if (qName == VAR_TEXT_PATTERN) { is_text_pattern = false; return true; }
 
-  return TRUE;
+  return true;
 
 }
 
 bool SaxHandler::characters(const QString& ch) {
   p_text += ch;
-  return TRUE;
+  return true;
 }
 
 bool SaxHandler::fatalError(const QXmlParseException& exception) {
   kDebug() << QString("XML pattern parse error: Column %1 (%2)").arg(exception.columnNumber()).arg(exception.message());
-  return FALSE;
+  return false;
 }
 
 const QString SaxHandler::make_compatible(const QString& string) {
@@ -501,7 +501,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
   handler.setFAT32Compatible(fatcompatible);
   handler.setTMPPath(tmppath);
   handler.setDemoMode(demomode);
-  handler.set2DigitsTrackNum(FALSE);
+  handler.set2DigitsTrackNum(false);
   handler.setEncoder(encoder);
 
   QXmlInputSource inputSource;
@@ -530,8 +530,8 @@ const QString PatternParser::parseSimplePattern(const QString& pattern,
   handler.setGenre(genre);
   handler.setSuffix(suffix);
   handler.setFAT32Compatible(fat32compatible);
-  handler.setReplaceSpacesWithUnderscores(FALSE);
-  handler.set2DigitsTrackNum(FALSE);
+  handler.setReplaceSpacesWithUnderscores(false);
+  handler.set2DigitsTrackNum(false);
 
   QXmlInputSource inputSource;
   inputSource.setData("<simplepattern>"+p_xmlize_pattern(pattern)+"</simplepattern>");
@@ -558,7 +558,7 @@ void PatternParser::parseInfoText(QStringList& text,
   handler.setSize(size);
   handler.setLength(length);
   handler.setNoOfTracks(nooftracks);
-  handler.set2DigitsTrackNum(FALSE);
+  handler.set2DigitsTrackNum(false);
 
   QXmlInputSource inputSource;
   inputSource.setData("<textpattern>"+p_xmlize_pattern(text.join("\n"))+"</textpattern>");

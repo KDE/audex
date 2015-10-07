@@ -24,7 +24,7 @@ TmpDir::TmpDir(const QString& appName, const QString& sub) : QObject() {
   p_tmp_path_base = dirs.size()?dirs[0]:"/var/tmp/";
   kDebug() << "Found temporary path" << p_tmp_path_base;
 
-  p_error = FALSE;
+  p_error = false;
 
   PID pid;
   p_tmp_path = p_tmp_path_base;
@@ -78,17 +78,17 @@ bool TmpDir::p_create_dir(const QString &dirName) {
   QDir *dir = new QDir(dirName);
   if (!dir->exists()) {
     if (!dir->mkpath(dirName)) {
-      return FALSE;
+      return false;
     }
   }
   
-  return TRUE;
+  return true;
   
 }
 
 bool TmpDir::p_remove_dir(const QString &dirName) {
 
-  bool result = TRUE;
+  bool result = true;
   QDir dir(dirName);
  
   if (dir.exists(dirName)) {

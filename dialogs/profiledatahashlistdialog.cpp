@@ -48,7 +48,7 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &pattern, con
   ui.klineedit_pattern->setText(pattern);
   connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
 
 }
@@ -84,14 +84,14 @@ void ProfileDataHashlistDialog::pattern_wizard() {
 }
 
 void ProfileDataHashlistDialog::trigger_changed() {
-  if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(true); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 bool ProfileDataHashlistDialog::save() {
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
   pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }

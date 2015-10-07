@@ -92,7 +92,7 @@ private Q_SLOTS:
   void update_layout();
 
   void enable_layout(bool enabled);
-  void enable_submit(bool enabled = TRUE);
+  void enable_submit(bool enabled = true);
   void disable_submit();
 
   void configuration_updated(const QString& dialog_name);

@@ -35,11 +35,11 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(p
   enable_CBR(p_cbr_flag);
   preset = parameters->valueToInt(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET);
   switch (preset) {
-    case ENCODER_LAME_PRESET_MEDIUM : radioButton_medium->setChecked(TRUE); enable_custom(FALSE); break;
-    case ENCODER_LAME_PRESET_STANDARD : radioButton_standard->setChecked(TRUE); enable_custom(FALSE); break;
-    case ENCODER_LAME_PRESET_EXTREME : radioButton_extreme->setChecked(TRUE); enable_custom(FALSE); break;
-    case ENCODER_LAME_PRESET_INSANE : radioButton_insane->setChecked(TRUE); enable_custom(FALSE); break;
-    case ENCODER_LAME_PRESET_CUSTOM : radioButton_custom->setChecked(TRUE); enable_custom(TRUE); break;
+    case ENCODER_LAME_PRESET_MEDIUM : radioButton_medium->setChecked(true); enable_custom(false); break;
+    case ENCODER_LAME_PRESET_STANDARD : radioButton_standard->setChecked(true); enable_custom(false); break;
+    case ENCODER_LAME_PRESET_EXTREME : radioButton_extreme->setChecked(true); enable_custom(false); break;
+    case ENCODER_LAME_PRESET_INSANE : radioButton_insane->setChecked(true); enable_custom(false); break;
+    case ENCODER_LAME_PRESET_CUSTOM : radioButton_custom->setChecked(true); enable_custom(true); break;
   }
   checkBox_cbr->setChecked(p_cbr_flag);
   checkBox_embedcover->setChecked(parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY));
@@ -69,7 +69,7 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(p
 
   connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  changed = FALSE;
+  changed = false;
 
 }
 
@@ -79,7 +79,7 @@ lameWidget::~lameWidget() {
 
 bool lameWidget::save() {
 
-  bool success = TRUE;
+  bool success = true;
 
   parameters->setValue(ENCODER_LAME_PRESET_KEY, preset);
   parameters->setValue(ENCODER_LAME_BITRATE_KEY, real_bitrate);
@@ -87,7 +87,7 @@ bool lameWidget::save() {
   parameters->setValue(ENCODER_LAME_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
   parameters->setValue(ENCODER_LAME_SUFFIX_KEY, klineedit_suffix->text());
 
-  changed = FALSE;
+  changed = false;
 
   return success;
 
@@ -134,45 +134,45 @@ void lameWidget::enable_CBR(bool enable) {
     }
     if (nb==-1) nb = bitrates.last();
 
-    horizontalSlider_bitrate->blockSignals(TRUE);
+    horizontalSlider_bitrate->blockSignals(true);
     horizontalSlider_bitrate->setMinimum(0);
     horizontalSlider_bitrate->setMaximum(8);
     horizontalSlider_bitrate->setSingleStep(1);
     horizontalSlider_bitrate->setPageStep(1);
     horizontalSlider_bitrate->setValue(i-1);
-    horizontalSlider_bitrate->blockSignals(FALSE);
+    horizontalSlider_bitrate->blockSignals(false);
 
-    kintspinbox_bitrate->blockSignals(TRUE);
+    kintspinbox_bitrate->blockSignals(true);
     kintspinbox_bitrate->setMinimum(80);
     kintspinbox_bitrate->setMaximum(320);
     kintspinbox_bitrate->setSingleStep(16);
     kintspinbox_bitrate->setValue(nb);
-    kintspinbox_bitrate->setReadOnly(TRUE);
-    kintspinbox_bitrate->blockSignals(FALSE);
+    kintspinbox_bitrate->setReadOnly(true);
+    kintspinbox_bitrate->blockSignals(false);
 
     real_bitrate = nb;
 
-    p_cbr_flag = TRUE;
+    p_cbr_flag = true;
 
   } else {
 
-    horizontalSlider_bitrate->blockSignals(TRUE);
+    horizontalSlider_bitrate->blockSignals(true);
     horizontalSlider_bitrate->setMinimum(80);
     horizontalSlider_bitrate->setMaximum(320);
     horizontalSlider_bitrate->setSingleStep(1);
     horizontalSlider_bitrate->setPageStep(10);
     horizontalSlider_bitrate->setValue(real_bitrate);
-    horizontalSlider_bitrate->blockSignals(FALSE);
+    horizontalSlider_bitrate->blockSignals(false);
 
-    kintspinbox_bitrate->blockSignals(TRUE);
+    kintspinbox_bitrate->blockSignals(true);
     kintspinbox_bitrate->setMinimum(80);
     kintspinbox_bitrate->setMaximum(320);
     kintspinbox_bitrate->setSingleStep(1);
     kintspinbox_bitrate->setValue(real_bitrate);
-    kintspinbox_bitrate->setReadOnly(FALSE);
-    kintspinbox_bitrate->blockSignals(FALSE);
+    kintspinbox_bitrate->setReadOnly(false);
+    kintspinbox_bitrate->blockSignals(false);
 
-    p_cbr_flag = FALSE;
+    p_cbr_flag = false;
 
   }
 
@@ -185,17 +185,17 @@ void lameWidget::bitrate_changed_by_slider(int bitrate) {
     if (bitrate < 0) bitrate = 0;
     if (bitrate >= bitrates.count()) bitrate = bitrates.count()-1;
 
-    kintspinbox_bitrate->blockSignals(TRUE);
+    kintspinbox_bitrate->blockSignals(true);
     kintspinbox_bitrate->setValue(bitrates[bitrate]);
-    kintspinbox_bitrate->blockSignals(FALSE);
+    kintspinbox_bitrate->blockSignals(false);
 
     real_bitrate = bitrates[bitrate];
 
   } else {
 
-    kintspinbox_bitrate->blockSignals(TRUE);
+    kintspinbox_bitrate->blockSignals(true);
     kintspinbox_bitrate->setValue(bitrate);
-    kintspinbox_bitrate->blockSignals(FALSE);
+    kintspinbox_bitrate->blockSignals(false);
 
     real_bitrate = bitrate;
 
@@ -207,9 +207,9 @@ void lameWidget::bitrate_changed_by_spinbox(int bitrate) {
 
   if (!p_cbr_flag) {
 
-    horizontalSlider_bitrate->blockSignals(TRUE);
+    horizontalSlider_bitrate->blockSignals(true);
     horizontalSlider_bitrate->setValue(bitrate);
-    horizontalSlider_bitrate->blockSignals(FALSE);
+    horizontalSlider_bitrate->blockSignals(false);
 
     real_bitrate = bitrate;
 

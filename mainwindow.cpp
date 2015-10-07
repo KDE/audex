@@ -66,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   setup_layout();
   setupGUI();
 
-  enable_layout(FALSE);
+  enable_layout(false);
 
   if (updated) {
     update();
@@ -79,12 +79,12 @@ bool MainWindow::firstStart() {
 
   if (Preferences::firstStart()) {
     profile_model->autoCreate();
-    Preferences::setFirstStart(FALSE);
+    Preferences::setFirstStart(false);
     Preferences::self()->writeConfig();
-    return TRUE;
+    return true;
   }
 
-  return FALSE;
+  return false;
 
 }
 
@@ -186,7 +186,7 @@ void MainWindow::configure() {
 
 void MainWindow::new_audio_disc_detected() {
 
-  enable_layout(TRUE);
+  enable_layout(true);
   resizeColumns();
   if (Preferences::cddbLookupAuto()) {
     kDebug() << "Performing CDDB auto lookup";
@@ -199,7 +199,7 @@ void MainWindow::new_audio_disc_detected() {
 
 void MainWindow::audio_disc_removed() {
 
-  enable_layout(FALSE);
+  enable_layout(false);
 
   update_layout();
 
@@ -243,7 +243,7 @@ void MainWindow::enable_layout(bool enabled) {
   if (cdda_model->isModified())
     actionCollection()->action("submit")->setEnabled(enabled);
   else
-    actionCollection()->action("submit")->setEnabled(FALSE);
+    actionCollection()->action("submit")->setEnabled(false);
   actionCollection()->action("eject")->setEnabled(enabled);
   actionCollection()->action("rip")->setEnabled(enabled);
   actionCollection()->action("splittitles")->setEnabled(enabled);
@@ -261,7 +261,7 @@ void MainWindow::enable_submit(bool enabled) {
 }
 
 void MainWindow::disable_submit() {
-  actionCollection()->action("submit")->setEnabled(FALSE);
+  actionCollection()->action("submit")->setEnabled(false);
 }
 
 void MainWindow::configuration_updated(const QString& dialog_name) {
@@ -271,9 +271,9 @@ void MainWindow::configuration_updated(const QString& dialog_name) {
 
 void MainWindow::current_profile_updated_from_ui(int row) {
   if (row >= 0) {
-    profile_model->blockSignals(TRUE);
+    profile_model->blockSignals(true);
     profile_model->setRowAsCurrentProfileIndex(row);
-    profile_model->blockSignals(FALSE);
+    profile_model->blockSignals(false);
   }
 }
 
@@ -281,13 +281,13 @@ void MainWindow::update_profile_action(int index) {
 
   if (index == -1) {
     if (layout_enabled) {
-      actionCollection()->action("profile_label")->setEnabled(FALSE);
-      actionCollection()->action("profile")->setEnabled(FALSE);
+      actionCollection()->action("profile_label")->setEnabled(false);
+      actionCollection()->action("profile")->setEnabled(false);
     }
   } else {
     if (layout_enabled) {
-      actionCollection()->action("profile_label")->setEnabled(TRUE);
-      actionCollection()->action("profile")->setEnabled(TRUE);
+      actionCollection()->action("profile_label")->setEnabled(true);
+      actionCollection()->action("profile")->setEnabled(true);
     }
     profile_combobox->setCurrentIndex(profile_model->getRowByIndex(index));
   }
@@ -402,7 +402,7 @@ void MainWindow::setup_actions() {
   profileAction->setText(i18n("Profile"));
   profileAction->setShortcut(Qt::Key_F6);
   profileAction->setDefaultWidget(profile_combobox);
-  profileAction->setShortcutConfigurable(FALSE);
+  profileAction->setShortcutConfigurable(false);
   actionCollection()->addAction("profile", profileAction);
   update_profile_action();
 
@@ -471,12 +471,12 @@ void MainWindow::setup_layout() {
 
   cdda_tree_view = new QTreeView(this);
   cdda_tree_view->setModel(cdda_model);
-  cdda_tree_view->setAlternatingRowColors(TRUE);
+  cdda_tree_view->setAlternatingRowColors(true);
   cdda_tree_view->setSelectionBehavior(QAbstractItemView::SelectRows);
   cdda_tree_view->setEditTriggers(QAbstractItemView::EditKeyPressed | QAbstractItemView::DoubleClicked);
   cdda_tree_view->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
   cdda_tree_view->setIndentation(0);
-  cdda_tree_view->setAllColumnsShowFocus(TRUE);
+  cdda_tree_view->setAllColumnsShowFocus(true);
   cdda_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(cdda_tree_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(cdda_context_menu(const QPoint&)));
   connect(cdda_tree_view, SIGNAL(clicked(const QModelIndex&)), SLOT(toggle(const QModelIndex&)));

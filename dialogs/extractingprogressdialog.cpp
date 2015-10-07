@@ -66,10 +66,10 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
   connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
 
-  showButtonSeparator(TRUE);
-  finished = FALSE;
+  showButtonSeparator(true);
+  finished = false;
 
-  progressbar_np_flag = FALSE;
+  progressbar_np_flag = false;
 
   unity_message = QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
 
@@ -88,10 +88,10 @@ int ExtractingProgressDialog::exec() {
   resize(600, 400);
   current_extract_overall = 0;
   current_encode_overall = 0;
-  ui.details_button->setArrowType(grp.readEntry("Simple", TRUE) ? Qt::UpArrow : Qt::DownArrow);
+  ui.details_button->setArrowType(grp.readEntry("Simple", true) ? Qt::UpArrow : Qt::DownArrow);
   toggle_details();
   show();
-  setModal(TRUE);
+  setModal(true);
   if (audex->prepare()) {
     audex->start();
   }
@@ -113,23 +113,23 @@ void ExtractingProgressDialog::toggle_details() {
   if (Qt::UpArrow == ui.details_button->arrowType()) {
 
     ui.details_button->setArrowType(Qt::DownArrow);
-    ui.details->setVisible(FALSE);
-    ui.label_overall->setVisible(FALSE);
-    ui.label_overall_track->setVisible(TRUE);
-    ui.progressBar_overall->setVisible(TRUE);
+    ui.details->setVisible(false);
+    ui.label_overall->setVisible(false);
+    ui.label_overall_track->setVisible(true);
+    ui.progressBar_overall->setVisible(true);
     resize(width(), 32);
 
   } else {
 
     ui.details_button->setArrowType(Qt::UpArrow);
-    ui.details->setVisible(TRUE);
-    ui.label_overall_track->setVisible(FALSE);
+    ui.details->setVisible(true);
+    ui.label_overall_track->setVisible(false);
 
     if (cdda_model->numOfAudioTracksInSelection() < 2) {
-      ui.label_overall->setVisible(FALSE);
-      ui.progressBar_overall->setVisible(FALSE);
+      ui.label_overall->setVisible(false);
+      ui.progressBar_overall->setVisible(false);
     } else {
-      ui.label_overall->setVisible(TRUE);
+      ui.label_overall->setVisible(true);
     }
     resize(width(), 400);
 
@@ -170,7 +170,7 @@ void ExtractingProgressDialog::cancel() {
 				i18n("Cancel"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no()) == KMessageBox::Yes) {
-      enableButton(Cancel, FALSE);
+      enableButton(Cancel, false);
       audex->cancel();
     }
 
@@ -231,14 +231,14 @@ void ExtractingProgressDialog::show_progress_encode_track(int percent) {
     ui.progressBar_encoding->setValue(percent);
     if (progressbar_np_flag) {
       ui.progressBar_encoding->setRange(0, 100);
-      ui.progressBar_encoding->setTextVisible(TRUE);
-      progressbar_np_flag = FALSE;
+      ui.progressBar_encoding->setTextVisible(true);
+      progressbar_np_flag = false;
     }
   } else {
     if (!progressbar_np_flag) {
-      progressbar_np_flag = TRUE;
+      progressbar_np_flag = true;
       ui.progressBar_encoding->setRange(0, 0);
-      ui.progressBar_encoding->setTextVisible(FALSE);
+      ui.progressBar_encoding->setTextVisible(false);
     }
   }
 
@@ -269,7 +269,7 @@ void ExtractingProgressDialog::conclusion(bool successful) {
 
   QFlags<KDialog::ButtonCode> buttons = Close;
 
-  finished = TRUE;
+  finished = true;
 
   update_unity();
 
@@ -298,12 +298,12 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     if (audex->extractProtocol().count() > 0) { buttons |= User2; }
   }
 
-  ui.progressBar_extracting->setEnabled(FALSE);
-  ui.progressBar_encoding->setEnabled(FALSE);
-  ui.progressBar_overall->setEnabled(FALSE);
-  ui.label_speed_extracting->setEnabled(FALSE);
-  ui.label_speed_encoding->setEnabled(FALSE);
-  ui.label_overall->setEnabled(FALSE);
+  ui.progressBar_extracting->setEnabled(false);
+  ui.progressBar_encoding->setEnabled(false);
+  ui.progressBar_overall->setEnabled(false);
+  ui.label_speed_extracting->setEnabled(false);
+  ui.label_speed_encoding->setEnabled(false);
+  ui.label_overall->setEnabled(false);
 
   ui.label_extracting->setPalette(pal);
   ui.label_encoding->setPalette(pal);

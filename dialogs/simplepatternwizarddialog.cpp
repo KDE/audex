@@ -50,7 +50,7 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, con
   this->pattern = pattern;
   this->suffix = suffix;
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
   update_example();
 
@@ -72,8 +72,8 @@ void SimplePatternWizardDialog::slotButtonClicked(int button) {
 }
 
 void SimplePatternWizardDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 void SimplePatternWizardDialog::about_schemes() {
@@ -162,14 +162,14 @@ void SimplePatternWizardDialog::insNoOfTracks() {
 
 bool SimplePatternWizardDialog::save() {
   pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }
 
 void SimplePatternWizardDialog::update_example() {
   PatternParser patternparser;
   QString filename = patternparser.parseSimplePattern(ui.klineedit_pattern->text(),
-	1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, FALSE);
+	1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, false);
   ui.klineedit_example->setText(filename);
   ui.klineedit_example->setCursorPosition(0);
 }

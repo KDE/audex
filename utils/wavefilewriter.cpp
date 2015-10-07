@@ -37,9 +37,9 @@ bool WaveFileWriter::open(const QString& filename) {
   if (p_output_file.open(QIODevice::WriteOnly)) {
     p_filename = filename;
     p_write_empty_header();
-    return TRUE;
+    return true;
   } else {
-    return FALSE;
+    return false;
   }
 
 }

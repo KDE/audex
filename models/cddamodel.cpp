@@ -41,13 +41,13 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
   }
   connect(cddb, SIGNAL(finished(KCDDB::Result)), this, SLOT(lookup_cddb_done(KCDDB::Result)));
 
-  cddb_transaction_pending = FALSE;
+  cddb_transaction_pending = false;
 
   _cover = new CachedImage();
 
   cd_info.clear();
-  modified = FALSE;
-  _empty = TRUE;
+  modified = false;
+  _empty = true;
 
   QTimer::singleShot(2000, devices, SLOT(scanBus()));
 
@@ -145,33 +145,33 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
 bool CDDAModel::setData(const QModelIndex &index, const QVariant &value, int role) {
 
   if (!pn) {
-    return FALSE;
+    return false;
   }
 
   if (!index.isValid()) {
-    return FALSE;
+    return false;
   }
 
   if ((index.row() < 0) || (index.row() >= numOfTracks())) {
-    return FALSE;
+    return false;
   }
 
   if (role == Qt::EditRole) {
-    bool changed = FALSE;
+    bool changed = false;
     switch (index.column()) {
       case CDDA_MODEL_COLUMN_ARTIST_INDEX :
         if (value != cd_info.track(index.row()).get(KCDDB::Artist)) {
           cd_info.track(index.row()).set(KCDDB::Artist, value);
-          changed = TRUE;
+          changed = true;
         }
         break;
       case CDDA_MODEL_COLUMN_TITLE_INDEX :
         if (value != cd_info.track(index.row()).get(KCDDB::Title)) {
           cd_info.track(index.row()).set(KCDDB::Title, value);
-          changed = TRUE;
+          changed = true;
         }
         break;
-      default : return FALSE;
+      default : return false;
     }
     if (changed) {
       emit dataChanged(index, index);
@@ -180,7 +180,7 @@ bool CDDAModel::setData(const QModelIndex &index, const QVariant &value, int rol
     return changed;
   }
 
-  return FALSE;
+  return false;
 
 }
 
@@ -384,7 +384,7 @@ void CDDAModel::setMultiCD(const bool multi) {
 }
 
 bool CDDAModel::isMultiCD() const {
-  if (!pn) return FALSE;
+  if (!pn) return false;
   return cd_info.get("DMULTICD").toBool();
 }
 
@@ -431,30 +431,30 @@ quint16 CDDAModel::coverChecksum() const {
 bool CDDAModel::setCover(const QByteArray& data) {
   if (_cover->load(data)) {
     reset();
-    return TRUE;
+    return true;
   } else {
     error = _cover->lastError();
   }
-  return FALSE;
+  return false;
 }
 
 bool CDDAModel::setCover(const QString& filename) {
   if (_cover->load(filename)) {
     reset();
-    return TRUE;
+    return true;
   } else {
     error = _cover->lastError();
   }
-  return FALSE;
+  return false;
 }
 
 bool CDDAModel::saveCoverToFile(const QString& filename) {
   if (_cover->save(filename)) {
-    return TRUE;
+    return true;
   } else {
     error = _cover->lastError();
   }
-  return FALSE;
+  return false;
 }
 
 bool CDDAModel::isCoverEmpty() const {
@@ -472,13 +472,13 @@ const QString CDDAModel::coverSupportedMimeTypeList() const {
 }
 
 bool CDDAModel::guessVarious() const {
-  if (!pn) return FALSE;
+  if (!pn) return false;
   QString a;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
-    if ((i > 0) && (cd_info.track(i).get(KCDDB::Artist).toString().toLower() != a.toLower())) return TRUE;
+    if ((i > 0) && (cd_info.track(i).get(KCDDB::Artist).toString().toLower() != a.toLower())) return true;
     a = cd_info.track(i).get(KCDDB::Artist).toString();
   }
-  return FALSE;
+  return false;
 }
 
 void CDDAModel::setVarious(bool various) {
@@ -490,7 +490,7 @@ void CDDAModel::setVarious(bool various) {
 }
 
 bool CDDAModel::isVarious() {
-  if (!pn) return FALSE;
+  if (!pn) return false;
   return cd_info.get("DVARIOUS").toBool();
 }
 
@@ -501,7 +501,7 @@ void CDDAModel::swapArtistAndTitleOfTracks() {
     cd_info.track(i).set(KCDDB::Artist, cd_info.track(i).get(KCDDB::Title));
     cd_info.track(i).set(KCDDB::Title, tmp);
   }
-  modified = TRUE; emit cddbDataModified();
+  modified = true; emit cddbDataModified();
   reset();
 }
 
@@ -510,7 +510,7 @@ void CDDAModel::swapArtistAndTitle() {
   QVariant tmp = cd_info.get(KCDDB::Title);
   cd_info.set(KCDDB::Title, cd_info.get(KCDDB::Artist));
   cd_info.set(KCDDB::Artist, tmp);
-  modified = TRUE; emit cddbDataModified();
+  modified = true; emit cddbDataModified();
   reset();
 }
 
@@ -526,7 +526,7 @@ void CDDAModel::splitTitleOfTracks(const QString& divider) {
       cd_info.track(i).set(KCDDB::Title, title);
     }
   }
-  modified = TRUE; emit cddbDataModified();
+  modified = true; emit cddbDataModified();
   reset();
 }
 
@@ -536,7 +536,7 @@ void CDDAModel::capitalizeTracks() {
     cd_info.track(i).set(KCDDB::Artist, capitalize(cd_info.track(i).get(KCDDB::Artist).toString()));
     cd_info.track(i).set(KCDDB::Title, capitalize(cd_info.track(i).get(KCDDB::Title).toString()));
   }
-  modified = TRUE; emit cddbDataModified();
+  modified = true; emit cddbDataModified();
   reset();
 }
 
@@ -544,7 +544,7 @@ void CDDAModel::capitalizeHeader() {
   if (!pn) return;
   cd_info.set(KCDDB::Artist, capitalize(cd_info.get(KCDDB::Artist).toString()));
   cd_info.set(KCDDB::Title, capitalize(cd_info.get(KCDDB::Title).toString()));
-  modified = TRUE; emit cddbDataModified();
+  modified = true; emit cddbDataModified();
   reset();
 }
 
@@ -553,7 +553,7 @@ void CDDAModel::setTitleArtistsFromHeader() {
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
     cd_info.track(i).set(KCDDB::Artist, cd_info.get(KCDDB::Artist));
   }
-  modified = TRUE; emit cddbDataModified();
+  modified = true; emit cddbDataModified();
   reset();
 }
 
@@ -607,7 +607,7 @@ const QList<quint32> CDDAModel::discSignature() const {
 }
 
 bool CDDAModel::isAudioTrack(int n) const {
-  if (!pn) return FALSE;
+  if (!pn) return false;
   return pn->isAudioTrack(n);
 }
 
@@ -645,7 +645,7 @@ void CDDAModel::selectAll() {
 
 void CDDAModel::selectNone() {
   sel_tracks.clear();
-  emit hasSelection(FALSE);
+  emit hasSelection(false);
   emit selectionChanged(0);
 }
 
@@ -654,7 +654,7 @@ bool CDDAModel::isModified() const {
 }
 
 void CDDAModel::confirm() {
-  modified = FALSE;
+  modified = false;
 }
 
 Error CDDAModel::lastError() const {
@@ -671,32 +671,32 @@ void CDDAModel::lookupCDDB() {
     kDebug() << "CDDB transaction already in progress.";
     return;
   }
-  cddb_transaction_pending = TRUE;
+  cddb_transaction_pending = true;
 
   emit cddbLookupStarted();
 
   cddb->config().reparse();
-  cddb->setBlockingMode(FALSE);
+  cddb->setBlockingMode(false);
   cddb->lookup(pn->discSignature());
 
 }
 
 bool CDDAModel::submitCDDB() {
 
-  if (!pn) return TRUE;
+  if (!pn) return true;
 
   kDebug() << "submitCDDB called";
 
   if (cddb_transaction_pending) {
     kDebug() << "CDDB transaction already in progress.";
     error = Error(i18n("CDDB transaction already in progress."), i18n("A CDDB transaction is already in progress. Please wait until it has finished and try again."), Error::ERROR, this);
-    return FALSE;
+    return false;
   }
 
-  cddb_transaction_pending = TRUE;
+  cddb_transaction_pending = true;
 
   cddb->config().reparse();
-  cddb->setBlockingMode(TRUE);
+  cddb->setBlockingMode(true);
   if (category().isEmpty()) {
     setCategory("rock");
   }
@@ -715,18 +715,18 @@ bool CDDAModel::submitCDDB() {
       case KCDDB::Success : ;
       default : error = Error(KCDDB::resultToString(result), i18n("Please make a bug report and contact the CDDB server administrator."), Error::ERROR, this); break;
     }
-    return FALSE;
+    return false;
   }
 
   error = Error();
 
   confirm();
 
-  cddb_transaction_pending = FALSE;
+  cddb_transaction_pending = false;
 
-  emit cddbDataSubmited(TRUE);
+  emit cddbDataSubmited(true);
 
-  return TRUE;
+  return true;
 
 }
 
@@ -803,7 +803,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
       case KCDDB::Success : ;
       default : error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database."), Error::ERROR, this);
     }
-    emit cddbLookupDone(FALSE);
+    emit cddbLookupDone(false);
     return;
   }
 
@@ -817,10 +817,10 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
           .arg(it->get(KCDDB::Title).toString()).arg(it->get(KCDDB::Genre).toString()).arg(it->get(KCDDB::Year).toString()));
     }
 
-    bool ok = FALSE;
+    bool ok = false;
     QString res = KInputDialog::getItem(
       i18n("Select CDDB Entry"),
-      i18n("Select a CDDB entry:"), list, 0, FALSE, &ok,
+      i18n("Select a CDDB entry:"), list, 0, false, &ok,
       NULL);
 
     if (ok) {
@@ -832,7 +832,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
       }
       if (c < cddb_info.size()) info = cddb_info[c];
     } else {
-      emit cddbLookupDone(TRUE);
+      emit cddbLookupDone(true);
       return;
       // user pressed cancel
     }
@@ -849,17 +849,17 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
   QString newTitle;
   int cdnum = guessMultiCD(newTitle);
   if (cdnum > 0) {
-    setMultiCD(TRUE);
+    setMultiCD(true);
     setCDNum(cdnum);
     setTitle(newTitle);
   }
   reset();
 
-  cddb_transaction_pending = FALSE;
+  cddb_transaction_pending = false;
 
-  _empty = FALSE;
+  _empty = false;
 
-  emit cddbLookupDone(TRUE);
+  emit cddbLookupDone(true);
 
 }
 
@@ -893,14 +893,14 @@ void CDDAModel::set_default_values() {
   if (cd_info.get(KCDDB::Year).toString().isEmpty()) cd_info.set(KCDDB::Year, QString("%1").arg(QDate::currentDate().year()));
   cd_info.set("DNO", 1);
   cd_info.set("DTRACKOFFSET", 1);
-  cd_info.set("DMULTICD", FALSE);
+  cd_info.set("DMULTICD", false);
 
 }
 
 void CDDAModel::modify() {
 
-  modified = TRUE;
-  _empty = FALSE;
+  modified = true;
+  _empty = false;
   emit cddbDataModified();
 
 }

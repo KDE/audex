@@ -63,7 +63,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   ui.klineedit_pattern->setText(pattern);
   connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
 
 }
@@ -99,12 +99,12 @@ void ProfileDataCoverDialog::pattern_wizard() {
 }
 
 void ProfileDataCoverDialog::trigger_changed() {
-  if (ui.checkBox_scale->isChecked() != scale) { enableButtonApply(TRUE); return; }
-  if (ui.kintspinbox_x->value() != size.width()) { enableButtonApply(TRUE); return; }
-  if (ui.kintspinbox_y->value() != size.height()) { enableButtonApply(TRUE); return; }
-  if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.checkBox_scale->isChecked() != scale) { enableButtonApply(true); return; }
+  if (ui.kintspinbox_x->value() != size.width()) { enableButtonApply(true); return; }
+  if (ui.kintspinbox_y->value() != size.height()) { enableButtonApply(true); return; }
+  if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(true); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 void ProfileDataCoverDialog::enable_scale(bool enabled) {
@@ -118,6 +118,6 @@ bool ProfileDataCoverDialog::save() {
   size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
   pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }

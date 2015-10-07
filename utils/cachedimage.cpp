@@ -129,18 +129,18 @@ bool CachedImage::load(const QByteArray& data) {
   kDebug() << "Load cover image from buffer (" << _format << ")";
   if (!_format.isEmpty() && QImageReader::supportedImageFormats().contains(_format)) {
     _data = data;
-    return TRUE;
+    return true;
   }
   _format = "";
   _size = QSize();
-  return FALSE;
+  return false;
 }
 
 bool CachedImage::load(const QString& filename) {
   QFile file(filename);
   if (!file.exists()) {
     _error = Error(i18n("File does not exist."), i18n("Please check if the file really exists."), Error::ERROR);
-    return FALSE;
+    return false;
   }
   QImageReader ir(filename);
   _format = ir.format();
@@ -149,7 +149,7 @@ bool CachedImage::load(const QString& filename) {
   if (!_format.isEmpty() && QImageReader::supportedImageFormats().contains(_format)) {
     if (!file.open(QIODevice::ReadOnly)) {
       _error = Error(i18n("Cannot open file."), i18n("Please check your file. Maybe you do not have proper permissions."), Error::ERROR);
-      return FALSE;
+      return false;
     }
     _data = file.readAll();
     file.close();
@@ -157,10 +157,10 @@ bool CachedImage::load(const QString& filename) {
     _error = Error(i18n("Unsupported image format"), i18n("Please check your file. Maybe it is corrupted. Otherwise try to convert your cover image with an external program to a common file format like JPEG."), Error::ERROR);
     _format = "";
     _size = QSize();
-    return FALSE;
+    return false;
   }
   _error = Error();
-  return TRUE;
+  return true;
 }
 
 void CachedImage::clear() {
@@ -172,7 +172,7 @@ bool CachedImage::save(const QString& filename, const QSize& size) {
   QFile file(filename);
   if (!file.open(QIODevice::WriteOnly)) {
     _error = Error(i18n("Cannot open file"), i18n("Please check your permissions."), Error::ERROR);
-    return FALSE;
+    return false;
   }
   QByteArray format = KMimeType::extractKnownExtension(filename).toLower().toAscii();
   if ((compare_format(format, _format) || (format.isEmpty())) && ((size.isNull()) || (size == _size))) {
@@ -180,29 +180,29 @@ bool CachedImage::save(const QString& filename, const QSize& size) {
     if ((r==-1) || (r < _data.size())) {
       _error = Error(i18n("Cannot save file"), i18n("Please check your permissions. Do you have enough space?"), Error::ERROR);
       file.close();
-      return FALSE;
+      return false;
     }
   } else {
     if (!_save(&file, format, size)) {
       file.close();
-      return FALSE; 
+      return false;
     }
   }
   file.close();
   _error = Error();
-  return TRUE;
+  return true;
 }
 
 bool CachedImage::compare_format(const QByteArray& f1, const QByteArray& f2) const {
-  if (((f1.toLower() == "jpg") || (f1.toLower() == "jpeg")) && ((f2.toLower() == "jpg") || (f2.toLower() == "jpeg"))) return TRUE;
-  if (((f1.toLower() == "tif") || (f1.toLower() == "tiff")) && ((f2.toLower() == "tif") || (f2.toLower() == "tiff"))) return TRUE;
+  if (((f1.toLower() == "jpg") || (f1.toLower() == "jpeg")) && ((f2.toLower() == "jpg") || (f2.toLower() == "jpeg"))) return true;
+  if (((f1.toLower() == "tif") || (f1.toLower() == "tiff")) && ((f2.toLower() == "tif") || (f2.toLower() == "tiff"))) return true;
   return (f1.toLower() == f2.toLower());
 }
 
 bool CachedImage::_save(QIODevice *device, const QByteArray& format, const QSize& size) {
   if ((!format.isEmpty()) && (!QImageReader::supportedImageFormats().contains(format))) {
     _error = Error(i18n("Unsupported image format"), i18n("Please use common image formats like JPEG, PNG or GIF as they are supported on almost all systems."), Error::ERROR);
-    return FALSE;
+    return false;
   }
   QImage image = QImage::fromData(_data);
   if ((size.isValid()) && (image.size() != size)) image = image.scaled(size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
@@ -210,8 +210,8 @@ bool CachedImage::_save(QIODevice *device, const QByteArray& format, const QSize
   if (!format.isEmpty()) ok = image.save(device, format.data()); else ok = image.save(device);
   if (!ok) {
     _error = Error(i18n("Cannot write on device"), i18n("Please check your permissions. Do you have enough space on your device?"), Error::ERROR);
-    return FALSE;
+    return false;
   }
   _error = Error();
-  return TRUE;
+  return true;
 }

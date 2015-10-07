@@ -52,7 +52,7 @@ PatternWizardDialog::PatternWizardDialog(const QString& pattern, QWidget *parent
 
   this->pattern = pattern;
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
 
   update_example();
@@ -75,8 +75,8 @@ void PatternWizardDialog::slotButtonClicked(int button) {
 }
 
 void PatternWizardDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 void PatternWizardDialog::about_filename_schemes() {
@@ -187,8 +187,8 @@ void PatternWizardDialog::insNoOfTracks() {
 
 bool PatternWizardDialog::save() {
   pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }
 
 void PatternWizardDialog::update_example() {
@@ -196,13 +196,13 @@ void PatternWizardDialog::update_example() {
   QString filename = patternparser.parseFilenamePattern(ui.klineedit_pattern->text(),
 	2, 1, 12, 1,
 	"Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
-	"2006", "Rock", "ogg", FALSE, FALSE, FALSE);
+	"2006", "Rock", "ogg", false, false, false);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
   filename = patternparser.parseFilenamePattern(ui.klineedit_pattern->text(),
 	4, 2, 18, 1,
 	"Alternative Hits", "Volume 4", "Wolfsheim", "Kein Zurueck",
-	"2003", "Darkwave", "ogg", FALSE, FALSE, FALSE);
+	"2003", "Darkwave", "ogg", false, false, false);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);
 }

@@ -42,7 +42,7 @@ void Parameters::fromString(const QString& string, const QChar& sep) {
   p_parameters.clear();
 
   QString option;
-  bool is_in_quote = FALSE;
+  bool is_in_quote = false;
   for (int i = 0; i < string.length(); ++i) {
     if (string[i]=='\'') {
       is_in_quote = !is_in_quote;
@@ -78,7 +78,7 @@ const QString Parameters::toString(const QChar& sep) {
   QString string;
 
   QHash<QString,QString>::const_iterator i = p_parameters.constBegin();
-  bool first = TRUE;
+  bool first = true;
   while (i != p_parameters.constEnd()) {
     QString s = i.value();
     s.replace("'", "\\'");
@@ -86,7 +86,7 @@ const QString Parameters::toString(const QChar& sep) {
       string += sep+i.key()+"='"+s+"'";
     } else {
       string += i.key()+"='"+s+"'";
-      first = FALSE;
+      first = false;
     }
     ++i;
   }

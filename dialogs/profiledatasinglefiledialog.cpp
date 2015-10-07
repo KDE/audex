@@ -39,7 +39,7 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern,
   ui.klineedit_pattern->setText(pattern);
   connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
 
 }
@@ -73,12 +73,12 @@ void ProfileDataSingleFileDialog::pattern_wizard() {
 }
 
 void ProfileDataSingleFileDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 bool ProfileDataSingleFileDialog::save() {
   pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }

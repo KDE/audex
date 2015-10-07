@@ -23,7 +23,7 @@ CoverBrowserDialog::CoverBrowserDialog(QWidget *parent) : KDialog(parent) {
   Q_UNUSED(parent);
 
   setup();
-  showButtonSeparator(TRUE);
+  showButtonSeparator(true);
 
 }
 
@@ -111,7 +111,7 @@ void CoverBrowserDialog::setup() {
   connect(&cover_fetcher, SIGNAL(error(const QString&, const QString&)), this, SLOT(error(const QString&, const QString&)));
 
   ui.listWidget->setIconSize(QSize(constIconSize, constIconSize));
-  ui.listWidget->setWordWrap(TRUE);
+  ui.listWidget->setWordWrap(true);
   ui.listWidget->setViewMode(QListView::IconMode);
   connect(ui.listWidget, SIGNAL(itemSelectionChanged()), this, SLOT(enable_select_button()));
   connect(ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(select_this(QListWidgetItem*)));

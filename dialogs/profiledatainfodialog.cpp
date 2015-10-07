@@ -55,7 +55,7 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   connect(ui.kpushbutton_load, SIGNAL(clicked()), this, SLOT(load_text()));
   connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_text()));
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
 
 }
@@ -89,10 +89,10 @@ void ProfileDataInfoDialog::pattern_wizard() {
 }
 
 void ProfileDataInfoDialog::trigger_changed() {
-  if (ui.ktextedit_text->toPlainText().split("\n") != text) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_suffix->text() != suffix) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.ktextedit_text->toPlainText().split("\n") != text) { enableButtonApply(true); return; }
+  if (ui.klineedit_suffix->text() != suffix) { enableButtonApply(true); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 void ProfileDataInfoDialog::about_variables() {
@@ -246,6 +246,6 @@ bool ProfileDataInfoDialog::save() {
   text = ui.ktextedit_text->toPlainText().split("\n");
   suffix = ui.klineedit_suffix->text();
   pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }

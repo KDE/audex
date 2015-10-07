@@ -39,9 +39,9 @@ bool CDDAParanoia::setDevice(const QString& device) {
   if (!_paranoia_init()) {
     kDebug() << "Internal device error.";
     emit error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", _device));
-    return FALSE;
+    return false;
   }
-  return TRUE;
+  return true;
 }
 
 QString CDDAParanoia::device() const {
@@ -265,7 +265,7 @@ int CDDAParanoia::frameOffsetOfTrack(int n) {
 
 bool CDDAParanoia::isAudioTrack(int n) {
   if (paranoia_drive) return IS_AUDIO(paranoia_drive, n-1);
-  return TRUE;
+  return true;
 }
 
 QList<quint32> CDDAParanoia::discSignature(const qint32 pregap) {
@@ -293,7 +293,7 @@ bool CDDAParanoia::_paranoia_init() {
   if (paranoia_drive == 0) {
     mutex.unlock();
     kDebug() << "Failed to find device.";
-    return FALSE;
+    return false;
   }
 
   //cdda_cdda_verbose_set(_drive, 1, 1);
@@ -304,11 +304,11 @@ bool CDDAParanoia::_paranoia_init() {
     _paranoia_free();
     mutex.unlock();
     kDebug() << "Failed to init device.";
-    return FALSE;
+    return false;
   }
 
   mutex.unlock();
-  return TRUE;
+  return true;
 
 }
 

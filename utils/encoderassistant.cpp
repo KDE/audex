@@ -89,12 +89,12 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder) {
     case EncoderAssistant::FLAC : return (KProcess::execute(ENCODER_FLAC_BIN, QStringList() << ENCODER_FLAC_VERSION_PARA)==0);
     case EncoderAssistant::FAAC : return (KProcess::execute(ENCODER_FAAC_BIN, QStringList() << ENCODER_FAAC_VERSION_PARA)==1);
     case EncoderAssistant::WAVE : return (KProcess::execute(ENCODER_WAVE_BIN, QStringList() << ENCODER_WAVE_VERSION_PARA)==0);
-    case EncoderAssistant::CUSTOM : return TRUE;
-    default : return FALSE;
+    case EncoderAssistant::CUSTOM : return true;
+    default : return false;
 
   }
 
-  return FALSE;
+  return false;
 
 }
 
@@ -102,9 +102,9 @@ bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize) {
 
   switch (encoder) {
 
-    case EncoderAssistant::LAME : if (maxCoverSize) *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE; return TRUE;
+    case EncoderAssistant::LAME : if (maxCoverSize) *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE; return true;
     case EncoderAssistant::OGGENC :
-    case EncoderAssistant::FLAC : return TRUE;
+    case EncoderAssistant::FLAC : return true;
     case EncoderAssistant::FAAC :
     case EncoderAssistant::WAVE :
     case EncoderAssistant::CUSTOM :
@@ -114,7 +114,7 @@ bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize) {
 
   if (maxCoverSize) *maxCoverSize = 0;
 
-  return FALSE;
+  return false;
 
 }
 

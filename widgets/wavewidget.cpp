@@ -32,7 +32,7 @@ waveWidget::waveWidget(Parameters *parameters, QWidget *parent) : waveWidgetUI(p
 
   connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  changed = FALSE;
+  changed = false;
 
 }
 
@@ -42,11 +42,11 @@ waveWidget::~waveWidget() {
 
 bool waveWidget::save() {
 
-  bool success = TRUE;
+  bool success = true;
 
   parameters->setValue(ENCODER_WAVE_SUFFIX_KEY, klineedit_suffix->text());
 
-  changed = FALSE;
+  changed = false;
 
   return success;
 

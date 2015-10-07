@@ -38,7 +38,7 @@ customWidget::customWidget(Parameters *parameters, QWidget *parent) : customWidg
 
   kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
 
-  changed = FALSE;
+  changed = false;
 
 }
 
@@ -48,12 +48,12 @@ customWidget::~customWidget() {
 
 bool customWidget::save() {
 
-  bool success = TRUE;
+  bool success = true;
 
   parameters->setValue(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, klineedit_pattern->text());
   parameters->setValue(ENCODER_CUSTOM_SUFFIX_KEY, klineedit_suffix->text());
 
-  changed = FALSE;
+  changed = false;
 
   return success;
 

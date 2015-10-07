@@ -54,7 +54,7 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
 
   this->command = command;
 
-  enableButtonApply(FALSE);
+  enableButtonApply(false);
   showButtonSeparator(true);
 
   update_example();
@@ -77,8 +77,8 @@ void CommandWizardDialog::slotButtonClicked(int button) {
 }
 
 void CommandWizardDialog::trigger_changed() {
-  if (ui.klineedit_command->text() != command) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.klineedit_command->text() != command) { enableButtonApply(true); return; }
+  enableButtonApply(false);
 }
 
 void CommandWizardDialog::about_commandline_schemes() {
@@ -211,8 +211,8 @@ void CommandWizardDialog::insOutFile() {
 
 bool CommandWizardDialog::save() {
   command = ui.klineedit_command->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  enableButtonApply(false);
+  return true;
 }
 
 void CommandWizardDialog::update_example() {
@@ -221,14 +221,14 @@ void CommandWizardDialog::update_example() {
         "/tmp/tmp.wav", QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
         2, 1, 1, 12,
         "Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
-        "2006", "Rock", "ogg", NULL, FALSE, QDir::tempPath(), "LAME 3.98.2", TRUE);
+        "2006", "Rock", "ogg", NULL, false, QDir::tempPath(), "LAME 3.98.2", true);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
   filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
         "/tmp/tmp.wav", QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
         4, 2, 1, 18,
         "Alternative Hits", "Volume 4", "Wolfsheim", "Approaching Lightspeed",
-        "2003", "Darkwave", "ogg", NULL, FALSE, QDir::tempPath(), "LAME 3.98.2", TRUE);
+        "2003", "Darkwave", "ogg", NULL, false, QDir::tempPath(), "LAME 3.98.2", true);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);
 }
