@@ -1,6 +1,6 @@
 project (audex)
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.0.0)
 
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 set(CPACK_GENERATOR "DEB;RPM;TGZ")
@@ -15,21 +15,28 @@ set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 include(CPack)
 
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
+find_package(ECM REQUIRED NO_MODULE)
+
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
-find_package(KDE4 REQUIRED)
-find_package(KdeMultimedia REQUIRED)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+include(ECMInstallIcons)
+include(FeatureSummary)
+
+find_package(Qt5 REQUIRED COMPONENTS Script Widgets X11Extras)
+find_package(KF5 REQUIRED COMPONENTS Config I18n IconThemes KCMUtils KDELibs4Support
+                                     KIO Solid TextWidgets XmlGui)
+#find_package(KF5 REQUIRED COMPONENTS CompactDisc)
+find_package(Libkcddb REQUIRED)
 find_package(Cdparanoia REQUIRED)
 
-include(MacroLibrary)
-
 include_directories(
-  ${KDE4_INCLUDES}
-  ${KDEMULTIMEDIA_INCLUDE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_BINARY_DIR}
   ${CDPARANOIA_INCLUDE_DIR}
@@ -89,7 +96,7 @@ set(audex_SRCS
   core/audex.cpp
 )
 
-kde4_add_ui_files(audex_SRCS
+qt5_wrap_ui(audex_SRCS
   widgets/generalsettingswidgetUI.ui
   widgets/devicewidgetUI.ui
   widgets/profilewidgetUI.ui
@@ -116,18 +123,23 @@ kde4_add_ui_files(audex_SRCS
   dialogs/protocolwidgetUI.ui
 )
 
-kde4_add_kcfg_files(audex_SRCS preferences.kcfgc)
+kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
-kde4_add_executable(audex ${audex_SRCS})
+add_executable(audex ${audex_SRCS})
 target_link_libraries(audex
-  ${CDPARANOIA_LIBRARIES}
-  ${KDE4_KDEUI_LIBS}
-  ${KDE4_KUTILS_LIBS}
-  ${KDE4_KIO_LIBRARY}
-  ${KDE4_SOLID_LIBS}
-  ${KDEMULTIMEDIA_LIBRARIES}
-  ${QT_QTXML_LIBRARY}
-  ${QT_QTSCRIPT_LIBRARY}
+    Qt5::Script
+    Qt5::Widgets
+    Qt5::X11Extras
+    KF5::KCMUtils
+    KF5::I18n
+    KF5::IconThemes
+    #KF5::KDELibs4Support
+    KF5::KIOWidgets
+    KF5::Solid
+    KF5::TextWidgets
+    KF5::XmlGui
+    KDE::Libkcddb::kcddb
+    ${CDPARANOIA_LIBRARIES}
 )
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
@@ -138,4 +150,4 @@ install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/ac
 add_subdirectory(icons)
 add_subdirectory(images)
 
-macro_display_feature_log()
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES)
