@@ -27,7 +27,6 @@
 #include <QInputDialog>
 
 #include <KXmlGuiWindow>
-#include <KApplication>
 #include <KLocale>
 #include <KActionCollection>
 #include <KStandardAction>

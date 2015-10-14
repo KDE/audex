@@ -467,7 +467,7 @@ void MainWindow::setup_actions() {
   actionCollection()->addAction("invertselection", invertSelectionAction);
   connect(invertSelectionAction, SIGNAL(triggered(bool)), this, SLOT(invert_selection()));
 
-  KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
+  KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
 
 }
 
