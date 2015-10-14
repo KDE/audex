@@ -18,7 +18,9 @@
 
  #include "upload.h"
 
-Upload::Upload(const KUrl& url, QObject *parent) : QObject(parent) {
+#include <QUrl>
+
+Upload::Upload(const QUrl &url, QObject *parent) : QObject(parent) {
 
   Q_UNUSED(parent);
 
@@ -40,7 +42,7 @@ void Upload::upload(const QString& targetpath, const QStringList& filelist) {
     dir = targetpath.section('/', 0, i, QString::SectionSkipEmpty);
     if (olddir==dir) break;
     ++i;
-    KUrl url = base_url;
+    QUrl url = base_url;
     url.setPath(base_url.path()+"/"+dir);
     //kDebug() << url;
     KIO::Job *job = KIO::mkdir(url);
@@ -55,11 +57,11 @@ void Upload::upload(const QString& targetpath, const QStringList& filelist) {
   }
 
   for (int i = 0; i < filelist.count(); ++i) {
-    KUrl url = base_url;
+    QUrl url = base_url;
     QFileInfo fi(filelist.at(i));
     url.setPath(base_url.path()+"/"+targetpath+"/"+fi.fileName());
     emit info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
-    KIO::Job *job = KIO::copy(KUrl(filelist.at(i)), url);
+    KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
     if (!job->exec()) {
       emit error(job->errorText(), "");
       kDebug() << job->errorText();

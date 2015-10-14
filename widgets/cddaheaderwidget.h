@@ -40,7 +40,6 @@
 #include <KLocale>
 #include <KDebug>
 #include <KStandardDirs>
-#include <KUrl>
 #include <KColorScheme>
 #include <KMessageBox>
 

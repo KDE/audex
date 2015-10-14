@@ -284,14 +284,14 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
 
   cdda_model = cddaModel;
   if (!cdda_model) {
-    kDebug() << "CDDAModel is NULL!";
+    qDebug() << "CDDAModel is NULL!";
     return;
   }
   connect(cdda_model, SIGNAL(modelReset()), this, SLOT(update()));
 
   setup_actions();
 
-  kDebug() << "coverSize:" << coverSize;
+  qDebug() << "coverSize:" << coverSize;
   this->cover_size = coverSize;
 
   this->i_cover_checksum = 1;
@@ -387,7 +387,7 @@ void CDDAHeaderWidget::setEnabled(bool enabled) {
 
 void CDDAHeaderWidget::googleAuto() {
 
-  kDebug() << "Google AUTO cover fetch" ;
+  qDebug() << "Google AUTO cover fetch" ;
 
   if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
@@ -583,8 +583,8 @@ void CDDAHeaderWidget::update() {
   if (cdda_model->isCoverEmpty()) {
     if (i_cover_checksum) setCover(NULL);
   } else {
-    kDebug() << "current cover checksum:" << i_cover_checksum;
-    kDebug() << "new cover checksum:" << cdda_model->coverChecksum();
+    qDebug() << "current cover checksum:" << i_cover_checksum;
+    qDebug() << "new cover checksum:" << cdda_model->coverChecksum();
     if (i_cover_checksum != cdda_model->coverChecksum()) setCover(cdda_model->cover());
     activate = true;
   }
@@ -654,7 +654,7 @@ void CDDAHeaderWidget::cover_is_down() {
 
 void CDDAHeaderWidget::google() {
 
-  kDebug() << "Google cover fetch" ;
+  qDebug() << "Google cover fetch" ;
 
   if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
@@ -687,8 +687,8 @@ void CDDAHeaderWidget::google() {
 }
 
 void CDDAHeaderWidget::load() {
-  kDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load Cover"));
+  qDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
+  QString filename = KFileDialog::getOpenFileName(QUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load Cover"));
   if (!filename.isEmpty()) {
     if (!cdda_model->setCover(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
@@ -697,7 +697,7 @@ void CDDAHeaderWidget::load() {
 }
 
 void CDDAHeaderWidget::save() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()+"/"+cdda_model->title()+".jpg"), cdda_model->coverSupportedMimeTypeList(), this, i18n("Save Cover"));
+  QString filename = KFileDialog::getSaveFileName(QUrl(QDir::homePath()+"/"+cdda_model->title()+".jpg"), cdda_model->coverSupportedMimeTypeList(), this, i18n("Save Cover"));
   if (!filename.isEmpty()) {
     if (!cdda_model->saveCoverToFile(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
@@ -712,13 +712,13 @@ void CDDAHeaderWidget::view_cover() {
     QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
     tmp_path = dirs.size()?dirs[0]:"/var/tmp/";
     if (tmp_path.right(1) != "/") tmp_path += "/";
-    kDebug() << "Temporary folder in use:" << tmp_path;
+    qDebug() << "Temporary folder in use:" << tmp_path;
   }
 
   QString filename = tmp_path+QString("%1.jpeg").arg(cdda_model->coverChecksum());
   cdda_model->saveCoverToFile(filename);
 
-  QDesktopServices::openUrl(KUrl(filename));
+  QDesktopServices::openUrl(QUrl(filename));
 
 }
 
@@ -758,7 +758,7 @@ void CDDAHeaderWidget::wikipedia() {
 
   if (l.isEmpty()) l = "en";
 
-  QDesktopServices::openUrl(QUrl(QString("http://%1.wikipedia.org/wiki/").arg(l) + KUrl::toPercentEncoding(cdda_model->artist())));
+  QDesktopServices::openUrl(QUrl(QString("http://%1.wikipedia.org/wiki/").arg(l) + QUrl::toPercentEncoding(cdda_model->artist())));
 
 }
 
@@ -776,7 +776,7 @@ void CDDAHeaderWidget::set_cover(const QByteArray& cover) {
 void CDDAHeaderWidget::fetch_first_cover() {
   if (cover_browser_dialog) {
     if (cover_browser_dialog->count() == 0) {
-      kDebug() << "no cover found";
+      qDebug() << "no cover found";
       ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
       delete cover_browser_dialog;
       cover_browser_dialog = NULL;
@@ -810,7 +810,7 @@ void CDDAHeaderWidget::fetch_cover_failed() {
 }
 
 void CDDAHeaderWidget::context_menu(const QPoint& point) {
-  kDebug() << "context menu requested at point" << point;
+  qDebug() << "context menu requested at point" << point;
   if ((cursor_on_cover) && (!fetching_cover_in_progress)) {
     QApplication::restoreOverrideCursor();
     cursor_on_cover = false;

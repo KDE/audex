@@ -58,9 +58,9 @@ void CoverFetcher::fetched_external_ip(KJob* job) {
   // Max images per request on Google API is 8, thus the std::min
   QString url;
   url= QString("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%1&rsz=%2&userip=%3")
-          .arg(KUrl::toPercentEncoding(search_string, "/").data())
+          .arg(QUrl::toPercentEncoding(search_string, "/").data())
           .arg(std::min(fetch_no,8))
-          .arg(KUrl::toPercentEncoding(external_ip).data());
+          .arg(QUrl::toPercentEncoding(external_ip).data());
 
   kDebug() << "searching covers (" << url << ")...";
 
@@ -116,7 +116,7 @@ void CoverFetcher::startFetchCover(const int no) {
   kDebug() << "fetching cover...";
   _status = FETCHING_COVER; emit statusChanged(FETCHING_COVER);
 
-  job = KIO::storedGet(KUrl(cover_urls[no]));
+  job = KIO::storedGet(QUrl(cover_urls[no]));
   connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
 }
@@ -244,7 +244,7 @@ bool CoverFetcher::fetch_cover_thumbnail() {
 
   _status = FETCHING_THUMBNAIL; emit statusChanged(FETCHING_THUMBNAIL);
 
-  job = KIO::storedGet(KUrl(cover_urls_thumbnails.takeFirst()));
+  job = KIO::storedGet(QUrl(cover_urls_thumbnails.takeFirst()));
   connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
   return true;

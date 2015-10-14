@@ -18,6 +18,8 @@
 
 #include "cachedimage.h"
 
+#include <QUrl>
+
 CachedImage::CachedImage() {
 }
 

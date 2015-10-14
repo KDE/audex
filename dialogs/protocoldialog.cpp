@@ -59,7 +59,7 @@ void ProtocolDialog::slotButtonClicked(int button) {
 }
 
 void ProtocolDialog::save() {
-  QString fileName = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.pro", this, i18n("Save %1", title));
+  QString fileName = KFileDialog::getSaveFileName(QUrl(QDir::homePath()), "*.pro", this, i18n("Save %1", title));
   if (!fileName.isEmpty()) {
     QFile data(fileName);
     if (data.open(QFile::WriteOnly | QFile::Truncate)) {

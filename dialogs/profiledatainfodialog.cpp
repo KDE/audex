@@ -219,7 +219,7 @@ void ProfileDataInfoDialog::about_variables() {
 }
 
 void ProfileDataInfoDialog::load_text() {
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*", this, i18n("Load Text Template"));
+  QString filename = KFileDialog::getOpenFileName(QUrl(QDir::homePath()), "*", this, i18n("Load Text Template"));
   if (!filename.isEmpty()) {
     QFile file(filename);
     if (file.open(QFile::ReadOnly)) {
@@ -231,7 +231,7 @@ void ProfileDataInfoDialog::load_text() {
 }
 
 void ProfileDataInfoDialog::save_text() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*", this, i18n("Save Text Template"));
+  QString filename = KFileDialog::getSaveFileName(QUrl(QDir::homePath()), "*", this, i18n("Save Text Template"));
   if (!filename.isEmpty()) {
     QFile file(filename);
     if (file.open(QFile::WriteOnly | QFile::Truncate)) {

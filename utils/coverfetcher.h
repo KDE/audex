@@ -25,7 +25,6 @@
 
 #include <KDebug>
 #include <KLocale>
-#include <KUrl>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
 #include <KIO/TransferJob>

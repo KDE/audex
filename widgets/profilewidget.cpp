@@ -119,14 +119,14 @@ void profileWidget::copy_profile() {
 }
 
 void profileWidget::save_profiles() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Save Cover"));
+  QString filename = KFileDialog::getSaveFileName(QUrl(QDir::homePath()), "*.apf", this, i18n("Save Cover"));
   if (!filename.isEmpty()) {
     profile_model->saveProfilesToFile(filename);
   }
 }
 
 void profileWidget::load_profiles() {
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Load Profiles"));
+  QString filename = KFileDialog::getOpenFileName(QUrl(QDir::homePath()), "*.apf", this, i18n("Load Profiles"));
   if (!filename.isEmpty()) {
     profile_model->loadProfilesFromFile(filename);
   }
