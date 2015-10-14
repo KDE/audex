@@ -28,7 +28,6 @@
 
 #include <KXmlGuiWindow>
 #include <KApplication>
-#include <KAction>
 #include <KLocale>
 #include <KActionCollection>
 #include <KStandardAction>

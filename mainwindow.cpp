@@ -374,7 +374,7 @@ void MainWindow::resizeColumns() {
 
 void MainWindow::setup_actions() {
 
-  KAction* ejectAction = new KAction(this);
+  QAction * ejectAction = new QAction(this);
   ejectAction->setText(i18n("Eject"));
   ejectAction->setIcon(QIcon::fromTheme("media-eject"));
   ejectAction->setShortcut(Qt::CTRL + Qt::Key_E);
@@ -393,34 +393,37 @@ void MainWindow::setup_actions() {
   profile_combobox->setCurrentIndex(profile_model->currentProfileRow());
   connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
-  KAction *plabelAction = new KAction(this);
+  QAction *plabelAction = new QAction(this);
   plabelAction->setText(i18n("&Profile:"));
-  plabelAction->setDefaultWidget(profile_label);
+  // TODO: Port
+  //plabelAction->setDefaultWidget(profile_label);
   profile_label->setBuddy(profile_combobox);
   actionCollection()->addAction("profile_label", plabelAction);
 
-  KAction *profileAction = new KAction(this);
+  QAction *profileAction = new QAction(this);
   profileAction->setText(i18n("Profile"));
   profileAction->setShortcut(Qt::Key_F6);
-  profileAction->setDefaultWidget(profile_combobox);
-  profileAction->setShortcutConfigurable(false);
+  // TODO: Port
+  //profileAction->setDefaultWidget(profile_combobox);
+  // TODO: Port
+  //profileAction->setShortcutConfigurable(false);
   actionCollection()->addAction("profile", profileAction);
   update_profile_action();
 
-  KAction *cddbLookupAction = new KAction(this);
+  QAction *cddbLookupAction = new QAction(this);
   cddbLookupAction->setText(i18n("Fetch Info"));
   cddbLookupAction->setIcon(QIcon::fromTheme("view-list-text"));
   cddbLookupAction->setShortcut(Qt::CTRL + Qt::Key_F);
   actionCollection()->addAction("fetch", cddbLookupAction);
   connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
 
-  KAction *cddbSubmitAction = new KAction(this);
+  QAction *cddbSubmitAction = new QAction(this);
   cddbSubmitAction->setText(i18n("Submit Info"));
   cddbSubmitAction->setShortcut(Qt::CTRL + Qt::Key_S);
   actionCollection()->addAction("submit", cddbSubmitAction);
   connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
 
-  KAction* extractAction = new KAction(this);
+  QAction * extractAction = new QAction(this);
   extractAction->setText(i18n("Rip..."));
   extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
   extractAction->setShortcut(Qt::CTRL + Qt::Key_X);
@@ -429,37 +432,37 @@ void MainWindow::setup_actions() {
 
   actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));
 
-  KAction *splitTitlesAction = new KAction(this);
+  QAction *splitTitlesAction = new QAction(this);
   splitTitlesAction->setText(i18n("Split Titles..."));
   actionCollection()->addAction("splittitles", splitTitlesAction);
   connect(splitTitlesAction, SIGNAL(triggered(bool)), this, SLOT(split_titles()));
 
-  KAction *swapArtistsAndTitlesAction = new KAction(this);
+  QAction *swapArtistsAndTitlesAction = new QAction(this);
   swapArtistsAndTitlesAction->setText(i18n("Swap Artists And Titles"));
   actionCollection()->addAction("swapartistsandtitles", swapArtistsAndTitlesAction);
   connect(swapArtistsAndTitlesAction, SIGNAL(triggered(bool)), this, SLOT(swap_artists_and_titles()));
 
-  KAction *capitalizeAction = new KAction(this);
+  QAction *capitalizeAction = new QAction(this);
   capitalizeAction->setText(i18n("Capitalize"));
   actionCollection()->addAction("capitalize", capitalizeAction);
   connect(capitalizeAction, SIGNAL(triggered(bool)), this, SLOT(capitalize()));
 
-  KAction *autoFillArtistsAction = new KAction(this);
+  QAction *autoFillArtistsAction = new QAction(this);
   autoFillArtistsAction->setText(i18n("Auto Fill Artists"));
   actionCollection()->addAction("autofillartists", autoFillArtistsAction);
   connect(autoFillArtistsAction, SIGNAL(triggered(bool)), this, SLOT(auto_fill_artists()));
 
-  KAction *selectAllAction = new KAction(this);
+  QAction *selectAllAction = new QAction(this);
   selectAllAction->setText(i18n("Select All Tracks"));
   actionCollection()->addAction("selectall", selectAllAction);
   connect(selectAllAction, SIGNAL(triggered(bool)), this, SLOT(select_all()));
 
-  KAction *selectNoneAction = new KAction(this);
+  QAction *selectNoneAction = new QAction(this);
   selectNoneAction->setText(i18n("Deselect All Tracks"));
   actionCollection()->addAction("selectnone", selectNoneAction);
   connect(selectNoneAction, SIGNAL(triggered(bool)), this, SLOT(select_none()));
 
-  KAction *invertSelectionAction = new KAction(this);
+  QAction *invertSelectionAction = new QAction(this);
   invertSelectionAction->setText(i18n("Invert Selection"));
   actionCollection()->addAction("invertselection", invertSelectionAction);
   connect(invertSelectionAction, SIGNAL(triggered(bool)), this, SLOT(invert_selection()));

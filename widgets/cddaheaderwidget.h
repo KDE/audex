@@ -32,7 +32,6 @@
 #include <QFont>
 #include <QX11Info>
 
-#include <KAction>
 #include <KActionCollection>
 #include <KFileDialog>
 #include <KMenu>
