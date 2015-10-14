@@ -31,7 +31,7 @@ ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title
 
   setButtons(User1|Close);
   setButtonText(User1, i18n("Save"));
-  setButtonIcon(User1, KIcon("document-save-as"));
+  setButtonIcon(User1, QIcon::fromTheme("document-save-as"));
 
   ui.ktextedit->setPlainText(protocol.join("\n"));
 

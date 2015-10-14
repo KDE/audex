@@ -276,7 +276,7 @@ void ExtractingProgressDialog::conclusion(bool successful) {
   QPalette pal(ui.label_extracting->palette());
   KColorScheme kcs(QPalette::Active);
   if (successful) {
-    QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-ok-apply"), i18n("All jobs successfully done."));
+    QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-ok-apply"), i18n("All jobs successfully done."));
     ui.klistwidget->addItem(item);
     ui.klistwidget->scrollToItem(item);
     pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
@@ -287,7 +287,7 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     ui.progressBar_encoding->setValue(100);
     ui.progressBar_overall->setValue(100);
   } else {
-    QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-cancel"), i18n("At least one job failed."));
+    QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-cancel"), i18n("At least one job failed."));
     pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
     ui.klistwidget->addItem(item);
     ui.klistwidget->scrollToItem(item);
@@ -310,25 +310,25 @@ void ExtractingProgressDialog::conclusion(bool successful) {
   setButtons(buttons);
   if (audex->encoderProtocol().count() > 0) {
     setButtonText(User1, i18n("Show encoding log..."));
-    setButtonIcon(User1, KIcon("media-optical-audio"));
+    setButtonIcon(User1, QIcon::fromTheme("media-optical-audio"));
   }
   if (audex->extractProtocol().count() > 0) {
     setButtonText(User2, i18n("Show rip log..."));
-    setButtonIcon(User2, KIcon("media-optical"));
+    setButtonIcon(User2, QIcon::fromTheme("media-optical"));
   }
 
 }
 
 void ExtractingProgressDialog::show_info(const QString& message) {
 
-  QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-information"), message);
+  QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-information"), message);
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);
 
 }
 
 void ExtractingProgressDialog::show_warning(const QString& message) {
-  QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-warning"), message);
+  QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-warning"), message);
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);
 
@@ -338,9 +338,9 @@ void ExtractingProgressDialog::show_error(const QString& message, const QString&
 
   QListWidgetItem *item;
   if (details.isEmpty()) {
-    item = new QListWidgetItem(KIcon("dialog-error"), QString("%1").arg(message));
+    item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1").arg(message));
   } else {
-    item = new QListWidgetItem(KIcon("dialog-error"), QString("%1 (%2)").arg(message).arg(details));
+    item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1 (%2)").arg(message).arg(details));
   }
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);

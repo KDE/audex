@@ -39,7 +39,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   ui.checkBox_scale->setChecked(scale);
   enable_scale(ui.checkBox_scale->isChecked());

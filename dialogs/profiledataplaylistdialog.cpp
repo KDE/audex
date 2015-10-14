@@ -38,7 +38,7 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, cons
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   ui.kcombobox_format->addItem("M3U (Textbased Winamp Playlist)", "M3U");
   ui.kcombobox_format->addItem("PLS (Textbased Playlist)", "PLS");

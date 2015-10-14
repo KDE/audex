@@ -34,7 +34,7 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern,
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   ui.klineedit_pattern->setText(pattern);
   connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));

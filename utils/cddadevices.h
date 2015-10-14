@@ -27,7 +27,6 @@
 #include <QStringList>
 #include <QHash>
 
-#include <KIcon>
 #include <KLocale>
 
 #include <Solid/Device>

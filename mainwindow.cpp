@@ -150,13 +150,14 @@ void MainWindow::configure() {
   KConfigDialog* dialog = new KConfigDialog(this, "settings", Preferences::self());
 
   KPageWidgetItem *generalPage = dialog->addPage(new generalSettingsWidget(), i18n("General settings"));
-  generalPage->setIcon(KIcon(KApplication::windowIcon()));
+  // TODO: the right thing to do? (prev.: ->setIcon(KIcon(QApplication::windowIcon())))
+  generalPage->setIcon(QApplication::windowIcon());
 
   KPageWidgetItem *devicePage = dialog->addPage(new deviceWidget(), i18n("Device settings"));
-  devicePage->setIcon(KIcon("drive-optical"));
+  devicePage->setIcon(QIcon::fromTheme("drive-optical"));
 
   KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
-  profilePage->setIcon(KIcon("document-multiple"));
+  profilePage->setIcon(QIcon::fromTheme("document-multiple"));
 
   KService::Ptr libkcddb = KService::serviceByDesktopName("libkcddb");
   if (libkcddb && libkcddb->isValid()) {
@@ -176,7 +177,7 @@ void MainWindow::configure() {
   }
 
   KPageWidgetItem *remoteServerPage = dialog->addPage(new remoteServerSettingsWidget(), i18n("Remote Server"));
-  remoteServerPage->setIcon(KIcon("network-server"));
+  remoteServerPage->setIcon(QIcon::fromTheme("network-server"));
 
   connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(configuration_updated(const QString&)));
 
@@ -375,7 +376,7 @@ void MainWindow::setup_actions() {
 
   KAction* ejectAction = new KAction(this);
   ejectAction->setText(i18n("Eject"));
-  ejectAction->setIcon(KIcon("media-eject"));
+  ejectAction->setIcon(QIcon::fromTheme("media-eject"));
   ejectAction->setShortcut(Qt::CTRL + Qt::Key_E);
   actionCollection()->addAction("eject", ejectAction);
   connect(ejectAction, SIGNAL(triggered(bool)), this, SLOT(eject()));
@@ -408,7 +409,7 @@ void MainWindow::setup_actions() {
 
   KAction *cddbLookupAction = new KAction(this);
   cddbLookupAction->setText(i18n("Fetch Info"));
-  cddbLookupAction->setIcon(KIcon("view-list-text"));
+  cddbLookupAction->setIcon(QIcon::fromTheme("view-list-text"));
   cddbLookupAction->setShortcut(Qt::CTRL + Qt::Key_F);
   actionCollection()->addAction("fetch", cddbLookupAction);
   connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
@@ -421,7 +422,7 @@ void MainWindow::setup_actions() {
 
   KAction* extractAction = new KAction(this);
   extractAction->setText(i18n("Rip..."));
-  extractAction->setIcon(KIcon("media-optical-audio"));
+  extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
   extractAction->setShortcut(Qt::CTRL + Qt::Key_X);
   actionCollection()->addAction("rip", extractAction);
   connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(rip()));

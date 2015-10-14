@@ -24,7 +24,6 @@
 
 #include <KDialog>
 #include <KFileDialog>
-#include <KIcon>
 #include <KMessageBox>
 
 #include "models/profilemodel.h"

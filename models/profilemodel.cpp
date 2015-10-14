@@ -18,6 +18,8 @@
 
 #include "profilemodel.h"
 
+#include <QIcon>
+
 ProfileModel::ProfileModel(QObject *parent) {
   Q_UNUSED(parent);
   revert();
@@ -99,13 +101,13 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
     QString iconName(p_cache.at(index.row())[PROFILE_MODEL_ICON_KEY].toString());
 
     if(!iconName.isEmpty()) {
-      KIcon icon(iconName);
+      QIcon icon(iconName);
       if(!icon.isNull()) {
         return icon;
       }
     }
 
-    return KIcon(DEFAULT_ICON);
+    return QIcon::fromTheme(DEFAULT_ICON);
   }
 
   return QVariant();

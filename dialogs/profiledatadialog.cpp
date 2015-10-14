@@ -78,7 +78,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(set_encoder_by_combobox(int)));
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   connect(ui.kpushbutton_cover, SIGNAL(clicked()), this, SLOT(cover_settings()));
   connect(ui.kpushbutton_playlist, SIGNAL(clicked()), this, SLOT(playlist_settings()));

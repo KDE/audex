@@ -35,7 +35,7 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &pattern, con
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   ui.kcombobox_format->addItem(i18n("SFV (Simple File Verification)"), "SFV");
   ui.kcombobox_format->addItem(i18n("MD5 (Message-Digest algorithm 5)"), "MD5");

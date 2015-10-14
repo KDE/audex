@@ -26,7 +26,6 @@
 #include <QString>
 
 #include <KLocale>
-#include <KIcon>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KGlobal>

@@ -36,7 +36,7 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   ui.ktextedit_text->setPlainText(text.join("\n"));
   connect(ui.ktextedit_text, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
@@ -47,8 +47,8 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   ui.klineedit_suffix->setText(suffix);
   connect(ui.klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  ui.kpushbutton_load->setIcon(KIcon("document-open"));
-  ui.kpushbutton_save->setIcon(KIcon("document-save"));
+  ui.kpushbutton_load->setIcon(QIcon::fromTheme("document-open"));
+  ui.kpushbutton_save->setIcon(QIcon::fromTheme("document-save"));
 
   connect(ui.kurllabel_aboutvariables, SIGNAL(leftClickedUrl()), this, SLOT(about_variables()));
   

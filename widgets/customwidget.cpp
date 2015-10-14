@@ -38,7 +38,7 @@ customWidget::customWidget(Parameters *parameters, QWidget *parent) : customWidg
 
   connect(kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
 
-  kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   changed = false;
 
