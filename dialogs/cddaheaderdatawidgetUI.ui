@@ -78,7 +78,7 @@
     </widget>
    </item>
    <item row="3" column="1" colspan="3">
-    <widget class="KIntSpinBox" name="kintspinbox_cdnum">
+    <widget class="QSpinBox" name="kintspinbox_cdnum">
      <property name="minimum">
       <number>1</number>
      </property>
@@ -92,7 +92,7 @@
     </widget>
    </item>
    <item row="4" column="1" colspan="3">
-    <widget class="KIntSpinBox" name="kintspinbox_trackoffset">
+    <widget class="QSpinBox" name="kintspinbox_trackoffset">
      <property name="maximum">
       <number>99999</number>
      </property>
@@ -135,7 +135,7 @@
     </widget>
    </item>
    <item row="6" column="1" colspan="3">
-    <widget class="KIntSpinBox" name="kintspinbox_year">
+    <widget class="QSpinBox" name="kintspinbox_year">
      <property name="minimum">
       <number>-3000</number>
      </property>
@@ -202,11 +202,6 @@ Information:</string>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KTextEdit</class>

@@ -41,7 +41,7 @@
          </widget>
         </item>
         <item>
-         <widget class="KIntSpinBox" name="kcfg_sampleOffset">
+         <widget class="QSpinBox" name="kcfg_sampleOffset">
           <property name="minimum">
            <number>-10000</number>
           </property>
@@ -83,13 +83,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

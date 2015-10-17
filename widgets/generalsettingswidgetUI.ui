@@ -68,7 +68,7 @@
          </widget>
         </item>
         <item>
-         <widget class="KIntSpinBox" name="kcfg_fetchCount"/>
+         <widget class="QSpinBox" name="kcfg_fetchCount"/>
         </item>
         <item>
          <spacer name="horizontalSpacer">
@@ -160,7 +160,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KIntSpinBox</class>
+   <class>QSpinBox</class>
    <extends>QSpinBox</extends>
    <header>knuminput.h</header>
   </customwidget>

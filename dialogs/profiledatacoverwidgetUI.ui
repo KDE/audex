@@ -25,7 +25,7 @@
     </widget>
    </item>
    <item row="0" column="2">
-    <widget class="KIntSpinBox" name="kintspinbox_x">
+    <widget class="QSpinBox" name="kintspinbox_x">
      <property name="sizePolicy">
       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -51,7 +51,7 @@
     </widget>
    </item>
    <item row="0" column="4">
-    <widget class="KIntSpinBox" name="kintspinbox_y">
+    <widget class="QSpinBox" name="kintspinbox_y">
      <property name="sizePolicy">
       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -118,11 +118,6 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>

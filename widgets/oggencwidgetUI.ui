@@ -49,7 +49,7 @@
        </widget>
       </item>
       <item row="0" column="4">
-       <widget class="KDoubleNumInput" name="kdoublenuminput_quality">
+       <widget class="QDoubleSpinBox" name="kdoublenuminput_quality">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -214,7 +214,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="KIntSpinBox" name="kintspinbox_minbitrate">
+    <widget class="QSpinBox" name="kintspinbox_minbitrate">
      <property name="maximumSize">
       <size>
        <width>75</width>
@@ -247,7 +247,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="KIntSpinBox" name="kintspinbox_maxbitrate">
+    <widget class="QSpinBox" name="kintspinbox_maxbitrate">
      <property name="maximumSize">
       <size>
        <width>75</width>
@@ -351,16 +351,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KDoubleNumInput</class>
-   <extends>QWidget</extends>
-   <header>knuminput.h</header>
-  </customwidget>
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
