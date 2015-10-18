@@ -169,7 +169,7 @@
     </layout>
    </item>
    <item row="4" column="0" colspan="2">
-    <widget class="KPushButton" name="kpushbutton_albumartist">
+    <widget class="QPushButton" name="kpushbutton_albumartist">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -191,7 +191,7 @@
     </widget>
    </item>
    <item row="4" column="2" colspan="2">
-    <widget class="KPushButton" name="kpushbutton_albumtitle">
+    <widget class="QPushButton" name="kpushbutton_albumtitle">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -213,7 +213,7 @@
     </widget>
    </item>
    <item row="4" column="4">
-    <widget class="KPushButton" name="kpushbutton_genre">
+    <widget class="QPushButton" name="kpushbutton_genre">
      <property name="toolTip">
       <string/>
      </property>
@@ -223,7 +223,7 @@
     </widget>
    </item>
    <item row="5" column="0">
-    <widget class="KPushButton" name="kpushbutton_cdno">
+    <widget class="QPushButton" name="kpushbutton_cdno">
      <property name="toolTip">
       <string/>
      </property>
@@ -233,7 +233,7 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="KPushButton" name="kpushbutton_date">
+    <widget class="QPushButton" name="kpushbutton_date">
      <property name="toolTip">
       <string/>
      </property>
@@ -243,14 +243,14 @@
     </widget>
    </item>
    <item row="5" column="2">
-    <widget class="KPushButton" name="kpushbutton_suffix">
+    <widget class="QPushButton" name="kpushbutton_suffix">
      <property name="text">
       <string>Suffix</string>
      </property>
     </widget>
    </item>
    <item row="5" column="3" colspan="2">
-    <widget class="KPushButton" name="kpushbutton_nooftracks">
+    <widget class="QPushButton" name="kpushbutton_nooftracks">
      <property name="text">
       <string># of Tracks</string>
      </property>
@@ -272,11 +272,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>

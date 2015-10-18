@@ -16,28 +16,28 @@
    <item row="0" column="1" >
     <layout class="QVBoxLayout" name="layout" >
      <item>
-      <widget class="KPushButton" name="kpushbutton_add" >
+      <widget class="QPushButton" name="kpushbutton_add" >
        <property name="text" >
         <string>Add...</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_rem" >
+      <widget class="QPushButton" name="kpushbutton_rem" >
        <property name="text" >
         <string>Remove</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_mod" >
+      <widget class="QPushButton" name="kpushbutton_mod" >
        <property name="text" >
         <string>Modify...</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_copy" >
+      <widget class="QPushButton" name="kpushbutton_copy" >
        <property name="text" >
         <string>Copy</string>
        </property>
@@ -60,7 +60,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_init" >
+      <widget class="QPushButton" name="kpushbutton_init" >
        <property name="text" >
         <string>Codec Scan</string>
        </property>
@@ -80,14 +80,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_load" >
+      <widget class="QPushButton" name="kpushbutton_load" >
        <property name="text" >
         <string>Load...</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_save" >
+      <widget class="QPushButton" name="kpushbutton_save" >
        <property name="text" >
         <string>Save...</string>
        </property>
@@ -98,11 +98,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
  </customwidgets>
  <resources/>
  <connections/>

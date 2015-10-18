@@ -107,7 +107,7 @@
              </widget>
             </item>
             <item>
-             <widget class="KPushButton" name="kpushbutton_pattern">
+             <widget class="QPushButton" name="kpushbutton_pattern">
               <property name="font">
                <font>
                 <weight>50</weight>
@@ -184,7 +184,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="1" column="1">
-           <widget class="KPushButton" name="kpushbutton_playlist">
+           <widget class="QPushButton" name="kpushbutton_playlist">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -223,14 +223,14 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="KPushButton" name="kpushbutton_cuesheet">
+           <widget class="QPushButton" name="kpushbutton_cuesheet">
             <property name="text">
              <string>Settings..</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="KPushButton" name="kpushbutton_info">
+           <widget class="QPushButton" name="kpushbutton_info">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -256,7 +256,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="KPushButton" name="kpushbutton_hashlist">
+           <widget class="QPushButton" name="kpushbutton_hashlist">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -289,7 +289,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="KPushButton" name="kpushbutton_cover">
+           <widget class="QPushButton" name="kpushbutton_cover">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -340,7 +340,7 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="KPushButton" name="kpushbutton_singlefile">
+           <widget class="QPushButton" name="kpushbutton_singlefile">
             <property name="enabled">
              <bool>true</bool>
             </property>
@@ -399,11 +399,6 @@
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

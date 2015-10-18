@@ -96,7 +96,7 @@
     <widget class="KLineEdit" name="klineedit_pattern"/>
    </item>
    <item row="2" column="5">
-    <widget class="KPushButton" name="kpushbutton_pattern"/>
+    <widget class="QPushButton" name="kpushbutton_pattern"/>
    </item>
    <item row="3" column="2">
     <spacer name="verticalSpacer">
@@ -123,11 +123,6 @@
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

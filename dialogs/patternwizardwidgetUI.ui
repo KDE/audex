@@ -280,7 +280,7 @@
     </layout>
    </item>
    <item row="6" column="0">
-    <widget class="KPushButton" name="kpushbutton_albumartist">
+    <widget class="QPushButton" name="kpushbutton_albumartist">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -302,7 +302,7 @@
     </widget>
    </item>
    <item row="6" column="1">
-    <widget class="KPushButton" name="kpushbutton_albumtitle">
+    <widget class="QPushButton" name="kpushbutton_albumtitle">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -324,7 +324,7 @@
     </widget>
    </item>
    <item row="6" column="2">
-    <widget class="KPushButton" name="kpushbutton_trackartist">
+    <widget class="QPushButton" name="kpushbutton_trackartist">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -346,7 +346,7 @@
     </widget>
    </item>
    <item row="6" column="3">
-    <widget class="KPushButton" name="kpushbutton_tracktitle">
+    <widget class="QPushButton" name="kpushbutton_tracktitle">
      <property name="minimumSize">
       <size>
        <width>0</width>
@@ -368,7 +368,7 @@
     </widget>
    </item>
    <item row="7" column="0">
-    <widget class="KPushButton" name="kpushbutton_trackno">
+    <widget class="QPushButton" name="kpushbutton_trackno">
      <property name="toolTip">
       <string/>
      </property>
@@ -378,7 +378,7 @@
     </widget>
    </item>
    <item row="7" column="1">
-    <widget class="KPushButton" name="kpushbutton_cdno">
+    <widget class="QPushButton" name="kpushbutton_cdno">
      <property name="toolTip">
       <string/>
      </property>
@@ -388,7 +388,7 @@
     </widget>
    </item>
    <item row="7" column="2">
-    <widget class="KPushButton" name="kpushbutton_date">
+    <widget class="QPushButton" name="kpushbutton_date">
      <property name="toolTip">
       <string/>
      </property>
@@ -398,7 +398,7 @@
     </widget>
    </item>
    <item row="7" column="3">
-    <widget class="KPushButton" name="kpushbutton_genre">
+    <widget class="QPushButton" name="kpushbutton_genre">
      <property name="toolTip">
       <string/>
      </property>
@@ -408,7 +408,7 @@
     </widget>
    </item>
    <item row="8" column="0">
-    <widget class="KPushButton" name="kpushbutton_suffix">
+    <widget class="QPushButton" name="kpushbutton_suffix">
      <property name="toolTip">
       <string/>
      </property>
@@ -431,7 +431,7 @@
     </spacer>
    </item>
    <item row="8" column="1">
-    <widget class="KPushButton" name="kpushbutton_nooftracks">
+    <widget class="QPushButton" name="kpushbutton_nooftracks">
      <property name="text">
       <string># of Tracks</string>
      </property>
@@ -440,11 +440,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
