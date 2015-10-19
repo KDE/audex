@@ -30,7 +30,6 @@
 #include <KApplication>
 #include <KAction>
 #include <KLocale>
-#include <KStandardDirs>
 #include <KActionCollection>
 #include <KStandardAction>
 #include <KStatusBar>

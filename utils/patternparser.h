@@ -29,7 +29,6 @@
 #include <QCryptographicHash>
 
 #include <KLocale>
-#include <KStandardDirs>
 
 #include "config.h"
 

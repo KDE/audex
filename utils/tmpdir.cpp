@@ -20,7 +20,7 @@
 
 TmpDir::TmpDir(const QString& appName, const QString& sub) : QObject() {
 
-  QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
+  QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::TempLocation);
   p_tmp_path_base = dirs.size()?dirs[0]:"/var/tmp/";
   qDebug() << "Found temporary path" << p_tmp_path_base;
 

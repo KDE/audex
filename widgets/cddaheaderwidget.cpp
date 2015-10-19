@@ -354,7 +354,7 @@ void CDDAHeaderWidget::setCover(CachedImage *cover) {
     if (cover) {
       this->i_cover = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
     } else {
-      QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+      QImage image = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/nocover.png")));
       this->i_cover = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     }
     animation_up = true;
@@ -365,7 +365,7 @@ void CDDAHeaderWidget::setCover(CachedImage *cover) {
     if (cover) {
       this->i_cover_holding = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
     } else {
-      QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+      QImage image = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/nocover.png")));
       this->i_cover_holding = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     }
     animation_down = true;
@@ -711,7 +711,7 @@ void CDDAHeaderWidget::view_cover() {
 
   QString tmp_path = tmp_dir->tmpPath();
   if (tmp_dir->error()) {
-    QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
+    QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::TempLocation);
     tmp_path = dirs.size()?dirs[0]:"/var/tmp/";
     if (tmp_path.right(1) != "/") tmp_path += "/";
     qDebug() << "Temporary folder in use:" << tmp_path;

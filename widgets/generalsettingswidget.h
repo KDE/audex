@@ -22,7 +22,6 @@
 #include <QDir>
 
 #include <KLineEdit>
-#include <KStandardDirs>
 
 #include "preferences.h"
 

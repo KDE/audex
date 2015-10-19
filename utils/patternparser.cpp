@@ -19,6 +19,7 @@
 #include "patternparser.h"
 
 #include <QDebug>
+#include <QStandardPaths>
 
 SaxHandler::SaxHandler() : QXmlDefaultHandler() {
   trackno = 1;
@@ -235,7 +236,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
           bool success;
           if ((!cover) || ((cover) && (cover->isEmpty()))) {
             if (IS_TRUE(atts.value("usenocover"))) {
-              QImage c = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+              QImage c = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/nocover.png")));
               if ((x != -1) && (y != -1)) {
                 c = c.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
               }

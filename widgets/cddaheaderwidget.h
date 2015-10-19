@@ -37,7 +37,6 @@
 #include <KFileDialog>
 #include <KMenu>
 #include <KLocale>
-#include <KStandardDirs>
 #include <KColorScheme>
 #include <KMessageBox>
 
