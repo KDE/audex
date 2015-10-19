@@ -26,7 +26,6 @@
 #include <QDir>
 #include <QFileInfo>
 
-#include <KDebug>
 #include <KLocale>
 
 class PlaylistItem

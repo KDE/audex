@@ -18,6 +18,7 @@
 
  #include "upload.h"
 
+#include <QDebug>
 #include <QUrl>
 
 Upload::Upload(const QUrl &url, QObject *parent) : QObject(parent) {
@@ -44,13 +45,13 @@ void Upload::upload(const QString& targetpath, const QStringList& filelist) {
     ++i;
     QUrl url = base_url;
     url.setPath(base_url.path()+"/"+dir);
-    //kDebug() << url;
+    //qDebug() << url;
     KIO::Job *job = KIO::mkdir(url);
     if (!job->exec()) {
       //if it already exists jump over
       if (job->error()!=113) {
         emit error(job->errorText(), "");
-	kDebug() << job->errorText();
+	qDebug() << job->errorText();
         return;
       }
     }
@@ -64,7 +65,7 @@ void Upload::upload(const QString& targetpath, const QStringList& filelist) {
     KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
     if (!job->exec()) {
       emit error(job->errorText(), "");
-      kDebug() << job->errorText();
+      qDebug() << job->errorText();
       return;
     }
     emit info(i18n("Finished uploading file %1 to server.", fi.fileName()));

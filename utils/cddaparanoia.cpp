@@ -18,6 +18,8 @@
 
 #include "cddaparanoia.h"
 
+#include <QDebug>
+
 /* some of this code in here is based on k3b 0.8.x sourcecode */
 
 CDDAParanoia::CDDAParanoia(QObject *parent) : QObject(parent) {
@@ -37,7 +39,7 @@ bool CDDAParanoia::setDevice(const QString& device) {
   if ((device.isEmpty() && (_device.isEmpty()))) _device = "/dev/cdrom";
   if (!device.isEmpty()) _device = device;
   if (!_paranoia_init()) {
-    kDebug() << "Internal device error.";
+    qDebug() << "Internal device error.";
     emit error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", _device));
     return false;
   }
@@ -292,7 +294,7 @@ bool CDDAParanoia::_paranoia_init() {
   paranoia_drive = cdda_identify(_device.toAscii().data(), 0, 0);
   if (paranoia_drive == 0) {
     mutex.unlock();
-    kDebug() << "Failed to find device.";
+    qDebug() << "Failed to find device.";
     return false;
   }
 
@@ -303,7 +305,7 @@ bool CDDAParanoia::_paranoia_init() {
   if (paranoia == 0) {
     _paranoia_free();
     mutex.unlock();
-    kDebug() << "Failed to init device.";
+    qDebug() << "Failed to init device.";
     return false;
   }
 

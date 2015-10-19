@@ -23,7 +23,6 @@
 #include <QStringList>
 #include <QMap>
 
-#include <KDebug>
 #include <KLocale>
 #include <KProcess>
 

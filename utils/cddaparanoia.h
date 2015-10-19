@@ -22,7 +22,6 @@
 #include <QString>
 #include <QMutex>
 
-#include <KDebug>
 #include <KLocale>
 
 extern "C" {

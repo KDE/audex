@@ -23,7 +23,6 @@
 #include <QFile>
 #include <QDataStream>
 
-#include <KDebug>
 #include <KLocale>
 
 class WaveFileWriter : public QObject {

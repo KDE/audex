@@ -26,7 +26,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   profile_model = profileModel;
   if (!profile_model)
   {
-    kDebug() << "ProfileModel is NULL!";
+    qDebug() << "ProfileModel is NULL!";
     return;
   }
   profile_row = profileRow;

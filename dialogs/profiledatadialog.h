@@ -22,7 +22,6 @@
 #include <QWidget>
 #include <QStackedWidget>
 
-#include <KDebug>
 #include <KDialog>
 
 #include "models/profilemodel.h"

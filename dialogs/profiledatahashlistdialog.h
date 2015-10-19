@@ -21,7 +21,6 @@
 
 #include <QWidget>
 
-#include <KDebug>
 #include <KDialog>
 
 #include "simplepatternwizarddialog.h"

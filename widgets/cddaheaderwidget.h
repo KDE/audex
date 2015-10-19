@@ -21,7 +21,6 @@
 
 #include <cmath>
 
-#include <QDebug>
 #include <QTimer>
 #include <QWidget>
 #include <QImage>
@@ -38,7 +37,6 @@
 #include <KFileDialog>
 #include <KMenu>
 #include <KLocale>
-#include <KDebug>
 #include <KStandardDirs>
 #include <KColorScheme>
 #include <KMessageBox>

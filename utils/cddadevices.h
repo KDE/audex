@@ -28,7 +28,6 @@
 #include <QHash>
 
 #include <KIcon>
-#include <KDebug>
 #include <KLocale>
 
 #include <Solid/Device>

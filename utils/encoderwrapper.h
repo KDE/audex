@@ -22,7 +22,6 @@
 #include <QString>
 #include <QImage>
 
-#include <KDebug>
 #include <KLocale>
 #include <KProcess>
 

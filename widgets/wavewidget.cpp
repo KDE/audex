@@ -18,13 +18,15 @@
 
 #include "wavewidget.h"
 
+#include <QDebug>
+
 waveWidget::waveWidget(Parameters *parameters, QWidget *parent) : waveWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 

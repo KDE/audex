@@ -18,13 +18,15 @@
 
 #include "customwidget.h"
 
+#include <QDebug>
+
 customWidget::customWidget(Parameters *parameters, QWidget *parent) : customWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 

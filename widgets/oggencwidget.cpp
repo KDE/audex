@@ -18,13 +18,15 @@
 
 #include "oggencwidget.h"
 
+#include <QDebug>
+
 oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 

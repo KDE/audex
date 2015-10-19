@@ -24,7 +24,6 @@
 #include <QFileInfo>
 #include <QByteArray>
 
-#include <KDebug>
 #include <KLocale>
 #include <KIO/Job>
 #include <KIO/SimpleJob>

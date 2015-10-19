@@ -22,7 +22,6 @@
 #include <QWidget>
 #include <QDateTime>
 
-#include <KDebug>
 #include <KDialog>
 #include <KFileDialog>
 

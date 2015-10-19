@@ -18,6 +18,8 @@
 
 #include "cddaheaderwidget.h"
 
+#include <QDebug>
+
 static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOverX, FadeStyle fadeStyle = FadeDown) {
 
 /****************************************************************************

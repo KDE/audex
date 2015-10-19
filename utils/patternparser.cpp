@@ -18,6 +18,8 @@
 
 #include "patternparser.h"
 
+#include <QDebug>
+
 SaxHandler::SaxHandler() : QXmlDefaultHandler() {
   trackno = 1;
   cdno = 0;
@@ -248,9 +250,9 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
           if (!stop) {
 
             if (!success) {
-              kDebug() << "WARNING! Could not create temporary cover file" << filename;
+              qDebug() << "WARNING! Could not create temporary cover file" << filename;
             } else {
-              kDebug() << "Successfully created temporary cover file" << filename << "(" << QFile(filename).size() / 1024 << "KiB)";
+              qDebug() << "Successfully created temporary cover file" << filename << "(" << QFile(filename).size() / 1024 << "KiB)";
             }
 
           }
@@ -347,7 +349,7 @@ bool SaxHandler::characters(const QString& ch) {
 }
 
 bool SaxHandler::fatalError(const QXmlParseException& exception) {
-  kDebug() << QString("XML pattern parse error: Column %1 (%2)").arg(exception.columnNumber()).arg(exception.message());
+  qDebug() << QString("XML pattern parse error: Column %1 (%2)").arg(exception.columnNumber()).arg(exception.message());
   return false;
 }
 
@@ -412,13 +414,13 @@ const QString SaxHandler::replace_char_list(const QXmlAttributes& atts, const QS
   int i;
   QString from, to, result;
 
-  kDebug() << "starting replacement for: " << string;
+  qDebug() << "starting replacement for: " << string;
 
   from = atts.value("replace_char_list_from");
   to = atts.value("replace_char_list_to");
 
   if (from.count() != to.count()) {
-    kDebug() << "Could not replace if list length are not equal";
+    qDebug() << "Could not replace if list length are not equal";
     return string;
   }
 
@@ -427,7 +429,7 @@ const QString SaxHandler::replace_char_list(const QXmlAttributes& atts, const QS
     result.replace(from.at(i), to.at(i));
   }
 
-  kDebug() << "finished: " << result;
+  qDebug() << "finished: " << result;
 
   return result;
 

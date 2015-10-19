@@ -18,6 +18,7 @@
 
 #include "cachedimage.h"
 
+#include <QDebug>
 #include <QUrl>
 
 CachedImage::CachedImage() {
@@ -128,7 +129,7 @@ bool CachedImage::load(const QByteArray& data) {
   _format = ir.format();
   _size = ir.size();
   buffer.close();
-  kDebug() << "Load cover image from buffer (" << _format << ")";
+  qDebug() << "Load cover image from buffer (" << _format << ")";
   if (!_format.isEmpty() && QImageReader::supportedImageFormats().contains(_format)) {
     _data = data;
     return true;
@@ -147,7 +148,7 @@ bool CachedImage::load(const QString& filename) {
   QImageReader ir(filename);
   _format = ir.format();
   _size = ir.size();
-  kDebug() << "Load cover image from file (" << _format << ")";
+  qDebug() << "Load cover image from file (" << _format << ")";
   if (!_format.isEmpty() && QImageReader::supportedImageFormats().contains(_format)) {
     if (!file.open(QIODevice::ReadOnly)) {
       _error = Error(i18n("Cannot open file."), i18n("Please check your file. Maybe you do not have proper permissions."), Error::ERROR);

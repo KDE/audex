@@ -22,7 +22,7 @@ TmpDir::TmpDir(const QString& appName, const QString& sub) : QObject() {
 
   QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
   p_tmp_path_base = dirs.size()?dirs[0]:"/var/tmp/";
-  kDebug() << "Found temporary path" << p_tmp_path_base;
+  qDebug() << "Found temporary path" << p_tmp_path_base;
 
   p_error = false;
 
@@ -34,7 +34,7 @@ TmpDir::TmpDir(const QString& appName, const QString& sub) : QObject() {
   if (!sub.isEmpty()) {
     p_tmp_path += sub+"/";
   }
-  kDebug() << "Temporary folder in use:" << p_tmp_path;
+  qDebug() << "Temporary folder in use:" << p_tmp_path;
   p_error = !p_create_dir(p_tmp_path);
   
 }
@@ -45,16 +45,16 @@ TmpDir::~TmpDir() {
   if (p_tmp_path_app != p_tmp_path) {
     
     if (p_remove_dir(p_tmp_path)) {
-      kDebug() << QString("Deleting temporary folder \"%1\"").arg(p_tmp_path);
+      qDebug() << QString("Deleting temporary folder \"%1\"").arg(p_tmp_path);
     } else {
-      kDebug() << QString("Deleting temporary folder \"%1\" failed").arg(p_tmp_path);
+      qDebug() << QString("Deleting temporary folder \"%1\" failed").arg(p_tmp_path);
     }
   
   }
   
   QDir dir(p_tmp_path_app);
   if ((dir.exists()) && (!dir.rmdir(p_tmp_path_app))) {
-    kDebug() << QString("Temporary folder \"%1\" not removed yet.").arg(p_tmp_path_app);
+    qDebug() << QString("Temporary folder \"%1\" not removed yet.").arg(p_tmp_path_app);
   }
   
 }

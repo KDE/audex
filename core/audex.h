@@ -24,7 +24,6 @@
 #include <QDir>
 #include <QTimer>
 
-#include <KDebug>
 #include <KLocale>
 #include <KDiskFreeSpaceInfo>
 

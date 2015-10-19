@@ -23,7 +23,6 @@
 #include <QDBusMessage>
 #include <QDBusConnection>
 
-#include <KDebug>
 #include <KDialog>
 #include <KMessageBox>
 #include <KColorScheme>

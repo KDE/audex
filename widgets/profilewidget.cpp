@@ -22,7 +22,7 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
 
   profile_model = profileModel;
   if (!profile_model) {
-    kDebug() << "ProfileModel is NULL!";
+    qDebug() << "ProfileModel is NULL!";
     return;
   }
 

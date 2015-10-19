@@ -22,7 +22,6 @@
 #include <QWidget>
 #include <QWhatsThis>
 
-#include <KDebug>
 #include <KDialog>
 
 #include "utils/patternparser.h"

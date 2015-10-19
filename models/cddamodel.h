@@ -30,7 +30,6 @@
 #include <QRegExp>
 #include <QTimer>
 
-#include <KDebug>
 #include <KLocale>
 #include <KInputDialog>
 #include <KMimeType>

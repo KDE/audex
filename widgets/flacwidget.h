@@ -22,7 +22,6 @@
 #include <QWidget>
 #include <QDir>
 
-#include <KDebug>
 #include <KDialog>
 
 #include "utils/error.h"

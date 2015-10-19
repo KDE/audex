@@ -26,7 +26,7 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
 
   devices = new CDDADevices(this);
   if (!devices) {
-    kDebug() << "Unable to create devices object. low mem?";
+    qDebug() << "Unable to create devices object. low mem?";
     error = Error(i18n("Unable to create devices object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
     return;
   }
@@ -35,7 +35,7 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
 
   cddb = new KCDDB::Client();
   if (!cddb) {
-    kDebug() << "Unable to create KCDDB object. Low mem?";
+    qDebug() << "Unable to create KCDDB object. Low mem?";
     error = Error(i18n("Unable to create KCDDB object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
     return;
   }
@@ -665,10 +665,10 @@ void CDDAModel::lookupCDDB() {
 
   if (!pn) return;
 
-  kDebug() << "lookupCDDB called";
+  qDebug() << "lookupCDDB called";
 
   if (cddb_transaction_pending) {
-    kDebug() << "CDDB transaction already in progress.";
+    qDebug() << "CDDB transaction already in progress.";
     return;
   }
   cddb_transaction_pending = true;
@@ -685,10 +685,10 @@ bool CDDAModel::submitCDDB() {
 
   if (!pn) return true;
 
-  kDebug() << "submitCDDB called";
+  qDebug() << "submitCDDB called";
 
   if (cddb_transaction_pending) {
-    kDebug() << "CDDB transaction already in progress.";
+    qDebug() << "CDDB transaction already in progress.";
     error = Error(i18n("CDDB transaction already in progress."), i18n("A CDDB transaction is already in progress. Please wait until it has finished and try again."), Error::ERROR, this);
     return false;
   }
@@ -743,13 +743,13 @@ void CDDAModel::new_audio_disc_available(const QString& udi) {
 
   pn = new CDDAParanoia(this);
   if (!pn) {
-    kDebug() << "Unable to create paranoia class. low mem?";
+    qDebug() << "Unable to create paranoia class. low mem?";
     error = Error(i18n("Unable to create CDDA paranoia object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
     return;
   }
   pn->setDevice(_device);
 
-  kDebug() << "new audio disc detected (" << udi << ", " << _device << ")";
+  qDebug() << "new audio disc detected (" << udi << ", " << _device << ")";
 
   clear();
   confirm();
@@ -767,7 +767,7 @@ void CDDAModel::new_audio_disc_available(const QString& udi) {
 
 void CDDAModel::audio_disc_removed(const QString& udi) {
 
-  kDebug() << "audio disc removed (" << udi << ")";
+  qDebug() << "audio disc removed (" << udi << ")";
 
   _device.clear();
   _udi.clear();
@@ -781,7 +781,7 @@ void CDDAModel::audio_disc_removed(const QString& udi) {
 
 void CDDAModel::disc_information_modified() {
 
-  kDebug() << "disc info changed";
+  qDebug() << "disc info changed";
 
   set_default_values();
   setVarious(guessVarious());

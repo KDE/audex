@@ -25,7 +25,6 @@
 #include <QVariant>
 #include <QString>
 
-#include <KDebug>
 #include <KLocale>
 #include <KIcon>
 #include <KConfig>

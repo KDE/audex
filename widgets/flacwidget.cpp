@@ -18,13 +18,15 @@
 
 #include "flacwidget.h"
 
+#include <QDebug>
+
 flacWidget::flacWidget(Parameters *parameters, QWidget *parent) : flacWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 

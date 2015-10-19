@@ -28,7 +28,6 @@
 #include <QImage>
 #include <QCryptographicHash>
 
-#include <KDebug>
 #include <KLocale>
 #include <KStandardDirs>
 

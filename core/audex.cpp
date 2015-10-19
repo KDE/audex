@@ -37,13 +37,13 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
                         Preferences::deletePartialFiles());
 
   if (!encoder_wrapper) {
-    kDebug() << "PANIC ERROR. Could not load object EncoderWrapper. Low mem?";
+    qDebug() << "PANIC ERROR. Could not load object EncoderWrapper. Low mem?";
     return;
   }
 
   cdda_extract_thread = new CDDAExtractThread(this, cdda_model->paranoia());
   if (!cdda_extract_thread) {
-    kDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
+    qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
     return;
   }
   cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
@@ -113,7 +113,7 @@ bool Audex::prepare() {
     return false;
   }
 
-  kDebug() << "Using profile with index" << profile_model->currentProfileIndex();
+  qDebug() << "Using profile with index" << profile_model->currentProfileIndex();
 
   tmp_dir = new TmpDir("audex", "work");
   tmp_path = tmp_dir->tmpPath();
@@ -508,7 +508,7 @@ void Audex::check_if_thread_still_running() {
     //this could happen if the thread is stuck in paranoia_read
     //because of an unreadable cd
     cdda_extract_thread->terminate();
-    kDebug() << "Terminate extracting thread.";
+    qDebug() << "Terminate extracting thread.";
   }
 }
 
@@ -693,7 +693,7 @@ void Audex::execute_finish() {
       if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()) {
         QSize size = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
         image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-        kDebug() << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
+        qDebug() << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
       }
       QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
       QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
@@ -925,7 +925,7 @@ void Audex::execute_finish() {
     QStringList files = tmp.entryList(QStringList() << "*", QDir::Files | QDir::NoDotAndDotDot);
     for (int i = 0; i < files.count(); ++i) {
       QFile::remove(tmp_path+files[i]);
-      kDebug() << "Deleted temporary file" << tmp_path+files[i];
+      qDebug() << "Deleted temporary file" << tmp_path+files[i];
     }
   }
 

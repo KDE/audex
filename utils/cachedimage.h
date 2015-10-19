@@ -26,7 +26,6 @@
 #include <QString>
 #include <QFile>
 
-#include <KDebug>
 #include <KMimeType>
 #include <KLocale>
 

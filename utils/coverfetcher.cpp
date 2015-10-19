@@ -24,6 +24,7 @@
 
 #include "coverfetcher.h"
 #include <algorithm>
+#include <QDebug>
 #include <QScriptEngine>
 #include <QScriptValueIterator>
 
@@ -39,13 +40,13 @@ CoverFetcher::~CoverFetcher() {
 
 void CoverFetcher::fetched_external_ip(KJob* job) {
 
-  kDebug() << "got IP...";
+  qDebug() << "got IP...";
   if (!job) {
-    kDebug() << "no job error ...";
+    qDebug() << "no job error ...";
     emit nothingFetched();
     return;
   } else if (job && job->error()) {
-    kDebug() << "reply error ...";
+    qDebug() << "reply error ...";
     emit nothingFetched();
     return;
   }
@@ -53,7 +54,7 @@ void CoverFetcher::fetched_external_ip(KJob* job) {
   KIO::StoredTransferJob* const storedJob = static_cast<KIO::StoredTransferJob*>(job);
   external_ip = ((QString) storedJob->data()).trimmed();
 
-  kDebug() << "IP " << external_ip;
+  qDebug() << "IP " << external_ip;
 
   // Max images per request on Google API is 8, thus the std::min
   QString url;
@@ -62,7 +63,7 @@ void CoverFetcher::fetched_external_ip(KJob* job) {
           .arg(std::min(fetch_no,8))
           .arg(QUrl::toPercentEncoding(external_ip).data());
 
-  kDebug() << "searching covers (" << url << ")...";
+  qDebug() << "searching covers (" << url << ")...";
 
   _status = SEARCHING;
   emit statusChanged(SEARCHING);
@@ -74,7 +75,7 @@ void CoverFetcher::fetched_external_ip(KJob* job) {
 
 void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int fetchNo) {
 
-  kDebug() << "Fetch Thumbs ...";
+  qDebug() << "Fetch Thumbs ...";
   if (_status != NOS || fetchNo == 0)
   {
       emit nothingFetched();
@@ -113,7 +114,7 @@ void CoverFetcher::startFetchCover(const int no) {
     return;
   }
 
-  kDebug() << "fetching cover...";
+  qDebug() << "fetching cover...";
   _status = FETCHING_COVER; emit statusChanged(FETCHING_COVER);
 
   job = KIO::storedGet(QUrl(cover_urls[no]));
@@ -136,7 +137,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   QByteArray buffer;
 
   if (job && job->error()) {
-    kDebug() << "There was an error communicating with Google. "<< job->errorString();
+    qDebug() << "There was an error communicating with Google. "<< job->errorString();
     emit error(i18n("There was an error communicating with Google."), i18n("Try again later. Otherwise make a bug report."));
     _status = NOS; emit statusChanged(NOS);
     emit nothingFetched();
@@ -148,7 +149,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   }
 
   if (buffer.count() == 0) {
-    kDebug() << "Google server: empty response";
+    qDebug() << "Google server: empty response";
     emit error(i18n("Google server: Empty response."),
                i18n("Try again later. Make a bug report."));
     _status = NOS;  emit statusChanged(NOS);
@@ -158,15 +159,15 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   switch (_status) {
 
       case SEARCHING : {
-        kDebug() << "searching finished.";
-        //kDebug() << QString::fromUtf8(buffer.data());
+        qDebug() << "searching finished.";
+        //qDebug() << QString::fromUtf8(buffer.data());
         parse_html_response(QString::fromUtf8(buffer.data()));
         _status = NOS; emit statusChanged(NOS);
         fetch_cover_thumbnail();
       } break;
 
       case FETCHING_THUMBNAIL : {
-        kDebug() << "cover thumbnail fetched.";
+        qDebug() << "cover thumbnail fetched.";
         cover_thumbnails.append(buffer);
         emit fetchedThumbnail(buffer, cover_names[f_i], f_i+1);
         ++f_i;
@@ -180,7 +181,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
       } break;
 
       case FETCHING_COVER : {
-        kDebug() << "cover fetched.";
+        qDebug() << "cover fetched.";
 	_status = NOS; emit statusChanged(NOS);
         emit fetchedCover(buffer);
       } break;
@@ -227,7 +228,7 @@ void CoverFetcher::parse_html_response(const QString& xml) {
       cover_names << i18n("%1x%2", w, h);
       cover_urls_thumbnails << thumbUrl;
 
-      kDebug() << "URL " << link << "- " << thumbUrl<< " -"<<cover_names;
+      qDebug() << "URL " << link << "- " << thumbUrl<< " -"<<cover_names;
 
     }
 
@@ -237,7 +238,7 @@ void CoverFetcher::parse_html_response(const QString& xml) {
 bool CoverFetcher::fetch_cover_thumbnail() {
 
   if (cover_urls_thumbnails.count() == 0) {
-    kDebug() << "nothing fetched.";
+    qDebug() << "nothing fetched.";
     emit nothingFetched();
     return false;
   }

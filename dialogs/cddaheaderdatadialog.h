@@ -22,8 +22,6 @@
 #include <QWidget>
 #include <QDate>
 
-#include <KDebug>
-
 #include "models/cddamodel.h"
 
 #include "utils/discidcalculator.h"

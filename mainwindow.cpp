@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   profile_model = new ProfileModel(this);
   if (!profile_model) {
-    kDebug() << "Unable to create ProfileModel object. Low mem?";
+    qDebug() << "Unable to create ProfileModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
     return;
   }
@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   }
   cdda_model = new CDDAModel(this);
   if (!cdda_model) {
-    kDebug() << "Unable to create CDDAModel object. Low mem?";
+    qDebug() << "Unable to create CDDAModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
     return;
   }
@@ -96,7 +96,7 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::eject() {
-  kDebug() << "eject requested";
+  qDebug() << "eject requested";
   cdda_model->eject();
 }
 
@@ -189,7 +189,7 @@ void MainWindow::new_audio_disc_detected() {
   enable_layout(true);
   resizeColumns();
   if (Preferences::cddbLookupAuto()) {
-    kDebug() << "Performing CDDB auto lookup";
+    qDebug() << "Performing CDDB auto lookup";
     QTimer::singleShot(0, this, SLOT(cddb_lookup()));
   }
 

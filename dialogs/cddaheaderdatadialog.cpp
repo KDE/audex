@@ -50,7 +50,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
 
   cdda_model = cddaModel;
   if (!cdda_model) {
-    kDebug() << "CDDAModel is NULL!";
+    qDebug() << "CDDAModel is NULL!";
     return;
   }
 

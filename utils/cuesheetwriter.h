@@ -23,7 +23,6 @@
 #include <QStringList>
 #include <QFileInfo>
 
-#include <KDebug>
 #include <KLocale>
 
 #include "config.h"

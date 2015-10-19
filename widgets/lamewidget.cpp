@@ -18,13 +18,15 @@
 
 #include "lamewidget.h"
 
+#include <QDebug>
+
 lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 

@@ -18,6 +18,8 @@
 
 #include "encoderwrapper.h"
 
+#include <QDebug>
+
 EncoderWrapper::EncoderWrapper(QObject* parent, const QString& commandPattern, const QString& encoderName, const bool deleteFractionFiles) : QObject(parent) {
 
   command_pattern = commandPattern;
@@ -59,7 +61,7 @@ bool EncoderWrapper::encode(int n,
   PatternParser patternparser;
   QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, nooftracks, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath, encoder_name);
  
-  kDebug() << "executing command " << command;
+  qDebug() << "executing command " << command;
   proc.setShellCommand(command);
   proc.start();
   proc.waitForStarted();
@@ -85,12 +87,12 @@ void EncoderWrapper::cancel() {
     if (file.exists()) {
       file.remove();
       emit warning(i18n("Deleted partial file \"%1\".", processing_filename.mid(processing_filename.lastIndexOf("/")+1)));
-      kDebug() << "deleted partial file" << processing_filename;
+      qDebug() << "deleted partial file" << processing_filename;
     }
   }
 
   emit error(i18n("User canceled encoding."));
-  kDebug() << "Interrupt encoding.";
+  qDebug() << "Interrupt encoding.";
 
 }
 
@@ -143,7 +145,7 @@ void EncoderWrapper::processFinished(int exitCode, QProcess::ExitStatus exitStat
 	i18n("Please check your profile."));
   }
   emit finished();
-  kDebug() << "encoding finished.";
+  qDebug() << "encoding finished.";
 }
 
 void EncoderWrapper::processError(QProcess::ProcessError err) {
@@ -163,5 +165,5 @@ void EncoderWrapper::processError(QProcess::ProcessError err) {
       emit error(i18n("An unknown error occurred to %1. This should not happen.", encoder), i18n("Please check your profile.")); break;
   }
   emit finished();
-  kDebug() << "encoding finished.";
+  qDebug() << "encoding finished.";
 }

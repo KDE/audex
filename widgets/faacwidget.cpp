@@ -18,13 +18,15 @@
 
 #include "faacwidget.h"
 
+#include <QDebug>
+
 faacWidget::faacWidget(Parameters *parameters, QWidget *parent) : faacWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 
