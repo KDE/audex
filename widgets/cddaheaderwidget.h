@@ -34,7 +34,6 @@
 
 #include <KActionCollection>
 #include <KFileDialog>
-#include <KMenu>
 #include <KLocale>
 #include <KColorScheme>
 #include <KMessageBox>

@@ -19,6 +19,7 @@
 #include "cddaheaderwidget.h"
 
 #include <QDebug>
+#include <QMenu>
 
 static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOverX, FadeStyle fadeStyle = FadeDown) {
 
@@ -816,7 +817,7 @@ void CDDAHeaderWidget::context_menu(const QPoint& point) {
   if ((cursor_on_cover) && (!fetching_cover_in_progress)) {
     QApplication::restoreOverrideCursor();
     cursor_on_cover = false;
-    KMenu contextMenu(this);
+    QMenu contextMenu(this);
     QMouseEvent *mevent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::RightButton, Qt::RightButton, Qt::NoModifier);
     contextMenu.clear();
     contextMenu.addAction(action_collection->action("fetch"));

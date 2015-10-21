@@ -18,6 +18,8 @@
 
 #include "mainwindow.h"
 
+#include <QMenu>
+
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   profile_model = new ProfileModel(this);
@@ -517,7 +519,7 @@ void MainWindow::invert_selection() {
 
 void MainWindow::cdda_context_menu(const QPoint& pos) {
   Q_UNUSED(pos);
-  KMenu menu(this);
+  QMenu menu(this);
   menu.addAction(actionCollection()->action("selectall"));
   menu.addAction(actionCollection()->action("selectnone"));
   menu.addSeparator();
