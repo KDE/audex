@@ -190,7 +190,7 @@ void CommandWizardDialog::insCoverFile() {
 
 void CommandWizardDialog::insNoOfTracks() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
+  text.insert(ui.klineedit_command->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
   ui.klineedit_command->setText(text);
   update_example();
 }

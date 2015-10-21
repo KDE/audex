@@ -117,70 +117,70 @@ void PatternWizardDialog::about_parameters() {
 
 void PatternWizardDialog::insAlbumArtist() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_ALBUM_ARTIST));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_ARTIST));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insAlbumTitle() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_ALBUM_TITLE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_TITLE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insTrackArtist() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_TRACK_ARTIST));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_TRACK_ARTIST));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insTrackTitle() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_TRACK_TITLE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_TRACK_TITLE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insTrackNo() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_TRACK_NO));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_TRACK_NO));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insCDNo() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_CD_NO));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_CD_NO));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insDate() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_DATE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_DATE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insGenre() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_GENRE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_GENRE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insSuffix() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_SUFFIX));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_SUFFIX));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void PatternWizardDialog::insNoOfTracks() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
   ui.klineedit_pattern->setText(text);
   update_example();
 }

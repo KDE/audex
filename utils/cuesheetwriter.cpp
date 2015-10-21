@@ -32,7 +32,7 @@ QStringList CueSheetWriter::cueSheet(const QString& binFilename) const {
 
   QStringList result;
   
-  result << "REM cue file written by Audex Version "AUDEX_VERSION;
+  result << "REM cue file written by Audex Version " AUDEX_VERSION;
   result << QString("REM GENRE \"%1\"").arg(model->genre());
   result << QString("REM DATE \"%1\"").arg(model->year());
   result << QString("PERFORMER \"%1\"").arg(model->artist());
@@ -64,7 +64,7 @@ QStringList CueSheetWriter::cueSheet(const QString& binFilename) const {
 QStringList CueSheetWriter::cueSheet(const QStringList& filenames) const {
   
   QStringList result;
-  result << "REM cue file written by Audex Version "AUDEX_VERSION;
+  result << "REM cue file written by Audex Version " AUDEX_VERSION;
   result << QString("REM GENRE \"%1\"").arg(model->genre());
   result << QString("REM DATE \"%1\"").arg(model->year());
   result << QString("PERFORMER \"%1\"").arg(model->artist());

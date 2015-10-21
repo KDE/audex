@@ -113,49 +113,49 @@ void SimplePatternWizardDialog::about_parameters() {
 
 void SimplePatternWizardDialog::insAlbumArtist() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_ALBUM_ARTIST));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_ARTIST));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insAlbumTitle() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_ALBUM_TITLE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_TITLE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insCDNo() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_CD_NO));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_CD_NO));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insDate() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_DATE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_DATE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insGenre() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_GENRE));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_GENRE));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insSuffix() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_SUFFIX));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_SUFFIX));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insNoOfTracks() {
   QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
