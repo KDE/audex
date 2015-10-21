@@ -20,6 +20,8 @@
 
 #include <QDebug>
 #include <QUrl>
+#include <QMimeDatabase>
+#include <QMimeType>
 
 CachedImage::CachedImage() {
 }
@@ -101,7 +103,8 @@ const QString CachedImage::supportedMimeTypeList() {
     QList<QByteArray> supp_list = QImageReader::supportedImageFormats();
     QMap<QString,QStringList> map;
     for (int i = 0; i < supp_list.count(); ++i) {
-      map[KMimeType::findByUrl("dummy."+QString(supp_list[i]).toLower())->comment()].append("*."+QString(supp_list[i]).toLower());
+      QMimeDatabase db;
+      map[db.mimeTypeForUrl("dummy."+QString(supp_list[i]).toLower()).comment()].append("*."+QString(supp_list[i]).toLower());
     }
     QString result = "*.jpg *.jpeg *.png *.gif|"+i18n("Common image formats")+" (*.jpg, *.jpeg, *.png, *.gif)";
     QMap<QString,QStringList>::const_iterator i = map.constBegin();
@@ -177,7 +180,8 @@ bool CachedImage::save(const QString& filename, const QSize& size) {
     _error = Error(i18n("Cannot open file"), i18n("Please check your permissions."), Error::ERROR);
     return false;
   }
-  QByteArray format = KMimeType::extractKnownExtension(filename).toLower().toAscii();
+  QMimeDatabase db;
+  QByteArray format = db.suffixForFileName(filename).toLower().toAscii();
   if ((compare_format(format, _format) || (format.isEmpty())) && ((size.isNull()) || (size == _size))) {
     qint64 r = file.write(_data);
     if ((r==-1) || (r < _data.size())) {

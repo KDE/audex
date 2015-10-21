@@ -32,7 +32,6 @@
 
 #include <KLocale>
 #include <KInputDialog>
-#include <KMimeType>
 
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
