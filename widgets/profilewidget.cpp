@@ -18,6 +18,7 @@
 
 #include "profilewidget.h"
 
+#include <QFileDialog>
 #include <QIcon>
 
 profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : profileWidgetUI(parent) {
@@ -121,14 +122,14 @@ void profileWidget::copy_profile() {
 }
 
 void profileWidget::save_profiles() {
-  QString filename = KFileDialog::getSaveFileName(QUrl(QDir::homePath()), "*.apf", this, i18n("Save Cover"));
+  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath(), "*.apf");
   if (!filename.isEmpty()) {
     profile_model->saveProfilesToFile(filename);
   }
 }
 
 void profileWidget::load_profiles() {
-  QString filename = KFileDialog::getOpenFileName(QUrl(QDir::homePath()), "*.apf", this, i18n("Load Profiles"));
+  QString filename = QFileDialog::getOpenFileName(this, i18n("Load Profiles"), QDir::homePath(), "*.apf");
   if (!filename.isEmpty()) {
     profile_model->loadProfilesFromFile(filename);
   }

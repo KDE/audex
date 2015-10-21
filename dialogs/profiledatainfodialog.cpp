@@ -18,6 +18,8 @@
 
 #include "profiledatainfodialog.h"
 
+#include <QFileDialog>
+
 ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QString& pattern, const QString& suffix, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
@@ -219,7 +221,7 @@ void ProfileDataInfoDialog::about_variables() {
 }
 
 void ProfileDataInfoDialog::load_text() {
-  QString filename = KFileDialog::getOpenFileName(QUrl(QDir::homePath()), "*", this, i18n("Load Text Template"));
+  QString filename = QFileDialog::getOpenFileName(this, i18n("Load Text Template"), QDir::homePath(), "*");
   if (!filename.isEmpty()) {
     QFile file(filename);
     if (file.open(QFile::ReadOnly)) {
@@ -231,7 +233,7 @@ void ProfileDataInfoDialog::load_text() {
 }
 
 void ProfileDataInfoDialog::save_text() {
-  QString filename = KFileDialog::getSaveFileName(QUrl(QDir::homePath()), "*", this, i18n("Save Text Template"));
+  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Text Template"), QDir::homePath(), "*");
   if (!filename.isEmpty()) {
     QFile file(filename);
     if (file.open(QFile::WriteOnly | QFile::Truncate)) {

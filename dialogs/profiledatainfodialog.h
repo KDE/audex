@@ -22,7 +22,6 @@
 #include <QWidget>
 
 #include <KDialog>
-#include <KFileDialog>
 #include <KTextBrowser>
 
 #include "simplepatternwizarddialog.h"

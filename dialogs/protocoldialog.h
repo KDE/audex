@@ -23,7 +23,6 @@
 #include <QDateTime>
 
 #include <KDialog>
-#include <KFileDialog>
 
 #include "ui_protocolwidgetUI.h"
 

@@ -23,7 +23,6 @@
 #include <QDir>
 
 #include <KDialog>
-#include <KFileDialog>
 #include <KMessageBox>
 
 #include "models/profilemodel.h"

@@ -18,6 +18,11 @@
 
 #include "protocoldialog.h"
 
+#include <QFileDialog>
+#include <QTextStream>
+
+#include <KLocalizedString>
+
 ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
@@ -59,7 +64,7 @@ void ProtocolDialog::slotButtonClicked(int button) {
 }
 
 void ProtocolDialog::save() {
-  QString fileName = KFileDialog::getSaveFileName(QUrl(QDir::homePath()), "*.pro", this, i18n("Save %1", title));
+  QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.pro");
   if (!fileName.isEmpty()) {
     QFile data(fileName);
     if (data.open(QFile::WriteOnly | QFile::Truncate)) {

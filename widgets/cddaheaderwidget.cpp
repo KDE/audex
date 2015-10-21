@@ -19,6 +19,7 @@
 #include "cddaheaderwidget.h"
 
 #include <QDebug>
+#include <QFileDialog>
 #include <QMenu>
 
 static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOverX, FadeStyle fadeStyle = FadeDown) {
@@ -691,7 +692,7 @@ void CDDAHeaderWidget::google() {
 
 void CDDAHeaderWidget::load() {
   qDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
-  QString filename = KFileDialog::getOpenFileName(QUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load Cover"));
+  QString filename = QFileDialog::getOpenFileName(this, i18n("Load Cover"), QDir::homePath(), cdda_model->coverSupportedMimeTypeList());
   if (!filename.isEmpty()) {
     if (!cdda_model->setCover(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
@@ -700,7 +701,7 @@ void CDDAHeaderWidget::load() {
 }
 
 void CDDAHeaderWidget::save() {
-  QString filename = KFileDialog::getSaveFileName(QUrl(QDir::homePath()+"/"+cdda_model->title()+".jpg"), cdda_model->coverSupportedMimeTypeList(), this, i18n("Save Cover"));
+  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath()+"/"+cdda_model->title()+".jpg", cdda_model->coverSupportedMimeTypeList());
   if (!filename.isEmpty()) {
     if (!cdda_model->saveCoverToFile(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
