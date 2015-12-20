@@ -353,9 +353,21 @@ bool SaxHandler::fatalError(const QXmlParseException& exception) {
 
 const QString SaxHandler::make_compatible(const QString& string) {
   QString s = string;
-  s.replace("/", "_");
-  s.replace("\"", "'");
-  s.replace("\\", "_");
+  for (int i=0; i<s.size(); i++) {
+    switch (s[i].toLatin1()) {
+      case '/':
+      case '\\':
+      s[i] = '_';
+      break;
+      
+      case '"':
+      s[i] = '\'';
+      break;
+
+      default:
+      break;
+    }
+  }
   return s;
 }
 
@@ -368,14 +380,24 @@ const QString SaxHandler::make_compatible_2(const QString& string) {
 //remove \ / : * ? " < > |
 const QString SaxHandler::make_fat32_compatible(const QString& string) {
   QString s = string;
-  s.replace("\\", "_");
-  s.replace("/", "_");
-  s.replace(":", "_");
-  s.replace("*", "_");
-  s.replace("?", "_");
-  s.replace("<", "_");
-  s.replace(">", "_");
-  s.replace("|", "_");
+  for (int i=0; i<s.size(); i++) {
+    switch (s[i].toLatin1()) {
+      case '\\':
+      case '/':
+      case ':':
+      case '*':
+      case '?':
+      case '"':
+      case '<':
+      case '>':
+      case '|':
+      s[i] = '_';
+      break;
+
+      default:
+      break;
+    }
+  }
   return s;
 }
 
