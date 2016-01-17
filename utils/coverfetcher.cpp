@@ -37,41 +37,6 @@ CoverFetcher::~CoverFetcher() {
   clear();
 }
 
-void CoverFetcher::fetched_external_ip(KJob* job) {
-
-  kDebug() << "got IP...";
-  if (!job) {
-    kDebug() << "no job error ...";
-    emit nothingFetched();
-    return;
-  } else if (job && job->error()) {
-    kDebug() << "reply error ...";
-    emit nothingFetched();
-    return;
-  }
-  // http://www.telize.com/ip returns plaintext ip address
-  KIO::StoredTransferJob* const storedJob = static_cast<KIO::StoredTransferJob*>(job);
-  external_ip = ((QString) storedJob->data()).trimmed();
-
-  kDebug() << "IP " << external_ip;
-
-  // Max images per request on Google API is 8, thus the std::min
-  QString url;
-  url= QString("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%1&rsz=%2&userip=%3")
-          .arg(KUrl::toPercentEncoding(search_string, "/").data())
-          .arg(std::min(fetch_no,8))
-          .arg(KUrl::toPercentEncoding(external_ip).data());
-
-  kDebug() << "searching covers (" << url << ")...";
-
-  _status = SEARCHING;
-  emit statusChanged(SEARCHING);
-
-  job = KIO::storedGet(url);
-  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
-
-}
-
 void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int fetchNo) {
 
   kDebug() << "Fetch Thumbs ...";
@@ -83,14 +48,24 @@ void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int f
 
   fetch_no = fetchNo;
 
-  search_string = searchstring;
+  search_string = "'" + searchstring + "'";
   search_string.replace("&", "");
 
-  // Google requires the user IP
-  QString url("http://www.telize.com/ip");
+  QString url;
+  url = QString("https://api.datamarket.azure.com/Bing/Search/Image?$format=json&Query=%1&$top=%2&ImageFilters=%3")
+      .arg(KUrl::toPercentEncoding(search_string, "/").data())
+      .arg(std::min(fetch_no, 50))
+      .arg(KUrl::toPercentEncoding(QString("'Aspect:Square'")).data());
 
-  job = KIO::storedGet(url);
-  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_external_ip(KJob*)));
+  kDebug() << "searching covers (" << url << ")...";
+
+  _status = SEARCHING;
+  emit statusChanged(SEARCHING);
+
+  job = KIO::storedGet(url, KIO::Reload, KIO::HideProgressInfo);
+  static_cast<KIO::StoredTransferJob*>(job)->addMetaData(
+      "customHTTPHeader", "Authorization: Basic " + QString(":" + Preferences::bingApiKey()).toUtf8().toBase64());
+  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
 }
 
@@ -136,8 +111,9 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   QByteArray buffer;
 
   if (job && job->error()) {
-    kDebug() << "There was an error communicating with Google. "<< job->errorString();
-    emit error(i18n("There was an error communicating with Google."), i18n("Try again later. Otherwise make a bug report."));
+    kDebug() << "There was an error communicating with Bing. "<< job->errorString();
+    emit error(i18n("There was an error communicating with Bing."),
+               i18n("Try again later. Otherwise make a bug report."));
     _status = NOS; emit statusChanged(NOS);
     emit nothingFetched();
     return;
@@ -148,9 +124,9 @@ void CoverFetcher::fetched_html_data(KJob* job) {
   }
 
   if (buffer.count() == 0) {
-    kDebug() << "Google server: empty response";
-    emit error(i18n("Google server: Empty response."),
-               i18n("Try again later. Make a bug report."));
+    kDebug() << "Bing server: empty response";
+    emit error(i18n("Bing server: Empty response."),
+               i18n("Check 'Settings' >> 'Configure Audex...' >> 'General settings'  >> 'Bing developer API key' and/or try again later. Otherwise make a bug report."));
     _status = NOS;  emit statusChanged(NOS);
     return;
   }
@@ -181,31 +157,27 @@ void CoverFetcher::fetched_html_data(KJob* job) {
 
       case FETCHING_COVER : {
         kDebug() << "cover fetched.";
-	_status = NOS; emit statusChanged(NOS);
+        _status = NOS; emit statusChanged(NOS);
         emit fetchedCover(buffer);
       } break;
 
       case NOS : break;
 
   }
-
-
 }
 
-void CoverFetcher::parse_html_response(const QString& xml) {
+void CoverFetcher::parse_html_response(const QString& json) {
 
   cover_urls_thumbnails.clear();
   cover_urls.clear();
   cover_names.clear();
-  cover_tbnids.clear();
   cover_thumbnails.clear();
 
   QScriptValue responseData;
   QScriptEngine engine;
-  responseData = engine.evaluate("("+xml+")");
+  responseData = engine.evaluate("("+json+")");
 
-
-  QScriptValue resultsData=responseData.property("responseData").property("results");
+  QScriptValue resultsData=responseData.property("d").property("results");
 
   if (resultsData.isArray()) {
 
@@ -218,10 +190,10 @@ void CoverFetcher::parse_html_response(const QString& xml) {
 
       QScriptValue entry = it.value();
 
-      QString link =  QUrl::fromPercentEncoding(entry.property("url").toString().toAscii());
-      QString thumbUrl = QUrl::fromPercentEncoding(entry.property("tbUrl").toString().toAscii());
-      QString w = entry.property("width").toString();
-      QString h = entry.property("height").toString();
+      QString link = QUrl::fromPercentEncoding(entry.property("MediaUrl").toString().toAscii());
+      QString thumbUrl = QUrl::fromPercentEncoding(entry.property("Thumbnail").property("MediaUrl").toString().toAscii());
+      QString w = entry.property("Width").toString();
+      QString h = entry.property("Height").toString();
 
       cover_urls << link;
       cover_names << i18n("%1x%2", w, h);
@@ -230,7 +202,6 @@ void CoverFetcher::parse_html_response(const QString& xml) {
       kDebug() << "URL " << link << "- " << thumbUrl<< " -"<<cover_names;
 
     }
-
   }
 }
 

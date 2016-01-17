@@ -88,7 +88,7 @@ public:
 public slots:
   void setEnabled(bool enabled);
 
-  void googleAuto();
+  void bingAuto();
 
 signals:
   void headerDataChanged();
@@ -109,7 +109,7 @@ private slots:
   void trigger_repaint();
   void cover_is_down();
 
-  void google();
+  void bing();
   void load();
   void save();
   void view_cover();
