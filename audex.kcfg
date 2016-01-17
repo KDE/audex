@@ -28,8 +28,11 @@
       <default>true</default>
     </entry>
     <entry name="coverLookupAuto" type="Bool">
-      <label>Perform cover lookup (amazon) automatically</label>
-      <default>true</default>
+      <label>Perform cover lookup (Bing) automatically</label>
+      <default>false</default>
+    </entry>
+    <entry name="bingApiKey" type="String">
+      <label>Bing search developer API key</label>
     </entry>
     <entry name="wikipediaLocale" type="Int">
       <label>Wikipedia localization</label>

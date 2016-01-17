@@ -101,7 +101,7 @@ void CoverBrowserDialog::setup() {
 
   setMainWidget(widget);
 
-  setCaption(i18n("Fetch Cover From Google"));
+  setCaption(i18n("Fetch Cover From Bing"));
   setButtons(KDialog::Ok | KDialog::Cancel);
 
   connect(&cover_fetcher, SIGNAL(fetchedThumbnail(const QByteArray&, const QString&, int)), this, SLOT(add_item(const QByteArray&, const QString&, int)));

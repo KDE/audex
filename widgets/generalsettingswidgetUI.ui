@@ -53,6 +53,33 @@
        </widget>
       </item>
       <item row="5" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_bingApiKey">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string><![CDATA[Bing <a href=https://datamarket.azure.com/dataset/bing/search>developer api</a> key:]]></string>
+          </property>
+          <property name="openExternalLinks">
+            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="kcfg_bingApiKey">
+          <property name="toolTip">
+           <string>Use the link to the left to obtain a Bing developer API key for free access to cover image lookups.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="6" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QLabel" name="label">

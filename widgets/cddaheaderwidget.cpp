@@ -385,11 +385,11 @@ void CDDAHeaderWidget::setEnabled(bool enabled) {
   repaint();
 }
 
-void CDDAHeaderWidget::googleAuto() {
+void CDDAHeaderWidget::bingAuto() {
 
-  kDebug() << "Google AUTO cover fetch" ;
+  kDebug() << "Bing AUTO cover fetch" ;
 
-  if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
+  if ((cdda_model->empty()) || (fetching_cover_in_progress) || Preferences::bingApiKey().trimmed().isEmpty()) return;
 
   QApplication::restoreOverrideCursor();
   cursor_on_cover = FALSE;
@@ -564,7 +564,7 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event) {
 	if (cdda_model->empty()) {
 	  load();
 	} else {
-	  google();
+	  bing();
 	}
       } else {
 	view_cover();
@@ -652,9 +652,9 @@ void CDDAHeaderWidget::cover_is_down() {
   timer.start();
 }
 
-void CDDAHeaderWidget::google() {
+void CDDAHeaderWidget::bing() {
 
-  kDebug() << "Google cover fetch" ;
+  kDebug() << "Bing cover fetch" ;
 
   if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
@@ -777,7 +777,11 @@ void CDDAHeaderWidget::fetch_first_cover() {
   if (cover_browser_dialog) {
     if (cover_browser_dialog->count() == 0) {
       kDebug() << "no cover found";
-      ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
+      ErrorDialog::show(this,
+        i18n("No cover found."),
+        i18n("Check your artist name and title, otherwise you can load a custom cover from an image file.<br><br>"
+             "If you received an authentication dialog, check your Bing developer API key:<br>"
+             "<i>'Settings' >> 'Configure Audex...' >> 'General settings' >> 'Bing developer API key'</i> and/or try again later."));
       delete cover_browser_dialog;
       cover_browser_dialog = NULL;
       fetching_cover_in_progress = FALSE;
@@ -792,7 +796,11 @@ void CDDAHeaderWidget::fetch_first_cover() {
 void CDDAHeaderWidget::fetchCoverFinished(bool showDialog) {
   if (cover_browser_dialog) {
     if (showDialog) {
-      ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
+      ErrorDialog::show(this,
+        i18n("No cover found."),
+        i18n("Check your artist name and title, otherwise you can load a custom cover from an image file.<br><br>"
+             "If you received an authentication dialog, check your Bing developer API key:<br>"
+             "<i>'Settings' >> 'Configure Audex...' >> 'General settings' >> 'Bing developer API key'</i> and/or try again later."));
     }
     delete cover_browser_dialog;
     cover_browser_dialog = NULL;
@@ -833,9 +841,9 @@ void CDDAHeaderWidget::setup_actions() {
   action_collection = new KActionCollection(this);
 
   KAction* fetchCoverAction = new KAction(this);
-  fetchCoverAction->setText(i18n("Fetch cover from Google..."));
+  fetchCoverAction->setText(i18n("Fetch cover from Bing..."));
   action_collection->addAction("fetch", fetchCoverAction);
-  connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(google()));
+  connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(bing()));
 
   KAction* loadCoverAction = new KAction(this);
   loadCoverAction->setText(i18n("Set Custom Cover..."));

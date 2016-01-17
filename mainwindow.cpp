@@ -216,7 +216,7 @@ void MainWindow::cddb_lookup_done(const bool successful) {
   }
   update_layout();
   disable_submit();
-  if (Preferences::coverLookupAuto()) cdda_header_widget->googleAuto();
+  if (Preferences::coverLookupAuto()) cdda_header_widget->bingAuto();
 }
 
 void MainWindow::update_layout() {

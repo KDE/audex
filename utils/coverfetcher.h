@@ -28,7 +28,10 @@
 #include <KUrl>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
+#include <KIO/StoredTransferJob>
 #include <KIO/TransferJob>
+
+#include "preferences.h"
 
 class CoverFetcher : public QObject {
   Q_OBJECT
@@ -42,7 +45,6 @@ public:
   
   const QByteArray thumbnail(int index);
   const QString caption(int index);
-  const QString tbnid(int index);
   inline int count() { return cover_names.count(); }
 
   enum Status {
@@ -69,14 +71,12 @@ signals:
 
 private slots:
   void fetched_html_data(KJob* job);
-  void fetched_external_ip(KJob* job);
 
 private:
   int fetch_no;
   QStringList cover_urls_thumbnails;
   QStringList cover_urls;
   QStringList cover_names;
-  QStringList cover_tbnids;
   QList<QByteArray> cover_thumbnails;
   void clear() { cover_thumbnails.clear(); }
 
@@ -88,7 +88,7 @@ private:
   QString external_ip;
   QString search_string;
 
-  void parse_html_response(const QString& html);
+  void parse_html_response(const QString& json);
   bool fetch_cover_thumbnail();
   bool fetch_cover(const int no);
 
