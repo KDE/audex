@@ -33,7 +33,7 @@
 #include <QX11Info>
 
 #include <KActionCollection>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KColorScheme>
 #include <KMessageBox>
 

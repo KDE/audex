@@ -22,7 +22,7 @@
 #include <QString>
 #include <QImage>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KProcess>
 
 #include "utils/cachedimage.h"

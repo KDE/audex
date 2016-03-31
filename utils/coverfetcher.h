@@ -23,7 +23,7 @@
 #include <QByteArray>
 #include <QRegExp>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
 #include <KIO/TransferJob>

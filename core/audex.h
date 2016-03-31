@@ -24,7 +24,7 @@
 #include <QDir>
 #include <QTimer>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KDiskFreeSpaceInfo>
 
 #include "models/profilemodel.h"

@@ -27,7 +27,7 @@
 #include <QStringList>
 #include <QHash>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <Solid/Device>
 #include <Solid/StorageAccess>

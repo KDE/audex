@@ -28,7 +28,7 @@
 #include <QImage>
 #include <QCryptographicHash>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "config.h"
 

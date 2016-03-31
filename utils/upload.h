@@ -24,7 +24,7 @@
 #include <QFileInfo>
 #include <QByteArray>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
 #include <KIO/CopyJob>

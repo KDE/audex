@@ -22,7 +22,7 @@
 #include <QString>
 #include <QMutex>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 extern "C" {
   #include <cdda_interface.h>

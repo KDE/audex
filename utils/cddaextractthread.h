@@ -22,7 +22,7 @@
 #include <QString>
 #include <QThread>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "cddaparanoia.h"
 

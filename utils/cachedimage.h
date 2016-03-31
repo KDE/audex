@@ -27,7 +27,7 @@
 #include <QFile>
 
 #include <KMimeType>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "utils/error.h"
 

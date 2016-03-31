@@ -30,7 +30,7 @@
 #include <QRegExp>
 #include <QTimer>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KInputDialog>
 
 #include <libkcddb/kcddb.h>

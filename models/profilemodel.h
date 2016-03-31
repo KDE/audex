@@ -25,7 +25,7 @@
 #include <QVariant>
 #include <QString>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KGlobal>

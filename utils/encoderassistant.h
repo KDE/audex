@@ -23,7 +23,7 @@
 #include <QStringList>
 #include <QMap>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KProcess>
 
 #include "utils/parameters.h"

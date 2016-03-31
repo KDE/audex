@@ -26,7 +26,7 @@
 #include <QDir>
 #include <QFileInfo>
 
-#include <KLocale>
+#include <KLocalizedString>
 
 class PlaylistItem
 {
