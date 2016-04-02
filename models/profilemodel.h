@@ -28,7 +28,6 @@
 #include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KGlobal>
 #include <KMessageBox>
 
 #include "utils/error.h"

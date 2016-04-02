@@ -21,6 +21,7 @@
 
 #include <QWidget>
 #include <QDate>
+#include <KDialog>
 
 #include "models/cddamodel.h"
 

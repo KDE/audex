@@ -18,6 +18,8 @@
 
 #include "profiledatadialog.h"
 
+#include <QDebug>
+
 ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent)
 {
 

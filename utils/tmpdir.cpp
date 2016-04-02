@@ -18,6 +18,9 @@
 
 #include "tmpdir.h"
 
+#include <QStandardPaths>
+#include <QDebug>
+
 TmpDir::TmpDir(const QString& appName, const QString& sub) : QObject() {
 
   QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::TempLocation);

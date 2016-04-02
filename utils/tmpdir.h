@@ -25,7 +25,6 @@
 #include <QFileInfo>
 #include <QFileInfoList>
 
-#include <KGlobal>
 #include <KDiskFreeSpaceInfo>
 
 #include "utils/pid.h"

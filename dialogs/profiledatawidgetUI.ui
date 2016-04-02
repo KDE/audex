@@ -388,7 +388,7 @@
   <customwidget>
    <class>KIconButton</class>
    <extends>QPushButton</extends>
-   <header>kicondialog.h</header>
+   <header>KIconButton</header>
   </customwidget>
   <customwidget>
    <class>KComboBox</class>

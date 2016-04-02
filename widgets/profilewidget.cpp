@@ -20,6 +20,7 @@
 
 #include <QFileDialog>
 #include <QIcon>
+#include <QDebug>
 
 profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : profileWidgetUI(parent) {
 
