@@ -30,7 +30,7 @@
 #include <KLocalizedString>
 #include <KActionCollection>
 #include <KStandardAction>
-#include <KStatusBar>
+#include <QStatusBar>
 #include <KConfigDialog>
 #include <KCModuleLoader>
 #include <KLineEdit>
