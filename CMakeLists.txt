@@ -144,7 +144,7 @@ target_link_libraries(audex
 )
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
-install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)
+install(FILES audexui.rc DESTINATION  ${KXMLGUI_INSTALL_DIR}/audex)
 install(FILES audex.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions)
 
