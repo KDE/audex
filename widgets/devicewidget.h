@@ -22,7 +22,7 @@
 #include <QDir>
 
 #include <KLineEdit>
-#include <libkcompactdisc/kcompactdisc.h>
+#include <KCompactDisc/kcompactdisc/kcompactdisc.h>
 
 #include "preferences.h"
 

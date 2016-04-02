@@ -38,7 +38,7 @@
 #include <KTextEdit>
 #include <KPushButton>
 #include <KMessageBox>
-#include <libkcompactdisc/kcompactdisc.h>
+#include <KCompactDisc/kcompactdisc/kcompactdisc.h>
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
