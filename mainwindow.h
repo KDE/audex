@@ -36,7 +36,7 @@
 #include <KLineEdit>
 #include <KComboBox>
 #include <KTextEdit>
-#include <KPushButton>
+#include <QPushButton>
 #include <KMessageBox>
 #include <KCompactDisc/kcompactdisc/kcompactdisc.h>
 #include <libkcddb/kcddb.h>
