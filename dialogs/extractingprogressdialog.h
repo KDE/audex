@@ -27,7 +27,6 @@
 #include <KMessageBox>
 #include <KColorScheme>
 #include <KConfigGroup>
-#include <KGlobal>
 
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"

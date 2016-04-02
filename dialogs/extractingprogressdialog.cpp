@@ -83,7 +83,7 @@ ExtractingProgressDialog::~ExtractingProgressDialog() {
 
 int ExtractingProgressDialog::exec() {
 
-  KConfigGroup grp(KGlobal::config(), "ExtractingProgressDialog");
+  KConfigGroup grp(KSharedConfig::openConfig(), "ExtractingProgressDialog");
 
   resize(600, 400);
   current_extract_overall = 0;
