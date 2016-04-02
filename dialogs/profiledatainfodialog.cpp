@@ -104,7 +104,7 @@ void ProfileDataInfoDialog::about_variables() {
    dialog->setCaption(i18n("Usable Variables For Text Template"));
    dialog->setButtons(KDialog::Ok);
   
-   KTextBrowser *tb = new KTextBrowser(dialog);
+   QTextBrowser *tb = new QTextBrowser(dialog);
    tb->setHtml(i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
    "<html>"
    "<head>"

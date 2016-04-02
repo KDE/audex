@@ -22,7 +22,7 @@
 #include <QWidget>
 
 #include <KDialog>
-#include <KTextBrowser>
+#include <QTextBrowser>
 
 #include "simplepatternwizarddialog.h"
 
