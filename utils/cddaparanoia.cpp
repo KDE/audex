@@ -22,7 +22,8 @@
 
 /* some of this code in here is based on k3b 0.8.x sourcecode */
 
-CDDAParanoia::CDDAParanoia(QObject *parent) : QObject(parent) {
+CDDAParanoia::CDDAParanoia(QObject *parent) : QObject(parent)
+{
   Q_UNUSED(parent);
   paranoia = NULL;
   paranoia_drive = NULL;
