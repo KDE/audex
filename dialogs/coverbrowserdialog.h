@@ -24,7 +24,6 @@
 #include <QByteArray>
 
 #include <KDialog>
-#include <KMessageBox>
 
 #include "preferences.h"
 

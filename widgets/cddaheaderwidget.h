@@ -35,7 +35,6 @@
 #include <KActionCollection>
 #include <KLocalizedString>
 #include <KColorScheme>
-#include <KMessageBox>
 
 #include "preferences.h"
 
