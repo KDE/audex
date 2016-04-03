@@ -818,7 +818,8 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
     }
 
     bool ok = false;
-    QString res = KInputDialog::getItem(
+    // Uses a ComboBox, could use UseListViewForComboBoxItems if necessary
+    QString res = QInputDialog::getItem( nullptr,
       i18n("Select CDDB Entry"),
       i18n("Select a CDDB entry:"), list, 0, false, &ok,
       NULL);
