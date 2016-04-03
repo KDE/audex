@@ -37,3 +37,12 @@ These files make Audex cdda paranoia dependant:
 * utils/cddaparanoia.h
 * utils/cddaparanoia.cpp
 
+### KF5 Port TODO
+
+* Port KMimeType::defaultMimeType() (to QMimeType::isDefault()?)
+* Port KDialog
+* Port KLineEdit
+* Check KIO job->
+* Check KUrl
+* Use solid instead of libkcompactdisc?
+
