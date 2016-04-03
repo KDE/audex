@@ -19,6 +19,7 @@
 #include "mainwindow.h"
 
 #include <QMenu>
+#include <QWidgetAction>
 
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
@@ -395,18 +396,16 @@ void MainWindow::setup_actions() {
   profile_combobox->setCurrentIndex(profile_model->currentProfileRow());
   connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
-  QAction *plabelAction = new QAction(this);
+  QWidgetAction *plabelAction = new QWidgetAction(this);
   plabelAction->setText(i18n("&Profile:"));
-  // TODO: Port
-  //plabelAction->setDefaultWidget(profile_label);
+  plabelAction->setDefaultWidget(profile_label);
   profile_label->setBuddy(profile_combobox);
   actionCollection()->addAction("profile_label", plabelAction);
 
-  QAction *profileAction = new QAction(this);
+  QWidgetAction *profileAction = new QWidgetAction(this);
   profileAction->setText(i18n("Profile"));
   profileAction->setShortcut(Qt::Key_F6);
-  // TODO: Port
-  //profileAction->setDefaultWidget(profile_combobox);
+  profileAction->setDefaultWidget(profile_combobox);
   // TODO: Port
   //profileAction->setShortcutConfigurable(false);
   actionCollection()->addAction("profile", profileAction);
