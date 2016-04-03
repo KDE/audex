@@ -29,9 +29,24 @@ include(KDECompilerSettings)
 include(ECMInstallIcons)
 include(FeatureSummary)
 
-find_package(Qt5 REQUIRED COMPONENTS Script Widgets X11Extras)
-find_package(KF5 REQUIRED COMPONENTS Config I18n IconThemes KCMUtils KDELibs4Support
-                                     KIO Solid TextWidgets XmlGui)
+find_package(Qt5 REQUIRED COMPONENTS
+  Script
+  Widgets
+  X11Extras
+)
+find_package(KF5 REQUIRED COMPONENTS
+  Config
+  Completion
+  I18n
+  IconThemes
+  KCMUtils
+  KIO
+  Solid
+  TextWidgets
+  WidgetsAddons
+  XmlGui
+)
+find_package(KF5 REQUIRED COMPONENTS KDELibs4Support)
 find_package(KF5 REQUIRED COMPONENTS CompactDisc)
 find_package(Libkcddb REQUIRED)
 find_package(Cdparanoia REQUIRED)
@@ -130,15 +145,17 @@ target_link_libraries(audex
     Qt5::Script
     Qt5::Widgets
     Qt5::X11Extras
-    KF5::KCMUtils
+    KF5::Completion
     KF5::I18n
     KF5::IconThemes
-    KF5::KDELibs4Support
+    KF5::KCMUtils
     KF5::KIOWidgets
     KF5::Solid
     KF5::TextWidgets
+    KF5::WidgetsAddons
     KF5::XmlGui
     KF5::KF5CompactDisc
+    KF5::KDELibs4Support
     KDE::Libkcddb::kcddb
     ${CDPARANOIA_LIBRARIES}
 )
