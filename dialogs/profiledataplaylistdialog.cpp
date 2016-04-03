@@ -51,8 +51,8 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, cons
   enable_utf8(!(format == "XSPF"));
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   ui.checkBox_abs_file_path->setChecked(absFilePath);
   connect(ui.checkBox_abs_file_path, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -91,11 +91,11 @@ void ProfileDataPlaylistDialog::pattern_wizard()
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -110,7 +110,7 @@ void ProfileDataPlaylistDialog::trigger_changed()
   if (ui.checkBox_abs_file_path->isChecked() != absFilePath) { enableButtonApply(true); return; }
   if (ui.checkBox_utf8->isChecked() != utf8) { enableButtonApply(true); return; }
   if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(true); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
   enableButtonApply(false);
 }
 
@@ -127,7 +127,7 @@ void ProfileDataPlaylistDialog::enable_utf8(bool enabled)
 bool ProfileDataPlaylistDialog::save()
 {
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-  pattern = ui.klineedit_pattern->text();
+  pattern = ui.qlineedit_pattern->text();
   absFilePath = ui.checkBox_abs_file_path->isChecked();
   utf8 = ui.checkBox_utf8->isChecked();
   enableButtonApply(false);

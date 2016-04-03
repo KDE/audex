@@ -17,7 +17,7 @@
       <widget class="KIconButton" name="kiconbutton_icon"/>
      </item>
      <item>
-      <widget class="KLineEdit" name="klineedit_name">
+      <widget class="QLineEdit" name="qlineedit_name">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -97,7 +97,7 @@
              </widget>
             </item>
             <item>
-             <widget class="KLineEdit" name="klineedit_pattern">
+             <widget class="QLineEdit" name="qlineedit_pattern">
               <property name="font">
                <font>
                 <weight>50</weight>
@@ -396,9 +396,9 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -41,7 +41,6 @@ These files make Audex cdda paranoia dependant:
 
 * Port KMimeType::defaultMimeType() (to QMimeType::isDefault()?)
 * Port KDialog
-* Port KLineEdit
 * Check KIO job->
 * Check KUrl
 * Add config migration code

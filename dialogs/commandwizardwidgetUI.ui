@@ -12,7 +12,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="9">
-    <widget class="KLineEdit" name="klineedit_command"/>
+    <widget class="QLineEdit" name="qlineedit_command"/>
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QLabel" name="label_album_example">
@@ -26,12 +26,12 @@
       <string>Album Example:</string>
      </property>
      <property name="buddy">
-      <cstring>klineedit_album_example</cstring>
+      <cstring>qlineedit_album_example</cstring>
      </property>
     </widget>
    </item>
    <item row="2" column="0" colspan="9">
-    <widget class="KLineEdit" name="klineedit_album_example">
+    <widget class="QLineEdit" name="qlineedit_album_example">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -143,12 +143,12 @@
       <string>Sampler Example:</string>
      </property>
      <property name="buddy">
-      <cstring>klineedit_sampler_example</cstring>
+      <cstring>qlineedit_sampler_example</cstring>
      </property>
     </widget>
    </item>
    <item row="4" column="0" colspan="9">
-    <widget class="KLineEdit" name="klineedit_sampler_example">
+    <widget class="QLineEdit" name="qlineedit_sampler_example">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -461,9 +461,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KUrlLabel</class>
@@ -472,9 +472,9 @@
   </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>klineedit_command</tabstop>
-  <tabstop>klineedit_album_example</tabstop>
-  <tabstop>klineedit_sampler_example</tabstop>
+  <tabstop>qlineedit_command</tabstop>
+  <tabstop>qlineedit_album_example</tabstop>
+  <tabstop>qlineedit_sampler_example</tabstop>
   <tabstop>kpushbutton_albumartist</tabstop>
   <tabstop>kpushbutton_albumtitle</tabstop>
   <tabstop>kpushbutton_trackartist</tabstop>

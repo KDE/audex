@@ -33,7 +33,7 @@
 #include <QStatusBar>
 #include <KConfigDialog>
 #include <KCModuleLoader>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KComboBox>
 #include <KTextEdit>
 #include <QPushButton>

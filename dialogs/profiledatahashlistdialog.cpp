@@ -45,8 +45,8 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &pattern, con
   }
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   enableButtonApply(false);
   showButtonSeparator(true);
@@ -71,11 +71,11 @@ void ProfileDataHashlistDialog::pattern_wizard() {
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -85,13 +85,13 @@ void ProfileDataHashlistDialog::pattern_wizard() {
 
 void ProfileDataHashlistDialog::trigger_changed() {
   if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(true); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
   enableButtonApply(false);
 }
 
 bool ProfileDataHashlistDialog::save() {
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-  pattern = ui.klineedit_pattern->text();
+  pattern = ui.qlineedit_pattern->text();
   enableButtonApply(false);
   return true;
 }

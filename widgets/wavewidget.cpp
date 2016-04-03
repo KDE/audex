@@ -30,9 +30,9 @@ waveWidget::waveWidget(Parameters *parameters, QWidget *parent) : waveWidgetUI(p
     return;
   }
 
-  klineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
+  qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
 
-  connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   changed = false;
 
@@ -46,7 +46,7 @@ bool waveWidget::save() {
 
   bool success = true;
 
-  parameters->setValue(ENCODER_WAVE_SUFFIX_KEY, klineedit_suffix->text());
+  parameters->setValue(ENCODER_WAVE_SUFFIX_KEY, qlineedit_suffix->text());
 
   changed = false;
 
@@ -57,7 +57,7 @@ bool waveWidget::save() {
 void waveWidget::trigger_changed() {
 
   changed = (
-    klineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX)
+    qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX)
   );
 
   emit triggerChanged();

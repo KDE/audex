@@ -43,11 +43,11 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   ui.ktextedit_text->setPlainText(text.join("\n"));
   connect(ui.ktextedit_text, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_suffix->setText(suffix);
-  connect(ui.klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_suffix->setText(suffix);
+  connect(ui.qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   ui.kpushbutton_load->setIcon(QIcon::fromTheme("document-open"));
   ui.kpushbutton_save->setIcon(QIcon::fromTheme("document-save"));
@@ -78,11 +78,11 @@ void ProfileDataInfoDialog::slotButtonClicked(int button) {
 
 void ProfileDataInfoDialog::pattern_wizard() {
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -92,8 +92,8 @@ void ProfileDataInfoDialog::pattern_wizard() {
 
 void ProfileDataInfoDialog::trigger_changed() {
   if (ui.ktextedit_text->toPlainText().split("\n") != text) { enableButtonApply(true); return; }
-  if (ui.klineedit_suffix->text() != suffix) { enableButtonApply(true); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  if (ui.qlineedit_suffix->text() != suffix) { enableButtonApply(true); return; }
+  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
   enableButtonApply(false);
 }
 
@@ -246,8 +246,8 @@ void ProfileDataInfoDialog::save_text() {
 
 bool ProfileDataInfoDialog::save() {
   text = ui.ktextedit_text->toPlainText().split("\n");
-  suffix = ui.klineedit_suffix->text();
-  pattern = ui.klineedit_pattern->text();
+  suffix = ui.qlineedit_suffix->text();
+  pattern = ui.qlineedit_pattern->text();
   enableButtonApply(false);
   return true;
 }

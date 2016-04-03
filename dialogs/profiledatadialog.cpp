@@ -105,9 +105,9 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-    ui.klineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
-    connect(ui.klineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-    ui.klineedit_name->setCursorPosition(0);
+    ui.qlineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
+    connect(ui.qlineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+    ui.qlineedit_name->setCursorPosition(0);
 
     ui.kiconbutton_icon->setIcon(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString());
     connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString&)), this, SLOT(trigger_changed()));
@@ -115,9 +115,9 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     set_encoder(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toInt());
     connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
 
-    ui.klineedit_pattern->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString());
-    connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-    ui.klineedit_pattern->setCursorPosition(0);
+    ui.qlineedit_pattern->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString());
+    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+    ui.qlineedit_pattern->setCursorPosition(0);
 
     ui.checkBox_fat32compatible->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
     connect(ui.checkBox_fat32compatible, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -191,12 +191,12 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     setButtons(KDialog::Ok | KDialog::Cancel);
 
-    ui.klineedit_name->setText(i18n("New Profile"));
+    ui.qlineedit_name->setText(i18n("New Profile"));
     ui.kiconbutton_icon->setIcon(DEFAULT_ICON);
 
     set_encoder(DEFAULT_ENCODER_SELECTED);
 
-    ui.klineedit_pattern->setText(DEFAULT_PATTERN);
+    ui.qlineedit_pattern->setText(DEFAULT_PATTERN);
     ui.checkBox_fat32compatible->setChecked(DEFAULT_FAT32);
     ui.checkBox_underscore->setChecked(DEFAULT_UNDERSCORE);
     ui.checkBox_2digitstracknum->setChecked(DEFAULT_2DIGITSTRACKNUM);
@@ -234,7 +234,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
   enable_filenames(!ui.checkBox_singlefile->isChecked());
 
-  ui.klineedit_name->setFocus();
+  ui.qlineedit_name->setFocus();
   showButtonSeparator(true);
   resize(0, 0);  // For some reason dialog start of big...
 
@@ -293,10 +293,10 @@ void ProfileDataDialog::trigger_changed()
 {
 
   enableButtonApply(
-      ui.klineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
+      ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
       ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() ||
       ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()) != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString() ||
-      ui.klineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() ||
+      ui.qlineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() ||
       ui.checkBox_fat32compatible->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool() ||
       ui.checkBox_underscore->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool() ||
       ui.checkBox_cover->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool() ||
@@ -381,11 +381,11 @@ void ProfileDataDialog::disable_filenames(bool disabled)
 void ProfileDataDialog::pattern_wizard()
 {
 
-  PatternWizardDialog *dialog = new PatternWizardDialog(ui.klineedit_pattern->text(), this);
+  PatternWizardDialog *dialog = new PatternWizardDialog(ui.qlineedit_pattern->text(), this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -563,10 +563,10 @@ bool ProfileDataDialog::save()
 
   if (success)
   {
-    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.klineedit_name->text());
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX), ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
-    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PATTERN_INDEX), ui.klineedit_pattern->text());
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PATTERN_INDEX), ui.qlineedit_pattern->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX), ui.checkBox_underscore->isChecked());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX), ui.checkBox_2digitstracknum->isChecked());

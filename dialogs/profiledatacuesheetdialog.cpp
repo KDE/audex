@@ -36,8 +36,8 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &pattern, QWi
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
   ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   enableButtonApply(false);
   showButtonSeparator(true);
@@ -60,11 +60,11 @@ void ProfileDataCueSheetDialog::slotButtonClicked(int button) {
 
 void ProfileDataCueSheetDialog::pattern_wizard() {
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), "cue", this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), "cue", this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -73,12 +73,12 @@ void ProfileDataCueSheetDialog::pattern_wizard() {
 }
 
 void ProfileDataCueSheetDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
   enableButtonApply(false);
 }
 
 bool ProfileDataCueSheetDialog::save() {
-  pattern = ui.klineedit_pattern->text();
+  pattern = ui.qlineedit_pattern->text();
   enableButtonApply(false);
   return true;
 }

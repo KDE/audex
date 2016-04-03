@@ -74,10 +74,10 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
   ui.checkBox_multicd->setChecked(cdda_model->isMultiCD());
   connect(ui.checkBox_multicd, SIGNAL(toggled(bool)), this, SLOT(enable_checkbox_multicd(bool)));
   connect(ui.checkBox_multicd, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-  ui.klineedit_artist->setText(cdda_model->artist());
-  connect(ui.klineedit_artist, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-  ui.klineedit_title->setText(cdda_model->title());
-  connect(ui.klineedit_title, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_artist->setText(cdda_model->artist());
+  connect(ui.qlineedit_artist, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_title->setText(cdda_model->title());
+  connect(ui.qlineedit_title, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
   ui.kintspinbox_cdnum->setValue(cdda_model->cdNum());
   connect(ui.kintspinbox_cdnum, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
   ui.kintspinbox_trackoffset->setValue(cdda_model->trackOffset());
@@ -91,7 +91,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
   connect(ui.kintspinbox_year, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
   ui.ktextedit_extdata->setText(cdda_model->extendedData().join("\n"));
   connect(ui.ktextedit_extdata, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
-  ui.klineedit_freedbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()), 0, 16));
+  ui.qlineedit_freedbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()), 0, 16));
 
   enable_checkbox_multicd(cdda_model->isMultiCD());
 
@@ -119,8 +119,8 @@ void CDDAHeaderDataDialog::save() {
 
   cdda_model->setVarious(ui.checkBox_various->isChecked());
   cdda_model->setMultiCD(ui.checkBox_multicd->isChecked());
-  cdda_model->setArtist(ui.klineedit_artist->text());
-  cdda_model->setTitle(ui.klineedit_title->text());
+  cdda_model->setArtist(ui.qlineedit_artist->text());
+  cdda_model->setTitle(ui.qlineedit_title->text());
   cdda_model->setCDNum(ui.kintspinbox_cdnum->value());
   cdda_model->setTrackOffset(ui.kintspinbox_trackoffset->value());
   cdda_model->setGenre(ui.kcombobox_genre->lineEdit()->text());
@@ -134,8 +134,8 @@ void CDDAHeaderDataDialog::trigger_changed() {
 
   if (ui.checkBox_various->isChecked() != cdda_model->isVarious()) { enableButtonApply(true); return; }
   if (ui.checkBox_multicd->isChecked() != cdda_model->isMultiCD()) { enableButtonApply(true); return; }
-  if (ui.klineedit_artist->text() != cdda_model->artist()) { enableButtonApply(true); return; }
-  if (ui.klineedit_title->text() != cdda_model->title()) { enableButtonApply(true); return; }
+  if (ui.qlineedit_artist->text() != cdda_model->artist()) { enableButtonApply(true); return; }
+  if (ui.qlineedit_title->text() != cdda_model->title()) { enableButtonApply(true); return; }
   if (ui.checkBox_various->isChecked())
     if (ui.kintspinbox_cdnum->value() != cdda_model->cdNum()) { enableButtonApply(true); return; }
   if (ui.kintspinbox_trackoffset->value() != cdda_model->trackOffset()) { enableButtonApply(true); return; }

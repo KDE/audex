@@ -21,7 +21,7 @@
 
 #include <QDir>
 
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KCompactDisc/kcompactdisc/kcompactdisc.h>
 
 #include "preferences.h"

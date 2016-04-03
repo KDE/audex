@@ -31,10 +31,10 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
 
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-  ui.klineedit_command->setText(command);
-  connect(ui.klineedit_command, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-  connect(ui.klineedit_command, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
-  ui.klineedit_command->setCursorPosition(0);
+  ui.qlineedit_command->setText(command);
+  connect(ui.qlineedit_command, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(ui.qlineedit_command, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
+  ui.qlineedit_command->setCursorPosition(0);
   
   connect(ui.kurllabel_aboutcommandlineschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_commandline_schemes()));
   connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
@@ -77,7 +77,7 @@ void CommandWizardDialog::slotButtonClicked(int button) {
 }
 
 void CommandWizardDialog::trigger_changed() {
-  if (ui.klineedit_command->text() != command) { enableButtonApply(true); return; }
+  if (ui.qlineedit_command->text() != command) { enableButtonApply(true); return; }
   enableButtonApply(false);
 }
 
@@ -126,109 +126,109 @@ void CommandWizardDialog::about_parameters() {
 }
 
 void CommandWizardDialog::insAlbumArtist() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_ARTIST));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_ARTIST));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insAlbumTitle() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_TITLE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_TITLE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackArtist() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_ARTIST));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_ARTIST));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackTitle() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_TITLE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_TITLE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackNo() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_NO));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_NO));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCDNo() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_CD_NO));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_CD_NO));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insDate() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_DATE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_DATE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insGenre() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_GENRE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_GENRE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCoverFile() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_COVER_FILE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_COVER_FILE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insNoOfTracks() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insInFile() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_INPUT_FILE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_INPUT_FILE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insOutFile() {
-  QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_OUTPUT_FILE));
-  ui.klineedit_command->setText(text);
+  QString text = ui.qlineedit_command->text();
+  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_OUTPUT_FILE));
+  ui.qlineedit_command->setText(text);
   update_example();
 }
 
 bool CommandWizardDialog::save() {
-  command = ui.klineedit_command->text();
+  command = ui.qlineedit_command->text();
   enableButtonApply(false);
   return true;
 }
 
 void CommandWizardDialog::update_example() {
   PatternParser patternparser;
-  QString filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
+  QString filename = patternparser.parseCommandPattern(ui.qlineedit_command->text(),
         "/tmp/tmp.wav", QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
         2, 1, 1, 12,
         "Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
         "2006", "Rock", "ogg", NULL, false, QDir::tempPath(), "LAME 3.98.2", true);
-  ui.klineedit_album_example->setText(filename);
-  ui.klineedit_album_example->setCursorPosition(0);
-  filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
+  ui.qlineedit_album_example->setText(filename);
+  ui.qlineedit_album_example->setCursorPosition(0);
+  filename = patternparser.parseCommandPattern(ui.qlineedit_command->text(),
         "/tmp/tmp.wav", QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
         4, 2, 1, 18,
         "Alternative Hits", "Volume 4", "Wolfsheim", "Approaching Lightspeed",
         "2003", "Darkwave", "ogg", NULL, false, QDir::tempPath(), "LAME 3.98.2", true);
-  ui.klineedit_sampler_example->setText(filename);
-  ui.klineedit_sampler_example->setCursorPosition(0);
+  ui.qlineedit_sampler_example->setText(filename);
+  ui.qlineedit_sampler_example->setCursorPosition(0);
 }

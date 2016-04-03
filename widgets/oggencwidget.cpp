@@ -44,7 +44,7 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidg
   checkBox_maxbitrate->setChecked(parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY));
   kintspinbox_maxbitrate->setValue(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
   set_maxbitrate(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
-  klineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
+  qlineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
 
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
@@ -62,7 +62,7 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidg
   connect(kintspinbox_maxbitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
   connect(kintspinbox_maxbitrate, SIGNAL(valueChanged(int)), this, SLOT(set_maxbitrate(int)));
 
-  connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   changed = false;
 
@@ -81,7 +81,7 @@ bool oggencWidget::save() {
   parameters->setValue(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, kintspinbox_minbitrate->value());
   parameters->setValue(ENCODER_OGGENC_MAXBITRATE_KEY, checkBox_maxbitrate->isChecked());
   parameters->setValue(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, kintspinbox_maxbitrate->value());
-  parameters->setValue(ENCODER_OGGENC_SUFFIX_KEY, klineedit_suffix->text());
+  parameters->setValue(ENCODER_OGGENC_SUFFIX_KEY, qlineedit_suffix->text());
 
   changed = false;
 
@@ -174,7 +174,7 @@ void oggencWidget::trigger_changed() {
     checkBox_minbitrate->isChecked() != parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY) ||
     kintspinbox_maxbitrate->value() != parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE) ||
     checkBox_maxbitrate->isChecked() != parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY) ||
-    klineedit_suffix->text() != parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX)
+    qlineedit_suffix->text() != parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX)
   );
 
   emit triggerChanged();

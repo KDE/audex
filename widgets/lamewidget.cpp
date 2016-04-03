@@ -45,7 +45,7 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(p
   }
   checkBox_cbr->setChecked(p_cbr_flag);
   checkBox_embedcover->setChecked(parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY));
-  klineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX));
+  qlineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX));
 
   connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(enable_medium(bool)));
   connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -69,7 +69,7 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(p
 
   connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
-  connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   changed = false;
 
@@ -87,7 +87,7 @@ bool lameWidget::save() {
   parameters->setValue(ENCODER_LAME_BITRATE_KEY, real_bitrate);
   parameters->setValue(ENCODER_LAME_CBR_KEY, checkBox_cbr->isChecked());
   parameters->setValue(ENCODER_LAME_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
-  parameters->setValue(ENCODER_LAME_SUFFIX_KEY, klineedit_suffix->text());
+  parameters->setValue(ENCODER_LAME_SUFFIX_KEY, qlineedit_suffix->text());
 
   changed = false;
 
@@ -226,7 +226,7 @@ void lameWidget::trigger_changed() {
     real_bitrate != parameters->valueToInt(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE) ||
     checkBox_cbr->isChecked() != parameters->valueToBool(ENCODER_LAME_CBR_KEY) ||
     checkBox_embedcover->isChecked() != parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY) ||
-    klineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX)
+    qlineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX)
   );
 
   emit triggerChanged();

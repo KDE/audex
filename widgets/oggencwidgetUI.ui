@@ -154,7 +154,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="KLineEdit" name="lineEdit_kbps">
+       <widget class="QLineEdit" name="lineEdit_kbps">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -298,7 +298,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KLineEdit" name="klineedit_suffix">
+      <widget class="QLineEdit" name="qlineedit_suffix">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>30</horstretch>
@@ -352,9 +352,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

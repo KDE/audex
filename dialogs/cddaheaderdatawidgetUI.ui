@@ -52,7 +52,7 @@
     </widget>
    </item>
    <item row="1" column="1" colspan="3">
-    <widget class="KLineEdit" name="klineedit_artist"/>
+    <widget class="QLineEdit" name="qlineedit_artist"/>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_title">
@@ -68,7 +68,7 @@
     </widget>
    </item>
    <item row="2" column="1" colspan="3">
-    <widget class="KLineEdit" name="klineedit_title"/>
+    <widget class="QLineEdit" name="qlineedit_title"/>
    </item>
    <item row="3" column="0">
     <widget class="QLabel" name="label_cdnum">
@@ -178,7 +178,7 @@ Information:</string>
     </widget>
    </item>
    <item row="8" column="1" colspan="3">
-    <widget class="KLineEdit" name="klineedit_freedbdiscid">
+    <widget class="QLineEdit" name="qlineedit_freedbdiscid">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -199,9 +199,9 @@ Information:</string>
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KTextEdit</class>
@@ -212,8 +212,8 @@ Information:</string>
  <tabstops>
   <tabstop>checkBox_various</tabstop>
   <tabstop>checkBox_multicd</tabstop>
-  <tabstop>klineedit_artist</tabstop>
-  <tabstop>klineedit_title</tabstop>
+  <tabstop>qlineedit_artist</tabstop>
+  <tabstop>qlineedit_title</tabstop>
   <tabstop>kintspinbox_cdnum</tabstop>
   <tabstop>kintspinbox_trackoffset</tabstop>
   <tabstop>kcombobox_genre</tabstop>

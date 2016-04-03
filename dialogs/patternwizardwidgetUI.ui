@@ -12,7 +12,7 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="4">
-    <widget class="KLineEdit" name="klineedit_pattern"/>
+    <widget class="QLineEdit" name="qlineedit_pattern"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_album_example">
@@ -28,7 +28,7 @@
     </widget>
    </item>
    <item row="2" column="0" colspan="4">
-    <widget class="KLineEdit" name="klineedit_album_example">
+    <widget class="QLineEdit" name="qlineedit_album_example">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -142,7 +142,7 @@
     </widget>
    </item>
    <item row="4" column="0" colspan="4">
-    <widget class="KLineEdit" name="klineedit_sampler_example">
+    <widget class="QLineEdit" name="qlineedit_sampler_example">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -441,9 +441,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KUrlLabel</class>

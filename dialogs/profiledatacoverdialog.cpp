@@ -60,8 +60,8 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   }
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   enableButtonApply(false);
   showButtonSeparator(true);
@@ -86,11 +86,11 @@ void ProfileDataCoverDialog::pattern_wizard() {
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -103,7 +103,7 @@ void ProfileDataCoverDialog::trigger_changed() {
   if (ui.kintspinbox_x->value() != size.width()) { enableButtonApply(true); return; }
   if (ui.kintspinbox_y->value() != size.height()) { enableButtonApply(true); return; }
   if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(true); return; }
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
+  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
   enableButtonApply(false);
 }
 
@@ -117,7 +117,7 @@ bool ProfileDataCoverDialog::save() {
   scale = ui.checkBox_scale->isChecked();
   size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-  pattern = ui.klineedit_pattern->text();
+  pattern = ui.qlineedit_pattern->text();
   enableButtonApply(false);
   return true;
 }
