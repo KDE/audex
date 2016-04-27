@@ -22,11 +22,11 @@
 #include <QWidget>
 #include <QDateTime>
 
-#include <KDialog>
+#include <QDialog>
 
 #include "ui_protocolwidgetUI.h"
 
-class ProtocolDialog : public KDialog {
+class ProtocolDialog : public QDialog {
 
   Q_OBJECT
 
@@ -35,7 +35,8 @@ public:
   ~ProtocolDialog();
 
 private slots:
-  void slotButtonClicked(int button);
+  void slotSaveProtocol();
+  void slotClosed();
   void save();
 
 private:

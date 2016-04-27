@@ -22,7 +22,6 @@
 #include <QWidget>
 #include <QDir>
 
-#include <KDialog>
 #include <KMessageBox>
 
 #include "models/profilemodel.h"

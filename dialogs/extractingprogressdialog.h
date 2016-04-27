@@ -22,8 +22,12 @@
 #include <QWidget>
 #include <QDBusMessage>
 #include <QDBusConnection>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QAbstractButton>
+#include <QPushButton>
+#include <QVBoxLayout>
 
-#include <KDialog>
 #include <KMessageBox>
 #include <KColorScheme>
 #include <KConfigGroup>
@@ -36,7 +40,7 @@
 
 #include "ui_extractingprogresswidgetUI.h"
 
-class ExtractingProgressDialog : public KDialog {
+class ExtractingProgressDialog : public QDialog {
 
   Q_OBJECT
 
@@ -49,8 +53,12 @@ public slots:
 
 private slots:
   void toggle_details();
-  void slotButtonClicked(int button);
   void cancel();
+
+  void slotCancel();
+  void slotClose();
+  void slotEncoderProtocol();
+  void slotExtractProtocol();
 
   void show_changed_extract_track(int no, int total, const QString& artist, const QString& title);
   void show_changed_encode_track(int no, int total, const QString& filename);
@@ -72,6 +80,10 @@ private slots:
   void ask_timeout();
 
 private:
+  QVBoxLayout *mainLayout;
+  QDialogButtonBox *buttonBox;
+  QPushButton *cancelButton;
+
   void calc_overall_progress();
   void open_encoder_protocol_dialog();
   void open_extract_protocol_dialog();

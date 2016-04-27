@@ -18,18 +18,31 @@
 
 #include "patternwizarddialog.h"
 
-PatternWizardDialog::PatternWizardDialog(const QString& pattern, QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+PatternWizardDialog::PatternWizardDialog(const QString& pattern, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
+  setWindowTitle(i18n("Filename Pattern Wizard"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &PatternWizardDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &PatternWizardDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &PatternWizardDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-  
-  setCaption(i18n("Filename Pattern Wizard"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   ui.qlineedit_pattern->setText(pattern);
   connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
@@ -38,7 +51,7 @@ PatternWizardDialog::PatternWizardDialog(const QString& pattern, QWidget *parent
 
   connect(ui.kurllabel_aboutfilenameschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_filename_schemes()));
   connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
-  
+
   connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
   connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
   connect(ui.kpushbutton_trackartist, SIGNAL(clicked()), this, SLOT(insTrackArtist()));
@@ -52,8 +65,7 @@ PatternWizardDialog::PatternWizardDialog(const QString& pattern, QWidget *parent
 
   this->pattern = pattern;
 
-  enableButtonApply(false);
-  showButtonSeparator(true);
+  applyButton->setEnabled(false);
 
   update_example();
 
@@ -63,20 +75,18 @@ PatternWizardDialog::~PatternWizardDialog() {
 
 }
 
-void PatternWizardDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void PatternWizardDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void PatternWizardDialog::slotApplied() {
+  save();
 }
 
 void PatternWizardDialog::trigger_changed() {
-  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
-  enableButtonApply(false);
+  if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 void PatternWizardDialog::about_filename_schemes() {
@@ -187,7 +197,7 @@ void PatternWizardDialog::insNoOfTracks() {
 
 bool PatternWizardDialog::save() {
   pattern = ui.qlineedit_pattern->text();
-  enableButtonApply(false);
+  applyButton->setEnabled(false);
   return true;
 }
 

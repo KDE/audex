@@ -21,7 +21,8 @@
 
 #include <QWidget>
 #include <QDate>
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "models/cddamodel.h"
 
@@ -29,7 +30,7 @@
 
 #include "ui_cddaheaderdatawidgetUI.h"
 
-class CDDAHeaderDataDialog : public KDialog {
+class CDDAHeaderDataDialog : public QDialog {
 
   Q_OBJECT
 
@@ -37,17 +38,19 @@ public:
   CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = 0);
   ~CDDAHeaderDataDialog();
 
-protected slots:
-  virtual void slotButtonClicked(int button);
-
 private slots:
   void save();
   void trigger_changed();
   void enable_checkbox_multicd(bool enabled);
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::CDDAHeaderDataWidgetUI ui;
   CDDAModel *cdda_model;
+  QPushButton *okButton;
+  QPushButton *applyButton;
 
 };
 

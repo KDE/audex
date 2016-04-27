@@ -18,24 +18,37 @@
 
 #include "simplepatternwizarddialog.h"
 
-SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, const QString& suffix, QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, const QString& suffix, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
+  setWindowTitle(i18n("Pattern Wizard"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &SimplePatternWizardDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &SimplePatternWizardDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &SimplePatternWizardDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(i18n("Pattern Wizard"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   ui.qlineedit_pattern->setText(pattern);
   connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
   connect(ui.qlineedit_pattern, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
   ui.qlineedit_pattern->setCursorPosition(0);
-  
+
   connect(ui.kurllabel_aboutschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_schemes()));
   connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
 
@@ -50,8 +63,7 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, con
   this->pattern = pattern;
   this->suffix = suffix;
 
-  enableButtonApply(false);
-  showButtonSeparator(true);
+  applyButton->setEnabled(false);
   update_example();
 
 }
@@ -60,20 +72,18 @@ SimplePatternWizardDialog::~SimplePatternWizardDialog() {
 
 }
 
-void SimplePatternWizardDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void SimplePatternWizardDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void SimplePatternWizardDialog::slotApplied() {
+  save();
 }
 
 void SimplePatternWizardDialog::trigger_changed() {
-  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
-  enableButtonApply(false);
+  if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 void SimplePatternWizardDialog::about_schemes() {
@@ -162,7 +172,7 @@ void SimplePatternWizardDialog::insNoOfTracks() {
 
 bool SimplePatternWizardDialog::save() {
   pattern = ui.qlineedit_pattern->text();
-  enableButtonApply(false);
+  applyButton->setEnabled(false);
   return true;
 }
 

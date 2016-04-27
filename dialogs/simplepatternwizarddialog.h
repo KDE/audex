@@ -22,13 +22,13 @@
 #include <QWidget>
 #include <QWhatsThis>
 
-#include <KDialog>
+#include <QDialog>
 
 #include "utils/patternparser.h"
 
 #include "ui_simplepatternwizardwidgetUI.h"
 
-class SimplePatternWizardDialog : public KDialog {
+class SimplePatternWizardDialog : public QDialog {
 
   Q_OBJECT
 
@@ -37,9 +37,6 @@ public:
   ~SimplePatternWizardDialog();
 
   QString pattern;
-
-protected slots:
-  virtual void slotButtonClicked(int button);
 
 private slots:
   void trigger_changed();
@@ -57,9 +54,13 @@ private slots:
 
   void update_example();
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::SimplePatternWizardWidgetUI ui;
   QString suffix;
+  QPushButton *applyButton;
 
   bool save();
 

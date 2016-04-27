@@ -19,8 +19,10 @@
 #include "profiledatainfodialog.h"
 
 #include <QFileDialog>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
 
-ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QString& pattern, const QString& suffix, QWidget *parent) : KDialog(parent) {
+ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QString& pattern, const QString& suffix, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
@@ -28,14 +30,24 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   this->pattern = pattern;
   this->suffix = suffix;
 
+  setWindowTitle(i18n("Info Settings"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataInfoDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataInfoDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &ProfileDataInfoDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(i18n("Info Settings"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
   ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
@@ -53,27 +65,24 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   ui.kpushbutton_save->setIcon(QIcon::fromTheme("document-save"));
 
   connect(ui.kurllabel_aboutvariables, SIGNAL(leftClickedUrl()), this, SLOT(about_variables()));
-  
+
   connect(ui.kpushbutton_load, SIGNAL(clicked()), this, SLOT(load_text()));
   connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_text()));
 
-  enableButtonApply(false);
-  showButtonSeparator(true);
+  applyButton->setEnabled(false);
 
 }
 
 ProfileDataInfoDialog::~ProfileDataInfoDialog() {
 }
 
-void ProfileDataInfoDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void ProfileDataInfoDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void ProfileDataInfoDialog::slotApplied() {
+  save();
 }
 
 void ProfileDataInfoDialog::pattern_wizard() {
@@ -91,19 +100,24 @@ void ProfileDataInfoDialog::pattern_wizard() {
 }
 
 void ProfileDataInfoDialog::trigger_changed() {
-  if (ui.ktextedit_text->toPlainText().split("\n") != text) { enableButtonApply(true); return; }
-  if (ui.qlineedit_suffix->text() != suffix) { enableButtonApply(true); return; }
-  if (ui.qlineedit_pattern->text() != pattern) { enableButtonApply(true); return; }
-  enableButtonApply(false);
+  if (ui.ktextedit_text->toPlainText().split("\n") != text) { applyButton->setEnabled(true); return; }
+  if (ui.qlineedit_suffix->text() != suffix) { applyButton->setEnabled(true); return; }
+  if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 void ProfileDataInfoDialog::about_variables() {
 
-   KDialog *dialog = new KDialog(this);
+   QDialog *dialog = new QDialog(this);
    dialog->resize(QSize(700, 480));
-   dialog->setCaption(i18n("Usable Variables For Text Template"));
-   dialog->setButtons(KDialog::Ok);
-  
+   dialog->setWindowTitle(i18n("Usable Variables For Text Template"));
+   QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
+   QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+   okButton->setDefault(true);
+   okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+   dialog->connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+   dialog->connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+
    QTextBrowser *tb = new QTextBrowser(dialog);
    tb->setHtml(i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
    "<html>"
@@ -211,8 +225,9 @@ void ProfileDataInfoDialog::about_variables() {
    "</body>"
    "</html>"
    ));
-   dialog->setMainWidget(tb);
-   connect(dialog, SIGNAL(okClicked()), dialog, SLOT(close()));
+   mainLayout->addWidget(tb);
+   mainLayout->addWidget(buttonBox);
+   connect(dialog, SIGNAL(clicked()), dialog, SLOT(close()));
 
    dialog->exec();
 
@@ -248,6 +263,6 @@ bool ProfileDataInfoDialog::save() {
   text = ui.ktextedit_text->toPlainText().split("\n");
   suffix = ui.qlineedit_suffix->text();
   pattern = ui.qlineedit_pattern->text();
-  enableButtonApply(false);
+  applyButton->setEnabled(false);
   return true;
 }

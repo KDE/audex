@@ -21,13 +21,14 @@
 
 #include <QWidget>
 
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "simplepatternwizarddialog.h"
 
 #include "ui_profiledatahashlistwidgetUI.h"
 
-class ProfileDataHashlistDialog : public KDialog {
+class ProfileDataHashlistDialog : public QDialog {
 
   Q_OBJECT
 
@@ -39,15 +40,17 @@ public:
   QString pattern;
 
 protected slots:
-  virtual void slotButtonClicked(int button);
-
   void pattern_wizard();
 
 private slots:
   void trigger_changed();
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::ProfileDataHashlistWidgetUI ui;
+  QPushButton *applyButton;
 
   bool save();
 

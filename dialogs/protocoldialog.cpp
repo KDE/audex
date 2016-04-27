@@ -22,27 +22,34 @@
 #include <QTextStream>
 
 #include <KLocalizedString>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 
-ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : KDialog(parent) {
+ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
+  setWindowTitle(title);
+
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save|QDialogButtonBox::Close);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolDialog::slotSaveProtocol);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolDialog::slotClosed);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(title);
-
-  setButtons(User1|Close);
-  setButtonText(User1, i18n("Save"));
-  setButtonIcon(User1, QIcon::fromTheme("document-save-as"));
 
   ui.ktextedit->setPlainText(protocol.join("\n"));
 
   this->protocol = protocol;
   this->title = title;
-  showButtonSeparator(true);
 
 }
 
@@ -50,17 +57,12 @@ ProtocolDialog::~ProtocolDialog() {
 
 }
 
-void ProtocolDialog::slotButtonClicked(int button) {
-  switch(button) {
-    case User1:
-      save();
-      break;
-    case Close:
-      close();
-      break;
-    default:
-      KDialog::slotButtonClicked(button);
-  }
+void ProtocolDialog::slotClosed() {
+  close();
+}
+
+void ProtocolDialog::slotSaveProtocol() {
+  save();
 }
 
 void ProtocolDialog::save() {

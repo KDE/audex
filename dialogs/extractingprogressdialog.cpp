@@ -18,16 +18,21 @@
 
 #include "extractingprogressdialog.h"
 
-ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent) : KDialog(parent) {
+ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent) : QDialog(parent) {
+
+  setWindowTitle(i18n("Rip And Encode"));
+
+  mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel);
+  cancelButton = buttonBox->button(QDialogButtonBox::Cancel);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotCancel);
 
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(i18n("Rip And Encode"));
-
-  setButtons(Cancel);
 
   this->profile_model = profile_model;
   this->cdda_model = cdda_model;
@@ -66,7 +71,6 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
   connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
 
-  showButtonSeparator(true);
   finished = false;
 
   progressbar_np_flag = false;
@@ -95,7 +99,7 @@ int ExtractingProgressDialog::exec() {
   if (audex->prepare()) {
     audex->start();
   }
-  int rv = KDialog::exec();
+  int rv = QDialog::exec();
 
   grp.writeEntry("Simple", (Qt::DownArrow==ui.details_button->arrowType()));
 
@@ -137,25 +141,20 @@ void ExtractingProgressDialog::toggle_details() {
 
 }
 
-void ExtractingProgressDialog::slotButtonClicked(int button) {
+void ExtractingProgressDialog::slotCancel() {
+  cancel();
+}
 
-  switch(button) {
-    case Cancel:
-      cancel();
-      break;
-    case Close:
-      close();
-      break;
-    case User1:
-      open_encoder_protocol_dialog();
-      break;
-    case User2:
-      open_extract_protocol_dialog();
-      break;
-    default:
-      KDialog::slotButtonClicked(button);
-  }
+void ExtractingProgressDialog::slotClose() {
+  close();
+}
 
+void ExtractingProgressDialog::slotEncoderProtocol() {
+  open_encoder_protocol_dialog();
+}
+
+void ExtractingProgressDialog::slotExtractProtocol() {
+  open_extract_protocol_dialog();
 }
 
 void ExtractingProgressDialog::cancel() {
@@ -170,7 +169,7 @@ void ExtractingProgressDialog::cancel() {
 				i18n("Cancel"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no()) == KMessageBox::Yes) {
-      enableButton(Cancel, false);
+      cancelButton->setEnabled(false);
       audex->cancel();
     }
 
@@ -266,8 +265,11 @@ void ExtractingProgressDialog::show_speed_extract(double speed) {
 }
 
 void ExtractingProgressDialog::conclusion(bool successful) {
-
-  QFlags<KDialog::ButtonCode> buttons = Close;
+  // Remove the cancel button
+  buttonBox->clear();
+  // Add the new close button
+  buttonBox->addButton(QDialogButtonBox::Close);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotClose);
 
   finished = true;
 
@@ -294,8 +296,20 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
     ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
     ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
-    if (audex->encoderProtocol().count() > 0) { buttons |= User1; }
-    if (audex->extractProtocol().count() > 0) { buttons |= User2; }
+    if (audex->encoderProtocol().count() > 0) {
+      QPushButton *encoderProtocolButton = new QPushButton();
+      encoderProtocolButton->setText(i18n("Show encoding log..."));
+      encoderProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
+      buttonBox->addButton(encoderProtocolButton, QDialogButtonBox::HelpRole);
+      connect(encoderProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderProtocol);
+    }
+    if (audex->extractProtocol().count() > 0) {
+      QPushButton *extractProtocolButton = new QPushButton();
+      extractProtocolButton->setText(i18n("Show rip log..."));
+      extractProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
+      buttonBox->addButton(extractProtocolButton, QDialogButtonBox::HelpRole);
+      connect(extractProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractProtocol);
+    }
   }
 
   ui.progressBar_extracting->setEnabled(false);
@@ -307,16 +321,6 @@ void ExtractingProgressDialog::conclusion(bool successful) {
 
   ui.label_extracting->setPalette(pal);
   ui.label_encoding->setPalette(pal);
-  setButtons(buttons);
-  if (audex->encoderProtocol().count() > 0) {
-    setButtonText(User1, i18n("Show encoding log..."));
-    setButtonIcon(User1, QIcon::fromTheme("media-optical-audio"));
-  }
-  if (audex->extractProtocol().count() > 0) {
-    setButtonText(User2, i18n("Show rip log..."));
-    setButtonIcon(User2, QIcon::fromTheme("media-optical"));
-  }
-
 }
 
 void ExtractingProgressDialog::show_info(const QString& message) {

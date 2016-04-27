@@ -23,7 +23,8 @@
 #include <QIcon>
 #include <QByteArray>
 
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "preferences.h"
 
@@ -32,7 +33,7 @@
 
 #include "ui_coverbrowserwidgetUI.h"
 
-class CoverBrowserDialog : public KDialog {
+class CoverBrowserDialog : public QDialog {
 
   Q_OBJECT
 
@@ -51,9 +52,6 @@ signals:
   void allCoverThumbnailsFetched();
   void nothingFetched();
 
-protected slots:
-  virtual void slotButtonClicked(int button);
-
 private slots:
   void select_this(QListWidgetItem* item);
 
@@ -67,9 +65,12 @@ private slots:
 
   void error(const QString& description, const QString& solution);
 
+  void slotAccepted();
+
 private:
   Ui::CoverBrowserWidgetUI ui;
   CoverFetcher cover_fetcher;
+  QPushButton *okButton;
 
   void setup();
 

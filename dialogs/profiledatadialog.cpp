@@ -19,8 +19,11 @@
 #include "profiledatadialog.h"
 
 #include <QDebug>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
-ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent)
+ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : QDialog(parent)
 {
 
   Q_UNUSED(parent);
@@ -36,7 +39,9 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
 
-  setMainWidget(widget);
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+  mainLayout->addWidget(widget);
 
   if (profile_row >= 0)
   {
@@ -101,9 +106,17 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   if (profile_row >= 0)
   {
 
-    setCaption(i18n("Modify Profile"));
+    setWindowTitle(i18n("Modify Profile"));
 
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    applyButton = buttonBox->button(QDialogButtonBox::Apply);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+    connect(applyButton, &QPushButton::clicked, this, &ProfileDataDialog::slotApplied);
+    mainLayout->addWidget(buttonBox);
 
     ui.qlineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
     connect(ui.qlineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
@@ -181,15 +194,21 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     //profile data single file data
     pdsd_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
 
-    enableButtonApply(false);
+    applyButton->setEnabled(false);
 
   }
   else
   {
 
-    setCaption(i18n("Create Profile"));
+    setWindowTitle(i18n("Create Profile"));
 
-    setButtons(KDialog::Ok | KDialog::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+    mainLayout->addWidget(buttonBox);
 
     ui.qlineedit_name->setText(i18n("New Profile"));
     ui.kiconbutton_icon->setIcon(DEFAULT_ICON);
@@ -235,7 +254,6 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   enable_filenames(!ui.checkBox_singlefile->isChecked());
 
   ui.qlineedit_name->setFocus();
-  showButtonSeparator(true);
   resize(0, 0);  // For some reason dialog start of big...
 
 }
@@ -252,25 +270,16 @@ ProfileDataDialog::~ProfileDataDialog()
 
 }
 
-void ProfileDataDialog::slotButtonClicked(int button)
-{
-
-  if (button == KDialog::Ok)
-  {
-    if (save())
-      accept();
-    else
-      ErrorDialog::show(this, error.message(), error.details());
-  }
-  else if (button == KDialog::Apply)
-  {
-    if (!save()) ErrorDialog::show(this, error.message(), error.details());
-  }
+void ProfileDataDialog::slotAccepted() {
+  if (save())
+    accept();
   else
-  {
-    KDialog::slotButtonClicked(button);
-  }
+    ErrorDialog::show(this, error.message(), error.details());
+}
 
+void ProfileDataDialog::slotApplied() {
+  if (!save())
+    ErrorDialog::show(this, error.message(), error.details());
 }
 
 void ProfileDataDialog::set_encoder(const int encoder)
@@ -292,7 +301,7 @@ void ProfileDataDialog::set_encoder_by_combobox(const int index)
 void ProfileDataDialog::trigger_changed()
 {
 
-  enableButtonApply(
+  applyButton->setEnabled(
       ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
       ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() ||
       ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()) != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString() ||
@@ -609,7 +618,7 @@ bool ProfileDataDialog::save()
 
   profile_model->commit();
 
-  if (profile_row >= 0) enableButtonApply(false);
+  if (profile_row >= 0) applyButton->setEnabled(false);
 
   return true;
 

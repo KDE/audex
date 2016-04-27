@@ -18,24 +18,37 @@
 
 #include "commandwizarddialog.h"
 
-CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
+  setWindowTitle(i18n("Command Pattern Wizard"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  okButton = buttonBox->button(QDialogButtonBox::Ok);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &CommandWizardDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &CommandWizardDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &CommandWizardDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(i18n("Command Pattern Wizard"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   ui.qlineedit_command->setText(command);
   connect(ui.qlineedit_command, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
   connect(ui.qlineedit_command, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
   ui.qlineedit_command->setCursorPosition(0);
-  
+
   connect(ui.kurllabel_aboutcommandlineschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_commandline_schemes()));
   connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
 
@@ -54,8 +67,7 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
 
   this->command = command;
 
-  enableButtonApply(false);
-  showButtonSeparator(true);
+  applyButton->setEnabled(false);
 
   update_example();
 
@@ -65,20 +77,18 @@ CommandWizardDialog::~CommandWizardDialog() {
 
 }
 
-void CommandWizardDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void CommandWizardDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void CommandWizardDialog::slotApplied() {
+  save();
 }
 
 void CommandWizardDialog::trigger_changed() {
-  if (ui.qlineedit_command->text() != command) { enableButtonApply(true); return; }
-  enableButtonApply(false);
+  if (ui.qlineedit_command->text() != command) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 void CommandWizardDialog::about_commandline_schemes() {
@@ -211,7 +221,7 @@ void CommandWizardDialog::insOutFile() {
 
 bool CommandWizardDialog::save() {
   command = ui.qlineedit_command->text();
-  enableButtonApply(false);
+  applyButton->setEnabled(false);
   return true;
 }
 
