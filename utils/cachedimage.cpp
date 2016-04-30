@@ -102,14 +102,15 @@ const QString CachedImage::supportedMimeTypeList() {
   if (mime_cache.isEmpty()) {
     QList<QByteArray> supp_list = QImageReader::supportedImageFormats();
     QMap<QString,QStringList> map;
+    QMimeDatabase db;
+    QMimeType mime = db.mimeTypeForData(QByteArray(""));
     for (int i = 0; i < supp_list.count(); ++i) {
-      QMimeDatabase db;
       map[db.mimeTypeForUrl("dummy."+QString(supp_list[i]).toLower()).comment()].append("*."+QString(supp_list[i]).toLower());
     }
     QString result = "*.jpg *.jpeg *.png *.gif|"+i18n("Common image formats")+" (*.jpg, *.jpeg, *.png, *.gif)";
     QMap<QString,QStringList>::const_iterator i = map.constBegin();
     while (i != map.constEnd()) {
-       if (i.key()==KMimeType::defaultMimeTypePtr()->comment()) { ++i; continue; }
+       if (i.key()==mime.comment()) { ++i; continue; }
        result += "\n";
        QStringList extensions = i.value();
        extensions.removeDuplicates();

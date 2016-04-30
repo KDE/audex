@@ -26,7 +26,6 @@
 #include <QString>
 #include <QFile>
 
-#include <KMimeType>
 #include <KLocalizedString>
 
 #include "utils/error.h"
