@@ -83,7 +83,7 @@ bool MainWindow::firstStart() {
   if (Preferences::firstStart()) {
     profile_model->autoCreate();
     Preferences::setFirstStart(false);
-    Preferences::self()->writeConfig();
+    Preferences::self()->save();
     return true;
   }
 
@@ -170,7 +170,7 @@ void MainWindow::configure() {
       if (m) {
         m->load();
         KCDDB::Config* cfg = new KCDDB::Config();
-        cfg->readConfig();
+        cfg->load();
         dialog->addPage(m, cfg, i18n("CDDB settings"), "text-xmcd");
         connect(dialog, SIGNAL(okClicked()), m, SLOT(save()));
         connect(dialog, SIGNAL(applyClicked()), m, SLOT(save()));
@@ -270,7 +270,7 @@ void MainWindow::disable_submit() {
 
 void MainWindow::configuration_updated(const QString& dialog_name) {
   Q_UNUSED(dialog_name);
-  Preferences::self()->writeConfig();
+  Preferences::self()->save();
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {
