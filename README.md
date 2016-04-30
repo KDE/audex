@@ -37,3 +37,8 @@ These files make Audex cdda paranoia dependant:
 * utils/cddaparanoia.h
 * utils/cddaparanoia.cpp
 
+### TODO
+* New cover search API (not Bing with dev key requirement)
+* Add device selector widget
+* Check for bugs in KF5 porting effort
+
