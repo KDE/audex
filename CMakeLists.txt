@@ -46,7 +46,6 @@ find_package(KF5 REQUIRED COMPONENTS
   WidgetsAddons
   XmlGui
 )
-find_package(KF5 REQUIRED COMPONENTS KDELibs4Support)
 find_package(KF5 REQUIRED COMPONENTS CompactDisc)
 find_package(Libkcddb REQUIRED)
 find_package(Cdparanoia REQUIRED)
@@ -56,6 +55,9 @@ include_directories(
   ${CMAKE_BINARY_DIR}
   ${CDPARANOIA_INCLUDE_DIR}
 )
+
+# Silence some errors for now
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 
@@ -155,7 +157,6 @@ target_link_libraries(audex
     KF5::WidgetsAddons
     KF5::XmlGui
     KF5::KF5CompactDisc
-    KF5::KDELibs4Support
     KDE::Libkcddb::kcddb
     ${CDPARANOIA_LIBRARIES}
 )
