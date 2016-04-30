@@ -24,7 +24,13 @@
 #include "config.h"
 #include "mainwindow.h"
 
+#include <Kdelibs4ConfigMigrator>
+
 int main (int argc, char *argv[]) {
+  Kdelibs4ConfigMigrator migrator(QStringLiteral("audex"));
+  migrator.setConfigFiles(QStringList() << QStringLiteral("audexrc"));
+  migrator.migrate();
+
   QApplication app(argc, argv);
 
   KAboutData aboutData("audex", i18n("Audex"), AUDEX_VERSION);

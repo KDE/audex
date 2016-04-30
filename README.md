@@ -39,6 +39,5 @@ These files make Audex cdda paranoia dependant:
 
 ### KF5 Port TODO
 
-* Add config migration code
 * Use solid instead of libkcompactdisc?
 

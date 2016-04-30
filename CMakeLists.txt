@@ -37,6 +37,7 @@ find_package(Qt5 REQUIRED COMPONENTS
 find_package(KF5 REQUIRED COMPONENTS
   Config
   Completion
+  CoreAddons
   I18n
   IconThemes
   KCMUtils
@@ -148,6 +149,7 @@ target_link_libraries(audex
     Qt5::Widgets
     Qt5::X11Extras
     KF5::Completion
+    KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes
     KF5::KCMUtils
