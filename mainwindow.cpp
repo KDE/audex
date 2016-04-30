@@ -36,12 +36,6 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   bool updated = firstStart();
 
-  QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
-  int dev_index = Preferences::cdDevice().toInt();
-  QString device_path;
-  if ((dev_index >= 0) && (dev_index < deviceUrls.count())) {
-    device_path = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
-  }
   cdda_model = new CDDAModel(this);
   if (!cdda_model) {
     qDebug() << "Unable to create CDDAModel object. Low mem?";

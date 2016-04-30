@@ -3,7 +3,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-  <include>KCompactDisc/kcompactdisc/kcompactdisc.h</include>
   <include>QtCore/qdir.h</include>
   <include>QDesktopServices</include>
   <kcfgfile name="audexrc" />
@@ -40,10 +39,6 @@
       <default>8</default>
       <min>1</min>
       <max>99</max>
-    </entry>
-    <entry name="cdDevice" type="String">
-      <label>CD Device</label>
-      <default code="true">KCompactDisc::defaultCdromDeviceName()</default>
     </entry>
     <entry name="paranoiaMode" type="Bool">
       <label>Full paranoia mode (best quality)</label>

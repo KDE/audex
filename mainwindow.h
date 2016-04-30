@@ -38,7 +38,6 @@
 #include <KTextEdit>
 #include <QPushButton>
 #include <KMessageBox>
-#include <KCompactDisc/kcompactdisc/kcompactdisc.h>
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>

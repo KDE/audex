@@ -47,7 +47,6 @@ find_package(KF5 REQUIRED COMPONENTS
   WidgetsAddons
   XmlGui
 )
-find_package(KF5 REQUIRED COMPONENTS CompactDisc)
 find_package(Libkcddb REQUIRED)
 find_package(Cdparanoia REQUIRED)
 
@@ -158,7 +157,6 @@ target_link_libraries(audex
     KF5::TextWidgets
     KF5::WidgetsAddons
     KF5::XmlGui
-    KF5::KF5CompactDisc
     KDE::Libkcddb::kcddb
     ${CDPARANOIA_LIBRARIES}
 )
