@@ -147,8 +147,7 @@ void MainWindow::configure() {
   KConfigDialog* dialog = new KConfigDialog(this, "settings", Preferences::self());
 
   KPageWidgetItem *generalPage = dialog->addPage(new generalSettingsWidget(), i18n("General settings"));
-  // TODO: the right thing to do? (prev.: ->setIcon(KIcon(QApplication::windowIcon())))
-  generalPage->setIcon(QApplication::windowIcon());
+  generalPage->setIcon(QIcon(QApplication::windowIcon()));
 
   KPageWidgetItem *devicePage = dialog->addPage(new deviceWidget(), i18n("Device settings"));
   devicePage->setIcon(QIcon::fromTheme("drive-optical"));
@@ -374,8 +373,8 @@ void MainWindow::setup_actions() {
   QAction * ejectAction = new QAction(this);
   ejectAction->setText(i18n("Eject"));
   ejectAction->setIcon(QIcon::fromTheme("media-eject"));
-  ejectAction->setShortcut(Qt::CTRL + Qt::Key_E);
   actionCollection()->addAction("eject", ejectAction);
+  actionCollection()->setDefaultShortcut(ejectAction, Qt::CTRL + Qt::Key_E);
   connect(ejectAction, SIGNAL(triggered(bool)), this, SLOT(eject()));
 
   profile_label = new QLabel(this);
@@ -398,31 +397,30 @@ void MainWindow::setup_actions() {
 
   QWidgetAction *profileAction = new QWidgetAction(this);
   profileAction->setText(i18n("Profile"));
-  profileAction->setShortcut(Qt::Key_F6);
   profileAction->setDefaultWidget(profile_combobox);
-  // TODO: Port
-  //profileAction->setShortcutConfigurable(false);
   actionCollection()->addAction("profile", profileAction);
+  actionCollection()->setDefaultShortcut(profileAction, Qt::Key_F6);
+  actionCollection()->setShortcutsConfigurable(profileAction, false);
   update_profile_action();
 
   QAction *cddbLookupAction = new QAction(this);
   cddbLookupAction->setText(i18n("Fetch Info"));
   cddbLookupAction->setIcon(QIcon::fromTheme("view-list-text"));
-  cddbLookupAction->setShortcut(Qt::CTRL + Qt::Key_F);
   actionCollection()->addAction("fetch", cddbLookupAction);
+  actionCollection()->setDefaultShortcut(cddbLookupAction, Qt::CTRL + Qt::Key_F);
   connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
 
   QAction *cddbSubmitAction = new QAction(this);
   cddbSubmitAction->setText(i18n("Submit Info"));
-  cddbSubmitAction->setShortcut(Qt::CTRL + Qt::Key_S);
   actionCollection()->addAction("submit", cddbSubmitAction);
+  actionCollection()->setDefaultShortcut(cddbSubmitAction, Qt::CTRL + Qt::Key_S);
   connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
 
   QAction * extractAction = new QAction(this);
   extractAction->setText(i18n("Rip..."));
   extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
-  extractAction->setShortcut(Qt::CTRL + Qt::Key_X);
   actionCollection()->addAction("rip", extractAction);
+  actionCollection()->setDefaultShortcut(extractAction, Qt::CTRL + Qt::Key_X);
   connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(rip()));
 
   actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));
