@@ -27,8 +27,8 @@
 #include <QInputDialog>
 
 #include <KXmlGuiWindow>
-#include <KApplication>
-#include <KAction>
+#include <QApplication>
+#include <QAction>
 #include <KLocale>
 #include <KStandardDirs>
 #include <KActionCollection>

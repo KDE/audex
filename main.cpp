@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <KUniqueApplication>
+#include <QApplication>
 #include <KAboutData>
-#include <KCmdLineArgs>
+#include <QCommandLineParser>
 
 #include "config.h"
 #include "mainwindow.h"
@@ -27,7 +27,7 @@ int main (int argc, char *argv[]) {
 
   KAboutData aboutData("audex", 0, ki18n("Audex"), AUDEX_VERSION,
                        ki18n("KDE CDDA Extractor"),
-                       KAboutData::License_GPL,
+                       //KAboutData::License_GPL,
                        ki18n("Copyright © 2007–2015 by Marco Nelles"),
                        KLocalizedString(),
                        "http://userbase.kde.org/Audex",
@@ -40,9 +40,9 @@ int main (int argc, char *argv[]) {
   aboutData.addCredit(ki18n("Xiph.Org Foundation"), ki18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"), 0, "http://www.xiph.org/paranoia/index.html");
   aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"), ki18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
-  KCmdLineArgs::init(argc, argv, &aboutData);
+  QCommandLineParser::init(argc, argv, &aboutData);
 
-  KUniqueApplication app;
+  QApplication app;
 
   MainWindow* window = new MainWindow();
   window->show();
