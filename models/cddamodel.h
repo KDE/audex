@@ -29,11 +29,9 @@
 #include <QSet>
 #include <QRegExp>
 #include <QTimer>
+#include <QInputDialog>
 
-#include <KDebug>
-#include <KLocale>
-#include <KInputDialog>
-#include <KMimeType>
+#include <KLocalizedString>
 
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>

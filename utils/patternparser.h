@@ -28,15 +28,13 @@
 #include <QImage>
 #include <QCryptographicHash>
 
-#include <KDebug>
-#include <KLocale>
-#include <KStandardDirs>
+#include <KLocalizedString>
 
 #include "config.h"
 
 #include "utils/cachedimage.h"
 
-#define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? TRUE : FALSE)
+#define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? true : false)
 
 #define VAR_FILENAME_PATTERN                            "filenamepattern"
 #define VAR_COMMAND_PATTERN                             "commandpattern"
@@ -173,7 +171,7 @@ public:
         const QString& tartist, const QString& ttitle,
         const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
         bool fat32compatible, const QString& tmppath, const QString& encoder,
-        const bool demomode = FALSE);
+        const bool demomode = false);
 
   const QString parseSimplePattern(const QString& pattern,
         int cdno, int nooftracks,

@@ -24,9 +24,7 @@
 #include <QFileInfo>
 #include <QByteArray>
 
-#include <KDebug>
-#include <KLocale>
-#include <KUrl>
+#include <KLocalizedString>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
 #include <KIO/CopyJob>
@@ -34,7 +32,7 @@
 class Upload : public QObject {
   Q_OBJECT
 public:
-  Upload(const KUrl& url, QObject *parent = 0);
+  Upload(const QUrl &url, QObject *parent = 0);
   ~Upload();
 
   void upload(const QString& targetpath, const QStringList& filelist);
@@ -46,7 +44,7 @@ signals:
   void info(const QString& message);
 
 private:
-  KUrl base_url;
+  QUrl base_url;
 
 };
 

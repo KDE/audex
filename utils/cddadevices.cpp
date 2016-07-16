@@ -21,6 +21,8 @@
 
 #include "cddadevices.h"
 
+#include <QDebug>
+
 CDDADevices::CDDADevices(QObject *parent)
 {
 
@@ -96,10 +98,10 @@ void CDDADevices::p_solid_device_added(const QString& udi)
 
   Solid::Device device(udi);
 
-  kDebug() << "Device found:" << device.udi();
+  qDebug() << "Device found:" << device.udi();
   if (p_is_optical_audio_disc(device))
   {
-    kDebug() << "is audio.";
+    qDebug() << "is audio.";
     OpticalAudioDisc *disc = new OpticalAudioDisc();
     disc->name = i18n("Audio Disc");
     disc->device = device;
@@ -116,7 +118,7 @@ void CDDADevices::p_solid_device_removed(const QString& udi)
 
   if (disc)
   {
-    kDebug() << "Optical audio disc removed:" << udi;
+    qDebug() << "Optical audio disc removed:" << udi;
     delete disc;
     p_discs.remove(udi);
     emit audioDiscRemoved(udi);

@@ -89,12 +89,12 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder) {
     case EncoderAssistant::FLAC : return (KProcess::execute(ENCODER_FLAC_BIN, QStringList() << ENCODER_FLAC_VERSION_PARA)==0);
     case EncoderAssistant::FAAC : return (KProcess::execute(ENCODER_FAAC_BIN, QStringList() << ENCODER_FAAC_VERSION_PARA)==1);
     case EncoderAssistant::WAVE : return (KProcess::execute(ENCODER_WAVE_BIN, QStringList() << ENCODER_WAVE_VERSION_PARA)==0);
-    case EncoderAssistant::CUSTOM : return TRUE;
-    default : return FALSE;
+    case EncoderAssistant::CUSTOM : return true;
+    default : return false;
 
   }
 
-  return FALSE;
+  return false;
 
 }
 
@@ -102,9 +102,9 @@ bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize) {
 
   switch (encoder) {
 
-    case EncoderAssistant::LAME : if (maxCoverSize) *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE; return TRUE;
+    case EncoderAssistant::LAME : if (maxCoverSize) *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE; return true;
     case EncoderAssistant::OGGENC :
-    case EncoderAssistant::FLAC : return TRUE;
+    case EncoderAssistant::FLAC : return true;
     case EncoderAssistant::FAAC :
     case EncoderAssistant::WAVE :
     case EncoderAssistant::CUSTOM :
@@ -114,7 +114,7 @@ bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize) {
 
   if (maxCoverSize) *maxCoverSize = 0;
 
-  return FALSE;
+  return false;
 
 }
 
@@ -249,24 +249,24 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       //if we have eyeD3, use this for tagging as lame can't handle unicode
       if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA) == 0) {
 
-	cmd += QString::fromUtf8(" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
-	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" --set-text-frame=TPE2:\"$"VAR_ALBUM_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
-	                         "\" -Y \"$"VAR_DATE"\" -n $"VAR_TRACK_NO" -N $"VAR_NO_OF_TRACKS" --set-text-frame=\"TCON:$"VAR_GENRE"\" "\
-	                         "--set-text-frame=TSSE:\"$"VAR_AUDEX" / Encoder $"VAR_ENCODER"\" ${"VAR_CD_NO" pre=\"--set-text-frame=TPOS:\"}");
+    cmd += QString::fromUtf8(" $" VAR_INPUT_FILE" $" VAR_OUTPUT_FILE);
+    cmd += QString::fromUtf8(" && eyeD3 -t \"$" VAR_TRACK_TITLE"\" -a \"$" VAR_TRACK_ARTIST"\" --set-text-frame=TPE2:\"$" VAR_ALBUM_ARTIST"\" -A \"$" VAR_ALBUM_TITLE \
+                             "\" -Y \"$" VAR_DATE"\" -n $" VAR_TRACK_NO" -N $" VAR_NO_OF_TRACKS" --set-text-frame=\"TCON:$" VAR_GENRE"\" "\
+                             "--set-text-frame=TSSE:\"$" VAR_AUDEX" / Encoder $" VAR_ENCODER"\" ${" VAR_CD_NO" pre=\"--set-text-frame=TPOS:\"}");
         if (embed_cover) {
-          cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--add-image=\" post=\":FRONT_COVER\"}");
+          cmd += QString::fromUtf8(" ${" VAR_COVER_FILE" pre=\"--add-image=\" post=\":FRONT_COVER\"}");
         }
-	cmd += QString::fromUtf8(" --set-encoding=latin1 $"VAR_OUTPUT_FILE" && eyeD3 --to-v2.3 $"VAR_OUTPUT_FILE);
+    cmd += QString::fromUtf8(" --set-encoding=latin1 $" VAR_OUTPUT_FILE" && eyeD3 --to-v2.3 $" VAR_OUTPUT_FILE);
 
       } else {
 
         if (embed_cover) {
-          cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--ti \"}");
+          cmd += QString::fromUtf8(" ${" VAR_COVER_FILE" pre=\"--ti \"}");
         }
-        cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$"VAR_TRACK_TITLE"\" --ta \"$"VAR_TRACK_ARTIST \
-                             "\" --tl \"$"VAR_ALBUM_TITLE"\" --ty \"$"VAR_DATE"\" --tn \"$"VAR_TRACK_NO"/$"VAR_NO_OF_TRACKS"\" --tc \"$"VAR_AUDEX" / Encoder $"VAR_ENCODER"\" "\
-                             "--tg \"$"VAR_GENRE"\" ${"VAR_CD_NO" pre=\"--tv TPOS=\"}"\
-                             " $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
+        cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$" VAR_TRACK_TITLE"\" --ta \"$" VAR_TRACK_ARTIST \
+                             "\" --tl \"$" VAR_ALBUM_TITLE"\" --ty \"$" VAR_DATE"\" --tn \"$" VAR_TRACK_NO"/$" VAR_NO_OF_TRACKS"\" --tc \"$" VAR_AUDEX" / Encoder $" VAR_ENCODER"\" "\
+                             "--tg \"$" VAR_GENRE"\" ${" VAR_CD_NO" pre=\"--tv TPOS=\"}"\
+                             " $" VAR_INPUT_FILE" $" VAR_OUTPUT_FILE);
 
       }
 
@@ -290,10 +290,10 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         cmd += QString(" -M %1").arg(max_bitrate_value);
       }
 
-      cmd += QString::fromUtf8(" -c \"Artist=$"VAR_TRACK_ARTIST"\" -c \"Title=$"VAR_TRACK_TITLE"\" -c \"Album=$"VAR_ALBUM_TITLE\
-                               "\" -c \"Date=$"VAR_DATE"\" -c \"Tracknumber=$"VAR_TRACK_NO"\" -c \"Genre=$"VAR_GENRE\
-			       "\" ${"VAR_CD_NO" pre=\"-c Discnumber=\"}"\
-                               " -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
+      cmd += QString::fromUtf8(" -c \"Artist=$" VAR_TRACK_ARTIST"\" -c \"Title=$" VAR_TRACK_TITLE"\" -c \"Album=$" VAR_ALBUM_TITLE\
+                               "\" -c \"Date=$" VAR_DATE"\" -c \"Tracknumber=$" VAR_TRACK_NO"\" -c \"Genre=$" VAR_GENRE\
+                   "\" ${" VAR_CD_NO" pre=\"-c Discnumber=\"}"\
+                               " -o $" VAR_OUTPUT_FILE" $" VAR_INPUT_FILE);
 
       return cmd;
     }
@@ -307,13 +307,13 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
           long versionNumber=EncoderAssistant::versionNumber(EncoderAssistant::FLAC);
 
           if (versionNumber >= makeVersionNumber(1,1,3) ) {
-              cmd += QString::fromUtf8(" --picture=\\|\\|\\|\\|$"VAR_COVER_FILE);
+              cmd += QString::fromUtf8(" --picture=\\|\\|\\|\\|$" VAR_COVER_FILE);
           }
       }
       cmd += QString(" -%1").arg(compression);
-      cmd += QString::fromUtf8(" -T Artist=\"$"VAR_TRACK_ARTIST"\" -T Title=\"$"VAR_TRACK_TITLE"\" -T Album=\"$"VAR_ALBUM_TITLE\
-                               "\" -T Date=\"$"VAR_DATE"\" -T Tracknumber=\"$"VAR_TRACK_NO"\" -T Genre=\"$"VAR_GENRE\
-                               "\" -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
+      cmd += QString::fromUtf8(" -T Artist=\"$" VAR_TRACK_ARTIST"\" -T Title=\"$" VAR_TRACK_TITLE"\" -T Album=\"$" VAR_ALBUM_TITLE\
+                               "\" -T Date=\"$" VAR_DATE"\" -T Tracknumber=\"$" VAR_TRACK_NO"\" -T Genre=\"$" VAR_GENRE\
+                               "\" -o $" VAR_OUTPUT_FILE" $" VAR_INPUT_FILE);
       return cmd;
     }
 
@@ -321,15 +321,15 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       int quality = parameters.valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
       QString cmd = ENCODER_FAAC_BIN;
       cmd += QString(" -q %1").arg(quality);
-      cmd += QString::fromUtf8(" --title \"$"VAR_TRACK_TITLE"\" --artist \"$"VAR_TRACK_ARTIST"\" --album \"$"VAR_ALBUM_TITLE\
-                               "\" --year \"$"VAR_DATE"\" --track $"VAR_TRACK_NO" ${"VAR_CD_NO" pre=\"--disc \"} --genre \"$"VAR_GENRE\
-                               "\" -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
+      cmd += QString::fromUtf8(" --title \"$" VAR_TRACK_TITLE"\" --artist \"$" VAR_TRACK_ARTIST"\" --album \"$" VAR_ALBUM_TITLE\
+                               "\" --year \"$" VAR_DATE"\" --track $" VAR_TRACK_NO" ${" VAR_CD_NO" pre=\"--disc \"} --genre \"$" VAR_GENRE\
+                               "\" -o $" VAR_OUTPUT_FILE" $" VAR_INPUT_FILE);
 
       return cmd;
     }
 
     case EncoderAssistant::WAVE : {
-      return QString(ENCODER_WAVE_BIN)+" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE;
+      return QString(ENCODER_WAVE_BIN)+" $" VAR_INPUT_FILE" $" VAR_OUTPUT_FILE;
     }
 
     case EncoderAssistant::CUSTOM : {

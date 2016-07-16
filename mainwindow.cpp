@@ -18,11 +18,14 @@
 
 #include "mainwindow.h"
 
+#include <QMenu>
+#include <QWidgetAction>
+
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   profile_model = new ProfileModel(this);
   if (!profile_model) {
-    kDebug() << "Unable to create ProfileModel object. Low mem?";
+    qDebug() << "Unable to create ProfileModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
     return;
   }
@@ -33,15 +36,9 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   bool updated = firstStart();
 
-  QStringList deviceUrls = KCompactDisc::cdromDeviceNames();
-  int dev_index = Preferences::cdDevice().toInt();
-  QString device_path;
-  if ((dev_index >= 0) && (dev_index < deviceUrls.count())) {
-    device_path = KCompactDisc::cdromDeviceUrl(deviceUrls[dev_index]).path();
-  }
   cdda_model = new CDDAModel(this);
   if (!cdda_model) {
-    kDebug() << "Unable to create CDDAModel object. Low mem?";
+    qDebug() << "Unable to create CDDAModel object. Low mem?";
     ErrorDialog::show(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
     return;
   }
@@ -66,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   setup_layout();
   setupGUI();
 
-  enable_layout(FALSE);
+  enable_layout(false);
 
   if (updated) {
     update();
@@ -79,12 +76,12 @@ bool MainWindow::firstStart() {
 
   if (Preferences::firstStart()) {
     profile_model->autoCreate();
-    Preferences::setFirstStart(FALSE);
-    Preferences::self()->writeConfig();
-    return TRUE;
+    Preferences::setFirstStart(false);
+    Preferences::self()->save();
+    return true;
   }
 
-  return FALSE;
+  return false;
 
 }
 
@@ -96,7 +93,7 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::eject() {
-  kDebug() << "eject requested";
+  qDebug() << "eject requested";
   cdda_model->eject();
 }
 
@@ -150,13 +147,13 @@ void MainWindow::configure() {
   KConfigDialog* dialog = new KConfigDialog(this, "settings", Preferences::self());
 
   KPageWidgetItem *generalPage = dialog->addPage(new generalSettingsWidget(), i18n("General settings"));
-  generalPage->setIcon(KIcon(KApplication::windowIcon()));
+  generalPage->setIcon(QIcon(QApplication::windowIcon()));
 
   KPageWidgetItem *devicePage = dialog->addPage(new deviceWidget(), i18n("Device settings"));
-  devicePage->setIcon(KIcon("drive-optical"));
+  devicePage->setIcon(QIcon::fromTheme("drive-optical"));
 
   KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
-  profilePage->setIcon(KIcon("document-multiple"));
+  profilePage->setIcon(QIcon::fromTheme("document-multiple"));
 
   KService::Ptr libkcddb = KService::serviceByDesktopName("libkcddb");
   if (libkcddb && libkcddb->isValid()) {
@@ -166,7 +163,7 @@ void MainWindow::configure() {
       if (m) {
         m->load();
         KCDDB::Config* cfg = new KCDDB::Config();
-        cfg->readConfig();
+        cfg->load();
         dialog->addPage(m, cfg, i18n("CDDB settings"), "text-xmcd");
         connect(dialog, SIGNAL(okClicked()), m, SLOT(save()));
         connect(dialog, SIGNAL(applyClicked()), m, SLOT(save()));
@@ -176,7 +173,7 @@ void MainWindow::configure() {
   }
 
   KPageWidgetItem *remoteServerPage = dialog->addPage(new remoteServerSettingsWidget(), i18n("Remote Server"));
-  remoteServerPage->setIcon(KIcon("network-server"));
+  remoteServerPage->setIcon(QIcon::fromTheme("network-server"));
 
   connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(configuration_updated(const QString&)));
 
@@ -186,10 +183,10 @@ void MainWindow::configure() {
 
 void MainWindow::new_audio_disc_detected() {
 
-  enable_layout(TRUE);
+  enable_layout(true);
   resizeColumns();
   if (Preferences::cddbLookupAuto()) {
-    kDebug() << "Performing CDDB auto lookup";
+    qDebug() << "Performing CDDB auto lookup";
     QTimer::singleShot(0, this, SLOT(cddb_lookup()));
   }
 
@@ -199,7 +196,7 @@ void MainWindow::new_audio_disc_detected() {
 
 void MainWindow::audio_disc_removed() {
 
-  enable_layout(FALSE);
+  enable_layout(false);
 
   update_layout();
 
@@ -243,7 +240,7 @@ void MainWindow::enable_layout(bool enabled) {
   if (cdda_model->isModified())
     actionCollection()->action("submit")->setEnabled(enabled);
   else
-    actionCollection()->action("submit")->setEnabled(FALSE);
+    actionCollection()->action("submit")->setEnabled(false);
   actionCollection()->action("eject")->setEnabled(enabled);
   actionCollection()->action("rip")->setEnabled(enabled);
   actionCollection()->action("splittitles")->setEnabled(enabled);
@@ -261,19 +258,19 @@ void MainWindow::enable_submit(bool enabled) {
 }
 
 void MainWindow::disable_submit() {
-  actionCollection()->action("submit")->setEnabled(FALSE);
+  actionCollection()->action("submit")->setEnabled(false);
 }
 
 void MainWindow::configuration_updated(const QString& dialog_name) {
   Q_UNUSED(dialog_name);
-  Preferences::self()->writeConfig();
+  Preferences::self()->save();
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {
   if (row >= 0) {
-    profile_model->blockSignals(TRUE);
+    profile_model->blockSignals(true);
     profile_model->setRowAsCurrentProfileIndex(row);
-    profile_model->blockSignals(FALSE);
+    profile_model->blockSignals(false);
   }
 }
 
@@ -281,13 +278,13 @@ void MainWindow::update_profile_action(int index) {
 
   if (index == -1) {
     if (layout_enabled) {
-      actionCollection()->action("profile_label")->setEnabled(FALSE);
-      actionCollection()->action("profile")->setEnabled(FALSE);
+      actionCollection()->action("profile_label")->setEnabled(false);
+      actionCollection()->action("profile")->setEnabled(false);
     }
   } else {
     if (layout_enabled) {
-      actionCollection()->action("profile_label")->setEnabled(TRUE);
-      actionCollection()->action("profile")->setEnabled(TRUE);
+      actionCollection()->action("profile_label")->setEnabled(true);
+      actionCollection()->action("profile")->setEnabled(true);
     }
     profile_combobox->setCurrentIndex(profile_model->getRowByIndex(index));
   }
@@ -373,11 +370,11 @@ void MainWindow::resizeColumns() {
 
 void MainWindow::setup_actions() {
 
-  KAction* ejectAction = new KAction(this);
+  QAction * ejectAction = new QAction(this);
   ejectAction->setText(i18n("Eject"));
-  ejectAction->setIcon(KIcon("media-eject"));
-  ejectAction->setShortcut(Qt::CTRL + Qt::Key_E);
+  ejectAction->setIcon(QIcon::fromTheme("media-eject"));
   actionCollection()->addAction("eject", ejectAction);
+  actionCollection()->setDefaultShortcut(ejectAction, Qt::CTRL + Qt::Key_E);
   connect(ejectAction, SIGNAL(triggered(bool)), this, SLOT(eject()));
 
   profile_label = new QLabel(this);
@@ -392,78 +389,78 @@ void MainWindow::setup_actions() {
   profile_combobox->setCurrentIndex(profile_model->currentProfileRow());
   connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
-  KAction *plabelAction = new KAction(this);
+  QWidgetAction *plabelAction = new QWidgetAction(this);
   plabelAction->setText(i18n("&Profile:"));
   plabelAction->setDefaultWidget(profile_label);
   profile_label->setBuddy(profile_combobox);
   actionCollection()->addAction("profile_label", plabelAction);
 
-  KAction *profileAction = new KAction(this);
+  QWidgetAction *profileAction = new QWidgetAction(this);
   profileAction->setText(i18n("Profile"));
-  profileAction->setShortcut(Qt::Key_F6);
   profileAction->setDefaultWidget(profile_combobox);
-  profileAction->setShortcutConfigurable(FALSE);
   actionCollection()->addAction("profile", profileAction);
+  actionCollection()->setDefaultShortcut(profileAction, Qt::Key_F6);
+  actionCollection()->setShortcutsConfigurable(profileAction, false);
   update_profile_action();
 
-  KAction *cddbLookupAction = new KAction(this);
+  QAction *cddbLookupAction = new QAction(this);
   cddbLookupAction->setText(i18n("Fetch Info"));
-  cddbLookupAction->setIcon(KIcon("view-list-text"));
-  cddbLookupAction->setShortcut(Qt::CTRL + Qt::Key_F);
+  cddbLookupAction->setIcon(QIcon::fromTheme("view-list-text"));
   actionCollection()->addAction("fetch", cddbLookupAction);
+  actionCollection()->setDefaultShortcut(cddbLookupAction, Qt::CTRL + Qt::Key_F);
   connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
 
-  KAction *cddbSubmitAction = new KAction(this);
+  QAction *cddbSubmitAction = new QAction(this);
   cddbSubmitAction->setText(i18n("Submit Info"));
-  cddbSubmitAction->setShortcut(Qt::CTRL + Qt::Key_S);
   actionCollection()->addAction("submit", cddbSubmitAction);
+  actionCollection()->setDefaultShortcut(cddbSubmitAction, Qt::CTRL + Qt::Key_S);
   connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
 
-  KAction* extractAction = new KAction(this);
+  QAction * extractAction = new QAction(this);
   extractAction->setText(i18n("Rip..."));
-  extractAction->setIcon(KIcon("media-optical-audio"));
-  extractAction->setShortcut(Qt::CTRL + Qt::Key_X);
+  extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
   actionCollection()->addAction("rip", extractAction);
+  actionCollection()->setDefaultShortcut(extractAction, Qt::CTRL + Qt::Key_X);
   connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(rip()));
 
   actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));
 
-  KAction *splitTitlesAction = new KAction(this);
+  QAction *splitTitlesAction = new QAction(this);
   splitTitlesAction->setText(i18n("Split Titles..."));
   actionCollection()->addAction("splittitles", splitTitlesAction);
   connect(splitTitlesAction, SIGNAL(triggered(bool)), this, SLOT(split_titles()));
 
-  KAction *swapArtistsAndTitlesAction = new KAction(this);
+  QAction *swapArtistsAndTitlesAction = new QAction(this);
   swapArtistsAndTitlesAction->setText(i18n("Swap Artists And Titles"));
   actionCollection()->addAction("swapartistsandtitles", swapArtistsAndTitlesAction);
   connect(swapArtistsAndTitlesAction, SIGNAL(triggered(bool)), this, SLOT(swap_artists_and_titles()));
 
-  KAction *capitalizeAction = new KAction(this);
+  QAction *capitalizeAction = new QAction(this);
   capitalizeAction->setText(i18n("Capitalize"));
   actionCollection()->addAction("capitalize", capitalizeAction);
   connect(capitalizeAction, SIGNAL(triggered(bool)), this, SLOT(capitalize()));
 
-  KAction *autoFillArtistsAction = new KAction(this);
+  QAction *autoFillArtistsAction = new QAction(this);
   autoFillArtistsAction->setText(i18n("Auto Fill Artists"));
   actionCollection()->addAction("autofillartists", autoFillArtistsAction);
   connect(autoFillArtistsAction, SIGNAL(triggered(bool)), this, SLOT(auto_fill_artists()));
 
-  KAction *selectAllAction = new KAction(this);
+  QAction *selectAllAction = new QAction(this);
   selectAllAction->setText(i18n("Select All Tracks"));
   actionCollection()->addAction("selectall", selectAllAction);
   connect(selectAllAction, SIGNAL(triggered(bool)), this, SLOT(select_all()));
 
-  KAction *selectNoneAction = new KAction(this);
+  QAction *selectNoneAction = new QAction(this);
   selectNoneAction->setText(i18n("Deselect All Tracks"));
   actionCollection()->addAction("selectnone", selectNoneAction);
   connect(selectNoneAction, SIGNAL(triggered(bool)), this, SLOT(select_none()));
 
-  KAction *invertSelectionAction = new KAction(this);
+  QAction *invertSelectionAction = new QAction(this);
   invertSelectionAction->setText(i18n("Invert Selection"));
   actionCollection()->addAction("invertselection", invertSelectionAction);
   connect(invertSelectionAction, SIGNAL(triggered(bool)), this, SLOT(invert_selection()));
 
-  KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
+  KStandardAction::quit(qApp, SLOT(quit()), actionCollection());
 
 }
 
@@ -471,12 +468,12 @@ void MainWindow::setup_layout() {
 
   cdda_tree_view = new QTreeView(this);
   cdda_tree_view->setModel(cdda_model);
-  cdda_tree_view->setAlternatingRowColors(TRUE);
+  cdda_tree_view->setAlternatingRowColors(true);
   cdda_tree_view->setSelectionBehavior(QAbstractItemView::SelectRows);
   cdda_tree_view->setEditTriggers(QAbstractItemView::EditKeyPressed | QAbstractItemView::DoubleClicked);
   cdda_tree_view->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
   cdda_tree_view->setIndentation(0);
-  cdda_tree_view->setAllColumnsShowFocus(TRUE);
+  cdda_tree_view->setAllColumnsShowFocus(true);
   cdda_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(cdda_tree_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(cdda_context_menu(const QPoint&)));
   connect(cdda_tree_view, SIGNAL(clicked(const QModelIndex&)), SLOT(toggle(const QModelIndex&)));
@@ -513,7 +510,7 @@ void MainWindow::invert_selection() {
 
 void MainWindow::cdda_context_menu(const QPoint& pos) {
   Q_UNUSED(pos);
-  KMenu menu(this);
+  QMenu menu(this);
   menu.addAction(actionCollection()->action("selectall"));
   menu.addAction(actionCollection()->action("selectnone"));
   menu.addSeparator();

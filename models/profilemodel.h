@@ -25,13 +25,9 @@
 #include <QVariant>
 #include <QString>
 
-#include <KDebug>
-#include <KLocale>
-#include <KIcon>
+#include <KLocalizedString>
 #include <KConfig>
 #include <KConfigGroup>
-#include <KGlobal>
-#include <KMessageBox>
 
 #include "utils/error.h"
 #include "utils/encoderassistant.h"
@@ -44,38 +40,38 @@
 
 #define DEFAULT_ENCODER_PARAMETERS	""
 
-#define DEFAULT_PATTERN			"$"VAR_ALBUM_ARTIST"/$"VAR_ALBUM_TITLE"/$"VAR_TRACK_NO" - $"VAR_TRACK_TITLE".$"VAR_SUFFIX
+#define DEFAULT_PATTERN			"$" VAR_ALBUM_ARTIST"/$" VAR_ALBUM_TITLE"/$" VAR_TRACK_NO" - $" VAR_TRACK_TITLE".$" VAR_SUFFIX
 
-#define DEFAULT_FAT32			FALSE
-#define DEFAULT_UNDERSCORE		FALSE
-#define DEFAULT_2DIGITSTRACKNUM		TRUE
+#define DEFAULT_FAT32			false
+#define DEFAULT_UNDERSCORE		false
+#define DEFAULT_2DIGITSTRACKNUM		true
 
-#define DEFAULT_SC			TRUE
-#define DEFAULT_SC_SCALE		FALSE
+#define DEFAULT_SC			true
+#define DEFAULT_SC_SCALE		false
 #define DEFAULT_SC_SIZE			QSize(600, 600)
 #define DEFAULT_SC_FORMAT		"JPEG"
-#define DEFAULT_SC_NAME			"$"VAR_ALBUM_TITLE".$"VAR_SUFFIX
+#define DEFAULT_SC_NAME			"$" VAR_ALBUM_TITLE".$" VAR_SUFFIX
 
-#define DEFAULT_PL			TRUE
+#define DEFAULT_PL			true
 #define DEFAULT_PL_FORMAT		"M3U"
-#define DEFAULT_PL_NAME			"$"VAR_ALBUM_TITLE".$"VAR_SUFFIX
-#define DEFAULT_PL_ABS_FILE_PATH	FALSE
-#define DEFAULT_PL_UTF8                 TRUE
+#define DEFAULT_PL_NAME			"$" VAR_ALBUM_TITLE".$" VAR_SUFFIX
+#define DEFAULT_PL_ABS_FILE_PATH	false
+#define DEFAULT_PL_UTF8                 true
 
-#define DEFAULT_INF			FALSE
+#define DEFAULT_INF			false
 #define DEFAULT_INF_TEXT		QStringList()
 #define DEFAULT_INF_NAME		"info"
 #define DEFAULT_INF_SUFFIX		"nfo"
 
-#define DEFAULT_HL			FALSE
+#define DEFAULT_HL			false
 #define DEFAULT_HL_FORMAT		"SFV"
-#define DEFAULT_HL_NAME			"checksums.$"VAR_SUFFIX
+#define DEFAULT_HL_NAME			"checksums.$" VAR_SUFFIX
 
-#define DEFAULT_CUE			FALSE
-#define DEFAULT_CUE_NAME		"$"VAR_ALBUM_ARTIST" - $"VAR_ALBUM_TITLE".$"VAR_SUFFIX
+#define DEFAULT_CUE			false
+#define DEFAULT_CUE_NAME		"$" VAR_ALBUM_ARTIST" - $" VAR_ALBUM_TITLE".$" VAR_SUFFIX
 
-#define DEFAULT_SF			FALSE
-#define DEFAULT_SF_NAME			"$"VAR_ALBUM_ARTIST"/$"VAR_ALBUM_TITLE"/$"VAR_ALBUM_ARTIST" - $"VAR_ALBUM_TITLE".$"VAR_SUFFIX
+#define DEFAULT_SF			false
+#define DEFAULT_SF_NAME			"$" VAR_ALBUM_ARTIST"/$" VAR_ALBUM_TITLE"/$" VAR_ALBUM_ARTIST" - $" VAR_ALBUM_TITLE".$" VAR_SUFFIX
 
 
 enum ProfileColumns {

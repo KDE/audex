@@ -18,6 +18,8 @@
 
 #include "wavefilewriter.h"
 
+#include <QDebug>
+
 WaveFileWriter::WaveFileWriter() {
   p_data_written = 0;
   p_endianess = LittleEndian;
@@ -37,9 +39,9 @@ bool WaveFileWriter::open(const QString& filename) {
   if (p_output_file.open(QIODevice::WriteOnly)) {
     p_filename = filename;
     p_write_empty_header();
-    return TRUE;
+    return true;
   } else {
-    return FALSE;
+    return false;
   }
 
 }
@@ -88,7 +90,7 @@ void WaveFileWriter::write(const QByteArray& data) {
       }
     } else {
       if (data.size() % 2 > 0) {
-        kDebug() << "Data length is not a multiple of 2! Cannot write data.";
+        qDebug() << "Data length is not a multiple of 2! Cannot write data.";
         return;
       }
       //we need to swap the bytes

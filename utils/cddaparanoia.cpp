@@ -18,9 +18,12 @@
 
 #include "cddaparanoia.h"
 
+#include <QDebug>
+
 /* some of this code in here is based on k3b 0.8.x sourcecode */
 
-CDDAParanoia::CDDAParanoia(QObject *parent) : QObject(parent) {
+CDDAParanoia::CDDAParanoia(QObject *parent) : QObject(parent)
+{
   Q_UNUSED(parent);
   paranoia = NULL;
   paranoia_drive = NULL;
@@ -37,11 +40,11 @@ bool CDDAParanoia::setDevice(const QString& device) {
   if ((device.isEmpty() && (_device.isEmpty()))) _device = "/dev/cdrom";
   if (!device.isEmpty()) _device = device;
   if (!_paranoia_init()) {
-    kDebug() << "Internal device error.";
+    qDebug() << "Internal device error.";
     emit error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", _device));
-    return FALSE;
+    return false;
   }
-  return TRUE;
+  return true;
 }
 
 QString CDDAParanoia::device() const {
@@ -265,7 +268,7 @@ int CDDAParanoia::frameOffsetOfTrack(int n) {
 
 bool CDDAParanoia::isAudioTrack(int n) {
   if (paranoia_drive) return IS_AUDIO(paranoia_drive, n-1);
-  return TRUE;
+  return true;
 }
 
 QList<quint32> CDDAParanoia::discSignature(const qint32 pregap) {
@@ -292,8 +295,8 @@ bool CDDAParanoia::_paranoia_init() {
   paranoia_drive = cdda_identify(_device.toAscii().data(), 0, 0);
   if (paranoia_drive == 0) {
     mutex.unlock();
-    kDebug() << "Failed to find device.";
-    return FALSE;
+    qDebug() << "Failed to find device.";
+    return false;
   }
 
   //cdda_cdda_verbose_set(_drive, 1, 1);
@@ -303,12 +306,12 @@ bool CDDAParanoia::_paranoia_init() {
   if (paranoia == 0) {
     _paranoia_free();
     mutex.unlock();
-    kDebug() << "Failed to init device.";
-    return FALSE;
+    qDebug() << "Failed to init device.";
+    return false;
   }
 
   mutex.unlock();
-  return TRUE;
+  return true;
 
 }
 

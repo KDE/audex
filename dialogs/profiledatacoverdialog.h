@@ -21,14 +21,14 @@
 
 #include <QWidget>
 
-#include <KDebug>
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "simplepatternwizarddialog.h"
 
 #include "ui_profiledatacoverwidgetUI.h"
 
-class ProfileDataCoverDialog : public KDialog {
+class ProfileDataCoverDialog : public QDialog {
 
   Q_OBJECT
 
@@ -42,16 +42,18 @@ public:
   QString pattern;
 
 protected slots:
-  virtual void slotButtonClicked(int button);
-
   void pattern_wizard();
 
 private slots:
   void trigger_changed();
   void enable_scale(bool enabled);
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::ProfileDataCoverWidgetUI ui;
+  QPushButton *applyButton;
 
   bool save();
 

@@ -21,14 +21,14 @@
 
 #include <QWidget>
 
-#include <KDebug>
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "simplepatternwizarddialog.h"
 
 #include "ui_profiledataplaylistwidgetUI.h"
 
-class ProfileDataPlaylistDialog : public KDialog
+class ProfileDataPlaylistDialog : public QDialog
 {
 
   Q_OBJECT
@@ -43,8 +43,6 @@ public:
   bool utf8;
 
 protected slots:
-  virtual void slotButtonClicked(int button);
-
   void pattern_wizard();
 
 private slots:
@@ -52,8 +50,12 @@ private slots:
   void enable_abs_file_path(bool enabled);
   void enable_utf8(bool enabled);
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::ProfileDataPlaylistWidgetUI ui;
+  QPushButton *applyButton;
 
   bool save();
 

@@ -27,22 +27,17 @@
 #include <QInputDialog>
 
 #include <KXmlGuiWindow>
-#include <QApplication>
-#include <QAction>
-#include <KLocale>
-#include <KStandardDirs>
+#include <KLocalizedString>
 #include <KActionCollection>
 #include <KStandardAction>
-#include <KStatusBar>
+#include <QStatusBar>
 #include <KConfigDialog>
 #include <KCModuleLoader>
-#include <KLineEdit>
+#include <QLineEdit>
 #include <KComboBox>
 #include <KTextEdit>
-#include <KPushButton>
+#include <QPushButton>
 #include <KMessageBox>
-#include <KMenu>
-#include <libkcompactdisc/kcompactdisc.h>
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
@@ -92,7 +87,7 @@ private Q_SLOTS:
   void update_layout();
 
   void enable_layout(bool enabled);
-  void enable_submit(bool enabled = TRUE);
+  void enable_submit(bool enabled = true);
   void disable_submit();
 
   void configuration_updated(const QString& dialog_name);

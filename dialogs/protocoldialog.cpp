@@ -18,26 +18,38 @@
 
 #include "protocoldialog.h"
 
-ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : KDialog(parent) {
+#include <QFileDialog>
+#include <QTextStream>
+
+#include <KLocalizedString>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
+  setWindowTitle(title);
+
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save|QDialogButtonBox::Close);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolDialog::slotSaveProtocol);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolDialog::slotClosed);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(title);
-
-  setButtons(User1|Close);
-  setButtonText(User1, i18n("Save"));
-  setButtonIcon(User1, KIcon("document-save-as"));
 
   ui.ktextedit->setPlainText(protocol.join("\n"));
 
   this->protocol = protocol;
   this->title = title;
-  showButtonSeparator(true);
 
 }
 
@@ -45,21 +57,16 @@ ProtocolDialog::~ProtocolDialog() {
 
 }
 
-void ProtocolDialog::slotButtonClicked(int button) {
-  switch(button) {
-    case User1:
-      save();
-      break;
-    case Close:
-      close();
-      break;
-    default:
-      KDialog::slotButtonClicked(button);
-  }
+void ProtocolDialog::slotClosed() {
+  close();
+}
+
+void ProtocolDialog::slotSaveProtocol() {
+  save();
 }
 
 void ProtocolDialog::save() {
-  QString fileName = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.pro", this, i18n("Save %1", title));
+  QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.pro");
   if (!fileName.isEmpty()) {
     QFile data(fileName);
     if (data.open(QFile::WriteOnly | QFile::Truncate)) {

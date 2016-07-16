@@ -22,9 +22,6 @@
 #include <QWidget>
 #include <QDir>
 
-#include <KDebug>
-#include <KDialog>
-
 #include "ui_remoteserversettingswidgetUI.h"
 
 class remoteServerSettingsWidgetUI : public QWidget, public Ui::RemoteServerSettingsWidgetUI {

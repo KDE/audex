@@ -30,8 +30,6 @@
 #include <QByteArray>
 #include <QCryptographicHash>
 
-#include <KDebug>
-
 #include "3rdparty/crc32.h"
 
 class Hashlist {

@@ -31,10 +31,10 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="KLineEdit" name="klineedit_pattern"/>
+    <widget class="QLineEdit" name="qlineedit_pattern"/>
    </item>
    <item row="1" column="1">
-    <widget class="KPushButton" name="kpushbutton_pattern"/>
+    <widget class="QPushButton" name="kpushbutton_pattern"/>
    </item>
    <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -52,7 +52,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KLineEdit" name="klineedit_suffix">
+      <widget class="QLineEdit" name="qlineedit_suffix">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>30</horstretch>
@@ -99,14 +99,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

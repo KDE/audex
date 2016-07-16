@@ -24,8 +24,7 @@
 #include <QDir>
 #include <QTimer>
 
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KDiskFreeSpaceInfo>
 
 #include "models/profilemodel.h"
@@ -69,7 +68,7 @@ class AudexJobs : public QObject {
   Q_OBJECT
 public:
   AudexJobs(QObject *parent = 0) : QObject(parent) {
-    job_in_progress = FALSE;
+    job_in_progress = false;
   }
   ~AudexJobs() {
     for (int i = 0; i < cache.count(); i++) {
@@ -83,12 +82,12 @@ public:
     if (job_queue.isEmpty()) {
       return NULL;
     } else {
-      job_in_progress = TRUE;
+      job_in_progress = true;
       return job_queue.dequeue();
     }
   }
   void reportJobFinished() {
-    job_in_progress = FALSE;
+    job_in_progress = false;
   }
   bool jobInProgress() {
     return job_in_progress;
@@ -238,7 +237,7 @@ private:
   int current_encoder_percent;
   int last_measuring_point_encoder_percent;
 
-  bool p_prepare_dir(QString& filename, const QString& targetDirIfRelative, const bool overwrite = FALSE);
+  bool p_prepare_dir(QString& filename, const QString& targetDirIfRelative, const bool overwrite = false);
   bool p_mkdir(const QString& absoluteFilePath);
   qreal p_size_of_all_files(const QStringList& filenames) const;
 

@@ -11,7 +11,7 @@
   </property>
   <layout class="QGridLayout" >
    <item row="0" column="0" >
-    <widget class="KListWidget" name="listWidget" />
+    <widget class="QListWidget" name="listWidget" />
    </item>
    <item row="1" column="0" >
     <widget class="QLabel" name="label" >
@@ -24,7 +24,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KListWidget</class>
+   <class>QListWidget</class>
    <extends>QListWidget</extends>
    <header>klistwidget.h</header>
   </customwidget>

@@ -18,7 +18,12 @@
 
 #include "profiledatadialog.h"
 
-ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent)
+#include <QDebug>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : QDialog(parent)
 {
 
   Q_UNUSED(parent);
@@ -26,7 +31,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   profile_model = profileModel;
   if (!profile_model)
   {
-    kDebug() << "ProfileModel is NULL!";
+    qDebug() << "ProfileModel is NULL!";
     return;
   }
   profile_row = profileRow;
@@ -34,7 +39,9 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
 
-  setMainWidget(widget);
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+  mainLayout->addWidget(widget);
 
   if (profile_row >= 0)
   {
@@ -78,7 +85,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(set_encoder_by_combobox(int)));
 
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
   connect(ui.kpushbutton_cover, SIGNAL(clicked()), this, SLOT(cover_settings()));
   connect(ui.kpushbutton_playlist, SIGNAL(clicked()), this, SLOT(playlist_settings()));
@@ -99,13 +106,21 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
   if (profile_row >= 0)
   {
 
-    setCaption(i18n("Modify Profile"));
+    setWindowTitle(i18n("Modify Profile"));
 
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    applyButton = buttonBox->button(QDialogButtonBox::Apply);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+    connect(applyButton, &QPushButton::clicked, this, &ProfileDataDialog::slotApplied);
+    mainLayout->addWidget(buttonBox);
 
-    ui.klineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
-    connect(ui.klineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-    ui.klineedit_name->setCursorPosition(0);
+    ui.qlineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
+    connect(ui.qlineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+    ui.qlineedit_name->setCursorPosition(0);
 
     ui.kiconbutton_icon->setIcon(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString());
     connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString&)), this, SLOT(trigger_changed()));
@@ -113,9 +128,9 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     set_encoder(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toInt());
     connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
 
-    ui.klineedit_pattern->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString());
-    connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-    ui.klineedit_pattern->setCursorPosition(0);
+    ui.qlineedit_pattern->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString());
+    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+    ui.qlineedit_pattern->setCursorPosition(0);
 
     ui.checkBox_fat32compatible->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
     connect(ui.checkBox_fat32compatible, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -179,22 +194,28 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     //profile data single file data
     pdsd_pattern = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
 
-    enableButtonApply(false);
+    applyButton->setEnabled(false);
 
   }
   else
   {
 
-    setCaption(i18n("Create Profile"));
+    setWindowTitle(i18n("Create Profile"));
 
-    setButtons(KDialog::Ok | KDialog::Cancel);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+    mainLayout->addWidget(buttonBox);
 
-    ui.klineedit_name->setText(i18n("New Profile"));
+    ui.qlineedit_name->setText(i18n("New Profile"));
     ui.kiconbutton_icon->setIcon(DEFAULT_ICON);
 
     set_encoder(DEFAULT_ENCODER_SELECTED);
 
-    ui.klineedit_pattern->setText(DEFAULT_PATTERN);
+    ui.qlineedit_pattern->setText(DEFAULT_PATTERN);
     ui.checkBox_fat32compatible->setChecked(DEFAULT_FAT32);
     ui.checkBox_underscore->setChecked(DEFAULT_UNDERSCORE);
     ui.checkBox_2digitstracknum->setChecked(DEFAULT_2DIGITSTRACKNUM);
@@ -232,8 +253,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
   enable_filenames(!ui.checkBox_singlefile->isChecked());
 
-  ui.klineedit_name->setFocus();
-  showButtonSeparator(true);
+  ui.qlineedit_name->setFocus();
   resize(0, 0);  // For some reason dialog start of big...
 
 }
@@ -250,25 +270,16 @@ ProfileDataDialog::~ProfileDataDialog()
 
 }
 
-void ProfileDataDialog::slotButtonClicked(int button)
-{
-
-  if (button == KDialog::Ok)
-  {
-    if (save())
-      accept();
-    else
-      ErrorDialog::show(this, error.message(), error.details());
-  }
-  else if (button == KDialog::Apply)
-  {
-    if (!save()) ErrorDialog::show(this, error.message(), error.details());
-  }
+void ProfileDataDialog::slotAccepted() {
+  if (save())
+    accept();
   else
-  {
-    KDialog::slotButtonClicked(button);
-  }
+    ErrorDialog::show(this, error.message(), error.details());
+}
 
+void ProfileDataDialog::slotApplied() {
+  if (!save())
+    ErrorDialog::show(this, error.message(), error.details());
 }
 
 void ProfileDataDialog::set_encoder(const int encoder)
@@ -290,11 +301,11 @@ void ProfileDataDialog::set_encoder_by_combobox(const int index)
 void ProfileDataDialog::trigger_changed()
 {
 
-  enableButtonApply(
-      ui.klineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
+  applyButton->setEnabled(
+      ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
       ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() ||
       ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()) != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString() ||
-      ui.klineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() ||
+      ui.qlineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() ||
       ui.checkBox_fat32compatible->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool() ||
       ui.checkBox_underscore->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool() ||
       ui.checkBox_cover->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool() ||
@@ -379,11 +390,11 @@ void ProfileDataDialog::disable_filenames(bool disabled)
 void ProfileDataDialog::pattern_wizard()
 {
 
-  PatternWizardDialog *dialog = new PatternWizardDialog(ui.klineedit_pattern->text(), this);
+  PatternWizardDialog *dialog = new PatternWizardDialog(ui.qlineedit_pattern->text(), this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -561,10 +572,10 @@ bool ProfileDataDialog::save()
 
   if (success)
   {
-    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.klineedit_name->text());
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX), ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
-    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PATTERN_INDEX), ui.klineedit_pattern->text());
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PATTERN_INDEX), ui.qlineedit_pattern->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX), ui.checkBox_underscore->isChecked());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX), ui.checkBox_2digitstracknum->isChecked());
@@ -607,7 +618,7 @@ bool ProfileDataDialog::save()
 
   profile_model->commit();
 
-  if (profile_row >= 0) enableButtonApply(false);
+  if (profile_row >= 0) applyButton->setEnabled(false);
 
   return true;
 

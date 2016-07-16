@@ -1,9 +1,6 @@
 project (audex)
 
-cmake_minimum_required(VERSION 2.8.12)
-
-find_package(ECM REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH "${ECM_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
+cmake_minimum_required(VERSION 3.0.0)
 
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 set(CPACK_GENERATOR "DEB;RPM;TGZ")
@@ -11,38 +8,55 @@ set(DEBIAN_PACKAGE_DESCRIPTION "Audex")
 set(DEBIAN_PACKAGE_SECTION "Multimedia")
 set(CPACK_SOURCE_GENERATOR "TBZ2")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
-set(CPACK_PACKAGE_VERSION_MINOR "80")
+set(CPACK_PACKAGE_VERSION_MINOR "95")
 set(CPACK_PACKAGE_CONTACT "Marco Nelles <audex@maniatek.com>")
 set(AUDEX_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 include(CPack)
 
+find_package(ECM REQUIRED NO_MODULE)
+
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
-#find_package(KDE4 REQUIRED)
-#find_package(KdeMultimedia REQUIRED)
-#find_package(Cdparanoia REQUIRED)
-find_package(KF5 REQUIRED COMPONENTS KDELibs4Support XmlGui CoreAddons I18n KIO)
-find_package(Qt5 REQUIRED COMPONENTS X11Extras Core Widgets Xml Script)
-find_package(Libkcddb REQUIRED)
-
 include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
-include(FeatureSummary)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
+include(FeatureSummary)
+
+find_package(Qt5 REQUIRED COMPONENTS
+  Script
+  Widgets
+  X11Extras
+)
+find_package(KF5 REQUIRED COMPONENTS
+  Config
+  Completion
+  CoreAddons
+  I18n
+  IconThemes
+  KCMUtils
+  KIO
+  Solid
+  TextWidgets
+  WidgetsAddons
+  XmlGui
+)
+find_package(Libkcddb REQUIRED)
+find_package(Cdparanoia REQUIRED)
 
 include_directories(
-    #${KDE4_INCLUDES}
-    #${KDEMULTIMEDIA_INCLUDE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_BINARY_DIR}
-  #${CDPARANOIA_INCLUDE_DIR}
 )
+
+# Silence some errors for now
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 
@@ -98,7 +112,7 @@ set(audex_SRCS
   core/audex.cpp
 )
 
-ki18n_wrap_ui(audex_SRCS
+qt5_wrap_ui(audex_SRCS
   widgets/generalsettingswidgetUI.ui
   widgets/devicewidgetUI.ui
   widgets/profilewidgetUI.ui
@@ -129,28 +143,29 @@ kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
 add_executable(audex ${audex_SRCS})
 target_link_libraries(audex
-    #${CDPARANOIA_LIBRARIES}
-    #${KDE4_KDEUI_LIBS}
-    #${KDE4_KUTILS_LIBS}
-    #${KDE4_KIO_LIBRARY}
-    #${KDE4_SOLID_LIBS}
-    #${KDEMULTIMEDIA_LIBRARIES}
-    KF5::KDELibs4Support
-    KF5::XmlGui
-    KF5::CoreAddons
-    Qt5::X11Extras
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Xml
     Qt5::Script
+    Qt5::Widgets
+    Qt5::X11Extras
+    KF5::Completion
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KCMUtils
+    KF5::KIOWidgets
+    KF5::Solid
+    KF5::TextWidgets
+    KF5::WidgetsAddons
+    KF5::XmlGui
+    KDE::Libkcddb::kcddb
+    ${CDPARANOIA_LIBRARIES}
 )
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
-install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)
+install(FILES audexui.rc DESTINATION  ${KXMLGUI_INSTALL_DIR}/audex)
 install(FILES audex.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions)
 
 add_subdirectory(icons)
 add_subdirectory(images)
 
-feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES)

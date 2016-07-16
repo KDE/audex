@@ -213,7 +213,7 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="KIntSpinBox" name="kintspinbox_bitrate">
+        <widget class="QSpinBox" name="kintspinbox_bitrate">
          <property name="maximum">
           <number>99</number>
          </property>
@@ -265,7 +265,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KLineEdit" name="klineedit_suffix">
+      <widget class="QLineEdit" name="qlineedit_suffix">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>30</horstretch>
@@ -312,14 +312,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

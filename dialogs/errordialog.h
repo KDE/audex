@@ -3,7 +3,7 @@
 
 #include <QtCore/QString>
 
-#include <KDE/KMessageBox>
+#include <KMessageBox>
 
 class QWidget;
 

@@ -18,6 +18,10 @@
 
 #include "cddaheaderwidget.h"
 
+#include <QDebug>
+#include <QFileDialog>
+#include <QMenu>
+
 static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOverX, FadeStyle fadeStyle = FadeDown) {
 
 /****************************************************************************
@@ -284,39 +288,39 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
 
   cdda_model = cddaModel;
   if (!cdda_model) {
-    kDebug() << "CDDAModel is NULL!";
+    qDebug() << "CDDAModel is NULL!";
     return;
   }
   connect(cdda_model, SIGNAL(modelReset()), this, SLOT(update()));
 
   setup_actions();
 
-  kDebug() << "coverSize:" << coverSize;
+  qDebug() << "coverSize:" << coverSize;
   this->cover_size = coverSize;
 
   this->i_cover_checksum = 1;
 
   this->padding = padding;
 
-  animation_up = FALSE;
-  animation_down = FALSE;
-  scale_up = FALSE;
-  scale_down = FALSE;
-  fade_in = FALSE;
-  fade_out = FALSE;
+  animation_up = false;
+  animation_down = false;
+  scale_up = false;
+  scale_down = false;
+  fade_in = false;
+  fade_out = false;
   scale_factor = 1.0;
   opacity_factor = 1.0;
 
-  setMouseTracking(TRUE);
-  cursor_on_cover = FALSE;
-  cursor_on_link1 = FALSE;
-  cursor_on_link2 = FALSE;
+  setMouseTracking(true);
+  cursor_on_cover = false;
+  cursor_on_link1 = false;
+  cursor_on_link2 = false;
 
   connect(this, SIGNAL(coverDown()), this, SLOT(cover_is_down()));
   connect(this, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(context_menu(const QPoint&)));
 
   cover_browser_dialog = NULL;
-  fetching_cover_in_progress = FALSE;
+  fetching_cover_in_progress = false;
 
   setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -352,22 +356,22 @@ void CDDAHeaderWidget::setCover(CachedImage *cover) {
     if (cover) {
       this->i_cover = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
     } else {
-      QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+      QImage image = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/nocover.png")));
       this->i_cover = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     }
-    animation_up = TRUE;
-    fade_in = TRUE;
+    animation_up = true;
+    fade_in = true;
     scale_factor = 0.7;
     opacity_factor = 0.0;
   } else {
     if (cover) {
       this->i_cover_holding = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
     } else {
-      QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+      QImage image = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/nocover.png")));
       this->i_cover_holding = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     }
-    animation_down = TRUE;
-    scale_down = TRUE;
+    animation_down = true;
+    scale_down = true;
     scale_factor = 1.0;
     opacity_factor = 1.0;
   }
@@ -387,14 +391,14 @@ void CDDAHeaderWidget::setEnabled(bool enabled) {
 
 void CDDAHeaderWidget::googleAuto() {
 
-  kDebug() << "Google AUTO cover fetch" ;
+  qDebug() << "Google AUTO cover fetch" ;
 
   if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
-  cursor_on_cover = FALSE;
-  fetching_cover_in_progress = TRUE;
-  action_collection->action("fetch")->setEnabled(FALSE);
+  cursor_on_cover = false;
+  fetching_cover_in_progress = true;
+  action_collection->action("fetch")->setEnabled(false);
 
   cover_browser_dialog = new CoverBrowserDialog(this);
 
@@ -443,21 +447,21 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     QFont font(QApplication::font());
     int pixelSize(font.pixelSize()==-1 ? (font.pointSize()*QX11Info::appDpiX()+36)/72 : font.pixelSize()), width=rect().width()-(xOffset+1);
     font.setPixelSize((int)((((double)pixelSize)*1.5)+0.5));
-    font.setBold(TRUE);
+    font.setBold(true);
     p.setFont(font);
     yOffset+=p.fontMetrics().lineSpacing()*1.2;
     p.drawText(xOffset, yOffset, p.fontMetrics().elidedText(cdda_model->artist(), Qt::ElideRight, width));
 
     font.setPixelSize(pixelSize);
-    font.setBold(TRUE);
-    font.setItalic(TRUE);
+    font.setBold(true);
+    font.setItalic(true);
     p.setFont(font);
     yOffset+=pixelSize;
     p.drawText(xOffset, yOffset, p.fontMetrics().elidedText(cdda_model->title(), Qt::ElideRight, width));
 
     yOffset+=p.fontMetrics().lineSpacing()*1.5;
-    font.setBold(FALSE);
-    font.setItalic(FALSE);
+    font.setBold(false);
+    font.setItalic(false);
     p.setFont(font);
 
     QFontMetrics fm(font);
@@ -487,7 +491,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
       yOffset += fm.lineSpacing();
     }
 
-    font.setUnderline(TRUE);
+    font.setUnderline(true);
     p.setFont(font);
 
     //links
@@ -515,8 +519,8 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     } else {
       font.setPixelSize(font.pixelSize()*1.5);
     }
-    font.setBold(TRUE);
-    font.setItalic(TRUE);
+    font.setBold(true);
+    font.setItalic(true);
     p.setFont(font);
     p.drawText(rect(), Qt::AlignCenter | Qt::AlignVCenter, i18n("No audio CD detected"));
 
@@ -530,27 +534,27 @@ void CDDAHeaderWidget::mouseMoveEvent(QMouseEvent *event) {
 
   if (cover_rect.contains(event->pos())) {
 
-    if (!cursor_on_cover) { QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor)); cursor_on_cover = TRUE; }
+    if (!cursor_on_cover) { QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor)); cursor_on_cover = true; }
 
   } else if (link1_rect.contains(event->pos())) {
 
-    if (!cursor_on_link1) { QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor)); cursor_on_link1 = TRUE; }
+    if (!cursor_on_link1) { QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor)); cursor_on_link1 = true; }
 
   } else if (link2_rect.contains(event->pos())) {
 
-    if (!cursor_on_link2) { QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor)); cursor_on_link2 = TRUE; }
+    if (!cursor_on_link2) { QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor)); cursor_on_link2 = true; }
 
   } else {
 
     if (cursor_on_cover) {
       QApplication::restoreOverrideCursor();
-      cursor_on_cover = FALSE;
+      cursor_on_cover = false;
     } else if (cursor_on_link1) {
       QApplication::restoreOverrideCursor();
-      cursor_on_link1 = FALSE;
+      cursor_on_link1 = false;
     } else if (cursor_on_link2) {
       QApplication::restoreOverrideCursor();
-      cursor_on_link2 = FALSE;
+      cursor_on_link2 = false;
     }
 
   }
@@ -579,14 +583,14 @@ void CDDAHeaderWidget::update() {
 
   action_collection->action("fetch")->setEnabled(!cdda_model->empty());
 
-  bool activate = FALSE;
+  bool activate = false;
   if (cdda_model->isCoverEmpty()) {
     if (i_cover_checksum) setCover(NULL);
   } else {
-    kDebug() << "current cover checksum:" << i_cover_checksum;
-    kDebug() << "new cover checksum:" << cdda_model->coverChecksum();
+    qDebug() << "current cover checksum:" << i_cover_checksum;
+    qDebug() << "new cover checksum:" << cdda_model->coverChecksum();
     if (i_cover_checksum != cdda_model->coverChecksum()) setCover(cdda_model->cover());
-    activate = TRUE;
+    activate = true;
   }
 
   action_collection->action("save")->setEnabled(activate);
@@ -604,15 +608,15 @@ void CDDAHeaderWidget::trigger_repaint() {
     if (scale_down) {
       scale_factor -= 0.08;
       if (qFuzzyCompare(scale_factor, .7) || scale_factor < .7) {
-        scale_down = FALSE;
-	fade_out = TRUE;
+        scale_down = false;
+	fade_out = true;
       }
     } else if (fade_out) {
       opacity_factor -= 0.16;
       if (qFuzzyCompare(opacity_factor, 0) || opacity_factor < 0) {
         opacity_factor = 0;
-	fade_out = FALSE;
-	animation_down = FALSE;
+	fade_out = false;
+	animation_down = false;
 	timer.stop();
 	emit coverDown();
       }
@@ -624,14 +628,14 @@ void CDDAHeaderWidget::trigger_repaint() {
       opacity_factor += 0.16;
       if (qFuzzyCompare(opacity_factor, 1) || opacity_factor > 1) {
         opacity_factor = 1;
-	fade_in = FALSE;
-	scale_up = TRUE;
+	fade_in = false;
+	scale_up = true;
       }
     } else if (scale_up) {
       scale_factor += 0.08;
       if (qFuzzyCompare(scale_factor, 1) || scale_factor > 1) {
-        scale_up = FALSE;
-	animation_up = FALSE;
+        scale_up = false;
+	animation_up = false;
 	timer.stop();
 	emit coverUp();
       }
@@ -645,8 +649,8 @@ void CDDAHeaderWidget::trigger_repaint() {
 
 void CDDAHeaderWidget::cover_is_down() {
   this->i_cover = i_cover_holding;
-  animation_up = TRUE;
-  fade_in = TRUE;
+  animation_up = true;
+  fade_in = true;
   scale_factor = .7;
   opacity_factor = 0.0;
   timer.start();
@@ -654,14 +658,14 @@ void CDDAHeaderWidget::cover_is_down() {
 
 void CDDAHeaderWidget::google() {
 
-  kDebug() << "Google cover fetch" ;
+  qDebug() << "Google cover fetch" ;
 
   if ((cdda_model->empty()) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
-  cursor_on_cover = FALSE;
-  fetching_cover_in_progress = TRUE;
-  action_collection->action("fetch")->setEnabled(FALSE);
+  cursor_on_cover = false;
+  fetching_cover_in_progress = true;
+  action_collection->action("fetch")->setEnabled(false);
 
   cover_browser_dialog = new CoverBrowserDialog(this);
 
@@ -678,17 +682,17 @@ void CDDAHeaderWidget::google() {
   cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist).arg(title));
 
   if (cover_browser_dialog->exec() != QDialog::Accepted) {
-    fetching_cover_in_progress = FALSE;
+    fetching_cover_in_progress = false;
     delete cover_browser_dialog;
     cover_browser_dialog = NULL;
-    action_collection->action("fetch")->setEnabled(TRUE);
+    action_collection->action("fetch")->setEnabled(true);
   }
 
 }
 
 void CDDAHeaderWidget::load() {
-  kDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load Cover"));
+  qDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
+  QString filename = QFileDialog::getOpenFileName(this, i18n("Load Cover"), QDir::homePath(), cdda_model->coverSupportedMimeTypeList());
   if (!filename.isEmpty()) {
     if (!cdda_model->setCover(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
@@ -697,7 +701,7 @@ void CDDAHeaderWidget::load() {
 }
 
 void CDDAHeaderWidget::save() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()+"/"+cdda_model->title()+".jpg"), cdda_model->coverSupportedMimeTypeList(), this, i18n("Save Cover"));
+  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath()+"/"+cdda_model->title()+".jpg", cdda_model->coverSupportedMimeTypeList());
   if (!filename.isEmpty()) {
     if (!cdda_model->saveCoverToFile(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
@@ -709,16 +713,16 @@ void CDDAHeaderWidget::view_cover() {
 
   QString tmp_path = tmp_dir->tmpPath();
   if (tmp_dir->error()) {
-    QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
+    QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::TempLocation);
     tmp_path = dirs.size()?dirs[0]:"/var/tmp/";
     if (tmp_path.right(1) != "/") tmp_path += "/";
-    kDebug() << "Temporary folder in use:" << tmp_path;
+    qDebug() << "Temporary folder in use:" << tmp_path;
   }
 
   QString filename = tmp_path+QString("%1.jpeg").arg(cdda_model->coverChecksum());
   cdda_model->saveCoverToFile(filename);
 
-  QDesktopServices::openUrl(KUrl(filename));
+  QDesktopServices::openUrl(QUrl(filename));
 
 }
 
@@ -730,7 +734,7 @@ void CDDAHeaderWidget::remove() {
 void CDDAHeaderWidget::edit_data() {
 
   QApplication::restoreOverrideCursor();
-  cursor_on_link1 = FALSE;
+  cursor_on_link1 = false;
 
   CDDAHeaderDataDialog *dialog = new CDDAHeaderDataDialog(cdda_model, this);
 
@@ -758,14 +762,14 @@ void CDDAHeaderWidget::wikipedia() {
 
   if (l.isEmpty()) l = "en";
 
-  QDesktopServices::openUrl(QUrl(QString("http://%1.wikipedia.org/wiki/").arg(l) + KUrl::toPercentEncoding(cdda_model->artist())));
+  QDesktopServices::openUrl(QUrl(QString("http://%1.wikipedia.org/wiki/").arg(l) + QUrl::toPercentEncoding(cdda_model->artist())));
 
 }
 
 void CDDAHeaderWidget::set_cover(const QByteArray& cover) {
   if (!cover.isEmpty()) cdda_model->setCover(cover);
-  fetching_cover_in_progress = FALSE;
-  action_collection->action("fetch")->setEnabled(TRUE);
+  fetching_cover_in_progress = false;
+  action_collection->action("fetch")->setEnabled(true);
   if (cover_browser_dialog) {
     delete cover_browser_dialog;
     cover_browser_dialog = NULL;
@@ -776,12 +780,12 @@ void CDDAHeaderWidget::set_cover(const QByteArray& cover) {
 void CDDAHeaderWidget::fetch_first_cover() {
   if (cover_browser_dialog) {
     if (cover_browser_dialog->count() == 0) {
-      kDebug() << "no cover found";
+      qDebug() << "no cover found";
       ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
       delete cover_browser_dialog;
       cover_browser_dialog = NULL;
-      fetching_cover_in_progress = FALSE;
-      action_collection->action("fetch")->setEnabled(TRUE);
+      fetching_cover_in_progress = false;
+      action_collection->action("fetch")->setEnabled(true);
     } else {
       connect(cover_browser_dialog, SIGNAL(coverFetched(const QByteArray&)), this, SLOT(set_cover(const QByteArray&)));
       cover_browser_dialog->startFetchCover(0);
@@ -797,24 +801,24 @@ void CDDAHeaderWidget::fetchCoverFinished(bool showDialog) {
     delete cover_browser_dialog;
     cover_browser_dialog = NULL;
   }
-  fetching_cover_in_progress = FALSE;
-  action_collection->action("fetch")->setEnabled(TRUE);
+  fetching_cover_in_progress = false;
+  action_collection->action("fetch")->setEnabled(true);
 }
 
 void CDDAHeaderWidget::auto_fetch_cover_failed() {
-  fetchCoverFinished(FALSE);
+  fetchCoverFinished(false);
 }
 
 void CDDAHeaderWidget::fetch_cover_failed() {
-  fetchCoverFinished(TRUE);
+  fetchCoverFinished(true);
 }
 
 void CDDAHeaderWidget::context_menu(const QPoint& point) {
-  kDebug() << "context menu requested at point" << point;
+  qDebug() << "context menu requested at point" << point;
   if ((cursor_on_cover) && (!fetching_cover_in_progress)) {
     QApplication::restoreOverrideCursor();
-    cursor_on_cover = FALSE;
-    KMenu contextMenu(this);
+    cursor_on_cover = false;
+    QMenu contextMenu(this);
     QMouseEvent *mevent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::RightButton, Qt::RightButton, Qt::NoModifier);
     contextMenu.clear();
     contextMenu.addAction(action_collection->action("fetch"));
@@ -832,27 +836,27 @@ void CDDAHeaderWidget::setup_actions() {
 
   action_collection = new KActionCollection(this);
 
-  KAction* fetchCoverAction = new KAction(this);
+  QAction * fetchCoverAction = new QAction(this);
   fetchCoverAction->setText(i18n("Fetch cover from Google..."));
   action_collection->addAction("fetch", fetchCoverAction);
   connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(google()));
 
-  KAction* loadCoverAction = new KAction(this);
+  QAction * loadCoverAction = new QAction(this);
   loadCoverAction->setText(i18n("Set Custom Cover..."));
   action_collection->addAction("load", loadCoverAction);
   connect(loadCoverAction, SIGNAL(triggered(bool)), this, SLOT(load()));
 
-  KAction* saveCoverAction = new KAction(this);
+  QAction * saveCoverAction = new QAction(this);
   saveCoverAction->setText(i18n("Save Cover To File..."));
   action_collection->addAction("save", saveCoverAction);
   connect(saveCoverAction, SIGNAL(triggered(bool)), this, SLOT(save()));
 
-  KAction* viewCoverAction = new KAction(this);
+  QAction * viewCoverAction = new QAction(this);
   viewCoverAction->setText(i18n("Show Full Size Cover..."));
   action_collection->addAction("view", viewCoverAction);
   connect(viewCoverAction, SIGNAL(triggered(bool)), this, SLOT(view_cover()));
 
-  KAction* removeCoverAction = new KAction(this);
+  QAction * removeCoverAction = new QAction(this);
   removeCoverAction->setText(i18n("Remove Cover"));
   action_collection->addAction("remove", removeCoverAction);
   connect(removeCoverAction, SIGNAL(triggered(bool)), this, SLOT(remove()));

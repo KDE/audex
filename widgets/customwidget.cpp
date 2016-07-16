@@ -18,27 +18,29 @@
 
 #include "customwidget.h"
 
+#include <QDebug>
+
 customWidget::customWidget(Parameters *parameters, QWidget *parent) : customWidgetUI(parent) {
 
   Q_UNUSED(parent);
 
   this->parameters = parameters;
   if (!parameters) {
-    kDebug() << "ParameterString is NULL!";
+    qDebug() << "ParameterString is NULL!";
     return;
   }
 
-  klineedit_pattern->setText(parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN));
-  klineedit_suffix->setText(parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
+  qlineedit_pattern->setText(parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN));
+  qlineedit_suffix->setText(parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
 
-  connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-  connect(klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   connect(kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
 
-  kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
-  changed = FALSE;
+  changed = false;
 
 }
 
@@ -48,12 +50,12 @@ customWidget::~customWidget() {
 
 bool customWidget::save() {
 
-  bool success = TRUE;
+  bool success = true;
 
-  parameters->setValue(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, klineedit_pattern->text());
-  parameters->setValue(ENCODER_CUSTOM_SUFFIX_KEY, klineedit_suffix->text());
+  parameters->setValue(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, qlineedit_pattern->text());
+  parameters->setValue(ENCODER_CUSTOM_SUFFIX_KEY, qlineedit_suffix->text());
 
-  changed = FALSE;
+  changed = false;
 
   return success;
 
@@ -61,11 +63,11 @@ bool customWidget::save() {
 
 void customWidget::pattern_wizard() {
 
-  CommandWizardDialog *dialog = new CommandWizardDialog(klineedit_pattern->text(), this);
+  CommandWizardDialog *dialog = new CommandWizardDialog(qlineedit_pattern->text(), this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  klineedit_pattern->setText(dialog->command);
+  qlineedit_pattern->setText(dialog->command);
 
   delete dialog;
 
@@ -76,8 +78,8 @@ void customWidget::pattern_wizard() {
 void customWidget::trigger_changed() {
 
   changed = (
-    klineedit_pattern->text() != parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN) ||
-    klineedit_suffix->text() != parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX)
+    qlineedit_pattern->text() != parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN) ||
+    qlineedit_suffix->text() != parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX)
   );
 
   emit triggerChanged();

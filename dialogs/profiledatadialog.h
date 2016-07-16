@@ -22,8 +22,8 @@
 #include <QWidget>
 #include <QStackedWidget>
 
-#include <KDebug>
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "models/profilemodel.h"
 #include "utils/encoderassistant.h"
@@ -46,7 +46,7 @@
 
 #include "ui_profiledatawidgetUI.h"
 
-class ProfileDataDialog : public KDialog
+class ProfileDataDialog : public QDialog
 {
 
   Q_OBJECT
@@ -54,9 +54,6 @@ class ProfileDataDialog : public KDialog
 public:
   ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent = 0);
   ~ProfileDataDialog();
-
-protected slots:
-  virtual void slotButtonClicked(int button);
 
 private slots:
   void set_encoder(const int encoder);
@@ -84,9 +81,14 @@ private slots:
   void cuesheet_settings();
   void singlefile_settings();
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::ProfileDataWidgetUI ui;
   ProfileModel *profile_model;
+  QPushButton *applyButton;
+
   int profile_row;
 
   lameWidget *lame_widget;

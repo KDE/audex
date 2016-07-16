@@ -18,24 +18,37 @@
 
 #include "simplepatternwizarddialog.h"
 
-SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, const QString& suffix, QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, const QString& suffix, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
+  setWindowTitle(i18n("Pattern Wizard"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &SimplePatternWizardDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &SimplePatternWizardDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &SimplePatternWizardDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
 
-  setMainWidget(widget);
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(ui.qlineedit_pattern, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
+  ui.qlineedit_pattern->setCursorPosition(0);
 
-  setCaption(i18n("Pattern Wizard"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
-
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-  connect(ui.klineedit_pattern, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
-  ui.klineedit_pattern->setCursorPosition(0);
-  
   connect(ui.kurllabel_aboutschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_schemes()));
   connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
 
@@ -50,8 +63,7 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, con
   this->pattern = pattern;
   this->suffix = suffix;
 
-  enableButtonApply(FALSE);
-  showButtonSeparator(true);
+  applyButton->setEnabled(false);
   update_example();
 
 }
@@ -60,20 +72,18 @@ SimplePatternWizardDialog::~SimplePatternWizardDialog() {
 
 }
 
-void SimplePatternWizardDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void SimplePatternWizardDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void SimplePatternWizardDialog::slotApplied() {
+  save();
 }
 
 void SimplePatternWizardDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 void SimplePatternWizardDialog::about_schemes() {
@@ -112,64 +122,64 @@ void SimplePatternWizardDialog::about_parameters() {
 }
 
 void SimplePatternWizardDialog::insAlbumArtist() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_ALBUM_ARTIST));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_ARTIST));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insAlbumTitle() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_ALBUM_TITLE));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_TITLE));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insCDNo() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_CD_NO));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_CD_NO));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insDate() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_DATE));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_DATE));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insGenre() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_GENRE));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_GENRE));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insSuffix() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_SUFFIX));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_SUFFIX));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 void SimplePatternWizardDialog::insNoOfTracks() {
-  QString text = ui.klineedit_pattern->text();
-  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
-  ui.klineedit_pattern->setText(text);
+  QString text = ui.qlineedit_pattern->text();
+  text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
+  ui.qlineedit_pattern->setText(text);
   update_example();
 }
 
 bool SimplePatternWizardDialog::save() {
-  pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  pattern = ui.qlineedit_pattern->text();
+  applyButton->setEnabled(false);
+  return true;
 }
 
 void SimplePatternWizardDialog::update_example() {
   PatternParser patternparser;
-  QString filename = patternparser.parseSimplePattern(ui.klineedit_pattern->text(),
-	1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, FALSE);
-  ui.klineedit_example->setText(filename);
-  ui.klineedit_example->setCursorPosition(0);
+  QString filename = patternparser.parseSimplePattern(ui.qlineedit_pattern->text(),
+	1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, false);
+  ui.qlineedit_example->setText(filename);
+  ui.qlineedit_example->setCursorPosition(0);
 }

@@ -22,14 +22,14 @@
 #include <QWidget>
 #include <QWhatsThis>
 
-#include <KDebug>
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "utils/patternparser.h"
 
 #include "ui_commandwizardwidgetUI.h"
 
-class CommandWizardDialog : public KDialog {
+class CommandWizardDialog : public QDialog {
 
   Q_OBJECT
 
@@ -38,9 +38,6 @@ public:
   ~CommandWizardDialog();
 
   QString command;
-
-protected slots:
-  virtual void slotButtonClicked(int button);
 
 private slots:
   void trigger_changed();
@@ -63,10 +60,16 @@ private slots:
 
   void update_example();
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::CommandWizardWidgetUI ui;
 
   bool save();
+
+  QPushButton *okButton;
+  QPushButton *applyButton;
 
 };
 

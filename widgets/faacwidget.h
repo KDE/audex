@@ -22,9 +22,6 @@
 #include <QWidget>
 #include <QDir>
 
-#include <KDebug>
-#include <KDialog>
-
 #include "utils/error.h"
 #include "utils/parameters.h"
 #include "utils/encoderassistant.h"

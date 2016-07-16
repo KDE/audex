@@ -18,12 +18,14 @@
 
 #include "coverbrowserdialog.h"
 
-CoverBrowserDialog::CoverBrowserDialog(QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+CoverBrowserDialog::CoverBrowserDialog(QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
   setup();
-  showButtonSeparator(TRUE);
 
 }
 
@@ -43,11 +45,9 @@ void CoverBrowserDialog::startFetchCover(const int no) {
   cover_fetcher.startFetchCover(no);
 }
 
-void CoverBrowserDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok)
-    select_this(ui.listWidget->selectedItems().at(0));
-  else
-    KDialog::slotButtonClicked(button);
+void CoverBrowserDialog::slotAccepted() {
+  select_this(ui.listWidget->selectedItems().at(0));
+  accept();
 }
 
 void CoverBrowserDialog::select_this(QListWidgetItem* item) {
@@ -58,7 +58,7 @@ void CoverBrowserDialog::select_this(QListWidgetItem* item) {
 }
 
 void CoverBrowserDialog::enable_select_button() {
-  enableButtonOk(ui.listWidget->selectedItems().count() > 0);
+  okButton->setEnabled(ui.listWidget->selectedItems().count() > 0);
 }
 
 void CoverBrowserDialog::add_item(const QByteArray& cover, const QString& caption, int no) {
@@ -96,13 +96,23 @@ void CoverBrowserDialog::setup() {
 
   static const int constIconSize=128;
 
+
+  setWindowTitle(i18n("Fetch Cover From Google"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+  okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &CoverBrowserDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &CoverBrowserDialog::reject);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(i18n("Fetch Cover From Google"));
-  setButtons(KDialog::Ok | KDialog::Cancel);
 
   connect(&cover_fetcher, SIGNAL(fetchedThumbnail(const QByteArray&, const QString&, int)), this, SLOT(add_item(const QByteArray&, const QString&, int)));
   connect(&cover_fetcher, SIGNAL(allCoverThumbnailsFetched()), this, SLOT(all_fetched()));
@@ -111,7 +121,7 @@ void CoverBrowserDialog::setup() {
   connect(&cover_fetcher, SIGNAL(error(const QString&, const QString&)), this, SLOT(error(const QString&, const QString&)));
 
   ui.listWidget->setIconSize(QSize(constIconSize, constIconSize));
-  ui.listWidget->setWordWrap(TRUE);
+  ui.listWidget->setWordWrap(true);
   ui.listWidget->setViewMode(QListView::IconMode);
   connect(ui.listWidget, SIGNAL(itemSelectionChanged()), this, SLOT(enable_select_button()));
   connect(ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(select_this(QListWidgetItem*)));

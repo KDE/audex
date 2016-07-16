@@ -27,10 +27,10 @@
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_load"/>
+      <widget class="QPushButton" name="kpushbutton_load"/>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_save"/>
+      <widget class="QPushButton" name="kpushbutton_save"/>
      </item>
     </layout>
    </item>
@@ -74,7 +74,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KLineEdit" name="klineedit_suffix"/>
+      <widget class="QLineEdit" name="qlineedit_suffix"/>
      </item>
      <item>
       <spacer name="horizontalSpacer">
@@ -101,7 +101,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KLineEdit" name="klineedit_pattern">
+      <widget class="QLineEdit" name="qlineedit_pattern">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -111,7 +111,7 @@
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_pattern"/>
+      <widget class="QPushButton" name="kpushbutton_pattern"/>
      </item>
     </layout>
    </item>
@@ -119,14 +119,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KUrlLabel</class>

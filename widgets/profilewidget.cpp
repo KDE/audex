@@ -18,11 +18,15 @@
 
 #include "profilewidget.h"
 
+#include <QFileDialog>
+#include <QIcon>
+#include <QDebug>
+
 profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : profileWidgetUI(parent) {
 
   profile_model = profileModel;
   if (!profile_model) {
-    kDebug() << "ProfileModel is NULL!";
+    qDebug() << "ProfileModel is NULL!";
     return;
   }
 
@@ -39,13 +43,13 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
   connect(kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_profiles()));
   connect(kpushbutton_init, SIGNAL(clicked()), this, SLOT(init_profiles()));
 
-  kpushbutton_add->setIcon(KIcon("list-add"));
-  kpushbutton_rem->setIcon(KIcon("list-remove"));
+  kpushbutton_add->setIcon(QIcon::fromTheme("list-add"));
+  kpushbutton_rem->setIcon(QIcon::fromTheme("list-remove"));
 
-  kpushbutton_load->setIcon(KIcon("document-open"));
-  kpushbutton_save->setIcon(KIcon("document-save"));
+  kpushbutton_load->setIcon(QIcon::fromTheme("document-open"));
+  kpushbutton_save->setIcon(QIcon::fromTheme("document-save"));
 
-  kpushbutton_init->setIcon(KIcon("view-refresh"));
+  kpushbutton_init->setIcon(QIcon::fromTheme("view-refresh"));
 
   _update();
 
@@ -119,14 +123,14 @@ void profileWidget::copy_profile() {
 }
 
 void profileWidget::save_profiles() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Save Cover"));
+  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath(), "*.apf");
   if (!filename.isEmpty()) {
     profile_model->saveProfilesToFile(filename);
   }
 }
 
 void profileWidget::load_profiles() {
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Load Profiles"));
+  QString filename = QFileDialog::getOpenFileName(this, i18n("Load Profiles"), QDir::homePath(), "*.apf");
   if (!filename.isEmpty()) {
     profile_model->loadProfilesFromFile(filename);
   }

@@ -23,8 +23,7 @@
 #include <QStringList>
 #include <QFileInfo>
 
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 
 #include "config.h"
 #include "../models/cddamodel.h"

@@ -19,11 +19,11 @@
 #ifndef CDDAPARANOIA_HEADER
 #define CDDAPARANOIA_HEADER
 
+#include <QObject>
 #include <QString>
 #include <QMutex>
 
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 
 extern "C" {
   #include <cdda_interface.h>
@@ -50,8 +50,11 @@ extern "C" {
 #define PARANOIA_CB_FIXUP_DUPED   11
 #define PARANOIA_CB_READERR       12
 
-class CDDAParanoia : public QObject {
+class CDDAParanoia : public QObject
+{
+
   Q_OBJECT
+
 public:
   CDDAParanoia(QObject *parent = 0);
   ~CDDAParanoia();

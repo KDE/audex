@@ -18,16 +18,21 @@
 
 #include "extractingprogressdialog.h"
 
-ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent) : KDialog(parent) {
+ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent) : QDialog(parent) {
+
+  setWindowTitle(i18n("Rip And Encode"));
+
+  mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel);
+  cancelButton = buttonBox->button(QDialogButtonBox::Cancel);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotCancel);
 
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
-
-  setMainWidget(widget);
-
-  setCaption(i18n("Rip And Encode"));
-
-  setButtons(Cancel);
 
   this->profile_model = profile_model;
   this->cdda_model = cdda_model;
@@ -66,10 +71,9 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
   connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
 
-  showButtonSeparator(TRUE);
-  finished = FALSE;
+  finished = false;
 
-  progressbar_np_flag = FALSE;
+  progressbar_np_flag = false;
 
   unity_message = QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
 
@@ -83,19 +87,19 @@ ExtractingProgressDialog::~ExtractingProgressDialog() {
 
 int ExtractingProgressDialog::exec() {
 
-  KConfigGroup grp(KGlobal::config(), "ExtractingProgressDialog");
+  KConfigGroup grp(KSharedConfig::openConfig(), "ExtractingProgressDialog");
 
   resize(600, 400);
   current_extract_overall = 0;
   current_encode_overall = 0;
-  ui.details_button->setArrowType(grp.readEntry("Simple", TRUE) ? Qt::UpArrow : Qt::DownArrow);
+  ui.details_button->setArrowType(grp.readEntry("Simple", true) ? Qt::UpArrow : Qt::DownArrow);
   toggle_details();
   show();
-  setModal(TRUE);
+  setModal(true);
   if (audex->prepare()) {
     audex->start();
   }
-  int rv = KDialog::exec();
+  int rv = QDialog::exec();
 
   grp.writeEntry("Simple", (Qt::DownArrow==ui.details_button->arrowType()));
 
@@ -113,23 +117,23 @@ void ExtractingProgressDialog::toggle_details() {
   if (Qt::UpArrow == ui.details_button->arrowType()) {
 
     ui.details_button->setArrowType(Qt::DownArrow);
-    ui.details->setVisible(FALSE);
-    ui.label_overall->setVisible(FALSE);
-    ui.label_overall_track->setVisible(TRUE);
-    ui.progressBar_overall->setVisible(TRUE);
+    ui.details->setVisible(false);
+    ui.label_overall->setVisible(false);
+    ui.label_overall_track->setVisible(true);
+    ui.progressBar_overall->setVisible(true);
     resize(width(), 32);
 
   } else {
 
     ui.details_button->setArrowType(Qt::UpArrow);
-    ui.details->setVisible(TRUE);
-    ui.label_overall_track->setVisible(FALSE);
+    ui.details->setVisible(true);
+    ui.label_overall_track->setVisible(false);
 
     if (cdda_model->numOfAudioTracksInSelection() < 2) {
-      ui.label_overall->setVisible(FALSE);
-      ui.progressBar_overall->setVisible(FALSE);
+      ui.label_overall->setVisible(false);
+      ui.progressBar_overall->setVisible(false);
     } else {
-      ui.label_overall->setVisible(TRUE);
+      ui.label_overall->setVisible(true);
     }
     resize(width(), 400);
 
@@ -137,25 +141,20 @@ void ExtractingProgressDialog::toggle_details() {
 
 }
 
-void ExtractingProgressDialog::slotButtonClicked(int button) {
+void ExtractingProgressDialog::slotCancel() {
+  cancel();
+}
 
-  switch(button) {
-    case Cancel:
-      cancel();
-      break;
-    case Close:
-      close();
-      break;
-    case User1:
-      open_encoder_protocol_dialog();
-      break;
-    case User2:
-      open_extract_protocol_dialog();
-      break;
-    default:
-      KDialog::slotButtonClicked(button);
-  }
+void ExtractingProgressDialog::slotClose() {
+  close();
+}
 
+void ExtractingProgressDialog::slotEncoderProtocol() {
+  open_encoder_protocol_dialog();
+}
+
+void ExtractingProgressDialog::slotExtractProtocol() {
+  open_extract_protocol_dialog();
 }
 
 void ExtractingProgressDialog::cancel() {
@@ -170,7 +169,7 @@ void ExtractingProgressDialog::cancel() {
 				i18n("Cancel"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no()) == KMessageBox::Yes) {
-      enableButton(Cancel, FALSE);
+      cancelButton->setEnabled(false);
       audex->cancel();
     }
 
@@ -231,14 +230,14 @@ void ExtractingProgressDialog::show_progress_encode_track(int percent) {
     ui.progressBar_encoding->setValue(percent);
     if (progressbar_np_flag) {
       ui.progressBar_encoding->setRange(0, 100);
-      ui.progressBar_encoding->setTextVisible(TRUE);
-      progressbar_np_flag = FALSE;
+      ui.progressBar_encoding->setTextVisible(true);
+      progressbar_np_flag = false;
     }
   } else {
     if (!progressbar_np_flag) {
-      progressbar_np_flag = TRUE;
+      progressbar_np_flag = true;
       ui.progressBar_encoding->setRange(0, 0);
-      ui.progressBar_encoding->setTextVisible(FALSE);
+      ui.progressBar_encoding->setTextVisible(false);
     }
   }
 
@@ -266,17 +265,20 @@ void ExtractingProgressDialog::show_speed_extract(double speed) {
 }
 
 void ExtractingProgressDialog::conclusion(bool successful) {
+  // Remove the cancel button
+  buttonBox->clear();
+  // Add the new close button
+  buttonBox->addButton(QDialogButtonBox::Close);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotClose);
 
-  QFlags<KDialog::ButtonCode> buttons = Close;
-
-  finished = TRUE;
+  finished = true;
 
   update_unity();
 
   QPalette pal(ui.label_extracting->palette());
   KColorScheme kcs(QPalette::Active);
   if (successful) {
-    QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-ok-apply"), i18n("All jobs successfully done."));
+    QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-ok-apply"), i18n("All jobs successfully done."));
     ui.klistwidget->addItem(item);
     ui.klistwidget->scrollToItem(item);
     pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
@@ -287,48 +289,50 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     ui.progressBar_encoding->setValue(100);
     ui.progressBar_overall->setValue(100);
   } else {
-    QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-cancel"), i18n("At least one job failed."));
+    QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-cancel"), i18n("At least one job failed."));
     pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
     ui.klistwidget->addItem(item);
     ui.klistwidget->scrollToItem(item);
     ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
     ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
     ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
-    if (audex->encoderProtocol().count() > 0) { buttons |= User1; }
-    if (audex->extractProtocol().count() > 0) { buttons |= User2; }
+    if (audex->encoderProtocol().count() > 0) {
+      QPushButton *encoderProtocolButton = new QPushButton();
+      encoderProtocolButton->setText(i18n("Show encoding log..."));
+      encoderProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
+      buttonBox->addButton(encoderProtocolButton, QDialogButtonBox::HelpRole);
+      connect(encoderProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderProtocol);
+    }
+    if (audex->extractProtocol().count() > 0) {
+      QPushButton *extractProtocolButton = new QPushButton();
+      extractProtocolButton->setText(i18n("Show rip log..."));
+      extractProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
+      buttonBox->addButton(extractProtocolButton, QDialogButtonBox::HelpRole);
+      connect(extractProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractProtocol);
+    }
   }
 
-  ui.progressBar_extracting->setEnabled(FALSE);
-  ui.progressBar_encoding->setEnabled(FALSE);
-  ui.progressBar_overall->setEnabled(FALSE);
-  ui.label_speed_extracting->setEnabled(FALSE);
-  ui.label_speed_encoding->setEnabled(FALSE);
-  ui.label_overall->setEnabled(FALSE);
+  ui.progressBar_extracting->setEnabled(false);
+  ui.progressBar_encoding->setEnabled(false);
+  ui.progressBar_overall->setEnabled(false);
+  ui.label_speed_extracting->setEnabled(false);
+  ui.label_speed_encoding->setEnabled(false);
+  ui.label_overall->setEnabled(false);
 
   ui.label_extracting->setPalette(pal);
   ui.label_encoding->setPalette(pal);
-  setButtons(buttons);
-  if (audex->encoderProtocol().count() > 0) {
-    setButtonText(User1, i18n("Show encoding log..."));
-    setButtonIcon(User1, KIcon("media-optical-audio"));
-  }
-  if (audex->extractProtocol().count() > 0) {
-    setButtonText(User2, i18n("Show rip log..."));
-    setButtonIcon(User2, KIcon("media-optical"));
-  }
-
 }
 
 void ExtractingProgressDialog::show_info(const QString& message) {
 
-  QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-information"), message);
+  QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-information"), message);
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);
 
 }
 
 void ExtractingProgressDialog::show_warning(const QString& message) {
-  QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-warning"), message);
+  QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-warning"), message);
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);
 
@@ -338,9 +342,9 @@ void ExtractingProgressDialog::show_error(const QString& message, const QString&
 
   QListWidgetItem *item;
   if (details.isEmpty()) {
-    item = new QListWidgetItem(KIcon("dialog-error"), QString("%1").arg(message));
+    item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1").arg(message));
   } else {
-    item = new QListWidgetItem(KIcon("dialog-error"), QString("%1 (%2)").arg(message).arg(details));
+    item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1 (%2)").arg(message).arg(details));
   }
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);

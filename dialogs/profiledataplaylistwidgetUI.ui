@@ -41,10 +41,10 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="KLineEdit" name="klineedit_pattern"/>
+    <widget class="QLineEdit" name="qlineedit_pattern"/>
    </item>
    <item row="1" column="2">
-    <widget class="KPushButton" name="kpushbutton_pattern"/>
+    <widget class="QPushButton" name="kpushbutton_pattern"/>
    </item>
    <item row="2" column="0" colspan="2">
     <widget class="QCheckBox" name="checkBox_abs_file_path">
@@ -82,14 +82,9 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

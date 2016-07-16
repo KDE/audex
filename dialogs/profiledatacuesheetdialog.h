@@ -21,14 +21,14 @@
 
 #include <QWidget>
 
-#include <KDebug>
-#include <KDialog>
+#include <QDialog>
+#include <QPushButton>
 
 #include "simplepatternwizarddialog.h"
 
 #include "ui_profiledatacuesheetwidgetUI.h"
 
-class ProfileDataCueSheetDialog : public KDialog {
+class ProfileDataCueSheetDialog : public QDialog {
 
   Q_OBJECT
 
@@ -39,15 +39,17 @@ public:
   QString pattern;
 
 protected slots:
-  virtual void slotButtonClicked(int button);
-
   void pattern_wizard();
 
 private slots:
   void trigger_changed();
 
+  void slotAccepted();
+  void slotApplied();
+
 private:
   Ui::ProfileDataCueSheetWidgetUI ui;
+  QPushButton *applyButton;
 
   bool save();
 

@@ -21,7 +21,6 @@
 
 #include <cmath>
 
-#include <QDebug>
 #include <QTimer>
 #include <QWidget>
 #include <QImage>
@@ -33,16 +32,9 @@
 #include <QFont>
 #include <QX11Info>
 
-#include <KAction>
 #include <KActionCollection>
-#include <KFileDialog>
-#include <KMenu>
-#include <KLocale>
-#include <KDebug>
-#include <KStandardDirs>
-#include <KUrl>
+#include <KLocalizedString>
 #include <KColorScheme>
-#include <KMessageBox>
 
 #include "preferences.h"
 

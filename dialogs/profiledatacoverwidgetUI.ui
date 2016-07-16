@@ -25,7 +25,7 @@
     </widget>
    </item>
    <item row="0" column="2">
-    <widget class="KIntSpinBox" name="kintspinbox_x">
+    <widget class="QSpinBox" name="kintspinbox_x">
      <property name="sizePolicy">
       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -51,7 +51,7 @@
     </widget>
    </item>
    <item row="0" column="4">
-    <widget class="KIntSpinBox" name="kintspinbox_y">
+    <widget class="QSpinBox" name="kintspinbox_y">
      <property name="sizePolicy">
       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -93,10 +93,10 @@
     </widget>
    </item>
    <item row="2" column="1" colspan="4">
-    <widget class="KLineEdit" name="klineedit_pattern"/>
+    <widget class="QLineEdit" name="qlineedit_pattern"/>
    </item>
    <item row="2" column="5">
-    <widget class="KPushButton" name="kpushbutton_pattern"/>
+    <widget class="QPushButton" name="kpushbutton_pattern"/>
    </item>
    <item row="3" column="2">
     <spacer name="verticalSpacer">
@@ -120,19 +120,9 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
+   <class>QLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
+   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

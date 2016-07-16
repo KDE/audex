@@ -18,53 +18,63 @@
 
 #include "profiledatacuesheetdialog.h"
 
-ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &pattern, QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &pattern, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
   this->pattern = pattern;
 
+  setWindowTitle(i18n("Cue Sheet Settings"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataCueSheetDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataCueSheetDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &ProfileDataCueSheetDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
 
-  setMainWidget(widget);
-
-  setCaption(i18n("Cue Sheet Settings"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
-
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  enableButtonApply(FALSE);
-  showButtonSeparator(true);
+  applyButton->setEnabled(false);
 
 }
 
 ProfileDataCueSheetDialog::~ProfileDataCueSheetDialog() {
 }
 
-void ProfileDataCueSheetDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void ProfileDataCueSheetDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void ProfileDataCueSheetDialog::slotApplied() {
+  save();
 }
 
 void ProfileDataCueSheetDialog::pattern_wizard() {
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), "cue", this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), "cue", this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -73,12 +83,12 @@ void ProfileDataCueSheetDialog::pattern_wizard() {
 }
 
 void ProfileDataCueSheetDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 bool ProfileDataCueSheetDialog::save() {
-  pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  pattern = ui.qlineedit_pattern->text();
+  applyButton->setEnabled(false);
+  return true;
 }

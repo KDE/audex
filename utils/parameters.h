@@ -61,7 +61,7 @@ public:
     if (!ok) return def;
     return d;
   }
-  inline bool valueToBool(const QString& name, const bool def = TRUE) const {
+  inline bool valueToBool(const QString& name, const bool def = true) const {
     if (def) {
       return ((p_parameters[name].toLower()=="true") || (p_parameters[name].toLower()=="1"));
     } else {

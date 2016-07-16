@@ -17,32 +17,43 @@
  */
 
 #include <QApplication>
-#include <KAboutData>
 #include <QCommandLineParser>
+
+#include <KAboutData>
 
 #include "config.h"
 #include "mainwindow.h"
 
+#include <Kdelibs4ConfigMigrator>
+
 int main (int argc, char *argv[]) {
+  Kdelibs4ConfigMigrator migrator(QStringLiteral("audex"));
+  migrator.setConfigFiles(QStringList() << QStringLiteral("audexrc"));
+  migrator.migrate();
 
-  KAboutData aboutData("audex", 0, ki18n("Audex"), AUDEX_VERSION,
-                       ki18n("KDE CDDA Extractor"),
-                       //KAboutData::License_GPL,
-                       ki18n("Copyright © 2007–2015 by Marco Nelles"),
-                       KLocalizedString(),
-                       "http://userbase.kde.org/Audex",
-                       "audex@maniatek.com");
-  aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer, main developer"), "marco@maniatek.de");
-  aboutData.addCredit(ki18n("Craig Drummond"), ki18n("GUI improvements, development"), 0, "");
-  aboutData.addCredit(ki18n("Elson"), ki18n("development"), 0, "");
-  aboutData.addCredit(ki18n("credativ GmbH"), ki18n("Special thanks to credativ GmbH (Germany) for support"), 0, "http://www.credativ.com/");
-  aboutData.addCredit(ki18n("freedb.org"), ki18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), 0, "http://freedb.org");
-  aboutData.addCredit(ki18n("Xiph.Org Foundation"), ki18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"), 0, "http://www.xiph.org/paranoia/index.html");
-  aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"), ki18nc("EMAIL OF TRANSLATORS", "Your emails"));
+  QApplication app(argc, argv);
 
-  QCommandLineParser::init(argc, argv, &aboutData);
+  KAboutData aboutData("audex", i18n("Audex"), AUDEX_VERSION);
+  aboutData.setShortDescription(i18n("KDE CDDA Extractor"));
+  aboutData.setLicense(KAboutLicense::GPL);
+  aboutData.setCopyrightStatement(i18n("Copyright © 2007–2015 by Marco Nelles"));
+  aboutData.setHomepage("http://userbase.kde.org/Audex");
+  aboutData.setBugAddress("audex@maniatek.com");
+  aboutData.addAuthor(i18n("Marco Nelles"), i18n("Current maintainer, main developer"), "marco@maniatek.de");
+  aboutData.addCredit(i18n("Craig Drummond"), i18n("GUI improvements, development"), 0, "");
+  aboutData.addCredit(i18n("Elson"), i18n("development"), 0, "");
+  aboutData.addCredit(i18n("credativ GmbH"), i18n("Special thanks to credativ GmbH (Germany) for support"), 0, "http://www.credativ.com/");
+  aboutData.addCredit(i18n("freedb.org"), i18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), 0, "http://freedb.org");
+  aboutData.addCredit(i18n("Xiph.Org Foundation"), i18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"), 0, "http://www.xiph.org/paranoia/index.html");
+  aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
-  QApplication app;
+  QCommandLineParser parser;
+  KAboutData::setApplicationData(aboutData);
+  parser.addVersionOption();
+  parser.addHelpOption();
+  aboutData.setupCommandLine(&parser);
+  parser.process(app);
+  aboutData.processCommandLine(&parser);
 
   MainWindow* window = new MainWindow();
   window->show();

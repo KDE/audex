@@ -18,53 +18,63 @@
 
 #include "profiledatasinglefiledialog.h"
 
-ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern, QWidget *parent) : KDialog(parent) {
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
+ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern, QWidget *parent) : QDialog(parent) {
 
   Q_UNUSED(parent);
 
   this->pattern = pattern;
 
+  setWindowTitle(i18n("Single File Settings"));
+
+  QVBoxLayout *mainLayout = new QVBoxLayout;
+  setLayout(mainLayout);
+
+  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
+  QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+  okButton->setDefault(true);
+  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+  applyButton = buttonBox->button(QDialogButtonBox::Apply);
+  connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataSingleFileDialog::slotAccepted);
+  connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataSingleFileDialog::reject);
+  connect(applyButton, &QPushButton::clicked, this, &ProfileDataSingleFileDialog::slotApplied);
+
   QWidget *widget = new QWidget(this);
+  mainLayout->addWidget(widget);
+  mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
 
-  setMainWidget(widget);
-
-  setCaption(i18n("Single File Settings"));
-
-  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
-
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
+  ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
-  ui.klineedit_pattern->setText(pattern);
-  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.qlineedit_pattern->setText(pattern);
+  connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  enableButtonApply(FALSE);
-  showButtonSeparator(true);
+  buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
 
 }
 
 ProfileDataSingleFileDialog::~ProfileDataSingleFileDialog() {
 }
 
-void ProfileDataSingleFileDialog::slotButtonClicked(int button) {
-  if (button == KDialog::Ok) {
-    save();
-    accept();
-  } else if (button == KDialog::Apply) {
-    save();
-  } else {
-    KDialog::slotButtonClicked(button);
-  }
+void ProfileDataSingleFileDialog::slotAccepted() {
+  save();
+  accept();
+}
+
+void ProfileDataSingleFileDialog::slotApplied() {
+  save();
 }
 
 void ProfileDataSingleFileDialog::pattern_wizard() {
 
-  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), "wav", this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), "wav", this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_pattern->setText(dialog->pattern);
+  ui.qlineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -73,12 +83,12 @@ void ProfileDataSingleFileDialog::pattern_wizard() {
 }
 
 void ProfileDataSingleFileDialog::trigger_changed() {
-  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
-  enableButtonApply(FALSE);
+  if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
+  applyButton->setEnabled(false);
 }
 
 bool ProfileDataSingleFileDialog::save() {
-  pattern = ui.klineedit_pattern->text();
-  enableButtonApply(FALSE);
-  return TRUE;
+  pattern = ui.qlineedit_pattern->text();
+  applyButton->setEnabled(false);
+  return true;
 }

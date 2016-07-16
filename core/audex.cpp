@@ -37,13 +37,13 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
                         Preferences::deletePartialFiles());
 
   if (!encoder_wrapper) {
-    kDebug() << "PANIC ERROR. Could not load object EncoderWrapper. Low mem?";
+    qDebug() << "PANIC ERROR. Could not load object EncoderWrapper. Low mem?";
     return;
   }
 
   cdda_extract_thread = new CDDAExtractThread(this, cdda_model->paranoia());
   if (!cdda_extract_thread) {
-    kDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
+    qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
     return;
   }
   cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
@@ -78,10 +78,10 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
   connect(cdda_extract_thread, SIGNAL(error(const QString&, const QString&)), this, SLOT(slot_error(const QString&, const QString&)));
 
   process_counter = 0;
-  timeout_done = FALSE;
+  timeout_done = false;
   timeout_counter = 0;
-  _finished = FALSE;
-  _finished_successful = FALSE;
+  _finished = false;
+  _finished_successful = false;
 
   en_track_index = 0;
   en_track_count = 0;
@@ -110,16 +110,16 @@ bool Audex::prepare() {
 
   if (profile_model->currentProfileIndex() < 0) {
     slot_error(i18n("No profile selected. Operation abort."));
-    return FALSE;
+    return false;
   }
 
-  kDebug() << "Using profile with index" << profile_model->currentProfileIndex();
+  qDebug() << "Using profile with index" << profile_model->currentProfileIndex();
 
   tmp_dir = new TmpDir("audex", "work");
   tmp_path = tmp_dir->tmpPath();
-  if (tmp_dir->error()) return FALSE;
+  if (tmp_dir->error()) return false;
 
-  return TRUE;
+  return true;
 
 }
 
@@ -127,13 +127,13 @@ void Audex::start() {
 
   emit changedEncodeTrack(0, 0, "");
   emit info(i18n("Start ripping and encoding with profile \"%1\"...", p_profile_name));
-  if (check()) start_extract(); else request_finish(FALSE);
+  if (check()) start_extract(); else request_finish(false);
 
 }
 
 void Audex::cancel() {
 
-  request_finish(FALSE);
+  request_finish(false);
 
 }
 
@@ -152,7 +152,7 @@ void Audex::start_extract() {
   if (p_single_file) {
 
     if (ex_track_count >= 1) {
-      if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(TRUE);
+      if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(true);
       return;
     }
 
@@ -171,7 +171,7 @@ void Audex::start_extract() {
 
     QString targetFilename;
     if (!construct_target_filename_for_singlefile(targetFilename, cdnum, nooftracks, artist, title, year, genre, suffix, basepath, overwrite)) {
-      request_finish(FALSE);
+      request_finish(false);
       return;
     }
     ex_track_target_filename = targetFilename;
@@ -203,14 +203,14 @@ void Audex::start_extract() {
 
     } else {
 
-      if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(TRUE);
+      if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(true);
 
     }
 
   } else {
 
     if (ex_track_count >= cdda_model->numOfAudioTracksInSelection()) {
-      if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(TRUE);
+      if (!jobs->jobInProgress() && !jobs->pendingJobs()) request_finish(true);
       return;
     }
 
@@ -218,7 +218,7 @@ void Audex::start_extract() {
 
     bool skip = !cdda_model->isTrackInSelection(ex_track_index);
 
-    if (!cdda_model->isAudioTrack(ex_track_index)) skip = TRUE;
+    if (!cdda_model->isAudioTrack(ex_track_index)) skip = true;
 
     if (!skip) {
 
@@ -243,13 +243,13 @@ void Audex::start_extract() {
       if (cdda_model->isVarious()) {
         if (!construct_target_filename(targetFilename, ex_track_index, cdnum, nooftracks, trackoffset,
             artist, title, tartist, ttitle, year, genre, suffix, basepath, fat32_compatible, replacespaceswithunderscores, _2digitstracknum, overwrite, (ex_track_index==1))) {
-          request_finish(FALSE);
+          request_finish(false);
           return;
         }
       } else {
         if (!construct_target_filename(targetFilename, ex_track_index, cdnum, nooftracks, trackoffset,
             artist, title, artist, ttitle, year, genre, suffix, basepath, fat32_compatible, replacespaceswithunderscores, _2digitstracknum, overwrite, (ex_track_index==1))) {
-          request_finish(FALSE);
+          request_finish(false);
           return;
         }
       }
@@ -320,7 +320,7 @@ void Audex::start_encode() {
   if (p_single_file) {
 
     if (en_track_count >= 1) {
-      request_finish(TRUE);
+      request_finish(true);
       return;
     }
 
@@ -347,16 +347,16 @@ void Audex::start_encode() {
     en_track_filename = job->sourceFilename();
     en_track_index = job->trackNo();
     if (!encoder_wrapper->encode(job->trackNo(), cdnum, 0, nooftracks,
-          artist, title, artist, title, genre, year, suffix, cover, FALSE, tmp_path,
+          artist, title, artist, title, genre, year, suffix, cover, false, tmp_path,
           job->sourceFilename(), targetFilename)) {
-      request_finish(FALSE);
+      request_finish(false);
     }
     process_counter++;
 
   } else {
 
     if (en_track_count >= cdda_model->numOfAudioTracksInSelection()) {
-      request_finish(TRUE);
+      request_finish(true);
       return;
     }
 
@@ -390,13 +390,13 @@ void Audex::start_encode() {
       if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset, nooftracks,
             artist, title, tartist, ttitle, genre, year, suffix, cover, fat32_compatible, tmp_path,
             job->sourceFilename(), targetFilename)) {
-        request_finish(FALSE);
+        request_finish(false);
       }
     } else {
       if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset, nooftracks,
             artist, title, artist, ttitle, genre, year, suffix, cover, fat32_compatible, tmp_path,
             job->sourceFilename(), targetFilename)) {
-        request_finish(FALSE);
+        request_finish(false);
       }
     }
     process_counter++;
@@ -411,7 +411,7 @@ void Audex::finish_encode() {
   jobs->reportJobFinished();
 
   cdda_model->setCustomDataPerTrack(en_track_index, "filename", en_track_target_filename);
-  cdda_model->setCustomDataPerTrack(en_track_index, "ripped", TRUE);
+  cdda_model->setCustomDataPerTrack(en_track_index, "ripped", true);
 
   QFile file(en_track_filename);
   file.remove();
@@ -432,7 +432,7 @@ void Audex::calculate_speed_extract() {
     if (new_value < 0.0f) new_value = 0.0f;
     if ((new_value < 0.2f) && (!timeout_done)) {
       timeout_counter += 2;
-      if (timeout_counter >= 300) { timeout_done = TRUE; emit timeout(); }
+      if (timeout_counter >= 300) { timeout_done = true; emit timeout(); }
     }
     emit speedExtract(new_value);
   } else {
@@ -492,7 +492,7 @@ void Audex::write_to_wave(const QByteArray& data) {
 
 void Audex::slot_error(const QString& description, const QString& solution) {
   emit error(description, solution);
-  request_finish(FALSE);
+  request_finish(false);
 }
 
 void Audex::slot_warning(const QString& description) {
@@ -508,7 +508,7 @@ void Audex::check_if_thread_still_running() {
     //this could happen if the thread is stuck in paranoia_read
     //because of an unreadable cd
     cdda_extract_thread->terminate();
-    kDebug() << "Terminate extracting thread.";
+    qDebug() << "Terminate extracting thread.";
   }
 }
 
@@ -531,13 +531,13 @@ bool Audex::construct_target_filename(QString& targetFilename,
   int lastSlash = targetFilename.lastIndexOf("/", -1);
   if (lastSlash == -1) {
     emit error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
-    return FALSE;
+    return false;
   }
   QString targetPath = targetFilename.mid(0, lastSlash);
   QString targetStrippedFilename = targetFilename.mid(lastSlash+1);
   target_dir = targetPath;
 
-  if (!p_mkdir(targetPath)) return FALSE;
+  if (!p_mkdir(targetPath)) return false;
 
   KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
   quint64 free = diskfreespace.available() / 1024;
@@ -553,14 +553,14 @@ bool Audex::construct_target_filename(QString& targetFilename,
       emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
 
       cdda_model->setCustomDataPerTrack(trackno, "filename", targetFilename);
-      cdda_model->setCustomDataPerTrack(trackno, "ripped", TRUE);
+      cdda_model->setCustomDataPerTrack(trackno, "ripped", true);
 
       targetFilename.clear();
     }
   }
   delete file;
 
-  return TRUE;
+  return true;
 
 }
 
@@ -573,12 +573,12 @@ bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
 
   PatternParser patternparser;
   targetFilename = ((basepath.right(1)=="/")?basepath:basepath+"/")+patternparser.parseSimplePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString(),
-        cdno, nooftracks, artist, title, date, genre, ext, FALSE);
+        cdno, nooftracks, artist, title, date, genre, ext, false);
 
   int lastSlash = targetFilename.lastIndexOf("/", -1);
   if (lastSlash == -1) {
     emit error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
-    return FALSE;
+    return false;
   }
   QString targetPath = targetFilename.mid(0, lastSlash);
   target_dir = targetPath;
@@ -587,7 +587,7 @@ bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
   if (!dir->exists()) {
     if (!dir->mkpath(targetPath)) {
       emit error(i18n("Unable to create folder \"%1\".", targetPath), i18n("Please check your path (write access?)"));
-      return FALSE;
+      return false;
     } else {
       emit info(i18n("Folder \"%1\" successfully created.", targetPath));
     }
@@ -616,7 +616,7 @@ bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
   }
   delete file;
 
-  return TRUE;
+  return true;
 
 }
 
@@ -624,7 +624,7 @@ bool Audex::check() {
 
   if (tmp_dir->error()) {
     slot_error(i18n("Temporary folder \"%1\" error.", tmp_dir->tmpPath()), i18n("Please check."));
-    return FALSE;
+    return false;
   }
 
   quint64 free = tmp_dir->freeSpace() / 1024;
@@ -632,17 +632,17 @@ bool Audex::check() {
     slot_warning(i18n("Free space on temporary folder \"%1\" is less than 800 MiB.", tmp_dir->tmpPathBase()));
   } else if (free < 200*1024) {
     slot_error(i18n("Temporary folder \"%1\" needs at least 200 MiB of free space.", tmp_dir->tmpPathBase()), i18n("Please free space or set another path."));
-    return FALSE;
+    return false;
   }
 
-  return TRUE;
+  return true;
 
 }
 
 void Audex::request_finish(bool successful) {
 
   if (!_finished) {
-    _finished = TRUE;
+    _finished = true;
     _finished_successful = successful;
   } else {
     return;
@@ -693,7 +693,7 @@ void Audex::execute_finish() {
       if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()) {
         QSize size = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
         image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-        kDebug() << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
+        qDebug() << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
       }
       QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
       QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
@@ -925,7 +925,7 @@ void Audex::execute_finish() {
     QStringList files = tmp.entryList(QStringList() << "*", QDir::Files | QDir::NoDotAndDotDot);
     for (int i = 0; i < files.count(); ++i) {
       QFile::remove(tmp_path+files[i]);
-      kDebug() << "Deleted temporary file" << tmp_path+files[i];
+      qDebug() << "Deleted temporary file" << tmp_path+files[i];
     }
   }
 
@@ -940,7 +940,7 @@ bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative,
   QFileInfo fileinfo(filename);
   if (fileinfo.isAbsolute()) {
     if (!p_mkdir(fileinfo.dir().absolutePath())) {
-      return FALSE;
+      return false;
     } else {
       result = filename;
     }
@@ -949,7 +949,7 @@ bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative,
       QDir dir(targetDirIfRelative);
       if (!dir.isReadable()) {
         emit error(i18n("Unable to open folder \"%1\".", targetDirIfRelative), i18n("Please check your path and permissions"));
-        return FALSE;
+        return false;
       }
       result = targetDirIfRelative+"/"+filename;
     } else {
@@ -961,13 +961,13 @@ bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative,
     QFileInfo info(result);
     if (info.exists()) {
       emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
-      return FALSE;
+      return false;
     }
   }
 
   filename = result;
 
-  return TRUE;
+  return true;
 
 }
 
@@ -977,18 +977,18 @@ bool Audex::p_mkdir(const QString& absoluteFilePath) {
   if (dir.exists()) {
     if (!dir.isReadable()) {
       emit error(i18n("Unable to open folder \"%1\".", absoluteFilePath), i18n("Please check your path and permissions"));
-      return FALSE;
+      return false;
     }
   } else {
     if (!dir.mkpath(absoluteFilePath)) {
       emit error(i18n("Unable to create folder \"%1\".", absoluteFilePath), i18n("Please check your path (write access?)"));
-      return FALSE;
+      return false;
     } else {
       emit info(i18n("Folder \"%1\" successfully created.", absoluteFilePath));
     }
   }
 
-  return TRUE;
+  return true;
 
 }
 
