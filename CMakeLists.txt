@@ -46,8 +46,8 @@ find_package(KF5 REQUIRED COMPONENTS
   TextWidgets
   WidgetsAddons
   XmlGui
+  Cddb
 )
-find_package(Libkcddb REQUIRED)
 find_package(Cdparanoia REQUIRED)
 
 include_directories(
@@ -156,7 +156,7 @@ target_link_libraries(audex
     KF5::TextWidgets
     KF5::WidgetsAddons
     KF5::XmlGui
-    KDE::Libkcddb::kcddb
+    KF5::Cddb
     ${CDPARANOIA_LIBRARIES}
 )
 
