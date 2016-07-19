@@ -33,9 +33,9 @@
 
 #include <KLocalizedString>
 
-#include <libkcddb/kcddb.h>
-#include <libkcddb/client.h>
-#include <libkcddb/cdinfo.h>
+#include <KCddb/Kcddb>
+#include <KCddb/Client>
+#include <KCddb/Cdinfo>
 
 #include "utils/cddadevices.h"
 #include "utils/cddaparanoia.h"

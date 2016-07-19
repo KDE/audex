@@ -38,9 +38,9 @@
 #include <KTextEdit>
 #include <QPushButton>
 #include <KMessageBox>
-#include <libkcddb/kcddb.h>
-#include <libkcddb/client.h>
-#include <libkcddb/cdinfo.h>
+#include <KCddb/Kcddb>
+#include <KCddb/Client>
+#include <KCddb/Cdinfo>
 
 #include "utils/error.h"
 #include "utils/cuesheetwriter.h"
