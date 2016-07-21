@@ -77,7 +77,6 @@ private slots:
 private:
   QHash<QString, OpticalAudioDisc*> p_discs;
 
-  bool isOpticalAudioDrive(const Solid::Device& device) const;
   bool p_is_optical_audio_disc(const Solid::Device& device) const;
 
   void p_clear();
