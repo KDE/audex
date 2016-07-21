@@ -80,7 +80,7 @@ void CDDADevices::eject(const QString& udi)
   if (!disc) return;
 
   Solid::Device device(disc->device.parentUdi());
-  device.as<Solid::OpticalDrive>()->eject();
+  if (device.as<Solid::OpticalDrive>()) device.as<Solid::OpticalDrive>()->eject();
 
 }
 

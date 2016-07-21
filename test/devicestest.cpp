@@ -56,7 +56,8 @@ void DevicesTest::testEject()
 
     // Purposely use OpticalDrive's parent
     Solid::Device device(disc->device.parentUdi());
-    device.as<Solid::OpticalDrive>()->eject();
+    if (device.as<Solid::OpticalDrive>()) 
+        device.as<Solid::OpticalDrive>()->eject();
 }
 
 QTEST_GUILESS_MAIN(DevicesTest)
