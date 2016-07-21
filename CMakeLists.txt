@@ -174,4 +174,9 @@ install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/ac
 add_subdirectory(icons)
 add_subdirectory(images)
 
+if(BUILD_TESTING)
+    find_package(Qt5Test REQUIRED)
+    add_subdirectory(test)
+endif()
+
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES)
