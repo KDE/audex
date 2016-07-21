@@ -49,7 +49,7 @@ CDDAModel::CDDAModel(QObject *parent) : QAbstractTableModel(parent) {
   modified = false;
   _empty = true;
 
-  QTimer::singleShot(2000, devices, SLOT(scanBus()));
+  QTimer::singleShot(200, devices, SLOT(scanBus()));
 
 }
 

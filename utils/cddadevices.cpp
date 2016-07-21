@@ -65,7 +65,8 @@ void CDDADevices::scanBus()
 
   p_clear();
 
-  QList<Solid::Device> list = Solid::Device::listFromType(Solid::DeviceInterface::OpticalDisc, QString());
+  // FIXME: OpticalDisc is too strict!
+  QList<Solid::Device> list = Solid::Device::listFromType(Solid::DeviceInterface::OpticalDrive, QString());
 
   for (int i = 0; i < list.count(); ++i)
     p_solid_device_added(list.value(i).udi());
@@ -99,7 +100,7 @@ void CDDADevices::p_solid_device_added(const QString& udi)
   Solid::Device device(udi);
 
   qDebug() << "Device found:" << device.udi();
-  if (p_is_optical_audio_disc(device))
+  if (isOpticalAudioDrive(device))
   {
     qDebug() << "is audio.";
     OpticalAudioDisc *disc = new OpticalAudioDisc();
@@ -107,6 +108,8 @@ void CDDADevices::p_solid_device_added(const QString& udi)
     disc->device = device;
     p_discs.insert(udi, disc);
     emit audioDiscDetected(udi);
+  } else {
+    qDebug() << device.udi() << "is not audio.";
   }
 
 }
@@ -124,6 +127,13 @@ void CDDADevices::p_solid_device_removed(const QString& udi)
     emit audioDiscRemoved(udi);
   }
 
+}
+
+bool CDDADevices::isOpticalAudioDrive(const Solid::Device& device) const 
+{
+    if (device.is<Solid::OpticalDrive>())
+        return (device.as<Solid::OpticalDrive>()->supportedMedia() & Solid::OpticalDrive::Cdr);
+    return false;
 }
 
 bool CDDADevices::p_is_optical_audio_disc(const Solid::Device& device) const
