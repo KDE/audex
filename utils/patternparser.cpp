@@ -224,11 +224,16 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
 
         int x = -1;
         int y = -1;
-        bool ok = false; // Thank dcb314@hotmail.com it is Uninitialized issue!
-        if (!atts.value("x").isEmpty()) x = atts.value("x").toInt(&ok);
-        if (!ok) x = -1;
-        if (!atts.value("y").isEmpty()) y = atts.value("y").toInt(&ok);
-        if (!ok) y = -1;
+        bool ok;
+        if (!atts.value("x").isEmpty()) {
+            // when *ok is false, QString::toInt() often return 0
+            x = atts.value("x").toInt(&ok);
+            if (!ok) x = -1;
+        }
+        if (!atts.value("y").isEmpty()) {
+            y = atts.value("y").toInt(&ok);
+            if (!ok) y = -1;
+        }
 
         QByteArray ba = QCryptographicHash::hash(QString(artist+title+date+QString("%1").arg(x*y)+format).toUtf8(), QCryptographicHash::Md5);
         QString mda5 = ba.toHex();
