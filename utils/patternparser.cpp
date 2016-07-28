@@ -224,7 +224,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
 
         int x = -1;
         int y = -1;
-        bool ok;
+        bool ok = false; // Thank dcb314@hotmail.com it is Uninitialized issue!
         if (!atts.value("x").isEmpty()) x = atts.value("x").toInt(&ok);
         if (!ok) x = -1;
         if (!atts.value("y").isEmpty()) y = atts.value("y").toInt(&ok);
