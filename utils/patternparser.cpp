@@ -60,6 +60,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s = artist;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(s); else s = make_compatible(s);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      // int QString::toInt(bool *ok, int base) const
+      // If a conversion error occurs, *\a{ok} is set to \c false; otherwise 
+      // *\a{ok} is set to \c true.
+      // http://code.qt.io/cgit/qt/qtbase.git/tree/src/corelib/tools/qstring.cpp#n6418
       bool ok; int left = atts.value("left").toInt(&ok);
       if ((ok) && (left > 0)) s = s.left(left);
       if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
@@ -207,6 +211,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString format = STANDARD_EMBED_COVER_FORMAT;
       if (!atts.value("format").isEmpty()) format = atts.value("format");
 
+      // cover set by setCover
       if ((cover) && (!cover->supportedFormats().contains(format.toAscii().toLower()))) format = STANDARD_EMBED_COVER_FORMAT;
 
       QString filename;
@@ -500,6 +505,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
   handler.setDate(date);
   handler.setGenre(genre);
   handler.setSuffix(suffix);
+  // cover is initialized!
   handler.setCover(cover);
   handler.setFAT32Compatible(fatcompatible);
   handler.setTMPPath(tmppath);
