@@ -120,8 +120,7 @@ static QImage fadeImage(const QImage &img, float val, const QColor &color) {
         b = cb - tbl[cb-blue];
       else
         b = cb + tbl[blue-cb];
-        tmpImage.setColor(i, qRgba(r, g, b, qAlpha(col)));
-
+      tmpImage.setColor(i, qRgba(r, g, b, qAlpha(col)));
     }
 
   } else {
