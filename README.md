@@ -1,7 +1,7 @@
 Audex
 =====
 
-Audex is an audio grabber tool for CD-ROM drives for the KDE desktop.
+Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 
 ### Prerequisites
 
