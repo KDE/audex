@@ -49,6 +49,11 @@ int main (int argc, char *argv[]) {
   aboutData.addCredit(i18n("Xiph.Org Foundation"), i18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"), 0, "http://www.xiph.org/paranoia/index.html");
   aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
+  aboutData.setOrganizationDomain(QByteArray("kde.org"));
+  aboutData.setDesktopFileName(QStringLiteral("org.kde.audex"));
+
+  app.setWindowIcon(QIcon::fromTheme(QStringLiteral("audex")));
+
   QCommandLineParser parser;
   KAboutData::setApplicationData(aboutData);
   parser.addVersionOption();
