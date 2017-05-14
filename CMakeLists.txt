@@ -118,7 +118,7 @@ set(audex_SRCS
   core/audex.cpp
 )
 
-qt5_wrap_ui(audex_SRCS
+ki18n_wrap_ui(audex_SRCS
   widgets/generalsettingswidgetUI.ui
   widgets/devicewidgetUI.ui
   widgets/profilewidgetUI.ui

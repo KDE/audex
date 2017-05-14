@@ -33,6 +33,8 @@ int main (int argc, char *argv[]) {
 
   QApplication app(argc, argv);
 
+  KLocalizedString::setApplicationDomain("audex");
+
   KAboutData aboutData("audex", i18n("Audex"), AUDEX_VERSION);
   aboutData.setShortDescription(i18n("KDE CDDA Extractor"));
   aboutData.setLicense(KAboutLicense::GPL);
