@@ -385,7 +385,7 @@ void ExtractingProgressDialog::update_unity() {
   props["count"]=current_track;
   props["progress-visible"]=show_progress;
   props["progress"]=show_progress ? (double)(progress/100.0) : 0.0;
-  args.append("application://audex.desktop");
+  args.append("application://org.kde.audex.desktop");
   args.append(props);
   unity_message.setArguments(args);
   QDBusConnection::sessionBus().send(unity_message);
