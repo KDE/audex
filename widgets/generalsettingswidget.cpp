@@ -34,6 +34,7 @@ generalSettingsWidget::generalSettingsWidget(QWidget* parent) : generalSettingsW
   kcfg_wikipediaLocale->addItem(QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "audex/images/spain.png")), i18n("Español"), "es");
   kcfg_wikipediaLocale->addItem(QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "audex/images/portugal.png")), i18n("Português"), "pt");
   kcfg_wikipediaLocale->addItem(QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "audex/images/sweden.png")), i18n("Svenska"), "sv");
+  kcfg_wikipediaLocale->addItem(QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "audex/images/catalonia.png")), i18n("Català"), "ca");
 
   urlreq_basePath->setMode(KFile::Directory|KFile::LocalOnly);
   urlreq_basePath->lineEdit()->setObjectName("kcfg_basePath");
