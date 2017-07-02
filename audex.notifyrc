@@ -1,6 +1,7 @@
 [Global]
 IconName=Audex
 Comment=Audex CDDA Ripping
+Comment[ast]=Ripéu de CDDA d'Audex
 Comment[bs]=Audex CDDA izdvajanje
 Comment[ca]=Extractor de CDDA Audex
 Comment[ca@valencia]=Extractor de CDDA Audex
@@ -49,6 +50,7 @@ Name[x-test]=xxAudexxx
 
 [Event/allTracksRipped]
 Name=All tracks ripped
+Name[ast]=Toles pistes ripiaes
 Name[bs]=Izvađen sadržaj svih staza
 Name[ca]=S'han extret totes les pistes
 Name[ca@valencia]=S'han extret totes les pistes
@@ -71,6 +73,7 @@ Name[tr]=Tüm parçalar dönüştürüldü
 Name[uk]=Видобуто всі доріжки
 Name[x-test]=xxAll tracks rippedxx
 Comment=All tracks finished ripping
+Comment[ast]=Finó'l ripéu de toles pistes
 Comment[bs]=Završeno vađenje sadržaja svih staza
 Comment[ca]=L'extracció de totes les pistes ha acabat
 Comment[ca@valencia]=L'extracció de totes les pistes ha acabat
@@ -97,6 +100,7 @@ Sound=KDE-Sys-App-Positive.ogg
 
 [Event/trackRipped]
 Name=Track Ripped
+Name[ast]=Pista ripiada
 Name[bs]=Izvađen sadržaj staze
 Name[ca]=Pista extreta
 Name[ca@valencia]=Pista extreta
@@ -120,6 +124,7 @@ Name[ug]=نەغمە سويۇلدى
 Name[uk]=Доріжку видобуто
 Name[x-test]=xxTrack Rippedxx
 Comment=Track finished ripping
+Comment[ast]=Finó'l ripéu de la pista
 Comment[bs]=Završeno vađenje sadržaja svih staze
 Comment[ca]=L'extracció de la pista ha acabat
 Comment[ca@valencia]=L'extracció de la pista ha acabat

@@ -7,6 +7,7 @@ Actions=ripaudiocd;
 Exec=audex
 Icon=audex
 Name=Extract Digital Audio with Audex
+Name[ast]=Estrayer audiu dixital con Audex
 Name[bs]=Izdvoji digitalni zvuk Audexom
 Name[ca]=Extreu àudio digital amb l'Audex
 Name[ca@valencia]=Extreu àudio digital amb l'Audex
