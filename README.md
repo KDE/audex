@@ -17,13 +17,13 @@ Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 * eyeD3 (mp3 tagging)
 
 ### Compile
-
+```
 mkdir build
 cd build
 cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr ..
 make
 (sudo) make install
-
+```
 ### Further information
 
 These files make Audex linux dependant:
