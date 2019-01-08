@@ -35,7 +35,6 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   QVBoxLayout *mainLayout = new QVBoxLayout;
   setLayout(mainLayout);
 
-  connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(enable_scale(bool)));
 
   QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel|QDialogButtonBox::Apply);
   QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
@@ -51,6 +50,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   mainLayout->addWidget(buttonBox);
   ui.setupUi(widget);
 
+  connect(ui.checkBox_scale, &QCheckBox::toggled, this, &ProfileDataCoverDialog::enable_scale);
   connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
   ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
