@@ -20,6 +20,7 @@
 #include <QCommandLineParser>
 
 #include <KAboutData>
+#include <KCrash>
 
 #include "config.h"
 #include "mainwindow.h"
@@ -32,6 +33,8 @@ int main (int argc, char *argv[]) {
   migrator.migrate();
 
   QApplication app(argc, argv);
+
+  KCrash::initialize();
 
   KLocalizedString::setApplicationDomain("audex");
 

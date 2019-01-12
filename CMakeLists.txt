@@ -15,7 +15,9 @@ set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 include(CPack)
 
-find_package(ECM REQUIRED NO_MODULE)
+set(KF5_MIN_VERSION "5.15.0")
+
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
@@ -34,10 +36,11 @@ find_package(Qt5 REQUIRED COMPONENTS
   Widgets
   X11Extras
 )
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VER} REQUIRED COMPONENTS
   Config
   Completion
   CoreAddons
+  Crash
   I18n
   IconThemes
   KCMUtils
@@ -154,6 +157,7 @@ target_link_libraries(audex
     Qt5::X11Extras
     KF5::Completion
     KF5::CoreAddons
+    KF5::Crash
     KF5::I18n
     KF5::IconThemes
     KF5::KCMUtils
