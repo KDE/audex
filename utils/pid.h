@@ -25,6 +25,7 @@
 #include <QObject>
 
 class PID : public QObject {
+  Q_OBJECT
 
 public:
   PID();

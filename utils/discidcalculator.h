@@ -24,6 +24,7 @@
 #define FRAMES2SEC(frames) ((frames) / 75)
 
 class DiscIDCalculator : public QObject {
+  Q_OBJECT
 
 public:
   static quint32 FreeDBId(const QList<quint32>& discSignature);
