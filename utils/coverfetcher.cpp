@@ -85,7 +85,7 @@ void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int f
   fetch_no = fetchNo;
 
   search_string = searchstring;
-  search_string.replace('&', "");
+  search_string.remove('&');
 
   // Google requires the user IP
   QString url("http://www.telize.com/ip");
