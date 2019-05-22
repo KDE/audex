@@ -32,10 +32,10 @@ TmpDir::TmpDir(const QString& appName, const QString& sub) : QObject() {
   PID pid;
   p_tmp_path = p_tmp_path_base;
   if (p_tmp_path.right(1) != "/") p_tmp_path += "/";
-  p_tmp_path += appName+"."+QString("%1").arg(pid.getPID())+"/";
+  p_tmp_path += appName+"."+QString("%1").arg(pid.getPID())+'/';
   p_tmp_path_app = p_tmp_path;
   if (!sub.isEmpty()) {
-    p_tmp_path += sub+"/";
+    p_tmp_path += sub+'/';
   }
   qDebug() << "Temporary folder in use:" << p_tmp_path;
   p_error = !p_create_dir(p_tmp_path);

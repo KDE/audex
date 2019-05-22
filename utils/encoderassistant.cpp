@@ -124,10 +124,10 @@ const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder)
   process.setOutputChannelMode(KProcess::SeparateChannels);
   process.setReadChannel(KProcess::StandardError);
   switch (encoder) {
-    case EncoderAssistant::LAME : process.setShellCommand(QString(ENCODER_LAME_BIN)+" "+QString(ENCODER_LAME_VERSION_PARA)); break;
-    case EncoderAssistant::OGGENC : process.setShellCommand(QString(ENCODER_OGGENC_BIN)+" "+QString(ENCODER_OGGENC_VERSION_PARA)); break;
-    case EncoderAssistant::FLAC : process.setShellCommand(QString(ENCODER_FLAC_BIN)+" "+QString(ENCODER_FLAC_VERSION_PARA)); break;
-    case EncoderAssistant::FAAC : process.setShellCommand(QString(ENCODER_FAAC_BIN)+" "+QString(ENCODER_FAAC_VERSION_PARA)); break;
+    case EncoderAssistant::LAME : process.setShellCommand(QString(ENCODER_LAME_BIN)+' '+QString(ENCODER_LAME_VERSION_PARA)); break;
+    case EncoderAssistant::OGGENC : process.setShellCommand(QString(ENCODER_OGGENC_BIN)+' '+QString(ENCODER_OGGENC_VERSION_PARA)); break;
+    case EncoderAssistant::FLAC : process.setShellCommand(QString(ENCODER_FLAC_BIN)+' '+QString(ENCODER_FLAC_VERSION_PARA)); break;
+    case EncoderAssistant::FAAC : process.setShellCommand(QString(ENCODER_FAAC_BIN)+' '+QString(ENCODER_FAAC_VERSION_PARA)); break;
     case EncoderAssistant::WAVE : return "";
     case EncoderAssistant::CUSTOM : return "";
     default : return "";
@@ -137,9 +137,9 @@ const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder)
   QByteArray rawoutput = process.readAllStandardError();
   if (rawoutput.size() == 0) rawoutput = process.readAllStandardOutput();
   QString output(rawoutput);
-  QStringList list = output.trimmed().split("\n");
+  QStringList list = output.trimmed().split('\n');
   if (list.count()==0) return "";
-  QStringList words = list[0].split(" ");
+  QStringList words = list[0].split(' ');
   if (words.count()==0) return "";
 
   switch (encoder) {
@@ -156,7 +156,7 @@ const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder)
 
     case EncoderAssistant::FAAC :
       if (list.count()<2) return "";
-      words = list[1].split(" ");
+      words = list[1].split(' ');
       if (words.count()<2) return "";
       if ((words.contains("FAAC")) && (words.indexOf("FAAC")+1<words.count())) return words[words.indexOf("FAAC")+1];
       return words[1];
@@ -192,7 +192,7 @@ long EncoderAssistant::versionNumber(const EncoderAssistant::Encoder encoder) {
         // separated by . so we use the same code for all
         // convert to a number for easy version comparison.
         // Each of the 3 version components must be < 255
-        QStringList version = v.split(".");
+        QStringList version = v.split('.');
         int major = 0;
         int minor = 0;
         int patch = 0;
@@ -484,12 +484,12 @@ const QMap<int,QString> EncoderAssistant::availableEncoderNameListWithVersions()
 
   QMap<int,QString> encoders;
 
-  if (EncoderAssistant::available(EncoderAssistant::LAME)) encoders[(int)EncoderAssistant::LAME] = ENCODER_LAME_NAME+" "+version(LAME);
-  if (EncoderAssistant::available(EncoderAssistant::OGGENC)) encoders[(int)EncoderAssistant::OGGENC] = ENCODER_OGGENC_NAME+" "+version(OGGENC);
-  if (EncoderAssistant::available(EncoderAssistant::FLAC)) encoders[(int)EncoderAssistant::FLAC] = ENCODER_FLAC_NAME+" "+version(FLAC);
-  if (EncoderAssistant::available(EncoderAssistant::FAAC)) encoders[(int)EncoderAssistant::FAAC] = ENCODER_FAAC_NAME+" "+version(FAAC);
-  if (EncoderAssistant::available(EncoderAssistant::WAVE)) encoders[(int)EncoderAssistant::WAVE] = ENCODER_WAVE_NAME+" "+version(WAVE);
-  if (EncoderAssistant::available(EncoderAssistant::CUSTOM)) encoders[(int)EncoderAssistant::CUSTOM] = ENCODER_CUSTOM_NAME+" "+version(CUSTOM);
+  if (EncoderAssistant::available(EncoderAssistant::LAME)) encoders[(int)EncoderAssistant::LAME] = ENCODER_LAME_NAME+' '+version(LAME);
+  if (EncoderAssistant::available(EncoderAssistant::OGGENC)) encoders[(int)EncoderAssistant::OGGENC] = ENCODER_OGGENC_NAME+' '+version(OGGENC);
+  if (EncoderAssistant::available(EncoderAssistant::FLAC)) encoders[(int)EncoderAssistant::FLAC] = ENCODER_FLAC_NAME+' '+version(FLAC);
+  if (EncoderAssistant::available(EncoderAssistant::FAAC)) encoders[(int)EncoderAssistant::FAAC] = ENCODER_FAAC_NAME+' '+version(FAAC);
+  if (EncoderAssistant::available(EncoderAssistant::WAVE)) encoders[(int)EncoderAssistant::WAVE] = ENCODER_WAVE_NAME+' '+version(WAVE);
+  if (EncoderAssistant::available(EncoderAssistant::CUSTOM)) encoders[(int)EncoderAssistant::CUSTOM] = ENCODER_CUSTOM_NAME+' '+version(CUSTOM);
 
   return encoders;
 

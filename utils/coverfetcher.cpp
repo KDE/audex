@@ -85,7 +85,7 @@ void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int f
   fetch_no = fetchNo;
 
   search_string = searchstring;
-  search_string.replace("&", "");
+  search_string.replace('&', "");
 
   // Google requires the user IP
   QString url("http://www.telize.com/ip");
@@ -203,7 +203,7 @@ void CoverFetcher::parse_html_response(const QString& xml) {
 
   QScriptValue responseData;
   QScriptEngine engine;
-  responseData = engine.evaluate("("+xml+")");
+  responseData = engine.evaluate('('+xml+')');
 
 
   QScriptValue resultsData=responseData.property("responseData").property("results");

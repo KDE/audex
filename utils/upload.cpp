@@ -44,7 +44,7 @@ void Upload::upload(const QString& targetpath, const QStringList& filelist) {
     if (olddir==dir) break;
     ++i;
     QUrl url = base_url;
-    url.setPath(base_url.path()+"/"+dir);
+    url.setPath(base_url.path()+'/'+dir);
     //qDebug() << url;
     KIO::Job *job = KIO::mkdir(url);
     if (!job->exec()) {
@@ -60,7 +60,7 @@ void Upload::upload(const QString& targetpath, const QStringList& filelist) {
   for (int i = 0; i < filelist.count(); ++i) {
     QUrl url = base_url;
     QFileInfo fi(filelist.at(i));
-    url.setPath(base_url.path()+"/"+targetpath+"/"+fi.fileName());
+    url.setPath(base_url.path()+'/'+targetpath+'/'+fi.fileName());
     emit info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
     KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
     if (!job->exec()) {

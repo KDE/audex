@@ -263,7 +263,7 @@ void Audex::start_extract() {
           tartist,
           ttitle);
 
-        QString sourceFilename = tmp_path+QString("%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()))+"."+QString("%1").arg(ex_track_index)+".wav";
+        QString sourceFilename = tmp_path+QString("%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()))+'.'+QString("%1").arg(ex_track_index)+".wav";
         ex_track_source_filename = sourceFilename;
         wave_file_writer->open(sourceFilename);
 
@@ -951,7 +951,7 @@ bool Audex::p_prepare_dir(QString& filename, const QString& targetDirIfRelative,
         emit error(i18n("Unable to open folder \"%1\".", targetDirIfRelative), i18n("Please check your path and permissions"));
         return false;
       }
-      result = targetDirIfRelative+"/"+filename;
+      result = targetDirIfRelative+'/'+filename;
     } else {
       result = filename;
     }

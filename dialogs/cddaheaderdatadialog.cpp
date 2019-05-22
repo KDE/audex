@@ -138,7 +138,7 @@ void CDDAHeaderDataDialog::save() {
   cdda_model->setTrackOffset(ui.kintspinbox_trackoffset->value());
   cdda_model->setGenre(ui.kcombobox_genre->lineEdit()->text());
   cdda_model->setYear(QString("%1").arg(ui.kintspinbox_year->value()));
-  cdda_model->setExtendedData(ui.ktextedit_extdata->toPlainText().split("\n"));
+  cdda_model->setExtendedData(ui.ktextedit_extdata->toPlainText().split('\n'));
   applyButton->setEnabled(false);
 
 }
@@ -154,7 +154,7 @@ void CDDAHeaderDataDialog::trigger_changed() {
   if (ui.kintspinbox_trackoffset->value() != cdda_model->trackOffset()) { applyButton->setEnabled(true); return; }
   if (ui.kcombobox_genre->lineEdit()->text() != cdda_model->genre()) { applyButton->setEnabled(true); return; }
   if (ui.kintspinbox_year->value() != cdda_model->year().toInt()) { applyButton->setEnabled(true); return; }
-  if (ui.ktextedit_extdata->toPlainText().split("\n") != cdda_model->extendedData()) { applyButton->setEnabled(true); return; }
+  if (ui.ktextedit_extdata->toPlainText().split('\n') != cdda_model->extendedData()) { applyButton->setEnabled(true); return; }
 
   applyButton->setEnabled(false);
 

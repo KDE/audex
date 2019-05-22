@@ -238,7 +238,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         QByteArray ba = QCryptographicHash::hash(QString(artist+title+date+QString("%1").arg(x*y)+format).toUtf8(), QCryptographicHash::Md5);
         QString mda5 = ba.toHex();
 
-        if (!stop) filename = tmppath+"cover."+QString("%1").arg(mda5)+"."+format.toLower();
+        if (!stop) filename = tmppath+"cover."+QString("%1").arg(mda5)+'.'+format.toLower();
 
         QFileInfo finfo(filename);
         if ((!finfo.exists()) && (!stop)) {
@@ -312,7 +312,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         p_element += QString("%1").arg(QDateTime::currentDateTime().toString(format));
       }
     }
-    if (qName == VAR_LINEBREAK) p_element += "\n";
+    if (qName == VAR_LINEBREAK) p_element += '\n';
     if (qName == VAR_DISCID) {
       bool ok;
       int base = atts.value("base").toInt(&ok);
@@ -416,7 +416,7 @@ const QString SaxHandler::make_fat32_compatible(const QString& string) {
 
 const QString SaxHandler::replace_spaces_with_underscores(const QString& string) {
   QString s = string;
-  s.replace(" ", "_");
+  s.replace(' ', '_');
   return s;
 }
 
@@ -626,7 +626,7 @@ const QString PatternParser::p_xmlize_pattern(const QString& pattern) {
        //inside simple var
        case 2 :
          if (!pattern[i].isLetter()) {
-           if (!name.trimmed().isEmpty()) newpattern += "<"+name+" />";
+           if (!name.trimmed().isEmpty()) newpattern += '<'+name+" />";
            name.clear();
            s = 0;
            if (pattern[i] == '$') {
@@ -644,7 +644,7 @@ const QString PatternParser::p_xmlize_pattern(const QString& pattern) {
        //inside extended var
        case 3 :
          if (pattern[i] == '}') {
-           if (!name.trimmed().isEmpty()) newpattern += "<"+name+" />";
+           if (!name.trimmed().isEmpty()) newpattern += '<'+name+" />";
            name.clear();
            s = 0;
            continue;
@@ -659,7 +659,7 @@ const QString PatternParser::p_xmlize_pattern(const QString& pattern) {
   }
 
   //rest at the end?
-  if ((s==2) && (!name.trimmed().isEmpty())) newpattern += "<"+name+" />";
+  if ((s==2) && (!name.trimmed().isEmpty())) newpattern += '<'+name+" />";
 
   return newpattern;
 

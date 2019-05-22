@@ -110,7 +110,7 @@ void EncoderWrapper::parseOutput() {
   if (rawoutput.size() == 0) rawoutput = proc.readAllStandardOutput();
   bool found = false;
   if (rawoutput.size() > 0) {
-    QString output(rawoutput); QStringList list = output.trimmed().split("\n");
+    QString output(rawoutput); QStringList list = output.trimmed().split('\n');
     _protocol << list;
     for (int i = 0; i < list.count(); ++i) {
       if (list.at(i).contains('%')) {

@@ -100,7 +100,7 @@ void ProfileDataInfoDialog::pattern_wizard() {
 }
 
 void ProfileDataInfoDialog::trigger_changed() {
-  if (ui.ktextedit_text->toPlainText().split("\n") != text) { applyButton->setEnabled(true); return; }
+  if (ui.ktextedit_text->toPlainText().split('\n') != text) { applyButton->setEnabled(true); return; }
   if (ui.qlineedit_suffix->text() != suffix) { applyButton->setEnabled(true); return; }
   if (ui.qlineedit_pattern->text() != pattern) { applyButton->setEnabled(true); return; }
   applyButton->setEnabled(false);
@@ -260,7 +260,7 @@ void ProfileDataInfoDialog::save_text() {
 }
 
 bool ProfileDataInfoDialog::save() {
-  text = ui.ktextedit_text->toPlainText().split("\n");
+  text = ui.ktextedit_text->toPlainText().split('\n');
   suffix = ui.qlineedit_suffix->text();
   pattern = ui.qlineedit_pattern->text();
   applyButton->setEnabled(false);

@@ -40,7 +40,7 @@ const QStringList Hashlist::getSFV(const QStringList& filenames) {
     crc32.update((const unsigned char *)t_data, (int)lseek(fd, 0, SEEK_END));
     
     QFileInfo info(filenames.at(i));
-    list << info.fileName()+" "+QString("%1").arg(crc32.result(), 0, 16);
+    list << info.fileName()+' '+QString("%1").arg(crc32.result(), 0, 16);
 
     close(fd);
 

@@ -111,10 +111,10 @@ const QString CachedImage::supportedMimeTypeList() {
     QMap<QString,QStringList>::const_iterator i = map.constBegin();
     while (i != map.constEnd()) {
        if (i.key()==mime.comment()) { ++i; continue; }
-       result += "\n";
+       result += '\n';
        QStringList extensions = i.value();
        extensions.removeDuplicates();
-       result += extensions.join(" ")+"|"+i.key()+" ("+extensions.join(", ")+")";
+       result += extensions.join(' ')+'|'+i.key()+" ("+extensions.join(", ")+')';
       ++i;
     }
     mime_cache = result;

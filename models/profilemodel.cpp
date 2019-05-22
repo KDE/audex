@@ -794,7 +794,7 @@ const Profile ProfileModel::p_new_profile() {
 void ProfileModel::p_new_name(QString& name) {
   for (int j = 0; j < p_cache.count(); ++j) {
     if (name==p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString()) {
-      name = "_"+name;
+      name = '_'+name;
       p_new_name(name);
       return;
     }

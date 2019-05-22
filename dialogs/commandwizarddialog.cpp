@@ -137,63 +137,63 @@ void CommandWizardDialog::about_parameters() {
 
 void CommandWizardDialog::insAlbumArtist() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_ARTIST));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_ALBUM_ARTIST));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insAlbumTitle() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_TITLE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_ALBUM_TITLE));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackArtist() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_ARTIST));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_TRACK_ARTIST));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackTitle() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_TITLE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_TRACK_TITLE));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackNo() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_NO));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_TRACK_NO));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCDNo() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_CD_NO));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_CD_NO));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insDate() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_DATE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_DATE));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insGenre() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_GENRE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_GENRE));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCoverFile() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_COVER_FILE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_COVER_FILE));
   ui.qlineedit_command->setText(text);
   update_example();
 }
@@ -207,14 +207,14 @@ void CommandWizardDialog::insNoOfTracks() {
 
 void CommandWizardDialog::insInFile() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_INPUT_FILE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_INPUT_FILE));
   ui.qlineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insOutFile() {
   QString text = ui.qlineedit_command->text();
-  text.insert(ui.qlineedit_command->cursorPosition(), "$"+QString(VAR_OUTPUT_FILE));
+  text.insert(ui.qlineedit_command->cursorPosition(), '$'+QString(VAR_OUTPUT_FILE));
   ui.qlineedit_command->setText(text);
   update_example();
 }

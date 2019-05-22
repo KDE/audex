@@ -700,7 +700,7 @@ void CDDAHeaderWidget::load() {
 }
 
 void CDDAHeaderWidget::save() {
-  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath()+"/"+cdda_model->title()+".jpg", cdda_model->coverSupportedMimeTypeList());
+  QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath()+'/'+cdda_model->title()+".jpg", cdda_model->coverSupportedMimeTypeList());
   if (!filename.isEmpty()) {
     if (!cdda_model->saveCoverToFile(filename)) {
       ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
