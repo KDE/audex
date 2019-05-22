@@ -53,7 +53,7 @@ public:
   }
   ~PlaylistItem() { }
 
-  bool operator==(const PlaylistItem& other)
+  bool const operator==(const PlaylistItem& other)
   {
     return (p_filename==other.p_filename && p_title==other.p_title && p_artist==other.p_artist && p_length==other.p_length);
   }
