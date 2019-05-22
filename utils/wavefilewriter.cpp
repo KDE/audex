@@ -74,7 +74,7 @@ void WaveFileWriter::close() {
       p_output_file.remove();
     }
   }
-  p_filename = QString::null;
+  p_filename.clear();
 
 }
 
