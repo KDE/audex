@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef COVERBROWSERWIDGET_H
-#define COVERBROWSERWIDGET_H
+#ifndef COVERBROWSERDIALOG_H
+#define COVERBROWSERDIALOG_H
 
 #include <QPixmap>
 #include <QIcon>

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CUEFILEWRITER_H
-#define CUEFILEWRITER_H
+#ifndef CUESHEETWRITER_H
+#define CUESHEETWRITER_H
 
 #include <QString>
 #include <QStringList>

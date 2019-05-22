@@ -1,7 +1,7 @@
 #ifndef ERROR_DIALOG_H
 #define ERROR_DIALOG_H
 
-#include <QtCore/QString>
+#include <QString>
 
 #include <KMessageBox>
 

@@ -19,8 +19,8 @@
 
 #include "devicestest.h"
 
-#include <QtTest/QTest>
-#include <QDebug>
+#include <QTest>
+#include <QtDebug>
 
 #include <Solid/OpticalDrive>
 
