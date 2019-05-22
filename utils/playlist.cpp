@@ -241,7 +241,7 @@ void Playlist::p_add_M3U(const QByteArray& playlist)
   QString line = stream.readLine().trimmed();
 
   bool extended = false;
-  if (line.startsWith("#EXTM3U"))
+  if (line.startsWith(QLatin1String("#EXTM3U")))
   {
     extended = true;
     line = stream.readLine().trimmed();
@@ -253,7 +253,7 @@ void Playlist::p_add_M3U(const QByteArray& playlist)
 
     if (line.startsWith('#'))
     {
-      if (extended && line.startsWith("#EXT"))
+      if (extended && line.startsWith(QLatin1String("#EXT")))
       {
         pi = p_parse_m3u_metadata_line(line);
       }
@@ -293,15 +293,15 @@ void Playlist::p_add_PLS(const QByteArray& playlist)
     n_re.indexIn(key);
     int n = n_re.cap(0).toInt();
 
-    if (key.startsWith("file"))
+    if (key.startsWith(QLatin1String("file")))
     {
       items[n].setFilename(value);
     }
-    else if (key.startsWith("title"))
+    else if (key.startsWith(QLatin1String("title")))
     {
       items[n].setTitle(value);
     }
-    else if (key.startsWith("length"))
+    else if (key.startsWith(QLatin1String("length")))
     {
       bool ok;
       int seconds = value.toInt(&ok);

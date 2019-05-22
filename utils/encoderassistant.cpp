@@ -242,7 +242,7 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         default : cmd += " --preset standard";
       }
       QString v = EncoderAssistant::version(EncoderAssistant::LAME);
-      if ((v.startsWith("3.95")) || (v.startsWith("3.96")) || (v.startsWith("3.97"))) {
+      if ((v.startsWith(QLatin1String("3.95"))) || (v.startsWith(QLatin1String("3.96"))) || (v.startsWith(QLatin1String("3.97")))) {
         cmd += QString(" --vbr-new");
       }
 
