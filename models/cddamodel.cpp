@@ -807,7 +807,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
     return;
   }
 
-  KCDDB::CDInfo info = cddb->lookupResponse().first();
+  KCDDB::CDInfo info = cddb->lookupResponse().constFirst();
   if (cddb->lookupResponse().count() > 1) {
     KCDDB::CDInfoList cddb_info = cddb->lookupResponse();
     KCDDB::CDInfoList::iterator it;

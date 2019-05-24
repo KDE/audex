@@ -59,9 +59,9 @@ void CoverFetcher::fetched_external_ip(KJob* job) {
   // Max images per request on Google API is 8, thus the std::min
   QString url;
   url= QString("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%1&rsz=%2&userip=%3")
-          .arg(QUrl::toPercentEncoding(search_string, "/").data())
+          .arg(QUrl::toPercentEncoding(search_string, "/").constData())
           .arg(std::min(fetch_no,8))
-          .arg(QUrl::toPercentEncoding(external_ip).data());
+          .arg(QUrl::toPercentEncoding(external_ip).constData());
 
   qDebug() << "searching covers (" << url << ")...";
 
