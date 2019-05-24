@@ -34,7 +34,7 @@ class PatternWizardDialog : public QDialog {
   Q_OBJECT
 
 public:
-  PatternWizardDialog(const QString& pattern, QWidget *parent = 0);
+  explicit PatternWizardDialog(const QString& pattern, QWidget *parent = 0);
   ~PatternWizardDialog();
 
   QString pattern;

@@ -38,7 +38,7 @@ class CoverBrowserDialog : public QDialog {
   Q_OBJECT
 
 public:
-  CoverBrowserDialog(QWidget *parent = 0);
+  explicit CoverBrowserDialog(QWidget *parent = 0);
   ~CoverBrowserDialog();
 
   inline int count() { return cover_fetcher.count(); }

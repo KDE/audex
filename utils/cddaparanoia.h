@@ -56,7 +56,7 @@ class CDDAParanoia : public QObject
   Q_OBJECT
 
 public:
-  CDDAParanoia(QObject *parent = 0);
+  explicit CDDAParanoia(QObject *parent = 0);
   ~CDDAParanoia();
 
   bool setDevice(const QString& device = "/dev/cdrom");

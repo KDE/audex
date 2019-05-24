@@ -67,7 +67,7 @@ class CDDAModel : public QAbstractTableModel {
   Q_OBJECT
 
 public:
-  CDDAModel(QObject *parent = 0);
+  explicit CDDAModel(QObject *parent = 0);
   ~CDDAModel();
 
   inline CDDAParanoia *paranoia() const { return pn; }

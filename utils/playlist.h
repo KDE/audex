@@ -84,7 +84,7 @@ class Playlist
 
 public:
   Playlist();
-  Playlist(const QByteArray& playlist);
+  explicit Playlist(const QByteArray& playlist);
   ~Playlist();
 
   void addPlaylist(const QByteArray& playlist);

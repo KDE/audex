@@ -33,7 +33,7 @@ class TmpDir : public QObject {
   Q_OBJECT
 
 public:
-  TmpDir(const QString& appName, const QString& sub = "");
+  explicit TmpDir(const QString& appName, const QString& sub = "");
   ~TmpDir();
 
   const QString tmpPath();

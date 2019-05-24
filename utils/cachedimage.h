@@ -34,8 +34,8 @@ class CachedImage {
 
 public:
   CachedImage();
-  CachedImage(const QByteArray& data);
-  CachedImage(const QString& filename);
+  explicit CachedImage(const QByteArray& data);
+  explicit CachedImage(const QString& filename);
   CachedImage(const CachedImage& other);
   CachedImage& operator=(const CachedImage& other);
   bool operator==(const CachedImage& other) const;

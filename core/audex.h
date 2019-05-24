@@ -46,7 +46,7 @@
 class AudexJob : public QObject {
   Q_OBJECT
 public:
-  AudexJob(QObject *parent = 0) : QObject(parent) {
+  explicit AudexJob(QObject *parent = 0) : QObject(parent) {
     source_filename = "";
     target_filename = "";
     _trackno = 0;
@@ -67,7 +67,7 @@ private:
 class AudexJobs : public QObject {
   Q_OBJECT
 public:
-  AudexJobs(QObject *parent = 0) : QObject(parent) {
+  explicit AudexJobs(QObject *parent = 0) : QObject(parent) {
     job_in_progress = false;
   }
   ~AudexJobs() {

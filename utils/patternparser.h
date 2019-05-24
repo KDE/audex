@@ -154,7 +154,7 @@ private:
 class PatternParser : public QObject {
   Q_OBJECT
 public:
-  PatternParser(QObject *parent = 0);
+  explicit PatternParser(QObject *parent = 0);
   ~PatternParser();
 
   const QString parseFilenamePattern(const QString& pattern,

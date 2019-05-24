@@ -50,7 +50,7 @@ class CDDADevices : public QObject
   Q_OBJECT
 
 public:
-  CDDADevices(QObject *parent = 0);
+  explicit CDDADevices(QObject *parent = 0);
   ~CDDADevices();
 
   const QString blockDevice(const QString& udi) const;

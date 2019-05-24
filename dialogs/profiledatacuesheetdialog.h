@@ -33,7 +33,7 @@ class ProfileDataCueSheetDialog : public QDialog {
   Q_OBJECT
 
 public:
-  ProfileDataCueSheetDialog(const QString& pattern, QWidget *parent = 0);
+  explicit ProfileDataCueSheetDialog(const QString& pattern, QWidget *parent = 0);
   ~ProfileDataCueSheetDialog();
 
   QString pattern;

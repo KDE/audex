@@ -181,7 +181,7 @@ typedef QMap<QString,QVariant> Profile;
 class ProfileModel : public QAbstractTableModel {
   Q_OBJECT
 public:
-  ProfileModel(QObject *parent = 0);
+  explicit ProfileModel(QObject *parent = 0);
   ~ProfileModel();
 
   int rowCount(const QModelIndex &parent = QModelIndex()) const;

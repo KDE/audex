@@ -33,7 +33,7 @@
 class CueSheetWriter : public QObject {
   Q_OBJECT
 public:
-  CueSheetWriter(CDDAModel *model);
+  explicit CueSheetWriter(CDDAModel *model);
   ~CueSheetWriter();
 
   QStringList cueSheet(const QString& binFilename) const;
