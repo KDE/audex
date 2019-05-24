@@ -20,7 +20,7 @@
 #ifndef DEVICESTEST_H
 #define DEVICESTEST_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #include <Solid/Device>
 
