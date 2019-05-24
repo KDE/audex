@@ -58,7 +58,7 @@ signals:
   void fetchedCover(const QByteArray& cover);
   void nothingFetched();
 
-  void statusChanged(Status status);
+  void statusChanged(CoverFetcher::Status status);
 
   void error(const QString& description,
 	const QString& solution = QString());
