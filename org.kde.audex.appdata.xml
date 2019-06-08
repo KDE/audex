@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.audex.desktop</id>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0</project_license>
+  <name>Audex</name>
+  <summary>An easy to use audio CD ripping application</summary>
+  <description>
+    <p>
+      The general usage of Audex is self-explanatory. With the first start Audex
+      scans your system for common encoders and creates a common set of profiles
+      automatically for you.
+    </p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source" width="664" height="566">https://cdn.kde.org/screenshots/audex/audex.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://userbase.kde.org/Audex</url>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>audex</binary>
+  </provides>
+</component>
