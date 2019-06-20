@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/kxmlgui5/audex">
+    <file>audexui.rc</file>
+  </qresource>
+</RCC>

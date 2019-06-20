@@ -149,6 +149,7 @@ ki18n_wrap_ui(audex_SRCS
 )
 
 kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
+qt5_add_resources(audex_SRCS audex.qrc)
 
 add_executable(audex ${audex_SRCS})
 target_link_libraries(audex
@@ -171,7 +172,6 @@ target_link_libraries(audex
 )
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
-install(FILES audexui.rc DESTINATION  ${KXMLGUI_INSTALL_DIR}/audex)
 install(FILES org.kde.audex.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES org.kde.audex.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions)
