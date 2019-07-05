@@ -7,6 +7,7 @@
   <name xml:lang="ca">Audex</name>
   <name xml:lang="nl">Audex</name>
   <name xml:lang="pt">Audex</name>
+  <name xml:lang="sk">Audex</name>
   <name xml:lang="sv">Audex</name>
   <name xml:lang="uk">Audex</name>
   <name xml:lang="x-test">xxAudexxx</name>
@@ -14,6 +15,7 @@
   <summary xml:lang="ca">Una aplicació d'extracció dels CD d'ús senzill</summary>
   <summary xml:lang="nl">Een gemakkelijk te gebruiken audio-CD toepassing voor rippen</summary>
   <summary xml:lang="pt">Uma aplicação de extracção de CD's de áudio simples de usar</summary>
+  <summary xml:lang="sk">Jednoduchá aplikácia na ripovanie CD</summary>
   <summary xml:lang="sv">Ett lättanvänt program för cd-lagring</summary>
   <summary xml:lang="uk">Проста у користуванні програма для видобування даних зі звукових компакт-дисків</summary>
   <summary xml:lang="x-test">xxAn easy to use audio CD ripping applicationxx</summary>
