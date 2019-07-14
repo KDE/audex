@@ -6,6 +6,7 @@
   <name>Audex</name>
   <name xml:lang="ca">Audex</name>
   <name xml:lang="es">Audex</name>
+  <name xml:lang="gl">Audex</name>
   <name xml:lang="nl">Audex</name>
   <name xml:lang="pt">Audex</name>
   <name xml:lang="sk">Audex</name>
@@ -15,6 +16,7 @@
   <summary>An easy to use audio CD ripping application</summary>
   <summary xml:lang="ca">Una aplicació d'extracció dels CD d'ús senzill</summary>
   <summary xml:lang="es">Una aplicación de extracción de CD de sonido fácil de usar</summary>
+  <summary xml:lang="gl">Un aplicativo de copia de CD de son fácil de usar</summary>
   <summary xml:lang="nl">Een gemakkelijk te gebruiken audio-CD toepassing voor rippen</summary>
   <summary xml:lang="pt">Uma aplicação de extracção de CD's de áudio simples de usar</summary>
   <summary xml:lang="sk">Jednoduchá aplikácia na ripovanie CD</summary>
@@ -29,6 +31,7 @@
     </p>
     <p xml:lang="ca">L'ús general de l'Audex és autoexplicatori. Al primer inici, l'Audex explora el sistema cercant els codificadors usuals i crea automàticament un conjunt normal de perfils.</p>
     <p xml:lang="es">El uso general de Audex es autoexplicativo. La primera vez que se inicia Audex busca en el sistema codificadores comunes y crea una conjunto de perfiles comunes de forma automática.</p>
+    <p xml:lang="gl">O uso xeral de Audex é moi intuitivo. No primeiro inicio Audex examina o sistema en busca de codificadores comúns e crea automaticamente un conxunto común de perfís.</p>
     <p xml:lang="nl">Het algemene gebruik van Audex verklaart zichzelf. Bij de eerste keer starten van Audex scant uw systeem naar gemeenschappelijke encoders en maakt een gemeenschappelijke set van profielen automatisch voor u aan.</p>
     <p xml:lang="pt">O uso geral do Audex é relativamente simples. No primeiro arranque, o Audex sonda o seu sistema à procura de codificadores e cria automaticamente um conjunto comum de perfis para si.</p>
     <p xml:lang="sv">Den allmänna användningen av Audex är självförklarande. När Audex startas för första gången söker det igenom systemet efter vanliga kodare och skapar automatisk en uppsättning av vanliga profiler åt dig.</p>
