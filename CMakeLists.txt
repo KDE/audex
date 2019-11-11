@@ -53,7 +53,7 @@ find_package(KF5 ${KF5_MIN_VER} REQUIRED COMPONENTS
 find_package(KF5Cddb)
 set_package_properties(KF5Cddb PROPERTIES
   DESCRIPTION "KF5 branch for CDDB library"
-  URL "http://projects.kde.org/projects/kde/kdemultimedia/libkcddb"
+  URL "https://commits.kde.org/libkcddb"
   TYPE REQUIRED
   PURPOSE "libkcddb is used to retrieve audio CD meta data from the internet."
 )
