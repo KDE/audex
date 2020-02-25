@@ -90,8 +90,12 @@ QStringList CueSheetWriter::cueSheet(const QStringList& filenames) const {
 QString CueSheetWriter::p_filetype(const QString& filename) const {
   
   QString result = "WAVE";
-  if ((filename.toLower().endsWith(QLatin1String("aiff"))) || (filename.toLower().endsWith(QLatin1String("aif")))) result = "AIFF";
-  else if (filename.toLower().endsWith(QLatin1String("mp3"))) result = "MP3";
+  if ((filename.endsWith(QLatin1String("aiff"), Qt::CaseInsensitive)) || (filename.endsWith(QLatin1String("aif"), Qt::CaseInsensitive))) {
+    result = "AIFF";
+  }
+  else if (filename.endsWith(QLatin1String("mp3"), Qt::CaseInsensitive)) {
+    result = "MP3";
+  }
   
   return result;
   
