@@ -33,6 +33,7 @@ int main (int argc, char *argv[]) {
   migrator.migrate();
 
   QApplication app(argc, argv);
+  app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
   KCrash::initialize();
 
