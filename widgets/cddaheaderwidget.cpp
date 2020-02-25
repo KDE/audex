@@ -411,7 +411,7 @@ void CDDAHeaderWidget::googleAuto() {
     title = title.left(lastColonPos);
     lastColonPos = title.lastIndexOf(':');
   }
-  cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist).arg(title), 1);
+  cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist, title), 1);
 
 }
 
@@ -678,7 +678,7 @@ void CDDAHeaderWidget::google() {
     title = title.left(lastColonPos);
     lastColonPos = title.lastIndexOf(':');
   }
-  cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist).arg(title));
+  cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist, title));
 
   if (cover_browser_dialog->exec() != QDialog::Accepted) {
     fetching_cover_in_progress = false;

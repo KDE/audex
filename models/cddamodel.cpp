@@ -813,8 +813,8 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
     KCDDB::CDInfoList::iterator it;
     QStringList list;
     for (it = cddb_info.begin(); it != cddb_info.end(); ++it) {
-      list.append(QString("%1, %2, %3, %4").arg((it->get(KCDDB::Artist).toString()))
-          .arg(it->get(KCDDB::Title).toString()).arg(it->get(KCDDB::Genre).toString()).arg(it->get(KCDDB::Year).toString()));
+      list.append(QString("%1, %2, %3, %4").arg((it->get(KCDDB::Artist).toString()),
+          it->get(KCDDB::Title).toString(), it->get(KCDDB::Genre).toString(), it->get(KCDDB::Year).toString()));
     }
 
     bool ok = false;

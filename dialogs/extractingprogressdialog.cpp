@@ -37,7 +37,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   this->profile_model = profile_model;
   this->cdda_model = cdda_model;
 
-  QString title = QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title());
+  QString title = QString("%1 - %2").arg(cdda_model->artist(), cdda_model->title());
   ui.label_header->setText(title);
 
   p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
@@ -344,7 +344,7 @@ void ExtractingProgressDialog::show_error(const QString& message, const QString&
   if (details.isEmpty()) {
     item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1").arg(message));
   } else {
-    item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1 (%2)").arg(message).arg(details));
+    item = new QListWidgetItem(QIcon::fromTheme("dialog-error"), QString("%1 (%2)").arg(message, details));
   }
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);

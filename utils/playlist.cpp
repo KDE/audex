@@ -81,11 +81,11 @@ QByteArray Playlist::toM3U(const QString& playlistPath, const bool utf8) const {
 
     if (!pi.artist().isEmpty())
     {
-      playlist.append(QString("#EXTINF:%1,%2 - %3").arg(pi.length()).arg(pi.artist()).arg(pi.title()));
+      playlist.append(QString("#EXTINF:%1,%2 - %3").arg(QString::number(pi.length()), pi.artist(), pi.title()));
     }
     else
     {
-      playlist.append(QString("#EXTINF:%1,%2").arg(pi.length()).arg(pi.title()));
+      playlist.append(QString("#EXTINF:%1,%2").arg(QString::number(pi.length()), pi.title()));
     }
     if (!playlistPath.isEmpty())
     {
@@ -132,7 +132,7 @@ QByteArray Playlist::toPLS(const QString& playlistPath, const bool utf8) const
 
     if (!pi.artist().isEmpty())
     {
-      playlist.append(QString("Title%1=%2 - %3").arg(i+1).arg(pi.artist()).arg(pi.title()));
+      playlist.append(QString("Title%1=%2 - %3").arg(QString::number(i+1), pi.artist(), pi.title()));
     }
     else
     {

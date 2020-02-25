@@ -730,7 +730,7 @@ const QString ProfileModel::getSelectedEncoderNameAndVersion() {
 
   EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
 
-  return QString("%1 %2").arg(EncoderAssistant::encoderName(encoder)).arg(EncoderAssistant::version(encoder));
+  return QString("%1 %2").arg(EncoderAssistant::encoderName(encoder), EncoderAssistant::version(encoder));
 
 }
 

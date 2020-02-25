@@ -39,7 +39,7 @@ QStringList CueSheetWriter::cueSheet(const QString& binFilename) const {
   result << QString("TITLE \"%1\"").arg(model->title());
   
   QFileInfo info(binFilename);
-  result << QString("FILE \"%1\" %2").arg(info.fileName()).arg(p_filetype(binFilename));
+  result << QString("FILE \"%1\" %2").arg(info.fileName(), p_filetype(binFilename));
   
   const QList<unsigned> dsig = model->discSignature();
   
@@ -73,7 +73,7 @@ QStringList CueSheetWriter::cueSheet(const QStringList& filenames) const {
   for (int i = 0; i < filenames.count(); ++i) {
     
      QFileInfo info(filenames.at(i));
-     result << QString("FILE \"%1\" %2").arg(info.fileName()).arg(p_filetype(filenames.at(i)));
+     result << QString("FILE \"%1\" %2").arg(info.fileName(), p_filetype(filenames.at(i)));
      
      result << QString("  TRACK %1 AUDIO").arg(i+1, 2, 10, QChar('0'));
      result << QString("    PERFORMER \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
