@@ -215,7 +215,10 @@ void CDDAExtractThread::createStatus(long sector, int status) {
   case PARANOIA_CB_SCRATCH:
     //scratch detected
     qDebug() << "Scratch detected";
-    if (!scratch_detected) { scratch_detected = true; warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
+    if (!scratch_detected) {
+        scratch_detected = true;
+        emit warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    }
     extract_protocol.append(i18n("SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_REPAIR:
@@ -225,7 +228,7 @@ void CDDAExtractThread::createStatus(long sector, int status) {
   case PARANOIA_CB_SKIP:
     //skipped sector
     qDebug() << "Skip";
-    warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    emit warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     extract_protocol.append(i18n("SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_DRIFT:
@@ -252,7 +255,10 @@ void CDDAExtractThread::createStatus(long sector, int status) {
     break;
   case PARANOIA_CB_READERR:
     qDebug() << "Read error";
-    if (!read_error) { read_error = true; warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
+    if (!read_error) {
+        read_error = true;
+        emit warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    }
     extract_protocol.append(i18n("READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   }
