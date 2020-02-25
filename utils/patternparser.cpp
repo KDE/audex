@@ -590,7 +590,6 @@ const QString PatternParser::p_xmlize_pattern(const QString& pattern) {
   QString newpattern;
 
   QString name;
-  QString attr;
   int s = 0;
   for (int i = 0; i < pattern.length(); ++i) {
 
