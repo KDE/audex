@@ -32,7 +32,7 @@ class CoverFetcher : public QObject
 {
     Q_OBJECT
 public:
-    explicit CoverFetcher(QObject *parent = 0);
+    explicit CoverFetcher(QObject *parent = nullptr);
     ~CoverFetcher() override;
 
     void startFetchThumbnails(const QString &searchstring, const int fetchNo = 8);

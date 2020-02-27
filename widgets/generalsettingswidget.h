@@ -41,7 +41,7 @@ class generalSettingsWidget : public generalSettingsWidgetUI
 {
     Q_OBJECT
 public:
-    explicit generalSettingsWidget(QWidget *parent = 0);
+    explicit generalSettingsWidget(QWidget *parent = nullptr);
     ~generalSettingsWidget() override;
 };
 

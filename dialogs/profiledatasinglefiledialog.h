@@ -33,7 +33,7 @@ class ProfileDataSingleFileDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ProfileDataSingleFileDialog(const QString &pattern, QWidget *parent = 0);
+    explicit ProfileDataSingleFileDialog(const QString &pattern, QWidget *parent = nullptr);
     ~ProfileDataSingleFileDialog() override;
 
     QString pattern;

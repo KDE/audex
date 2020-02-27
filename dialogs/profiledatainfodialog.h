@@ -35,7 +35,7 @@ class ProfileDataInfoDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataInfoDialog(const QStringList &text, const QString &pattern, const QString &suffix, QWidget *parent = 0);
+    ProfileDataInfoDialog(const QStringList &text, const QString &pattern, const QString &suffix, QWidget *parent = nullptr);
     ~ProfileDataInfoDialog() override;
 
     QStringList text;

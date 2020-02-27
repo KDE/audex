@@ -33,7 +33,7 @@ class SimplePatternWizardDialog : public QDialog
     Q_OBJECT
 
 public:
-    SimplePatternWizardDialog(const QString &pattern, const QString &suffix, QWidget *parent = 0);
+    SimplePatternWizardDialog(const QString &pattern, const QString &suffix, QWidget *parent = nullptr);
     ~SimplePatternWizardDialog() override;
 
     QString pattern;

@@ -59,7 +59,7 @@ class CDDAHeaderWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent = 0, const int coverSize = 128, const int padding = 20);
+    explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent = nullptr, const int coverSize = 128, const int padding = 20);
     ~CDDAHeaderWidget() override;
     QSize sizeHint() const override;
     void setCover(CachedImage *cover);

@@ -24,7 +24,7 @@ class Error
 public:
     enum ErrorType { ERROR, WARNING };
 
-    explicit Error(const QString &message = "", const QString &details = "", const ErrorType errorType = Error::ERROR, QObject *parent = 0)
+    explicit Error(const QString &message = "", const QString &details = "", const ErrorType errorType = Error::ERROR, QObject *parent = nullptr)
     {
         Q_UNUSED(parent);
         m = message;

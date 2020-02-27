@@ -21,7 +21,7 @@
 CDDAModel::CDDAModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
-    pn = 0;
+    pn = nullptr;
     _device.clear();
     _udi.clear();
 
@@ -903,7 +903,7 @@ void CDDAModel::audio_disc_removed(const QString &udi)
 
     if (pn)
         delete pn;
-    pn = NULL;
+    pn = nullptr;
 
     emit audioDiscRemoved();
 }
@@ -957,7 +957,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
 
         bool ok = false;
         // Uses a ComboBox, could use UseListViewForComboBoxItems if necessary
-        QString res = QInputDialog::getItem(nullptr, i18n("Select CDDB Entry"), i18n("Select a CDDB entry:"), list, 0, false, &ok, NULL);
+        QString res = QInputDialog::getItem(nullptr, i18n("Select CDDB Entry"), i18n("Select a CDDB entry:"), list, 0, false, &ok, nullptr);
 
         if (ok) {
             // The user selected an item and pressed OK

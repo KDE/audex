@@ -224,7 +224,7 @@ class PatternParser : public QObject
 {
     Q_OBJECT
 public:
-    explicit PatternParser(QObject *parent = 0);
+    explicit PatternParser(QObject *parent = nullptr);
     ~PatternParser() override;
 
     const QString parseFilenamePattern(const QString &pattern,

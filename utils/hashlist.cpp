@@ -34,7 +34,7 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
 
         quint64 size = lseek(fd, 0, SEEK_END);
 
-        char *t_data = (char *)mmap(0, size, PROT_READ, MAP_SHARED, fd, 0);
+        char *t_data = (char *)mmap(nullptr, size, PROT_READ, MAP_SHARED, fd, 0);
 
         CRC32 crc32;
         crc32.update((const unsigned char *)t_data, (int)lseek(fd, 0, SEEK_END));

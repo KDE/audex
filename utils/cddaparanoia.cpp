@@ -26,8 +26,8 @@ CDDAParanoia::CDDAParanoia(QObject *parent)
     : QObject(parent)
 {
     Q_UNUSED(parent);
-    paranoia = NULL;
-    paranoia_drive = NULL;
+    paranoia = nullptr;
+    paranoia_drive = nullptr;
     setNeverSkip(true);
     setMaxRetries(20);
     setParanoiaMode(3);
@@ -105,7 +105,7 @@ qint16 *CDDAParanoia::paranoiaRead(void (*callback)(long, int))
         mutex.unlock();
         return data;
     }
-    return 0;
+    return nullptr;
 }
 
 int CDDAParanoia::paranoiaSeek(long sector, int mode)
@@ -329,8 +329,8 @@ bool CDDAParanoia::_paranoia_init()
 
     _paranoia_free();
 
-    paranoia_drive = cdda_identify(_device.toAscii().data(), 0, 0);
-    if (paranoia_drive == 0) {
+    paranoia_drive = cdda_identify(_device.toAscii().data(), 0, nullptr);
+    if (paranoia_drive == nullptr) {
         mutex.unlock();
         qDebug() << "Failed to find device.";
         return false;
@@ -340,7 +340,7 @@ bool CDDAParanoia::_paranoia_init()
 
     cdda_open(paranoia_drive);
     paranoia = paranoia_init(paranoia_drive);
-    if (paranoia == 0) {
+    if (paranoia == nullptr) {
         _paranoia_free();
         mutex.unlock();
         qDebug() << "Failed to init device.";
@@ -356,11 +356,11 @@ void CDDAParanoia::_paranoia_free()
     // mutex.lock();
     if (paranoia) {
         paranoia_free(paranoia);
-        paranoia = 0;
+        paranoia = nullptr;
     }
     if (paranoia_drive) {
         cdda_close(paranoia_drive);
-        paranoia_drive = 0;
+        paranoia_drive = nullptr;
     }
     // mutex.unlock();
 }

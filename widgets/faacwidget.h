@@ -42,7 +42,7 @@ class faacWidget : public faacWidgetUI
 {
     Q_OBJECT
 public:
-    explicit faacWidget(Parameters *parameters, QWidget *parent = 0);
+    explicit faacWidget(Parameters *parameters, QWidget *parent = nullptr);
     ~faacWidget() override;
     Error lastError() const
     {

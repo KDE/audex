@@ -33,7 +33,7 @@ class ProfileDataPlaylistDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataPlaylistDialog(const QString &format, const QString &pattern, const bool absFilePath, const bool utf8, QWidget *parent = 0);
+    ProfileDataPlaylistDialog(const QString &format, const QString &pattern, const bool absFilePath, const bool utf8, QWidget *parent = nullptr);
     ~ProfileDataPlaylistDialog() override;
 
     QString format;

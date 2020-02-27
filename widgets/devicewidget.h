@@ -41,7 +41,7 @@ class deviceWidget : public deviceWidgetUI
 {
     Q_OBJECT
 public:
-    explicit deviceWidget(QWidget *parent = 0);
+    explicit deviceWidget(QWidget *parent = nullptr);
     ~deviceWidget() override;
 };
 

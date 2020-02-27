@@ -172,7 +172,7 @@ const QString encoderName(const Encoder encoder);
 const QString icon(const Encoder encoder);
 
 bool available(const Encoder encoder);
-bool canEmbedCover(const Encoder encoder, int *maxCoverSize = NULL);
+bool canEmbedCover(const Encoder encoder, int *maxCoverSize = nullptr);
 const QString version(const Encoder encoder);
 long versionNumber(const Encoder encoder);
 const QString pattern(const Encoder encoder, const Parameters &parameters);

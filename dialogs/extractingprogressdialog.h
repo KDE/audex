@@ -45,7 +45,7 @@ class ExtractingProgressDialog : public QDialog
     Q_OBJECT
 
 public:
-    ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent = 0);
+    ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent = nullptr);
     ~ExtractingProgressDialog() override;
 
 public slots:

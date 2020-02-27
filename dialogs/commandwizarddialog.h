@@ -34,7 +34,7 @@ class CommandWizardDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit CommandWizardDialog(const QString &command, QWidget *parent = 0);
+    explicit CommandWizardDialog(const QString &command, QWidget *parent = nullptr);
     ~CommandWizardDialog() override;
 
     QString command;

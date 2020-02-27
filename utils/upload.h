@@ -33,7 +33,7 @@ class Upload : public QObject
 {
     Q_OBJECT
 public:
-    explicit Upload(const QUrl &url, QObject *parent = 0);
+    explicit Upload(const QUrl &url, QObject *parent = nullptr);
     ~Upload() override;
 
     void upload(const QString &targetpath, const QStringList &filelist);

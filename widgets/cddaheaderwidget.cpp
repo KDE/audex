@@ -239,10 +239,10 @@ static void processScanlines(QImage &img, int sy, int ey, int sx, int ex)
         int srcY = y * FP_FACTOR + (sy - y) * 8;
 
         int scanLine = srcY / FP_FACTOR;
-        QRgb *srcA = scanLine >= 0 && scanLine < height ? data + scanLine * width : 0;
+        QRgb *srcA = scanLine >= 0 && scanLine < height ? data + scanLine * width : nullptr;
 
         ++scanLine;
-        QRgb *srcB = scanLine >= 0 && scanLine < height ? data + scanLine * width : 0;
+        QRgb *srcB = scanLine >= 0 && scanLine < height ? data + scanLine * width : nullptr;
 
         if (!srcA && !srcB) {
             for (int x = sx; x != ex; x += dx)
@@ -326,7 +326,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
     connect(this, SIGNAL(coverDown()), this, SLOT(cover_is_down()));
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(context_menu(const QPoint &)));
 
-    cover_browser_dialog = NULL;
+    cover_browser_dialog = nullptr;
     fetching_cover_in_progress = false;
 
     setContextMenuPolicy(Qt::CustomContextMenu);
@@ -598,7 +598,7 @@ void CDDAHeaderWidget::update()
     bool activate = false;
     if (cdda_model->isCoverEmpty()) {
         if (i_cover_checksum)
-            setCover(NULL);
+            setCover(nullptr);
     } else {
         qDebug() << "current cover checksum:" << i_cover_checksum;
         qDebug() << "new cover checksum:" << cdda_model->coverChecksum();
@@ -695,7 +695,7 @@ void CDDAHeaderWidget::google()
     if (cover_browser_dialog->exec() != QDialog::Accepted) {
         fetching_cover_in_progress = false;
         delete cover_browser_dialog;
-        cover_browser_dialog = NULL;
+        cover_browser_dialog = nullptr;
         action_collection->action("fetch")->setEnabled(true);
     }
 }
@@ -799,7 +799,7 @@ void CDDAHeaderWidget::set_cover(const QByteArray &cover)
     action_collection->action("fetch")->setEnabled(true);
     if (cover_browser_dialog) {
         delete cover_browser_dialog;
-        cover_browser_dialog = NULL;
+        cover_browser_dialog = nullptr;
     }
     if (!cover.isEmpty())
         update();
@@ -812,7 +812,7 @@ void CDDAHeaderWidget::fetch_first_cover()
             qDebug() << "no cover found";
             ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
             delete cover_browser_dialog;
-            cover_browser_dialog = NULL;
+            cover_browser_dialog = nullptr;
             fetching_cover_in_progress = false;
             action_collection->action("fetch")->setEnabled(true);
         } else {
@@ -829,7 +829,7 @@ void CDDAHeaderWidget::fetchCoverFinished(bool showDialog)
             ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
         }
         delete cover_browser_dialog;
-        cover_browser_dialog = NULL;
+        cover_browser_dialog = nullptr;
     }
     fetching_cover_in_progress = false;
     action_collection->action("fetch")->setEnabled(true);

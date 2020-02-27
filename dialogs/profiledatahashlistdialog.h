@@ -33,7 +33,7 @@ class ProfileDataHashlistDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataHashlistDialog(const QString &pattern, const QString &format, QWidget *parent = 0);
+    ProfileDataHashlistDialog(const QString &pattern, const QString &format, QWidget *parent = nullptr);
     ~ProfileDataHashlistDialog() override;
 
     QString format;

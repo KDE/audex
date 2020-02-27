@@ -20,7 +20,7 @@
 
 #include <QDebug>
 
-static CDDAExtractThread *aet = 0;
+static CDDAExtractThread *aet = nullptr;
 
 void paranoiaCallback(long sector, int status)
 {
@@ -128,7 +128,7 @@ void CDDAExtractThread::run()
 
         int16_t *buf = paranoia->paranoiaRead(paranoiaCallback);
 
-        if (0 == buf) {
+        if (nullptr == buf) {
             qDebug() << "Unrecoverable error in paranoia_read (sector " << current_sector << ")";
             b_error = true;
             break;

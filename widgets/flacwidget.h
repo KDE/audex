@@ -42,7 +42,7 @@ class flacWidget : public flacWidgetUI
 {
     Q_OBJECT
 public:
-    explicit flacWidget(Parameters *parameters, QWidget *parent = 0);
+    explicit flacWidget(Parameters *parameters, QWidget *parent = nullptr);
     ~flacWidget() override;
     inline Error lastError() const
     {

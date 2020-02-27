@@ -31,7 +31,7 @@ class ProtocolDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent = 0);
+    ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent = nullptr);
     ~ProtocolDialog() override;
 
 private slots:

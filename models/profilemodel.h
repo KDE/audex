@@ -181,7 +181,7 @@ class ProfileModel : public QAbstractTableModel
 {
     Q_OBJECT
 public:
-    explicit ProfileModel(QObject *parent = 0);
+    explicit ProfileModel(QObject *parent = nullptr);
     ~ProfileModel() override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;

@@ -47,7 +47,7 @@ class AudexJob : public QObject
 {
     Q_OBJECT
 public:
-    explicit AudexJob(QObject *parent = 0)
+    explicit AudexJob(QObject *parent = nullptr)
         : QObject(parent)
     {
         source_filename = "";
@@ -92,7 +92,7 @@ class AudexJobs : public QObject
 {
     Q_OBJECT
 public:
-    explicit AudexJobs(QObject *parent = 0)
+    explicit AudexJobs(QObject *parent = nullptr)
         : QObject(parent)
     {
         job_in_progress = false;
@@ -110,7 +110,7 @@ public:
     AudexJob *orderJob()
     {
         if (job_queue.isEmpty()) {
-            return NULL;
+            return nullptr;
         } else {
             job_in_progress = true;
             return job_queue.dequeue();

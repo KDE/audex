@@ -67,7 +67,7 @@ class CDDAModel : public QAbstractTableModel
     Q_OBJECT
 
 public:
-    explicit CDDAModel(QObject *parent = 0);
+    explicit CDDAModel(QObject *parent = nullptr);
     ~CDDAModel() override;
 
     inline CDDAParanoia *paranoia() const

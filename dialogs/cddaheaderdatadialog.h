@@ -35,7 +35,7 @@ class CDDAHeaderDataDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = 0);
+    explicit CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = nullptr);
     ~CDDAHeaderDataDialog() override;
 
 private slots:

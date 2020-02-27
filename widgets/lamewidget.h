@@ -42,7 +42,7 @@ class lameWidget : public lameWidgetUI
 {
     Q_OBJECT
 public:
-    explicit lameWidget(Parameters *parameters, QWidget *parent = 0);
+    explicit lameWidget(Parameters *parameters, QWidget *parent = nullptr);
     ~lameWidget() override;
     inline Error lastError() const
     {

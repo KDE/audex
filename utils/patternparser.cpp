@@ -36,7 +36,7 @@ SaxHandler::SaxHandler()
     is_command_pattern = false;
     is_simple_pattern = false;
     is_text_pattern = false;
-    cover = NULL;
+    cover = nullptr;
     /*TEMP*/ found_suffix = false;
 }
 

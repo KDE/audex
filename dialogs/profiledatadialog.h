@@ -51,7 +51,7 @@ class ProfileDataDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent = 0);
+    ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent = nullptr);
     ~ProfileDataDialog() override;
 
 private slots:
