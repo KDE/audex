@@ -19,7 +19,7 @@
 #ifndef PROFILEMODEL_HEADER
 #define PROFILEMODEL_HEADER
 
-#include <limits.h>
+#include <climits>
 
 #include <QAbstractTableModel>
 #include <QString>
