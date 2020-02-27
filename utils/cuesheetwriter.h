@@ -19,31 +19,31 @@
 #ifndef CUESHEETWRITER_H
 #define CUESHEETWRITER_H
 
+#include <QFileInfo>
 #include <QString>
 #include <QStringList>
-#include <QFileInfo>
 
 #include <KLocalizedString>
 
-#include "config.h"
 #include "../models/cddamodel.h"
+#include "config.h"
 
 #define FRAMES2SEC(frames) ((frames) / 75)
 
-class CueSheetWriter : public QObject {
-  Q_OBJECT
+class CueSheetWriter : public QObject
+{
+    Q_OBJECT
 public:
-  explicit CueSheetWriter(CDDAModel *model);
-  ~CueSheetWriter();
+    explicit CueSheetWriter(CDDAModel *model);
+    ~CueSheetWriter();
 
-  QStringList cueSheet(const QString& binFilename) const;
-  QStringList cueSheet(const QStringList& filenames) const;
+    QStringList cueSheet(const QString &binFilename) const;
+    QStringList cueSheet(const QStringList &filenames) const;
 
 private:
-  CDDAModel *model;
+    CDDAModel *model;
 
-  QString p_filetype(const QString& filename) const;
-  
+    QString p_filetype(const QString &filename) const;
 };
 
 #endif

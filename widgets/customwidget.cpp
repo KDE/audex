@@ -20,68 +20,65 @@
 
 #include <QDebug>
 
-customWidget::customWidget(Parameters *parameters, QWidget *parent) : customWidgetUI(parent) {
+customWidget::customWidget(Parameters *parameters, QWidget *parent)
+    : customWidgetUI(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
+    this->parameters = parameters;
+    if (!parameters) {
+        qDebug() << "ParameterString is NULL!";
+        return;
+    }
 
-  this->parameters = parameters;
-  if (!parameters) {
-    qDebug() << "ParameterString is NULL!";
-    return;
-  }
+    qlineedit_pattern->setText(parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN));
+    qlineedit_suffix->setText(parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
 
-  qlineedit_pattern->setText(parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN));
-  qlineedit_suffix->setText(parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
+    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
-  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-  connect(qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+    connect(kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
 
-  connect(kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
+    kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
 
-  kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
-
-  changed = false;
-
+    changed = false;
 }
 
-customWidget::~customWidget() {
-
+customWidget::~customWidget()
+{
 }
 
-bool customWidget::save() {
+bool customWidget::save()
+{
+    bool success = true;
 
-  bool success = true;
+    parameters->setValue(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, qlineedit_pattern->text());
+    parameters->setValue(ENCODER_CUSTOM_SUFFIX_KEY, qlineedit_suffix->text());
 
-  parameters->setValue(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, qlineedit_pattern->text());
-  parameters->setValue(ENCODER_CUSTOM_SUFFIX_KEY, qlineedit_suffix->text());
+    changed = false;
 
-  changed = false;
-
-  return success;
-
+    return success;
 }
 
-void customWidget::pattern_wizard() {
+void customWidget::pattern_wizard()
+{
+    CommandWizardDialog *dialog = new CommandWizardDialog(qlineedit_pattern->text(), this);
 
-  CommandWizardDialog *dialog = new CommandWizardDialog(qlineedit_pattern->text(), this);
+    if (dialog->exec() != QDialog::Accepted) {
+        delete dialog;
+        return;
+    }
 
-  if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
+    qlineedit_pattern->setText(dialog->command);
 
-  qlineedit_pattern->setText(dialog->command);
+    delete dialog;
 
-  delete dialog;
-
-  trigger_changed();
-
+    trigger_changed();
 }
 
-void customWidget::trigger_changed() {
+void customWidget::trigger_changed()
+{
+    changed = (qlineedit_pattern->text() != parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN) || qlineedit_suffix->text() != parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
 
-  changed = (
-    qlineedit_pattern->text() != parameters->value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN) ||
-    qlineedit_suffix->text() != parameters->value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX)
-  );
-
-  emit triggerChanged();
-
+    emit triggerChanged();
 }

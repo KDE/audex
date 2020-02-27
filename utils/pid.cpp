@@ -18,10 +18,12 @@
 
 #include "pid.h"
 
-PID::PID() : QObject() {
-
+PID::PID()
+    : QObject()
+{
 }
 
-int PID::getPID() {
-  return getpid();
+int PID::getPID()
+{
+    return getpid();
 }

@@ -21,141 +21,127 @@
 
 #include <cmath>
 
-#include <QTimer>
-#include <QWidget>
-#include <QImage>
-#include <QPainter>
-#include <QMouseEvent>
 #include <QApplication>
 #include <QDesktopServices>
-#include <QFontMetrics>
 #include <QFont>
+#include <QFontMetrics>
+#include <QImage>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QTimer>
+#include <QWidget>
 #include <QX11Info>
 
 #include <KActionCollection>
-#include <KLocalizedString>
 #include <KColorScheme>
+#include <KLocalizedString>
 
 #include "preferences.h"
 
-#include "models/cddamodel.h"
-#include "dialogs/coverbrowserdialog.h"
 #include "dialogs/cddaheaderdatadialog.h"
+#include "dialogs/coverbrowserdialog.h"
 #include "dialogs/errordialog.h"
-#include "utils/coverfetcher.h"
+#include "models/cddamodel.h"
 #include "utils/cachedimage.h"
+#include "utils/coverfetcher.h"
 #include "utils/tmpdir.h"
 
 // fixed point defines
 #define FP_BITS 10
 #define FP_FACTOR (1 << FP_BITS)
 
-enum FadeStyle {
-    NoFade,
-    FadeDown,
-    FadeRight,
-    FadeUp,
-    FadeLeft
-};
+enum FadeStyle { NoFade, FadeDown, FadeRight, FadeUp, FadeLeft };
 
-enum MirrorStyle {
-    NoMirror,
-    MirrorOverX,
-    MirrorOverY
-};
+enum MirrorStyle { NoMirror, MirrorOverX, MirrorOverY };
 
-class CDDAHeaderWidget : public QWidget {
-
-  Q_OBJECT
+class CDDAHeaderWidget : public QWidget
+{
+    Q_OBJECT
 
 public:
+    explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent = 0, const int coverSize = 128, const int padding = 20);
+    ~CDDAHeaderWidget();
+    QSize sizeHint() const;
+    void setCover(CachedImage *cover);
 
-  explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent = 0, const int coverSize = 128, const int padding = 20);
-  ~CDDAHeaderWidget();
-  QSize sizeHint() const;
-  void setCover(CachedImage *cover);
-
-  bool isEnabled() const;
+    bool isEnabled() const;
 
 public slots:
-  void setEnabled(bool enabled);
+    void setEnabled(bool enabled);
 
-  void googleAuto();
+    void googleAuto();
 
 signals:
-  void headerDataChanged();
+    void headerDataChanged();
 
-  void coverUp();
-  void coverDown();
+    void coverUp();
+    void coverDown();
 
 protected:
-
-  void paintEvent(QPaintEvent *event);
-  void mouseMoveEvent(QMouseEvent *event);
-  void mousePressEvent(QMouseEvent *event);
-  void fetchCoverFinished(bool showDialog);
+    void paintEvent(QPaintEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void fetchCoverFinished(bool showDialog);
 
 private slots:
 
-  void update();
-  void trigger_repaint();
-  void cover_is_down();
+    void update();
+    void trigger_repaint();
+    void cover_is_down();
 
-  void google();
-  void load();
-  void save();
-  void view_cover();
-  void remove();
+    void google();
+    void load();
+    void save();
+    void view_cover();
+    void remove();
 
-  void edit_data();
-  void wikipedia();
+    void edit_data();
+    void wikipedia();
 
-  void set_cover(const QByteArray& cover);
-  void fetch_first_cover();
-  void fetch_cover_failed();
-  void auto_fetch_cover_failed();
+    void set_cover(const QByteArray &cover);
+    void fetch_first_cover();
+    void fetch_cover_failed();
+    void auto_fetch_cover_failed();
 
-  void context_menu(const QPoint& point);
+    void context_menu(const QPoint &point);
 
 private:
+    CDDAModel *cdda_model;
+    KActionCollection *action_collection;
+    int cover_size;
+    int padding;
 
-  CDDAModel *cdda_model;
-  KActionCollection *action_collection;
-  int cover_size;
-  int padding;
+    quint16 i_cover_checksum;
+    QImage i_cover;
+    QImage i_cover_holding;
 
-  quint16 i_cover_checksum;
-  QImage i_cover;
-  QImage i_cover_holding;
+    QTimer timer;
+    bool animation_up;
+    bool animation_down;
+    qreal scale_factor;
+    bool scale_up;
+    bool scale_down;
+    qreal opacity_factor;
+    bool fade_in;
+    bool fade_out;
 
-  QTimer timer;
-  bool animation_up;
-  bool animation_down;
-  qreal scale_factor;
-  bool scale_up;
-  bool scale_down;
-  qreal opacity_factor;
-  bool fade_in;
-  bool fade_out;
+    QRect cover_rect;
+    bool cursor_on_cover;
 
-  QRect cover_rect;
-  bool cursor_on_cover;
+    QRect link1_rect;
+    bool cursor_on_link1;
 
-  QRect link1_rect;
-  bool cursor_on_link1;
+    QRect link2_rect;
+    bool cursor_on_link2;
 
-  QRect link2_rect;
-  bool cursor_on_link2;
+    void setup_actions();
 
-  void setup_actions();
+    bool enabled;
 
-  bool enabled;
+    bool fetching_cover_in_progress;
+    CoverBrowserDialog *cover_browser_dialog;
 
-  bool fetching_cover_in_progress;
-  CoverBrowserDialog *cover_browser_dialog;
-
-  TmpDir *tmp_dir;
-
+    TmpDir *tmp_dir;
 };
 
 #endif

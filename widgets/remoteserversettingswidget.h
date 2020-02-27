@@ -19,25 +19,29 @@
 #ifndef REMOTESERVERSETTINGSWIDGET_H
 #define REMOTESERVERSETTINGSWIDGET_H
 
-#include <QWidget>
 #include <QDir>
+#include <QWidget>
 
 #include "ui_remoteserversettingswidgetUI.h"
 
-class remoteServerSettingsWidgetUI : public QWidget, public Ui::RemoteServerSettingsWidgetUI {
+class remoteServerSettingsWidgetUI : public QWidget, public Ui::RemoteServerSettingsWidgetUI
+{
 public:
-  explicit remoteServerSettingsWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit remoteServerSettingsWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class remoteServerSettingsWidget : public remoteServerSettingsWidgetUI {
-  Q_OBJECT
+class remoteServerSettingsWidget : public remoteServerSettingsWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit remoteServerSettingsWidget(QWidget *parent = 0);
-  ~remoteServerSettingsWidget();
+    explicit remoteServerSettingsWidget(QWidget *parent = 0);
+    ~remoteServerSettingsWidget();
 private slots:
-  void toggle_upload(bool enabled);
+    void toggle_upload(bool enabled);
 };
 
 #endif

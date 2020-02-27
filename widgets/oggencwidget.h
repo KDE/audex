@@ -19,46 +19,57 @@
 #ifndef OGGENCWIDGET_H
 #define OGGENCWIDGET_H
 
-#include <QWidget>
 #include <QDir>
+#include <QWidget>
 
+#include "utils/encoderassistant.h"
 #include "utils/error.h"
 #include "utils/parameters.h"
-#include "utils/encoderassistant.h"
 
 #include "ui_oggencwidgetUI.h"
 
-class oggencWidgetUI : public QWidget, public Ui::OggEncWidgetUI {
+class oggencWidgetUI : public QWidget, public Ui::OggEncWidgetUI
+{
 public:
-  explicit oggencWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit oggencWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class oggencWidget : public oggencWidgetUI {
-  Q_OBJECT
+class oggencWidget : public oggencWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit oggencWidget(Parameters *parameters, QWidget *parent = 0);
-  ~oggencWidget();
-  inline Error lastError() const { return error; }
-  inline bool isChanged() const { return changed; }
+    explicit oggencWidget(Parameters *parameters, QWidget *parent = 0);
+    ~oggencWidget();
+    inline Error lastError() const
+    {
+        return error;
+    }
+    inline bool isChanged() const
+    {
+        return changed;
+    }
 public slots:
-  bool save();
+    bool save();
 signals:
-  void triggerChanged();
+    void triggerChanged();
 private slots:
-  void quality_changed_by_slider(int quality);
-  void quality_changed_by_spinbox(double quality);
-  void set_bitrate(float quality);
-  void enable_min_bitrate(bool enable);
-  void set_minbitrate(int bitrate);
-  void enable_max_bitrate(bool enable);
-  void set_maxbitrate(int bitrate);
-  void trigger_changed();
+    void quality_changed_by_slider(int quality);
+    void quality_changed_by_spinbox(double quality);
+    void set_bitrate(float quality);
+    void enable_min_bitrate(bool enable);
+    void set_minbitrate(int bitrate);
+    void enable_max_bitrate(bool enable);
+    void set_maxbitrate(int bitrate);
+    void trigger_changed();
+
 private:
-  Parameters *parameters;
-  Error error;
-  bool changed;
+    Parameters *parameters;
+    Error error;
+    bool changed;
 };
 
 #endif

@@ -36,8 +36,9 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
     void testEject();
+
 private:
-    QList<OpticalAudioDisc*> m_discs;
+    QList<OpticalAudioDisc *> m_discs;
 };
 
 #endif

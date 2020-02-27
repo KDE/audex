@@ -56,7 +56,7 @@ void DevicesTest::testEject()
 
     // Purposely use OpticalDrive's parent
     Solid::Device device(disc->device.parentUdi());
-    if (device.as<Solid::OpticalDrive>()) 
+    if (device.as<Solid::OpticalDrive>())
         device.as<Solid::OpticalDrive>()->eject();
 }
 

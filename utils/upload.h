@@ -19,33 +19,32 @@
 #ifndef UPLOAD_H
 #define UPLOAD_H
 
-#include <QObject>
+#include <QByteArray>
 #include <QFile>
 #include <QFileInfo>
-#include <QByteArray>
+#include <QObject>
 
-#include <KLocalizedString>
+#include <KIO/CopyJob>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
-#include <KIO/CopyJob>
+#include <KLocalizedString>
 
-class Upload : public QObject {
-  Q_OBJECT
+class Upload : public QObject
+{
+    Q_OBJECT
 public:
-  explicit Upload(const QUrl &url, QObject *parent = 0);
-  ~Upload();
+    explicit Upload(const QUrl &url, QObject *parent = 0);
+    ~Upload();
 
-  void upload(const QString& targetpath, const QStringList& filelist);
+    void upload(const QString &targetpath, const QStringList &filelist);
 
 signals:
-  void error(const QString& message,
-	const QString& solution = QString());
-  void warning(const QString& message);
-  void info(const QString& message);
+    void error(const QString &message, const QString &solution = QString());
+    void warning(const QString &message);
+    void info(const QString &message);
 
 private:
-  QUrl base_url;
-
+    QUrl base_url;
 };
 
 #endif

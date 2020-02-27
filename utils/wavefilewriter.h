@@ -19,60 +19,60 @@
 #ifndef WAVEFILEWRITER_HEADER
 #define WAVEFILEWRITER_HEADER
 
-#include <QString>
-#include <QFile>
 #include <QDataStream>
+#include <QFile>
+#include <QString>
 
 #include <KLocalizedString>
 
-class WaveFileWriter : public QObject {
-  Q_OBJECT
+class WaveFileWriter : public QObject
+{
+    Q_OBJECT
 public:
-  WaveFileWriter();
-  ~WaveFileWriter();
+    WaveFileWriter();
+    ~WaveFileWriter();
 
-  enum Endianess { BigEndian, LittleEndian };
+    enum Endianess { BigEndian, LittleEndian };
 
-  /**
-   * open a new wave file.
-   * closes any opened file.
-   */
-  bool open(const QString& filename);
-  bool isOpen();
-  QString filename() const;
+    /**
+     * open a new wave file.
+     * closes any opened file.
+     */
+    bool open(const QString &filename);
+    bool isOpen();
+    QString filename() const;
 
-  void setEndianess(const Endianess e);
-  Endianess endianess();
+    void setEndianess(const Endianess e);
+    Endianess endianess();
 
-  /**
-   * closes the file.
-   * Length of the wave file will be written into the header.
-   * If no data has been written to the file except the header
-   * it will be removed.
-   */
-  void close();
+    /**
+     * closes the file.
+     * Length of the wave file will be written into the header.
+     * If no data has been written to the file except the header
+     * it will be removed.
+     */
+    void close();
 
 public slots:
-  /**
-   * write 16bit samples to the file.
-   */
-  void write(const QByteArray& data);
+    /**
+     * write 16bit samples to the file.
+     */
+    void write(const QByteArray &data);
 
 signals:
-  void error(const QString& errorstr);
+    void error(const QString &errorstr);
 
 private:
-  void p_write_empty_header();
-  void p_update_header();
+    void p_write_empty_header();
+    void p_update_header();
 
-  Endianess p_endianess;
+    Endianess p_endianess;
 
-  QFile p_output_file;
-  QDataStream p_output_stream;
-  QString p_filename;
+    QFile p_output_file;
+    QDataStream p_output_stream;
+    QString p_filename;
 
-  long p_data_written;
-
+    long p_data_written;
 };
 
 #endif

@@ -19,10 +19,10 @@
 #ifndef CDDAHEADERDATADIALOG_H
 #define CDDAHEADERDATADIALOG_H
 
-#include <QWidget>
 #include <QDate>
 #include <QDialog>
 #include <QPushButton>
+#include <QWidget>
 
 #include "models/cddamodel.h"
 
@@ -30,28 +30,27 @@
 
 #include "ui_cddaheaderdatawidgetUI.h"
 
-class CDDAHeaderDataDialog : public QDialog {
-
-  Q_OBJECT
+class CDDAHeaderDataDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  explicit CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = 0);
-  ~CDDAHeaderDataDialog();
+    explicit CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = 0);
+    ~CDDAHeaderDataDialog();
 
 private slots:
-  void save();
-  void trigger_changed();
-  void enable_checkbox_multicd(bool enabled);
+    void save();
+    void trigger_changed();
+    void enable_checkbox_multicd(bool enabled);
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::CDDAHeaderDataWidgetUI ui;
-  CDDAModel *cdda_model;
-  QPushButton *okButton;
-  QPushButton *applyButton;
-
+    Ui::CDDAHeaderDataWidgetUI ui;
+    CDDAModel *cdda_model;
+    QPushButton *okButton;
+    QPushButton *applyButton;
 };
 
 #endif

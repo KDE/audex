@@ -23,64 +23,61 @@
 #define CDDADEVICES_H
 
 #include <QAbstractTableModel>
+#include <QHash>
 #include <QString>
 #include <QStringList>
-#include <QHash>
 
 #include <KLocalizedString>
 
-#include <Solid/Device>
-#include <Solid/StorageAccess>
-#include <Solid/OpticalDrive>
-#include <Solid/OpticalDisc>
-#include <Solid/DeviceNotifier>
-#include <Solid/DeviceInterface>
 #include <Solid/Block>
+#include <Solid/Device>
+#include <Solid/DeviceInterface>
+#include <Solid/DeviceNotifier>
 #include <Solid/GenericInterface>
+#include <Solid/OpticalDisc>
+#include <Solid/OpticalDrive>
+#include <Solid/StorageAccess>
 
-struct OpticalAudioDisc
-{
-  QString name;
-  Solid::Device device;
+struct OpticalAudioDisc {
+    QString name;
+    Solid::Device device;
 };
 
 class CDDADevices : public QObject
 {
-
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit CDDADevices(QObject *parent = 0);
-  ~CDDADevices();
+    explicit CDDADevices(QObject *parent = 0);
+    ~CDDADevices();
 
-  const QString blockDevice(const QString& udi) const;
+    const QString blockDevice(const QString &udi) const;
 
-  const QStringList udiList() const;
-  int discCount() const;
+    const QStringList udiList() const;
+    int discCount() const;
 
 public slots:
-  void scanBus();
+    void scanBus();
 
-  void eject(const QString& udi);
+    void eject(const QString &udi);
 
-  //set display name
-  void setName(const QString& udi, const QString& name);
+    // set display name
+    void setName(const QString &udi, const QString &name);
 
 signals:
-  void audioDiscDetected(const QString& udi);
-  void audioDiscRemoved(const QString& udi);
+    void audioDiscDetected(const QString &udi);
+    void audioDiscRemoved(const QString &udi);
 
 private slots:
-  void p_solid_device_added(const QString& udi);
-  void p_solid_device_removed(const QString& udi);
+    void p_solid_device_added(const QString &udi);
+    void p_solid_device_removed(const QString &udi);
 
 private:
-  QHash<QString, OpticalAudioDisc*> p_discs;
+    QHash<QString, OpticalAudioDisc *> p_discs;
 
-  bool p_is_optical_audio_disc(const Solid::Device& device) const;
+    bool p_is_optical_audio_disc(const Solid::Device &device) const;
 
-  void p_clear();
-
+    void p_clear();
 };
 
 #endif

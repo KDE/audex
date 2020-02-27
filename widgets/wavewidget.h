@@ -19,39 +19,50 @@
 #ifndef WAVEWIDGET_H
 #define WAVEWIDGET_H
 
-#include <QWidget>
 #include <QDir>
+#include <QWidget>
 
+#include "utils/encoderassistant.h"
 #include "utils/error.h"
 #include "utils/parameters.h"
-#include "utils/encoderassistant.h"
 
 #include "ui_wavewidgetUI.h"
 
-class waveWidgetUI : public QWidget, public Ui::WAVEWidgetUI {
+class waveWidgetUI : public QWidget, public Ui::WAVEWidgetUI
+{
 public:
-  explicit waveWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit waveWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class waveWidget : public waveWidgetUI {
-  Q_OBJECT
+class waveWidget : public waveWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit waveWidget(Parameters *parameters, QWidget *parent = 0);
-  ~waveWidget();
-  Error lastError() const { return error; }
-  inline bool isChanged() const { return changed; }
+    explicit waveWidget(Parameters *parameters, QWidget *parent = 0);
+    ~waveWidget();
+    Error lastError() const
+    {
+        return error;
+    }
+    inline bool isChanged() const
+    {
+        return changed;
+    }
 public slots:
-  bool save();
+    bool save();
 signals:
-  void triggerChanged();
+    void triggerChanged();
 private slots:
-  void trigger_changed();
+    void trigger_changed();
+
 private:
-  Parameters *parameters;
-  Error error;
-  bool changed;
+    Parameters *parameters;
+    Error error;
+    bool changed;
 };
 
 #endif

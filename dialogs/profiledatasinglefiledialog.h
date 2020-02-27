@@ -28,31 +28,30 @@
 
 #include "ui_profiledatasinglefilewidgetUI.h"
 
-class ProfileDataSingleFileDialog : public QDialog {
-
-  Q_OBJECT
+class ProfileDataSingleFileDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  explicit ProfileDataSingleFileDialog(const QString& pattern, QWidget *parent = 0);
-  ~ProfileDataSingleFileDialog();
+    explicit ProfileDataSingleFileDialog(const QString &pattern, QWidget *parent = 0);
+    ~ProfileDataSingleFileDialog();
 
-  QString pattern;
+    QString pattern;
 
 protected slots:
-  void pattern_wizard();
+    void pattern_wizard();
 
 private slots:
-  void trigger_changed();
+    void trigger_changed();
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::ProfileDataSingleFileWidgetUI ui;
-  QPushButton *applyButton;
+    Ui::ProfileDataSingleFileWidgetUI ui;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

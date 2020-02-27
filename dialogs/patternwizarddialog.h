@@ -19,8 +19,8 @@
 #ifndef PATTERNWIZARDDIALOG_H
 #define PATTERNWIZARDDIALOG_H
 
-#include <QWidget>
 #include <QWhatsThis>
+#include <QWidget>
 
 #include <QDialog>
 #include <QPushButton>
@@ -29,43 +29,44 @@
 
 #include "ui_patternwizardwidgetUI.h"
 
-class PatternWizardDialog : public QDialog {
-
-  Q_OBJECT
+class PatternWizardDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  explicit PatternWizardDialog(const QString& pattern, QWidget *parent = 0);
-  ~PatternWizardDialog();
+    explicit PatternWizardDialog(const QString &pattern, QWidget *parent = 0);
+    ~PatternWizardDialog();
 
-  QString pattern;
+    QString pattern;
 
 private slots:
-  void trigger_changed();
+    void trigger_changed();
 
-  void about_filename_schemes();
-  void about_parameters();
-  
-  void insAlbumArtist();
-  void insAlbumTitle();
-  void insTrackArtist();
-  void insTrackTitle();
-  void insTrackNo();
-  void insCDNo();
-  void insDate();
-  void insGenre();
-  void insSuffix();
-  void insNoOfTracks();
+    void about_filename_schemes();
+    void about_parameters();
 
-  void update_example();
+    void insAlbumArtist();
+    void insAlbumTitle();
+    void insTrackArtist();
+    void insTrackTitle();
+    void insTrackNo();
+    void insCDNo();
+    void insDate();
+    void insGenre();
+    void insSuffix();
+    void insNoOfTracks();
 
-  void slotAccepted();
-  void slotApplied();
+    void update_example();
+
+    void slotAccepted();
+    void slotApplied();
+
 private:
-  Ui::PatternWizardWidgetUI ui;
+    Ui::PatternWizardWidgetUI ui;
 
-  bool save();
+    bool save();
 
-  QPushButton *applyButton;
+    QPushButton *applyButton;
 };
 
 #endif

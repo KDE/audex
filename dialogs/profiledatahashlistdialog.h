@@ -28,32 +28,31 @@
 
 #include "ui_profiledatahashlistwidgetUI.h"
 
-class ProfileDataHashlistDialog : public QDialog {
-
-  Q_OBJECT
+class ProfileDataHashlistDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  ProfileDataHashlistDialog(const QString& pattern, const QString& format, QWidget *parent = 0);
-  ~ProfileDataHashlistDialog();
+    ProfileDataHashlistDialog(const QString &pattern, const QString &format, QWidget *parent = 0);
+    ~ProfileDataHashlistDialog();
 
-  QString format;
-  QString pattern;
+    QString format;
+    QString pattern;
 
 protected slots:
-  void pattern_wizard();
+    void pattern_wizard();
 
 private slots:
-  void trigger_changed();
+    void trigger_changed();
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::ProfileDataHashlistWidgetUI ui;
-  QPushButton *applyButton;
+    Ui::ProfileDataHashlistWidgetUI ui;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

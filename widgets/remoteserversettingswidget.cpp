@@ -18,21 +18,22 @@
 
 #include "remoteserversettingswidget.h"
 
-remoteServerSettingsWidget::remoteServerSettingsWidget(QWidget *parent) : remoteServerSettingsWidgetUI(parent) {
+remoteServerSettingsWidget::remoteServerSettingsWidget(QWidget *parent)
+    : remoteServerSettingsWidgetUI(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
-
-  connect(kcfg_upload, SIGNAL(toggled(bool)), this, SLOT(toggle_upload(bool)));
-  toggle_upload(kcfg_upload->isChecked());
-  kcfg_url->setMode(KFile::Directory|KFile::ExistingOnly|KFile::File); // Don't want files, but KDirSelect doesn't seem to like remote urls :-(
-
+    connect(kcfg_upload, SIGNAL(toggled(bool)), this, SLOT(toggle_upload(bool)));
+    toggle_upload(kcfg_upload->isChecked());
+    kcfg_url->setMode(KFile::Directory | KFile::ExistingOnly | KFile::File); // Don't want files, but KDirSelect doesn't seem to like remote urls :-(
 }
 
-remoteServerSettingsWidget::~remoteServerSettingsWidget() {
-
+remoteServerSettingsWidget::~remoteServerSettingsWidget()
+{
 }
 
-void remoteServerSettingsWidget::toggle_upload(bool enabled) {
-  kcfg_url->setEnabled(enabled);
-  label->setEnabled(enabled);
+void remoteServerSettingsWidget::toggle_upload(bool enabled)
+{
+    kcfg_url->setEnabled(enabled);
+    label->setEnabled(enabled);
 }

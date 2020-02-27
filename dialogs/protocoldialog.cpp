@@ -21,62 +21,64 @@
 #include <QFileDialog>
 #include <QTextStream>
 
-#include <KLocalizedString>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 
-ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : QDialog(parent) {
+ProtocolDialog::ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent)
+    : QDialog(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
+    setWindowTitle(title);
 
-  setWindowTitle(title);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
 
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Close);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolDialog::slotSaveProtocol);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolDialog::slotClosed);
 
-  QVBoxLayout *mainLayout = new QVBoxLayout;
-  setLayout(mainLayout);
+    QWidget *widget = new QWidget(this);
+    mainLayout->addWidget(widget);
+    mainLayout->addWidget(buttonBox);
+    ui.setupUi(widget);
 
-  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save|QDialogButtonBox::Close);
-  connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolDialog::slotSaveProtocol);
-  connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolDialog::slotClosed);
+    ui.ktextedit->setPlainText(protocol.join("\n"));
 
-  QWidget *widget = new QWidget(this);
-  mainLayout->addWidget(widget);
-  mainLayout->addWidget(buttonBox);
-  ui.setupUi(widget);
-
-  ui.ktextedit->setPlainText(protocol.join("\n"));
-
-  this->protocol = protocol;
-  this->title = title;
-
+    this->protocol = protocol;
+    this->title = title;
 }
 
-ProtocolDialog::~ProtocolDialog() {
-
+ProtocolDialog::~ProtocolDialog()
+{
 }
 
-void ProtocolDialog::slotClosed() {
-  close();
+void ProtocolDialog::slotClosed()
+{
+    close();
 }
 
-void ProtocolDialog::slotSaveProtocol() {
-  save();
+void ProtocolDialog::slotSaveProtocol()
+{
+    save();
 }
 
-void ProtocolDialog::save() {
-  QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.pro");
-  if (!fileName.isEmpty()) {
-    QFile data(fileName);
-    if (data.open(QFile::WriteOnly | QFile::Truncate)) {
-      QTextStream out(&data);
-      out << "AUDEX " << title << "\n";
-      out << trUtf8("created on ") << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << "\n";
-      out << "\n";
-      for (int i = 0; i < protocol.count(); i++) {
-        out << protocol.at(i) << "\n";
-      }
+void ProtocolDialog::save()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.pro");
+    if (!fileName.isEmpty()) {
+        QFile data(fileName);
+        if (data.open(QFile::WriteOnly | QFile::Truncate)) {
+            QTextStream out(&data);
+            out << "AUDEX " << title << "\n";
+            out << trUtf8("created on ") << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << "\n";
+            out << "\n";
+            for (int i = 0; i < protocol.count(); i++) {
+                out << protocol.at(i) << "\n";
+            }
+        }
     }
-  }
 }

@@ -30,35 +30,33 @@
 
 class ProfileDataPlaylistDialog : public QDialog
 {
-
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  ProfileDataPlaylistDialog(const QString& format, const QString& pattern, const bool absFilePath, const bool utf8, QWidget *parent = 0);
-  ~ProfileDataPlaylistDialog();
+    ProfileDataPlaylistDialog(const QString &format, const QString &pattern, const bool absFilePath, const bool utf8, QWidget *parent = 0);
+    ~ProfileDataPlaylistDialog();
 
-  QString format;
-  QString pattern;
-  bool absFilePath;
-  bool utf8;
+    QString format;
+    QString pattern;
+    bool absFilePath;
+    bool utf8;
 
 protected slots:
-  void pattern_wizard();
+    void pattern_wizard();
 
 private slots:
-  void trigger_changed();
-  void enable_abs_file_path(bool enabled);
-  void enable_utf8(bool enabled);
+    void trigger_changed();
+    void enable_abs_file_path(bool enabled);
+    void enable_utf8(bool enabled);
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::ProfileDataPlaylistWidgetUI ui;
-  QPushButton *applyButton;
+    Ui::ProfileDataPlaylistWidgetUI ui;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

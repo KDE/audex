@@ -19,53 +19,58 @@
 #ifndef ERROR_H
 #define ERROR_H
 
-class Error {
-
+class Error
+{
 public:
+    enum ErrorType { ERROR, WARNING };
 
-  enum ErrorType { ERROR, WARNING };
+    explicit Error(const QString &message = "", const QString &details = "", const ErrorType errorType = Error::ERROR, QObject *parent = 0)
+    {
+        Q_UNUSED(parent);
+        m = message;
+        d = details;
+        e = errorType;
+    }
+    Error(const Error &other)
+    {
+        m = other.m;
+        d = other.d;
+        e = other.e;
+    }
+    Error &operator=(const Error &other)
+    {
+        m = other.m;
+        d = other.d;
+        e = other.e;
+        return *this;
+    }
+    ~Error()
+    {
+    }
 
-  explicit Error(const QString& message = "", const QString& details = "", const ErrorType errorType = Error::ERROR, QObject *parent = 0) {
-    Q_UNUSED(parent);
-    m = message;
-    d = details;
-    e = errorType;
-  }
-  Error(const Error& other) {
-    m = other.m;
-    d = other.d;
-    e = other.e;
-  }
-  Error& operator=(const Error& other) {
-    m = other.m;
-    d = other.d;
-    e = other.e;
-    return *this;
-  }
-  ~Error() {
+    ErrorType errorType() const
+    {
+        return e;
+    }
 
-  }
+    bool isValid() const
+    {
+        return (!m.isEmpty());
+    }
 
-  ErrorType errorType() const {
-    return e;
-  }
-
-  bool isValid() const {
-    return (!m.isEmpty());
-  }
-
-  const QString message() const {
-    return m;
-  }
-  const QString details() const {
-    return d;
-  }
+    const QString message() const
+    {
+        return m;
+    }
+    const QString details() const
+    {
+        return d;
+    }
 
 private:
-  ErrorType e;
-  QString m;
-  QString d;
-
+    ErrorType e;
+    QString m;
+    QString d;
 };
 
 typedef QList<Error> ErrorList;

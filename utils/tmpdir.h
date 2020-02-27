@@ -19,38 +19,44 @@
 #ifndef TMPDIR_H
 #define TMPDIR_H
 
-#include <QObject>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QFileInfoList>
+#include <QObject>
 
 #include <KDiskFreeSpaceInfo>
 
 #include "utils/pid.h"
 
-class TmpDir : public QObject {
-  Q_OBJECT
+class TmpDir : public QObject
+{
+    Q_OBJECT
 
 public:
-  explicit TmpDir(const QString& appName, const QString& sub = "");
-  ~TmpDir();
+    explicit TmpDir(const QString &appName, const QString &sub = "");
+    ~TmpDir();
 
-  const QString tmpPath();
-  inline const QString tmpPathBase() const { return p_tmp_path_base; }
-  inline bool error() const { return p_error; }
-  
-  quint64 freeSpace() const;
+    const QString tmpPath();
+    inline const QString tmpPathBase() const
+    {
+        return p_tmp_path_base;
+    }
+    inline bool error() const
+    {
+        return p_error;
+    }
+
+    quint64 freeSpace() const;
 
 private:
-  QString p_tmp_path_base; //e.g. /var/tmp
-  QString p_tmp_path_app; //e.g. /var/tmp/audex.1234
-  QString p_tmp_path; //e.g. /car/tmp/audex.1234/sub
-  bool p_error;
+    QString p_tmp_path_base; // e.g. /var/tmp
+    QString p_tmp_path_app;  // e.g. /var/tmp/audex.1234
+    QString p_tmp_path;      // e.g. /car/tmp/audex.1234/sub
+    bool p_error;
 
-  bool p_create_dir(const QString &dirName);
-  bool p_remove_dir(const QString &dirName);
-
+    bool p_create_dir(const QString &dirName);
+    bool p_remove_dir(const QString &dirName);
 };
 
 #endif

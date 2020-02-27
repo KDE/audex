@@ -19,8 +19,8 @@
 #ifndef COMMANDWIZARDDIALOG_H
 #define COMMANDWIZARDDIALOG_H
 
-#include <QWidget>
 #include <QWhatsThis>
+#include <QWidget>
 
 #include <QDialog>
 #include <QPushButton>
@@ -29,48 +29,47 @@
 
 #include "ui_commandwizardwidgetUI.h"
 
-class CommandWizardDialog : public QDialog {
-
-  Q_OBJECT
+class CommandWizardDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  explicit CommandWizardDialog(const QString& command, QWidget *parent = 0);
-  ~CommandWizardDialog();
+    explicit CommandWizardDialog(const QString &command, QWidget *parent = 0);
+    ~CommandWizardDialog();
 
-  QString command;
+    QString command;
 
 private slots:
-  void trigger_changed();
-  
-  void about_commandline_schemes();
-  void about_parameters();
+    void trigger_changed();
 
-  void insAlbumArtist();
-  void insAlbumTitle();
-  void insTrackArtist();
-  void insTrackTitle();
-  void insTrackNo();
-  void insCDNo();
-  void insDate();
-  void insGenre();
-  void insCoverFile();
-  void insNoOfTracks();
-  void insInFile();
-  void insOutFile();
+    void about_commandline_schemes();
+    void about_parameters();
 
-  void update_example();
+    void insAlbumArtist();
+    void insAlbumTitle();
+    void insTrackArtist();
+    void insTrackTitle();
+    void insTrackNo();
+    void insCDNo();
+    void insDate();
+    void insGenre();
+    void insCoverFile();
+    void insNoOfTracks();
+    void insInFile();
+    void insOutFile();
 
-  void slotAccepted();
-  void slotApplied();
+    void update_example();
+
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::CommandWizardWidgetUI ui;
+    Ui::CommandWizardWidgetUI ui;
 
-  bool save();
+    bool save();
 
-  QPushButton *okButton;
-  QPushButton *applyButton;
-
+    QPushButton *okButton;
+    QPushButton *applyButton;
 };
 
 #endif

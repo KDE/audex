@@ -15,81 +15,84 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
- 
+
 #ifndef COVERFETCHER_HEADER
 #define COVERFETCHER_HEADER
 
-#include <QObject>
 #include <QByteArray>
+#include <QObject>
 #include <QRegExp>
 
-#include <KLocalizedString>
 #include <KIO/Job>
 #include <KIO/SimpleJob>
 #include <KIO/TransferJob>
+#include <KLocalizedString>
 
-class CoverFetcher : public QObject {
-  Q_OBJECT
+class CoverFetcher : public QObject
+{
+    Q_OBJECT
 public:
-  explicit CoverFetcher(QObject *parent = 0);
-  ~CoverFetcher();
+    explicit CoverFetcher(QObject *parent = 0);
+    ~CoverFetcher();
 
-  void startFetchThumbnails(const QString& searchstring, const int fetchNo = 8);
-  void stopFetchThumbnails();
-  void startFetchCover(const int no);
-  
-  const QByteArray thumbnail(int index);
-  const QString caption(int index);
-  const QString tbnid(int index);
-  inline int count() { return cover_names.count(); }
+    void startFetchThumbnails(const QString &searchstring, const int fetchNo = 8);
+    void stopFetchThumbnails();
+    void startFetchCover(const int no);
 
-  enum Status {
-    NOS,
-    SEARCHING,
-    FETCHING_THUMBNAIL,
-    FETCHING_COVER
-  };
-  
-  inline Status status() const { return _status; }
+    const QByteArray thumbnail(int index);
+    const QString caption(int index);
+    const QString tbnid(int index);
+    inline int count()
+    {
+        return cover_names.count();
+    }
+
+    enum Status { NOS, SEARCHING, FETCHING_THUMBNAIL, FETCHING_COVER };
+
+    inline Status status() const
+    {
+        return _status;
+    }
 
 signals:
-  void fetchedThumbnail(const QByteArray& thumbnail, const QString& caption, int no);
-  void allCoverThumbnailsFetched();
-  void fetchedCover(const QByteArray& cover);
-  void nothingFetched();
+    void fetchedThumbnail(const QByteArray &thumbnail, const QString &caption, int no);
+    void allCoverThumbnailsFetched();
+    void fetchedCover(const QByteArray &cover);
+    void nothingFetched();
 
-  void statusChanged(CoverFetcher::Status status);
+    void statusChanged(CoverFetcher::Status status);
 
-  void error(const QString& description,
-	const QString& solution = QString());
-  void warning(const QString& description);
-  void info(const QString& description);
+    void error(const QString &description, const QString &solution = QString());
+    void warning(const QString &description);
+    void info(const QString &description);
 
 private slots:
-  void fetched_html_data(KJob* job);
-  void fetched_external_ip(KJob* job);
+    void fetched_html_data(KJob *job);
+    void fetched_external_ip(KJob *job);
 
 private:
-  int fetch_no;
-  QStringList cover_urls_thumbnails;
-  QStringList cover_urls;
-  QStringList cover_names;
-  QStringList cover_tbnids;
-  QList<QByteArray> cover_thumbnails;
-  void clear() { cover_thumbnails.clear(); }
+    int fetch_no;
+    QStringList cover_urls_thumbnails;
+    QStringList cover_urls;
+    QStringList cover_names;
+    QStringList cover_tbnids;
+    QList<QByteArray> cover_thumbnails;
+    void clear()
+    {
+        cover_thumbnails.clear();
+    }
 
-  KIO::TransferJob* job;
+    KIO::TransferJob *job;
 
-  Status _status;
+    Status _status;
 
-  int f_i;
-  QString external_ip;
-  QString search_string;
+    int f_i;
+    QString external_ip;
+    QString search_string;
 
-  void parse_html_response(const QString& html);
-  bool fetch_cover_thumbnail();
-  bool fetch_cover(const int no);
-
+    void parse_html_response(const QString &html);
+    bool fetch_cover_thumbnail();
+    bool fetch_cover(const int no);
 };
 
 #endif

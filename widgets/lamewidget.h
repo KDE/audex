@@ -19,51 +19,62 @@
 #ifndef LAMEWIDGET_H
 #define LAMEWIDGET_H
 
-#include <QWidget>
 #include <QList>
+#include <QWidget>
 
+#include "utils/encoderassistant.h"
 #include "utils/error.h"
 #include "utils/parameters.h"
-#include "utils/encoderassistant.h"
 
 #include "ui_lamewidgetUI.h"
 
-class lameWidgetUI : public QWidget, public Ui::LAMEWidgetUI {
+class lameWidgetUI : public QWidget, public Ui::LAMEWidgetUI
+{
 public:
-  explicit lameWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit lameWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class lameWidget : public lameWidgetUI {
-  Q_OBJECT
+class lameWidget : public lameWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit lameWidget(Parameters *parameters, QWidget *parent = 0);
-  ~lameWidget();
-  inline Error lastError() const { return error; }
-  inline bool isChanged() const { return changed; }
+    explicit lameWidget(Parameters *parameters, QWidget *parent = 0);
+    ~lameWidget();
+    inline Error lastError() const
+    {
+        return error;
+    }
+    inline bool isChanged() const
+    {
+        return changed;
+    }
 signals:
-  void triggerChanged();
+    void triggerChanged();
 public slots:
-  bool save();
+    bool save();
 private slots:
-  void enable_medium(bool enable);
-  void enable_standard(bool enable);
-  void enable_extreme(bool enable);
-  void enable_insane(bool enable);
-  void enable_custom(bool enable);
-  void enable_CBR(bool enable);
-  void bitrate_changed_by_slider(int bitrate);
-  void bitrate_changed_by_spinbox(int bitrate);
-  void trigger_changed();
+    void enable_medium(bool enable);
+    void enable_standard(bool enable);
+    void enable_extreme(bool enable);
+    void enable_insane(bool enable);
+    void enable_custom(bool enable);
+    void enable_CBR(bool enable);
+    void bitrate_changed_by_slider(int bitrate);
+    void bitrate_changed_by_spinbox(int bitrate);
+    void trigger_changed();
+
 private:
-  Parameters *parameters;
-  Error error;
-  bool changed;
-  bool p_cbr_flag;
-  QList<int> bitrates;
-  int real_bitrate;
-  int preset;
+    Parameters *parameters;
+    Error error;
+    bool changed;
+    bool p_cbr_flag;
+    QList<int> bitrates;
+    int real_bitrate;
+    int preset;
 };
 
 #endif

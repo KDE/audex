@@ -19,41 +19,52 @@
 #ifndef FAACWIDGET_H
 #define FAACWIDGET_H
 
-#include <QWidget>
 #include <QDir>
+#include <QWidget>
 
+#include "utils/encoderassistant.h"
 #include "utils/error.h"
 #include "utils/parameters.h"
-#include "utils/encoderassistant.h"
 
 #include "ui_faacwidgetUI.h"
 
-class faacWidgetUI : public QWidget, public Ui::FAACWidgetUI {
+class faacWidgetUI : public QWidget, public Ui::FAACWidgetUI
+{
 public:
-  explicit faacWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit faacWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class faacWidget : public faacWidgetUI {
-  Q_OBJECT
+class faacWidget : public faacWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit faacWidget(Parameters *parameters, QWidget *parent = 0);
-  ~faacWidget();
-  Error lastError() const { return error; }
-  inline bool isChanged() const { return changed; }
+    explicit faacWidget(Parameters *parameters, QWidget *parent = 0);
+    ~faacWidget();
+    Error lastError() const
+    {
+        return error;
+    }
+    inline bool isChanged() const
+    {
+        return changed;
+    }
 public slots:
-  bool save();
+    bool save();
 signals:
-  void triggerChanged();
+    void triggerChanged();
 private slots:
-  void quality_changed_by_slider(int quality);
-  void quality_changed_by_spinbox(int quality);
-  void trigger_changed();
+    void quality_changed_by_slider(int quality);
+    void quality_changed_by_spinbox(int quality);
+    void trigger_changed();
+
 private:
-  Parameters *parameters;
-  Error error;
-  bool changed;
+    Parameters *parameters;
+    Error error;
+    bool changed;
 };
 
 #endif

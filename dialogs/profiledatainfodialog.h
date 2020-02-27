@@ -22,47 +22,46 @@
 #include <QWidget>
 
 #include <QDialog>
-#include <QTextBrowser>
 #include <QPushButton>
+#include <QTextBrowser>
 #include <QVBoxLayout>
 
 #include "simplepatternwizarddialog.h"
 
 #include "ui_profiledatainfowidgetUI.h"
 
-class ProfileDataInfoDialog : public QDialog {
-
-  Q_OBJECT
+class ProfileDataInfoDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  ProfileDataInfoDialog(const QStringList& text, const QString& pattern, const QString& suffix, QWidget *parent = 0);
-  ~ProfileDataInfoDialog();
+    ProfileDataInfoDialog(const QStringList &text, const QString &pattern, const QString &suffix, QWidget *parent = 0);
+    ~ProfileDataInfoDialog();
 
-  QStringList text;
-  QString pattern;
-  QString suffix;
+    QStringList text;
+    QString pattern;
+    QString suffix;
 
 protected slots:
-  void pattern_wizard();
+    void pattern_wizard();
 
 private slots:
-  void trigger_changed();
+    void trigger_changed();
 
-  void about_variables();
+    void about_variables();
 
-  void load_text();
-  void save_text();
+    void load_text();
+    void save_text();
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::ProfileDataInfoWidgetUI ui;
-  QVBoxLayout *mainLayout;
-  QPushButton *applyButton;
+    Ui::ProfileDataInfoWidgetUI ui;
+    QVBoxLayout *mainLayout;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

@@ -16,59 +16,59 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- #include "upload.h"
+#include "upload.h"
 
 #include <QDebug>
 #include <QUrl>
 
-Upload::Upload(const QUrl &url, QObject *parent) : QObject(parent) {
+Upload::Upload(const QUrl &url, QObject *parent)
+    : QObject(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
-
-  base_url = url;
-
+    base_url = url;
 }
 
-Upload::~Upload() {
-
+Upload::~Upload()
+{
 }
 
-void Upload::upload(const QString& targetpath, const QStringList& filelist) {
-
-  //first create the targetpath on the ftp server
-  QString dir, olddir;
-  int i = 0;
-  forever {
-    olddir = dir;
-    dir = targetpath.section('/', 0, i, QString::SectionSkipEmpty);
-    if (olddir==dir) break;
-    ++i;
-    QUrl url = base_url;
-    url.setPath(base_url.path()+'/'+dir);
-    //qDebug() << url;
-    KIO::Job *job = KIO::mkdir(url);
-    if (!job->exec()) {
-      //if it already exists jump over
-      if (job->error()!=113) {
-        emit error(job->errorText(), "");
-	qDebug() << job->errorText();
-        return;
-      }
+void Upload::upload(const QString &targetpath, const QStringList &filelist)
+{
+    // first create the targetpath on the ftp server
+    QString dir, olddir;
+    int i = 0;
+    forever {
+        olddir = dir;
+        dir = targetpath.section('/', 0, i, QString::SectionSkipEmpty);
+        if (olddir == dir)
+            break;
+        ++i;
+        QUrl url = base_url;
+        url.setPath(base_url.path() + '/' + dir);
+        // qDebug() << url;
+        KIO::Job *job = KIO::mkdir(url);
+        if (!job->exec()) {
+            // if it already exists jump over
+            if (job->error() != 113) {
+                emit error(job->errorText(), "");
+                qDebug() << job->errorText();
+                return;
+            }
+        }
     }
-  }
 
-  for (int i = 0; i < filelist.count(); ++i) {
-    QUrl url = base_url;
-    QFileInfo fi(filelist.at(i));
-    url.setPath(base_url.path()+'/'+targetpath+'/'+fi.fileName());
-    emit info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
-    KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
-    if (!job->exec()) {
-      emit error(job->errorText(), "");
-      qDebug() << job->errorText();
-      return;
+    for (int i = 0; i < filelist.count(); ++i) {
+        QUrl url = base_url;
+        QFileInfo fi(filelist.at(i));
+        url.setPath(base_url.path() + '/' + targetpath + '/' + fi.fileName());
+        emit info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
+        KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
+        if (!job->exec()) {
+            emit error(job->errorText(), "");
+            qDebug() << job->errorText();
+            return;
+        }
+        emit info(i18n("Finished uploading file %1 to server.", fi.fileName()));
     }
-    emit info(i18n("Finished uploading file %1 to server.", fi.fileName()));
-  }
-
 }

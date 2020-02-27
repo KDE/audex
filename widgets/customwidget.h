@@ -19,42 +19,53 @@
 #ifndef CUSTOMWIDGET_H
 #define CUSTOMWIDGET_H
 
-#include <QWidget>
 #include <QDir>
+#include <QWidget>
 
+#include "utils/encoderassistant.h"
 #include "utils/error.h"
 #include "utils/parameters.h"
-#include "utils/encoderassistant.h"
 
 #include "dialogs/commandwizarddialog.h"
 
 #include "ui_customwidgetUI.h"
 
-class customWidgetUI : public QWidget, public Ui::CustomWidgetUI {
+class customWidgetUI : public QWidget, public Ui::CustomWidgetUI
+{
 public:
-  explicit customWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit customWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class customWidget : public customWidgetUI {
-  Q_OBJECT
+class customWidget : public customWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit customWidget(Parameters *parameters, QWidget *parent = 0);
-  ~customWidget();
-  Error lastError() const { return error; }
-  inline bool isChanged() const { return changed; }
+    explicit customWidget(Parameters *parameters, QWidget *parent = 0);
+    ~customWidget();
+    Error lastError() const
+    {
+        return error;
+    }
+    inline bool isChanged() const
+    {
+        return changed;
+    }
 public slots:
-  bool save();
-  void pattern_wizard();
+    bool save();
+    void pattern_wizard();
 signals:
-  void triggerChanged();
+    void triggerChanged();
 private slots:
-  void trigger_changed();
+    void trigger_changed();
+
 private:
-  Parameters *parameters;
-  Error error;
-  bool changed;
+    Parameters *parameters;
+    Error error;
+    bool changed;
 };
 
 #endif

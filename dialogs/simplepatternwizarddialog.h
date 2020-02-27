@@ -19,8 +19,8 @@
 #ifndef SIMPLEPATTERNWIZARDDIALOG_H
 #define SIMPLEPATTERNWIZARDDIALOG_H
 
-#include <QWidget>
 #include <QWhatsThis>
+#include <QWidget>
 
 #include <QDialog>
 
@@ -28,42 +28,41 @@
 
 #include "ui_simplepatternwizardwidgetUI.h"
 
-class SimplePatternWizardDialog : public QDialog {
-
-  Q_OBJECT
+class SimplePatternWizardDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  SimplePatternWizardDialog(const QString& pattern, const QString& suffix, QWidget *parent = 0);
-  ~SimplePatternWizardDialog();
+    SimplePatternWizardDialog(const QString &pattern, const QString &suffix, QWidget *parent = 0);
+    ~SimplePatternWizardDialog();
 
-  QString pattern;
+    QString pattern;
 
 private slots:
-  void trigger_changed();
-  
-  void about_schemes();
-  void about_parameters();
+    void trigger_changed();
 
-  void insAlbumArtist();
-  void insAlbumTitle();
-  void insCDNo();
-  void insDate();
-  void insGenre();
-  void insSuffix();
-  void insNoOfTracks();
+    void about_schemes();
+    void about_parameters();
 
-  void update_example();
+    void insAlbumArtist();
+    void insAlbumTitle();
+    void insCDNo();
+    void insDate();
+    void insGenre();
+    void insSuffix();
+    void insNoOfTracks();
 
-  void slotAccepted();
-  void slotApplied();
+    void update_example();
+
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::SimplePatternWizardWidgetUI ui;
-  QString suffix;
-  QPushButton *applyButton;
+    Ui::SimplePatternWizardWidgetUI ui;
+    QString suffix;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

@@ -20,72 +20,65 @@
 
 #include <QDebug>
 
-faacWidget::faacWidget(Parameters *parameters, QWidget *parent) : faacWidgetUI(parent) {
+faacWidget::faacWidget(Parameters *parameters, QWidget *parent)
+    : faacWidgetUI(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
+    this->parameters = parameters;
+    if (!parameters) {
+        qDebug() << "ParameterString is NULL!";
+        return;
+    }
 
-  this->parameters = parameters;
-  if (!parameters) {
-    qDebug() << "ParameterString is NULL!";
-    return;
-  }
+    horizontalSlider_quality->setValue(parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY));
+    kintspinbox_quality->setValue(parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY));
+    qlineedit_suffix->setText(parameters->value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX));
 
-  horizontalSlider_quality->setValue(parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY));
-  kintspinbox_quality->setValue(parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY));
-  qlineedit_suffix->setText(parameters->value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX));
+    connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
+    connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
-  connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
-  connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_spinbox(int)));
+    connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
-  connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_spinbox(int)));
-  connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
-  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-
-  changed = false;
-
+    changed = false;
 }
 
-faacWidget::~faacWidget() {
-
+faacWidget::~faacWidget()
+{
 }
 
-bool faacWidget::save() {
+bool faacWidget::save()
+{
+    bool success = true;
 
-  bool success = true;
+    parameters->setValue(ENCODER_FAAC_QUALITY_KEY, horizontalSlider_quality->value());
+    parameters->setValue(ENCODER_FAAC_SUFFIX_KEY, qlineedit_suffix->text());
 
-  parameters->setValue(ENCODER_FAAC_QUALITY_KEY, horizontalSlider_quality->value());
-  parameters->setValue(ENCODER_FAAC_SUFFIX_KEY, qlineedit_suffix->text());
+    changed = false;
 
-  changed = false;
-
-  return success;
-
+    return success;
 }
 
-void faacWidget::quality_changed_by_slider(int quality) {
-
-  kintspinbox_quality->blockSignals(true);
-  kintspinbox_quality->setValue(quality);
-  kintspinbox_quality->blockSignals(false);
-
+void faacWidget::quality_changed_by_slider(int quality)
+{
+    kintspinbox_quality->blockSignals(true);
+    kintspinbox_quality->setValue(quality);
+    kintspinbox_quality->blockSignals(false);
 }
 
-void faacWidget::quality_changed_by_spinbox(int quality) {
-
-  horizontalSlider_quality->blockSignals(true);
-  horizontalSlider_quality->setValue(quality);
-  horizontalSlider_quality->blockSignals(false);
-
+void faacWidget::quality_changed_by_spinbox(int quality)
+{
+    horizontalSlider_quality->blockSignals(true);
+    horizontalSlider_quality->setValue(quality);
+    horizontalSlider_quality->blockSignals(false);
 }
 
-void faacWidget::trigger_changed() {
+void faacWidget::trigger_changed()
+{
+    changed = (horizontalSlider_quality->value() != parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY) || qlineedit_suffix->text() != parameters->value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX));
 
-  changed = (
-    horizontalSlider_quality->value() != parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY) ||
-    qlineedit_suffix->text() != parameters->value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX)
-  );
-
-  emit triggerChanged();
-
+    emit triggerChanged();
 }

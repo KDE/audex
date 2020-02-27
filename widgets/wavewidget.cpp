@@ -20,46 +20,42 @@
 
 #include <QDebug>
 
-waveWidget::waveWidget(Parameters *parameters, QWidget *parent) : waveWidgetUI(parent) {
+waveWidget::waveWidget(Parameters *parameters, QWidget *parent)
+    : waveWidgetUI(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
+    this->parameters = parameters;
+    if (!parameters) {
+        qDebug() << "ParameterString is NULL!";
+        return;
+    }
 
-  this->parameters = parameters;
-  if (!parameters) {
-    qDebug() << "ParameterString is NULL!";
-    return;
-  }
+    qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
 
-  qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
+    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
-  connect(qlineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
-
-  changed = false;
-
+    changed = false;
 }
 
-waveWidget::~waveWidget() {
-
+waveWidget::~waveWidget()
+{
 }
 
-bool waveWidget::save() {
+bool waveWidget::save()
+{
+    bool success = true;
 
-  bool success = true;
+    parameters->setValue(ENCODER_WAVE_SUFFIX_KEY, qlineedit_suffix->text());
 
-  parameters->setValue(ENCODER_WAVE_SUFFIX_KEY, qlineedit_suffix->text());
+    changed = false;
 
-  changed = false;
-
-  return success;
-
+    return success;
 }
 
-void waveWidget::trigger_changed() {
+void waveWidget::trigger_changed()
+{
+    changed = (qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
 
-  changed = (
-    qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX)
-  );
-
-  emit triggerChanged();
-
+    emit triggerChanged();
 }

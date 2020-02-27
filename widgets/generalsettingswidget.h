@@ -27,18 +27,22 @@
 
 #include "ui_generalsettingswidgetUI.h"
 
-class generalSettingsWidgetUI : public QWidget, public Ui::GeneralSettingsWidgetUI {
+class generalSettingsWidgetUI : public QWidget, public Ui::GeneralSettingsWidgetUI
+{
 public:
-  explicit generalSettingsWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit generalSettingsWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class generalSettingsWidget : public generalSettingsWidgetUI {
-  Q_OBJECT
+class generalSettingsWidget : public generalSettingsWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit generalSettingsWidget(QWidget* parent = 0);
-  ~generalSettingsWidget();
+    explicit generalSettingsWidget(QWidget *parent = 0);
+    ~generalSettingsWidget();
 };
 
 #endif

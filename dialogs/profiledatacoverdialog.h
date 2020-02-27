@@ -28,35 +28,34 @@
 
 #include "ui_profiledatacoverwidgetUI.h"
 
-class ProfileDataCoverDialog : public QDialog {
-
-  Q_OBJECT
+class ProfileDataCoverDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  ProfileDataCoverDialog(const bool scale, const QSize& size, const QString& format, const QString& pattern, QWidget *parent = 0);
-  ~ProfileDataCoverDialog();
+    ProfileDataCoverDialog(const bool scale, const QSize &size, const QString &format, const QString &pattern, QWidget *parent = 0);
+    ~ProfileDataCoverDialog();
 
-  bool scale;
-  QSize size;
-  QString format;
-  QString pattern;
+    bool scale;
+    QSize size;
+    QString format;
+    QString pattern;
 
 protected slots:
-  void pattern_wizard();
+    void pattern_wizard();
 
 private slots:
-  void trigger_changed();
-  void enable_scale(bool enabled);
+    void trigger_changed();
+    void enable_scale(bool enabled);
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::ProfileDataCoverWidgetUI ui;
-  QPushButton *applyButton;
+    Ui::ProfileDataCoverWidgetUI ui;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

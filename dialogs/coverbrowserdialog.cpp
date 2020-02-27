@@ -21,111 +21,119 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-CoverBrowserDialog::CoverBrowserDialog(QWidget *parent) : QDialog(parent) {
+CoverBrowserDialog::CoverBrowserDialog(QWidget *parent)
+    : QDialog(parent)
+{
+    Q_UNUSED(parent);
 
-  Q_UNUSED(parent);
-
-  setup();
-
+    setup();
 }
 
-CoverBrowserDialog::~CoverBrowserDialog() {
-
+CoverBrowserDialog::~CoverBrowserDialog()
+{
 }
 
-void CoverBrowserDialog::fetchThumbnails(const QString& searchstring, const int fetchCount) {
-  if (fetchCount == 0)
-    cover_fetcher.startFetchThumbnails(searchstring, Preferences::fetchCount());
-  else
-    cover_fetcher.startFetchThumbnails(searchstring, fetchCount);
-  ui.label->setText(i18n("Searching for covers..."));
+void CoverBrowserDialog::fetchThumbnails(const QString &searchstring, const int fetchCount)
+{
+    if (fetchCount == 0)
+        cover_fetcher.startFetchThumbnails(searchstring, Preferences::fetchCount());
+    else
+        cover_fetcher.startFetchThumbnails(searchstring, fetchCount);
+    ui.label->setText(i18n("Searching for covers..."));
 }
 
-void CoverBrowserDialog::startFetchCover(const int no) {
-  cover_fetcher.startFetchCover(no);
+void CoverBrowserDialog::startFetchCover(const int no)
+{
+    cover_fetcher.startFetchCover(no);
 }
 
-void CoverBrowserDialog::slotAccepted() {
-  select_this(ui.listWidget->selectedItems().at(0));
-  accept();
+void CoverBrowserDialog::slotAccepted()
+{
+    select_this(ui.listWidget->selectedItems().at(0));
+    accept();
 }
 
-void CoverBrowserDialog::select_this(QListWidgetItem* item) {
-  cover_fetcher.stopFetchThumbnails();
-  int match = item->data(Qt::UserRole).toInt();
-  cover_fetcher.startFetchCover(match);
-  accept();
+void CoverBrowserDialog::select_this(QListWidgetItem *item)
+{
+    cover_fetcher.stopFetchThumbnails();
+    int match = item->data(Qt::UserRole).toInt();
+    cover_fetcher.startFetchCover(match);
+    accept();
 }
 
-void CoverBrowserDialog::enable_select_button() {
-  okButton->setEnabled(ui.listWidget->selectedItems().count() > 0);
+void CoverBrowserDialog::enable_select_button()
+{
+    okButton->setEnabled(ui.listWidget->selectedItems().count() > 0);
 }
 
-void CoverBrowserDialog::add_item(const QByteArray& cover, const QString& caption, int no) {
-  QListWidgetItem *item = new QListWidgetItem;
-  QPixmap pixmap;
-  if (pixmap.loadFromData(cover)) {
-    item->setText(caption);
-    //item->setToolTip(i18n("%1\nCover Size: %2x%3", caption, pixmap.width(), pixmap.height()));
-    item->setIcon(QIcon(pixmap.scaled(128, 128, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
-    item->setData(Qt::UserRole, no-1);
-    ui.listWidget->addItem(item);
-  }
-  ui.label->setText(i18n("Fetching Thumbnail %1 / %2...", no, cover_fetcher.count()));
+void CoverBrowserDialog::add_item(const QByteArray &cover, const QString &caption, int no)
+{
+    QListWidgetItem *item = new QListWidgetItem;
+    QPixmap pixmap;
+    if (pixmap.loadFromData(cover)) {
+        item->setText(caption);
+        // item->setToolTip(i18n("%1\nCover Size: %2x%3", caption, pixmap.width(), pixmap.height()));
+        item->setIcon(QIcon(pixmap.scaled(128, 128, Qt::IgnoreAspectRatio, Qt::SmoothTransformation)));
+        item->setData(Qt::UserRole, no - 1);
+        ui.listWidget->addItem(item);
+    }
+    ui.label->setText(i18n("Fetching Thumbnail %1 / %2...", no, cover_fetcher.count()));
 }
 
-void CoverBrowserDialog::all_fetched() {
-  ui.label->setText(i18np("Found 1 Cover", "Found %1 Covers", cover_fetcher.count()));
-  emit allCoverThumbnailsFetched();
+void CoverBrowserDialog::all_fetched()
+{
+    ui.label->setText(i18np("Found 1 Cover", "Found %1 Covers", cover_fetcher.count()));
+    emit allCoverThumbnailsFetched();
 }
 
-void CoverBrowserDialog::nothing_fetched() {
-  ui.label->setText(i18n("No Covers Found"));
-  emit nothingFetched();
+void CoverBrowserDialog::nothing_fetched()
+{
+    ui.label->setText(i18n("No Covers Found"));
+    emit nothingFetched();
 }
 
-void CoverBrowserDialog::cover_fetched(const QByteArray& cover) {
-  emit coverFetched(cover);
+void CoverBrowserDialog::cover_fetched(const QByteArray &cover)
+{
+    emit coverFetched(cover);
 }
 
-void CoverBrowserDialog::error(const QString& description, const QString& solution) {
-  ErrorDialog::show(this, description, solution);
+void CoverBrowserDialog::error(const QString &description, const QString &solution)
+{
+    ErrorDialog::show(this, description, solution);
 }
 
-void CoverBrowserDialog::setup() {
+void CoverBrowserDialog::setup()
+{
+    static const int constIconSize = 128;
 
-  static const int constIconSize=128;
+    setWindowTitle(i18n("Fetch Cover From Google"));
 
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
 
-  setWindowTitle(i18n("Fetch Cover From Google"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CoverBrowserDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &CoverBrowserDialog::reject);
 
-  QVBoxLayout *mainLayout = new QVBoxLayout;
-  setLayout(mainLayout);
+    QWidget *widget = new QWidget(this);
+    mainLayout->addWidget(widget);
+    mainLayout->addWidget(buttonBox);
+    ui.setupUi(widget);
 
-  QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-  okButton = buttonBox->button(QDialogButtonBox::Ok);
-  okButton->setDefault(true);
-  okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-  connect(buttonBox, &QDialogButtonBox::accepted, this, &CoverBrowserDialog::slotAccepted);
-  connect(buttonBox, &QDialogButtonBox::rejected, this, &CoverBrowserDialog::reject);
+    connect(&cover_fetcher, SIGNAL(fetchedThumbnail(const QByteArray &, const QString &, int)), this, SLOT(add_item(const QByteArray &, const QString &, int)));
+    connect(&cover_fetcher, SIGNAL(allCoverThumbnailsFetched()), this, SLOT(all_fetched()));
+    connect(&cover_fetcher, SIGNAL(nothingFetched()), this, SLOT(nothing_fetched()));
+    connect(&cover_fetcher, SIGNAL(fetchedCover(const QByteArray &)), this, SLOT(cover_fetched(const QByteArray &)));
+    connect(&cover_fetcher, SIGNAL(error(const QString &, const QString &)), this, SLOT(error(const QString &, const QString &)));
 
-  QWidget *widget = new QWidget(this);
-  mainLayout->addWidget(widget);
-  mainLayout->addWidget(buttonBox);
-  ui.setupUi(widget);
-
-  connect(&cover_fetcher, SIGNAL(fetchedThumbnail(const QByteArray&, const QString&, int)), this, SLOT(add_item(const QByteArray&, const QString&, int)));
-  connect(&cover_fetcher, SIGNAL(allCoverThumbnailsFetched()), this, SLOT(all_fetched()));
-  connect(&cover_fetcher, SIGNAL(nothingFetched()), this, SLOT(nothing_fetched()));
-  connect(&cover_fetcher, SIGNAL(fetchedCover(const QByteArray&)), this, SLOT(cover_fetched(const QByteArray&)));
-  connect(&cover_fetcher, SIGNAL(error(const QString&, const QString&)), this, SLOT(error(const QString&, const QString&)));
-
-  ui.listWidget->setIconSize(QSize(constIconSize, constIconSize));
-  ui.listWidget->setWordWrap(true);
-  ui.listWidget->setViewMode(QListView::IconMode);
-  connect(ui.listWidget, SIGNAL(itemSelectionChanged()), this, SLOT(enable_select_button()));
-  connect(ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(select_this(QListWidgetItem*)));
-  ui.listWidget->setMinimumSize((constIconSize+12)*4, (constIconSize+12)*2);
-  enable_select_button();
-
+    ui.listWidget->setIconSize(QSize(constIconSize, constIconSize));
+    ui.listWidget->setWordWrap(true);
+    ui.listWidget->setViewMode(QListView::IconMode);
+    connect(ui.listWidget, SIGNAL(itemSelectionChanged()), this, SLOT(enable_select_button()));
+    connect(ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(select_this(QListWidgetItem *)));
+    ui.listWidget->setMinimumSize((constIconSize + 12) * 4, (constIconSize + 12) * 2);
+    enable_select_button();
 }

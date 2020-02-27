@@ -19,61 +19,63 @@
 #ifndef COVERBROWSERDIALOG_H
 #define COVERBROWSERDIALOG_H
 
-#include <QPixmap>
-#include <QIcon>
 #include <QByteArray>
+#include <QIcon>
+#include <QPixmap>
 
 #include <QDialog>
 #include <QPushButton>
 
 #include "preferences.h"
 
-#include "utils/coverfetcher.h"
 #include "dialogs/errordialog.h"
+#include "utils/coverfetcher.h"
 
 #include "ui_coverbrowserwidgetUI.h"
 
-class CoverBrowserDialog : public QDialog {
-
-  Q_OBJECT
+class CoverBrowserDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  explicit CoverBrowserDialog(QWidget *parent = 0);
-  ~CoverBrowserDialog();
+    explicit CoverBrowserDialog(QWidget *parent = 0);
+    ~CoverBrowserDialog();
 
-  inline int count() { return cover_fetcher.count(); }
+    inline int count()
+    {
+        return cover_fetcher.count();
+    }
 
 public slots:
-  void fetchThumbnails(const QString& searchstring, const int fetchCount = 0);
-  void startFetchCover(const int no);
+    void fetchThumbnails(const QString &searchstring, const int fetchCount = 0);
+    void startFetchCover(const int no);
 
 signals:
-  void coverFetched(const QByteArray& cover);
-  void allCoverThumbnailsFetched();
-  void nothingFetched();
+    void coverFetched(const QByteArray &cover);
+    void allCoverThumbnailsFetched();
+    void nothingFetched();
 
 private slots:
-  void select_this(QListWidgetItem* item);
+    void select_this(QListWidgetItem *item);
 
-  void enable_select_button();
+    void enable_select_button();
 
-  void add_item(const QByteArray& cover, const QString& caption, int no);
-  void all_fetched();
-  void nothing_fetched();
+    void add_item(const QByteArray &cover, const QString &caption, int no);
+    void all_fetched();
+    void nothing_fetched();
 
-  void cover_fetched(const QByteArray& cover);
+    void cover_fetched(const QByteArray &cover);
 
-  void error(const QString& description, const QString& solution);
+    void error(const QString &description, const QString &solution);
 
-  void slotAccepted();
+    void slotAccepted();
 
 private:
-  Ui::CoverBrowserWidgetUI ui;
-  CoverFetcher cover_fetcher;
-  QPushButton *okButton;
+    Ui::CoverBrowserWidgetUI ui;
+    CoverFetcher cover_fetcher;
+    QPushButton *okButton;
 
-  void setup();
-
+    void setup();
 };
 
 #endif

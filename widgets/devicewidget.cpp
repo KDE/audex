@@ -18,12 +18,12 @@
 
 #include "devicewidget.h"
 
-deviceWidget::deviceWidget(QWidget* parent) : deviceWidgetUI(parent) {
-
-  Q_UNUSED(parent);
-
+deviceWidget::deviceWidget(QWidget *parent)
+    : deviceWidgetUI(parent)
+{
+    Q_UNUSED(parent);
 }
 
-deviceWidget::~deviceWidget() {
-
+deviceWidget::~deviceWidget()
+{
 }

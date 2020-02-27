@@ -28,31 +28,30 @@
 
 #include "ui_profiledatacuesheetwidgetUI.h"
 
-class ProfileDataCueSheetDialog : public QDialog {
-
-  Q_OBJECT
+class ProfileDataCueSheetDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  explicit ProfileDataCueSheetDialog(const QString& pattern, QWidget *parent = 0);
-  ~ProfileDataCueSheetDialog();
+    explicit ProfileDataCueSheetDialog(const QString &pattern, QWidget *parent = 0);
+    ~ProfileDataCueSheetDialog();
 
-  QString pattern;
+    QString pattern;
 
 protected slots:
-  void pattern_wizard();
+    void pattern_wizard();
 
 private slots:
-  void trigger_changed();
+    void trigger_changed();
 
-  void slotAccepted();
-  void slotApplied();
+    void slotAccepted();
+    void slotApplied();
 
 private:
-  Ui::ProfileDataCueSheetWidgetUI ui;
-  QPushButton *applyButton;
+    Ui::ProfileDataCueSheetWidgetUI ui;
+    QPushButton *applyButton;
 
-  bool save();
-
+    bool save();
 };
 
 #endif

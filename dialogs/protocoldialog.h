@@ -19,32 +19,31 @@
 #ifndef PROTOCOLDIALOG_H
 #define PROTOCOLDIALOG_H
 
-#include <QWidget>
 #include <QDateTime>
+#include <QWidget>
 
 #include <QDialog>
 
 #include "ui_protocolwidgetUI.h"
 
-class ProtocolDialog : public QDialog {
-
-  Q_OBJECT
+class ProtocolDialog : public QDialog
+{
+    Q_OBJECT
 
 public:
-  ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent = 0);
-  ~ProtocolDialog();
+    ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent = 0);
+    ~ProtocolDialog();
 
 private slots:
-  void slotSaveProtocol();
-  void slotClosed();
-  void save();
+    void slotSaveProtocol();
+    void slotClosed();
+    void save();
 
 private:
-  Ui::ProtocolWidgetUI ui;
+    Ui::ProtocolWidgetUI ui;
 
-  QStringList protocol;
-  QString title;
-
+    QStringList protocol;
+    QString title;
 };
 
 #endif

@@ -24,14 +24,14 @@
 
 #include <QObject>
 
-class PID : public QObject {
-  Q_OBJECT
+class PID : public QObject
+{
+    Q_OBJECT
 
 public:
-  PID();
+    PID();
 
-  int getPID();
-
+    int getPID();
 };
 
 #endif

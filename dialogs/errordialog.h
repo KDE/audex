@@ -7,9 +7,9 @@
 
 class QWidget;
 
-namespace ErrorDialog {
-
-extern void show(QWidget *parent, const QString &message, const QString &details, const QString &caption=QString());
+namespace ErrorDialog
+{
+extern void show(QWidget *parent, const QString &message, const QString &details, const QString &caption = QString());
 
 }
 #endif

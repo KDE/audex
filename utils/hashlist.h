@@ -24,22 +24,21 @@
 
 #include <unistd.h>
 
+#include <QByteArray>
+#include <QCryptographicHash>
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>
-#include <QByteArray>
-#include <QCryptographicHash>
 
 #include "3rdparty/crc32.h"
 
-class Hashlist {
-
+class Hashlist
+{
 public:
-  Hashlist();
+    Hashlist();
 
-  const QStringList getSFV(const QStringList& filenames);
-  const QStringList getMD5(const QStringList& filenames);
-
+    const QStringList getSFV(const QStringList &filenames);
+    const QStringList getMD5(const QStringList &filenames);
 };
 
 #endif

@@ -27,18 +27,22 @@
 
 #include "ui_devicewidgetUI.h"
 
-class deviceWidgetUI : public QWidget, public Ui::DeviceWidgetUI {
+class deviceWidgetUI : public QWidget, public Ui::DeviceWidgetUI
+{
 public:
-  explicit deviceWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit deviceWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class deviceWidget : public deviceWidgetUI {
-  Q_OBJECT
+class deviceWidget : public deviceWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit deviceWidget(QWidget* parent = 0);
-  ~deviceWidget();
+    explicit deviceWidget(QWidget *parent = 0);
+    ~deviceWidget();
 };
 
 #endif

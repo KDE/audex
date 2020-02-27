@@ -19,40 +19,45 @@
 #ifndef PROFILEWIDGET_H
 #define PROFILEWIDGET_H
 
-#include <QWidget>
 #include <QDir>
+#include <QWidget>
 
 #include <KMessageBox>
 
-#include "models/profilemodel.h"
 #include "dialogs/profiledatadialog.h"
+#include "models/profilemodel.h"
 
 #include "ui_profilewidgetUI.h"
 
-class profileWidgetUI : public QWidget, public Ui::ProfileWidgetUI {
+class profileWidgetUI : public QWidget, public Ui::ProfileWidgetUI
+{
 public:
-  explicit profileWidgetUI(QWidget *parent) : QWidget(parent) {
-    setupUi(this);
-  }
+    explicit profileWidgetUI(QWidget *parent)
+        : QWidget(parent)
+    {
+        setupUi(this);
+    }
 };
 
-class profileWidget : public profileWidgetUI {
-  Q_OBJECT
+class profileWidget : public profileWidgetUI
+{
+    Q_OBJECT
 public:
-  explicit profileWidget(ProfileModel *profileModel, QWidget *parent = 0);
-  ~profileWidget();
+    explicit profileWidget(ProfileModel *profileModel, QWidget *parent = 0);
+    ~profileWidget();
 private slots:
-  void _update();
-  void add_profile();
-  void rem_profile();
-  void mod_profile(const QModelIndex& index);
-  void mod_profile();
-  void copy_profile();
-  void save_profiles();
-  void load_profiles();
-  void init_profiles();
+    void _update();
+    void add_profile();
+    void rem_profile();
+    void mod_profile(const QModelIndex &index);
+    void mod_profile();
+    void copy_profile();
+    void save_profiles();
+    void load_profiles();
+    void init_profiles();
+
 private:
-  ProfileModel *profile_model;
+    ProfileModel *profile_model;
 };
 
 #endif
