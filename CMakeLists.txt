@@ -14,7 +14,7 @@ set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${Audex_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${Audex_VERSION}")
 include(CPack)
 
-set(KF5_MIN_VERSION "5.15.0")
+set(KF5_MIN_VERSION "5.64.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -29,6 +29,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(FeatureSummary)
+include(KDEClangFormat)
 
 find_package(Qt5 REQUIRED COMPONENTS
   Script
@@ -182,5 +183,9 @@ if(BUILD_TESTING)
     find_package(Qt5Test REQUIRED)
     add_subdirectory(test)
 endif()
+
+# add clang-format target for all our real source files
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES)
