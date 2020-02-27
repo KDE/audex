@@ -81,11 +81,11 @@ const QString Parameters::toString(const QChar& sep) {
   bool first = true;
   while (i != p_parameters.constEnd()) {
     QString s = i.value();
-    s.replace("'", "\\'");
+    s.replace('\'', "\\'");
     if (!first) {
-      string += sep+i.key()+"='"+s+"'";
+      string += sep+i.key() + "='" + s +'\'';
     } else {
-      string += i.key()+"='"+s+"'";
+      string += i.key() + "='" + s + '\'';
       first = false;
     }
     ++i;

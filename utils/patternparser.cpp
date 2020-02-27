@@ -386,7 +386,7 @@ const QString SaxHandler::make_compatible(const QString& string) {
 
 const QString SaxHandler::make_compatible_2(const QString& string) {
   QString s = string;
-  s.replace("\"", "\\\"");
+  s.replace('"', "\\\"");
   return s;
 }
 
