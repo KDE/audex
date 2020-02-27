@@ -43,7 +43,7 @@ class waveWidget : public waveWidgetUI
     Q_OBJECT
 public:
     explicit waveWidget(Parameters *parameters, QWidget *parent = 0);
-    ~waveWidget();
+    ~waveWidget() override;
     Error lastError() const
     {
         return error;

@@ -72,12 +72,12 @@ class SaxHandler : public QXmlDefaultHandler
 {
 public:
     SaxHandler();
-    ~SaxHandler();
+    ~SaxHandler() override;
 
-    bool startElement(const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &atts);
-    bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName);
-    bool characters(const QString &ch);
-    bool fatalError(const QXmlParseException &exception);
+    bool startElement(const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &atts) override;
+    bool endElement(const QString &namespaceURI, const QString &localName, const QString &qName) override;
+    bool characters(const QString &ch) override;
+    bool fatalError(const QXmlParseException &exception) override;
 
     void setInputFile(const QString &input)
     {
@@ -225,7 +225,7 @@ class PatternParser : public QObject
     Q_OBJECT
 public:
     explicit PatternParser(QObject *parent = 0);
-    ~PatternParser();
+    ~PatternParser() override;
 
     const QString parseFilenamePattern(const QString &pattern,
                                        int trackno,

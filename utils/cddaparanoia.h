@@ -56,7 +56,7 @@ class CDDAParanoia : public QObject
 
 public:
     explicit CDDAParanoia(QObject *parent = 0);
-    ~CDDAParanoia();
+    ~CDDAParanoia() override;
 
     bool setDevice(const QString &device = "/dev/cdrom");
     QString device() const;

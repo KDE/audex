@@ -43,7 +43,7 @@ class oggencWidget : public oggencWidgetUI
     Q_OBJECT
 public:
     explicit oggencWidget(Parameters *parameters, QWidget *parent = 0);
-    ~oggencWidget();
+    ~oggencWidget() override;
     inline Error lastError() const
     {
         return error;

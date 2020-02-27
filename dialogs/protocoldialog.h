@@ -32,7 +32,7 @@ class ProtocolDialog : public QDialog
 
 public:
     ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent = 0);
-    ~ProtocolDialog();
+    ~ProtocolDialog() override;
 
 private slots:
     void slotSaveProtocol();

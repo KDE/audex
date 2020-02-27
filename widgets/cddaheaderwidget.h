@@ -60,8 +60,8 @@ class CDDAHeaderWidget : public QWidget
 
 public:
     explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent = 0, const int coverSize = 128, const int padding = 20);
-    ~CDDAHeaderWidget();
-    QSize sizeHint() const;
+    ~CDDAHeaderWidget() override;
+    QSize sizeHint() const override;
     void setCover(CachedImage *cover);
 
     bool isEnabled() const;
@@ -78,9 +78,9 @@ signals:
     void coverDown();
 
 protected:
-    void paintEvent(QPaintEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
+    void paintEvent(QPaintEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
     void fetchCoverFinished(bool showDialog);
 
 private slots:

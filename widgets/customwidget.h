@@ -45,7 +45,7 @@ class customWidget : public customWidgetUI
     Q_OBJECT
 public:
     explicit customWidget(Parameters *parameters, QWidget *parent = 0);
-    ~customWidget();
+    ~customWidget() override;
     Error lastError() const
     {
         return error;

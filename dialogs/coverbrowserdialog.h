@@ -39,7 +39,7 @@ class CoverBrowserDialog : public QDialog
 
 public:
     explicit CoverBrowserDialog(QWidget *parent = 0);
-    ~CoverBrowserDialog();
+    ~CoverBrowserDialog() override;
 
     inline int count()
     {

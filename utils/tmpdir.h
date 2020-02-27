@@ -35,7 +35,7 @@ class TmpDir : public QObject
 
 public:
     explicit TmpDir(const QString &appName, const QString &sub = "");
-    ~TmpDir();
+    ~TmpDir() override;
 
     const QString tmpPath();
     inline const QString tmpPathBase() const

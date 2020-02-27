@@ -66,7 +66,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    ~MainWindow() override;
 
 private:
     bool firstStart();

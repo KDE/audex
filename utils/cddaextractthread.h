@@ -31,7 +31,7 @@ class CDDAExtractThread : public QThread
     Q_OBJECT
 public:
     CDDAExtractThread(QObject *parent, CDDAParanoia *_paranoia);
-    ~CDDAExtractThread();
+    ~CDDAExtractThread() override;
 
 public slots:
     void start();
@@ -84,7 +84,7 @@ signals:
 
 protected:
     /** reimplemented from QThread. Does the work */
-    void run();
+    void run() override;
 
 private:
     CDDAParanoia *paranoia;

@@ -30,7 +30,7 @@ class WaveFileWriter : public QObject
     Q_OBJECT
 public:
     WaveFileWriter();
-    ~WaveFileWriter();
+    ~WaveFileWriter() override;
 
     enum Endianess { BigEndian, LittleEndian };
 

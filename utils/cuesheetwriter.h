@@ -35,7 +35,7 @@ class CueSheetWriter : public QObject
     Q_OBJECT
 public:
     explicit CueSheetWriter(CDDAModel *model);
-    ~CueSheetWriter();
+    ~CueSheetWriter() override;
 
     QStringList cueSheet(const QString &binFilename) const;
     QStringList cueSheet(const QStringList &filenames) const;

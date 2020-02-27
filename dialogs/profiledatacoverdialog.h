@@ -34,7 +34,7 @@ class ProfileDataCoverDialog : public QDialog
 
 public:
     ProfileDataCoverDialog(const bool scale, const QSize &size, const QString &format, const QString &pattern, QWidget *parent = 0);
-    ~ProfileDataCoverDialog();
+    ~ProfileDataCoverDialog() override;
 
     bool scale;
     QSize size;

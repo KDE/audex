@@ -34,7 +34,7 @@ class EncoderWrapper : public QObject
 
 public:
     explicit EncoderWrapper(QObject *parent = 0, const QString &commandPattern = "", const QString &encoderName = "", const bool deleteFractionFiles = true);
-    ~EncoderWrapper();
+    ~EncoderWrapper() override;
 
     bool isProcessing();
     const QStringList &protocol();

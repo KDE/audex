@@ -182,14 +182,14 @@ class ProfileModel : public QAbstractTableModel
     Q_OBJECT
 public:
     explicit ProfileModel(QObject *parent = 0);
-    ~ProfileModel();
+    ~ProfileModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
-    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
-    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
+    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
     int currentProfileIndex() const;
     int currentProfileRow() const;
@@ -216,7 +216,7 @@ public:
 
 public slots:
     void commit();
-    void revert();
+    void revert() override;
 
     int copy(const int profileRow);
 

@@ -49,7 +49,7 @@ class CDDADevices : public QObject
 
 public:
     explicit CDDADevices(QObject *parent = 0);
-    ~CDDADevices();
+    ~CDDADevices() override;
 
     const QString blockDevice(const QString &udi) const;
 

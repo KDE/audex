@@ -54,7 +54,7 @@ public:
         target_filename = "";
         _trackno = 0;
     }
-    ~AudexJob()
+    ~AudexJob() override
     {
     }
     void setSourceFilename(const QString &n)
@@ -97,7 +97,7 @@ public:
     {
         job_in_progress = false;
     }
-    ~AudexJobs()
+    ~AudexJobs() override
     {
         for (int i = 0; i < cache.count(); i++) {
             // make really sure all files are away
@@ -154,7 +154,7 @@ class Audex : public QObject
 
 public:
     Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model);
-    ~Audex();
+    ~Audex() override;
 
     bool prepare();
 

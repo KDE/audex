@@ -42,7 +42,7 @@ class deviceWidget : public deviceWidgetUI
     Q_OBJECT
 public:
     explicit deviceWidget(QWidget *parent = 0);
-    ~deviceWidget();
+    ~deviceWidget() override;
 };
 
 #endif

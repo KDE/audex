@@ -52,7 +52,7 @@ class ProfileDataDialog : public QDialog
 
 public:
     ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent = 0);
-    ~ProfileDataDialog();
+    ~ProfileDataDialog() override;
 
 private slots:
     void set_encoder(const int encoder);
