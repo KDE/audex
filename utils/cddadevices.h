@@ -2,7 +2,7 @@
  * AUDEX CDDA EXTRACTOR
  *
  * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
- * <http://userbase.kde.org/Audex>
+ * <https://userbase.kde.org/Audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
