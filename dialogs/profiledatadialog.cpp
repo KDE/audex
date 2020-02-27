@@ -38,7 +38,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(widget);
 

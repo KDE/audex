@@ -749,7 +749,7 @@ void CDDAHeaderWidget::edit_data()
     QApplication::restoreOverrideCursor();
     cursor_on_link1 = false;
 
-    CDDAHeaderDataDialog *dialog = new CDDAHeaderDataDialog(cdda_model, this);
+    auto *dialog = new CDDAHeaderDataDialog(cdda_model, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -852,7 +852,7 @@ void CDDAHeaderWidget::context_menu(const QPoint &point)
         QApplication::restoreOverrideCursor();
         cursor_on_cover = false;
         QMenu contextMenu(this);
-        QMouseEvent *mevent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::RightButton, Qt::RightButton, Qt::NoModifier);
+        auto *mevent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::RightButton, Qt::RightButton, Qt::NoModifier);
         contextMenu.clear();
         contextMenu.addAction(action_collection->action("fetch"));
         contextMenu.addAction(action_collection->action("load"));
@@ -869,27 +869,27 @@ void CDDAHeaderWidget::setup_actions()
 {
     action_collection = new KActionCollection(this);
 
-    QAction *fetchCoverAction = new QAction(this);
+    auto *fetchCoverAction = new QAction(this);
     fetchCoverAction->setText(i18n("Fetch cover from Google..."));
     action_collection->addAction("fetch", fetchCoverAction);
     connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(google()));
 
-    QAction *loadCoverAction = new QAction(this);
+    auto *loadCoverAction = new QAction(this);
     loadCoverAction->setText(i18n("Set Custom Cover..."));
     action_collection->addAction("load", loadCoverAction);
     connect(loadCoverAction, SIGNAL(triggered(bool)), this, SLOT(load()));
 
-    QAction *saveCoverAction = new QAction(this);
+    auto *saveCoverAction = new QAction(this);
     saveCoverAction->setText(i18n("Save Cover To File..."));
     action_collection->addAction("save", saveCoverAction);
     connect(saveCoverAction, SIGNAL(triggered(bool)), this, SLOT(save()));
 
-    QAction *viewCoverAction = new QAction(this);
+    auto *viewCoverAction = new QAction(this);
     viewCoverAction->setText(i18n("Show Full Size Cover..."));
     action_collection->addAction("view", viewCoverAction);
     connect(viewCoverAction, SIGNAL(triggered(bool)), this, SLOT(view_cover()));
 
-    QAction *removeCoverAction = new QAction(this);
+    auto *removeCoverAction = new QAction(this);
     removeCoverAction->setText(i18n("Remove Cover"));
     action_collection->addAction("remove", removeCoverAction);
     connect(removeCoverAction, SIGNAL(triggered(bool)), this, SLOT(remove()));

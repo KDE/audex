@@ -30,7 +30,7 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern,
 
     setWindowTitle(i18n("Single File Settings"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);

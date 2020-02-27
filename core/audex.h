@@ -131,7 +131,7 @@ public:
 public slots:
     void addNewJob(const QString &sourceFilename, const QString &targetFilename, const int trackno)
     {
-        AudexJob *j = new AudexJob();
+        auto *j = new AudexJob();
         j->setSourceFilename(sourceFilename);
         j->setTargetFilename(targetFilename);
         j->setTrackNo(trackno);

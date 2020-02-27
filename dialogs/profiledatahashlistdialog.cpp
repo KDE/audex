@@ -31,7 +31,7 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &pattern, con
 
     setWindowTitle(i18n("Playlist Settings"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);

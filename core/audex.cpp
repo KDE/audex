@@ -600,7 +600,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
         emit warning(i18n("Free space on \"%1\" is less than 200 MiB.", targetPath));
     }
 
-    QFile *file = new QFile(targetFilename);
+    auto *file = new QFile(targetFilename);
     if (file->exists()) {
         if (overwrite_existing_files) {
             emit warning(i18n("Warning! File \"%1\" already exists. Overwriting.", targetStrippedFilename));
@@ -660,7 +660,7 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
         emit warning(i18n("Free space on \"%1\" is less than 800 MiB.", targetPath));
     }
 
-    QFile *file = new QFile(targetFilename);
+    auto *file = new QFile(targetFilename);
     if (file->exists()) {
         if (overwrite_existing_files) {
             emit warning(i18n("Warning! File \"%1\" already exists. Overwriting.", targetStrippedFilename));

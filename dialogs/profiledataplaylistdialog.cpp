@@ -33,7 +33,7 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString &format, cons
 
     setWindowTitle(i18n("Playlist Settings"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);

@@ -34,7 +34,7 @@ ProtocolDialog::ProtocolDialog(const QStringList &protocol, const QString &title
 
     setWindowTitle(title);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Close);

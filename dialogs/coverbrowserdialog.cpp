@@ -108,7 +108,7 @@ void CoverBrowserDialog::setup()
 
     setWindowTitle(i18n("Fetch Cover From Google"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);

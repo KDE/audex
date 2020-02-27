@@ -93,7 +93,7 @@ void CDDADevices::p_solid_device_added(const QString &udi)
     qDebug() << "Device found:" << device.udi();
     if (p_is_optical_audio_disc(device)) {
         qDebug() << "is audio.";
-        OpticalAudioDisc *disc = new OpticalAudioDisc();
+        auto *disc = new OpticalAudioDisc();
         disc->name = i18n("Audio Disc");
         disc->device = device;
         p_discs.insert(udi, disc);

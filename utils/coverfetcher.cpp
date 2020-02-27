@@ -54,7 +54,7 @@ void CoverFetcher::fetched_external_ip(KJob *job)
         return;
     }
     // http://www.telize.com/ip returns plaintext ip address
-    KIO::StoredTransferJob *const storedJob = static_cast<KIO::StoredTransferJob *>(job);
+    auto *const storedJob = static_cast<KIO::StoredTransferJob *>(job);
     external_ip = ((QString)storedJob->data()).trimmed();
 
     qDebug() << "IP " << external_ip;
@@ -152,7 +152,7 @@ void CoverFetcher::fetched_html_data(KJob *job)
         return;
     }
     if (job) {
-        KIO::StoredTransferJob *const storedJob = static_cast<KIO::StoredTransferJob *>(job);
+        auto *const storedJob = static_cast<KIO::StoredTransferJob *>(job);
         buffer = storedJob->data();
     }
 

@@ -28,7 +28,7 @@ PatternWizardDialog::PatternWizardDialog(const QString &pattern, QWidget *parent
 
     setWindowTitle(i18n("Filename Pattern Wizard"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);

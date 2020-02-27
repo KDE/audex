@@ -277,14 +277,14 @@ void ExtractingProgressDialog::conclusion(bool successful)
         ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         if (audex->encoderProtocol().count() > 0) {
-            QPushButton *encoderProtocolButton = new QPushButton();
+            auto *encoderProtocolButton = new QPushButton();
             encoderProtocolButton->setText(i18n("Show encoding log..."));
             encoderProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
             buttonBox->addButton(encoderProtocolButton, QDialogButtonBox::HelpRole);
             connect(encoderProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderProtocol);
         }
         if (audex->extractProtocol().count() > 0) {
-            QPushButton *extractProtocolButton = new QPushButton();
+            auto *extractProtocolButton = new QPushButton();
             extractProtocolButton->setText(i18n("Show rip log..."));
             extractProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
             buttonBox->addButton(extractProtocolButton, QDialogButtonBox::HelpRole);

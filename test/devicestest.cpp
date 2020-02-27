@@ -32,7 +32,7 @@ void DevicesTest::initTestCase()
         const QString udi = list.value(i).udi();
         Solid::Device device(udi);
         qDebug() << "Device found:" << device.udi();
-        OpticalAudioDisc *disc = new OpticalAudioDisc;
+        auto *disc = new OpticalAudioDisc;
         disc->name = udi;
         disc->device = device;
         m_discs << disc;

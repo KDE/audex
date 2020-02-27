@@ -283,7 +283,7 @@ int CDDAParanoia::numOfFramesOfTrack(int n)
 double CDDAParanoia::sizeOfTrack(int n)
 {
     if (numOfTracks() > 0) {
-        double frame_size = (double)(numOfFramesOfTrack(n));
+        auto frame_size = (double)(numOfFramesOfTrack(n));
         if (isAudioTrack(n)) {
             return (frame_size * 2352.0f) / (1024.0f * 1024.0f);
         } else {

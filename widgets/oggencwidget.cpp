@@ -90,7 +90,7 @@ bool oggencWidget::save()
 
 void oggencWidget::quality_changed_by_slider(int quality)
 {
-    float q = (float)((float)quality / 10.0f);
+    auto q = (float)((float)quality / 10.0f);
 
     kdoublenuminput_quality->blockSignals(true);
     kdoublenuminput_quality->setValue(q);

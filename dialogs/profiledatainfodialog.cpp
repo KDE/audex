@@ -33,7 +33,7 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QStr
 
     setWindowTitle(i18n("Info Settings"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
@@ -133,7 +133,7 @@ void ProfileDataInfoDialog::about_variables()
     dialog->connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     dialog->connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    QTextBrowser *tb = new QTextBrowser(dialog);
+    auto *tb = new QTextBrowser(dialog);
     tb->setHtml(
         i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
              "<html>"

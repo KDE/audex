@@ -30,7 +30,7 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &pattern, QWi
 
     setWindowTitle(i18n("Cue Sheet Settings"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);

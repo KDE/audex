@@ -33,7 +33,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &si
 
     setWindowTitle(i18n("Cover Settings"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(enable_scale(bool)));

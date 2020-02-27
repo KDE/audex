@@ -69,7 +69,7 @@ void profileWidget::_update()
 
 void profileWidget::add_profile()
 {
-    ProfileDataDialog *dialog = new ProfileDataDialog(profile_model, -1, this);
+    auto *dialog = new ProfileDataDialog(profile_model, -1, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -104,7 +104,7 @@ void profileWidget::rem_profile()
 
 void profileWidget::mod_profile(const QModelIndex &index)
 {
-    ProfileDataDialog *dialog = new ProfileDataDialog(profile_model, index.row(), this);
+    auto *dialog = new ProfileDataDialog(profile_model, index.row(), this);
 
     dialog->exec();
 

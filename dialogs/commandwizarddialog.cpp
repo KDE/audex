@@ -28,7 +28,7 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
 
     setWindowTitle(i18n("Command Pattern Wizard"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
