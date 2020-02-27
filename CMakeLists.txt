@@ -28,6 +28,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
+include(ECMAddTests)
 include(FeatureSummary)
 include(KDEClangFormat)
 
