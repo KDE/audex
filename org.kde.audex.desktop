@@ -58,6 +58,7 @@ GenericName[x-test]=xxCDDA Rippingxx
 GenericName[zh_CN]=CDDA 翻录
 GenericName[zh_TW]=CDDA 翻錄
 Exec=audex
+StartupWMClass=audex
 Icon=audex
 Type=Application
 MimeType=application/x-audex;
