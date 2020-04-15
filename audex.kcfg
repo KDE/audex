@@ -56,7 +56,7 @@
     </entry>
     <entry name="basePath" type="Path">
       <label>Base path to store music files</label>
-      <default code="true">QDesktopServices::storageLocation(QDesktopServices::MusicLocation)</default>
+      <default code="true">QStandardPaths::writableLocation(QStandardPaths::MusicLocation)</default>
     </entry>
     <entry name="upload" type="Bool">
       <label>Upload files to server</label>
