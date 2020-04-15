@@ -172,10 +172,10 @@ target_link_libraries(audex
     ${CDPARANOIA_LIBRARIES}
 )
 
-install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
-install(PROGRAMS org.kde.audex.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
+install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.audex.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/actions)
+install(FILES audex-rip-audiocd.desktop DESTINATION ${KDE_INSTALL_DATADIR}/solid/actions)
 
 add_subdirectory(icons)
 add_subdirectory(images)

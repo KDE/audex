@@ -5,7 +5,6 @@ set(audex_ICONS
     64-apps-audex.png
     128-apps-audex.png
 )
-ecm_install_icons(
-    ICONS ${audex_ICONS}
-    DESTINATION ${ICON_INSTALL_DIR}
+ecm_install_icons(ICONS ${audex_ICONS}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
 )
