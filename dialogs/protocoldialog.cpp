@@ -74,7 +74,7 @@ void ProtocolDialog::save()
         if (data.open(QFile::WriteOnly | QFile::Truncate)) {
             QTextStream out(&data);
             out << "AUDEX " << title << "\n";
-            out << trUtf8("created on ") << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << "\n";
+            out << tr("created on ") << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << "\n";
             out << "\n";
             for (int i = 0; i < protocol.count(); i++) {
                 out << protocol.at(i) << "\n";
