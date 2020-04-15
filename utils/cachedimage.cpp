@@ -206,7 +206,7 @@ bool CachedImage::save(const QString &filename, const QSize &size)
         return false;
     }
     QMimeDatabase db;
-    QByteArray format = db.suffixForFileName(filename).toLower().toAscii();
+    QByteArray format = db.suffixForFileName(filename).toLower().toLatin1();
     if ((compare_format(format, _format) || (format.isEmpty())) && ((size.isNull()) || (size == _size))) {
         qint64 r = file.write(_data);
         if ((r == -1) || (r < _data.size())) {

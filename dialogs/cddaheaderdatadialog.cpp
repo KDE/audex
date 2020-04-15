@@ -203,7 +203,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
 
     QStringList genres;
     for (int i = 0; i < GENRE_MAX; ++i)
-        genres.append(QString().fromAscii(ID3_GENRES[i]));
+        genres.append(QString().fromLatin1(ID3_GENRES[i]));
     genres.sort();
     KCompletion *comp = ui.kcombobox_genre->completionObject();
     comp->insertItems(genres);

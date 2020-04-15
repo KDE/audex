@@ -329,7 +329,7 @@ bool CDDAParanoia::_paranoia_init()
 
     _paranoia_free();
 
-    paranoia_drive = cdda_identify(_device.toAscii().data(), 0, nullptr);
+    paranoia_drive = cdda_identify(_device.toLatin1().data(), 0, nullptr);
     if (paranoia_drive == nullptr) {
         mutex.unlock();
         qDebug() << "Failed to find device.";

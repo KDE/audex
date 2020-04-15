@@ -289,7 +289,7 @@ bool SaxHandler::startElement(const QString &namespaceURI, const QString &localN
                 format = atts.value("format");
 
             // cover set by setCover
-            if ((cover) && (!cover->supportedFormats().contains(format.toAscii().toLower())))
+            if ((cover) && (!cover->supportedFormats().contains(format.toLatin1().toLower())))
                 format = STANDARD_EMBED_COVER_FORMAT;
 
             QString filename;
@@ -328,7 +328,7 @@ bool SaxHandler::startElement(const QString &namespaceURI, const QString &localN
                             if ((x != -1) && (y != -1)) {
                                 c = c.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
                             }
-                            success = c.save(filename, format.toAscii());
+                            success = c.save(filename, format.toLatin1());
                         } else {
                             stop = true;
                         }

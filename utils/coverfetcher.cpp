@@ -225,8 +225,8 @@ void CoverFetcher::parse_html_response(const QString &xml)
 
             QScriptValue entry = it.value();
 
-            QString link = QUrl::fromPercentEncoding(entry.property("url").toString().toAscii());
-            QString thumbUrl = QUrl::fromPercentEncoding(entry.property("tbUrl").toString().toAscii());
+            QString link = QUrl::fromPercentEncoding(entry.property("url").toString().toLatin1());
+            QString thumbUrl = QUrl::fromPercentEncoding(entry.property("tbUrl").toString().toLatin1());
             QString w = entry.property("width").toString();
             QString h = entry.property("height").toString();
 

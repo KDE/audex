@@ -763,7 +763,7 @@ void Audex::execute_finish()
                                                                 profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
 
             if (p_prepare_dir(filename, target_dir, overwrite)) {
-                if (image.save(filename, format.toAscii().data())) {
+                if (image.save(filename, format.toLatin1().data())) {
                     emit info(i18n("Cover \"%1\" successfully saved.", QFileInfo(filename).fileName()));
                     co = filename;
                 } else {
