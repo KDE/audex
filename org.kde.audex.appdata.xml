@@ -18,6 +18,7 @@
   <name xml:lang="nl">Audex</name>
   <name xml:lang="pl">Audex</name>
   <name xml:lang="pt">Audex</name>
+  <name xml:lang="pt-BR">Audex</name>
   <name xml:lang="ru">Audex</name>
   <name xml:lang="sk">Audex</name>
   <name xml:lang="sv">Audex</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="nl">Een gemakkelijk te gebruiken audio-CD toepassing voor rippen</summary>
   <summary xml:lang="pl">Łatwa w użyciu aplikacja do zgrywania płyt CD</summary>
   <summary xml:lang="pt">Uma aplicação de extracção de CD's de áudio simples de usar</summary>
+  <summary xml:lang="pt-BR">Um aplicativo fácil de usar para copiar CDs de áudio</summary>
   <summary xml:lang="sk">Jednoduchá aplikácia na ripovanie CD</summary>
   <summary xml:lang="sv">Ett lättanvänt program för cd-lagring</summary>
   <summary xml:lang="uk">Проста у користуванні програма для видобування даних зі звукових компакт-дисків</summary>
@@ -62,6 +64,7 @@
     <p xml:lang="nl">Het algemene gebruik van Audex verklaart zichzelf. Bij de eerste keer starten van Audex scant uw systeem naar gemeenschappelijke encoders en maakt een gemeenschappelijke set van profielen automatisch voor u aan.</p>
     <p xml:lang="pl">Ogólne przeznaczenie Audex rozumie się samo przez się. Po pierwszym uruchomieniu, Audex przegląda system w poszukiwaniu powszechnych enkoderów i tworzy powszechne profile gotowe do użytku.</p>
     <p xml:lang="pt">O uso geral do Audex é relativamente simples. No primeiro arranque, o Audex sonda o seu sistema à procura de codificadores e cria automaticamente um conjunto comum de perfis para si.</p>
+    <p xml:lang="pt-BR">O uso geral do Audex é auto-explicativo. Com a primeira inicialização, o Audex examina seu sistema em busca de codificadores comuns e cria automaticamente um conjunto de perfis para você.</p>
     <p xml:lang="sv">Den allmänna användningen av Audex är självförklarande. När Audex startas för första gången söker det igenom systemet efter vanliga kodare och skapar automatisk en uppsättning av vanliga profiler åt dig.</p>
     <p xml:lang="uk">Загальні принципи користування Audex є доволі очевидними. Під час першого запуску Audex виконує пошук у вашій системі типових засобів кодування і автоматично створює типовий набір профілів.</p>
     <p xml:lang="x-test">xxThe general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.xx</p>
