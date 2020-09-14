@@ -7,6 +7,7 @@
   <name xml:lang="ca">Audex</name>
   <name xml:lang="ca-valencia">Audex</name>
   <name xml:lang="cs">Audex</name>
+  <name xml:lang="da">Audex</name>
   <name xml:lang="de">Audex</name>
   <name xml:lang="en-GB">Audex</name>
   <name xml:lang="es">Audex</name>
@@ -32,6 +33,7 @@
   <summary>An easy to use audio CD ripping application</summary>
   <summary xml:lang="ca">Una aplicació d'extracció dels CD d'ús senzill</summary>
   <summary xml:lang="ca-valencia">Una aplicació d'extracció dels CD d'ús senzill</summary>
+  <summary xml:lang="da">Et brugervenligt program til at rippe cd'er</summary>
   <summary xml:lang="de">Eine einfach zu bedienende Anwendung zum Auslesen von Audio-CDs.</summary>
   <summary xml:lang="en-GB">An easy to use audio CD ripping application</summary>
   <summary xml:lang="es">Una aplicación de extracción de CD de sonido fácil de usar</summary>
@@ -61,6 +63,7 @@
     </p>
     <p xml:lang="ca">L'ús general de l'Audex és autoexplicatori. Al primer inici, l'Audex explora el sistema cercant els codificadors usuals i crea automàticament un conjunt normal de perfils.</p>
     <p xml:lang="ca-valencia">L'ús general de l'Audex és autoexplicatori. Al primer inici, l'Audex explora el sistema cercant els codificadors usuals i crea automàticament un conjunt normal de perfils.</p>
+    <p xml:lang="da">Den generelle brug af Audex er selvforklarende. Ved første start scanner Audex dit system for almindelige indkodere og opretter automatisk et almindeligt sæt profiler til dig.</p>
     <p xml:lang="de">Die Anwendung von Audex ist selbsterklärend. Beim ersten Start durchsucht Audex Ihr System nach gängigen Kodierern und erstellt automatisch einen gemeinsamen Satz von Profilen für Sie.</p>
     <p xml:lang="en-GB">The general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.</p>
     <p xml:lang="es">El uso general de Audex es autoexplicativo. La primera vez que se inicia Audex busca en el sistema codificadores comunes y crea una conjunto de perfiles comunes de forma automática.</p>
