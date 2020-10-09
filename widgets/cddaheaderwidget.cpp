@@ -106,7 +106,7 @@ static QImage fadeImage(const QImage &img, float val, const QColor &color)
 
     if (tmpImage.depth() <= 8) {
         // pseudo color
-        for (int i = 0; i < tmpImage.numColors(); i++) {
+        for (int i = 0; i < tmpImage.colorCount(); i++) {
             col = tmpImage.color(i);
             cr = qRed(col);
             cg = qGreen(col);
