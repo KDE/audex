@@ -29,6 +29,7 @@
   <name xml:lang="sv">Audex</name>
   <name xml:lang="uk">Audex</name>
   <name xml:lang="x-test">xxAudexxx</name>
+  <name xml:lang="zh-CN">Audex</name>
   <name xml:lang="zh-TW">Audex</name>
   <summary>An easy to use audio CD ripping application</summary>
   <summary xml:lang="ca">Una aplicació d'extracció dels CD d'ús senzill</summary>
@@ -54,6 +55,7 @@
   <summary xml:lang="sv">Ett lättanvänt program för cd-lagring</summary>
   <summary xml:lang="uk">Проста у користуванні програма для видобування даних зі звукових компакт-дисків</summary>
   <summary xml:lang="x-test">xxAn easy to use audio CD ripping applicationxx</summary>
+  <summary xml:lang="zh-CN">一个易于使用的音频 CD 抓取应用程序</summary>
   <summary xml:lang="zh-TW">簡單易用的音訊 CD 擷取應用程式</summary>
   <description>
     <p>
@@ -83,6 +85,7 @@
     <p xml:lang="sv">Den allmänna användningen av Audex är självförklarande. När Audex startas för första gången söker det igenom systemet efter vanliga kodare och skapar automatisk en uppsättning av vanliga profiler åt dig.</p>
     <p xml:lang="uk">Загальні принципи користування Audex є доволі очевидними. Під час першого запуску Audex виконує пошук у вашій системі типових засобів кодування і автоматично створює типовий набір профілів.</p>
     <p xml:lang="x-test">xxThe general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.xx</p>
+    <p xml:lang="zh-CN">Audex 的一般用法是不言自明的。 初次启动时，Audex 会扫描您系统中的常见编码器，并自动为您创建一组共同的配置文件。</p>
   </description>
   <screenshots>
     <screenshot type="default">
