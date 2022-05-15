@@ -51,6 +51,7 @@ find_package(Cdparanoia REQUIRED)
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_BINARY_DIR}
+  ${CDPARANOIA_INCLUDE_DIR}
 )
 
 # Silence some errors for now
