@@ -609,7 +609,7 @@ static bool lessThan(const Profile &p1, const Profile &p2)
 
 void ProfileModel::sortItems()
 {
-    qSort(p_cache.begin(), p_cache.end(), lessThan);
+    std::sort(p_cache.begin(), p_cache.end(), lessThan);
     reset();
     emit profilesRemovedOrInserted();
 }
