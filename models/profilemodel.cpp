@@ -160,6 +160,8 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         return false;
     }
 
+    beginResetModel();
+
     if (role == Qt::EditRole) {
         switch (index.column()) {
         case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX:
@@ -443,7 +445,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         return true;
     }
 
-    reset();
+    endResetModel();
 
     p_error = Error(i18n("Unknown error. No index found in profile model."), i18n("This is an internal error. Please report."), Error::ERROR, this);
 
@@ -462,6 +464,7 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
         return false;
     }
 
+    beginResetModel();
     int c;
     if (row + count > p_cache.count()) {
         c = p_cache.count();
@@ -473,7 +476,7 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
         p_cache.removeAt(i);
     }
 
-    reset();
+    endResetModel();
 
     // update current profile index. maybe current has been deleted?
     setCurrentProfileIndex(p_current_profile_index);
@@ -497,6 +500,8 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
 
     bool wasEmpty = (p_cache.count() == 0);
 
+    beginResetModel();
+
     if (row == p_cache.count()) {
         for (int i = 0; i < count; ++i)
             p_cache.append(p_new_profile());
@@ -505,7 +510,7 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
             p_cache.insert(i, p_new_profile());
     }
 
-    reset();
+    endResetModel();
 
     if (wasEmpty) {
         // set first profile as current index
@@ -609,8 +614,9 @@ static bool lessThan(const Profile &p1, const Profile &p2)
 
 void ProfileModel::sortItems()
 {
+    beginResetModel();
     std::sort(p_cache.begin(), p_cache.end(), lessThan);
-    reset();
+    endResetModel();
     emit profilesRemovedOrInserted();
 }
 
@@ -900,6 +906,7 @@ void ProfileModel::revert()
 
 int ProfileModel::copy(const int profileRow)
 {
+    beginResetModel();
     if ((profileRow < 0) || (profileRow >= rowCount()))
         return -1;
 
@@ -912,7 +919,7 @@ int ProfileModel::copy(const int profileRow)
     p[PROFILE_MODEL_PROFILEINDEX_KEY] = key;
     p_cache.append(p);
 
-    reset();
+    endResetModel();
     emit profilesRemovedOrInserted();
 
     return key;
@@ -928,8 +935,9 @@ bool ProfileModel::saveProfilesToFile(const QString &filename)
 bool ProfileModel::loadProfilesFromFile(const QString &filename)
 {
     KConfig config(filename);
+    beginResetModel();
     p_load(&config);
-    reset();
+    endResetModel();
     commit();
     return true;
 }

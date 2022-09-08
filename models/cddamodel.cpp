@@ -232,9 +232,10 @@ void CDDAModel::setArtist(const QString &a)
     if (!pn)
         return;
     if (a != cd_info.get(KCDDB::Artist).toString()) {
+        beginResetModel();
         cd_info.set(KCDDB::Artist, a);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -251,9 +252,10 @@ void CDDAModel::setTitle(const QString &t)
     if (!pn)
         return;
     if (t != cd_info.get(KCDDB::Title).toString()) {
+        beginResetModel();
         cd_info.set(KCDDB::Title, t);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -286,9 +288,10 @@ void CDDAModel::setCategory(const QString &c)
         return;
 
     if (c != cd_info.get(KCDDB::Category).toString()) {
+        beginResetModel();
         cd_info.set(KCDDB::Category, c);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -304,9 +307,10 @@ void CDDAModel::setGenre(const QString &g)
     if (!pn)
         return;
     if (g != cd_info.get(KCDDB::Genre).toString()) {
+        beginResetModel();
         cd_info.set(KCDDB::Genre, g);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -322,9 +326,10 @@ void CDDAModel::setYear(const QString &year)
     if (!pn)
         return;
     if (year != cd_info.get(KCDDB::Year).toString()) {
+        beginResetModel();
         cd_info.set(KCDDB::Year, year);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -340,9 +345,10 @@ void CDDAModel::setExtendedData(const QStringList &e)
     if (!pn)
         return;
     if (e != cd_info.get(KCDDB::Comment).toStringList()) {
+        beginResetModel();
         cd_info.set(KCDDB::Comment, e);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -358,9 +364,10 @@ void CDDAModel::setCDNum(const int n)
     if (!pn)
         return;
     if (n != cd_info.get("DNO").toInt()) {
+        beginResetModel();
         cd_info.set("DNO", n);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -378,9 +385,10 @@ void CDDAModel::setTrackOffset(const int n)
     if (!pn)
         return;
     if (n != cd_info.get("DTRACKOFFSET").toInt()) {
+        beginResetModel();
         cd_info.set("DTRACKOFFSET", n);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -422,9 +430,10 @@ void CDDAModel::setMultiCD(const bool multi)
     if (!pn)
         return;
     if (multi != cd_info.get("DMULTICD").toBool()) {
+        beginResetModel();
         cd_info.set("DMULTICD", multi);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -440,9 +449,10 @@ void CDDAModel::setCustomData(const QString &type, const QVariant &data)
     if (!pn)
         return;
     if (data != cd_info.get(type)) {
+        beginResetModel();
         cd_info.set(type, data);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -458,9 +468,10 @@ void CDDAModel::setCustomDataPerTrack(const int n, const QString &type, const QV
     if (!pn)
         return;
     if (data != cd_info.track(n).get(type)) {
+        beginResetModel();
         cd_info.track(n).set(type, data);
         modify();
-        reset();
+        endResetModel();
     }
 }
 
@@ -489,7 +500,8 @@ quint16 CDDAModel::coverChecksum() const
 bool CDDAModel::setCover(const QByteArray &data)
 {
     if (_cover->load(data)) {
-        reset();
+        beginResetModel();
+        endResetModel();
         return true;
     } else {
         error = _cover->lastError();
@@ -500,7 +512,8 @@ bool CDDAModel::setCover(const QByteArray &data)
 bool CDDAModel::setCover(const QString &filename)
 {
     if (_cover->load(filename)) {
-        reset();
+        beginResetModel();
+        endResetModel();
         return true;
     } else {
         error = _cover->lastError();
@@ -527,8 +540,10 @@ void CDDAModel::clearCover()
 {
     if (_cover->isEmpty())
         return;
+
+    beginResetModel();
     _cover->clear();
-    reset();
+    endResetModel();
 }
 
 const QString CDDAModel::coverSupportedMimeTypeList() const
@@ -570,14 +585,16 @@ void CDDAModel::swapArtistAndTitleOfTracks()
 {
     if (!pn)
         return;
+
+    beginResetModel();
     for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
         QVariant tmp = cd_info.track(i).get(KCDDB::Artist);
         cd_info.track(i).set(KCDDB::Artist, cd_info.track(i).get(KCDDB::Title));
         cd_info.track(i).set(KCDDB::Title, tmp);
     }
     modified = true;
+    endResetModel();
     emit cddbDataModified();
-    reset();
 }
 
 void CDDAModel::swapArtistAndTitle()
@@ -585,17 +602,20 @@ void CDDAModel::swapArtistAndTitle()
     if (!pn)
         return;
     QVariant tmp = cd_info.get(KCDDB::Title);
+    beginResetModel();
     cd_info.set(KCDDB::Title, cd_info.get(KCDDB::Artist));
     cd_info.set(KCDDB::Artist, tmp);
     modified = true;
+    endResetModel();
     emit cddbDataModified();
-    reset();
 }
 
 void CDDAModel::splitTitleOfTracks(const QString &divider)
 {
     if (!pn)
         return;
+
+    beginResetModel();
     for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
         int splitPos = cd_info.track(i).get(KCDDB::Title).toString().indexOf(divider);
         if (splitPos >= 0) {
@@ -608,43 +628,49 @@ void CDDAModel::splitTitleOfTracks(const QString &divider)
     }
     modified = true;
     emit cddbDataModified();
-    reset();
+    endResetModel();
 }
 
 void CDDAModel::capitalizeTracks()
 {
     if (!pn)
         return;
+
+    beginResetModel();
     for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
         cd_info.track(i).set(KCDDB::Artist, capitalize(cd_info.track(i).get(KCDDB::Artist).toString()));
         cd_info.track(i).set(KCDDB::Title, capitalize(cd_info.track(i).get(KCDDB::Title).toString()));
     }
     modified = true;
+    endResetModel();
     emit cddbDataModified();
-    reset();
 }
 
 void CDDAModel::capitalizeHeader()
 {
     if (!pn)
         return;
+
+    beginResetModel();
     cd_info.set(KCDDB::Artist, capitalize(cd_info.get(KCDDB::Artist).toString()));
     cd_info.set(KCDDB::Title, capitalize(cd_info.get(KCDDB::Title).toString()));
     modified = true;
+    endResetModel();
     emit cddbDataModified();
-    reset();
 }
 
 void CDDAModel::setTitleArtistsFromHeader()
 {
     if (!pn)
         return;
+
+    beginResetModel();
     for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
         cd_info.track(i).set(KCDDB::Artist, cd_info.get(KCDDB::Artist));
     }
     modified = true;
+    endResetModel();
     emit cddbDataModified();
-    reset();
 }
 
 int CDDAModel::numOfTracks() const
@@ -720,9 +746,10 @@ bool CDDAModel::isAudioTrack(int n) const
 
 void CDDAModel::clear()
 {
+    beginResetModel();
     cd_info.clear();
     clearCover();
-    reset();
+    endResetModel();
 }
 
 void CDDAModel::toggle(int row)
@@ -912,9 +939,10 @@ void CDDAModel::disc_information_modified()
 {
     qDebug() << "disc info changed";
 
+    beginResetModel();
     set_default_values();
     setVarious(guessVarious());
-    reset();
+    endResetModel();
 }
 
 void CDDAModel::lookup_cddb_done(KCDDB::Result result)
@@ -976,6 +1004,8 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
         }
     }
 
+    beginResetModel();
+
     cd_info = info;
     set_default_values();
     setVarious(guessVarious());
@@ -990,7 +1020,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
         setCDNum(cdnum);
         setTitle(newTitle);
     }
-    reset();
+    endResetModel();
 
     cddb_transaction_pending = false;
 

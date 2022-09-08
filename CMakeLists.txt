@@ -55,7 +55,7 @@ include_directories(
 )
 
 # Silence some errors for now
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050a00)
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 
