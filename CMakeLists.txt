@@ -20,7 +20,7 @@ include(ECMAddTests)
 include(FeatureSummary)
 include(KDEClangFormat)
 
-find_package(Qt5 REQUIRED COMPONENTS
+find_package(Qt5 5.11 REQUIRED COMPONENTS
   Script
   Widgets
   X11Extras
@@ -55,7 +55,7 @@ include_directories(
 )
 
 # Silence some errors for now
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050a00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050c00)
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 

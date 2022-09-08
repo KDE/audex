@@ -474,11 +474,11 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
 
         QFontMetrics fm(font);
         QString yearLabel(i18n("Released: ")), genreLabel(i18n("Genre: ")), cdNoLabel(i18n("CD Number: "));
-        int maxWidth(fm.width(yearLabel));
+        int maxWidth(fm.horizontalAdvance(yearLabel));
 
-        if ((width = fm.width(genreLabel)) > maxWidth)
+        if ((width = fm.horizontalAdvance(genreLabel)) > maxWidth)
             maxWidth = width;
-        if (cdda_model->isMultiCD() && (width = fm.width(cdNoLabel)))
+        if (cdda_model->isMultiCD() && (width = fm.horizontalAdvance(cdNoLabel)))
             maxWidth = width;
 
         width = rect().width() - (xOffset + 1);
