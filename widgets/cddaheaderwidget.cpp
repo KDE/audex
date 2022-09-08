@@ -438,7 +438,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         int xOffset = vertical ? padding : (padding * 2) + cover_size, yOffset = vertical ? (padding * 2) + cover_size + 24 : padding;
 
         QImage scaled_cover = i_cover.scaled((int)(scale_factor * cover_size), (int)(scale_factor * cover_size), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        QImage faded_cover = fadeImage(scaled_cover, 1 - opacity_factor, palette().background().color());
+        QImage faded_cover = fadeImage(scaled_cover, 1 - opacity_factor, palette().window().color());
 
         p.drawImage((cover_size / 2 - (scaled_cover.width() / 2)) + padding, (cover_size / 2 - (scaled_cover.height() / 2)) + padding, faded_cover);
         cover_rect = QRect(padding, padding, scaled_cover.width(), scaled_cover.height());
