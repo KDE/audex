@@ -33,7 +33,7 @@ public:
     CDDAExtractThread(QObject *parent, CDDAParanoia *_paranoia);
     ~CDDAExtractThread() override;
 
-public slots:
+public Q_SLOTS:
     void start();
     void cancel();
     void setParanoiaMode(int mode)
@@ -70,10 +70,10 @@ public slots:
         return paranoia;
     }
 
-private slots:
+private Q_SLOTS:
     void slot_error(const QString &message, const QString &details);
 
-signals:
+Q_SIGNALS:
     void output(const QByteArray &);
 
     void progress(const int percent, const int sector, const int sectorsOverall);

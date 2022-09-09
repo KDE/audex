@@ -38,7 +38,7 @@ void Upload::upload(const QString &targetpath, const QStringList &filelist)
     // first create the targetpath on the ftp server
     QString dir, olddir;
     int i = 0;
-    forever {
+    Q_FOREVER {
         olddir = dir;
         dir = targetpath.section('/', 0, i, QString::SectionSkipEmpty);
         if (olddir == dir)
@@ -51,7 +51,7 @@ void Upload::upload(const QString &targetpath, const QStringList &filelist)
         if (!job->exec()) {
             // if it already exists jump over
             if (job->error() != 113) {
-                emit error(job->errorText(), "");
+                Q_EMIT error(job->errorText(), "");
                 qDebug() << job->errorText();
                 return;
             }
@@ -62,13 +62,13 @@ void Upload::upload(const QString &targetpath, const QStringList &filelist)
         QUrl url = base_url;
         QFileInfo fi(filelist.at(i));
         url.setPath(base_url.path() + '/' + targetpath + '/' + fi.fileName());
-        emit info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
+        Q_EMIT info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
         KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
         if (!job->exec()) {
-            emit error(job->errorText(), "");
+            Q_EMIT error(job->errorText(), "");
             qDebug() << job->errorText();
             return;
         }
-        emit info(i18n("Finished uploading file %1 to server.", fi.fileName()));
+        Q_EMIT info(i18n("Finished uploading file %1 to server.", fi.fileName()));
     }
 }

@@ -54,7 +54,7 @@ public:
         return _status;
     }
 
-signals:
+Q_SIGNALS:
     void fetchedThumbnail(const QByteArray &thumbnail, const QString &caption, int no);
     void allCoverThumbnailsFetched();
     void fetchedCover(const QByteArray &cover);
@@ -66,7 +66,7 @@ signals:
     void warning(const QString &description);
     void info(const QString &description);
 
-private slots:
+private Q_SLOTS:
     void fetched_html_data(KJob *job);
     void fetched_external_ip(KJob *job);
 

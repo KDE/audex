@@ -89,7 +89,7 @@ void WaveFileWriter::write(const QByteArray &data)
         if (p_endianess == LittleEndian) {
             qint64 ret = p_output_file.write(data);
             if (ret == -1) {
-                emit error(p_output_file.errorString());
+                Q_EMIT error(p_output_file.errorString());
                 return;
             }
         } else {

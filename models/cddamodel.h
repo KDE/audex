@@ -176,13 +176,13 @@ public:
 
     Error lastError() const;
 
-public slots:
+public Q_SLOTS:
     void lookupCDDB();
     bool submitCDDB();
 
     void eject();
 
-signals:
+Q_SIGNALS:
     void audioDiscDetected();
     void audioDiscRemoved();
 
@@ -195,7 +195,7 @@ signals:
     void hasSelection(bool has_selection);
     void selectionChanged(const int num_selected);
 
-private slots:
+private Q_SLOTS:
     void new_audio_disc_available(const QString &udi);
     void audio_disc_removed(const QString &udi);
 

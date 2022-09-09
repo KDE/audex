@@ -52,11 +52,11 @@ public:
     {
         return changed;
     }
-public slots:
+public Q_SLOTS:
     bool save();
-signals:
+Q_SIGNALS:
     void triggerChanged();
-private slots:
+private Q_SLOTS:
     void quality_changed_by_slider(int quality);
     void quality_changed_by_spinbox(int quality);
     void trigger_changed();

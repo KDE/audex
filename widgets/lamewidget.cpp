@@ -247,5 +247,5 @@ void lameWidget::trigger_changed()
                checkBox_cbr->isChecked() != parameters->valueToBool(ENCODER_LAME_CBR_KEY) || checkBox_embedcover->isChecked() != parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY) ||
                qlineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX));
 
-    emit triggerChanged();
+    Q_EMIT triggerChanged();
 }

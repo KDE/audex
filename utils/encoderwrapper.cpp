@@ -69,7 +69,7 @@ bool EncoderWrapper::encode(int n,
     termination = false;
 
     if (command_pattern.isEmpty()) {
-        emit error(i18n("Command pattern is empty."));
+        Q_EMIT error(i18n("Command pattern is empty."));
         return false;
     }
 
@@ -83,7 +83,7 @@ bool EncoderWrapper::encode(int n,
 
     processing_filename = output;
 
-    emit info(i18n("Encoding track %1...", n));
+    Q_EMIT info(i18n("Encoding track %1...", n));
 
     return true;
 }
@@ -101,12 +101,12 @@ void EncoderWrapper::cancel()
         QFile file(processing_filename);
         if (file.exists()) {
             file.remove();
-            emit warning(i18n("Deleted partial file \"%1\".", processing_filename.mid(processing_filename.lastIndexOf("/") + 1)));
+            Q_EMIT warning(i18n("Deleted partial file \"%1\".", processing_filename.mid(processing_filename.lastIndexOf("/") + 1)));
             qDebug() << "deleted partial file" << processing_filename;
         }
     }
 
-    emit error(i18n("User canceled encoding."));
+    Q_EMIT error(i18n("User canceled encoding."));
     qDebug() << "Interrupt encoding.";
 }
 
@@ -141,7 +141,7 @@ void EncoderWrapper::parseOutput()
                 bool conversionSuccessful = false;
                 double percent = p.toDouble(&conversionSuccessful);
                 if ((conversionSuccessful) && (percent >= 0) && (percent <= 100)) {
-                    emit progress((int)percent);
+                    Q_EMIT progress((int)percent);
                     found = true;
                     not_found_counter = 0;
                 }
@@ -150,7 +150,7 @@ void EncoderWrapper::parseOutput()
     }
     if (!found) {
         if (not_found_counter > 5)
-            emit progress(-1);
+            Q_EMIT progress(-1);
         else
             ++not_found_counter;
     }
@@ -160,15 +160,15 @@ void EncoderWrapper::processFinished(int exitCode, QProcess::ExitStatus exitStat
 {
     processing = 0;
     if (termination) {
-        emit finished();
+        Q_EMIT finished();
         return;
     }
     if ((exitStatus == QProcess::NormalExit) && (exitCode == 0)) {
-        emit info(i18n("Encoding OK (\"%1\").", processing_filename));
+        Q_EMIT info(i18n("Encoding OK (\"%1\").", processing_filename));
     } else {
-        emit error(i18n("An error occurred while encoding file \"%1\".", processing_filename), i18n("Please check your profile."));
+        Q_EMIT error(i18n("An error occurred while encoding file \"%1\".", processing_filename), i18n("Please check your profile."));
     }
-    emit finished();
+    Q_EMIT finished();
     qDebug() << "encoding finished.";
 }
 
@@ -178,24 +178,24 @@ void EncoderWrapper::processError(QProcess::ProcessError err)
         return;
     switch (err) {
     case QProcess::FailedToStart:
-        emit error(i18n("%1 failed to start.", encoder), i18n("Either it is missing, or you may have insufficient permissions to invoke the program."));
+        Q_EMIT error(i18n("%1 failed to start.", encoder), i18n("Either it is missing, or you may have insufficient permissions to invoke the program."));
         break;
     case QProcess::Crashed:
-        emit error(i18n("%1 crashed some time after starting successfully.", encoder), i18n("Please check your profile."));
+        Q_EMIT error(i18n("%1 crashed some time after starting successfully.", encoder), i18n("Please check your profile."));
         break;
     case QProcess::Timedout:
-        emit error(i18n("%1 timed out. This should not happen.", encoder), i18n("Please check your profile."));
+        Q_EMIT error(i18n("%1 timed out. This should not happen.", encoder), i18n("Please check your profile."));
         break;
     case QProcess::WriteError:
-        emit error(i18n("An error occurred when attempting to write to %1.", encoder), i18n("For example, the process may not be running, or it may have closed its input channel."));
+        Q_EMIT error(i18n("An error occurred when attempting to write to %1.", encoder), i18n("For example, the process may not be running, or it may have closed its input channel."));
         break;
     case QProcess::ReadError:
-        emit error(i18n("An error occurred when attempting to read from %1.", encoder), i18n("For example, the process may not be running."));
+        Q_EMIT error(i18n("An error occurred when attempting to read from %1.", encoder), i18n("For example, the process may not be running."));
         break;
     case QProcess::UnknownError:
-        emit error(i18n("An unknown error occurred to %1. This should not happen.", encoder), i18n("Please check your profile."));
+        Q_EMIT error(i18n("An unknown error occurred to %1. This should not happen.", encoder), i18n("Please check your profile."));
         break;
     }
-    emit finished();
+    Q_EMIT finished();
     qDebug() << "encoding finished.";
 }

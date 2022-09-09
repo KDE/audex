@@ -85,5 +85,5 @@ void flacWidget::trigger_changed()
     changed = (horizontalSlider_compression->value() != parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION) || checkBox_embedcover->isChecked() != parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY) ||
                qlineedit_suffix->text() != parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX));
 
-    emit triggerChanged();
+    Q_EMIT triggerChanged();
 }

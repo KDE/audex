@@ -53,13 +53,13 @@ public:
      */
     void close();
 
-public slots:
+public Q_SLOTS:
     /**
      * write 16bit samples to the file.
      */
     void write(const QByteArray &data);
 
-signals:
+Q_SIGNALS:
     void error(const QString &errorstr);
 
 private:

@@ -46,11 +46,11 @@ void CoverFetcher::fetched_external_ip(KJob *job)
     qDebug() << "got IP...";
     if (!job) {
         qDebug() << "no job error ...";
-        emit nothingFetched();
+        Q_EMIT nothingFetched();
         return;
     } else if (job && job->error()) {
         qDebug() << "reply error ...";
-        emit nothingFetched();
+        Q_EMIT nothingFetched();
         return;
     }
     // http://www.telize.com/ip returns plaintext ip address
@@ -69,7 +69,7 @@ void CoverFetcher::fetched_external_ip(KJob *job)
     qDebug() << "searching covers (" << url << ")...";
 
     _status = SEARCHING;
-    emit statusChanged(SEARCHING);
+    Q_EMIT statusChanged(SEARCHING);
 
     job = KIO::storedGet(url);
     connect(job, SIGNAL(result(KJob *)), SLOT(fetched_html_data(KJob *)));
@@ -79,7 +79,7 @@ void CoverFetcher::startFetchThumbnails(const QString &searchstring, const int f
 {
     qDebug() << "Fetch Thumbs ...";
     if (_status != NOS || fetchNo == 0) {
-        emit nothingFetched();
+        Q_EMIT nothingFetched();
         return;
     }
 
@@ -104,7 +104,7 @@ void CoverFetcher::stopFetchThumbnails()
         job->kill();
 
     _status = NOS;
-    emit statusChanged(NOS);
+    Q_EMIT statusChanged(NOS);
 }
 
 void CoverFetcher::startFetchCover(const int no)
@@ -113,13 +113,13 @@ void CoverFetcher::startFetchCover(const int no)
         return;
 
     if ((cover_urls.count() == 0) || (no >= cover_urls.count()) || (no < 0)) {
-        emit nothingFetched();
+        Q_EMIT nothingFetched();
         return;
     }
 
     qDebug() << "fetching cover...";
     _status = FETCHING_COVER;
-    emit statusChanged(FETCHING_COVER);
+    Q_EMIT statusChanged(FETCHING_COVER);
 
     job = KIO::storedGet(QUrl(cover_urls[no]));
     connect(job, SIGNAL(result(KJob *)), SLOT(fetched_html_data(KJob *)));
@@ -145,10 +145,10 @@ void CoverFetcher::fetched_html_data(KJob *job)
 
     if (job && job->error()) {
         qDebug() << "There was an error communicating with Google. " << job->errorString();
-        emit error(i18n("There was an error communicating with Google."), i18n("Try again later. Otherwise make a bug report."));
+        Q_EMIT error(i18n("There was an error communicating with Google."), i18n("Try again later. Otherwise make a bug report."));
         _status = NOS;
-        emit statusChanged(NOS);
-        emit nothingFetched();
+        Q_EMIT statusChanged(NOS);
+        Q_EMIT nothingFetched();
         return;
     }
     if (job) {
@@ -158,9 +158,9 @@ void CoverFetcher::fetched_html_data(KJob *job)
 
     if (buffer.count() == 0) {
         qDebug() << "Google server: empty response";
-        emit error(i18n("Google server: Empty response."), i18n("Try again later. Make a bug report."));
+        Q_EMIT error(i18n("Google server: Empty response."), i18n("Try again later. Make a bug report."));
         _status = NOS;
-        emit statusChanged(NOS);
+        Q_EMIT statusChanged(NOS);
         return;
     }
 
@@ -170,20 +170,20 @@ void CoverFetcher::fetched_html_data(KJob *job)
         // qDebug() << QString::fromUtf8(buffer.data());
         parse_html_response(QString::fromUtf8(buffer.data()));
         _status = NOS;
-        emit statusChanged(NOS);
+        Q_EMIT statusChanged(NOS);
         fetch_cover_thumbnail();
     } break;
 
     case FETCHING_THUMBNAIL: {
         qDebug() << "cover thumbnail fetched.";
         cover_thumbnails.append(buffer);
-        emit fetchedThumbnail(buffer, cover_names[f_i], f_i + 1);
+        Q_EMIT fetchedThumbnail(buffer, cover_names[f_i], f_i + 1);
         ++f_i;
         if (((fetch_no > -1) && (f_i == fetch_no)) || (cover_urls_thumbnails.count() == 0)) {
             _status = NOS;
-            emit statusChanged(NOS);
+            Q_EMIT statusChanged(NOS);
             f_i = 0;
-            emit allCoverThumbnailsFetched();
+            Q_EMIT allCoverThumbnailsFetched();
         } else {
             fetch_cover_thumbnail();
         }
@@ -192,8 +192,8 @@ void CoverFetcher::fetched_html_data(KJob *job)
     case FETCHING_COVER: {
         qDebug() << "cover fetched.";
         _status = NOS;
-        emit statusChanged(NOS);
-        emit fetchedCover(buffer);
+        Q_EMIT statusChanged(NOS);
+        Q_EMIT fetchedCover(buffer);
     } break;
 
     case NOS:
@@ -243,12 +243,12 @@ bool CoverFetcher::fetch_cover_thumbnail()
 {
     if (cover_urls_thumbnails.count() == 0) {
         qDebug() << "nothing fetched.";
-        emit nothingFetched();
+        Q_EMIT nothingFetched();
         return false;
     }
 
     _status = FETCHING_THUMBNAIL;
-    emit statusChanged(FETCHING_THUMBNAIL);
+    Q_EMIT statusChanged(FETCHING_THUMBNAIL);
 
     job = KIO::storedGet(QUrl(cover_urls_thumbnails.takeFirst()));
     connect(job, SIGNAL(result(KJob *)), SLOT(fetched_html_data(KJob *)));

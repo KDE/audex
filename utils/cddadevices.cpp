@@ -97,7 +97,7 @@ void CDDADevices::p_solid_device_added(const QString &udi)
         disc->name = i18n("Audio Disc");
         disc->device = device;
         p_discs.insert(udi, disc);
-        emit audioDiscDetected(udi);
+        Q_EMIT audioDiscDetected(udi);
     }
 }
 
@@ -109,7 +109,7 @@ void CDDADevices::p_solid_device_removed(const QString &udi)
         qDebug() << "Optical audio disc removed:" << udi;
         delete disc;
         p_discs.remove(udi);
-        emit audioDiscRemoved(udi);
+        Q_EMIT audioDiscRemoved(udi);
     }
 }
 

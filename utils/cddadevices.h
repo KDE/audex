@@ -56,7 +56,7 @@ public:
     const QStringList udiList() const;
     int discCount() const;
 
-public slots:
+public Q_SLOTS:
     void scanBus();
 
     void eject(const QString &udi);
@@ -64,11 +64,11 @@ public slots:
     // set display name
     void setName(const QString &udi, const QString &name);
 
-signals:
+Q_SIGNALS:
     void audioDiscDetected(const QString &udi);
     void audioDiscRemoved(const QString &udi);
 
-private slots:
+private Q_SLOTS:
     void p_solid_device_added(const QString &udi);
     void p_solid_device_removed(const QString &udi);
 

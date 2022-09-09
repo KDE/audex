@@ -38,7 +38,7 @@ public:
 
     void upload(const QString &targetpath, const QStringList &filelist);
 
-signals:
+Q_SIGNALS:
     void error(const QString &message, const QString &solution = QString());
     void warning(const QString &message);
     void info(const QString &message);

@@ -54,7 +54,7 @@ public:
     ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent = nullptr);
     ~ProfileDataDialog() override;
 
-private slots:
+private Q_SLOTS:
     void set_encoder(const int encoder);
     void set_encoder_by_combobox(const int index);
     void trigger_changed();

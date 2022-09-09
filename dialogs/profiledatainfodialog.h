@@ -42,10 +42,10 @@ public:
     QString pattern;
     QString suffix;
 
-protected slots:
+protected Q_SLOTS:
     void pattern_wizard();
 
-private slots:
+private Q_SLOTS:
     void trigger_changed();
 
     void about_variables();

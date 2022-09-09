@@ -267,7 +267,7 @@ public:
 
     void parseInfoText(QStringList &text, const QString &artist, const QString &title, const QString &date, const QString &genre, const quint32 discid, const qreal size, const int length, const int nooftracks);
 
-signals:
+Q_SIGNALS:
     void error(const QString &message, const QString &details = QString());
 
 private:

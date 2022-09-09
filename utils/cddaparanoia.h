@@ -99,7 +99,7 @@ public:
 
     void reset();
 
-signals:
+Q_SIGNALS:
     void error(const QString &message, const QString &details = QString());
 
 private:

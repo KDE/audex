@@ -41,10 +41,10 @@ public:
     QString format;
     QString pattern;
 
-protected slots:
+protected Q_SLOTS:
     void pattern_wizard();
 
-private slots:
+private Q_SLOTS:
     void trigger_changed();
     void enable_scale(bool enabled);
 

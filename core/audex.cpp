@@ -121,8 +121,8 @@ bool Audex::prepare()
 
 void Audex::start()
 {
-    emit changedEncodeTrack(0, 0, "");
-    emit info(i18n("Start ripping and encoding with profile \"%1\"...", p_profile_name));
+    Q_EMIT changedEncodeTrack(0, 0, "");
+    Q_EMIT info(i18n("Start ripping and encoding with profile \"%1\"...", p_profile_name));
     if (check())
         start_extract();
     else
@@ -183,7 +183,7 @@ void Audex::start_extract()
 
         // if empty (maybe because it already exists) skip
         if (!targetFilename.isEmpty()) {
-            emit changedExtractTrack(ex_track_index, 1, artist, title);
+            Q_EMIT changedExtractTrack(ex_track_index, 1, artist, title);
 
             QString sourceFilename = tmp_path + QString("%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature())) + ".wav";
             ex_track_source_filename = sourceFilename;
@@ -291,7 +291,7 @@ void Audex::start_extract()
 
             // if empty (maybe because it already exists) skip
             if (!targetFilename.isEmpty()) {
-                emit changedExtractTrack(ex_track_index, cdda_model->numOfAudioTracks(), tartist, ttitle);
+                Q_EMIT changedExtractTrack(ex_track_index, cdda_model->numOfAudioTracks(), tartist, ttitle);
 
                 QString sourceFilename = tmp_path + QString("%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature())) + '.' + QString("%1").arg(ex_track_index) + ".wav";
                 ex_track_source_filename = sourceFilename;
@@ -368,7 +368,7 @@ void Audex::start_encode()
         QString targetFilename = job->targetFilename();
         en_track_target_filename = targetFilename;
 
-        emit changedEncodeTrack(job->trackNo(), 1, targetFilename);
+        Q_EMIT changedEncodeTrack(job->trackNo(), 1, targetFilename);
         en_track_count++;
 
         en_track_filename = job->sourceFilename();
@@ -407,7 +407,7 @@ void Audex::start_encode()
         QString targetFilename = job->targetFilename();
         en_track_target_filename = targetFilename;
 
-        emit changedEncodeTrack(job->trackNo(), cdda_model->numOfAudioTracks(), targetFilename);
+        Q_EMIT changedEncodeTrack(job->trackNo(), cdda_model->numOfAudioTracks(), targetFilename);
         en_track_count++;
 
         en_track_filename = job->sourceFilename();
@@ -441,7 +441,7 @@ void Audex::finish_encode()
             execute_finish();
         return;
     }
-    emit changedEncodeTrack(0, 0, "");
+    Q_EMIT changedEncodeTrack(0, 0, "");
     progress_encode(0);
     start_encode();
 }
@@ -456,12 +456,12 @@ void Audex::calculate_speed_extract()
             timeout_counter += 2;
             if (timeout_counter >= 300) {
                 timeout_done = true;
-                emit timeout();
+                Q_EMIT timeout();
             }
         }
-        emit speedExtract(new_value);
+        Q_EMIT speedExtract(new_value);
     } else {
-        emit speedExtract(0.0f);
+        Q_EMIT speedExtract(0.0f);
     }
     last_measuring_point_sector = current_sector;
 }
@@ -473,9 +473,9 @@ void Audex::calculate_speed_encode()
         double new_value = (double)((double)song_length / 100.0f) * ((double)current_encoder_percent - (double)last_measuring_point_encoder_percent);
         if (new_value < 0.0f)
             new_value = 0.0f;
-        emit speedEncode(new_value);
+        Q_EMIT speedEncode(new_value);
     } else {
-        emit speedEncode(0.0f);
+        Q_EMIT speedEncode(0.0f);
     }
     last_measuring_point_encoder_percent = current_encoder_percent;
 }
@@ -497,17 +497,17 @@ void Audex::progress_extract(int percent_of_track, int sector, int overall_secto
     if (overall_frames > 0)
         fraction = (float)overall_sectors_read / (float)overall_frames;
 
-    emit progressExtractTrack(percent_of_track);
-    emit progressExtractOverall((int)(fraction * 100.0f));
+    Q_EMIT progressExtractTrack(percent_of_track);
+    Q_EMIT progressExtractOverall((int)(fraction * 100.0f));
 
     current_sector = sector;
 }
 
 void Audex::progress_encode(int percent)
 {
-    emit progressEncodeTrack(percent);
+    Q_EMIT progressEncodeTrack(percent);
     if (percent > 0) {
-        emit progressEncodeOverall(((en_track_count > 0 ? ((en_track_count - 1) * 100.0f) : 0) + (percent * 1.0f)) / (float)cdda_model->numOfAudioTracksInSelection());
+        Q_EMIT progressEncodeOverall(((en_track_count > 0 ? ((en_track_count - 1) * 100.0f) : 0) + (percent * 1.0f)) / (float)cdda_model->numOfAudioTracksInSelection());
     }
     current_encoder_percent = percent;
 }
@@ -519,18 +519,18 @@ void Audex::write_to_wave(const QByteArray &data)
 
 void Audex::slot_error(const QString &description, const QString &solution)
 {
-    emit error(description, solution);
+    Q_EMIT error(description, solution);
     request_finish(false);
 }
 
 void Audex::slot_warning(const QString &description)
 {
-    emit warning(description);
+    Q_EMIT warning(description);
 }
 
 void Audex::slot_info(const QString &description)
 {
-    emit info(description);
+    Q_EMIT info(description);
 }
 
 void Audex::check_if_thread_still_running()
@@ -584,7 +584,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
 
     int lastSlash = targetFilename.lastIndexOf("/", -1);
     if (lastSlash == -1) {
-        emit error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
+        Q_EMIT error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
         return false;
     }
     QString targetPath = targetFilename.mid(0, lastSlash);
@@ -597,15 +597,15 @@ bool Audex::construct_target_filename(QString &targetFilename,
     KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
     quint64 free = diskfreespace.available() / 1024;
     if (free < 200 * 1024) {
-        emit warning(i18n("Free space on \"%1\" is less than 200 MiB.", targetPath));
+        Q_EMIT warning(i18n("Free space on \"%1\" is less than 200 MiB.", targetPath));
     }
 
     auto *file = new QFile(targetFilename);
     if (file->exists()) {
         if (overwrite_existing_files) {
-            emit warning(i18n("Warning! File \"%1\" already exists. Overwriting.", targetStrippedFilename));
+            Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Overwriting.", targetStrippedFilename));
         } else {
-            emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
+            Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
 
             cdda_model->setCustomDataPerTrack(trackno, "filename", targetFilename);
             cdda_model->setCustomDataPerTrack(trackno, "ripped", true);
@@ -635,7 +635,7 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
 
     int lastSlash = targetFilename.lastIndexOf("/", -1);
     if (lastSlash == -1) {
-        emit error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
+        Q_EMIT error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
         return false;
     }
     QString targetPath = targetFilename.mid(0, lastSlash);
@@ -644,28 +644,28 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
     QDir *dir = new QDir(targetPath);
     if (!dir->exists()) {
         if (!dir->mkpath(targetPath)) {
-            emit error(i18n("Unable to create folder \"%1\".", targetPath), i18n("Please check your path (write access?)"));
+            Q_EMIT error(i18n("Unable to create folder \"%1\".", targetPath), i18n("Please check your path (write access?)"));
             return false;
         } else {
-            emit info(i18n("Folder \"%1\" successfully created.", targetPath));
+            Q_EMIT info(i18n("Folder \"%1\" successfully created.", targetPath));
         }
     } else {
-        emit warning(i18n("Folder \"%1\" already exists.", targetPath));
+        Q_EMIT warning(i18n("Folder \"%1\" already exists.", targetPath));
     }
     delete dir;
 
     KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
     quint64 free = diskfreespace.available() / 1024;
     if (free < 800 * 1024) {
-        emit warning(i18n("Free space on \"%1\" is less than 800 MiB.", targetPath));
+        Q_EMIT warning(i18n("Free space on \"%1\" is less than 800 MiB.", targetPath));
     }
 
     auto *file = new QFile(targetFilename);
     if (file->exists()) {
         if (overwrite_existing_files) {
-            emit warning(i18n("Warning! File \"%1\" already exists. Overwriting.", targetStrippedFilename));
+            Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Overwriting.", targetStrippedFilename));
         } else {
-            emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
+            Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
 
             cdda_model->setCustomData("filename", targetFilename);
 
@@ -717,7 +717,7 @@ void Audex::request_finish(bool successful)
 void Audex::execute_finish()
 {
     if (Preferences::ejectCDTray()) {
-        emit info(i18n("Eject CD tray"));
+        Q_EMIT info(i18n("Eject CD tray"));
         cdda_model->eject();
     }
 
@@ -764,10 +764,10 @@ void Audex::execute_finish()
 
             if (p_prepare_dir(filename, target_dir, overwrite)) {
                 if (image.save(filename, format.toLatin1().data())) {
-                    emit info(i18n("Cover \"%1\" successfully saved.", QFileInfo(filename).fileName()));
+                    Q_EMIT info(i18n("Cover \"%1\" successfully saved.", QFileInfo(filename).fileName()));
                     co = filename;
                 } else {
-                    emit error(i18n("Unable to save cover \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+                    Q_EMIT error(i18n("Unable to save cover \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
                 }
             }
         }
@@ -834,11 +834,11 @@ void Audex::execute_finish()
                     file.write(playlist.toXSPF());
                 }
                 file.close();
-                emit info(i18n("Playlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
+                Q_EMIT info(i18n("Playlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
                 pl = filename;
 
             } else {
-                emit error(i18n("Unable to save playlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+                Q_EMIT error(i18n("Unable to save playlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }
@@ -872,10 +872,10 @@ void Audex::execute_finish()
                                             cdda_model->numOfAudioTracksInSelection());
                 out << text.join("\n");
                 file.close();
-                emit info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));
+                Q_EMIT info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));
                 in = filename;
             } else {
-                emit error(i18n("Unable to save info file \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+                Q_EMIT error(i18n("Unable to save info file \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }
@@ -915,10 +915,10 @@ void Audex::execute_finish()
                     out << hashlist.getMD5(target_filename_list).join("\n");
                 }
                 file.close();
-                emit info(i18n("Hashlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
+                Q_EMIT info(i18n("Hashlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
                 hl = filename;
             } else {
-                emit error(i18n("Unable to save hashlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+                Q_EMIT error(i18n("Unable to save hashlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }
@@ -950,10 +950,10 @@ void Audex::execute_finish()
                     out << cuesheetwriter.cueSheet(target_filename_list).join("\n");
                 }
                 file.close();
-                emit info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));
+                Q_EMIT info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));
                 cs = filename;
             } else {
-                emit error(i18n("Unable to save cue sheet \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+                Q_EMIT error(i18n("Unable to save cue sheet \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }
@@ -989,7 +989,7 @@ void Audex::execute_finish()
         }
     }
 
-    emit finished(_finished_successful);
+    Q_EMIT finished(_finished_successful);
 }
 
 bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
@@ -1007,7 +1007,7 @@ bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative,
         if (!targetDirIfRelative.isEmpty()) {
             QDir dir(targetDirIfRelative);
             if (!dir.isReadable()) {
-                emit error(i18n("Unable to open folder \"%1\".", targetDirIfRelative), i18n("Please check your path and permissions"));
+                Q_EMIT error(i18n("Unable to open folder \"%1\".", targetDirIfRelative), i18n("Please check your path and permissions"));
                 return false;
             }
             result = targetDirIfRelative + '/' + filename;
@@ -1019,7 +1019,7 @@ bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative,
     if (!overwrite) {
         QFileInfo info(result);
         if (info.exists()) {
-            emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
+            Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
             return false;
         }
     }
@@ -1034,15 +1034,15 @@ bool Audex::p_mkdir(const QString &absoluteFilePath)
     QDir dir(absoluteFilePath);
     if (dir.exists()) {
         if (!dir.isReadable()) {
-            emit error(i18n("Unable to open folder \"%1\".", absoluteFilePath), i18n("Please check your path and permissions"));
+            Q_EMIT error(i18n("Unable to open folder \"%1\".", absoluteFilePath), i18n("Please check your path and permissions"));
             return false;
         }
     } else {
         if (!dir.mkpath(absoluteFilePath)) {
-            emit error(i18n("Unable to create folder \"%1\".", absoluteFilePath), i18n("Please check your path (write access?)"));
+            Q_EMIT error(i18n("Unable to create folder \"%1\".", absoluteFilePath), i18n("Please check your path (write access?)"));
             return false;
         } else {
-            emit info(i18n("Folder \"%1\" successfully created.", absoluteFilePath));
+            Q_EMIT info(i18n("Folder \"%1\" successfully created.", absoluteFilePath));
         }
     }
 

@@ -48,10 +48,10 @@ public:
     ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent = nullptr);
     ~ExtractingProgressDialog() override;
 
-public slots:
+public Q_SLOTS:
     int exec() override;
 
-private slots:
+private Q_SLOTS:
     void toggle_details();
     void cancel();
 

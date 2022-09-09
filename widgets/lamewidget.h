@@ -52,11 +52,11 @@ public:
     {
         return changed;
     }
-signals:
+Q_SIGNALS:
     void triggerChanged();
-public slots:
+public Q_SLOTS:
     bool save();
-private slots:
+private Q_SLOTS:
     void enable_medium(bool enable);
     void enable_standard(bool enable);
     void enable_extreme(bool enable);

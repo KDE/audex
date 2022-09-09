@@ -54,8 +54,10 @@ include_directories(
   ${CDPARANOIA_INCLUDE_DIR}
 )
 
-# Silence some errors for now
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
+add_definitions(
+    -DQT_DISABLE_DEPRECATED_BEFORE=0x050e00
+    -DQT_NO_KEYWORDS
+)
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 

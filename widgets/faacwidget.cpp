@@ -80,5 +80,5 @@ void faacWidget::trigger_changed()
 {
     changed = (horizontalSlider_quality->value() != parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY) || qlineedit_suffix->text() != parameters->value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX));
 
-    emit triggerChanged();
+    Q_EMIT triggerChanged();
 }

@@ -45,7 +45,7 @@ class profileWidget : public profileWidgetUI
 public:
     explicit profileWidget(ProfileModel *profileModel, QWidget *parent = nullptr);
     ~profileWidget() override;
-private slots:
+private Q_SLOTS:
     void _update();
     void add_profile();
     void rem_profile();

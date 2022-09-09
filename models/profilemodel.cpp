@@ -481,7 +481,7 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
     // update current profile index. maybe current has been deleted?
     setCurrentProfileIndex(p_current_profile_index);
 
-    emit profilesRemovedOrInserted();
+    Q_EMIT profilesRemovedOrInserted();
 
     return true;
 }
@@ -517,7 +517,7 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
         setCurrentProfileIndex(p_cache.at(0)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt());
     }
 
-    emit profilesRemovedOrInserted();
+    Q_EMIT profilesRemovedOrInserted();
 
     return true;
 }
@@ -537,7 +537,7 @@ void ProfileModel::setCurrentProfileIndex(int profile_index)
         KConfigGroup profilesGroup(&config, "Profiles");
         profilesGroup.writeEntry("Standard", pi);
         profilesGroup.config()->sync();
-        emit currentProfileIndexChanged(pi);
+        Q_EMIT currentProfileIndexChanged(pi);
     }
 }
 
@@ -617,7 +617,7 @@ void ProfileModel::sortItems()
     beginResetModel();
     std::sort(p_cache.begin(), p_cache.end(), lessThan);
     endResetModel();
-    emit profilesRemovedOrInserted();
+    Q_EMIT profilesRemovedOrInserted();
 }
 
 void ProfileModel::autoCreate()
@@ -920,7 +920,7 @@ int ProfileModel::copy(const int profileRow)
     p_cache.append(p);
 
     endResetModel();
-    emit profilesRemovedOrInserted();
+    Q_EMIT profilesRemovedOrInserted();
 
     return key;
 }
@@ -1054,6 +1054,6 @@ void ProfileModel::p_load(KConfig *config)
     if (profileCount > 0) {
         if (p_current_profile_index == -1)
             p_current_profile_index = 0;
-        emit profilesRemovedOrInserted();
+        Q_EMIT profilesRemovedOrInserted();
     }
 }

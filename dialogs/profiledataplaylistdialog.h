@@ -41,10 +41,10 @@ public:
     bool absFilePath;
     bool utf8;
 
-protected slots:
+protected Q_SLOTS:
     void pattern_wizard();
 
-private slots:
+private Q_SLOTS:
     void trigger_changed();
     void enable_abs_file_path(bool enabled);
     void enable_utf8(bool enabled);

@@ -214,7 +214,7 @@ public:
 
     Error lastError() const;
 
-public slots:
+public Q_SLOTS:
     void commit();
     void revert() override;
 
@@ -226,7 +226,7 @@ public slots:
     void setCurrentProfileIndex(int profile_index);
     int setRowAsCurrentProfileIndex(int row); // returns profile index
 
-signals:
+Q_SIGNALS:
     void profilesRemovedOrInserted();
     void currentProfileIndexChanged(int index);
 

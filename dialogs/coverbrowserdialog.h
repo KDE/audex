@@ -46,16 +46,16 @@ public:
         return cover_fetcher.count();
     }
 
-public slots:
+public Q_SLOTS:
     void fetchThumbnails(const QString &searchstring, const int fetchCount = 0);
     void startFetchCover(const int no);
 
-signals:
+Q_SIGNALS:
     void coverFetched(const QByteArray &cover);
     void allCoverThumbnailsFetched();
     void nothingFetched();
 
-private slots:
+private Q_SLOTS:
     void select_this(QListWidgetItem *item);
 
     void enable_select_button();

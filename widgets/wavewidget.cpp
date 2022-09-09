@@ -57,5 +57,5 @@ void waveWidget::trigger_changed()
 {
     changed = (qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
 
-    emit triggerChanged();
+    Q_EMIT triggerChanged();
 }

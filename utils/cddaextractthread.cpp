@@ -33,7 +33,7 @@ CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDAParanoia *_paranoia)
     paranoia = _paranoia;
     if (!paranoia) {
         qDebug() << "Paranoia object not found. low mem?";
-        emit error(i18n("Internal device error."), i18n("Check your device and make a bug report."));
+        Q_EMIT error(i18n("Internal device error."), i18n("Check your device and make a bug report."));
         return;
     }
     connect(paranoia, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
@@ -85,7 +85,7 @@ void CDDAExtractThread::run()
     }
 
     if (first_sector < 0 || last_sector < 0) {
-        emit info(i18n("Extracting finished."));
+        Q_EMIT info(i18n("Extracting finished."));
         return;
     }
 
@@ -110,9 +110,9 @@ void CDDAExtractThread::run()
     if (track > 0) {
         QString min = QString("%1").arg((sectors_all / 75) / 60, 2, 10, QChar('0'));
         QString sec = QString("%1").arg((sectors_all / 75) % 60, 2, 10, QChar('0'));
-        emit info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
+        Q_EMIT info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
     } else {
-        emit info(i18n("Ripping whole CD as single track."));
+        Q_EMIT info(i18n("Ripping whole CD as single track."));
     }
     extract_protocol.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
 
@@ -136,7 +136,7 @@ void CDDAExtractThread::run()
         } else {
             current_sector++;
             QByteArray a((char *)buf, CD_FRAMESIZE_RAW);
-            emit output(a);
+            Q_EMIT output(a);
             a.clear();
 
             sectors_read++;
@@ -144,21 +144,21 @@ void CDDAExtractThread::run()
             float fraction = 0.0f;
             if (sectors_all > 0)
                 fraction = (float)sectors_read / (float)sectors_all;
-            emit progress((int)(100.0f * fraction), current_sector, overall_sectors_read);
+            Q_EMIT progress((int)(100.0f * fraction), current_sector, overall_sectors_read);
         }
     }
 
     if (b_interrupt)
-        emit error(i18n("User canceled extracting."));
+        Q_EMIT error(i18n("User canceled extracting."));
 
     if (b_error)
-        emit error(i18n("An error occurred while ripping track %1.", track));
+        Q_EMIT error(i18n("An error occurred while ripping track %1.", track));
 
     if ((!b_interrupt) && (!b_error)) {
         if (track > 0) {
-            emit info(i18n("Ripping OK (Track %1).", track));
+            Q_EMIT info(i18n("Ripping OK (Track %1).", track));
         } else {
-            emit info(i18n("Ripping OK."));
+            Q_EMIT info(i18n("Ripping OK."));
         }
     }
 
@@ -183,7 +183,7 @@ const QStringList &CDDAExtractThread::protocol()
 
 void CDDAExtractThread::slot_error(const QString &message, const QString &details)
 {
-    emit error(message, details);
+    Q_EMIT error(message, details);
 }
 
 void CDDAExtractThread::createStatus(long sector, int status)
@@ -220,7 +220,7 @@ void CDDAExtractThread::createStatus(long sector, int status)
         qDebug() << "Scratch detected";
         if (!scratch_detected) {
             scratch_detected = true;
-            emit warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+            Q_EMIT warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         }
         extract_protocol.append(i18n("SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         break;
@@ -231,7 +231,7 @@ void CDDAExtractThread::createStatus(long sector, int status)
     case PARANOIA_CB_SKIP:
         // skipped sector
         qDebug() << "Skip";
-        emit warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+        Q_EMIT warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         extract_protocol.append(i18n("SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         break;
     case PARANOIA_CB_DRIFT:
@@ -260,7 +260,7 @@ void CDDAExtractThread::createStatus(long sector, int status)
         qDebug() << "Read error";
         if (!read_error) {
             read_error = true;
-            emit warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+            Q_EMIT warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         }
         extract_protocol.append(i18n("READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         break;

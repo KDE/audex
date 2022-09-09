@@ -40,7 +40,7 @@ class remoteServerSettingsWidget : public remoteServerSettingsWidgetUI
 public:
     explicit remoteServerSettingsWidget(QWidget *parent = nullptr);
     ~remoteServerSettingsWidget() override;
-private slots:
+private Q_SLOTS:
     void toggle_upload(bool enabled);
 };
 

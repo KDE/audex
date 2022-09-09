@@ -630,7 +630,7 @@ void CDDAHeaderWidget::trigger_repaint()
                 fade_out = false;
                 animation_down = false;
                 timer.stop();
-                emit coverDown();
+                Q_EMIT coverDown();
             }
         }
 
@@ -648,7 +648,7 @@ void CDDAHeaderWidget::trigger_repaint()
                 scale_up = false;
                 animation_up = false;
                 timer.stop();
-                emit coverUp();
+                Q_EMIT coverUp();
             }
         }
     }
@@ -757,7 +757,7 @@ void CDDAHeaderWidget::edit_data()
     }
     delete dialog;
     update();
-    emit headerDataChanged();
+    Q_EMIT headerDataChanged();
 }
 
 void CDDAHeaderWidget::wikipedia()

@@ -187,5 +187,5 @@ void oggencWidget::trigger_changed()
                kintspinbox_maxbitrate->value() != parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE) || checkBox_maxbitrate->isChecked() != parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY) ||
                qlineedit_suffix->text() != parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
 
-    emit triggerChanged();
+    Q_EMIT triggerChanged();
 }

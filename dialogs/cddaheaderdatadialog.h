@@ -38,7 +38,7 @@ public:
     explicit CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = nullptr);
     ~CDDAHeaderDataDialog() override;
 
-private slots:
+private Q_SLOTS:
     void save();
     void trigger_changed();
     void enable_checkbox_multicd(bool enabled);

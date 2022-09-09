@@ -34,7 +34,7 @@ public:
     ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent = nullptr);
     ~ProtocolDialog() override;
 
-private slots:
+private Q_SLOTS:
     void slotSaveProtocol();
     void slotClosed();
     void save();

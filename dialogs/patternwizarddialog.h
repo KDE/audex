@@ -39,7 +39,7 @@ public:
 
     QString pattern;
 
-private slots:
+private Q_SLOTS:
     void trigger_changed();
 
     void about_filename_schemes();

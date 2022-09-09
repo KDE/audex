@@ -173,7 +173,7 @@ bool CDDAModel::setData(const QModelIndex &index, const QVariant &value, int rol
             return false;
         }
         if (changed) {
-            emit dataChanged(index, index);
+            Q_EMIT dataChanged(index, index);
             modify();
         }
         return changed;
@@ -594,7 +594,7 @@ void CDDAModel::swapArtistAndTitleOfTracks()
     }
     modified = true;
     endResetModel();
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
 }
 
 void CDDAModel::swapArtistAndTitle()
@@ -607,7 +607,7 @@ void CDDAModel::swapArtistAndTitle()
     cd_info.set(KCDDB::Artist, tmp);
     modified = true;
     endResetModel();
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
 }
 
 void CDDAModel::splitTitleOfTracks(const QString &divider)
@@ -627,7 +627,7 @@ void CDDAModel::splitTitleOfTracks(const QString &divider)
         }
     }
     modified = true;
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
     endResetModel();
 }
 
@@ -643,7 +643,7 @@ void CDDAModel::capitalizeTracks()
     }
     modified = true;
     endResetModel();
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
 }
 
 void CDDAModel::capitalizeHeader()
@@ -656,7 +656,7 @@ void CDDAModel::capitalizeHeader()
     cd_info.set(KCDDB::Title, capitalize(cd_info.get(KCDDB::Title).toString()));
     modified = true;
     endResetModel();
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
 }
 
 void CDDAModel::setTitleArtistsFromHeader()
@@ -670,7 +670,7 @@ void CDDAModel::setTitleArtistsFromHeader()
     }
     modified = true;
     endResetModel();
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
 }
 
 int CDDAModel::numOfTracks() const
@@ -756,8 +756,8 @@ void CDDAModel::toggle(int row)
 {
     _toggle(row + 1);
 
-    emit hasSelection(0 != sel_tracks.count());
-    emit selectionChanged(sel_tracks.count());
+    Q_EMIT hasSelection(0 != sel_tracks.count());
+    Q_EMIT selectionChanged(sel_tracks.count());
 }
 
 bool CDDAModel::isTrackInSelection(int n) const
@@ -771,8 +771,8 @@ void CDDAModel::invertSelection()
         if (isAudioTrack(i))
             _toggle(i);
     }
-    emit hasSelection(0 != sel_tracks.count());
-    emit selectionChanged(sel_tracks.count());
+    Q_EMIT hasSelection(0 != sel_tracks.count());
+    Q_EMIT selectionChanged(sel_tracks.count());
 }
 
 void CDDAModel::selectAll()
@@ -784,8 +784,8 @@ void CDDAModel::selectAll()
 void CDDAModel::selectNone()
 {
     sel_tracks.clear();
-    emit hasSelection(false);
-    emit selectionChanged(0);
+    Q_EMIT hasSelection(false);
+    Q_EMIT selectionChanged(0);
 }
 
 bool CDDAModel::isModified() const
@@ -816,7 +816,7 @@ void CDDAModel::lookupCDDB()
     }
     cddb_transaction_pending = true;
 
-    emit cddbLookupStarted();
+    Q_EMIT cddbLookupStarted();
 
     cddb->config().reparse();
     cddb->setBlockingMode(false);
@@ -879,7 +879,7 @@ bool CDDAModel::submitCDDB()
 
     cddb_transaction_pending = false;
 
-    emit cddbDataSubmited(true);
+    Q_EMIT cddbDataSubmited(true);
 
     return true;
 }
@@ -916,9 +916,9 @@ void CDDAModel::new_audio_disc_available(const QString &udi)
             sel_tracks.insert(i);
     }
 
-    emit hasSelection(0 != sel_tracks.size());
+    Q_EMIT hasSelection(0 != sel_tracks.size());
 
-    emit audioDiscDetected();
+    Q_EMIT audioDiscDetected();
 }
 
 void CDDAModel::audio_disc_removed(const QString &udi)
@@ -932,7 +932,7 @@ void CDDAModel::audio_disc_removed(const QString &udi)
         delete pn;
     pn = nullptr;
 
-    emit audioDiscRemoved();
+    Q_EMIT audioDiscRemoved();
 }
 
 void CDDAModel::disc_information_modified()
@@ -970,7 +970,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
         default:
             error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database."), Error::ERROR, this);
         }
-        emit cddbLookupDone(false);
+        Q_EMIT cddbLookupDone(false);
         return;
     }
 
@@ -998,7 +998,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
             if (c < cddb_info.size())
                 info = cddb_info[c];
         } else {
-            emit cddbLookupDone(true);
+            Q_EMIT cddbLookupDone(true);
             return;
             // user pressed cancel
         }
@@ -1026,7 +1026,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
 
     _empty = false;
 
-    emit cddbLookupDone(true);
+    Q_EMIT cddbLookupDone(true);
 }
 
 void CDDAModel::_toggle(const unsigned int track)
@@ -1065,5 +1065,5 @@ void CDDAModel::modify()
 {
     modified = true;
     _empty = false;
-    emit cddbDataModified();
+    Q_EMIT cddbDataModified();
 }

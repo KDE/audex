@@ -128,7 +128,7 @@ public:
     {
         return (job_queue.count() > 0);
     }
-public slots:
+public Q_SLOTS:
     void addNewJob(const QString &sourceFilename, const QString &targetFilename, const int trackno)
     {
         auto *j = new AudexJob();
@@ -137,9 +137,9 @@ public slots:
         j->setTrackNo(trackno);
         job_queue.enqueue(j);
         cache.append(j);
-        emit newJobAvailable();
+        Q_EMIT newJobAvailable();
     }
-signals:
+Q_SIGNALS:
     void newJobAvailable();
 
 private:
@@ -158,14 +158,14 @@ public:
 
     bool prepare();
 
-public slots:
+public Q_SLOTS:
     void start();
     void cancel();
 
     const QStringList &extractProtocol();
     const QStringList &encoderProtocol();
 
-private slots:
+private Q_SLOTS:
     void start_extract();
     void finish_extract();
     void start_encode();
@@ -185,7 +185,7 @@ private slots:
 
     void check_if_thread_still_running();
 
-signals:
+Q_SIGNALS:
     void changedExtractTrack(int no, int total, const QString &artist, const QString &title);
     void changedEncodeTrack(int no, int total, const QString &filename);
 

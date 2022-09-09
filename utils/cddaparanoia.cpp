@@ -46,7 +46,7 @@ bool CDDAParanoia::setDevice(const QString &device)
         _device = device;
     if (!_paranoia_init()) {
         qDebug() << "Internal device error.";
-        emit error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", _device));
+        Q_EMIT error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", _device));
         return false;
     }
     return true;

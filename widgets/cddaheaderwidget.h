@@ -66,12 +66,12 @@ public:
 
     bool isEnabled() const;
 
-public slots:
+public Q_SLOTS:
     void setEnabled(bool enabled);
 
     void googleAuto();
 
-signals:
+Q_SIGNALS:
     void headerDataChanged();
 
     void coverUp();
@@ -83,7 +83,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void fetchCoverFinished(bool showDialog);
 
-private slots:
+private Q_SLOTS:
 
     void update();
     void trigger_repaint();

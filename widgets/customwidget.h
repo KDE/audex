@@ -54,12 +54,12 @@ public:
     {
         return changed;
     }
-public slots:
+public Q_SLOTS:
     bool save();
     void pattern_wizard();
-signals:
+Q_SIGNALS:
     void triggerChanged();
-private slots:
+private Q_SLOTS:
     void trigger_changed();
 
 private:

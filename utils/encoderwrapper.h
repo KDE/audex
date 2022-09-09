@@ -39,7 +39,7 @@ public:
     bool isProcessing();
     const QStringList &protocol();
 
-public slots:
+public Q_SLOTS:
     bool encode(int n,
                 int cdno,
                 int trackoffset,
@@ -58,12 +58,12 @@ public slots:
                 const QString &output);
     void cancel();
 
-private slots:
+private Q_SLOTS:
     void parseOutput();
     void processFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void processError(QProcess::ProcessError err);
 
-signals:
+Q_SIGNALS:
     void progress(int percent_of_track);
     void finished();
 
