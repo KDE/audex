@@ -28,9 +28,9 @@
 
 #include <KActionCollection>
 #include <KCModuleLoader>
-#include <KCddb/Cdinfo>
-#include <KCddb/Client>
-#include <KCddb/Kcddb>
+#include <KCDDB/CDInfo>
+#include <KCDDB/Client>
+#include <KCDDB/KCDDB>
 #include <KComboBox>
 #include <KConfigDialog>
 #include <KLocalizedString>

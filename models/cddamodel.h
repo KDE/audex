@@ -33,9 +33,9 @@
 
 #include <KLocalizedString>
 
-#include <KCddb/Cdinfo>
-#include <KCddb/Client>
-#include <KCddb/Kcddb>
+#include <KCDDB/CDInfo>
+#include <KCDDB/Client>
+#include <KCDDB/KCDDB>
 
 #include "utils/cachedimage.h"
 #include "utils/cddadevices.h"
