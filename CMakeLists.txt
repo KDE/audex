@@ -20,7 +20,7 @@ include(ECMAddTests)
 include(FeatureSummary)
 include(KDEClangFormat)
 
-find_package(Qt5 5.11 REQUIRED COMPONENTS
+find_package(Qt5 5.14 REQUIRED COMPONENTS
   Script
   Widgets
   X11Extras

@@ -1040,7 +1040,7 @@ void CDDAModel::_toggle(const unsigned int track)
 
 const QString CDDAModel::capitalize(const QString &s)
 {
-    QStringList stringlist = s.split(' ', QString::SkipEmptyParts);
+    QStringList stringlist = s.split(' ', Qt::SkipEmptyParts);
     for (int i = 0; i < stringlist.count(); i++) {
         QString string = stringlist[i].toLower();
         int j = 0;
