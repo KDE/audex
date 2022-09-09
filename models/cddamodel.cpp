@@ -985,7 +985,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
 
         bool ok = false;
         // Uses a ComboBox, could use UseListViewForComboBoxItems if necessary
-        QString res = QInputDialog::getItem(nullptr, i18n("Select CDDB Entry"), i18n("Select a CDDB entry:"), list, 0, false, &ok, nullptr);
+        QString res = QInputDialog::getItem(nullptr, i18n("Select CDDB Entry"), i18n("Select a CDDB entry:"), list, 0, false, &ok, {});
 
         if (ok) {
             // The user selected an item and pressed OK
