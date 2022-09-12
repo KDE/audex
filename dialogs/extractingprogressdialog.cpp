@@ -332,7 +332,7 @@ void ExtractingProgressDialog::show_error(const QString &message, const QString 
 void ExtractingProgressDialog::ask_timeout()
 {
     if (KMessageBox::questionYesNo(this,
-                                   i18n("Ripping speed was extremly slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
+                                   i18n("Ripping speed was extremely slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
                                         "If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data from this disc. Maybe try another one.\n\n"
                                         "However, do you want to continue extraction?"),
                                    i18n("Cancel extraction"),
