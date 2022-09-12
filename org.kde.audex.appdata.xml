@@ -93,6 +93,7 @@
     <p xml:lang="x-test">xxThe general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.xx</p>
     <p xml:lang="zh-CN">Audex 的一般用法是不言自明的。 初次启动时，Audex 会扫描您系统中的常见编码器，并自动为您创建一组共同的配置文件。</p>
   </description>
+  <content_rating type="oars-1.1" />
   <screenshots>
     <screenshot type="default">
       <image type="source" width="664" height="566">https://cdn.kde.org/screenshots/audex/audex.png</image>
@@ -103,4 +104,5 @@
   <provides>
     <binary>audex</binary>
   </provides>
+  <launchable type="desktop-id">org.kde.audex.desktop</launchable>
 </component>
