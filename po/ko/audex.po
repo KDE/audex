@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the audex package.
-# Shinjo Park <kde@peremen.name>, 2021.
+# Shinjo Park <kde@peremen.name>, 2021, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2021-06-09 23:24+0200\n"
+"PO-Revision-Date: 2022-10-03 14:19+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language-Team: Korean <kde-i18n-doc@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -673,15 +673,7 @@ msgid "Show rip log..."
 msgstr "추출 로그 표시..."
 
 #: dialogs/extractingprogressdialog.cpp:335
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ripping speed was extremly slow for the last 5 minutes.\n"
-#| "Due to extraction quality, audex is configured to never skip any detected "
-#| "error. If your disc is really broken extraction may never end!\n"
-#| "In some cases, it might be that only this drive has difficulty ripping "
-#| "audio data from this disc. Maybe try another one.\n"
-#| "\n"
-#| "However, do you want to continue extraction?"
+#, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Due to extraction quality, audex is configured to never skip any detected "
