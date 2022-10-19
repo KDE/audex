@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2014, 2015, 2017, 2019, 2020.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2014, 2015, 2017, 2019, 2020, 2022.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2020-05-16 08:53+0200\n"
+"PO-Revision-Date: 2022-10-18 17:59+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.07.70\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -689,15 +689,7 @@ msgid "Show rip log..."
 msgstr "Pokaż dziennik zgrywania..."
 
 #: dialogs/extractingprogressdialog.cpp:335
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ripping speed was extremly slow for the last 5 minutes.\n"
-#| "Due to extraction quality, audex is configured to never skip any detected "
-#| "error. If your disc is really broken extraction may never end!\n"
-#| "In some cases, it might be that only this drive has difficulty ripping "
-#| "audio data from this disc. Maybe try another one.\n"
-#| "\n"
-#| "However, do you want to continue extraction?"
+#, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Due to extraction quality, audex is configured to never skip any detected "
