@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Márcio Moraes <marciopanto@gmail.com>, 2009.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2010, 2012, 2013, 2018, 2020.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2010, 2012, 2013, 2018, 2020, 2022.
 # Marcus Vinícius de Andrade Gama <marcus.gama@gmail.com>, 2010.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2010, 2011, 2012, 2013, 2014, 2015.
 # Aracele Torres <araceletorres@gmail.com>, 2011.
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2020-03-10 11:20-0300\n"
+"PO-Revision-Date: 2022-10-19 15:36-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 19.12.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -689,15 +689,7 @@ msgid "Show rip log..."
 msgstr "Mostrar saída de extração..."
 
 #: dialogs/extractingprogressdialog.cpp:335
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ripping speed was extremly slow for the last 5 minutes.\n"
-#| "Due to extraction quality, audex is configured to never skip any detected "
-#| "error. If your disc is really broken extraction may never end!\n"
-#| "In some cases, it might be that only this drive has difficulty ripping "
-#| "audio data from this disc. Maybe try another one.\n"
-#| "\n"
-#| "However, do you want to continue extraction?"
+#, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Due to extraction quality, audex is configured to never skip any detected "
