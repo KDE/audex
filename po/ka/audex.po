@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2022-12-06 17:31+0100\n"
+"PO-Revision-Date: 2022-12-07 07:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -135,7 +135,7 @@ msgstr "პროფილი არჩეუი არაა. ოპერა�
 #: core/audex.cpp:125
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
+msgstr "რიპინგის და კოდირების \"%1\" პროფილით დაწყება..."
 
 #: core/audex.cpp:587 core/audex.cpp:638
 #, kde-format
@@ -145,12 +145,12 @@ msgstr "ბილიკი ვერ ვიპოვე \"%1\"."
 #: core/audex.cpp:587 core/audex.cpp:638 core/audex.cpp:647 core/audex.cpp:1042
 #, kde-format
 msgid "Please check your path (write access?)"
-msgstr ""
+msgstr "შეამოწმეთ თქვენი ბილიკი (ჩაწერის უფლებები?)"
 
 #: core/audex.cpp:600
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr ""
+msgstr "\"%1\"-ზე თავისუფალი ადგლი 200 მიბ-ზე ნაკლებია."
 
 #: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
@@ -165,7 +165,7 @@ msgstr ""
 #: core/audex.cpp:647 core/audex.cpp:1042
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr ""
+msgstr "საქაღალდის შექმნის შეცდომა: %1."
 
 #: core/audex.cpp:650 core/audex.cpp:1045
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "საქაღალდე უკვე არსბეობს: \"%1\
 #: core/audex.cpp:660
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "\"%1\"-ზე თავისუფალი ადგლი 800 მიბ-ზე ნაკლებია."
 
 #: core/audex.cpp:683
 #, kde-format
@@ -205,7 +205,7 @@ msgstr ""
 #: core/audex.cpp:691
 #, kde-format
 msgid "Please free space or set another path."
-msgstr ""
+msgstr "გაათავისუფლეთ ადგილი ან სხვა ბილიკი მიუთითეთ."
 
 #: core/audex.cpp:720
 #, kde-format
@@ -241,12 +241,12 @@ msgstr "დასაკრავი სიის \"%1\" შენახვის
 #: core/audex.cpp:875
 #, kde-format
 msgid "Info file \"%1\" successfully created."
-msgstr ""
+msgstr "ინფორმაციის ფაილი \"%1\" წარმატებით შეიქმნა."
 
 #: core/audex.cpp:878
 #, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr ""
+msgstr "ფაილში \"%1\" შენახვის შეცდომა."
 
 #: core/audex.cpp:918
 #, kde-format
@@ -256,7 +256,7 @@ msgstr ""
 #: core/audex.cpp:921
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr ""
+msgstr "ჰეშების სიის \"%1\" შენახვის შეცდომა."
 
 #: core/audex.cpp:953
 #, kde-format
@@ -349,7 +349,7 @@ msgstr "0x00000000"
 #: dialogs/commandwizarddialog.cpp:29
 #, kde-format
 msgid "Command Pattern Wizard"
-msgstr ""
+msgstr "ბრძანების ნიმუშის ოსტატი"
 
 #: dialogs/commandwizarddialog.cpp:104
 #, kde-format
@@ -566,12 +566,12 @@ msgstr "_გაუქმება"
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
 msgid "Ripping Track"
-msgstr ""
+msgstr "ტრეკის დარიპვა"
 
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr ""
+msgstr "%2-დან %1-ე ტრეკის დარიპვა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:176
@@ -594,7 +594,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:195
 #, kde-format
 msgid "Encoding Track"
-msgstr ""
+msgstr "ტრეკის კოდირება"
 
 #: dialogs/extractingprogressdialog.cpp:195
 #, kde-format
@@ -634,12 +634,12 @@ msgstr "წარუმატებელია!"
 #: dialogs/extractingprogressdialog.cpp:281
 #, kde-format
 msgid "Show encoding log..."
-msgstr ""
+msgstr "კოდირების ჟურნალის ჩვენება..."
 
 #: dialogs/extractingprogressdialog.cpp:288
 #, kde-format
 msgid "Show rip log..."
-msgstr ""
+msgstr "რიპინგის ჟურნალის ჩვენება..."
 
 #: dialogs/extractingprogressdialog.cpp:335
 #, kde-format
@@ -656,17 +656,17 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:338
 #, kde-format
 msgid "Cancel extraction"
-msgstr ""
+msgstr "გამოღების გაუქმება"
 
 #: dialogs/extractingprogressdialog.cpp:347
 #, kde-format
 msgid "Encoding protocol"
-msgstr ""
+msgstr "კოდირების პროტოკოლი"
 
 #: dialogs/extractingprogressdialog.cpp:354
 #, kde-format
 msgid "Ripping protocol"
-msgstr ""
+msgstr "რიპინგის პროტოკოლი"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -762,7 +762,7 @@ msgstr "სუფიქსი"
 #: dialogs/profiledatacoverdialog.cpp:34
 #, kde-format
 msgid "Cover Settings"
-msgstr ""
+msgstr "ყდის მორგება"
 
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
@@ -943,12 +943,12 @@ msgstr ""
 #: dialogs/profiledatainfodialog.cpp:255
 #, kde-format
 msgid "Load Text Template"
-msgstr ""
+msgstr "ტექსტის ნიმუშის ჩატვირთვა"
 
 #: dialogs/profiledatainfodialog.cpp:268
 #, kde-format
 msgid "Save Text Template"
-msgstr ""
+msgstr "ტექსტის ნიმუშის შენახვა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
@@ -987,12 +987,12 @@ msgstr ""
 #: dialogs/profiledataplaylistwidgetUI.ui:59
 #, kde-format
 msgid "UTF-8 coding in playlist"
-msgstr ""
+msgstr "UTF-8 კოდირება დასაკრავ სიაში"
 
 #: dialogs/profiledatasinglefiledialog.cpp:31
 #, kde-format
 msgid "Single File Settings"
-msgstr ""
+msgstr "ერთი ფაილის მორგება"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
@@ -1060,7 +1060,7 @@ msgstr "ინფორმაციის ფაილის შექმნა"
 #: dialogs/profiledatawidgetUI.ui:254
 #, kde-format
 msgid "Create hashlist"
-msgstr ""
+msgstr "ჰეშის სიის შექმნა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:274
@@ -1076,7 +1076,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:313
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create playlist"
 msgstr "დასაკრავი სიის შექმნა"
 
@@ -1187,7 +1187,7 @@ msgstr "Elson"
 #: main.cpp:51
 #, kde-format
 msgid "development"
-msgstr ""
+msgstr "შემუშავება"
 
 #: main.cpp:52
 #, kde-format
@@ -1255,7 +1255,7 @@ msgstr ""
 #: mainwindow.cpp:114
 #, kde-format
 msgid "Disc information not found"
-msgstr ""
+msgstr "დისკის ინფორმაცია ვერ ვიპოვე"
 
 #: mainwindow.cpp:120
 #, kde-format
@@ -1304,7 +1304,7 @@ msgstr ""
 #: mainwindow.cpp:204
 #, kde-format
 msgid "CDD Lookup Failure"
-msgstr ""
+msgstr "CDD მოძებნის შეცდომა"
 
 #: mainwindow.cpp:307
 #, kde-format
@@ -1327,7 +1327,7 @@ msgstr ""
 #: mainwindow.cpp:315
 #, kde-format
 msgid "Swap artists and titles"
-msgstr ""
+msgstr "შემსრულებლებისა და სათაურების ადგილის შეცვლა"
 
 #: mainwindow.cpp:324
 #, kde-format
@@ -1402,17 +1402,17 @@ msgstr "დიდი ასოთი აღნიშვნა"
 #: mainwindow.cpp:426
 #, kde-format
 msgid "Auto Fill Artists"
-msgstr ""
+msgstr "შემსრულებლის ველის ავტომატური შევსება"
 
 #: mainwindow.cpp:431
 #, kde-format
 msgid "Select All Tracks"
-msgstr ""
+msgstr "ყველა აუდიობილიკის მონიშვნა"
 
 #: mainwindow.cpp:436
 #, kde-format
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "ყველა მონიშვნის მოხსნა"
 
 #: mainwindow.cpp:441
 #, kde-format
@@ -1422,7 +1422,7 @@ msgstr "მონიშვნის ინვერსია"
 #: models/cddamodel.cpp:31
 #, kde-format
 msgid "Unable to create devices object."
-msgstr ""
+msgstr "მოწყობილობის ობიექტის შექმნის შეცდომა."
 
 #: models/cddamodel.cpp:31 models/cddamodel.cpp:40 models/cddamodel.cpp:903
 #, kde-format
@@ -1502,12 +1502,12 @@ msgstr ""
 #: models/cddamodel.cpp:988
 #, kde-format
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "აირჩიეთ CDDB-ის ჩანაწერი"
 
 #: models/cddamodel.cpp:988
 #, kde-format
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "აირჩიეთ CDDB-ის ჩანაწერი:"
 
 #: models/cddamodel.h:46
 #, kde-format
@@ -1537,7 +1537,7 @@ msgstr "ხანგრძლივობა"
 #: models/profilemodel.cpp:174
 #, kde-format
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "პროფილის სახელი ცარიელი ვერ იქნება."
 
 #: models/profilemodel.cpp:174
 #, kde-format
@@ -1547,7 +1547,7 @@ msgstr ""
 #: models/profilemodel.cpp:180
 #, kde-format
 msgid "Profile encoder is not defined."
-msgstr ""
+msgstr "პროფილის კოდირება აღწერილი არაა."
 
 #: models/profilemodel.cpp:180
 #, kde-format
@@ -1557,7 +1557,7 @@ msgstr ""
 #: models/profilemodel.cpp:186
 #, kde-format
 msgid "Profile filename pattern is not defined."
-msgstr ""
+msgstr "პროფილის ფაილის სახელი აღწერილი არაა."
 
 #: models/profilemodel.cpp:186
 #, kde-format
@@ -1567,7 +1567,7 @@ msgstr ""
 #: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
-msgstr ""
+msgstr "გამოსახულების ფაილის ფორმატი უცნობია."
 
 #: models/profilemodel.cpp:204
 #, kde-format
@@ -1579,7 +1579,7 @@ msgstr ""
 #: models/profilemodel.cpp:210
 #, kde-format
 msgid "Cover name must not be empty."
-msgstr ""
+msgstr "ყდის სახელი ცარიელი არ შეიძლება, იყოს."
 
 #: models/profilemodel.cpp:210
 #, kde-format
@@ -1589,7 +1589,7 @@ msgstr ""
 #: models/profilemodel.cpp:218
 #, kde-format
 msgid "The playlist file format is unknown."
-msgstr ""
+msgstr "დასაკრავი სიის ფაილის ფორმატი უცნობია."
 
 #: models/profilemodel.cpp:218
 #, kde-format
@@ -1601,12 +1601,12 @@ msgstr ""
 #: models/profilemodel.cpp:224
 #, kde-format
 msgid "Playlist name must not be empty."
-msgstr ""
+msgstr "დასაკრავი სიის სახელი ცარიელი არ შეიძლება, იყოს."
 
 #: models/profilemodel.cpp:224
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
-msgstr ""
+msgstr "დასაკრავ სიას სახელი არ აქვს. გთხოვთ, დააყენოთ."
 
 #: models/profilemodel.cpp:238
 #, kde-format
@@ -1942,17 +1942,17 @@ msgstr ""
 #: utils/coverfetcher.cpp:148
 #, kde-format
 msgid "There was an error communicating with Google."
-msgstr ""
+msgstr "Google-სთან მიერთების შეცდომა."
 
 #: utils/coverfetcher.cpp:148
 #, kde-format
 msgid "Try again later. Otherwise make a bug report."
-msgstr ""
+msgstr "მოგვიანებით სცადეთ. ან შეცდომის ანგარიში გამოგვიგზავნეთ."
 
 #: utils/coverfetcher.cpp:161
 #, kde-format
 msgid "Google server: Empty response."
-msgstr ""
+msgstr "Google-ის სერვერი: პასუხი ცარიელია."
 
 #: utils/coverfetcher.cpp:161
 #, kde-format
@@ -1999,7 +1999,7 @@ msgstr "ხელით მითითებული"
 #: utils/encoderwrapper.cpp:72
 #, kde-format
 msgid "Command pattern is empty."
-msgstr ""
+msgstr "ბრძანების ნიმუში ცარიელია."
 
 #: utils/encoderwrapper.cpp:86
 #, kde-format
