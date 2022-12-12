@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2022-12-10 18:22+0300\n"
+"PO-Revision-Date: 2022-12-11 19:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1429,7 +1429,7 @@ msgstr "CDDAModel nesnesi oluşturulamıyor."
 #: mainwindow.cpp:114
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
-msgstr "Disk bilgisi ayarlanmamış. Gerçekten devam etmek isiyor musunuz?"
+msgstr "Disk bilgisi ayarlanmamış. Gerçekten sürdürmek istiyor musunuz?"
 
 #: mainwindow.cpp:114
 #, kde-format
@@ -1443,7 +1443,7 @@ msgid ""
 "really want to continue?"
 msgstr ""
 "Tek dosya dönüştürme seçili, ancak dönüştürme için tüm ses parçaları seçili "
-"değil. Gerçekten devam etmek istiyor musunuz?"
+"değil. Gerçekten sürdürmek istiyor musunuz?"
 
 #: mainwindow.cpp:121
 #, kde-format
@@ -1635,7 +1635,7 @@ msgstr "Parça %1"
 #: models/cddamodel.cpp:835
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr "CDDB işlemi hali hazırda devam ediyor."
+msgstr "CDDB işlemi halihazırda sürüyor."
 
 #: models/cddamodel.cpp:835
 #, kde-format
@@ -1643,8 +1643,8 @@ msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
-"CDDB işlemi hali hazırda devam ediyor. Lütfen bitene kadar bekleyin ve "
-"tekrar deneyin."
+"CDDB işlemi halihazırda sürüyor. Lütfen bitene kadar bekleyin ve yeniden "
+"deneyin."
 
 #: models/cddamodel.cpp:851 models/cddamodel.cpp:953
 #, kde-format
