@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2022-12-14 18:00+0100\n"
+"PO-Revision-Date: 2023-01-09 08:12+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1895,6 +1895,8 @@ msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"ფიქსირებული კიდის ჯიტერი (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, "
+"ტრეკის დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:216
 #, kde-format
@@ -1902,6 +1904,8 @@ msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"ფიქსირებული ატომური ჯიტერი (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, "
+"ტრეკის დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:223
 #, kde-format
@@ -1909,6 +1913,8 @@ msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"აღმოჩენილია ნაფხაჭნი (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის "
+"დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:225
 #, kde-format
@@ -1916,44 +1922,60 @@ msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"აღმოჩენილია ნაფხაჭნი (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის "
+"დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"გასწორება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
+"პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:234
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"გამოტოვებული სექტორი (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის "
+"დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:235
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"გამოტოვება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
+"პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"გასრიალება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
+"პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Backoff (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის პოზიცია "
+"%3:%4)"
 
 #: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"გადაყრილების გასწორება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის "
+"დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:257
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"დუბლირებულების გასწორება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, "
+"ტრეკის დროის პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:263
 #, kde-format
@@ -1961,12 +1983,16 @@ msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr ""
+"წაკითხვს შეცდომა (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
+"პოზიცია %3:%4)"
 
 #: utils/cddaextractthread.cpp:265
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"წაკითხვს შეცდომა (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
+"პოზიცია %3:%4)"
 
 #: utils/cddaparanoia.cpp:49
 #, kde-format
@@ -1974,6 +2000,8 @@ msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
 "\"%1\"."
 msgstr ""
+"გადაამოწმეთ მოწყობილობა. მართლა \"%1\"-ა? თუ ასეა, \"%1\"-ზე წვდომებიც "
+"გადაამოწმეთ."
 
 #: utils/coverfetcher.cpp:148
 #, kde-format
@@ -2372,6 +2400,8 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"თუ ძალიან კარგი სმენა და შესაბამისი აპარატურაც გაგაჩნიათ, ეს პრესეტი "
+"ჩვეულებრივზე ოდნავ უკეთეს ხარისხს მოგაწოდებთ"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
@@ -2386,6 +2416,7 @@ msgid ""
 "This preset should generally be transparent to most people on most music and "
 "is already quite high in quality."
 msgstr ""
+"ეს პრესეტი ჩვეულებრივი ხალხისთვის საკმაოდ კარგ ხარისხს უნდა წარმოადგენდეს."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2401,6 +2432,9 @@ msgid ""
 "but if you must have the absolute highest quality with no regard to "
 "filesize, this is the way to go."
 msgstr ""
+"ეს პრესეტი როგორც წესი მეტისმეტია ხალხისა და სიტუაციების უმეტესობისთვის. "
+"მაგრამ თუ თქვენ უნდა გქონდეთ უმაღლესი ხარისხი ფაილის ზომის "
+"გაუთვალისწინებლად, ეს სწორედ ისაა, რაც გჭირდებათ."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
@@ -2450,7 +2484,7 @@ msgstr "მაქსიმალური ბიტური სიჩქარ�
 #: widgets/profilewidget.cpp:88
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "მართლა გნებავთ, წაშალოთ პროფილი \"%1\"?"
 
 #: widgets/profilewidget.cpp:89
 #, kde-format
@@ -2469,6 +2503,9 @@ msgid ""
 "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
 "some sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>გნებავთ თავიდან მოვძებნო კოდეკები (Lame, Ogg Vorbis, Flac, ა.შ.)?</"
+"p><p><font style=\"font-style:italic;\">ასევე შეიქმნება პროფილები იმის "
+"მიხედვით, რომელ კოდეკებს ვიპოვი.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:151 widgets/profilewidget.cpp:155
