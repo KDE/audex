@@ -821,7 +821,7 @@ msgstr ""
 "<p>Les variables a Audex poden tindre paràmetres. P. ex.</p><pre>$artist/"
 "$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>Açò "
 "vol dir, que el número de pista serà forçat a una llargària de 2 dígits. Si "
-"el número és inferior a 10, s'omplirà amb un «0».</p><pre>$artist/${title "
+"el número és inferior a 10, s'emplenarà amb un «0».</p><pre>$artist/${title "
 "lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
 "\"true\"}/$trackno - $ttile.$suffix</pre><p>El títol serà passat a "
 "majúscules o minúscules. Açò també funciona amb les altres variables.</"
@@ -1317,7 +1317,7 @@ msgstr ""
 "<p>Les variables a Audex poden tindre paràmetres. P. ex.</p><pre>$title "
 "(${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre><p>Açò vol dir, que el "
 "número del CD serà forçat a una llargària de 2 dígits. Si el número és "
-"inferior a 10, s'omplirà amb un «0».</p><pre>${title lowercase=\"true\"}."
+"inferior a 10, s'emplenarà amb un «0».</p><pre>${title lowercase=\"true\"}."
 "$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>El títol serà "
 "passat a majúscules o minúscules. Açò també funciona amb les altres "
 "variables.</p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Pren un "
@@ -1550,12 +1550,12 @@ msgstr "Posa en majúscula la primera lletra dels artistes i títols"
 #: mainwindow.cpp:333
 #, kde-format
 msgid "Do you really want to autofill track artists?"
-msgstr "Segur que voleu omplir automàticament els artistes de la pista?"
+msgstr "Segur que voleu emplenar automàticament els artistes de la pista?"
 
 #: mainwindow.cpp:333
 #, kde-format
 msgid "Autofill artists"
-msgstr "Òmpliga automàticament els artistes de la pista"
+msgstr "Emplena automàticament els artistes de la pista"
 
 #: mainwindow.cpp:356
 #, kde-format
@@ -1610,7 +1610,7 @@ msgstr "Posa en majúscula la primera lletra"
 #: mainwindow.cpp:426
 #, kde-format
 msgid "Auto Fill Artists"
-msgstr "Òmpliga automàticament els artistes"
+msgstr "Emplena automàticament els artistes"
 
 #: mainwindow.cpp:431
 #, kde-format
