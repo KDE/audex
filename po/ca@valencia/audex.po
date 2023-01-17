@@ -846,7 +846,7 @@ msgstr "Sufix"
 #: dialogs/profiledatacoverdialog.cpp:34
 #, kde-format
 msgid "Cover Settings"
-msgstr "Configuració de la caràtula"
+msgstr "Configureu la caràtula"
 
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
@@ -892,7 +892,7 @@ msgstr "Patró de la caràtula:"
 #: dialogs/profiledatacuesheetdialog.cpp:31
 #, kde-format
 msgid "Cue Sheet Settings"
-msgstr "Configuració del full de muntatge"
+msgstr "Configureu el full de muntatge"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
@@ -922,7 +922,7 @@ msgstr "Perfil nou"
 #: dialogs/profiledataplaylistdialog.cpp:34
 #, kde-format
 msgid "Playlist Settings"
-msgstr "Configuració de la llista de reproducció"
+msgstr "Configureu la llista de reproducció"
 
 #: dialogs/profiledatahashlistdialog.cpp:54
 #, kde-format
@@ -937,7 +937,7 @@ msgstr "MD5 (Message-Digest algorisme 5)"
 #: dialogs/profiledatainfodialog.cpp:34
 #, kde-format
 msgid "Info Settings"
-msgstr "Configuració de la informació"
+msgstr "Configureu la informació"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1478,7 +1478,7 @@ msgstr "Configuració general"
 #: mainwindow.cpp:147
 #, kde-format
 msgid "Device settings"
-msgstr "Configuració del dispositiu"
+msgstr "Configureu el dispositiu"
 
 #: mainwindow.cpp:150
 #, kde-format
@@ -1488,7 +1488,7 @@ msgstr "Perfils"
 #: mainwindow.cpp:162
 #, kde-format
 msgid "CDDB settings"
-msgstr "Configuració de la CDDB"
+msgstr "Configureu la CDDB"
 
 #: mainwindow.cpp:170
 #, kde-format
