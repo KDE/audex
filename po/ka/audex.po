@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2023-01-09 08:12+0100\n"
+"PO-Revision-Date: 2023-02-03 15:46+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -561,7 +561,7 @@ msgstr "ნამდვილად გსურთ ამ ამოცანი
 #: dialogs/extractingprogressdialog.cpp:162
 #, kde-format
 msgid "Cancel"
-msgstr "_გაუქმება"
+msgstr "გაუქმება"
 
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
@@ -2536,7 +2536,7 @@ msgstr "დამატება..."
 #: widgets/profilewidgetUI.ui:28
 #, kde-format
 msgid "Remove"
-msgstr "ამო_ღება"
+msgstr "წაშლა"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
