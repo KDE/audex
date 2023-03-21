@@ -1,13 +1,14 @@
 # Translation of audex into esperanto.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2009-11-15 12:06+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-20 22:31+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -308,10 +309,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
-#, fuzzy, kde-format
-#| msgid "Track Artist"
+#, kde-format
 msgid "Track Offset:"
-msgstr "Traka artisto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
@@ -398,10 +398,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
-#, fuzzy, kde-format
-#| msgid "Album Title"
+#, kde-format
 msgid "Album Example:"
-msgstr "Albuma titolo"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
@@ -464,10 +463,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
 #: dialogs/simplepatternwizardwidgetUI.ui:255
-#, fuzzy, kde-format
-#| msgid "Track"
+#, kde-format
 msgid "# of Tracks"
-msgstr "Trako"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
 #: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
@@ -802,10 +800,9 @@ msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "Pattern:"
+#, kde-format
 msgid "Cover pattern:"
-msgstr "Ŝablono:"
+msgstr ""
 
 #: dialogs/profiledatacuesheetdialog.cpp:31
 #, kde-format
@@ -817,10 +814,9 @@ msgstr ""
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
-#, fuzzy, kde-format
-#| msgid "Pattern:"
+#, kde-format
 msgid "Name/Pattern:"
-msgstr "Ŝablono:"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:102
 #, kde-format
@@ -993,9 +989,9 @@ msgid "UTF-8 coding in playlist"
 msgstr ""
 
 #: dialogs/profiledatasinglefiledialog.cpp:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Single File Settings"
-msgstr "Ĝenerale"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
@@ -1049,10 +1045,9 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:195 dialogs/profiledatawidgetUI.ui:228
 #: dialogs/profiledatawidgetUI.ui:241 dialogs/profiledatawidgetUI.ui:267
 #: dialogs/profiledatawidgetUI.ui:300 dialogs/profiledatawidgetUI.ui:348
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings.."
-msgstr "A&gordo"
+msgstr "Agordo..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:221
@@ -1091,10 +1086,9 @@ msgid "Write single file"
 msgstr ""
 
 #: dialogs/protocoldialog.cpp:71
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Save %1"
-msgstr "Konservi"
+msgstr ""
 
 #: dialogs/simplepatternwizarddialog.cpp:29
 #, kde-format
@@ -1170,10 +1164,9 @@ msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
 #: main.cpp:49
-#, fuzzy, kde-format
-#| msgid "Current maintainer"
+#, kde-format
 msgid "Current maintainer, main developer"
-msgstr "Nuna zorganto"
+msgstr ""
 
 #: main.cpp:50
 #, kde-format
@@ -1277,15 +1270,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
 #: mainwindow.cpp:144
-#, fuzzy, kde-format
+#, kde-format
 msgid "General settings"
-msgstr "Ĝenerale"
+msgstr ""
 
 #: mainwindow.cpp:147
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Device settings"
-msgstr "A&gordo"
+msgstr ""
 
 #: mainwindow.cpp:150
 #, kde-format
@@ -1293,10 +1285,9 @@ msgid "Profiles"
 msgstr ""
 
 #: mainwindow.cpp:162
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "CDDB settings"
-msgstr "A&gordo"
+msgstr ""
 
 #: mainwindow.cpp:170
 #, kde-format
@@ -1364,16 +1355,14 @@ msgid "Eject"
 msgstr "Elĵeti"
 
 #: mainwindow.cpp:363
-#, fuzzy, kde-format
-#| msgid "New Profile"
+#, kde-format
 msgid "Profile:"
-msgstr "Nova profilo"
+msgstr ""
 
 #: mainwindow.cpp:375
-#, fuzzy, kde-format
-#| msgid "New Profile"
+#, kde-format
 msgid "&Profile:"
-msgstr "Nova profilo"
+msgstr ""
 
 #: mainwindow.cpp:381
 #, kde-format
@@ -1381,9 +1370,9 @@ msgid "Profile"
 msgstr ""
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
+#, kde-format
 msgid "Fetch Info"
-msgstr "&Elprenu informojn"
+msgstr ""
 
 #: mainwindow.cpp:396
 #, kde-format
@@ -1411,10 +1400,9 @@ msgid "Capitalize"
 msgstr "Majuskligi"
 
 #: mainwindow.cpp:426
-#, fuzzy, kde-format
-#| msgid "Album Artist"
+#, kde-format
 msgid "Auto Fill Artists"
-msgstr "Albuma artisto"
+msgstr ""
 
 #: mainwindow.cpp:431
 #, kde-format
@@ -2178,10 +2166,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Pattern:"
+#, kde-format
 msgid "Command Pattern:"
-msgstr "Ŝablono:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2320,10 +2307,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
-#, fuzzy, kde-format
-#| msgid "Quality"
+#, kde-format
 msgid "Quality/Bitrate"
-msgstr "Kvalito"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
@@ -2395,10 +2381,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Constant Bitrate"
+#, kde-format
 msgid "Target Bitrate ~"
-msgstr "Konstanta bitkvanto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2432,10 +2417,9 @@ msgid "Delete profile"
 msgstr ""
 
 #: widgets/profilewidget.cpp:139
-#, fuzzy, kde-format
-#| msgid "New Profile"
+#, kde-format
 msgid "Load Profiles"
-msgstr "Nova profilo"
+msgstr ""
 
 #: widgets/profilewidget.cpp:149
 #, kde-format
@@ -2458,12 +2442,11 @@ msgid "No new codecs found"
 msgstr ""
 
 #: widgets/profilewidget.cpp:155
-#, fuzzy, kde-format
-#| msgid "New Profile"
+#, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] "Nova profilo"
-msgstr[1] "Nova profilo"
+msgstr[0] ""
+msgstr[1] ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
@@ -2491,87 +2474,18 @@ msgstr "Kopii"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
-#, fuzzy, kde-format
+#, kde-format
 msgid "Load..."
-msgstr "Ŝargu"
+msgstr "Ŝargi..."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
-#, fuzzy, kde-format
-#| msgid "New..."
+#, kde-format
 msgid "Save..."
-msgstr "Nova..."
+msgstr "Konservi..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#, fuzzy
-#~| msgid "Device"
-#~ msgid "CD Device"
-#~ msgstr "Disponaĵo"
-
-#~ msgid "Save"
-#~ msgstr "Konservi"
-
-#~ msgid "CD-Text"
-#~ msgstr "KD-teksto"
-
-#~ msgid "CDDB"
-#~ msgstr "CDDB"
-
-#, fuzzy
-#~| msgid "Format:"
-#~ msgid "Form"
-#~ msgstr "Formato:"
-
-#~ msgid "TextLabel"
-#~ msgstr "TextLabel"
-
-#, fuzzy
-#~| msgid "Capitalize"
-#~ msgid "no_capitalize_warn"
-#~ msgstr "Majuskligi"
-
-#, fuzzy
-#~| msgid "Genre:"
-#~ msgid "Vendor:"
-#~ msgstr "Ĝenro:"
-
-#~ msgid "Model:"
-#~ msgstr "Modelo:"
-
-#, fuzzy
-#~| msgid "Format:"
-#~ msgid "Firmware Version:"
-#~ msgstr "Formato:"
-
-#, fuzzy
-#~| msgid "Device"
-#~ msgid "Block Device:"
-#~ msgstr "Disponaĵo"
-
-#~ msgid "Yes"
-#~ msgstr "Jes"
-
-#~ msgid "No"
-#~ msgstr "Ne"
-
-#, fuzzy
-#~| msgid "Title"
-#~ msgid "Title %1"
-#~ msgstr "Titolo"
-
-#~ msgid "Offset"
-#~ msgstr "Deŝovo"
-
-#~ msgid "Unknown"
-#~ msgstr "Nekonata"
-
-#~ msgid "CD-ROM"
-#~ msgstr "KD-ROM"
-
-#~ msgid "KSqueezedTextLabel"
-#~ msgstr "KSqueezedTextLabel"
