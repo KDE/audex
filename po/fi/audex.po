@@ -3,13 +3,13 @@
 # Author: Lliehu
 # Author: Luksi
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2022-07-22 21:56+0300\n"
+"PO-Revision-Date: 2023-03-14 13:34+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-POT-Import-Date: 2012-12-01 22:27:08+0000\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -680,15 +680,7 @@ msgid "Show rip log..."
 msgstr "Näytä rippausloki…"
 
 #: dialogs/extractingprogressdialog.cpp:335
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ripping speed was extremly slow for the last 5 minutes.\n"
-#| "Due to extraction quality, audex is configured to never skip any detected "
-#| "error. If your disc is really broken extraction may never end!\n"
-#| "In some cases, it might be that only this drive has difficulty ripping "
-#| "audio data from this disc. Maybe try another one.\n"
-#| "\n"
-#| "However, do you want to continue extraction?"
+#, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Due to extraction quality, audex is configured to never skip any detected "
@@ -698,9 +690,9 @@ msgid ""
 "\n"
 "However, do you want to continue extraction?"
 msgstr ""
-"Purkunopeus oli viimeiset viisi minuuttia hyvin hidas.\n"
-"Purkulaatuasetuksen takia audex ei ohita havaitsemiaan virheitä. Jos levy on "
-"todella rikki, purkaminen ei pääty ehkä koskaan!\n"
+"Purkunopeus on viimeiset viisi minuuttia ollut hyvin hidas.\n"
+"Purkulaatuasetuksen takia audex ei sivuuta havaitsemiaan virheitä. Jos levy "
+"on todella rikki, purkaminen ei ehkä pääty koskaan!\n"
 "Joissakin tapauksissa voi olla, että ongelmat äänitiedon purkamisessa tältä "
 "levyltä ovat kiinni laitteesta. Kokeile toista laitetta.\n"
 "\n"
