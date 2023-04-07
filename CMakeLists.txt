@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.16.0)
 
 project(Audex VERSION "0.95")
 
-set(KF5_MIN_VERSION "5.64.0")
+set(KF5_MIN_VERSION "5.100.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -56,7 +56,14 @@ include_directories(
 
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050e00
-    -DQT_NO_KEYWORDS
+)
+
+remove_definitions(
+    -DQT_NO_CAST_FROM_ASCII
+    -DQT_NO_URL_CAST_FROM_STRING
+    -DQT_NO_CAST_FROM_BYTEARRAY
+    -DQT_USE_QSTRINGBUILDER
+    -DQT_NO_FOREACH
 )
 
 set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
