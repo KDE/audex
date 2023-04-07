@@ -159,7 +159,13 @@ void ExtractingProgressDialog::cancel()
         close();
 
     } else {
-        if (KMessageBox::warningYesNo(this, i18n("Do you really want to cancel?"), i18n("Cancel"), KStandardGuiItem::yes(), KStandardGuiItem::no()) == KMessageBox::Yes) {
+        if (KMessageBox::warningTwoActions(
+                this,
+                i18n("Do you really want to cancel?"),
+                i18n("Cancel"),
+                KStandardGuiItem::ok(),
+                KStandardGuiItem::cancel())
+            == KMessageBox::PrimaryAction) {
             cancelButton->setEnabled(false);
             audex->cancel();
         }
@@ -331,13 +337,15 @@ void ExtractingProgressDialog::show_error(const QString &message, const QString 
 
 void ExtractingProgressDialog::ask_timeout()
 {
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Ripping speed was extremely slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
-                                        "If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data from this disc. Maybe try another one.\n\n"
-                                        "However, do you want to continue extraction?"),
-                                   i18n("Cancel extraction"),
-                                   KStandardGuiItem::yes(),
-                                   KStandardGuiItem::no()) == KMessageBox::No) {
+    if (KMessageBox::questionTwoActions(
+            this,
+            i18n("Ripping speed was extremely slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
+                 "If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data from this disc. Maybe try another one.\n\n"
+                 "However, do you want to continue extraction?"),
+            i18n("Cancel extraction"),
+            KStandardGuiItem::ok(),
+            KStandardGuiItem::cancel())
+        == KMessageBox::SecondaryAction) {
         audex->cancel();
     }
 }
