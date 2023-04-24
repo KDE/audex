@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-13 00:44+0000\n"
-"PO-Revision-Date: 2020-01-05 18:31+0100\n"
+"PO-Revision-Date: 2023-04-23 08:23+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -156,7 +156,7 @@ msgstr "O espazo libre en «%1» é menor de 200 MiB."
 #: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "Aviso! O ficheiro «%1» xa existe. Substituiuse."
+msgstr "Aviso! O ficheiro «%1» xa existe. Substituíuse."
 
 #: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:1022
 #, kde-format
@@ -687,15 +687,7 @@ msgid "Show rip log..."
 msgstr "Mostrar o rexistro da extracción…"
 
 #: dialogs/extractingprogressdialog.cpp:335
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ripping speed was extremly slow for the last 5 minutes.\n"
-#| "Due to extraction quality, audex is configured to never skip any detected "
-#| "error. If your disc is really broken extraction may never end!\n"
-#| "In some cases, it might be that only this drive has difficulty ripping "
-#| "audio data from this disc. Maybe try another one.\n"
-#| "\n"
-#| "However, do you want to continue extraction?"
+#, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Due to extraction quality, audex is configured to never skip any detected "
@@ -707,7 +699,7 @@ msgid ""
 msgstr ""
 "A velocidade de extracción foi extremadamente lenta durante os últimos 5 "
 "minutos.\n"
-"Debido á calidade da extracción, Audex está configurado para nunca saltarse "
+"Debido á calidade da extracción, audex está configurado para nunca saltarse "
 "ningún erro que detectase. Se o disco está roto, é posíbel que a extracción "
 "non remate nunca!\n"
 "Nalgúns casos, podería ser que só esta unidade teña dificultades para "
@@ -814,6 +806,7 @@ msgstr ""
 "<td>$suffix</td> <td>A extensión de ficheiro.</td> </tr><tr> <td>$audex</td> "
 "<td>Nome e versión de Audex.</td> </tr></table></p>"
 
+# well-spelled: lowercase, uppercase, true
 #: dialogs/patternwizarddialog.cpp:123
 #, kde-format
 msgid ""
@@ -1308,6 +1301,7 @@ msgstr ""
 "<td>$encoder</td> <td>Nome e versión do codificador.</td> </tr><tr> <td>"
 "$audex</td> <td>Nome e versión de Audex.</td> </tr></table></p>"
 
+# well-spelled: lowercase, uppercase, true
 #: dialogs/simplepatternwizarddialog.cpp:119
 #, kde-format
 msgid ""
@@ -1408,7 +1402,7 @@ msgstr "freedb.org"
 #, kde-format
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
-"Moitísimas grazas a freedb.org por fornecer unha base datos de CDs similar a "
+"Moitísimas grazas a freedb.org por fornecer unha base datos de CD similar a "
 "CDDB."
 
 #: main.cpp:54
@@ -1652,7 +1646,7 @@ msgstr ""
 #: models/cddamodel.cpp:40
 #, kde-format
 msgid "Unable to create KCDDB object."
-msgstr "Non se pode crear un obxecto de tipo KCCDB."
+msgstr "Non se pode crear un obxecto de tipo KCDDB."
 
 #: models/cddamodel.cpp:132
 #, kde-format
@@ -1679,7 +1673,7 @@ msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
-"Produciunse un erro co servidor de CDDB. Agarde ou póñase en contacto co "
+"Produciuse un erro co servidor de CDDB. Agarde ou póñase en contacto co "
 "administrador do servidor de CDDB."
 
 #: models/cddamodel.cpp:854 models/cddamodel.cpp:956
