@@ -84,11 +84,13 @@ void profileWidget::add_profile()
 
 void profileWidget::rem_profile()
 {
-    if (KMessageBox::warningYesNo(this,
-                                  i18n("Do you really want to delete profile \"%1\"?", profile_model->data(profile_model->index(listView->currentIndex().row(), PROFILE_MODEL_COLUMN_NAME_INDEX)).toString()),
-                                  i18n("Delete profile"),
-                                  KStandardGuiItem::yes(),
-                                  KStandardGuiItem::no()) == KMessageBox::No)
+    if (KMessageBox::warningTwoActions(
+            this,
+            i18n("Do you really want to delete profile \"%1\"?", profile_model->data(profile_model->index(listView->currentIndex().row(), PROFILE_MODEL_COLUMN_NAME_INDEX)).toString()),
+            i18n("Delete profile"),
+            KStandardGuiItem::ok(),
+            KStandardGuiItem::cancel())
+        == KMessageBox::SecondaryAction)
         return;
 
     QModelIndex ci = listView->currentIndex();
@@ -144,11 +146,13 @@ void profileWidget::load_profiles()
 
 void profileWidget::init_profiles()
 {
-    if (KMessageBox::Yes ==
-        KMessageBox::questionYesNo(this,
-                                   i18n("<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, etc.)?</p>"
-                                        "<p><font style=\"font-style:italic;\">This will attempt to create some sample profiles based upon any found codecs.</font></p>"),
-                                   i18n("Codec Scan"))) {
+    if (KMessageBox::PrimaryAction ==
+        KMessageBox::questionTwoActions(this,
+                                        i18n("<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, etc.)?</p>"
+                                             "<p><font style=\"font-style:italic;\">This will attempt to create some sample profiles based upon any found codecs.</font></p>"),
+                                        i18n("Codec Scan"),
+                                        KStandardGuiItem::ok(),
+                                        KStandardGuiItem::cancel())) {
         int sizeBefore = profile_model->rowCount();
         profile_model->autoCreate();
         int diff = profile_model->rowCount() - sizeBefore;
