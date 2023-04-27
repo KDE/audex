@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-13 00:44+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2017-08-06 20:17+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -541,7 +541,7 @@ msgid "Rip And Encode"
 msgstr "Čierna a červená"
 
 #: dialogs/extractingprogressdialog.cpp:47
-#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr ""
@@ -561,95 +561,96 @@ msgstr "Ripuje sa stopa %1 (%2 - %3)"
 msgid "Encoding Track 0 of %1"
 msgstr "1 stopa (kódovanie do %2)"
 
-#: dialogs/extractingprogressdialog.cpp:162
-#, kde-format
-msgid "Do you really want to cancel?"
+#: dialogs/extractingprogressdialog.cpp:164
+#, fuzzy, kde-format
+#| msgid "Do you really want to cancel?"
+msgid "Do you really want to cancel extraction?"
 msgstr "Naozaj chcete zrušiť?"
 
-#: dialogs/extractingprogressdialog.cpp:162
+#: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
 #, kde-format
 msgid "Ripping Track"
 msgstr "Ripuje sa stopa"
 
-#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
 #, fuzzy, kde-format
 msgid "Ripping Track %1 of %2"
 msgstr "Ripuje sa stopa %1 (%2 - %3)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:176
 #: dialogs/extractingprogressdialog.cpp:182
+#: dialogs/extractingprogressdialog.cpp:188
 #: dialogs/extractingprogresswidgetUI.ui:165
 #, kde-format
 msgid "Overall Progress"
 msgstr "Celkový priebeh"
 
-#: dialogs/extractingprogressdialog.cpp:176
+#: dialogs/extractingprogressdialog.cpp:182
 #, fuzzy, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
 
-#: dialogs/extractingprogressdialog.cpp:191
+#: dialogs/extractingprogressdialog.cpp:197
 #, fuzzy, kde-format
 msgid "Waiting for an encoding job..."
 msgstr "PIN (pre súkromnú úlohu)"
 
-#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogressdialog.cpp:201
 #, kde-format
 msgid "Encoding Track"
 msgstr "Kódovanie stopy"
 
-#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogressdialog.cpp:201
 #, fuzzy, kde-format
 msgid "Encoding Track %1 of %2"
 msgstr "1 stopa (kódovanie do %2)"
 
-#: dialogs/extractingprogressdialog.cpp:237
 #: dialogs/extractingprogressdialog.cpp:243
+#: dialogs/extractingprogressdialog.cpp:249
 #, kde-format
 msgid "Speed: %1x"
 msgstr "Rýchlosť: %1x"
 
-#: dialogs/extractingprogressdialog.cpp:261
+#: dialogs/extractingprogressdialog.cpp:267
 #, fuzzy, kde-format
 msgid "All jobs successfully done."
 msgstr "Operácia vrátenia poslednej činnosti úspešná."
 
-#: dialogs/extractingprogressdialog.cpp:265
-#: dialogs/extractingprogressdialog.cpp:266
-#: dialogs/extractingprogressdialog.cpp:267
+#: dialogs/extractingprogressdialog.cpp:271
+#: dialogs/extractingprogressdialog.cpp:272
+#: dialogs/extractingprogressdialog.cpp:273
 #, kde-format
 msgid "Finished!"
 msgstr "Ukončené!"
 
-#: dialogs/extractingprogressdialog.cpp:272
+#: dialogs/extractingprogressdialog.cpp:278
 #, fuzzy, kde-format
 msgid "At least one job failed."
 msgstr "Zadajte aspoň jednu URL adresu."
 
-#: dialogs/extractingprogressdialog.cpp:276
-#: dialogs/extractingprogressdialog.cpp:277
-#: dialogs/extractingprogressdialog.cpp:278
+#: dialogs/extractingprogressdialog.cpp:282
+#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:284
 #, kde-format
 msgid "Failed!"
 msgstr "Zlyhalo!"
 
-#: dialogs/extractingprogressdialog.cpp:281
+#: dialogs/extractingprogressdialog.cpp:287
 #, fuzzy, kde-format
 msgid "Show encoding log..."
 msgstr "Zobraziť záznam správ"
 
-#: dialogs/extractingprogressdialog.cpp:288
+#: dialogs/extractingprogressdialog.cpp:294
 #, fuzzy, kde-format
 msgid "Show rip log..."
 msgstr "Zobraziť záznam správ"
 
-#: dialogs/extractingprogressdialog.cpp:335
+#: dialogs/extractingprogressdialog.cpp:342
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
@@ -661,17 +662,17 @@ msgid ""
 "However, do you want to continue extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:338
+#: dialogs/extractingprogressdialog.cpp:345
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Zrušiť extrakciu"
 
-#: dialogs/extractingprogressdialog.cpp:347
+#: dialogs/extractingprogressdialog.cpp:355
 #, kde-format
 msgid "Encoding protocol"
 msgstr "Kódovací protokol"
 
-#: dialogs/extractingprogressdialog.cpp:354
+#: dialogs/extractingprogressdialog.cpp:362
 #, kde-format
 msgid "Ripping protocol"
 msgstr "Ripovací protokol"
@@ -1258,71 +1259,71 @@ msgstr ""
 msgid "Unable to create CDDAModel object."
 msgstr "Nepodarilo sa vytvoriť komponent prvkov."
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:117
 #, fuzzy, kde-format
 msgid "Disc information not found"
 msgstr "Kanál nebol nájdený na %1."
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:128
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:121
+#: mainwindow.cpp:129
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:153
 #, kde-format
 msgid "General settings"
 msgstr "Všeobecné nastavenie"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:156
 #, kde-format
 msgid "Device settings"
 msgstr "Nastavenie zariadenia"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Profiles"
 msgstr "Profily"
 
-#: mainwindow.cpp:162
+#: mainwindow.cpp:171
 #, kde-format
 msgid "CDDB settings"
 msgstr "Nastavenie CDDB"
 
-#: mainwindow.cpp:170
+#: mainwindow.cpp:179
 #, kde-format
 msgid "Remote Server"
 msgstr "Vzdialený server"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:213
 #, fuzzy, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr "Čítanie archívu zlyhalo s nasledujúcou chybou: <message>%1</message>"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:213
 #, fuzzy, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Nepodarilo sa nájsť informáciu"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:316
 #, fuzzy, kde-format
 msgid "Split titles"
 msgstr "Titulky kariet"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:316
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1330,102 +1331,102 @@ msgid ""
 "Divider:"
 msgstr ""
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:326
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:327
 #, fuzzy, kde-format
 msgid "Swap artists and titles"
 msgstr "História pamäti a swapu"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:342
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:343
 #, fuzzy, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Nastavenie vzhľadu titulkov okien"
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:358
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr ""
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:359
 #, fuzzy, kde-format
 msgid "Autofill artists"
 msgstr "Viacerý u&melci"
 
-#: mainwindow.cpp:356
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Eject"
 msgstr "Vysunúť"
 
-#: mainwindow.cpp:363
+#: mainwindow.cpp:393
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:405
 #, kde-format
 msgid "&Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:411
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:419
 #, kde-format
 msgid "Fetch Info"
 msgstr "Natiahnuť info"
 
-#: mainwindow.cpp:396
+#: mainwindow.cpp:426
 #, fuzzy, kde-format
 msgid "Submit Info"
 msgstr "Kig Info"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Rip..."
 msgstr "Ripovať..."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:441
 #, fuzzy, kde-format
 msgid "Split Titles..."
 msgstr "Titulky kariet"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:446
 #, fuzzy, kde-format
 msgid "Swap Artists And Titles"
 msgstr "História pamäti a swapu"
 
-#: mainwindow.cpp:421
+#: mainwindow.cpp:451
 #, kde-format
 msgid "Capitalize"
 msgstr "Veľké prvé písmená"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:456
 #, fuzzy, kde-format
 msgid "Auto Fill Artists"
 msgstr "Interpreti podobní  %1"
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:461
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Vybrať všetky stopy"
 
-#: mainwindow.cpp:436
+#: mainwindow.cpp:466
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Zrušiť výber všetkých stôp"
 
-#: mainwindow.cpp:441
+#: mainwindow.cpp:471
 #, kde-format
 msgid "Invert Selection"
 msgstr "Invertovať výber"
@@ -2141,7 +2142,7 @@ msgstr "Žiadne audio disk"
 msgid "Load Cover"
 msgstr "Načítať obal"
 
-#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:131
+#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:133
 #, kde-format
 msgid "Save Cover"
 msgstr "Uložiť obal"
@@ -2426,22 +2427,22 @@ msgstr "Nastavenie premenlivého dátového toku"
 msgid "Set maximum bitrate"
 msgstr "Nastaviť maximálny počet návrhov"
 
-#: widgets/profilewidget.cpp:88
+#: widgets/profilewidget.cpp:89
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
 msgstr "Naozaj chcete vymazať profil \"%1\"?"
 
-#: widgets/profilewidget.cpp:89
+#: widgets/profilewidget.cpp:90
 #, kde-format
 msgid "Delete profile"
 msgstr "Odstrániť profil"
 
-#: widgets/profilewidget.cpp:139
+#: widgets/profilewidget.cpp:141
 #, kde-format
 msgid "Load Profiles"
 msgstr "Načítať profily"
 
-#: widgets/profilewidget.cpp:149
+#: widgets/profilewidget.cpp:151
 #, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
@@ -2450,18 +2451,18 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:151 widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:153 widgets/profilewidget.cpp:159
 #: widgets/profilewidgetUI.ui:65
 #, fuzzy, kde-format
 msgid "Codec Scan"
 msgstr "Prehľadať priečinok"
 
-#: widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:159
 #, fuzzy, kde-format
 msgid "No new codecs found"
 msgstr "Nebol nájdený žiadny bežiaci proces aRtsd"
 
-#: widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:159
 #, fuzzy, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"

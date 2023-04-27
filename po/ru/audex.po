@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-13 00:44+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2019-08-04 21:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -560,7 +560,7 @@ msgid "Rip And Encode"
 msgstr "Копировать и кодировать"
 
 #: dialogs/extractingprogressdialog.cpp:47
-#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr ""
@@ -583,101 +583,102 @@ msgstr "Копирование дорожки 0 / %1"
 msgid "Encoding Track 0 of %1"
 msgstr "Кодирование дорожки 0 / %1"
 
-#: dialogs/extractingprogressdialog.cpp:162
-#, kde-format
-msgid "Do you really want to cancel?"
+#: dialogs/extractingprogressdialog.cpp:164
+#, fuzzy, kde-format
+#| msgid "Do you really want to cancel?"
+msgid "Do you really want to cancel extraction?"
 msgstr "Вы действительно хотите отменить процесс?"
 
-#: dialogs/extractingprogressdialog.cpp:162
+#: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
 
-#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
 #, kde-format
 msgid "Ripping Track"
 msgstr "Копирование дорожки"
 
-#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
 #, fuzzy, kde-format
 #| msgid "Ripping Track %1 / %2"
 msgid "Ripping Track %1 of %2"
 msgstr "Копирование дорожки %1 / %2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:176
 #: dialogs/extractingprogressdialog.cpp:182
+#: dialogs/extractingprogressdialog.cpp:188
 #: dialogs/extractingprogresswidgetUI.ui:165
 #, fuzzy, kde-format
 #| msgid "Overall Ripping Progress"
 msgid "Overall Progress"
 msgstr "Общее время копирования"
 
-#: dialogs/extractingprogressdialog.cpp:176
+#: dialogs/extractingprogressdialog.cpp:182
 #, fuzzy, kde-format
 #| msgid "Ripping Track %1 / %2"
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr "Копирование дорожки %1 / %2"
 
-#: dialogs/extractingprogressdialog.cpp:191
+#: dialogs/extractingprogressdialog.cpp:197
 #, kde-format
 msgid "Waiting for an encoding job..."
 msgstr "Ожидание задания для кодирования..."
 
-#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogressdialog.cpp:201
 #, kde-format
 msgid "Encoding Track"
 msgstr "Кодирование дорожки"
 
-#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogressdialog.cpp:201
 #, fuzzy, kde-format
 #| msgid "Encoding Track %1 / %2"
 msgid "Encoding Track %1 of %2"
 msgstr "Кодирование дорожки %1 / %2"
 
-#: dialogs/extractingprogressdialog.cpp:237
 #: dialogs/extractingprogressdialog.cpp:243
+#: dialogs/extractingprogressdialog.cpp:249
 #, kde-format
 msgid "Speed: %1x"
 msgstr "Скорость: %1x"
 
-#: dialogs/extractingprogressdialog.cpp:261
+#: dialogs/extractingprogressdialog.cpp:267
 #, kde-format
 msgid "All jobs successfully done."
 msgstr "Все задания выполнены."
 
-#: dialogs/extractingprogressdialog.cpp:265
-#: dialogs/extractingprogressdialog.cpp:266
-#: dialogs/extractingprogressdialog.cpp:267
+#: dialogs/extractingprogressdialog.cpp:271
+#: dialogs/extractingprogressdialog.cpp:272
+#: dialogs/extractingprogressdialog.cpp:273
 #, fuzzy, kde-format
 #| msgid "Finished!"
 msgid "Finished!"
 msgstr "Завершено!"
 
-#: dialogs/extractingprogressdialog.cpp:272
+#: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "At least one job failed."
 msgstr "Как минимум одно задание не было выполнено."
 
-#: dialogs/extractingprogressdialog.cpp:276
-#: dialogs/extractingprogressdialog.cpp:277
-#: dialogs/extractingprogressdialog.cpp:278
+#: dialogs/extractingprogressdialog.cpp:282
+#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:284
 #, fuzzy, kde-format
 #| msgid "Failed!"
 msgid "Failed!"
 msgstr "Ошибка!"
 
-#: dialogs/extractingprogressdialog.cpp:281
+#: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
 msgid "Show encoding log..."
 msgstr "Показать журнал кодирования..."
 
-#: dialogs/extractingprogressdialog.cpp:288
+#: dialogs/extractingprogressdialog.cpp:294
 #, kde-format
 msgid "Show rip log..."
 msgstr "Показать журнал копирования..."
 
-#: dialogs/extractingprogressdialog.cpp:335
+#: dialogs/extractingprogressdialog.cpp:342
 #, fuzzy, kde-format
 #| msgid ""
 #| "Ripping speed is extremly slow for the last 5 minutes by now.\n"
@@ -706,17 +707,17 @@ msgstr ""
 "\n"
 "Вы хотите продолжать копирование?"
 
-#: dialogs/extractingprogressdialog.cpp:338
+#: dialogs/extractingprogressdialog.cpp:345
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Отменить копирование"
 
-#: dialogs/extractingprogressdialog.cpp:347
+#: dialogs/extractingprogressdialog.cpp:355
 #, kde-format
 msgid "Encoding protocol"
 msgstr "Протокол кодирования"
 
-#: dialogs/extractingprogressdialog.cpp:354
+#: dialogs/extractingprogressdialog.cpp:362
 #, kde-format
 msgid "Ripping protocol"
 msgstr "Протокол копирования"
@@ -1469,17 +1470,17 @@ msgstr ""
 msgid "Unable to create CDDAModel object."
 msgstr "Unable to create CDDAModel object."
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:117
 #, kde-format
 msgid "Disc information not found"
 msgstr "Информация о диске не найдена."
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:128
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid ""
@@ -1487,54 +1488,54 @@ msgid ""
 "really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:121
+#: mainwindow.cpp:129
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:153
 #, kde-format
 msgid "General settings"
 msgstr "Общие настройки"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:156
 #, kde-format
 msgid "Device settings"
 msgstr "Параметры устройства"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Profiles"
 msgstr "Профили"
 
-#: mainwindow.cpp:162
+#: mainwindow.cpp:171
 #, kde-format
 msgid "CDDB settings"
 msgstr "Параметры CDDB"
 
-#: mainwindow.cpp:170
+#: mainwindow.cpp:179
 #, kde-format
 msgid "Remote Server"
 msgstr "Удаленный сервер"
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:213
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:213
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr ""
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:316
 #, kde-format
 msgid "Split titles"
 msgstr "Разделить заголовки"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:316
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1546,110 +1547,110 @@ msgstr ""
 "\n"
 "Разделитель:"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:326
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Вы действительно хотите поменять местами поля исполнителей и названий?"
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:327
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Поменять местами исполнителей и названия"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:342
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Вы действительно хотите записать названия и исполнителей с заглавной буквы"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:343
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Сделать заглавными названия и исполнителей"
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:358
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Вы действительно хотите автоматически заполнить исполнителей?"
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:359
 #, kde-format
 msgid "Autofill artists"
 msgstr "Автоматически заполнить исполнителей"
 
-#: mainwindow.cpp:356
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Eject"
 msgstr "Извлечь диск"
 
-#: mainwindow.cpp:363
+#: mainwindow.cpp:393
 #, fuzzy, kde-format
 #| msgid "Profile: "
 msgid "Profile:"
 msgstr "Профиль:"
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:405
 #, fuzzy, kde-format
 #| msgid "&Profile: "
 msgid "&Profile:"
 msgstr "&Профиль:"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:411
 #, kde-format
 msgid "Profile"
 msgstr "Профиль"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:419
 #, kde-format
 msgid "Fetch Info"
 msgstr "Получить информацию"
 
-#: mainwindow.cpp:396
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Submit Info"
 msgstr "Отправить информацию"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Rip..."
 msgstr "Копировать..."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:441
 #, fuzzy, kde-format
 #| msgid "Split titles..."
 msgid "Split Titles..."
 msgstr "Разделить заголовки"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:446
 #, fuzzy, kde-format
 #| msgid "Swap artists and titles"
 msgid "Swap Artists And Titles"
 msgstr "Поменять местами исполнителей и названия"
 
-#: mainwindow.cpp:421
+#: mainwindow.cpp:451
 #, kde-format
 msgid "Capitalize"
 msgstr "Сделать заглавными"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:456
 #, fuzzy, kde-format
 #| msgid "Auto fill artists"
 msgid "Auto Fill Artists"
 msgstr "Автоматически заполнить исполнителей"
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:461
 #, fuzzy, kde-format
 #| msgid "Select all tracks"
 msgid "Select All Tracks"
 msgstr "Выбрать все дорожки"
 
-#: mainwindow.cpp:436
+#: mainwindow.cpp:466
 #, fuzzy, kde-format
 #| msgid "Select all tracks"
 msgid "Deselect All Tracks"
 msgstr "Выбрать все дорожки"
 
-#: mainwindow.cpp:441
+#: mainwindow.cpp:471
 #, kde-format
 msgid "Invert Selection"
 msgstr "Инвертировать выбор"
@@ -2478,7 +2479,7 @@ msgstr "Аудиодисков не обнаружено"
 msgid "Load Cover"
 msgstr "Загрузить обложку"
 
-#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:131
+#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:133
 #, kde-format
 msgid "Save Cover"
 msgstr "Сохранить обложку"
@@ -2766,23 +2767,23 @@ msgstr "Минимальный битрейт"
 msgid "Set maximum bitrate"
 msgstr "Максимальный битрейт"
 
-#: widgets/profilewidget.cpp:88
+#: widgets/profilewidget.cpp:89
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
 msgstr "Вы действительно хотите удалить профиль «%1»?"
 
-#: widgets/profilewidget.cpp:89
+#: widgets/profilewidget.cpp:90
 #, kde-format
 msgid "Delete profile"
 msgstr "Удалить профиль"
 
-#: widgets/profilewidget.cpp:139
+#: widgets/profilewidget.cpp:141
 #, fuzzy, kde-format
 #| msgid "Load profiles"
 msgid "Load Profiles"
 msgstr "Загрузить профили"
 
-#: widgets/profilewidget.cpp:149
+#: widgets/profilewidget.cpp:151
 #, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
@@ -2794,18 +2795,18 @@ msgstr ""
 "кодирования на основе найденных кодеков.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:151 widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:153 widgets/profilewidget.cpp:159
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
 msgstr "Поиск кодеков"
 
-#: widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:159
 #, kde-format
 msgid "No new codecs found"
 msgstr "Новые кодеки не найдены"
 
-#: widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:159
 #, fuzzy, kde-format
 #| msgid "1 new profile added"
 msgid "1 new profile added"

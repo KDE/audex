@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-13 00:44+0000\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
 "PO-Revision-Date: 2009-10-30 22:04+0900\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -529,7 +529,7 @@ msgid "Rip And Encode"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:47
-#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr ""
@@ -549,95 +549,95 @@ msgstr ""
 msgid "Encoding Track 0 of %1"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:162
+#: dialogs/extractingprogressdialog.cpp:164
 #, kde-format
-msgid "Do you really want to cancel?"
+msgid "Do you really want to cancel extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:162
+#: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
 #, kde-format
 msgid "Ripping Track"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
 #, kde-format
 msgid "Ripping Track %1 of %2"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:176
 #: dialogs/extractingprogressdialog.cpp:182
+#: dialogs/extractingprogressdialog.cpp:188
 #: dialogs/extractingprogresswidgetUI.ui:165
 #, kde-format
 msgid "Overall Progress"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:176
+#: dialogs/extractingprogressdialog.cpp:182
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:191
+#: dialogs/extractingprogressdialog.cpp:197
 #, kde-format
 msgid "Waiting for an encoding job..."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogressdialog.cpp:201
 #, kde-format
 msgid "Encoding Track"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogressdialog.cpp:201
 #, kde-format
 msgid "Encoding Track %1 of %2"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:237
 #: dialogs/extractingprogressdialog.cpp:243
+#: dialogs/extractingprogressdialog.cpp:249
 #, kde-format
 msgid "Speed: %1x"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:261
+#: dialogs/extractingprogressdialog.cpp:267
 #, kde-format
 msgid "All jobs successfully done."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:265
-#: dialogs/extractingprogressdialog.cpp:266
-#: dialogs/extractingprogressdialog.cpp:267
+#: dialogs/extractingprogressdialog.cpp:271
+#: dialogs/extractingprogressdialog.cpp:272
+#: dialogs/extractingprogressdialog.cpp:273
 #, kde-format
 msgid "Finished!"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:272
+#: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "At least one job failed."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:276
-#: dialogs/extractingprogressdialog.cpp:277
-#: dialogs/extractingprogressdialog.cpp:278
+#: dialogs/extractingprogressdialog.cpp:282
+#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:284
 #, kde-format
 msgid "Failed!"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:281
+#: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
 msgid "Show encoding log..."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:288
+#: dialogs/extractingprogressdialog.cpp:294
 #, kde-format
 msgid "Show rip log..."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:335
+#: dialogs/extractingprogressdialog.cpp:342
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
@@ -649,17 +649,17 @@ msgid ""
 "However, do you want to continue extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:338
+#: dialogs/extractingprogressdialog.cpp:345
 #, kde-format
 msgid "Cancel extraction"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:347
+#: dialogs/extractingprogressdialog.cpp:355
 #, kde-format
 msgid "Encoding protocol"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:354
+#: dialogs/extractingprogressdialog.cpp:362
 #, kde-format
 msgid "Ripping protocol"
 msgstr ""
@@ -1243,71 +1243,71 @@ msgstr ""
 msgid "Unable to create CDDAModel object."
 msgstr ""
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:116
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:114
+#: mainwindow.cpp:117
 #, kde-format
 msgid "Disc information not found"
 msgstr ""
 
-#: mainwindow.cpp:120
+#: mainwindow.cpp:128
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:121
+#: mainwindow.cpp:129
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:153
 #, kde-format
 msgid "General settings"
 msgstr ""
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:156
 #, kde-format
 msgid "Device settings"
 msgstr ""
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:159
 #, kde-format
 msgid "Profiles"
 msgstr ""
 
-#: mainwindow.cpp:162
+#: mainwindow.cpp:171
 #, kde-format
 msgid "CDDB settings"
 msgstr ""
 
-#: mainwindow.cpp:170
+#: mainwindow.cpp:179
 #, kde-format
 msgid "Remote Server"
 msgstr ""
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:213
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
 
-#: mainwindow.cpp:204
+#: mainwindow.cpp:213
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr ""
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:316
 #, kde-format
 msgid "Split titles"
 msgstr ""
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:316
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1315,102 +1315,102 @@ msgid ""
 "Divider:"
 msgstr ""
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:326
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:315
+#: mainwindow.cpp:327
 #, kde-format
 msgid "Swap artists and titles"
 msgstr ""
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:342
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:343
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr ""
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:358
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr ""
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:359
 #, kde-format
 msgid "Autofill artists"
 msgstr ""
 
-#: mainwindow.cpp:356
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Eject"
 msgstr ""
 
-#: mainwindow.cpp:363
+#: mainwindow.cpp:393
 #, kde-format
 msgid "Profile:"
 msgstr ""
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:405
 #, kde-format
 msgid "&Profile:"
 msgstr ""
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:411
 #, kde-format
 msgid "Profile"
 msgstr ""
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:419
 #, kde-format
 msgid "Fetch Info"
 msgstr ""
 
-#: mainwindow.cpp:396
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Submit Info"
 msgstr ""
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Rip..."
 msgstr ""
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:441
 #, kde-format
 msgid "Split Titles..."
 msgstr ""
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:446
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr ""
 
-#: mainwindow.cpp:421
+#: mainwindow.cpp:451
 #, kde-format
 msgid "Capitalize"
 msgstr ""
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr ""
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:461
 #, kde-format
 msgid "Select All Tracks"
 msgstr ""
 
-#: mainwindow.cpp:436
+#: mainwindow.cpp:466
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr ""
 
-#: mainwindow.cpp:441
+#: mainwindow.cpp:471
 #, kde-format
 msgid "Invert Selection"
 msgstr ""
@@ -2118,7 +2118,7 @@ msgstr ""
 msgid "Load Cover"
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:131
+#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:133
 #, kde-format
 msgid "Save Cover"
 msgstr ""
@@ -2402,22 +2402,22 @@ msgstr ""
 msgid "Set maximum bitrate"
 msgstr ""
 
-#: widgets/profilewidget.cpp:88
+#: widgets/profilewidget.cpp:89
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
 msgstr ""
 
-#: widgets/profilewidget.cpp:89
+#: widgets/profilewidget.cpp:90
 #, kde-format
 msgid "Delete profile"
 msgstr ""
 
-#: widgets/profilewidget.cpp:139
+#: widgets/profilewidget.cpp:141
 #, kde-format
 msgid "Load Profiles"
 msgstr ""
 
-#: widgets/profilewidget.cpp:149
+#: widgets/profilewidget.cpp:151
 #, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
@@ -2426,18 +2426,18 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:151 widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:153 widgets/profilewidget.cpp:159
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
 msgstr ""
 
-#: widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:159
 #, kde-format
 msgid "No new codecs found"
 msgstr ""
 
-#: widgets/profilewidget.cpp:155
+#: widgets/profilewidget.cpp:159
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
