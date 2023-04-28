@@ -23,8 +23,8 @@
 #include <QQueue>
 #include <QString>
 #include <QTimer>
+#include <QStorageInfo>
 
-#include <KDiskFreeSpaceInfo>
 #include <KLocalizedString>
 
 #include "models/cddamodel.h"

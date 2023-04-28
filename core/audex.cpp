@@ -594,8 +594,8 @@ bool Audex::construct_target_filename(QString &targetFilename,
     if (!p_mkdir(targetPath))
         return false;
 
-    KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
-    quint64 free = diskfreespace.available() / 1024;
+    QStorageInfo diskfreespace(targetPath);
+    quint64 free = diskfreespace.bytesAvailable() / 1024;
     if (free < 200 * 1024) {
         Q_EMIT warning(i18n("Free space on \"%1\" is less than 200 MiB.", targetPath));
     }
@@ -654,8 +654,8 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
     }
     delete dir;
 
-    KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
-    quint64 free = diskfreespace.available() / 1024;
+    QStorageInfo diskfreespace(targetPath);
+    quint64 free = diskfreespace.bytesAvailable() / 1024;
     if (free < 800 * 1024) {
         Q_EMIT warning(i18n("Free space on \"%1\" is less than 800 MiB.", targetPath));
     }

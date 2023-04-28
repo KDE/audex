@@ -68,8 +68,8 @@ const QString TmpDir::tmpPath()
 
 quint64 TmpDir::freeSpace() const
 {
-    KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(p_tmp_path);
-    return diskfreespace.available();
+    QStorageInfo diskfreespace(p_tmp_path);
+    return diskfreespace.bytesAvailable();
 }
 
 bool TmpDir::p_create_dir(const QString &dirName)
