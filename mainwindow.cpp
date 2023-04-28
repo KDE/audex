@@ -159,21 +159,14 @@ void MainWindow::configure()
     KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
     profilePage->setIcon(QIcon::fromTheme("document-multiple"));
 
-    KService::Ptr libkcddb = KService::serviceByDesktopName("libkcddb");
-    if (libkcddb && libkcddb->isValid()) {
-        KCModuleInfo info(libkcddb->entryPath());
-        if (info.service()->isValid()) {
-            KCModule *m = KCModuleLoader::loadModule(info, KCModuleLoader::Inline);
-            if (m) {
-                m->load();
-                auto *cfg = new KCDDB::Config();
-                cfg->load();
-                dialog->addPage(m, cfg, i18n("CDDB settings"), "text-xmcd");
-                connect(dialog, SIGNAL(okClicked()), m, SLOT(save()));
-                connect(dialog, SIGNAL(applyClicked()), m, SLOT(save()));
-                connect(dialog, SIGNAL(defaultClicked()), m, SLOT(defaults()));
-            }
-        }
+    QPluginLoader loader("plasma/kcms/systemsettings_qwidgets/kcm_cddb");
+    KPluginMetaData info(loader);
+    KCModule *m = KCModuleLoader::loadModule(info);
+    if (m) {
+        m->load();
+        auto *cfg = new KCDDB::Config();
+        cfg->load();
+        dialog->addPage(m, cfg, i18n("CDDB settings"), "text-xmcd");
     }
 
     KPageWidgetItem *remoteServerPage = dialog->addPage(new remoteServerSettingsWidget(), i18n("Remote Server"));
