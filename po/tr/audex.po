@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2023-04-24 00:46+0300\n"
+"PO-Revision-Date: 2023-04-27 11:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -595,10 +595,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Parça Kodlanıyor 0/%1"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "İptal etmeyi gerçekten istiyor musunuz?"
+msgstr "Aktarımı iptal etmeyi gerçekten istiyor musunuz?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
