@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2023-04-23 08:23+0200\n"
+"PO-Revision-Date: 2023-04-28 06:25+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -599,10 +599,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Codificando a pista 0 de %1"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Seguro que quere cancelar?"
+msgstr "Seguro que quere cancelar a extracción?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format

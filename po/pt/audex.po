@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2022-09-13 11:22+0100\n"
+"PO-Revision-Date: 2023-04-28 12:30+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -611,10 +611,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "A Codificar a Faixa 0 de %1"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Deseja mesmo cancelar?"
+msgstr "Deseja mesmo cancelar a extracção?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
