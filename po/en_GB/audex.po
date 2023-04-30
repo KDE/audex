@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010.
-# Steve Allewell <steve.allewell@gmail.com>, 2017, 2022.
+# Steve Allewell <steve.allewell@gmail.com>, 2017, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2022-09-18 12:06+0100\n"
+"PO-Revision-Date: 2023-04-29 12:30+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -592,10 +592,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Encoding Track 0 of %1"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Do you really want to cancel?"
+msgstr "Do you really want to cancel extraction?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format

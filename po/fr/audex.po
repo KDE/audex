@@ -15,15 +15,15 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2022-09-14 20:08+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2023-04-28 19:56+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -611,10 +611,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Encodage de la piste 0 sur %1"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Voulez-vous vraiment annuler ?"
+msgstr "Voulez-vous vraiment annuler l'extraction ?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format

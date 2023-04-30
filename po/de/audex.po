@@ -1,7 +1,7 @@
 # Marco Nelles <marco@maniatek.de>, 2009.
 # Burkhard Lück <lueck@hube-lueck.de>, 2009, 2011, 2012, 2013, 2014, 2015, 2017, 2019, 2021.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012.
+# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2023.
 # Markus Slopianka <markus.s@kdemail.net>, 2010.
 # Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
 msgid ""
@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2022-11-10 20:16+0100\n"
-"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
+"PO-Revision-Date: 2023-04-29 12:27+0200\n"
+"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.07.70\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -600,10 +600,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Stück 0 von %1 wird kodiert"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Möchten Sie wirklich abbrechen?"
+msgstr "Möchten Sie das Auslesen wirklich abbrechen?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
