@@ -1,14 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the audex package.
 # Michele Ganz <lilarcor89@gmail.com>, 2009.
-# Valter Mura <valtermura@gmail.com>, 2010, 2011, 2014, 2015, 2017, 2019, 2022.
+# Valter Mura <valtermura@gmail.com>, 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2022-09-13 20:07+0200\n"
+"PO-Revision-Date: 2023-04-27 20:30+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.0\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -599,10 +599,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Codifica traccia 0 di %1"
 
 #: dialogs/extractingprogressdialog.cpp:164
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Vuoi davvero annullare l'operazione?"
+msgstr "Vuoi davvero annullare l'estrazione?"
 
 #: dialogs/extractingprogressdialog.cpp:165
 #, kde-format
