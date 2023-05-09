@@ -159,8 +159,7 @@ void MainWindow::configure()
     KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
     profilePage->setIcon(QIcon::fromTheme("document-multiple"));
 
-    QPluginLoader loader("plasma/kcms/systemsettings_qwidgets/kcm_cddb");
-    KPluginMetaData info(loader);
+    KPluginMetaData info(QStringLiteral("plasma/kcms/systemsettings_qwidgets/kcm_cddb"));
     KCModule *m = KCModuleLoader::loadModule(info);
     if (m) {
         m->load();
