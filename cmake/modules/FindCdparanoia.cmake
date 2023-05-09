@@ -6,11 +6,9 @@
 #  CDPARANOIA_LIBRARIES   - Link these to use cdparanoia
 #
 
-# Copyright (c) 2006, Richard Laerkaeng, <richard@goteborg.utfors.se>
-# Copyright (c) 2007, Allen Winter, <winter@kde.org>
-#
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+# SPDX-FileCopyrightText: 2006 Richard Laerkaeng <richard@goteborg.utfors.se>
+# SPDX-FileCopyrightText: 2007 Allen Winter <winter@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
 
 if (CDPARANOIA_INCLUDE_DIR AND CDPARANOIA_LIBRARIES)
   # in cache already

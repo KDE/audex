@@ -1,19 +1,8 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2015 Marco Nelles (audex@maniatek.com)
+ * SPDX-FileCopyrightText: 2007-2015 Marco Nelles (audex@maniatek.com)
  * <https://userbase.kde.org/Audex>
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "cddaheaderwidget.h"
@@ -26,7 +15,7 @@ static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOve
 {
     /****************************************************************************
     **
-    ** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+    ** SPDX-FileCopyrightText: 2009 Nokia Corporation and /or its subsidiary(-ies).
     ** Contact: Qt Software Information (qt-info@nokia.com)
     **
     ** This function is part of the Graphics Dojo project on Qt Labs.
@@ -80,9 +69,9 @@ static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOve
 static QImage fadeImage(const QImage &img, float val, const QColor &color)
 {
     /* This function is part of the KDE libraries
-    Copyright (C) 1998, 1999, 2001, 2002 Daniel M. Duley <mosfet@interaccess.com>
-    (C) 1998, 1999 Christian Tibirna <ctibirna@total.net>
-    (C) 1998, 1999 Dirk Mueller <mueller@kde.org> */
+    SPDX-FileCopyrightText: 1998, 1999, 2001, 2002 Daniel M. Duley <mosfet@interaccess.com>
+    SPDX-FileCopyrightText: 1998, 1999 Christian Tibirna <ctibirna@total.net>
+    SPDX-FileCopyrightText: 1998, 1999 Dirk Mueller <mueller@kde.org> */
 
     QImage tmpImage = img;
 
@@ -157,7 +146,7 @@ static QImage fadeImage(const QImage &img, float val, const QColor &color)
 
 /****************************************************************************
 **
-** Copyright (C) 2009 Nokia Corporation and/or its subsidiary(-ies).
+** SPDX-FileCopyrightText: 2009 Nokia Corporation and /or its subsidiary(-ies).
 ** Contact: Qt Software Information (qt-info@nokia.com)
 **
 ** The following five functions are part of the Graphics Dojo project

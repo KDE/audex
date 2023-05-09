@@ -1,4 +1,9 @@
+// SPDX-FileCopyrightText: 2014  Marco Nelles <marco@maniatek.de>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "errordialog.h"
+
+#include <KMessageBox>
 
 namespace ErrorDialog
 {
