@@ -25,8 +25,6 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &si
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
-    connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(enable_scale(bool)));
-
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
@@ -47,6 +45,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &si
     ui.checkBox_scale->setChecked(scale);
     enable_scale(ui.checkBox_scale->isChecked());
     connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(enable_scale(bool)));
 
     ui.kintspinbox_x->setValue(size.width());
     connect(ui.kintspinbox_x, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
