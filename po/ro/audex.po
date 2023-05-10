@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-05-10 00:46+0000\n"
 "PO-Revision-Date: 2020-08-31 18:24+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -127,159 +127,159 @@ msgstr ""
 msgid "&Settings"
 msgstr "&Configurări"
 
-#: core/audex.cpp:108
+#: core/audex.cpp:97
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr ""
 
-#: core/audex.cpp:125
+#: core/audex.cpp:114
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr ""
 
-#: core/audex.cpp:587 core/audex.cpp:638
+#: core/audex.cpp:576 core/audex.cpp:627
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Calea „%1” nu poate fi găsită."
 
-#: core/audex.cpp:587 core/audex.cpp:638 core/audex.cpp:647 core/audex.cpp:1042
+#: core/audex.cpp:576 core/audex.cpp:627 core/audex.cpp:636 core/audex.cpp:1031
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr ""
 
-#: core/audex.cpp:600
+#: core/audex.cpp:589
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr ""
 
-#: core/audex.cpp:606 core/audex.cpp:666
+#: core/audex.cpp:595 core/audex.cpp:655
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr ""
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:1022
+#: core/audex.cpp:597 core/audex.cpp:657 core/audex.cpp:1011
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr ""
 
-#: core/audex.cpp:647 core/audex.cpp:1042
+#: core/audex.cpp:636 core/audex.cpp:1031
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr ""
 
-#: core/audex.cpp:650 core/audex.cpp:1045
+#: core/audex.cpp:639 core/audex.cpp:1034
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr ""
 
-#: core/audex.cpp:653
+#: core/audex.cpp:642
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr ""
 
-#: core/audex.cpp:660
+#: core/audex.cpp:649
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr ""
 
-#: core/audex.cpp:683
+#: core/audex.cpp:672
 #, kde-format
 msgid "Temporary folder \"%1\" error."
 msgstr ""
 
-#: core/audex.cpp:683
+#: core/audex.cpp:672
 #, kde-format
 msgid "Please check."
 msgstr ""
 
-#: core/audex.cpp:689
+#: core/audex.cpp:678
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 
-#: core/audex.cpp:691
+#: core/audex.cpp:680
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 
-#: core/audex.cpp:691
+#: core/audex.cpp:680
 #, kde-format
 msgid "Please free space or set another path."
 msgstr ""
 
-#: core/audex.cpp:720
+#: core/audex.cpp:709
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Scoate tava CD-ului"
 
-#: core/audex.cpp:767
+#: core/audex.cpp:756
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr ""
 
-#: core/audex.cpp:770
+#: core/audex.cpp:759
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr ""
 
-#: core/audex.cpp:770 core/audex.cpp:841 core/audex.cpp:878 core/audex.cpp:921
-#: core/audex.cpp:956 core/audex.cpp:1010 core/audex.cpp:1037
+#: core/audex.cpp:759 core/audex.cpp:830 core/audex.cpp:867 core/audex.cpp:910
+#: core/audex.cpp:945 core/audex.cpp:999 core/audex.cpp:1026
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr ""
 
-#: core/audex.cpp:837
+#: core/audex.cpp:826
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr ""
 
-#: core/audex.cpp:841
+#: core/audex.cpp:830
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr ""
 
-#: core/audex.cpp:875
+#: core/audex.cpp:864
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr ""
 
-#: core/audex.cpp:878
+#: core/audex.cpp:867
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr ""
 
-#: core/audex.cpp:918
+#: core/audex.cpp:907
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr ""
 
-#: core/audex.cpp:921
+#: core/audex.cpp:910
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr ""
 
-#: core/audex.cpp:953
+#: core/audex.cpp:942
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr ""
 
-#: core/audex.cpp:956
+#: core/audex.cpp:945
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr ""
 
-#: core/audex.cpp:1010 core/audex.cpp:1037
+#: core/audex.cpp:999 core/audex.cpp:1026
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr ""
 
-#: dialogs/cddaheaderdatadialog.cpp:185 widgets/cddaheaderwidget.cpp:508
+#: dialogs/cddaheaderdatadialog.cpp:174 widgets/cddaheaderwidget.cpp:497
 #, kde-format
 msgid "Edit Data"
 msgstr "Modifică datele"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1013
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
 #, kde-format
 msgid "Various Artists"
 msgstr "Diferiți interpreți"
@@ -348,12 +348,12 @@ msgstr ""
 msgid "0x00000000"
 msgstr "0x00000000"
 
-#: dialogs/commandwizarddialog.cpp:29
+#: dialogs/commandwizarddialog.cpp:18
 #, kde-format
 msgid "Command Pattern Wizard"
 msgstr ""
 
-#: dialogs/commandwizarddialog.cpp:104
+#: dialogs/commandwizarddialog.cpp:93
 #, kde-format
 msgid ""
 "<p>The following variables will be replaced with their particular meaning in "
@@ -381,7 +381,7 @@ msgid ""
 "$audex</td><td>Audex name and version.</td></tr></table></p>"
 msgstr ""
 
-#: dialogs/commandwizarddialog.cpp:128
+#: dialogs/commandwizarddialog.cpp:117
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
@@ -502,149 +502,149 @@ msgstr "Fișier de intrare"
 msgid "Output File"
 msgstr "Fișier de ieșire"
 
-#: dialogs/coverbrowserdialog.cpp:42
+#: dialogs/coverbrowserdialog.cpp:31
 #, kde-format
 msgid "Searching for covers..."
 msgstr "Se caută coperți..."
 
-#: dialogs/coverbrowserdialog.cpp:80
+#: dialogs/coverbrowserdialog.cpp:69
 #, kde-format
 msgid "Fetching Thumbnail %1 / %2..."
 msgstr ""
 
-#: dialogs/coverbrowserdialog.cpp:85
+#: dialogs/coverbrowserdialog.cpp:74
 #, kde-format
 msgid "Found 1 Cover"
 msgid_plural "Found %1 Covers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dialogs/coverbrowserdialog.cpp:91
+#: dialogs/coverbrowserdialog.cpp:80
 #, kde-format
 msgid "No Covers Found"
 msgstr "Nicio copertă găsită"
 
-#: dialogs/coverbrowserdialog.cpp:109
+#: dialogs/coverbrowserdialog.cpp:98
 #, kde-format
 msgid "Fetch Cover From Google"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:24
+#: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
 msgid "Rip And Encode"
 msgstr "Extrage și codează"
 
-#: dialogs/extractingprogressdialog.cpp:47
-#: dialogs/extractingprogressdialog.cpp:187
+#: dialogs/extractingprogressdialog.cpp:36
+#: dialogs/extractingprogressdialog.cpp:176
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:48
+#: dialogs/extractingprogressdialog.cpp:37
 #, kde-format
 msgid "Encoding"
 msgstr "Codare"
 
-#: dialogs/extractingprogressdialog.cpp:51
+#: dialogs/extractingprogressdialog.cpp:40
 #, kde-format
 msgid "Ripping Track 0 of %1"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:52
+#: dialogs/extractingprogressdialog.cpp:41
 #, kde-format
 msgid "Encoding Track 0 of %1"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:164
+#: dialogs/extractingprogressdialog.cpp:153
 #, fuzzy, kde-format
 #| msgid "Do you really want to cancel?"
 msgid "Do you really want to cancel extraction?"
 msgstr "Sigur doriți să renunțați?"
 
-#: dialogs/extractingprogressdialog.cpp:165
+#: dialogs/extractingprogressdialog.cpp:154
 #, kde-format
 msgid "Cancel"
 msgstr "Renunță"
 
-#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:170
 #, kde-format
 msgid "Ripping Track"
 msgstr "Se extrage pista"
 
-#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:170
 #, kde-format
 msgid "Ripping Track %1 of %2"
 msgstr "Se extrage pista %1 din %2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:182
-#: dialogs/extractingprogressdialog.cpp:188
+#: dialogs/extractingprogressdialog.cpp:171
+#: dialogs/extractingprogressdialog.cpp:177
 #: dialogs/extractingprogresswidgetUI.ui:165
 #, kde-format
 msgid "Overall Progress"
 msgstr "Progres general"
 
-#: dialogs/extractingprogressdialog.cpp:182
+#: dialogs/extractingprogressdialog.cpp:171
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:197
+#: dialogs/extractingprogressdialog.cpp:186
 #, kde-format
 msgid "Waiting for an encoding job..."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:201
+#: dialogs/extractingprogressdialog.cpp:190
 #, kde-format
 msgid "Encoding Track"
 msgstr "Se codează pista"
 
-#: dialogs/extractingprogressdialog.cpp:201
+#: dialogs/extractingprogressdialog.cpp:190
 #, kde-format
 msgid "Encoding Track %1 of %2"
 msgstr "Se codează pista %1 din %2"
 
-#: dialogs/extractingprogressdialog.cpp:243
-#: dialogs/extractingprogressdialog.cpp:249
+#: dialogs/extractingprogressdialog.cpp:232
+#: dialogs/extractingprogressdialog.cpp:238
 #, kde-format
 msgid "Speed: %1x"
 msgstr "Viteză: %1x"
 
-#: dialogs/extractingprogressdialog.cpp:267
+#: dialogs/extractingprogressdialog.cpp:256
 #, kde-format
 msgid "All jobs successfully done."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:260
+#: dialogs/extractingprogressdialog.cpp:261
+#: dialogs/extractingprogressdialog.cpp:262
+#, kde-format
+msgid "Finished!"
+msgstr "Încheiat!"
+
+#: dialogs/extractingprogressdialog.cpp:267
+#, kde-format
+msgid "At least one job failed."
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:271
 #: dialogs/extractingprogressdialog.cpp:272
 #: dialogs/extractingprogressdialog.cpp:273
 #, kde-format
-msgid "Finished!"
-msgstr "Încheiat!"
-
-#: dialogs/extractingprogressdialog.cpp:278
-#, kde-format
-msgid "At least one job failed."
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:282
-#: dialogs/extractingprogressdialog.cpp:283
-#: dialogs/extractingprogressdialog.cpp:284
-#, kde-format
 msgid "Failed!"
 msgstr "Eșuat!"
 
-#: dialogs/extractingprogressdialog.cpp:287
+#: dialogs/extractingprogressdialog.cpp:276
 #, kde-format
 msgid "Show encoding log..."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:294
+#: dialogs/extractingprogressdialog.cpp:283
 #, kde-format
 msgid "Show rip log..."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:342
+#: dialogs/extractingprogressdialog.cpp:331
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
@@ -656,17 +656,17 @@ msgid ""
 "However, do you want to continue extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:345
+#: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Anulează extragerea"
 
-#: dialogs/extractingprogressdialog.cpp:355
+#: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding protocol"
 msgstr "Protocol de codare"
 
-#: dialogs/extractingprogressdialog.cpp:362
+#: dialogs/extractingprogressdialog.cpp:351
 #, kde-format
 msgid "Ripping protocol"
 msgstr "Protocol de extragere"
@@ -705,12 +705,12 @@ msgstr "Viteză: 0x"
 msgid "Encoding Track 8 of 12"
 msgstr "Se codează pista 8 din 12"
 
-#: dialogs/patternwizarddialog.cpp:29
+#: dialogs/patternwizarddialog.cpp:18
 #, kde-format
 msgid "Filename Pattern Wizard"
 msgstr ""
 
-#: dialogs/patternwizarddialog.cpp:102
+#: dialogs/patternwizarddialog.cpp:91
 #, kde-format
 msgid ""
 "<p>The following variables will be replaced with their particular meaning in "
@@ -734,7 +734,7 @@ msgid ""
 "tr></table></p>"
 msgstr ""
 
-#: dialogs/patternwizarddialog.cpp:123
+#: dialogs/patternwizarddialog.cpp:112
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
@@ -762,22 +762,22 @@ msgstr ""
 msgid "Suffix"
 msgstr "Sufix"
 
-#: dialogs/profiledatacoverdialog.cpp:34
+#: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
 msgid "Cover Settings"
 msgstr "Configurări copertă"
 
-#: dialogs/profiledatacoverdialog.cpp:68
+#: dialogs/profiledatacoverdialog.cpp:57
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
 msgstr "JPEG (Joint Photographic Experts Group)"
 
-#: dialogs/profiledatacoverdialog.cpp:69
+#: dialogs/profiledatacoverdialog.cpp:58
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
 msgstr "PNG (Portable Network Graphics)"
 
-#: dialogs/profiledatacoverdialog.cpp:70
+#: dialogs/profiledatacoverdialog.cpp:59
 #, kde-format
 msgid "BMP (Windows Bitmap)"
 msgstr "BMP (Windows Bitmap)"
@@ -808,7 +808,7 @@ msgstr "Format:"
 msgid "Cover pattern:"
 msgstr ""
 
-#: dialogs/profiledatacuesheetdialog.cpp:31
+#: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr ""
@@ -822,48 +822,48 @@ msgstr ""
 msgid "Name/Pattern:"
 msgstr "Denumire/model:"
 
-#: dialogs/profiledatadialog.cpp:102
+#: dialogs/profiledatadialog.cpp:91
 #, kde-format
 msgid "Modify Profile"
 msgstr "Modifică profilul"
 
-#: dialogs/profiledatadialog.cpp:193
+#: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
 msgstr "Creează profil"
 
-#: dialogs/profiledatadialog.cpp:203
+#: dialogs/profiledatadialog.cpp:192
 #, kde-format
 msgid "New Profile"
 msgstr "Profil nou"
 
-#: dialogs/profiledatahashlistdialog.cpp:32
-#: dialogs/profiledataplaylistdialog.cpp:34
+#: dialogs/profiledatahashlistdialog.cpp:21
+#: dialogs/profiledataplaylistdialog.cpp:23
 #, kde-format
 msgid "Playlist Settings"
 msgstr "Configurări listă de redare"
 
-#: dialogs/profiledatahashlistdialog.cpp:54
+#: dialogs/profiledatahashlistdialog.cpp:43
 #, kde-format
 msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
-#: dialogs/profiledatahashlistdialog.cpp:55
+#: dialogs/profiledatahashlistdialog.cpp:44
 #, kde-format
 msgid "MD5 (Message-Digest algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
 
-#: dialogs/profiledatainfodialog.cpp:34
+#: dialogs/profiledatainfodialog.cpp:23
 #, kde-format
 msgid "Info Settings"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:128
+#: dialogs/profiledatainfodialog.cpp:117
 #, kde-format
 msgid "Usable Variables For Text Template"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:138
+#: dialogs/profiledatainfodialog.cpp:127
 #, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -943,12 +943,12 @@ msgid ""
 "'pm'.</td></tr></table></body></html>"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:255
+#: dialogs/profiledatainfodialog.cpp:244
 #, kde-format
 msgid "Load Text Template"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:268
+#: dialogs/profiledatainfodialog.cpp:257
 #, kde-format
 msgid "Save Text Template"
 msgstr ""
@@ -992,7 +992,7 @@ msgstr ""
 msgid "UTF-8 coding in playlist"
 msgstr ""
 
-#: dialogs/profiledatasinglefiledialog.cpp:31
+#: dialogs/profiledatasinglefiledialog.cpp:20
 #, kde-format
 msgid "Single File Settings"
 msgstr ""
@@ -1089,17 +1089,17 @@ msgstr ""
 msgid "Write single file"
 msgstr ""
 
-#: dialogs/protocoldialog.cpp:71
+#: dialogs/protocoldialog.cpp:60
 #, kde-format
 msgid "Save %1"
 msgstr ""
 
-#: dialogs/simplepatternwizarddialog.cpp:29
+#: dialogs/simplepatternwizarddialog.cpp:18
 #, kde-format
 msgid "Pattern Wizard"
 msgstr ""
 
-#: dialogs/simplepatternwizarddialog.cpp:99
+#: dialogs/simplepatternwizarddialog.cpp:88
 #, kde-format
 msgid ""
 "<p>Filename schemes without an absolute path will be relative to the ripped "
@@ -1121,7 +1121,7 @@ msgid ""
 "$audex</td><td>Audex name and version.</td></tr></table></p>"
 msgstr ""
 
-#: dialogs/simplepatternwizarddialog.cpp:119
+#: dialogs/simplepatternwizarddialog.cpp:108
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
@@ -1147,174 +1147,174 @@ msgstr ""
 msgid "About schemes"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:32
 #, kde-format
 msgid "Audex"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:33
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr ""
 
-#: main.cpp:46
+#: main.cpp:35
 #, kde-format
 msgid "Copyright © 2007–2015 by Marco Nelles"
 msgstr "Copyright © 2007–2015 de Marco Nelles"
 
-#: main.cpp:49
+#: main.cpp:38
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:49
+#: main.cpp:38
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Responsabil actual, dezvoltator principal"
 
-#: main.cpp:50
+#: main.cpp:39
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:50
+#: main.cpp:39
 #, kde-format
 msgid "GUI improvements, development"
 msgstr ""
 
-#: main.cpp:51
+#: main.cpp:40
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:51
+#: main.cpp:40
 #, kde-format
 msgid "development"
 msgstr "dezvoltare"
 
-#: main.cpp:52
+#: main.cpp:41
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:52
+#: main.cpp:41
 #, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:42
 #, kde-format
 msgid "freedb.org"
 msgstr "freedb.org"
 
-#: main.cpp:53
+#: main.cpp:42
 #, kde-format
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:43
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr ""
 
-#: main.cpp:54
+#: main.cpp:43
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 
-#: main.cpp:55
+#: main.cpp:44
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Sergiu Bivol"
 
-#: main.cpp:55
+#: main.cpp:44
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sergiu@cip.md"
 
-#: mainwindow.cpp:30
+#: mainwindow.cpp:19
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr ""
 
-#: mainwindow.cpp:30 mainwindow.cpp:43
+#: mainwindow.cpp:19 mainwindow.cpp:32
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
 
-#: mainwindow.cpp:43
+#: mainwindow.cpp:32
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr ""
 
-#: mainwindow.cpp:116
+#: mainwindow.cpp:105
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:117
+#: mainwindow.cpp:106
 #, kde-format
 msgid "Disc information not found"
 msgstr ""
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:117
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:129
+#: mainwindow.cpp:118
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:153
+#: mainwindow.cpp:142
 #, kde-format
 msgid "General settings"
 msgstr "Configurări generale"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Device settings"
 msgstr "Configurări dispozitiv"
 
-#: mainwindow.cpp:159
+#: mainwindow.cpp:148
 #, kde-format
 msgid "Profiles"
 msgstr "Profiluri"
 
-#: mainwindow.cpp:171
+#: mainwindow.cpp:157
 #, kde-format
 msgid "CDDB settings"
 msgstr "Configurări CDDB"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:160
 #, kde-format
 msgid "Remote Server"
 msgstr "Server distant"
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:194
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
 
-#: mainwindow.cpp:213
+#: mainwindow.cpp:194
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr ""
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:297
 #, kde-format
 msgid "Split titles"
 msgstr ""
 
-#: mainwindow.cpp:316
+#: mainwindow.cpp:297
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1322,847 +1322,847 @@ msgid ""
 "Divider:"
 msgstr ""
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:307
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:308
 #, kde-format
 msgid "Swap artists and titles"
 msgstr ""
 
-#: mainwindow.cpp:342
+#: mainwindow.cpp:323
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:343
+#: mainwindow.cpp:324
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr ""
 
-#: mainwindow.cpp:358
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr ""
 
-#: mainwindow.cpp:359
+#: mainwindow.cpp:340
 #, kde-format
 msgid "Autofill artists"
 msgstr ""
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Eject"
 msgstr "Scoate suportul"
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:405
+#: mainwindow.cpp:386
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil:"
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:392
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Fetch Info"
 msgstr ""
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:407
 #, kde-format
 msgid "Submit Info"
 msgstr ""
 
-#: mainwindow.cpp:432
+#: mainwindow.cpp:413
 #, kde-format
 msgid "Rip..."
 msgstr "Extragere..."
 
-#: mainwindow.cpp:441
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Split Titles..."
 msgstr ""
 
-#: mainwindow.cpp:446
+#: mainwindow.cpp:427
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr ""
 
-#: mainwindow.cpp:451
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Capitalize"
 msgstr "Capitalizează"
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:437
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr ""
 
-#: mainwindow.cpp:461
+#: mainwindow.cpp:442
 #, kde-format
 msgid "Select All Tracks"
 msgstr ""
 
-#: mainwindow.cpp:466
+#: mainwindow.cpp:447
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr ""
 
-#: mainwindow.cpp:471
+#: mainwindow.cpp:452
 #, kde-format
 msgid "Invert Selection"
 msgstr "Inversează selecția"
 
-#: models/cddamodel.cpp:31
+#: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
 msgstr ""
 
-#: models/cddamodel.cpp:31 models/cddamodel.cpp:40 models/cddamodel.cpp:903
+#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
 
-#: models/cddamodel.cpp:40
+#: models/cddamodel.cpp:29
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr ""
 
-#: models/cddamodel.cpp:132
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "Pista %1"
 
-#: models/cddamodel.cpp:835
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr ""
 
-#: models/cddamodel.cpp:835
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
 
-#: models/cddamodel.cpp:851 models/cddamodel.cpp:953
+#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
 
-#: models/cddamodel.cpp:854 models/cddamodel.cpp:956
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
 
-#: models/cddamodel.cpp:857 models/cddamodel.cpp:959
+#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
 
-#: models/cddamodel.cpp:860
+#: models/cddamodel.cpp:849
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr ""
 
-#: models/cddamodel.cpp:863 models/cddamodel.cpp:962
+#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr ""
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:965
+#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 
-#: models/cddamodel.cpp:903
+#: models/cddamodel.cpp:892
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr ""
 
-#: models/cddamodel.cpp:971
+#: models/cddamodel.cpp:960
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr ""
 
-#: models/cddamodel.cpp:988
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr ""
 
-#: models/cddamodel.cpp:988
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr ""
 
-#: models/cddamodel.h:46
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
 msgstr ""
 
-#: models/cddamodel.h:47
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
 msgstr "Pistă"
 
-#: models/cddamodel.h:48
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
 msgstr "Interpret"
 
-#: models/cddamodel.h:49
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
 msgstr "Titlu"
 
-#: models/cddamodel.h:50
+#: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
 msgstr "Durată"
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:163
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:163
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr ""
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:186
+#: models/profilemodel.cpp:175
 #, kde-format
 msgid "Profile filename pattern is not defined."
 msgstr ""
 
-#: models/profilemodel.cpp:186
+#: models/profilemodel.cpp:175
 #, kde-format
 msgid "You have given no filename pattern for the profile. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:204
+#: models/profilemodel.cpp:193
 #, kde-format
 msgid "The image file format is unknown."
 msgstr ""
 
-#: models/profilemodel.cpp:204
+#: models/profilemodel.cpp:193
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPG/JPEG, PNG or BMP."
 msgstr ""
 
-#: models/profilemodel.cpp:210
+#: models/profilemodel.cpp:199
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:210
+#: models/profilemodel.cpp:199
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:218
+#: models/profilemodel.cpp:207
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr ""
 
-#: models/profilemodel.cpp:218
+#: models/profilemodel.cpp:207
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
 
-#: models/profilemodel.cpp:224
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:224
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:238
+#: models/profilemodel.cpp:227
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:238
+#: models/profilemodel.cpp:227
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:245
+#: models/profilemodel.cpp:234
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:245
+#: models/profilemodel.cpp:234
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:242
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr ""
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:242
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
 "formats: SFV, MD5."
 msgstr ""
 
-#: models/profilemodel.cpp:260
+#: models/profilemodel.cpp:249
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:260
+#: models/profilemodel.cpp:249
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:269
+#: models/profilemodel.cpp:258
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:269
+#: models/profilemodel.cpp:258
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:278
+#: models/profilemodel.cpp:267
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr ""
 
-#: models/profilemodel.cpp:278
+#: models/profilemodel.cpp:267
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:310
+#: models/profilemodel.cpp:299
 #, kde-format
 msgid "Profile name already exists."
 msgstr ""
 
-#: models/profilemodel.cpp:310
+#: models/profilemodel.cpp:299
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
 
-#: models/profilemodel.cpp:327
+#: models/profilemodel.cpp:316
 #, kde-format
 msgid "Profile index already exists."
 msgstr ""
 
-#: models/profilemodel.cpp:327
+#: models/profilemodel.cpp:316
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
 
-#: models/profilemodel.cpp:450
+#: models/profilemodel.cpp:439
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr ""
 
-#: models/profilemodel.cpp:450
+#: models/profilemodel.cpp:439
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr ""
 
-#: models/profilemodel.h:173
+#: models/profilemodel.h:162
 #, kde-format
 msgid " (Mobile Quality)"
 msgstr ""
 
-#: models/profilemodel.h:174
+#: models/profilemodel.h:163
 #, kde-format
 msgid " (Normal Quality)"
 msgstr ""
 
-#: models/profilemodel.h:175
+#: models/profilemodel.h:164
 #, kde-format
 msgid " (Extreme Quality)"
 msgstr ""
 
-#: utils/cachedimage.cpp:126
+#: utils/cachedimage.cpp:115
 #, kde-format
 msgid "Common image formats"
 msgstr ""
 
-#: utils/cachedimage.cpp:171
+#: utils/cachedimage.cpp:160
 #, kde-format
 msgid "File does not exist."
 msgstr ""
 
-#: utils/cachedimage.cpp:171
+#: utils/cachedimage.cpp:160
 #, kde-format
 msgid "Please check if the file really exists."
 msgstr ""
 
-#: utils/cachedimage.cpp:180
+#: utils/cachedimage.cpp:169
 #, kde-format
 msgid "Cannot open file."
 msgstr ""
 
-#: utils/cachedimage.cpp:180
+#: utils/cachedimage.cpp:169
 #, kde-format
 msgid "Please check your file. Maybe you do not have proper permissions."
 msgstr ""
 
-#: utils/cachedimage.cpp:186 utils/cachedimage.cpp:240
+#: utils/cachedimage.cpp:175 utils/cachedimage.cpp:229
 #, kde-format
 msgid "Unsupported image format"
 msgstr ""
 
-#: utils/cachedimage.cpp:186
+#: utils/cachedimage.cpp:175
 #, kde-format
 msgid ""
 "Please check your file. Maybe it is corrupted. Otherwise try to convert your "
 "cover image with an external program to a common file format like JPEG."
 msgstr ""
 
-#: utils/cachedimage.cpp:205
+#: utils/cachedimage.cpp:194
 #, kde-format
 msgid "Cannot open file"
 msgstr ""
 
-#: utils/cachedimage.cpp:205
+#: utils/cachedimage.cpp:194
 #, kde-format
 msgid "Please check your permissions."
 msgstr ""
 
-#: utils/cachedimage.cpp:213
+#: utils/cachedimage.cpp:202
 #, kde-format
 msgid "Cannot save file"
 msgstr ""
 
-#: utils/cachedimage.cpp:213
+#: utils/cachedimage.cpp:202
 #, kde-format
 msgid "Please check your permissions. Do you have enough space?"
 msgstr ""
 
-#: utils/cachedimage.cpp:240
+#: utils/cachedimage.cpp:229
 #, kde-format
 msgid ""
 "Please use common image formats like JPEG, PNG or GIF as they are supported "
 "on almost all systems."
 msgstr ""
 
-#: utils/cachedimage.cpp:252
+#: utils/cachedimage.cpp:241
 #, kde-format
 msgid "Cannot write on device"
 msgstr ""
 
-#: utils/cachedimage.cpp:252
+#: utils/cachedimage.cpp:241
 #, kde-format
 msgid "Please check your permissions. Do you have enough space on your device?"
 msgstr ""
 
-#: utils/cddadevices.cpp:97
+#: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:36 utils/cddaparanoia.cpp:49
+#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
 #, kde-format
 msgid "Internal device error."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:36
+#: utils/cddaextractthread.cpp:25
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:88
+#: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Extracting finished."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:113
+#: utils/cddaextractthread.cpp:102
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:115
+#: utils/cddaextractthread.cpp:104
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:117
+#: utils/cddaextractthread.cpp:106
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:152
+#: utils/cddaextractthread.cpp:141
 #, kde-format
 msgid "User canceled extracting."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:144
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:159
+#: utils/cddaextractthread.cpp:148
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:161
+#: utils/cddaextractthread.cpp:150
 #, kde-format
 msgid "Ripping OK."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:166
+#: utils/cddaextractthread.cpp:155
 #, kde-format
 msgid "Reading finished"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:216
+#: utils/cddaextractthread.cpp:205
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:212
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:214
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:218
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:234
+#: utils/cddaextractthread.cpp:223
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:235
+#: utils/cddaextractthread.cpp:224
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:228
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:232
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:253
+#: utils/cddaextractthread.cpp:242
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:257
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:263
+#: utils/cddaextractthread.cpp:252
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:254
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: utils/cddaparanoia.cpp:49
+#: utils/cddaparanoia.cpp:38
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
 "\"%1\"."
 msgstr ""
 
-#: utils/coverfetcher.cpp:148
+#: utils/coverfetcher.cpp:137
 #, kde-format
 msgid "There was an error communicating with Google."
 msgstr ""
 
-#: utils/coverfetcher.cpp:148
+#: utils/coverfetcher.cpp:137
 #, kde-format
 msgid "Try again later. Otherwise make a bug report."
 msgstr ""
 
-#: utils/coverfetcher.cpp:161
+#: utils/coverfetcher.cpp:150
 #, kde-format
 msgid "Google server: Empty response."
 msgstr ""
 
-#: utils/coverfetcher.cpp:161
+#: utils/coverfetcher.cpp:150
 #, kde-format
 msgid "Try again later. Make a bug report."
 msgstr ""
 
-#: utils/coverfetcher.cpp:234
+#: utils/coverfetcher.cpp:223
 #, kde-format
 msgid "%1x%2"
 msgstr "%1x%2"
 
-#: utils/encoderassistant.h:65
+#: utils/encoderassistant.h:54
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:95
+#: utils/encoderassistant.h:84
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:123
+#: utils/encoderassistant.h:112
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (fără pierderi)"
 
-#: utils/encoderassistant.h:133
+#: utils/encoderassistant.h:122
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:149
+#: utils/encoderassistant.h:138
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (brut, necomprimat)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:156 utils/encoderassistant.h:157
+#: utils/encoderassistant.h:145 utils/encoderassistant.h:146
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
 msgstr "Personalizat"
 
-#: utils/encoderwrapper.cpp:72
+#: utils/encoderwrapper.cpp:61
 #, kde-format
 msgid "Command pattern is empty."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:86
+#: utils/encoderwrapper.cpp:75
 #, kde-format
 msgid "Encoding track %1..."
 msgstr "Se codează pista %1..."
 
-#: utils/encoderwrapper.cpp:104
+#: utils/encoderwrapper.cpp:93
 #, kde-format
 msgid "Deleted partial file \"%1\"."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:109
+#: utils/encoderwrapper.cpp:98
 #, kde-format
 msgid "User canceled encoding."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:167
+#: utils/encoderwrapper.cpp:156
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:169
+#: utils/encoderwrapper.cpp:158
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:169 utils/encoderwrapper.cpp:184
-#: utils/encoderwrapper.cpp:187 utils/encoderwrapper.cpp:196
+#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "Please check your profile."
 msgstr "Verificați profilul."
 
-#: utils/encoderwrapper.cpp:181
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid "%1 failed to start."
 msgstr "Pornirea %1 a eșuat."
 
-#: utils/encoderwrapper.cpp:181
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:184
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:187
+#: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:190
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:190
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:193
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:193
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:196
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr ""
 
-#: utils/upload.cpp:65
+#: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
 msgstr ""
 
-#: utils/upload.cpp:72
+#: utils/upload.cpp:61
 #, kde-format
 msgid "Finished uploading file %1 to server."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:476
+#: widgets/cddaheaderwidget.cpp:465
 #, kde-format
 msgid "Released: "
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:476
+#: widgets/cddaheaderwidget.cpp:465
 #, kde-format
 msgid "Genre: "
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:476
+#: widgets/cddaheaderwidget.cpp:465
 #, kde-format
 msgid "CD Number: "
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: widgets/cddaheaderwidget.cpp:509 widgets/generalsettingswidgetUI.ui:117
+#: widgets/cddaheaderwidget.cpp:498 widgets/generalsettingswidgetUI.ui:117
 #, kde-format
 msgid "Wikipedia"
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:533
+#: widgets/cddaheaderwidget.cpp:522
 #, kde-format
 msgid "No audio CD detected"
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:706
+#: widgets/cddaheaderwidget.cpp:695
 #, kde-format
 msgid "Load Cover"
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:716 widgets/profilewidget.cpp:133
+#: widgets/cddaheaderwidget.cpp:705 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:813 widgets/cddaheaderwidget.cpp:829
+#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
 #, kde-format
 msgid "No cover found."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:813 widgets/cddaheaderwidget.cpp:829
+#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
 #, kde-format
 msgid ""
 "Check your artist name and title. Otherwise you can load a custom cover from "
 "an image file."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:873
+#: widgets/cddaheaderwidget.cpp:862
 #, kde-format
 msgid "Fetch cover from Google..."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:878
+#: widgets/cddaheaderwidget.cpp:867
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:883
+#: widgets/cddaheaderwidget.cpp:872
 #, kde-format
 msgid "Save Cover To File..."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:888
+#: widgets/cddaheaderwidget.cpp:877
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr ""
 
-#: widgets/cddaheaderwidget.cpp:893
+#: widgets/cddaheaderwidget.cpp:882
 #, kde-format
 msgid "Remove Cover"
 msgstr ""
@@ -2217,57 +2217,57 @@ msgstr "Compresie"
 msgid "Embed cover in music file"
 msgstr ""
 
-#: widgets/generalsettingswidget.cpp:28
+#: widgets/generalsettingswidget.cpp:17
 #, kde-format
 msgid "English"
 msgstr "English"
 
-#: widgets/generalsettingswidget.cpp:29
+#: widgets/generalsettingswidget.cpp:18
 #, kde-format
 msgid "Deutsch"
 msgstr "Deutsch"
 
-#: widgets/generalsettingswidget.cpp:30
+#: widgets/generalsettingswidget.cpp:19
 #, kde-format
 msgid "Français"
 msgstr "Français"
 
-#: widgets/generalsettingswidget.cpp:31
+#: widgets/generalsettingswidget.cpp:20
 #, kde-format
 msgid "Polski"
 msgstr "Polski"
 
-#: widgets/generalsettingswidget.cpp:32
+#: widgets/generalsettingswidget.cpp:21
 #, kde-format
 msgid "日本語"
 msgstr "日本語"
 
-#: widgets/generalsettingswidget.cpp:33
+#: widgets/generalsettingswidget.cpp:22
 #, kde-format
 msgid "Italiano"
 msgstr "Italiano"
 
-#: widgets/generalsettingswidget.cpp:34
+#: widgets/generalsettingswidget.cpp:23
 #, kde-format
 msgid "Nederlands"
 msgstr "Nederlands"
 
-#: widgets/generalsettingswidget.cpp:35
+#: widgets/generalsettingswidget.cpp:24
 #, kde-format
 msgid "Español"
 msgstr "Español"
 
-#: widgets/generalsettingswidget.cpp:36
+#: widgets/generalsettingswidget.cpp:25
 #, kde-format
 msgid "Português"
 msgstr "Português"
 
-#: widgets/generalsettingswidget.cpp:37
+#: widgets/generalsettingswidget.cpp:26
 #, kde-format
 msgid "Svenska"
 msgstr "Svenska"
 
-#: widgets/generalsettingswidget.cpp:38
+#: widgets/generalsettingswidget.cpp:27
 #, kde-format
 msgid "Català"
 msgstr "Català"
@@ -2409,22 +2409,22 @@ msgstr ""
 msgid "Set maximum bitrate"
 msgstr ""
 
-#: widgets/profilewidget.cpp:89
+#: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
 msgstr "Sigur doriți să ștergeți profilul „%1”?"
 
-#: widgets/profilewidget.cpp:90
+#: widgets/profilewidget.cpp:79
 #, kde-format
 msgid "Delete profile"
 msgstr "Șterge profilul"
 
-#: widgets/profilewidget.cpp:141
+#: widgets/profilewidget.cpp:130
 #, kde-format
 msgid "Load Profiles"
 msgstr "Încarcă profile"
 
-#: widgets/profilewidget.cpp:151
+#: widgets/profilewidget.cpp:140
 #, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
@@ -2433,18 +2433,18 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:153 widgets/profilewidget.cpp:159
+#: widgets/profilewidget.cpp:142 widgets/profilewidget.cpp:148
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
 msgstr ""
 
-#: widgets/profilewidget.cpp:159
+#: widgets/profilewidget.cpp:148
 #, kde-format
 msgid "No new codecs found"
 msgstr ""
 
-#: widgets/profilewidget.cpp:159
+#: widgets/profilewidget.cpp:148
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
