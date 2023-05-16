@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-10 00:46+0000\n"
+"POT-Creation-Date: 2023-05-16 00:46+0000\n"
 "PO-Revision-Date: 2023-03-20 22:31+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -764,17 +764,17 @@ msgstr ""
 msgid "Cover Settings"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:57
+#: dialogs/profiledatacoverdialog.cpp:56
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
 msgstr "JPEG (Joint Photographic Experts Group)"
 
-#: dialogs/profiledatacoverdialog.cpp:58
+#: dialogs/profiledatacoverdialog.cpp:57
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:59
+#: dialogs/profiledatacoverdialog.cpp:58
 #, kde-format
 msgid "BMP (Windows Bitmap)"
 msgstr "BMP (Windows Bitmap)"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-10 00:46+0000\n"
+"POT-Creation-Date: 2023-05-16 00:46+0000\n"
 "PO-Revision-Date: 2017-09-04 10:01+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -769,17 +769,17 @@ msgstr "Priesaga"
 msgid "Cover Settings"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:57
+#: dialogs/profiledatacoverdialog.cpp:56
 #, fuzzy, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
 msgstr "JPEG - Joint Photographic Experts Group"
 
-#: dialogs/profiledatacoverdialog.cpp:58
+#: dialogs/profiledatacoverdialog.cpp:57
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:59
+#: dialogs/profiledatacoverdialog.cpp:58
 #, fuzzy, kde-format
 msgid "BMP (Windows Bitmap)"
 msgstr "BMP - „Windows“ taškinė grafika"
