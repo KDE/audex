@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2023-02-22 16:42+0100\n"
+"PO-Revision-Date: 2023-05-02 15:11+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -600,10 +600,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Převádí se stopa  0 z %1"
 
 #: dialogs/extractingprogressdialog.cpp:153
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Opravdu si přejete zrušit získávání stop?"
+msgstr "Opravdu chcete zrušit získávání dat?"
 
 #: dialogs/extractingprogressdialog.cpp:154
 #, kde-format
@@ -711,7 +710,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
-msgstr "Zrušit získávání"
+msgstr "Zrušit získávání dat"
 
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
