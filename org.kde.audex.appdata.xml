@@ -10,6 +10,7 @@
   <name xml:lang="da">Audex</name>
   <name xml:lang="de">Audex</name>
   <name xml:lang="en-GB">Audex</name>
+  <name xml:lang="eo">Audex</name>
   <name xml:lang="es">Audex</name>
   <name xml:lang="et">Audex</name>
   <name xml:lang="eu">Audex</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="da">Et brugervenligt program til at rippe cd'er</summary>
   <summary xml:lang="de">Eine einfach zu bedienende Anwendung zum Auslesen von Audio-CDs.</summary>
   <summary xml:lang="en-GB">An easy to use audio CD ripping application</summary>
+  <summary xml:lang="eo">Facile uzebla kopiilo por aŭdio-KD-oj</summary>
   <summary xml:lang="es">Una aplicación de extracción de CD de sonido fácil de usar</summary>
   <summary xml:lang="et">Hõlpsasti kasutatav heli-CD-de rippimise rakendus</summary>
   <summary xml:lang="eu">Audio CDetatik erauzteko aplikazio erraz bat</summary>
@@ -74,6 +76,7 @@
     <p xml:lang="da">Den generelle brug af Audex er selvforklarende. Ved første start scanner Audex dit system for almindelige indkodere og opretter automatisk et almindeligt sæt profiler til dig.</p>
     <p xml:lang="de">Die Anwendung von Audex ist selbsterklärend. Beim ersten Start durchsucht Audex Ihr System nach gängigen Kodierern und erstellt automatisch einen gemeinsamen Satz von Profilen für Sie.</p>
     <p xml:lang="en-GB">The general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.</p>
+    <p xml:lang="eo">La ĝenerala uzado de Audex estas memklariga. Je la unua startigo Audex skanas vian sistemon por kutimaj kodiloj kaj aŭtomate kreas komunan aron da profiloj por vi.</p>
     <p xml:lang="es">El uso general de Audex es autoexplicativo. La primera vez que se inicia Audex busca en el sistema codificadores comunes y crea una conjunto de perfiles comunes de forma automática.</p>
     <p xml:lang="et">Audexi kasutamine peaks üldiselt olema iseenesest mõistetav. Esmakäivitusel uurib Audexi süsteemis leiduvaid levinud kodeerijaid ja loob sulle automaatselt mitmed üldised profiilid.</p>
     <p xml:lang="eu">Audex-en erabilera orokorra ulergarria da azalpen osagarririk gabe. Lehen abioan, Audex-ek, zure sistema aztertzen du kodetzaile komunen bila eta ohiko profilen multzo bat sortzen du automatikoki zuretzat.</p>
