@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2023-06-17 14:10+0200\n"
+"PO-Revision-Date: 2023-06-19 13:01+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -434,7 +434,7 @@ msgstr ""
 "<p><i><b>Nota:</b> LAME ignora os ficheiros de portada de máis de 128 KiB. "
 "Téñao en conta á hora de definir o formato e o tamaño.</i></p> <hr /> "
 "<p>«preparam» and «postparam» definen parámetros inseridos antes (pre) e "
-"despois (post) da variábel. Estes valores <b>só</b> se mostran se o valor da "
+"despois (post) da variábel. Estes valores <b>só</b> se amosan se o valor da "
 "variábel está definido. Estes parámetros poden usarse con todas as variábeis "
 "da liña de ordes.</p> <hr /> <p><b><i>Para unha lista completa dos "
 "parámetros, consulte o sitio web de Audex.</i></b></p>"
@@ -676,12 +676,12 @@ msgstr "Fallou."
 #: dialogs/extractingprogressdialog.cpp:276
 #, kde-format
 msgid "Show encoding log..."
-msgstr "Mostrar o rexistro da codificación…"
+msgstr "Amosar o rexistro da codificación…"
 
 #: dialogs/extractingprogressdialog.cpp:283
 #, kde-format
 msgid "Show rip log..."
-msgstr "Mostrar o rexistro da extracción…"
+msgstr "Amosar o rexistro da extracción…"
 
 #: dialogs/extractingprogressdialog.cpp:331
 #, kde-format
@@ -723,7 +723,7 @@ msgstr "Protocolo da extracción"
 #: dialogs/extractingprogresswidgetUI.ui:30
 #, kde-format
 msgid "Show/hide details"
-msgstr "Mostrar ou agochar os detalles"
+msgstr "Amosar ou agochar os detalles"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
@@ -1034,8 +1034,8 @@ msgstr ""
 "black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div> substituirase pola "
 "data actual. O valor do atributo «format» (formato) determina o formato da "
 "data. O exemplo anterior daría como resultado a data actual cunha forma como "
-"a de «2010-10-07». A continuación móstranse máis detalles sobre o formato "
-"das datas.<br /> <br /> Pode usar as seguintes variábeis:<br /> <table "
+"a de «2010-10-07». A continuación amósanse máis detalles sobre o formato das "
+"datas.<br /> <br /> Pode usar as seguintes variábeis:<br /> <table "
 "border=1><thead><tr> <th>Variábel</th> <th>Parámetro</th> <th>Descrición</"
 "th> <th>Exemplo</th> </tr></thead><tbody><tr> <td>$artist</td> <td></td> "
 "<td>O intérprete do CD.</td> <td>${artist}</td> </tr><tr> <td>$title</td> "
@@ -1080,12 +1080,12 @@ msgstr ""
 "exemplo, 2015).</td> </tr></table><br /> <table cellpadding=\"2\" "
 "cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top\"> <th>Expresión</th> "
 "<th>Descrición</th> </tr></thead><tr valign=\"top\"> <td>h</td> <td>A hora "
-"sen un 0 de prefixo (de 0 a 23 ou de 1 a 12 en caso de mostrar a.m. ou p.m.)."
+"sen un 0 de prefixo (de 0 a 23 ou de 1 a 12 en caso de amosar a.m. ou p.m.)."
 "</td> </tr><tr valign=\"top\"> <td>hh</td> <td>A hora con dúas cifras (de 00 "
-"a 23 ou de 01 a 12 en caso de mostrar a.m. ou p.m.).</td> </tr><tr valign="
+"a 23 ou de 01 a 12 en caso de amosar a.m. ou p.m.).</td> </tr><tr valign="
 "\"top\"> <td>H</td> <td>A hora sen 0 de prefixo (de 0 a 23, mesmo en caso de "
-"mostrar a.m. ou p.m.).</td> </tr><tr valign=\"top\"> <td>HH</td> <td>A hora "
-"con dúas cifras (de 00 a 23, mesmo en caso de mostrar a.m. ou p.m.).</td> </"
+"amosar a.m. ou p.m.).</td> </tr><tr valign=\"top\"> <td>HH</td> <td>A hora "
+"con dúas cifras (de 00 a 23, mesmo en caso de amosar a.m. ou p.m.).</td> </"
 "tr><tr valign=\"top\"> <td>m</td> <td>Os minutos sen un 0 de prefixo (de 0 a "
 "59).</td> </tr><tr valign=\"top\"> <td>mm</td> <td>Os minutos con dúas "
 "cifras (de 00 a 59).</td> </tr><tr valign=\"top\"> <td>s</td> <td>Os "
@@ -1188,7 +1188,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:153
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "Usar números de pista con dous díxitos (01, 02, 03…)."
+msgstr "Definir números de pista con dous díxitos (01, 02, 03…)."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
@@ -1518,7 +1518,7 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
-"Seleccione unha cadea de división. Teña en conta os espazos baleiros.\n"
+"Defina unha cadea de división. Teña en conta os espazos baleiros.\n"
 "\n"
 "Divisor:"
 
@@ -1900,6 +1900,7 @@ msgstr "Non indicou ningunha ruta para o ficheiro de son único. Defina unha."
 msgid "Profile name already exists."
 msgstr "Xa existe un perfil con ese nome."
 
+# skip-rule: en-set
 #: models/profilemodel.cpp:299
 #, kde-format
 msgid ""
@@ -1912,6 +1913,7 @@ msgstr "Xa existe un perfil chamado %1. Escolla un nome único."
 msgid "Profile index already exists."
 msgstr "O índice de perfil xa existe."
 
+# skip-rule: en-set
 #: models/profilemodel.cpp:316
 #, kde-format
 msgid ""
@@ -2411,7 +2413,7 @@ msgstr "Obter a portada de Google…"
 #: widgets/cddaheaderwidget.cpp:867
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr "Escoller unha portada personalizada…"
+msgstr "Definir unha portada personalizada…"
 
 #: widgets/cddaheaderwidget.cpp:872
 #, kde-format
@@ -2421,7 +2423,7 @@ msgstr "Gardar a portada nun ficheiro…"
 #: widgets/cddaheaderwidget.cpp:877
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr "Mostrar a portada a tamaño real…"
+msgstr "Amosar a portada a tamaño real…"
 
 #: widgets/cddaheaderwidget.cpp:882
 #, kde-format
