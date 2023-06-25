@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2023-06-19 13:01+0200\n"
+"PO-Revision-Date: 2023-06-24 11:13+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -723,7 +723,7 @@ msgstr "Protocolo da extracción"
 #: dialogs/extractingprogresswidgetUI.ui:30
 #, kde-format
 msgid "Show/hide details"
-msgstr "Amosar ou agochar os detalles"
+msgstr "Amosar ou agochar os detalles."
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
@@ -1181,8 +1181,8 @@ msgstr "Substituír os espazos por guións baixos."
 msgid ""
 "This setting overrides any parameterized variable settings in the pattern"
 msgstr ""
-"Esta opción ten preferencia sobre opcións variábeis extraídas como "
-"parámetros mediante o padrón."
+"Esta opción sobredefine opcións variábeis extraídas como parámetros mediante "
+"o padrón."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1396,8 +1396,8 @@ msgstr "freedb.org"
 #, kde-format
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
-"Moitísimas grazas a freedb.org por fornecer unha base datos de CD similar a "
-"CDDB."
+"Moitísimas grazas a freedb.org por fornecer unha base de datos de CD similar "
+"a CDDB."
 
 #: main.cpp:43
 #, kde-format
