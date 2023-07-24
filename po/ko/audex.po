@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the audex package.
-# Shinjo Park <kde@peremen.name>, 2021, 2022.
+# Shinjo Park <kde@peremen.name>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2022-10-03 14:19+0200\n"
+"PO-Revision-Date: 2023-07-18 13:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-i18n-doc@kde.org>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -540,7 +540,7 @@ msgstr "앨범 커버 검색 중..."
 #: dialogs/coverbrowserdialog.cpp:69
 #, kde-format
 msgid "Fetching Thumbnail %1 / %2..."
-msgstr "축소판 %1 / %2 가져오는 중..."
+msgstr "섬네일 %1 / %2 가져오는 중..."
 
 #: dialogs/coverbrowserdialog.cpp:74
 #, kde-format
@@ -585,10 +585,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "트랙 %1 중 0 인코드 중"
 
 #: dialogs/extractingprogressdialog.cpp:153
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "정말로 취소하시겠습니까?"
+msgstr "추출 작업을 취소하시겠습니까?"
 
 #: dialogs/extractingprogressdialog.cpp:154
 #, kde-format
