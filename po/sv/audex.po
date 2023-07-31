@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Stefan Asserhäll <stefan.asserhall@bredband.net>, 2009, 2010, 2011.
-# Stefan Asserhall <stefan.asserhall@bredband.net>, 2011, 2012, 2013, 2014, 2015, 2017, 2022.
+# Stefan Asserhall <stefan.asserhall@bredband.net>, 2011, 2012, 2013, 2014, 2015, 2017, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2022-09-24 14:57+0200\n"
+"PO-Revision-Date: 2023-07-30 10:42+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -592,10 +592,9 @@ msgid "Encoding Track 0 of %1"
 msgstr "Kodar spår 0 av %1"
 
 #: dialogs/extractingprogressdialog.cpp:153
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "Vill du verkligen avbryta?"
+msgstr "Vill du verkligen avbryta extrahering?"
 
 #: dialogs/extractingprogressdialog.cpp:154
 #, kde-format
