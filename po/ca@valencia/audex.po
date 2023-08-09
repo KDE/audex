@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-27 11:34+0200\n"
+"PO-Revision-Date: 2023-08-07 17:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -492,12 +492,14 @@ msgstr "Artista de la pista"
 msgid "Track Title"
 msgstr "Títol de la pista"
 
+# skip-rule: punctuation-period-no
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
 #, kde-format
 msgid "Track #"
 msgstr "Pista núm."
 
+# skip-rule: punctuation-period-no
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
 #: dialogs/simplepatternwizardwidgetUI.ui:231
