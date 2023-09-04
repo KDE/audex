@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Eloy Cuadra <ecuadra@eloihr.net>, 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Rocio Gallego <traducciones@rociogallego.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-27 11:22+0200\n"
+"PO-Revision-Date: 2023-09-03 22:08+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1186,8 +1186,8 @@ msgstr "Sustituir espacios por guiones bajos"
 msgid ""
 "This setting overrides any parameterized variable settings in the pattern"
 msgstr ""
-"Esta configuración reemplaza las preferencias personalizadas de variable en "
-"el patrón"
+"Este ajuste tiene prioridad sobre las preferencias de parámetros de "
+"variables del patrón"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
