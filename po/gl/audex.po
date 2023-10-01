@@ -166,7 +166,7 @@ msgstr "Aviso! O ficheiro «%1» xa existe. Saltouse."
 #: core/audex.cpp:636 core/audex.cpp:1031
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr "Non se pode crear o cartafol «%1»."
+msgstr "Non é posíbel crear o cartafol «%1»."
 
 #: core/audex.cpp:639 core/audex.cpp:1034
 #, kde-format
@@ -221,7 +221,7 @@ msgstr "A portada «%1» gardouse correctamente."
 #: core/audex.cpp:759
 #, kde-format
 msgid "Unable to save cover \"%1\"."
-msgstr "Non se pode gardar a portada «%1»."
+msgstr "Non é posíbel gardar a portada «%1»."
 
 #: core/audex.cpp:759 core/audex.cpp:830 core/audex.cpp:867 core/audex.cpp:910
 #: core/audex.cpp:945 core/audex.cpp:999 core/audex.cpp:1026
@@ -237,7 +237,7 @@ msgstr "A lista de reprodución «%1» creouse correctamente."
 #: core/audex.cpp:830
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
-msgstr "Non se pode gardar a lista de reprodución «%1»."
+msgstr "Non é posíbel gardar a lista de reprodución «%1»."
 
 #: core/audex.cpp:864
 #, kde-format
@@ -247,7 +247,7 @@ msgstr "O ficheiro de información «%1» creouse correctamente."
 #: core/audex.cpp:867
 #, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr "Non se pode gardar o ficheiro de información «%1»."
+msgstr "Non é posíbel gardar o ficheiro de información «%1»."
 
 #: core/audex.cpp:907
 #, kde-format
@@ -257,7 +257,7 @@ msgstr "A lista de resumos «%1» creouse correctamente."
 #: core/audex.cpp:910
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr "Non se pode gardar a lista de resumos «%1»."
+msgstr "Non é posíbel gardar a lista de resumos «%1»."
 
 #: core/audex.cpp:942
 #, kde-format
@@ -267,12 +267,12 @@ msgstr "O ficheiro cue «%1» creouse correctamente."
 #: core/audex.cpp:945
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
-msgstr "Non se pode crear o ficheiro cue «%1»."
+msgstr "Non é posíbel crear o ficheiro cue «%1»."
 
 #: core/audex.cpp:999 core/audex.cpp:1026
 #, kde-format
 msgid "Unable to open folder \"%1\"."
-msgstr "Non se pode abrir o cartafol «%1»."
+msgstr "Non é posíbel abrir o cartafol «%1»."
 
 #: dialogs/cddaheaderdatadialog.cpp:174 widgets/cddaheaderwidget.cpp:497
 #, kde-format
@@ -1426,7 +1426,7 @@ msgstr "adrian@chaves.io"
 #: mainwindow.cpp:19
 #, kde-format
 msgid "Unable to create ProfileModel object."
-msgstr "Non se pode crear un obxecto de tipo ProfileModel."
+msgstr "Non é posíbel crear un obxecto de tipo ProfileModel."
 
 #: mainwindow.cpp:19 mainwindow.cpp:32
 #, kde-format
@@ -1439,7 +1439,7 @@ msgstr ""
 #: mainwindow.cpp:32
 #, kde-format
 msgid "Unable to create CDDAModel object."
-msgstr "Non se pode crear un obxecto de tipo CDDAModel."
+msgstr "Non é posíbel crear un obxecto de tipo CDDAModel."
 
 #: mainwindow.cpp:105
 #, kde-format
@@ -1626,7 +1626,7 @@ msgstr "Inverter a selección"
 #: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
-msgstr "Non se pode crear un obxecto de dispositivos."
+msgstr "Non é posíbel crear un obxecto de dispositivos."
 
 #: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
 #, kde-format
@@ -1640,7 +1640,7 @@ msgstr ""
 #: models/cddamodel.cpp:29
 #, kde-format
 msgid "Unable to create KCDDB object."
-msgstr "Non se pode crear un obxecto de tipo KCDDB."
+msgstr "Non é posíbel crear un obxecto de tipo KCDDB."
 
 #: models/cddamodel.cpp:121
 #, kde-format
@@ -1676,8 +1676,8 @@ msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
-"Non se pode atopar o servidor de CDDB. Comprobe a rede. Pode que o servidor "
-"de CDDB estea desconectado."
+"Non é posíbel atopar o servidor de CDDB. Comprobe a rede. Pode que o "
+"servidor de CDDB estea desconectado."
 
 #: models/cddamodel.cpp:846 models/cddamodel.cpp:948
 #, kde-format
@@ -1707,7 +1707,7 @@ msgstr ""
 #: models/cddamodel.cpp:892
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
-msgstr "Non se pode crear un obxecto de tipo CDDA paranoia."
+msgstr "Non é posíbel crear un obxecto de tipo CDDA paranoia."
 
 #: models/cddamodel.cpp:960
 #, kde-format
@@ -1964,7 +1964,7 @@ msgstr "Comprobe se o ficheiro xa existe."
 #: utils/cachedimage.cpp:169
 #, kde-format
 msgid "Cannot open file."
-msgstr "Non se pode abrir o ficheiro."
+msgstr "Non é posíbel abrir o ficheiro."
 
 #: utils/cachedimage.cpp:169
 #, kde-format
@@ -1989,7 +1989,7 @@ msgstr ""
 #: utils/cachedimage.cpp:194
 #, kde-format
 msgid "Cannot open file"
-msgstr "Non se pode abrir o ficheiro."
+msgstr "Non é posíbel abrir o ficheiro."
 
 #: utils/cachedimage.cpp:194
 #, kde-format
@@ -1999,7 +1999,7 @@ msgstr "Revise os permisos."
 #: utils/cachedimage.cpp:202
 #, kde-format
 msgid "Cannot save file"
-msgstr "Non se pode gardar o ficheiro."
+msgstr "Non é posíbel gardar o ficheiro."
 
 #: utils/cachedimage.cpp:202
 #, kde-format
@@ -2018,7 +2018,7 @@ msgstr ""
 #: utils/cachedimage.cpp:241
 #, kde-format
 msgid "Cannot write on device"
-msgstr "Non se pode escribir no dispositivo."
+msgstr "Non é posíbel escribir no dispositivo."
 
 #: utils/cachedimage.cpp:241
 #, kde-format
@@ -2295,7 +2295,7 @@ msgstr "Revise o perfil."
 #: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid "%1 failed to start."
-msgstr "Non se puido iniciar %1."
+msgstr "Non foi posíbel iniciar %1."
 
 #: utils/encoderwrapper.cpp:170
 #, kde-format
