@@ -1673,8 +1673,8 @@ msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
-"Hi ha un error amb el servidor de la CDDB. Espereu o poseu-vos en contacte "
-"amb l'administrador del servidor de la CDDB."
+"S'ha produït un error amb el servidor de la CDDB. Espereu o poseu-vos en "
+"contacte amb l'administrador del servidor de la CDDB."
 
 #: models/cddamodel.cpp:843 models/cddamodel.cpp:945
 #, kde-format
