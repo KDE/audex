@@ -439,7 +439,7 @@ msgstr ""
 "darrere (post) de la variable. Estos valors <b>només</b> es mostraran si "
 "s'ha establit un valor. Funciona amb totes les variables de la línia "
 "d'ordres.</p><hr /><p><b><i>Per a tindre un resum complet dels paràmetres, "
-"aneu a la pàgina web d'Audex.</i></b></p>"
+"aneu fins a la pàgina web d'Audex.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -829,8 +829,8 @@ msgstr ""
 "majúscules o minúscules. Açò també funciona amb les altres variables.</"
 "p><pre>${artist left=\"1\"}/$artist/$title/$trackno - $ttile.$suffix</"
 "pre><p>Pren un caràcter de l'esquerra, el qual és el primer.</p><hr /"
-"><p><b><i>Per a tindre una visió completa dels paràmetres, aneu a la pàgina "
-"web d'Audex.</i></b></p>"
+"><p><b><i>Per a tindre una visió completa dels paràmetres, aneu fins a la "
+"pàgina web d'Audex.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
 #: dialogs/patternwizardwidgetUI.ui:263
@@ -1324,7 +1324,8 @@ msgstr ""
 "passat a majúscules o minúscules. Açò també funciona amb les altres "
 "variables.</p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Pren un "
 "caràcter de l'esquerra, el qual és el primer.</p><hr /><p><b><i>Per a tindre "
-"una visió completa dels paràmetres, aneu a la pàgina web d'Audex.</i></b></p>"
+"una visió completa dels paràmetres, aneu fins a la pàgina web d'Audex.</i></"
+"b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/simplepatternwizardwidgetUI.ui:26
