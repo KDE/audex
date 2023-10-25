@@ -137,7 +137,7 @@ Comment[x-test]=xxAll tracks finished rippingxx
 Comment[zh_CN]=所有音轨翻录完毕
 Comment[zh_TW]=全部音軌皆翻錄完成
 Action=Sound|PassivePopup
-Sound=KDE-Sys-App-Positive.ogg
+Sound=outcome-success
 
 [Event/trackRipped]
 Name=Track Ripped
