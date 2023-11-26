@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:30+0000\n"
-"PO-Revision-Date: 2023-04-27 11:56+0300\n"
+"PO-Revision-Date: 2023-11-26 01:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -424,7 +424,7 @@ msgid ""
 "overview of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
 "<p>Audeks'in parametre olarak alabildiği değişkenler. Örn.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>300x300 "
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>300 × 300 "
 "boyutlu bir JPG görseline bir dosya adı eklenecektir. Hiçbir boyut "
 "ayarlanmazsa özgün kapak dosyasının boyutu alınır. Kapak yoksa bu değişken "
 "onun yerini alır, aksi takdirde <i>/tmp/cover.123.jpg</i> gibi bir şey "
@@ -2188,7 +2188,7 @@ msgstr "Daha sonra yeniden deneyin. Bir hata raporu oluşturun."
 #: utils/coverfetcher.cpp:223
 #, kde-format
 msgid "%1x%2"
-msgstr "%1 x %2"
+msgstr "%1 × %2"
 
 #: utils/encoderassistant.h:54
 #, kde-format
