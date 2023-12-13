@@ -114,7 +114,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
 
         QFont font(QApplication::font());
 
-        int pixelSize = font.pixelSize() == -1 ? (font.pointSize() * QX11Info::appDpiX() + 36) / 72 : font.pixelSize();
+        int pixelSize = font.pixelSize() == -1 ? (font.pointSize() * qApp->devicePixelRatio() + 36) / 72 : font.pixelSize();
         int width = rect().width() - (xOffset + 1);
         font.setPixelSize((int)((((double)pixelSize) * 2) + 0.5));
         font.setBold(true);

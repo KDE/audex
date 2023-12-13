@@ -19,7 +19,6 @@
 #include <QPainter>
 #include <QTimer>
 #include <QWidget>
-#include <QX11Info>
 
 #include <KActionCollection>
 #include <KColorScheme>
