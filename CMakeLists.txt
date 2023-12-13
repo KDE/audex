@@ -21,25 +21,28 @@ include(ECMAddTests)
 include(FeatureSummary)
 include(KDEClangFormat)
 
-find_package(Qt5 5.14 REQUIRED COMPONENTS Script Widgets X11Extras)
-find_package(
-  KF5 ${KF5_MIN_VER} REQUIRED
-  COMPONENTS Config
-             Completion
-             CoreAddons
-             Crash
-             I18n
-             IconThemes
-             KCMUtils
-             KIO
-             Solid
-             TextWidgets
-             WidgetsAddons
-             XmlGui)
-find_package(KF5Cddb 5.1)
-set_package_properties(
-  KF5Cddb PROPERTIES
-  DESCRIPTION "KF5 branch for CDDB library"
+find_package(Qt6 6.5 REQUIRED COMPONENTS
+  Widgets
+  Qml
+  Core5Compat
+)
+find_package(KF6 ${KF_MIN_VER} REQUIRED COMPONENTS
+  Config
+  Completion
+  CoreAddons
+  Crash
+  I18n
+  IconThemes
+  KCMUtils
+  KIO
+  Solid
+  TextWidgets
+  WidgetsAddons
+  XmlGui
+)
+find_package(KCddb6 5.1)
+set_package_properties(KCddb6 PROPERTIES
+  DESCRIPTION "CDDB library"
   URL "https://commits.kde.org/libkcddb"
   TYPE REQUIRED
   PURPOSE "libkcddb is used to retrieve audio CD meta data from the internet.")
@@ -134,27 +137,28 @@ ki18n_wrap_ui(
   dialogs/protocolwidgetUI.ui)
 
 kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
-qt5_add_resources(audex_SRCS audex.qrc)
+qt_add_resources(audex_SRCS audex.qrc)
 
 add_executable(audex ${audex_SRCS})
-target_link_libraries(
-  audex
-  Qt5::Script
-  Qt5::Widgets
-  Qt5::X11Extras
-  KF5::Completion
-  KF5::CoreAddons
-  KF5::Crash
-  KF5::I18n
-  KF5::IconThemes
-  KF5::KCMUtils
-  KF5::KIOWidgets
-  KF5::Solid
-  KF5::TextWidgets
-  KF5::WidgetsAddons
-  KF5::XmlGui
-  KF5::Cddb
-  ${CDPARANOIA_LIBRARIES})
+target_link_libraries(audex
+    Qt6::Widgets
+    Qt6::Qml
+    Qt6::Core5Compat
+    KF6::Completion
+    KF6::CoreAddons
+    KF6::Crash
+    KF6::I18n
+    KF6::IconThemes
+    KF6::IconWidgets
+    KF6::KCMUtils
+    KF6::KIOWidgets
+    KF6::Solid
+    KF6::TextWidgets
+    KF6::WidgetsAddons
+    KF6::XmlGui
+    KCddb6
+    ${CDPARANOIA_LIBRARIES}
+)
 
 install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
@@ -166,8 +170,8 @@ add_subdirectory(icons)
 add_subdirectory(images)
 
 if(BUILD_TESTING)
-  find_package(Qt5Test REQUIRED)
-  add_subdirectory(test)
+    find_package(Qt6Test REQUIRED)
+    add_subdirectory(test)
 endif()
 
 # Install translations
