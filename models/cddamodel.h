@@ -14,7 +14,6 @@
 #include <QImageReader>
 #include <QInputDialog>
 #include <QModelIndexList>
-#include <QRegExp>
 #include <QSet>
 #include <QString>
 #include <QTimer>

@@ -6,6 +6,7 @@
  */
 
 #include "playlist.h"
+#include <QRegularExpression>
 
 Playlist::Playlist()
 {
@@ -227,9 +228,9 @@ void Playlist::p_add_PLS(const QByteArray &playlist)
         QString key = line.left(equals).toLower();
         QString value = line.mid(equals + 1);
 
-        QRegExp n_re("\\d+$");
-        n_re.indexIn(key);
-        int n = n_re.cap(0).toInt();
+        static QRegularExpression n_re("\\d+$");
+        auto match = n_re.match(key);
+        int n = match.captured(0).toInt();
 
         if (key.startsWith(QLatin1String("file"))) {
             items[n].setFilename(value);

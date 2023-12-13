@@ -122,7 +122,8 @@ void EncoderWrapper::parseOutput()
         for (int i = 0; i < list.count(); ++i) {
             if (list.at(i).contains('%')) {
                 QString line = list.at(i);
-                int startPos = line.indexOf(QRegExp("\\d+[,.]?\\d*\\%"));
+                static const QRegularExpression regex("\\d+[,.]?\\d*\\%");
+                int startPos = line.indexOf(regex);
                 if (startPos == -1)
                     continue;
                 QString p = line.mid(startPos);

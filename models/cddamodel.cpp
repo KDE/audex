@@ -6,6 +6,7 @@
  */
 
 #include "cddamodel.h"
+#include <QRegularExpression>
 
 CDDAModel::CDDAModel(QObject *parent)
     : QAbstractTableModel(parent)
@@ -394,14 +395,14 @@ int CDDAModel::guessMultiCD(QString &newTitle) const
         return -1;
 
     QString t = cd_info.get(KCDDB::Title).toString();
-    QRegExp rx1("[\\(|\\[]* *([c|C][d|D]|[d|D][i|I][s|S][k|c|K|C]) *[0-9]* *[\\)|\\]]* *$");
-    int i = rx1.indexIn(t);
+    static QRegularExpression rx1("[\\(|\\[]* *([c|C][d|D]|[d|D][i|I][s|S][k|c|K|C]) *[0-9]* *[\\)|\\]]* *$");
+    int i = t.indexOf(rx1);
     if (i >= 0) {
         QString frac = t.mid(i);
-        QRegExp rx2("(\\d+)");
-        rx2.indexIn(frac);
+        static QRegularExpression rx2("(\\d+)");
+        auto match = rx2.match(frac);
         bool ok;
-        int cdnum = rx2.cap(0).toInt(&ok);
+        int cdnum = match.captured(0).toInt(&ok);
         if (ok) {
             if (cdnum < 0)
                 return -1;
