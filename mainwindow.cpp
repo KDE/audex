@@ -173,7 +173,7 @@ void MainWindow::configure()
         m->load();
         auto *cfg = new KCDDB::Config();
         cfg->load();
-        dialog->addPage(m, cfg, i18n("CDDB settings"), "text-xmcd");
+        dialog->addPage(m->widget(), cfg, i18n("CDDB settings"), QStringLiteral("text-xmcd"));
     }
 
     KPageWidgetItem *remoteServerPage = dialog->addPage(new remoteServerSettingsWidget(), i18n("Remote Server"));
