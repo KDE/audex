@@ -14,16 +14,9 @@
 #include "config.h"
 #include "mainwindow.h"
 
-#include <Kdelibs4ConfigMigrator>
-
 int main(int argc, char *argv[])
 {
-    Kdelibs4ConfigMigrator migrator(QStringLiteral("audex"));
-    migrator.setConfigFiles(QStringList() << QStringLiteral("audexrc"));
-    migrator.migrate();
-
     QApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     KCrash::initialize();
 
