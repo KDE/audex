@@ -16,7 +16,7 @@
 
 #include <Kdelibs4ConfigMigrator>
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     Kdelibs4ConfigMigrator migrator(QStringLiteral("audex"));
     migrator.setConfigFiles(QStringList() << QStringLiteral("audexrc"));
@@ -32,15 +32,17 @@ int main(int argc, char* argv[])
     KAboutData aboutData("audex", i18n("Audex"), AUDEX_VERSION);
     aboutData.setShortDescription(i18n("KDE CDDA Extractor"));
     aboutData.setLicense(KAboutLicense::GPL);
-    aboutData.setCopyrightStatement(i18n("Copyright © 2007 Marco Nelles"));
+    aboutData.setCopyrightStatement(i18n("Copyright © 2007-2023 Marco Nelles"));
     aboutData.setHomepage("https://userbase.kde.org/Audex");
     aboutData.setBugAddress("audex@maniatek.de");
     aboutData.addAuthor(i18n("Marco Nelles"), i18n("Current maintainer, main developer"), "marco@maniatek.de");
     aboutData.addCredit(i18n("Craig Drummond"), i18n("GUI improvements, development"), nullptr, "");
     aboutData.addCredit(i18n("Elson"), i18n("development"), nullptr, "");
-    aboutData.addCredit(i18n("credativ GmbH"), i18n("Special thanks to credativ GmbH (Germany) for support"), nullptr, "http://www.credativ.com/");
-    aboutData.addCredit(i18n("freedb.org"), i18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), nullptr, "http://freedb.org");
-    aboutData.addCredit(i18n("Xiph.Org Foundation"), i18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"), nullptr, "http://www.xiph.org/paranoia/index.html");
+    aboutData.addCredit(i18n("credativ GmbH"), i18n("Special thanks to former credativ GmbH (Germany) for support"), nullptr, "http://www.credativ.de/");
+    aboutData.addCredit(i18n("Xiph.Org Foundation"),
+                        i18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"),
+                        nullptr,
+                        "http://www.xiph.org/paranoia/index.html");
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
     aboutData.setOrganizationDomain(QByteArray("kde.org"));
@@ -54,7 +56,7 @@ int main(int argc, char* argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    auto* window = new MainWindow();
+    auto *window = new MainWindow();
     window->show();
 
     return app.exec();
