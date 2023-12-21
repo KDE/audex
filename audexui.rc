@@ -1,42 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="audex" version="1">
-
   <MenuBar>
-    <Menu name="file" noMerge="1"><text>&amp;Audex</text>
+    <Menu name="file" noMerge="1">
+      <text>&amp;Audex</text>
       <Action name="eject"/>
       <Separator/>
       <Action name="rip"/>
       <Separator/>
       <Action name="file_quit"/>
     </Menu>
-    <Menu name="cddb"><text>&amp;CDDB</text>
-      <Action name="fetch" />
-      <Action name="submit" />
+    <Menu name="metadata">
+      <text>&amp;Metadata</text>
+      <Menu name="cddb">
+        <text context="@title:menu">CDDB</text>
+        <Action name="cddbfetch"/>
+        <Action name="cddbsubmit"/>
+      </Menu>
+      <Separator/>
+      <Action name="edit"/>
       <Separator/>
       <Menu name="titlecorrectiontools">
         <text context="@title:menu">Title Correction Tools</text>
-        <Action name="splittitles" />
-        <Action name="swapartistsandtitles" />
-        <Action name="capitalize" />
-        <Action name="autofillartists" />
+        <Action name="splittitles"/>
+        <Action name="swapartistsandtitles"/>
+        <Action name="capitalize"/>
+        <Action name="autofillartists"/>
       </Menu>
     </Menu>
-    <Menu name="settings"><text>&amp;Settings</text>
-      <Merge name="StandardToolBarMenuHandler" />
+    <Menu name="settings">
+      <text>&amp;Settings</text>
+      <Merge name="StandardToolBarMenuHandler"/>
       <Action name="preferences" append="configure_merge"/>
     </Menu>
   </MenuBar>
-
   <ToolBar name="mainToolBar" hidden="false" noMerge="1">
     <Action name="eject"/>
-    <Separator lineSeparator="true" />
-    <Action name="profile_label" />
-    <Action name="profile" />
-    <Separator lineSeparator="true" />
-    <Action name="fetch" />
-    <Separator lineSeparator="true" />
-    <Action name="rip" />
+    <Separator lineSeparator="true"/>
+    <Action name="profile_label"/>
+    <Action name="profile"/>
+    <Separator lineSeparator="true"/>
+    <Action name="edit"/>
+    <Action name="cddbfetch"/>
+    <Separator lineSeparator="true"/>
+    <Action name="rip"/>
   </ToolBar>
-
 </kpartgui>

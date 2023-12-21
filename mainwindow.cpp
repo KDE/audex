@@ -62,9 +62,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(cdda_model, SIGNAL(cddbLookupStarted()), this, SLOT(cddb_lookup_start()));
     connect(cdda_model, SIGNAL(cddbLookupDone(const bool)), this, SLOT(cddb_lookup_done(const bool)));
-    connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_submit()));
+    connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_cddb_submit()));
     connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(update_layout()));
-    connect(cdda_model, SIGNAL(cddbDataSubmited(bool)), this, SLOT(enable_submit(bool)));
+    connect(cdda_model, SIGNAL(cddbDataSubmited(bool)), this, SLOT(enable_cddb_submit(bool)));
 
     connect(profile_model, SIGNAL(profilesRemovedOrInserted()), this, SLOT(update_profile_action()));
     connect(profile_model, SIGNAL(currentProfileIndexChanged(int)), this, SLOT(update_profile_action(int)));
@@ -184,6 +184,11 @@ void MainWindow::configure()
     dialog->exec();
 }
 
+void MainWindow::edit()
+{
+    cdda_header_widget->edit_data();
+}
+
 void MainWindow::new_audio_disc_detected()
 {
     enable_layout(true);
@@ -216,7 +221,7 @@ void MainWindow::cddb_lookup_done(const bool successful)
                           i18n("CDD Lookup Failure"));
     }
     update_layout();
-    disable_submit();
+    disable_cddb_submit();
     // if (Preferences::coverLookupAuto())
     //     cdda_header_widget->fetchCover();
 }
@@ -242,11 +247,12 @@ void MainWindow::enable_layout(bool enabled)
     actionCollection()->action("profile_label")->setEnabled((profile_model->rowCount() > 0) && (enabled));
     profile_combobox->setEnabled((profile_model->rowCount() > 0) && (enabled));
     actionCollection()->action("profile")->setEnabled((profile_model->rowCount() > 0) && (enabled));
-    actionCollection()->action("fetch")->setEnabled(enabled);
+    actionCollection()->action("cddbfetch")->setEnabled(enabled);
     if (cdda_model->isModified())
-        actionCollection()->action("submit")->setEnabled(enabled);
+        actionCollection()->action("cddbsubmit")->setEnabled(enabled);
     else
-        actionCollection()->action("submit")->setEnabled(false);
+        actionCollection()->action("cddbsubmit")->setEnabled(false);
+    actionCollection()->action("edit")->setEnabled(enabled);
     actionCollection()->action("eject")->setEnabled(enabled);
     actionCollection()->action("rip")->setEnabled(enabled);
     actionCollection()->action("splittitles")->setEnabled(enabled);
@@ -258,14 +264,14 @@ void MainWindow::enable_layout(bool enabled)
     actionCollection()->action("invertselection")->setEnabled(enabled);
 }
 
-void MainWindow::enable_submit(bool enabled)
+void MainWindow::enable_cddb_submit(bool enabled)
 {
-    actionCollection()->action("submit")->setEnabled(enabled);
+    actionCollection()->action("cddbsubmit")->setEnabled(enabled);
 }
 
-void MainWindow::disable_submit()
+void MainWindow::disable_cddb_submit()
 {
-    actionCollection()->action("submit")->setEnabled(false);
+    actionCollection()->action("cddbsubmit")->setEnabled(false);
 }
 
 void MainWindow::configuration_updated(const QString &dialog_name)
@@ -421,17 +427,24 @@ void MainWindow::setup_actions()
     update_profile_action();
 
     auto *cddbLookupAction = new QAction(this);
-    cddbLookupAction->setText(i18n("Fetch Info"));
+    cddbLookupAction->setText(i18n("Fetch"));
     cddbLookupAction->setIcon(QIcon::fromTheme("view-list-text"));
-    actionCollection()->addAction("fetch", cddbLookupAction);
+    actionCollection()->addAction("cddbfetch", cddbLookupAction);
     actionCollection()->setDefaultShortcut(cddbLookupAction, Qt::CTRL + Qt::Key_F);
     connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
 
     auto *cddbSubmitAction = new QAction(this);
-    cddbSubmitAction->setText(i18n("Submit Info"));
-    actionCollection()->addAction("submit", cddbSubmitAction);
+    cddbSubmitAction->setText(i18n("Submit"));
+    actionCollection()->addAction("cddbsubmit", cddbSubmitAction);
     actionCollection()->setDefaultShortcut(cddbSubmitAction, Qt::CTRL + Qt::Key_S);
     connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
+
+    auto *editAction = new QAction(this);
+    editAction->setText(i18n("Edit"));
+    editAction->setIcon(QIcon::fromTheme("document-edit"));
+    actionCollection()->addAction("edit", editAction);
+    actionCollection()->setDefaultShortcut(editAction, Qt::CTRL + Qt::Key_D);
+    connect(editAction, SIGNAL(triggered(bool)), this, SLOT(edit()));
 
     auto *extractAction = new QAction(this);
     extractAction->setText(i18n("Rip..."));

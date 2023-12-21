@@ -16,10 +16,10 @@
 #include <QTreeView>
 
 #include <KActionCollection>
-#include <KCModuleLoader>
 #include <KCDDB/CDInfo>
 #include <KCDDB/Client>
 #include <KCDDB/KCDDB>
+#include <KCModuleLoader>
 #include <KComboBox>
 #include <KConfigDialog>
 #include <KLocalizedString>
@@ -66,6 +66,7 @@ private Q_SLOTS:
     void cddb_submit();
     void rip();
     void configure();
+    void edit();
 
     void new_audio_disc_detected();
     void audio_disc_removed();
@@ -76,8 +77,8 @@ private Q_SLOTS:
     void update_layout();
 
     void enable_layout(bool enabled);
-    void enable_submit(bool enabled = true);
-    void disable_submit();
+    void enable_cddb_submit(bool enabled = true);
+    void disable_cddb_submit();
 
     void configuration_updated(const QString &dialog_name);
 

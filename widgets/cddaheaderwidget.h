@@ -59,6 +59,7 @@ public:
 
 public Q_SLOTS:
     void setEnabled(bool enabled);
+    void edit_data();
 
 Q_SIGNALS:
     void headerDataChanged();
@@ -77,8 +78,6 @@ private Q_SLOTS:
     void save();
     void view_cover();
     void remove();
-
-    void edit_data();
 
     void set_cover(const QByteArray &cover);
 
