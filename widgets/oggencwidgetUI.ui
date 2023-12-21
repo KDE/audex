@@ -74,6 +74,9 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
         <property name="minimum">
          <double>-1.000000000000000</double>
         </property>
@@ -82,9 +85,6 @@
         </property>
         <property name="singleStep">
          <double>1.000000000000000</double>
-        </property>
-        <property name="decimals">
-         <number>1</number>
         </property>
        </widget>
       </item>
@@ -149,7 +149,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Target Bitrate ~</string>
+         <string>Target bitrate ~</string>
         </property>
        </widget>
       </item>
@@ -350,13 +350,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -22,6 +22,7 @@
 #include "widgets/flacwidget.h"
 #include "widgets/lamewidget.h"
 #include "widgets/oggencwidget.h"
+#include "widgets/opusencwidget.h"
 #include "widgets/wavewidget.h"
 
 #include "dialogs/errordialog.h"
@@ -83,6 +84,8 @@ private:
     Parameters lame_parameters;
     oggencWidget *oggenc_widget;
     Parameters oggenc_parameters;
+    opusencWidget *opusenc_widget;
+    Parameters opusenc_parameters;
     flacWidget *flac_widget;
     Parameters flac_parameters;
     faacWidget *faac_widget;

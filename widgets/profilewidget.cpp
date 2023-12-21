@@ -11,7 +11,7 @@
 #include <QFileDialog>
 #include <QIcon>
 
-profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent)
+profileWidget::profileWidget(ProfileModel* profileModel, QWidget* parent)
     : profileWidgetUI(parent)
 {
     profile_model = profileModel;
@@ -23,8 +23,8 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent)
     listView->setModel(profile_model);
     listView->setModelColumn(1);
     listView->setIconSize(QSize(22, 22));
-    connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)), this, SLOT(_update()));
-    connect(listView, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(mod_profile(const QModelIndex &)));
+    connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(_update()));
+    connect(listView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(mod_profile(const QModelIndex&)));
     connect(kpushbutton_add, SIGNAL(clicked()), this, SLOT(add_profile()));
     connect(kpushbutton_rem, SIGNAL(clicked()), this, SLOT(rem_profile()));
     connect(kpushbutton_mod, SIGNAL(clicked()), this, SLOT(mod_profile()));
@@ -58,7 +58,7 @@ void profileWidget::_update()
 
 void profileWidget::add_profile()
 {
-    auto *dialog = new ProfileDataDialog(profile_model, -1, this);
+    auto* dialog = new ProfileDataDialog(profile_model, -1, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -93,9 +93,9 @@ void profileWidget::rem_profile()
     _update();
 }
 
-void profileWidget::mod_profile(const QModelIndex &index)
+void profileWidget::mod_profile(const QModelIndex& index)
 {
-    auto *dialog = new ProfileDataDialog(profile_model, index.row(), this);
+    auto* dialog = new ProfileDataDialog(profile_model, index.row(), this);
 
     dialog->exec();
 
@@ -135,13 +135,9 @@ void profileWidget::load_profiles()
 
 void profileWidget::init_profiles()
 {
-    if (KMessageBox::PrimaryAction ==
-        KMessageBox::questionTwoActions(this,
-                                        i18n("<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, etc.)?</p>"
-                                             "<p><font style=\"font-style:italic;\">This will attempt to create some sample profiles based upon any found codecs.</font></p>"),
-                                        i18n("Codec Scan"),
-                                        KStandardGuiItem::ok(),
-                                        KStandardGuiItem::cancel())) {
+    if (KMessageBox::PrimaryAction == KMessageBox::questionTwoActions(this, i18n("<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</p>"
+                                                                                 "<p><font style=\"font-style:italic;\">This will attempt to create some sample profiles based upon any found codecs.</font></p>"),
+            i18n("Codec Scan"), KStandardGuiItem::ok(), KStandardGuiItem::cancel())) {
         int sizeBefore = profile_model->rowCount();
         profile_model->autoCreate();
         int diff = profile_model->rowCount() - sizeBefore;

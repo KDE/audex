@@ -98,6 +98,7 @@ set(audex_SRCS
   widgets/remoteserversettingswidget.cpp
   widgets/lamewidget.cpp
   widgets/oggencwidget.cpp
+  widgets/opusencwidget.cpp
   widgets/flacwidget.cpp
   widgets/faacwidget.cpp
   widgets/wavewidget.cpp
@@ -127,6 +128,7 @@ ki18n_wrap_ui(audex_SRCS
   widgets/remoteserversettingswidgetUI.ui
   widgets/lamewidgetUI.ui
   widgets/oggencwidgetUI.ui
+  widgets/opusencwidgetUI.ui
   widgets/flacwidgetUI.ui
   widgets/faacwidgetUI.ui
   widgets/wavewidgetUI.ui

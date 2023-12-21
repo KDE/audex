@@ -105,6 +105,7 @@ enum ProfileColumns {
 
     PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX,
+    PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX,
@@ -154,6 +155,7 @@ enum ProfileColumns {
 
 #define PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY "lame_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY "oggenc_parameters"
+#define PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY "opusenc_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY "flac_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY "faac_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY "wave_parameters"
@@ -166,19 +168,18 @@ enum ProfileColumns {
 typedef QMap<QString, QVariant> Profile;
 
 /** audex profile model **/
-class ProfileModel : public QAbstractTableModel
-{
+class ProfileModel : public QAbstractTableModel {
     Q_OBJECT
 public:
-    explicit ProfileModel(QObject *parent = nullptr);
+    explicit ProfileModel(QObject* parent = nullptr);
     ~ProfileModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
-    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole) override;
+    bool removeRows(int row, int count, const QModelIndex& parent = QModelIndex()) override;
+    bool insertRows(int row, int count, const QModelIndex& parent = QModelIndex()) override;
 
     int currentProfileIndex() const;
     int currentProfileRow() const;
@@ -186,7 +187,7 @@ public:
 
     void clear();
 
-    bool nameExists(const QString &name) const;
+    bool nameExists(const QString& name) const;
     bool indexExists(int profile_index) const;
     int getNewIndex() const;
 
@@ -209,8 +210,8 @@ public Q_SLOTS:
 
     int copy(const int profileRow);
 
-    bool saveProfilesToFile(const QString &filename);
-    bool loadProfilesFromFile(const QString &filename);
+    bool saveProfilesToFile(const QString& filename);
+    bool loadProfilesFromFile(const QString& filename);
 
     void setCurrentProfileIndex(int profile_index);
     int setRowAsCurrentProfileIndex(int row); // returns profile index
@@ -226,10 +227,10 @@ private:
 
     Error p_error;
 
-    void p_new_name(QString &name);
+    void p_new_name(QString& name);
 
-    void p_save(KConfig *config);
-    void p_load(KConfig *config);
+    void p_save(KConfig* config);
+    void p_load(KConfig* config);
 };
 
 #endif

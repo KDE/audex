@@ -10,9 +10,10 @@ Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 
 ### Prerequisites (optional)
 
-* Ogg Vorbis (ogg files)
 * FLAC (flac files)
 * LAME (mp3 files)
+* Opus (opus files)
+* Ogg Vorbis (ogg files)
 * FAAC (mp4/aac files)
 * eyeD3 (mp3 tagging)
 

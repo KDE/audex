@@ -150,7 +150,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Target Bitrate (kbit/s)</string>
+      <string>Target bitrate (kbit/s)</string>
      </property>
     </widget>
    </item>
@@ -214,6 +214,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QSpinBox" name="kintspinbox_bitrate">
+         <property name="suffix">
+          <string> kbit/s</string>
+         </property>
          <property name="maximum">
           <number>99</number>
          </property>
@@ -310,13 +313,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

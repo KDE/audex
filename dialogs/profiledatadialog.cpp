@@ -12,7 +12,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent)
+ProfileDataDialog::ProfileDataDialog(ProfileModel* profileModel, const int profileRow, QWidget* parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
@@ -24,16 +24,17 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     }
     profile_row = profileRow;
 
-    QWidget *widget = new QWidget(this);
+    QWidget* widget = new QWidget(this);
     ui.setupUi(widget);
 
-    auto *mainLayout = new QVBoxLayout;
+    auto* mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(widget);
 
     if (profile_row >= 0) {
         lame_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX)).toString());
         oggenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX)).toString());
+        opusenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX)).toString());
         flac_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX)).toString());
         faac_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX)).toString());
         wave_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX)).toString());
@@ -44,6 +45,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(lame_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
     oggenc_widget = new oggencWidget(&oggenc_parameters, this);
     connect(oggenc_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    opusenc_widget = new opusencWidget(&opusenc_parameters, this);
+    connect(opusenc_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
     flac_widget = new flacWidget(&flac_parameters, this);
     connect(flac_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
     faac_widget = new faacWidget(&faac_parameters, this);
@@ -55,6 +58,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     ui.stackedWidget_encoder->addWidget(lame_widget);
     ui.stackedWidget_encoder->addWidget(oggenc_widget);
+    ui.stackedWidget_encoder->addWidget(opusenc_widget);
     ui.stackedWidget_encoder->addWidget(flac_widget);
     ui.stackedWidget_encoder->addWidget(faac_widget);
     ui.stackedWidget_encoder->addWidget(wave_widget);
@@ -90,8 +94,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     if (profile_row >= 0) {
         setWindowTitle(i18n("Modify Profile"));
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
-        QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+        QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
+        QPushButton* okButton = buttonBox->button(QDialogButtonBox::Ok);
         okButton->setDefault(true);
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
         applyButton = buttonBox->button(QDialogButtonBox::Apply);
@@ -101,17 +105,17 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         mainLayout->addWidget(buttonBox);
 
         ui.qlineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
-        connect(ui.qlineedit_name, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+        connect(ui.qlineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
         ui.qlineedit_name->setCursorPosition(0);
 
         ui.kiconbutton_icon->setIcon(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString());
-        connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString &)), this, SLOT(trigger_changed()));
+        connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString&)), this, SLOT(trigger_changed()));
 
         set_encoder(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toInt());
         connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
 
         ui.qlineedit_pattern->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString());
-        connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+        connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
         ui.qlineedit_pattern->setCursorPosition(0);
 
         ui.checkBox_fat32compatible->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
@@ -181,8 +185,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     } else {
         setWindowTitle(i18n("Create Profile"));
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-        QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+        QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+        QPushButton* okButton = buttonBox->button(QDialogButtonBox::Ok);
         okButton->setDefault(true);
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
         connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
@@ -239,6 +243,7 @@ ProfileDataDialog::~ProfileDataDialog()
 {
     delete lame_widget;
     delete oggenc_widget;
+    delete opusenc_widget;
     delete flac_widget;
     delete faac_widget;
     delete wave_widget;
@@ -274,36 +279,7 @@ void ProfileDataDialog::set_encoder_by_combobox(const int index)
 
 void ProfileDataDialog::trigger_changed()
 {
-    applyButton->setEnabled(ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
-                            ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() ||
-                            ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()) != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString() ||
-                            ui.qlineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() ||
-                            ui.checkBox_fat32compatible->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool() ||
-                            ui.checkBox_underscore->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool() ||
-                            ui.checkBox_cover->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool() ||
-                            ui.checkBox_playlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX)).toBool() ||
-                            ui.checkBox_info->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX)).toBool() ||
-                            pdcd_scale != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool() ||
-                            pdcd_size != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize() ||
-                            pdcd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString() ||
-                            pdcd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString() ||
-                            pdpd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString() ||
-                            pdpd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString() ||
-                            pdpd_abs_file_path != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool() ||
-                            pdpd_utf8 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool() ||
-                            pdid_text != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList() ||
-                            pdid_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString() ||
-                            pdid_suffix != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString() ||
-                            ui.checkBox_hashlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool() ||
-                            pdhd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString() ||
-                            pdhd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString() ||
-                            pdud_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString() ||
-                            pdsd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString() ||
-                            pdud_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString() ||
-                            pdsd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString() ||
-                            ui.checkBox_cuesheet->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool() ||
-                            ui.checkBox_singlefile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool() || lame_widget->isChanged() || oggenc_widget->isChanged() ||
-                            flac_widget->isChanged() || faac_widget->isChanged() || wave_widget->isChanged() || custom_widget->isChanged());
+    applyButton->setEnabled(ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() || ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() || ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()) != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString() || ui.qlineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() || ui.checkBox_fat32compatible->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool() || ui.checkBox_underscore->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool() || ui.checkBox_cover->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool() || ui.checkBox_playlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX)).toBool() || ui.checkBox_info->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX)).toBool() || pdcd_scale != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool() || pdcd_size != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize() || pdcd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString() || pdcd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString() || pdpd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString() || pdpd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString() || pdpd_abs_file_path != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool() || pdpd_utf8 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool() || pdid_text != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList() || pdid_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString() || pdid_suffix != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString() || ui.checkBox_hashlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool() || pdhd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString() || pdhd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString() || pdud_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString() || pdsd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString() || pdud_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString() || pdsd_pattern != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString() || ui.checkBox_cuesheet->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool() || ui.checkBox_singlefile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool() || lame_widget->isChanged() || oggenc_widget->isChanged() || flac_widget->isChanged() || faac_widget->isChanged() || wave_widget->isChanged() || custom_widget->isChanged());
 }
 
 void ProfileDataDialog::enable_settings_cover(bool enabled)
@@ -354,7 +330,7 @@ void ProfileDataDialog::disable_filenames(bool disabled)
 
 void ProfileDataDialog::pattern_wizard()
 {
-    PatternWizardDialog *dialog = new PatternWizardDialog(ui.qlineedit_pattern->text(), this);
+    PatternWizardDialog* dialog = new PatternWizardDialog(ui.qlineedit_pattern->text(), this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -370,7 +346,7 @@ void ProfileDataDialog::pattern_wizard()
 
 void ProfileDataDialog::cover_settings()
 {
-    ProfileDataCoverDialog *dialog = new ProfileDataCoverDialog(pdcd_scale, pdcd_size, pdcd_format, pdcd_pattern, this);
+    ProfileDataCoverDialog* dialog = new ProfileDataCoverDialog(pdcd_scale, pdcd_size, pdcd_format, pdcd_pattern, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -389,7 +365,7 @@ void ProfileDataDialog::cover_settings()
 
 void ProfileDataDialog::playlist_settings()
 {
-    ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(pdpd_format, pdpd_pattern, pdpd_abs_file_path, pdpd_utf8, this);
+    ProfileDataPlaylistDialog* dialog = new ProfileDataPlaylistDialog(pdpd_format, pdpd_pattern, pdpd_abs_file_path, pdpd_utf8, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -408,7 +384,7 @@ void ProfileDataDialog::playlist_settings()
 
 void ProfileDataDialog::info_settings()
 {
-    ProfileDataInfoDialog *dialog = new ProfileDataInfoDialog(pdid_text, pdid_pattern, pdid_suffix, this);
+    ProfileDataInfoDialog* dialog = new ProfileDataInfoDialog(pdid_text, pdid_pattern, pdid_suffix, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -426,7 +402,7 @@ void ProfileDataDialog::info_settings()
 
 void ProfileDataDialog::hashlist_settings()
 {
-    ProfileDataHashlistDialog *dialog = new ProfileDataHashlistDialog(pdhd_pattern, pdhd_format, this);
+    ProfileDataHashlistDialog* dialog = new ProfileDataHashlistDialog(pdhd_pattern, pdhd_format, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -443,7 +419,7 @@ void ProfileDataDialog::hashlist_settings()
 
 void ProfileDataDialog::cuesheet_settings()
 {
-    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(pdud_pattern, this);
+    ProfileDataCueSheetDialog* dialog = new ProfileDataCueSheetDialog(pdud_pattern, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -459,7 +435,7 @@ void ProfileDataDialog::cuesheet_settings()
 
 void ProfileDataDialog::singlefile_settings()
 {
-    ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(pdsd_pattern, this);
+    ProfileDataSingleFileDialog* dialog = new ProfileDataSingleFileDialog(pdsd_pattern, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -481,6 +457,9 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
         break;
     case EncoderAssistant::OGGENC:
         ui.stackedWidget_encoder->setCurrentWidget(oggenc_widget);
+        break;
+    case EncoderAssistant::OPUSENC:
+        ui.stackedWidget_encoder->setCurrentWidget(opusenc_widget);
         break;
     case EncoderAssistant::FLAC:
         ui.stackedWidget_encoder->setCurrentWidget(flac_widget);
@@ -522,6 +501,12 @@ bool ProfileDataDialog::save()
         success = oggenc_widget->save();
         if (!success)
             error = oggenc_widget->lastError();
+    }
+
+    if (success) {
+        success = opusenc_widget->save();
+        if (!success)
+            error = opusenc_widget->lastError();
     }
 
     if (success) {
@@ -608,6 +593,8 @@ bool ProfileDataDialog::save()
             success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX), lame_parameters.toString());
         if (success)
             success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX), oggenc_parameters.toString());
+        if (success)
+            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX), opusenc_parameters.toString());
         if (success)
             success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX), flac_parameters.toString());
         if (success)

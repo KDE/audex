@@ -36,6 +36,9 @@
 #define ENCODER_OGGENC_MAXBITRATE_KEY "maxbitrate"
 #define ENCODER_OGGENC_MAXBITRATE_VALUE_KEY "maxbitrate_value"
 
+#define ENCODER_OPUSENC_SUFFIX_KEY "suffix"
+#define ENCODER_OPUSENC_BITRATE_KEY "bitrate"
+
 #define ENCODER_FLAC_SUFFIX_KEY "suffix"
 #define ENCODER_FLAC_COMPRESSION_KEY "compression"
 #define ENCODER_FLAC_EMBED_COVER_KEY "embed_cover"
@@ -109,6 +112,22 @@
 #define ENCODER_OGGENC_MAXBITRATE_X false
 #define ENCODER_OGGENC_MAXBITRATE_VALUE_X 256
 
+#define ENCODER_OPUSENC_NAME i18n("Opus")
+#define ENCODER_OPUSENC_ENCODER_NAME "OPUSENC"
+#define ENCODER_OPUSENC_ICON "audio-x-opus"
+#define ENCODER_OPUSENC_BIN "opusenc"
+#define ENCODER_OPUSENC_VERSION_PARA "--version"
+#define ENCODER_OPUSENC_SUFFIX "opus"
+
+/* preset normal quality */
+#define ENCODER_OPUSENC_BITRATE 128
+
+/* preset mobile quality */
+#define ENCODER_OPUSENC_BITRATE_M 64
+
+/* preset extreme quality */
+#define ENCODER_OPUSENC_BITRATE_X 256
+
 #define ENCODER_FLAC_NAME i18n("FLAC (Lossless)")
 #define ENCODER_FLAC_ENCODER_NAME "FLAC"
 #define ENCODER_FLAC_ICON "audio-x-flac"
@@ -152,21 +171,29 @@
 
 #define ENCODER_NUM 6
 
-namespace EncoderAssistant
-{
-enum Encoder { LAME = 0, OGGENC, FLAC, FAAC, WAVE, CUSTOM, NUM };
+namespace EncoderAssistant {
+enum Encoder { LAME = 0,
+    OGGENC,
+    OPUSENC,
+    FLAC,
+    FAAC,
+    WAVE,
+    CUSTOM,
+    NUM };
 
 const QString name(const Encoder encoder);
 const QString encoderName(const Encoder encoder);
 const QString icon(const Encoder encoder);
 
 bool available(const Encoder encoder);
-bool canEmbedCover(const Encoder encoder, int *maxCoverSize = nullptr);
+bool canEmbedCover(const Encoder encoder, int* maxCoverSize = nullptr);
 const QString version(const Encoder encoder);
 long versionNumber(const Encoder encoder);
-const QString pattern(const Encoder encoder, const Parameters &parameters);
+const QString pattern(const Encoder encoder, const Parameters& parameters);
 
-enum Quality { MOBILE = 0, NORMAL, EXTREME };
+enum Quality { MOBILE = 0,
+    NORMAL,
+    EXTREME };
 
 Parameters stdParameters(const Encoder encoder, const Quality quality);
 

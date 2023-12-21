@@ -9,7 +9,7 @@
 
 #include <QIcon>
 
-ProfileModel::ProfileModel(QObject *parent)
+ProfileModel::ProfileModel(QObject* parent)
 {
     Q_UNUSED(parent);
     revert();
@@ -20,19 +20,19 @@ ProfileModel::~ProfileModel()
     clear();
 }
 
-int ProfileModel::rowCount(const QModelIndex &parent) const
+int ProfileModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return p_cache.count();
 }
 
-int ProfileModel::columnCount(const QModelIndex &parent) const
+int ProfileModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return PROFILE_MODEL_COLUMN_NUM;
 }
 
-QVariant ProfileModel::data(const QModelIndex &index, int role) const
+QVariant ProfileModel::data(const QModelIndex& index, int role) const
 {
     if (!index.isValid()) {
         return QVariant();
@@ -112,6 +112,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
             return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY];
         case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY];
+        case PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY];
         case PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY];
         case PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX:
@@ -139,7 +141,7 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int role)
+bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     if (!index.isValid()) {
         return false;
@@ -271,6 +273,8 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX:
             break;
         case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX:
+            break;
+        case PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX:
             break;
         case PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX:
             break;
@@ -415,6 +419,9 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX:
             p_cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = value;
             break;
+        case PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = value;
+            break;
         case PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX:
             p_cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY] = value;
             break;
@@ -441,7 +448,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
     return false;
 }
 
-bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
+bool ProfileModel::removeRows(int row, int count, const QModelIndex& parent)
 {
     Q_UNUSED(parent);
 
@@ -475,7 +482,7 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
     return true;
 }
 
-bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
+bool ProfileModel::insertRows(int row, int count, const QModelIndex& parent)
 {
     Q_UNUSED(parent);
 
@@ -563,7 +570,7 @@ void ProfileModel::clear()
     p_current_profile_index = -1;
 }
 
-bool ProfileModel::nameExists(const QString &name) const
+bool ProfileModel::nameExists(const QString& name) const
 {
     for (int j = 0; j < p_cache.count(); ++j)
         if (name == p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString())
@@ -596,7 +603,7 @@ int ProfileModel::getNewIndex() const
     return -1;
 }
 
-static bool lessThan(const Profile &p1, const Profile &p2)
+static bool lessThan(const Profile& p1, const Profile& p2)
 {
     return (QString::localeAwareCompare(p1[PROFILE_MODEL_NAME_KEY].toString(), p2[PROFILE_MODEL_NAME_KEY].toString()) < 0);
 }
@@ -675,6 +682,38 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
             p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::EXTREME).toString();
+            p_cache.append(p);
+            flag = true;
+        }
+    }
+
+    if (EncoderAssistant::available(EncoderAssistant::OPUSENC)) {
+        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_MOBILE_QUALITY)) {
+            Profile p = p_new_profile();
+            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_MOBILE_QUALITY;
+            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
+            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
+            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::MOBILE).toString();
+            p_cache.append(p);
+            flag = true;
+        }
+
+        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_NORMAL_QUALITY)) {
+            Profile p = p_new_profile();
+            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_NORMAL_QUALITY;
+            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
+            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
+            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::NORMAL).toString();
+            p_cache.append(p);
+            flag = true;
+        }
+
+        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_EXTREME_QUALITY)) {
+            Profile p = p_new_profile();
+            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_EXTREME_QUALITY;
+            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
+            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
+            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::EXTREME).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -759,6 +798,9 @@ const Parameters ProfileModel::getSelectedEncoderParametersFromCurrentIndex()
     case EncoderAssistant::OGGENC:
         parameters.fromString(data(index(currentProfileRow(), PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX)).toString());
         break;
+    case EncoderAssistant::OPUSENC:
+        parameters.fromString(data(index(currentProfileRow(), PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX)).toString());
+        break;
     case EncoderAssistant::FLAC:
         parameters.fromString(data(index(currentProfileRow(), PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX)).toString());
         break;
@@ -795,6 +837,8 @@ const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex()
         return parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX);
     case EncoderAssistant::OGGENC:
         return parameters.value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX);
+    case EncoderAssistant::OPUSENC:
+        return parameters.value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX);
     case EncoderAssistant::FLAC:
         return parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX);
     case EncoderAssistant::FAAC:
@@ -867,6 +911,7 @@ const Profile ProfileModel::p_new_profile()
 
     p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
     p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
+    p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
     p[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
     p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
     p[PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
@@ -875,7 +920,7 @@ const Profile ProfileModel::p_new_profile()
     return p;
 }
 
-void ProfileModel::p_new_name(QString &name)
+void ProfileModel::p_new_name(QString& name)
 {
     for (int j = 0; j < p_cache.count(); ++j) {
         if (name == p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString()) {
@@ -914,14 +959,14 @@ int ProfileModel::copy(const int profileRow)
     return key;
 }
 
-bool ProfileModel::saveProfilesToFile(const QString &filename)
+bool ProfileModel::saveProfilesToFile(const QString& filename)
 {
     KConfig config(filename);
     p_save(&config);
     return true;
 }
 
-bool ProfileModel::loadProfilesFromFile(const QString &filename)
+bool ProfileModel::loadProfilesFromFile(const QString& filename)
 {
     KConfig config(filename);
     beginResetModel();
@@ -931,7 +976,7 @@ bool ProfileModel::loadProfilesFromFile(const QString &filename)
     return true;
 }
 
-void ProfileModel::p_save(KConfig *config)
+void ProfileModel::p_save(KConfig* config)
 {
     KConfigGroup profilesGroup(config, "Profiles");
     profilesGroup.deleteGroup();
@@ -976,6 +1021,7 @@ void ProfileModel::p_save(KConfig *config)
 
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY]);
@@ -986,7 +1032,7 @@ void ProfileModel::p_save(KConfig *config)
         profilesGroup.config()->sync();
 }
 
-void ProfileModel::p_load(KConfig *config)
+void ProfileModel::p_load(KConfig* config)
 {
     KConfigGroup profilesGroup(config, "Profiles");
     clear();
@@ -1032,6 +1078,7 @@ void ProfileModel::p_load(KConfig *config)
 
         p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
+        p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
