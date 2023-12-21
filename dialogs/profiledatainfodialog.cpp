@@ -112,18 +112,8 @@ void ProfileDataInfoDialog::trigger_changed()
 
 void ProfileDataInfoDialog::about_variables()
 {
-    QDialog *dialog = new QDialog(this);
-    dialog->resize(QSize(700, 480));
-    dialog->setWindowTitle(i18n("Usable Variables For Text Template"));
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    dialog->connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    dialog->connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-
-    auto *tb = new QTextBrowser(dialog);
-    tb->setHtml(
+    QWhatsThis::showText(
+        ui.kurllabel_aboutvariables->mapToGlobal(ui.kurllabel_aboutvariables->geometry().topLeft()),
         i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
              "<html>"
              "<head>"
@@ -181,10 +171,10 @@ void ProfileDataInfoDialog::about_variables()
              "<td>$discid</td><td>base</td><td>Prints the discid of the current cd. The attribute base is the base of the number. The default is 16 (hexadecimal).</td><td>${discid base=\"16\"}</td>"
              "</tr>"
              "<tr>"
-             "<td>$today</td><td>format</td><td>Prints the current date. The attribute format specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td>"
+             "<td>$today</td><td>format</td><td>Prints the current date. The attribute format specifies the output. <i>Please have a look at the offical qt documentation for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td>"
              "</tr>"
              "<tr>"
-             "<td>$now</td><td>format</td><td>Prints the current date and/or time. The attribute format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td>"
+             "<td>$now</td><td>format</td><td>Prints the current date and/or time. The attribute format specifies the output. <i>Please have a look at the offical qt documentation for the format variables.</i></td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td>"
              "</tr>"
              "<tr>"
              "<td>$encoder</td><td></td><td>Prints encoder name and version.</td>"
@@ -197,46 +187,9 @@ void ProfileDataInfoDialog::about_variables()
              "</tr>"
              "</tbody>"
              "</table>"
-             "<br /><br />"
-             "(* date/time format expressions)"
-             "<table cellpadding=\"2\" cellspacing=\"1\" border=\"1\">"
-             "<thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></thead>"
-             "<tr valign=\"top\"><td>d</td><td>The day as a number without a leading zero (1 to 31).</td></tr>"
-             "<tr valign=\"top\"><td>dd</td><td>The day as a number with a leading zero (01 to 31).</td></tr>"
-             "<tr valign=\"top\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></tr>"
-             "<tr valign=\"top\"><td>dddd</td><td>The long localized day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr>"
-             "<tr valign=\"top\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</td></tr>"
-             "<tr valign=\"top\"><td>MM</td><td>The month as a number with a leading zero (01 to 12).</td></tr>"
-             "<tr valign=\"top\"><td>MMM</td><td>The abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr>"
-             "<tr valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; 'January' to 'December').</td></tr>"
-             "<tr valign=\"top\"><td>yy</td><td>The year as two digit number (00 to 99).</td></tr>"
-             "<tr valign=\"top\"><td>yyyy</td><td>The year as four digit number.</td></tr>"
-             "</table>"
-             "<br />"
-             "<table cellpadding=\"2\" cellspacing=\"1\" border=\"1\">"
-             "<thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></thead>"
-             "<tr valign=\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display).</td></tr>"
-             "<tr valign=\"top\"><td>hh</td><td>The hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr>"
-             "<tr valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, even with AM/PM display).</td></tr>"
-             "<tr valign=\"top\"><td>HH</td><td>The hour with a leading zero (00 to 23, even with AM/PM display).</td></tr>"
-             "<tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 to 59).</td></tr>"
-             "<tr valign=\"top\"><td>mm</td><td>The minute with a leading zero (00 to 59).</td></tr>"
-             "<tr valign=\"top\"><td>s</td><td>The second without a leading zero (0 to 59).</td></tr>"
-             "<tr valign=\"top\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr>"
-             "<tr valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</td></tr>"
-             "<tr valign=\"top\"><td>zz</td><td>The milliseconds with leading zeroes (000 to 999).</td></tr>"
-             "<tr valign=\"top\"><td>AP or A</td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></tr>"
-             "<tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or 'pm'.</td></tr>"
-             "</table>"
              "</body>"
-             "</html>"));
-    mainLayout->addWidget(tb);
-    mainLayout->addWidget(buttonBox);
-    connect(dialog, SIGNAL(clicked()), dialog, SLOT(close()));
-
-    dialog->exec();
-
-    delete dialog;
+             "</html>"),
+        ui.kurllabel_aboutvariables);
 }
 
 void ProfileDataInfoDialog::load_text()
