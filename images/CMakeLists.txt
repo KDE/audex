@@ -1,18 +1,2 @@
-install(FILES
-        canada.png
-        catalonia.png
-        france.png
-        germany.png
-        italy.png
-        japan.png
-        netherlands.png
-        poland.png
-        portugal.png
-        spain.png
-        sweden.png
-        usa.png
-        uk.png
-        nocover.svg
-    DESTINATION
-        ${KDE_INSTALL_DATADIR}/audex/images
-)
+install(FILES cdcase_wo_latches.png latches.png
+        DESTINATION ${KDE_INSTALL_DATADIR}/audex/images)
