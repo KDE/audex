@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2014  Marco Nelles <marco@maniatek.de>
+// SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
