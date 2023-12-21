@@ -12,7 +12,7 @@ install(FILES
         sweden.png
         usa.png
         uk.png
-        nocover.png
+        nocover.svg
     DESTINATION
         ${KDE_INSTALL_DATADIR}/audex/images
 )

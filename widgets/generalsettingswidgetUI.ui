@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>281</width>
-    <height>323</height>
+    <width>283</width>
+    <height>394</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout_4">
@@ -47,6 +47,9 @@
       </item>
       <item row="4" column="0">
        <widget class="QCheckBox" name="kcfg_coverLookupAuto">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Perform cover lookup automatically</string>
         </property>
@@ -160,13 +163,8 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
    <class>KUrlRequester</class>
-   <extends>QFrame</extends>
+   <extends>QWidget</extends>
    <header>kurlrequester.h</header>
   </customwidget>
  </customwidgets>

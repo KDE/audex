@@ -51,7 +51,7 @@ bool CachedImage::operator!=(const CachedImage &other) const
     return (this->checksum() != other.checksum());
 }
 
-CachedImage::~CachedImage() {};
+CachedImage::~CachedImage(){};
 
 Error CachedImage::lastError() const
 {
@@ -112,17 +112,18 @@ const QString CachedImage::supportedMimeTypeList()
         for (int i = 0; i < supp_list.count(); ++i) {
             map[db.mimeTypeForUrl("dummy." + QString(supp_list[i]).toLower()).comment()].append("*." + QString(supp_list[i]).toLower());
         }
-        QString result = "*.jpg *.jpeg *.png *.gif|" + i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
+        // QString result = "*.jpg *.jpeg *.png *.gif|" + i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
+        QString result = i18n("Common image formats") + " (*.jpg *.jpeg *.png *.bmp *.tif *.tiff *.gif *.avif)";
         QMap<QString, QStringList>::const_iterator i = map.constBegin();
         while (i != map.constEnd()) {
             if (i.key() == mime.comment()) {
                 ++i;
                 continue;
             }
-            result += '\n';
+            result += ";;";
             QStringList extensions = i.value();
             extensions.removeDuplicates();
-            result += extensions.join(' ') + '|' + i.key() + " (" + extensions.join(", ") + ')';
+            result += i.key() + " (" + extensions.join(" ") + ')';
             ++i;
         }
         mime_cache = result;
@@ -172,7 +173,10 @@ bool CachedImage::load(const QString &filename)
         _data = file.readAll();
         file.close();
     } else {
-        _error = Error(i18n("Unsupported image format"), i18n("Please check your file. Maybe it is corrupted. Otherwise try to convert your cover image with an external program to a common file format like JPEG."), Error::ERROR);
+        _error = Error(i18n("Unsupported image format"),
+                       i18n("Please check your file. Maybe it is corrupted. Otherwise try to convert your cover image with an external program to a common "
+                            "file format like JPEG."),
+                       Error::ERROR);
         _format = "";
         _size = QSize();
         return false;
@@ -226,7 +230,9 @@ bool CachedImage::compare_format(const QByteArray &f1, const QByteArray &f2) con
 bool CachedImage::_save(QIODevice *device, const QByteArray &format, const QSize &size)
 {
     if ((!format.isEmpty()) && (!QImageReader::supportedImageFormats().contains(format))) {
-        _error = Error(i18n("Unsupported image format"), i18n("Please use common image formats like JPEG, PNG or GIF as they are supported on almost all systems."), Error::ERROR);
+        _error = Error(i18n("Unsupported image format"),
+                       i18n("Please use common image formats like JPEG or PNG as they are supported on almost all systems."),
+                       Error::ERROR);
         return false;
     }
     QImage image = QImage::fromData(_data);

@@ -74,7 +74,6 @@ set(audex_SRCS
   models/cddamodel.cpp
   models/profilemodel.cpp
   utils/pid.cpp
-  utils/coverfetcher.cpp
   utils/patternparser.cpp
   utils/playlist.cpp
   utils/wavefilewriter.cpp
@@ -103,7 +102,6 @@ set(audex_SRCS
   widgets/faacwidget.cpp
   widgets/wavewidget.cpp
   widgets/customwidget.cpp
-  dialogs/coverbrowserdialog.cpp
   dialogs/cddaheaderdatadialog.cpp
   dialogs/profiledatadialog.cpp
   dialogs/profiledatacoverdialog.cpp
@@ -133,7 +131,6 @@ ki18n_wrap_ui(audex_SRCS
   widgets/faacwidgetUI.ui
   widgets/wavewidgetUI.ui
   widgets/customwidgetUI.ui
-  dialogs/coverbrowserwidgetUI.ui
   dialogs/cddaheaderdatawidgetUI.ui
   dialogs/profiledatawidgetUI.ui
   dialogs/profiledatacoverwidgetUI.ui
