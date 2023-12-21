@@ -303,10 +303,10 @@ bool SaxHandler::startElement(const QString &namespaceURI, const QString &localN
                 }
 
                 QByteArray ba = QCryptographicHash::hash(QString(artist + title + date + QString("%1").arg(x * y) + format).toUtf8(), QCryptographicHash::Md5);
-                QString mda5 = ba.toHex();
+                QString md5 = ba.toHex();
 
                 if (!stop)
-                    filename = tmppath + "cover." + QString("%1").arg(mda5) + '.' + format.toLower();
+                    filename = tmppath + "cover." + QString("%1").arg(md5) + '.' + format.toLower();
 
                 QFileInfo finfo(filename);
                 if ((!finfo.exists()) && (!stop)) {
@@ -643,7 +643,15 @@ const QString PatternParser::parseCommandPattern(const QString &pattern,
     return handler.text();
 }
 
-const QString PatternParser::parseSimplePattern(const QString &pattern, int cdno, const int nooftracks, const QString &artist, const QString &title, const QString &date, const QString &genre, const QString &suffix, bool fat32compatible)
+const QString PatternParser::parseSimplePattern(const QString &pattern,
+                                                int cdno,
+                                                const int nooftracks,
+                                                const QString &artist,
+                                                const QString &title,
+                                                const QString &date,
+                                                const QString &genre,
+                                                const QString &suffix,
+                                                bool fat32compatible)
 {
     SaxHandler handler;
     handler.setCDNo(cdno);
@@ -667,7 +675,15 @@ const QString PatternParser::parseSimplePattern(const QString &pattern, int cdno
     return handler.text();
 }
 
-void PatternParser::parseInfoText(QStringList &text, const QString &artist, const QString &title, const QString &date, const QString &genre, const quint32 discid, const qreal size, const int length, const int nooftracks)
+void PatternParser::parseInfoText(QStringList &text,
+                                  const QString &artist,
+                                  const QString &title,
+                                  const QString &date,
+                                  const QString &genre,
+                                  const quint32 discid,
+                                  const qreal size,
+                                  const int length,
+                                  const int nooftracks)
 {
     SaxHandler handler;
     handler.setArtist(artist);

@@ -97,9 +97,10 @@ const QImage CachedImage::coverImage() const
     return QImage::fromData(_data);
 }
 
-quint16 CachedImage::checksum() const
+const QString CachedImage::checksum() const
 {
-    return qChecksum(_data.data(), _data.size());
+    QByteArray ba = QCryptographicHash::hash(_data, QCryptographicHash::Md5);
+    return ba.toHex();
 }
 
 const QString CachedImage::supportedMimeTypeList()

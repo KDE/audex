@@ -28,7 +28,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
     this->cover_size_max = cover_size_max;
     this->padding = padding;
 
-    this->cover_checksum = 1;
+    this->cover_checksum.clear();
 
     setMouseTracking(true);
     cursor_on_cover = false;
@@ -64,7 +64,7 @@ void CDDAHeaderWidget::setCover(CachedImage *cover)
         cover_checksum = cover->checksum();
         this->cover = cover->coverImage();
     } else {
-        cover_checksum = 0;
+        cover_checksum.clear();
         this->cover = QImage();
     }
     construct_cd_case();
@@ -183,7 +183,7 @@ void CDDAHeaderWidget::construct_cd_case()
     cover_painter.drawImage(0, 0, cdcase_wo_latches);
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    if (cover_checksum != 0)
+    if (!cover_checksum.isEmpty())
         cover_painter.drawImage(125, 15, this->cover.scaled(QSize(1110, 1080), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
@@ -260,7 +260,7 @@ void CDDAHeaderWidget::update()
 
     bool activate = false;
     if (cdda_model->isCoverEmpty()) {
-        if (cover_checksum)
+        if (cover_checksum.isEmpty())
             setCover(nullptr);
     } else {
         qDebug() << "current cover checksum:" << cover_checksum;
@@ -344,7 +344,7 @@ void CDDAHeaderWidget::set_cover(const QByteArray &cover)
 {
     if (!cover.isEmpty())
         cdda_model->setCover(cover);
-    action_collection->action("fetch")->setEnabled(true);
+    // action_collection->action("fetch")->setEnabled(true);
     update();
 }
 

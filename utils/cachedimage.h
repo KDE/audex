@@ -10,6 +10,7 @@
 
 #include <QAbstractTableModel>
 #include <QBuffer>
+#include <QCryptographicHash>
 #include <QFile>
 #include <QImage>
 #include <QImageReader>
@@ -40,7 +41,7 @@ public:
     const QByteArray coverRaw() const;
     const QSize size() const;
     const QImage coverImage() const;
-    quint16 checksum() const;
+    const QString checksum() const;
 
     const QString supportedMimeTypeList();
     const QList<QByteArray> supportedFormats();

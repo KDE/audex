@@ -90,7 +90,7 @@ private:
     int cover_size_max;
     int padding;
 
-    quint16 cover_checksum;
+    QString cover_checksum;
     QImage cover;
     QImage cd_case;
     void construct_cd_case();

@@ -111,7 +111,7 @@ public:
 
     CachedImage *cover() const;
     const QImage coverImage() const;
-    quint16 coverChecksum() const;
+    const QString coverChecksum() const;
     bool setCover(const QByteArray &data);
     bool setCover(const QString &filename);
     bool saveCoverToFile(const QString &filename);
