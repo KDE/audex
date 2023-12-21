@@ -924,7 +924,7 @@ void ProfileModel::p_new_name(QString& name)
 {
     for (int j = 0; j < p_cache.count(); ++j) {
         if (name == p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString()) {
-            name = '_' + name;
+            name = QString("%1 (%2)").arg(name).arg(i18n("Copy"));
             p_new_name(name);
             return;
         }
