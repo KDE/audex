@@ -10,13 +10,33 @@
 #include <QMenu>
 #include <QWidgetAction>
 
+class CDDATreeView : public QTreeView
+{
+public:
+    CDDATreeView(QWidget *parent = nullptr)
+        : QTreeView(parent)
+    {
+    }
+
+protected:
+    void closeEditor(QWidget *editor, QAbstractItemDelegate::EndEditHint hint) override
+    {
+        QTreeView::closeEditor(editor, hint);
+        if ((this->currentIndex().row() < this->model()->rowCount() - 1) && (hint == QAbstractItemDelegate::SubmitModelCache)) {
+            QTreeView::closeEditor(nullptr, QAbstractItemDelegate::EditNextItem);
+        }
+    }
+};
+
 MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
 {
     profile_model = new ProfileModel(this);
     if (!profile_model) {
         qDebug() << "Unable to create ProfileModel object. Low mem?";
-        ErrorDialog::show(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
+        ErrorDialog::show(this,
+                          i18n("Unable to create ProfileModel object."),
+                          i18n("Internal error. Check your hardware. If all okay please make bug report."));
         return;
     }
     if (profile_model->lastError().isValid()) {
@@ -100,25 +120,24 @@ void MainWindow::cddb_submit()
 void MainWindow::rip()
 {
     if (cdda_model->empty()) {
-        if (KMessageBox::warningTwoActions(
-                this,
-                i18n("No disc information set. Do you really want to continue?"),
-                i18n("Disc information not found"),
-                KStandardGuiItem::cont(),
-                KStandardGuiItem::cancel(),
-                "no_disc_info_warn")
+        if (KMessageBox::warningTwoActions(this,
+                                           i18n("No disc information set. Do you really want to continue?"),
+                                           i18n("Disc information not found"),
+                                           KStandardGuiItem::cont(),
+                                           KStandardGuiItem::cancel(),
+                                           "no_disc_info_warn")
             == KMessageBox::SecondaryAction)
             return;
     }
 
-    if ((profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool()) && (cdda_model->numOfAudioTracksInSelection() < cdda_model->numOfAudioTracks())) {
-        if (KMessageBox::warningTwoActions(
-                this,
-                i18n("Single file rip selected but not all audio tracks to rip selected. Do you really want to continue?"),
-                i18n("Not all audio tracks selected for single file rip"),
-                KStandardGuiItem::cont(),
-                KStandardGuiItem::cancel(),
-                "singlefile_selection_warn")
+    if ((profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool())
+        && (cdda_model->numOfAudioTracksInSelection() < cdda_model->numOfAudioTracks())) {
+        if (KMessageBox::warningTwoActions(this,
+                                           i18n("Single file rip selected but not all audio tracks to rip selected. Do you really want to continue?"),
+                                           i18n("Not all audio tracks selected for single file rip"),
+                                           KStandardGuiItem::cont(),
+                                           KStandardGuiItem::cancel(),
+                                           "singlefile_selection_warn")
             == KMessageBox::SecondaryAction)
             return;
     }
@@ -191,7 +210,10 @@ void MainWindow::cddb_lookup_start()
 void MainWindow::cddb_lookup_done(const bool successful)
 {
     if (!successful) {
-        ErrorDialog::show(this, i18n("CDDB lookup failed, with the following error:\n%1", cdda_model->lastError().message()), cdda_model->lastError().details(), i18n("CDD Lookup Failure"));
+        ErrorDialog::show(this,
+                          i18n("CDDB lookup failed, with the following error:\n%1", cdda_model->lastError().message()),
+                          cdda_model->lastError().details(),
+                          i18n("CDD Lookup Failure"));
     }
     update_layout();
     disable_submit();
@@ -294,7 +316,12 @@ void MainWindow::update_profile_action()
 void MainWindow::split_titles()
 {
     bool ok;
-    QString divider = QInputDialog::getText(this, i18n("Split titles"), i18n("Please set a divider string. Be aware of empty spaces.\n\nDivider:"), QLineEdit::Normal, " - ", &ok);
+    QString divider = QInputDialog::getText(this,
+                                            i18n("Split titles"),
+                                            i18n("Please set a divider string. Be aware of empty spaces.\n\nDivider:"),
+                                            QLineEdit::Normal,
+                                            " - ",
+                                            &ok);
     if (ok && !divider.isEmpty()) {
         cdda_model->splitTitleOfTracks(divider);
     }
@@ -302,13 +329,12 @@ void MainWindow::split_titles()
 
 void MainWindow::swap_artists_and_titles()
 {
-    if (KMessageBox::warningTwoActions(
-            this,
-            i18n("Do you really want to swap all artists and titles?"),
-            i18n("Swap artists and titles"),
-            KStandardGuiItem::ok(),
-            KStandardGuiItem::cancel(),
-            "no_swap_artists_and_titles_warn")
+    if (KMessageBox::warningTwoActions(this,
+                                       i18n("Do you really want to swap all artists and titles?"),
+                                       i18n("Swap artists and titles"),
+                                       KStandardGuiItem::ok(),
+                                       KStandardGuiItem::cancel(),
+                                       "no_swap_artists_and_titles_warn")
         == KMessageBox::SecondaryAction)
         return;
 
@@ -318,13 +344,12 @@ void MainWindow::swap_artists_and_titles()
 
 void MainWindow::capitalize()
 {
-    if (KMessageBox::warningTwoActions(
-            this,
-            i18n("Do you really want to capitalize all artists and titles?"),
-            i18n("Capitalize artists and titles"),
-            KStandardGuiItem::ok(),
-            KStandardGuiItem::cancel(),
-            "no_capitalize_warn")
+    if (KMessageBox::warningTwoActions(this,
+                                       i18n("Do you really want to capitalize all artists and titles?"),
+                                       i18n("Capitalize artists and titles"),
+                                       KStandardGuiItem::ok(),
+                                       KStandardGuiItem::cancel(),
+                                       "no_capitalize_warn")
         == KMessageBox::SecondaryAction)
         return;
 
@@ -334,13 +359,12 @@ void MainWindow::capitalize()
 
 void MainWindow::auto_fill_artists()
 {
-    if (KMessageBox::warningTwoActions(
-            this,
-            i18n("Do you really want to autofill track artists?"),
-            i18n("Autofill artists"),
-            KStandardGuiItem::ok(),
-            KStandardGuiItem::cancel(),
-            "no_autofill_warn")
+    if (KMessageBox::warningTwoActions(this,
+                                       i18n("Do you really want to autofill track artists?"),
+                                       i18n("Autofill artists"),
+                                       KStandardGuiItem::ok(),
+                                       KStandardGuiItem::cancel(),
+                                       "no_autofill_warn")
         == KMessageBox::SecondaryAction)
         return;
 
@@ -458,7 +482,7 @@ void MainWindow::setup_actions()
 
 void MainWindow::setup_layout()
 {
-    cdda_tree_view = new QTreeView(this);
+    cdda_tree_view = new CDDATreeView(this);
     cdda_tree_view->setModel(cdda_model);
     cdda_tree_view->setAlternatingRowColors(true);
     cdda_tree_view->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -469,7 +493,6 @@ void MainWindow::setup_layout()
     cdda_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(cdda_tree_view, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(cdda_context_menu(const QPoint &)));
     connect(cdda_tree_view, SIGNAL(clicked(const QModelIndex &)), SLOT(toggle(const QModelIndex &)));
-    // connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), SLOT(resizeColumns()));
     connect(cdda_model, SIGNAL(selectionChanged(const int)), this, SLOT(selection_changed(const int)));
 
     cdda_header_dock = new QDockWidget(this);
