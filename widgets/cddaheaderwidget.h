@@ -79,7 +79,6 @@ private Q_SLOTS:
     void remove();
 
     void edit_data();
-    void wikipedia_artist_link();
 
     void set_cover(const QByteArray &cover);
 

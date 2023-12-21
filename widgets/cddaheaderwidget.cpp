@@ -340,37 +340,6 @@ void CDDAHeaderWidget::edit_data()
     Q_EMIT headerDataChanged();
 }
 
-void CDDAHeaderWidget::wikipedia_artist_link()
-{
-    int locale = Preferences::wikipediaLocale();
-    QString l;
-    if (locale == 0)
-        l = "en";
-    if (locale == 1)
-        l = "de";
-    if (locale == 2)
-        l = "fr";
-    if (locale == 3)
-        l = "pl";
-    if (locale == 4)
-        l = "ja";
-    if (locale == 5)
-        l = "it";
-    if (locale == 6)
-        l = "nl";
-    if (locale == 7)
-        l = "es";
-    if (locale == 8)
-        l = "pt";
-    if (locale == 9)
-        l = "sv";
-
-    if (l.isEmpty())
-        l = "en";
-
-    QDesktopServices::openUrl(QUrl(QString("http://%1.wikipedia.org/wiki/").arg(l) + QUrl::toPercentEncoding(cdda_model->artist())));
-}
-
 void CDDAHeaderWidget::set_cover(const QByteArray &cover)
 {
     if (!cover.isEmpty())
