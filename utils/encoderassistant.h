@@ -80,10 +80,6 @@
 #define ENCODER_LAME_BITRATE_X 192
 #define ENCODER_LAME_EMBED_COVER_X "false"
 
-/* tag helper for lame */
-#define ENCODER_LAME_HELPER_TAG "eyeD3"
-#define ENCODER_LAME_HELPER_TAG_VERSION_PARA "--version"
-
 #define ENCODER_OGGENC_NAME i18n("Ogg Vorbis")
 #define ENCODER_OGGENC_ENCODER_NAME "OGGENC"
 #define ENCODER_OGGENC_ICON "audio-x-vorbis+ogg"

@@ -109,7 +109,7 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder)
     return false;
 }
 
-bool EncoderAssistant::canEmbedCover(const Encoder encoder, int* maxCoverSize)
+bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize)
 {
     switch (encoder) {
     case EncoderAssistant::LAME:
@@ -258,7 +258,7 @@ long EncoderAssistant::versionNumber(const EncoderAssistant::Encoder encoder)
     return versionNumber;
 }
 
-const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder, const Parameters& parameters)
+const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder, const Parameters &parameters)
 {
     switch (encoder) {
     case EncoderAssistant::LAME: {
@@ -291,29 +291,16 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
             cmd += QString(" --vbr-new");
         }
 
-        // if we have eyeD3, use this for tagging as lame can't handle unicode
-        if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA) == 0) {
-            cmd += QString::fromUtf8(" $" VAR_INPUT_FILE " $" VAR_OUTPUT_FILE);
-            cmd += QString::fromUtf8(" && eyeD3 -t \"$" VAR_TRACK_TITLE "\" -a \"$" VAR_TRACK_ARTIST "\" --set-text-frame=TPE2:\"$" VAR_ALBUM_ARTIST "\" -A \"$" VAR_ALBUM_TITLE "\" -Y \"$" VAR_DATE "\" -n $" VAR_TRACK_NO
-                                     " -N $" VAR_NO_OF_TRACKS " --set-text-frame=\"TCON:$" VAR_GENRE
-                                     "\" "
-                                     "--set-text-frame=TSSE:\"$" VAR_AUDEX " / Encoder $" VAR_ENCODER "\" ${" VAR_CD_NO " pre=\"--set-text-frame=TPOS:\"}");
-            if (embed_cover) {
-                cmd += QString::fromUtf8(" ${" VAR_COVER_FILE " pre=\"--add-image=\" post=\":FRONT_COVER\"}");
-            }
-            cmd += QString::fromUtf8(" --set-encoding=latin1 $" VAR_OUTPUT_FILE " && eyeD3 --to-v2.3 $" VAR_OUTPUT_FILE);
-
-        } else {
-            if (embed_cover) {
-                cmd += QString::fromUtf8(" ${" VAR_COVER_FILE " pre=\"--ti \"}");
-            }
-            cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$" VAR_TRACK_TITLE "\" --ta \"$" VAR_TRACK_ARTIST "\" --tl \"$" VAR_ALBUM_TITLE "\" --ty \"$" VAR_DATE "\" --tn \"$" VAR_TRACK_NO
-                                     "/$" VAR_NO_OF_TRACKS "\" --tc \"$" VAR_AUDEX " / Encoder $" VAR_ENCODER
-                                     "\" "
-                                     "--tg \"$" VAR_GENRE "\" ${" VAR_CD_NO
-                                     " pre=\"--tv TPOS=\"}"
-                                     " $" VAR_INPUT_FILE " $" VAR_OUTPUT_FILE);
+        if (embed_cover) {
+            cmd += QString::fromUtf8(" ${" VAR_COVER_FILE " pre=\"--ti \"}");
         }
+        cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$" VAR_TRACK_TITLE "\" --ta \"$" VAR_TRACK_ARTIST
+                                 "\" --tl \"$" VAR_ALBUM_TITLE "\" --ty \"$" VAR_DATE "\" --tn \"$" VAR_TRACK_NO "/$" VAR_NO_OF_TRACKS "\" --tc \"$" VAR_AUDEX
+                                 " / Encoder $" VAR_ENCODER
+                                 "\" "
+                                 "--tg \"$" VAR_GENRE "\" ${" VAR_CD_NO
+                                 " pre=\"--tv TPOS=\"}"
+                                 " $" VAR_INPUT_FILE " $" VAR_OUTPUT_FILE);
 
         return cmd;
     }
@@ -335,7 +322,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
             cmd += QString(" -M %1").arg(max_bitrate_value);
         }
 
-        cmd += QString::fromUtf8(" -c \"Artist=$" VAR_TRACK_ARTIST "\" -c \"Title=$" VAR_TRACK_TITLE "\" -c \"Album=$" VAR_ALBUM_TITLE "\" -c \"Date=$" VAR_DATE "\" -c \"Tracknumber=$" VAR_TRACK_NO "\" -c \"Genre=$" VAR_GENRE "\" ${" VAR_CD_NO
+        cmd += QString::fromUtf8(" -c \"Artist=$" VAR_TRACK_ARTIST "\" -c \"Title=$" VAR_TRACK_TITLE "\" -c \"Album=$" VAR_ALBUM_TITLE "\" -c \"Date=$" VAR_DATE
+                                 "\" -c \"Tracknumber=$" VAR_TRACK_NO "\" -c \"Genre=$" VAR_GENRE "\" ${" VAR_CD_NO
                                  " pre=\"-c Discnumber=\"}"
                                  " -o $" VAR_OUTPUT_FILE " $" VAR_INPUT_FILE);
 
@@ -347,7 +335,9 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         QString cmd = ENCODER_OPUSENC_BIN;
         cmd += QString(" --bitrate %1").arg(bitrate, 0, 'f', 2);
 
-        cmd += QString::fromUtf8(" --artist \"$" VAR_TRACK_ARTIST "\" --title \"$" VAR_TRACK_TITLE "\" --album \"$" VAR_ALBUM_TITLE "\" --date \"$" VAR_DATE "\" --track \"$" VAR_TRACK_NO "\" --genre \"$" VAR_GENRE "\""
+        cmd += QString::fromUtf8(" --artist \"$" VAR_TRACK_ARTIST "\" --title \"$" VAR_TRACK_TITLE "\" --album \"$" VAR_ALBUM_TITLE "\" --date \"$" VAR_DATE
+                                 "\" --track \"$" VAR_TRACK_NO "\" --genre \"$" VAR_GENRE
+                                 "\""
                                  " $" VAR_INPUT_FILE " $" VAR_OUTPUT_FILE);
 
         return cmd;
@@ -366,8 +356,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
             }
         }
         cmd += QString(" -%1").arg(compression);
-        cmd += QString::fromUtf8(" -T Artist=\"$" VAR_TRACK_ARTIST "\" -T Title=\"$" VAR_TRACK_TITLE "\" -T Album=\"$" VAR_ALBUM_TITLE "\" -T Date=\"$" VAR_DATE "\" -T Tracknumber=\"$" VAR_TRACK_NO "\" -T Genre=\"$" VAR_GENRE
-                                 "\" -o $" VAR_OUTPUT_FILE " $" VAR_INPUT_FILE);
+        cmd += QString::fromUtf8(" -T Artist=\"$" VAR_TRACK_ARTIST "\" -T Title=\"$" VAR_TRACK_TITLE "\" -T Album=\"$" VAR_ALBUM_TITLE "\" -T Date=\"$" VAR_DATE
+                                 "\" -T Tracknumber=\"$" VAR_TRACK_NO "\" -T Genre=\"$" VAR_GENRE "\" -o $" VAR_OUTPUT_FILE " $" VAR_INPUT_FILE);
         return cmd;
     }
 
@@ -375,8 +365,9 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         int quality = parameters.valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
         QString cmd = ENCODER_FAAC_BIN;
         cmd += QString(" -q %1").arg(quality);
-        cmd += QString::fromUtf8(" --title \"$" VAR_TRACK_TITLE "\" --artist \"$" VAR_TRACK_ARTIST "\" --album \"$" VAR_ALBUM_TITLE "\" --year \"$" VAR_DATE "\" --track $" VAR_TRACK_NO " ${" VAR_CD_NO
-                                 " pre=\"--disc \"} --genre \"$" VAR_GENRE "\" -o $" VAR_OUTPUT_FILE " $" VAR_INPUT_FILE);
+        cmd += QString::fromUtf8(" --title \"$" VAR_TRACK_TITLE "\" --artist \"$" VAR_TRACK_ARTIST "\" --album \"$" VAR_ALBUM_TITLE "\" --year \"$" VAR_DATE
+                                 "\" --track $" VAR_TRACK_NO " ${" VAR_CD_NO " pre=\"--disc \"} --genre \"$" VAR_GENRE "\" -o $" VAR_OUTPUT_FILE
+                                 " $" VAR_INPUT_FILE);
 
         return cmd;
     }

@@ -15,7 +15,6 @@ Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 * Opus (opus files)
 * Ogg Vorbis (ogg files)
 * FAAC (mp4/aac files)
-* eyeD3 (mp3 tagging)
 
 ### Compile
 ```
