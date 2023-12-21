@@ -225,7 +225,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
     connect(ui.kintspinbox_year, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
     ui.ktextedit_extdata->setText(cdda_model->extendedData().join("\n"));
     connect(ui.ktextedit_extdata, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
-    ui.qlineedit_freedbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::FreeDBId(cdda_model->discSignature()), 0, 16));
+    ui.qlineedit_cddbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::CDDBId(cdda_model->discSignature()), 0, 16));
 
     enable_checkbox_multicd(cdda_model->isMultiCD());
 

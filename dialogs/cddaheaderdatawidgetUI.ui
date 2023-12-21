@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>309</width>
-    <height>376</height>
+    <height>393</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -173,12 +173,12 @@ Information:</string>
       </sizepolicy>
      </property>
      <property name="text">
-      <string>FreeDB disc ID:</string>
+      <string>CDDB disc ID:</string>
      </property>
     </widget>
    </item>
    <item row="8" column="1" colspan="3">
-    <widget class="QLineEdit" name="qlineedit_freedbdiscid">
+    <widget class="QLineEdit" name="qlineedit_cddbdiscid">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -197,11 +197,6 @@ Information:</string>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
   </customwidget>
   <customwidget>
    <class>KTextEdit</class>

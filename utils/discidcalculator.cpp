@@ -7,7 +7,7 @@
 
 #include "discidcalculator.h"
 
-quint32 DiscIDCalculator::FreeDBId(const QList<quint32> &discSignature)
+quint32 DiscIDCalculator::CDDBId(const QList<quint32> &discSignature)
 {
     quint32 cksum = 0;
     for (int i = 0; i < discSignature.count() - 1; ++i)
