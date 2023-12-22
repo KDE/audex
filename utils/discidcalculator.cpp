@@ -11,7 +11,7 @@ quint32 DiscIDCalculator::CDDBId(const QList<quint32> &discSignature)
 {
     quint32 cksum = 0;
     for (int i = 0; i < discSignature.count() - 1; ++i)
-        cksum += p_checksum(discSignature[i] / 75);
+        cksum += p_digitsum(discSignature[i] / 75);
     return (((cksum % 0xff) << 24) | (FRAMES2SEC(discSignature.last() - discSignature.first()) << 8) | (discSignature.count() - 1));
 }
 

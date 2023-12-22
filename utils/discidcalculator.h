@@ -21,7 +21,7 @@ public:
     static quint32 AccurateRipId1(const QList<quint32> &discSignature);
     static quint32 AccurateRipId2(const QList<quint32> &discSignature);
 
-    static int p_checksum(int n)
+    static int p_digitsum(int n)
     {
         /* a number like 2344 becomes 2+3+4+4 (13) */
         int ret = 0;

@@ -130,6 +130,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
 
         if (!iconName.isEmpty()) {
             QIcon icon = QIcon::fromTheme(iconName);
+            if (icon.isNull() && QFile::exists(iconName))
+                icon = QIcon(iconName);
             if (!icon.isNull()) {
                 return icon;
             }
