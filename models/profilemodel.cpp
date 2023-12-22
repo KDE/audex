@@ -9,7 +9,7 @@
 
 #include <QIcon>
 
-ProfileModel::ProfileModel(QObject* parent)
+ProfileModel::ProfileModel(QObject *parent)
 {
     Q_UNUSED(parent);
     revert();
@@ -20,19 +20,19 @@ ProfileModel::~ProfileModel()
     clear();
 }
 
-int ProfileModel::rowCount(const QModelIndex& parent) const
+int ProfileModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return p_cache.count();
 }
 
-int ProfileModel::columnCount(const QModelIndex& parent) const
+int ProfileModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return PROFILE_MODEL_COLUMN_NUM;
 }
 
-QVariant ProfileModel::data(const QModelIndex& index, int role) const
+QVariant ProfileModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         return QVariant();
@@ -129,7 +129,7 @@ QVariant ProfileModel::data(const QModelIndex& index, int role) const
         QString iconName(p_cache.at(index.row())[PROFILE_MODEL_ICON_KEY].toString());
 
         if (!iconName.isEmpty()) {
-            QIcon icon(iconName);
+            QIcon icon = QIcon::fromTheme(iconName);
             if (!icon.isNull()) {
                 return icon;
             }
@@ -141,7 +141,7 @@ QVariant ProfileModel::data(const QModelIndex& index, int role) const
     return QVariant();
 }
 
-bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int role)
+bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (!index.isValid()) {
         return false;
@@ -168,13 +168,17 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
             break;
         case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX:
             if (value.toInt() == -1) {
-                p_error = Error(i18n("Profile encoder is not defined."), i18n("You have given no encoder for the profile. Please set one."), Error::ERROR, this);
+                p_error =
+                    Error(i18n("Profile encoder is not defined."), i18n("You have given no encoder for the profile. Please set one."), Error::ERROR, this);
                 return false;
             }
             break;
         case PROFILE_MODEL_COLUMN_PATTERN_INDEX:
             if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Profile filename pattern is not defined."), i18n("You have given no filename pattern for the profile. Please set one."), Error::ERROR, this);
+                p_error = Error(i18n("Profile filename pattern is not defined."),
+                                i18n("You have given no filename pattern for the profile. Please set one."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
@@ -191,8 +195,12 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
         case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX:
             break;
         case PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX:
-            if ((value.toString() != "JPEG") && (value.toString() != "JPG") && (value.toString() != "PNG") && (value.toString() != "TIFF") && (value.toString() != "BMP")) {
-                p_error = Error(i18n("The image file format is unknown."), i18n("Your given image file format is unknown. Please choose on of these formats: JPG/JPEG, PNG or BMP."), Error::ERROR, this);
+            if ((value.toString() != "JPEG") && (value.toString() != "JPG") && (value.toString() != "PNG") && (value.toString() != "TIFF")
+                && (value.toString() != "BMP")) {
+                p_error = Error(i18n("The image file format is unknown."),
+                                i18n("Your given image file format is unknown. Please choose on of these formats: JPG/JPEG, PNG or BMP."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
@@ -206,7 +214,10 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
             break;
         case PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX:
             if ((value.toString() != "M3U") && (value.toString() != "PLS") && (value.toString() != "XSPF")) {
-                p_error = Error(i18n("The playlist file format is unknown."), i18n("Your given playlist file format is unknown. Please choose on of these formats: M3U, PLS or XSPF."), Error::ERROR, this);
+                p_error = Error(i18n("The playlist file format is unknown."),
+                                i18n("Your given playlist file format is unknown. Please choose on of these formats: M3U, PLS or XSPF."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
@@ -226,14 +237,20 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
             break;
         case PROFILE_MODEL_COLUMN_INF_NAME_INDEX:
             if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Info text name must not be empty."), i18n("You have given no name for the info text file. Please set one."), Error::ERROR, this);
+                p_error = Error(i18n("Info text name must not be empty."),
+                                i18n("You have given no name for the info text file. Please set one."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
         case PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX:
             break;
             if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Info text file name suffix must not be empty."), i18n("You have given no suffix for the info text file. Please set one."), Error::ERROR, this);
+                p_error = Error(i18n("Info text file name suffix must not be empty."),
+                                i18n("You have given no suffix for the info text file. Please set one."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
@@ -241,7 +258,10 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
             break;
         case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX:
             if ((value.toString() != "SFV") && (value.toString() != "MD5")) {
-                p_error = Error(i18n("The hashlist file format is unknown."), i18n("Your given hashlist file format is unknown. Please choose on of these formats: SFV, MD5."), Error::ERROR, this);
+                p_error = Error(i18n("The hashlist file format is unknown."),
+                                i18n("Your given hashlist file format is unknown. Please choose on of these formats: SFV, MD5."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
@@ -257,7 +277,8 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
         case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
             break;
             if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Cue filename name must not be empty."), i18n("You have given no name for the cue sheet. Please set one."), Error::ERROR, this);
+                p_error =
+                    Error(i18n("Cue filename name must not be empty."), i18n("You have given no name for the cue sheet. Please set one."), Error::ERROR, this);
                 return false;
             }
             break;
@@ -266,7 +287,10 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
         case PROFILE_MODEL_COLUMN_SF_NAME_INDEX:
             break;
             if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Filename name must not be empty."), i18n("You have given no name for the single audio file. Please set one."), Error::ERROR, this);
+                p_error = Error(i18n("Filename name must not be empty."),
+                                i18n("You have given no name for the single audio file. Please set one."),
+                                Error::ERROR,
+                                this);
                 return false;
             }
             break;
@@ -300,7 +324,10 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
                 }
             }
             if (found) {
-                p_error = Error(i18n("Profile name already exists."), i18n("Your profile name %1 already exists in the set of profiles. Please choose a unique one.", value.toString()), Error::ERROR, this);
+                p_error = Error(i18n("Profile name already exists."),
+                                i18n("Your profile name %1 already exists in the set of profiles. Please choose a unique one.", value.toString()),
+                                Error::ERROR,
+                                this);
                 return false;
             }
         }
@@ -317,7 +344,10 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
                 }
             }
             if (found) {
-                p_error = Error(i18n("Profile index already exists."), i18n("Your profile index %1 already exists in the set of profiles. Please choose a unique one.", value.toInt()), Error::ERROR, this);
+                p_error = Error(i18n("Profile index already exists."),
+                                i18n("Your profile index %1 already exists in the set of profiles. Please choose a unique one.", value.toInt()),
+                                Error::ERROR,
+                                this);
                 return false;
             }
         }
@@ -448,7 +478,7 @@ bool ProfileModel::setData(const QModelIndex& index, const QVariant& value, int 
     return false;
 }
 
-bool ProfileModel::removeRows(int row, int count, const QModelIndex& parent)
+bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);
 
@@ -482,7 +512,7 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex& parent)
     return true;
 }
 
-bool ProfileModel::insertRows(int row, int count, const QModelIndex& parent)
+bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);
 
@@ -570,7 +600,7 @@ void ProfileModel::clear()
     p_current_profile_index = -1;
 }
 
-bool ProfileModel::nameExists(const QString& name) const
+bool ProfileModel::nameExists(const QString &name) const
 {
     for (int j = 0; j < p_cache.count(); ++j)
         if (name == p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString())
@@ -603,7 +633,7 @@ int ProfileModel::getNewIndex() const
     return -1;
 }
 
-static bool lessThan(const Profile& p1, const Profile& p2)
+static bool lessThan(const Profile &p1, const Profile &p2)
 {
     return (QString::localeAwareCompare(p1[PROFILE_MODEL_NAME_KEY].toString(), p2[PROFILE_MODEL_NAME_KEY].toString()) < 0);
 }
@@ -661,7 +691,8 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_MOBILE_QUALITY;
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::MOBILE).toString();
+            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
+                EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::MOBILE).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -671,7 +702,8 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_NORMAL_QUALITY;
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::NORMAL).toString();
+            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
+                EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::NORMAL).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -681,7 +713,8 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_EXTREME_QUALITY;
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::EXTREME).toString();
+            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
+                EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::EXTREME).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -693,7 +726,8 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_MOBILE_QUALITY;
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::MOBILE).toString();
+            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
+                EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::MOBILE).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -703,7 +737,8 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_NORMAL_QUALITY;
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::NORMAL).toString();
+            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
+                EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::NORMAL).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -713,7 +748,8 @@ void ProfileModel::autoCreate()
             p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_EXTREME_QUALITY;
             p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
             p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::EXTREME).toString();
+            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
+                EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::EXTREME).toString();
             p_cache.append(p);
             flag = true;
         }
@@ -920,7 +956,7 @@ const Profile ProfileModel::p_new_profile()
     return p;
 }
 
-void ProfileModel::p_new_name(QString& name)
+void ProfileModel::p_new_name(QString &name)
 {
     for (int j = 0; j < p_cache.count(); ++j) {
         if (name == p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString()) {
@@ -959,14 +995,14 @@ int ProfileModel::copy(const int profileRow)
     return key;
 }
 
-bool ProfileModel::saveProfilesToFile(const QString& filename)
+bool ProfileModel::saveProfilesToFile(const QString &filename)
 {
     KConfig config(filename);
     p_save(&config);
     return true;
 }
 
-bool ProfileModel::loadProfilesFromFile(const QString& filename)
+bool ProfileModel::loadProfilesFromFile(const QString &filename)
 {
     KConfig config(filename);
     beginResetModel();
@@ -976,7 +1012,7 @@ bool ProfileModel::loadProfilesFromFile(const QString& filename)
     return true;
 }
 
-void ProfileModel::p_save(KConfig* config)
+void ProfileModel::p_save(KConfig *config)
 {
     KConfigGroup profilesGroup(config, "Profiles");
     profilesGroup.deleteGroup();
@@ -1032,7 +1068,7 @@ void ProfileModel::p_save(KConfig* config)
         profilesGroup.config()->sync();
 }
 
-void ProfileModel::p_load(KConfig* config)
+void ProfileModel::p_load(KConfig *config)
 {
     KConfigGroup profilesGroup(config, "Profiles");
     clear();
@@ -1077,12 +1113,15 @@ void ProfileModel::p_load(KConfig* config)
         p[PROFILE_MODEL_SF_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_NAME_KEY, DEFAULT_SF_NAME);
 
         p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
-        p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
-        p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
+        p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
+            subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
+        p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
+            subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
-        p[PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
+        p[PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY] =
+            subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
 
         p_cache.append(p);
     }
