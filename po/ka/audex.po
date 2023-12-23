@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:30+0000\n"
+"POT-Creation-Date: 2023-12-23 00:41+0000\n"
 "PO-Revision-Date: 2023-04-28 06:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -20,14 +20,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
+#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "არსებულ ფაილებზე გადაწერა"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
+#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "გაუქმების შემთხვევაში ნაწილობრივი ფაილების წაშლა"
@@ -40,7 +40,7 @@ msgstr "გადმოტანის შემდეგ CD-ის გამო
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
+#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "CDDB ძებნის ავტომატურად ჩატარება"
@@ -108,172 +108,180 @@ msgstr "სერვერის URL"
 msgid "&Audex"
 msgstr "&Audex"
 
-#. i18n: ectx: Menu (cddb)
-#: audexui.rc:13
+#. i18n: ectx: Menu (metadata)
+#: audexui.rc:14
 #, kde-format
-msgid "&CDDB"
+msgid "&Metadata"
+msgstr ""
+
+#. i18n: ectx: Menu (cddb)
+#: audexui.rc:16
+#, fuzzy, kde-format
+#| msgid "&CDDB"
+msgctxt "@title:menu"
+msgid "CDDB"
 msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
-#: audexui.rc:18
+#: audexui.rc:24
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
 msgstr "სათაური ჩასწორების ხელსაწყოები"
 
 #. i18n: ectx: Menu (settings)
-#: audexui.rc:25
+#: audexui.rc:32
 #, kde-format
 msgid "&Settings"
 msgstr "&მორგება"
 
-#: core/audex.cpp:97
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "პროფილი არჩეუი არაა. ოპერაცია გაუქმდა."
 
-#: core/audex.cpp:114
+#: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "რიპინგის და კოდირების \"%1\" პროფილით დაწყება..."
 
-#: core/audex.cpp:576 core/audex.cpp:627
+#: core/audex.cpp:631 core/audex.cpp:691
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "ბილიკი ვერ ვიპოვე \"%1\"."
 
-#: core/audex.cpp:576 core/audex.cpp:627 core/audex.cpp:636 core/audex.cpp:1031
+#: core/audex.cpp:631 core/audex.cpp:691 core/audex.cpp:700 core/audex.cpp:1106
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "შეამოწმეთ თქვენი ბილიკი (ჩაწერის უფლებები?)"
 
-#: core/audex.cpp:589
+#: core/audex.cpp:644
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 200 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:595 core/audex.cpp:655
+#: core/audex.cpp:650 core/audex.cpp:719
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. თავზე გადავაწერ."
 
-#: core/audex.cpp:597 core/audex.cpp:657 core/audex.cpp:1011
+#: core/audex.cpp:652 core/audex.cpp:721 core/audex.cpp:1086
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. გამოვტოვე."
 
-#: core/audex.cpp:636 core/audex.cpp:1031
+#: core/audex.cpp:700 core/audex.cpp:1106
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "საქაღალდის შექმნის შეცდომა: %1."
 
-#: core/audex.cpp:639 core/audex.cpp:1034
+#: core/audex.cpp:703 core/audex.cpp:1109
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "საქაღალდე წარმატებით შეიქმნა: \"%1\"."
 
-#: core/audex.cpp:642
+#: core/audex.cpp:706
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "საქაღალდე უკვე არსბეობს: \"%1\"."
 
-#: core/audex.cpp:649
+#: core/audex.cpp:713
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:672
+#: core/audex.cpp:736
 #, kde-format
 msgid "Temporary folder \"%1\" error."
 msgstr "დროებითი საქაღალდის \"%1\" შეცდომა."
 
-#: core/audex.cpp:672
+#: core/audex.cpp:736
 #, kde-format
 msgid "Please check."
 msgstr "გთხოვთ, გადაამოწმოთ."
 
-#: core/audex.cpp:678
+#: core/audex.cpp:742
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "დროებით საქაღალდეში '%1' თავისუფალი ადგილი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:680
+#: core/audex.cpp:744
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "დროებით საქაღალდეს '%1' სულ ცოტა 200 მიბ ადგილი სჭირდება."
 
-#: core/audex.cpp:680
+#: core/audex.cpp:745
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "გაათავისუფლეთ ადგილი ან სხვა ბილიკი მიუთითეთ."
 
-#: core/audex.cpp:709
+#: core/audex.cpp:774
 #, kde-format
 msgid "Eject CD tray"
 msgstr "დისკის ჩასადების გამოყენება"
 
-#: core/audex.cpp:756
+#: core/audex.cpp:822
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "ყდა \"%1\" წარმატებით შეინახა."
 
-#: core/audex.cpp:759
+#: core/audex.cpp:825
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "ყდის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:759 core/audex.cpp:830 core/audex.cpp:867 core/audex.cpp:910
-#: core/audex.cpp:945 core/audex.cpp:999 core/audex.cpp:1026
+#: core/audex.cpp:825 core/audex.cpp:899 core/audex.cpp:938 core/audex.cpp:983
+#: core/audex.cpp:1020 core/audex.cpp:1074 core/audex.cpp:1101
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "შეამოწმეთ ბილიკი და თქვენი წვდომები"
 
-#: core/audex.cpp:826
+#: core/audex.cpp:895
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "დასაკრავი სია %1 წარმატებით შეიქმნა."
 
-#: core/audex.cpp:830
+#: core/audex.cpp:899
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "დასაკრავი სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:864
+#: core/audex.cpp:935
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "ინფორმაციის ფაილი \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:867
+#: core/audex.cpp:938
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "ფაილში \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:907
+#: core/audex.cpp:980
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "ჰეშების სია '%1' წარმატებით შეიქმნა."
 
-#: core/audex.cpp:910
+#: core/audex.cpp:983
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "ჰეშების სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:942
+#: core/audex.cpp:1017
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue sheet \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:945
+#: core/audex.cpp:1020
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue sheet \"%1\" -ის შენახვის შეცდომა."
 
-#: core/audex.cpp:999 core/audex.cpp:1026
+#: core/audex.cpp:1074 core/audex.cpp:1101
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "საქაღალდის \"%1\" გახსნის შეცდომა."
 
-#: dialogs/cddaheaderdatadialog.cpp:174 widgets/cddaheaderwidget.cpp:497
+#: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
 msgid "Edit Data"
 msgstr "მონაცემების ჩასწორება"
@@ -336,11 +344,12 @@ msgstr "დამატებითი ინფორმაცია:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, kde-format
-msgid "FreeDB disc ID:"
+#, fuzzy, kde-format
+#| msgid "FreeDB disc ID:"
+msgid "CDDB disc ID:"
 msgstr "FreeDB დისკის ID:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_freedbdiscid)
+#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
 #, kde-format
 msgid "0x00000000"
@@ -538,33 +547,6 @@ msgstr "შემოტანის სიჩქარე"
 #, kde-format
 msgid "Output File"
 msgstr "გამოტანის ფაილი"
-
-#: dialogs/coverbrowserdialog.cpp:31
-#, kde-format
-msgid "Searching for covers..."
-msgstr "ყდების ძებნა..."
-
-#: dialogs/coverbrowserdialog.cpp:69
-#, kde-format
-msgid "Fetching Thumbnail %1 / %2..."
-msgstr "მინიატურის გამოთხოვა %1 / %2..."
-
-#: dialogs/coverbrowserdialog.cpp:74
-#, kde-format
-msgid "Found 1 Cover"
-msgid_plural "Found %1 Covers"
-msgstr[0] "ნაპოვნია 1 ყდა"
-msgstr[1] "ნაპოვნია %1 ყდა"
-
-#: dialogs/coverbrowserdialog.cpp:80
-#, kde-format
-msgid "No Covers Found"
-msgstr "ყდა ნაპოვნი არაა"
-
-#: dialogs/coverbrowserdialog.cpp:98
-#, kde-format
-msgid "Fetch Cover From Google"
-msgstr "ყდის გუგლიდან გამოთხოვა"
 
 #: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
@@ -895,17 +877,17 @@ msgstr "Cue Sheet -ის მორგება"
 msgid "Name/Pattern:"
 msgstr "სახელი/შაბლონი:"
 
-#: dialogs/profiledatadialog.cpp:91
+#: dialogs/profiledatadialog.cpp:95
 #, kde-format
 msgid "Modify Profile"
 msgstr "პროფილის შეცვლა"
 
-#: dialogs/profiledatadialog.cpp:182
+#: dialogs/profiledatadialog.cpp:186
 #, kde-format
 msgid "Create Profile"
 msgstr "პროფილის შექმნა"
 
-#: dialogs/profiledatadialog.cpp:192
+#: dialogs/profiledatadialog.cpp:196
 #, kde-format
 msgid "New Profile"
 msgstr "ახალი პროფილი"
@@ -932,12 +914,85 @@ msgid "Info Settings"
 msgstr "Info Settings"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, kde-format
-msgid "Usable Variables For Text Template"
-msgstr "ტექსტის ნიმუშებისთვის გამოყენებადი ცვლადები"
-
-#: dialogs/profiledatainfodialog.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
+#| "by a special value and can even contain parameters.<br />For example the "
+#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
+#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
+#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
+#| "div>will be replaced by the relevant artist of the cd. Variables may also "
+#| "have attribute, for example:<div style=\"font-family:monospace; "
+#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
+#| "pre></div>This would print the current date. Setting the format will "
+#| "control how this is done. The example (above)would result int the date "
+#| "being printed as 2010-10-07 (if this was the current date). See below for "
+#| "more details.<br /><br />You can make use of the following variables:<br /"
+#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
+#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
+#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
+#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
+#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
+#| "td><td></td><td>Prints the relevant date (usually release year) of the "
+#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
+#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
+#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
+#| "(compressed) music files (incl. the cover). The attribute iec can be one "
+#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
+#| "attribute precision gives the number of decimal places. Default "
+#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
+#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
+#| "relevant overall length of all extracted tracks. The format is min:sec.</"
+#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
+#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
+#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
+#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
+#| "td><td>Prints the current date. The attribute format specifies the output "
+#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
+#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
+#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
+#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
+#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
+#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
+#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
+#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
+#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
+#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
+#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
+#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
+#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
+#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
+#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
+#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
+#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
+#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
+#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
+#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
+#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
+#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
+#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
+#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
+#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
+#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
+#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
+#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
+#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
+#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
+#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
+#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
+#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
+#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
+#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
+#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
+#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
+#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
+#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
+#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
+#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
+#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -973,47 +1028,15 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"specifies the output. <i>Please have a look at the offical qt documentation "
+"for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
-"The attribute format specifies the output (*).</td><td>${now format=\"yyyy-"
-"MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
+"The attribute format specifies the output. <i>Please have a look at the "
+"offical qt documentation for the format variables.</i></td><td>${now format="
+"\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
-"linebreak.</td><td></td></tr></tbody></table><br /><br />(* date/time format "
-"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-"thead><tr valign=\"top\"><td>d</td><td>The day as a number without a leading "
-"zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The day as a "
-"number with a leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</"
-"td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></"
-"tr><tr valign=\"top\"><td>dddd</td><td>The long localized day name (e."
-"g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</td><td>The "
-"month as a number without a leading zero (1 to 12).</td></tr><tr valign=\"top"
-"\"><td>MM</td><td>The month as a number with a leading zero (01 to 12).</"
-"td></tr><tr valign=\"top\"><td>MMM</td><td>The abbreviated localized month "
-"name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign=\"top\"><td>MMMM</"
-"td><td>The long localized month name (e.g&#x2e; 'January' to 'December').</"
-"td></tr><tr valign=\"top\"><td>yy</td><td>The year as two digit number (00 "
-"to 99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>The year as four digit "
-"number.</td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" "
-"border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></"
-"tr></thead><tr valign=\"top\"><td>h</td><td>The hour without a leading zero "
-"(0 to 23 or 1 to 12 if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</"
-"td><td>The hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)."
-"</td></tr><tr valign=\"top\"><td>H</td><td>The hour without a leading zero "
-"(0 to 23, even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</"
-"td><td>The hour with a leading zero (00 to 23, even with AM/PM display).</"
-"td></tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero "
-"(0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-"leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-"second without a leading zero (0 to 59).</td></tr><tr valign=\"top\"><td>ss</"
-"td><td>The second with a leading zero (00 to 59).</td></tr><tr valign=\"top"
-"\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</td></"
-"tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with leading zeroes "
-"(000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</td><td>Interpret as "
-"an AM/PM time. AP must be either 'AM' or 'PM'.</td></tr><tr valign=\"top"
-"\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or "
-"'pm'.</td></tr></table></body></html>"
+"linebreak.</td><td></td></tr></tbody></table></body></html>"
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1093,12 +1116,12 @@ msgstr ""
 "valign=\"top\"><td> აპ ან ა</td><td> ინტერპრეტაცია, როგორც AM/PM დრო. ap "
 "უნდა იყოს ან &#39;am&#39; ან &#39;pm&#39;.</td></tr></table></body></html>"
 
-#: dialogs/profiledatainfodialog.cpp:244
+#: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
 msgid "Load Text Template"
 msgstr "ტექსტის ნიმუშის ჩატვირთვა"
 
-#: dialogs/profiledatainfodialog.cpp:257
+#: dialogs/profiledatainfodialog.cpp:210
 #, kde-format
 msgid "Save Text Template"
 msgstr "ტექსტის ნიმუშის შენახვა"
@@ -1118,8 +1141,8 @@ msgstr "ცვლადების შესახებ"
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
 #: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
-#: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
-#: widgets/wavewidgetUI.ui:31
+#: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
+#: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "სუფიქსი:"
@@ -1335,8 +1358,9 @@ msgid "KDE CDDA Extractor"
 msgstr "KDE CDDA -ის გამშლელი"
 
 #: main.cpp:35
-#, kde-format
-msgid "Copyright © 2007–2015 by Marco Nelles"
+#, fuzzy, kde-format
+#| msgid "Copyright © 2007–2015 by Marco Nelles"
+msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "© 2007–2015 Marco Nellses, ყველა უფლება დაცულია"
 
 #: main.cpp:38
@@ -1375,22 +1399,12 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:41
-#, kde-format
-msgid "Special thanks to credativ GmbH (Germany) for support"
+#, fuzzy, kde-format
+#| msgid "Special thanks to credativ GmbH (Germany) for support"
+msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "განსაკუთრებული მადლობა credativ GmbH-ს (გერმანია) მხარდაჭერისთვის"
 
 #: main.cpp:42
-#, kde-format
-msgid "freedb.org"
-msgstr "freedb.org"
-
-#: main.cpp:42
-#, kde-format
-msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr ""
-"განსაკუთრებული მადლობა freedb.org-ს უფასო CDDB-ის მსგავსი ბაზის მოწოდებისთვის"
-
-#: main.cpp:43
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org Foundation"
@@ -1401,24 +1415,24 @@ msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "განსაკუთრებული მადლობა Xiph.Org-ს, კომპაქტ დისკის დარიპვის მხარდაჭერისთვის"
 
-#: main.cpp:44
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: main.cpp:44
+#: main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: mainwindow.cpp:19
+#: mainwindow.cpp:38
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "ProfileModel ობიექტის შექმნის შეცდომა."
 
-#: mainwindow.cpp:19 mainwindow.cpp:32
+#: mainwindow.cpp:39 mainwindow.cpp:52
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
@@ -1426,22 +1440,22 @@ msgstr ""
 "შიდა შეცდომა. გადაამოწმეთ აპარატურა. თუ ყველაფერი კარგადაა, გადმოგვიგზავნეთ "
 "ანგარიში შეცდომის შესახებ."
 
-#: mainwindow.cpp:32
+#: mainwindow.cpp:52
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "CDDAModel ობიექტის შექმნის შეცდომა."
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:124
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "დისკის ინფორმაცია დაყენებული არაა. მართლა გნებავთ, გააგრძელოთ?"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:125
 #, kde-format
 msgid "Disc information not found"
 msgstr "დისკის ინფორმაცია ვერ ვიპოვე"
 
-#: mainwindow.cpp:117
+#: mainwindow.cpp:136
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1450,37 +1464,37 @@ msgstr ""
 "არჩეულია მარტივი დარიპვა, მაგრამ ყველა ტრეკი მონიშნული არაა. მართლა გნებავთ, "
 "გააგრძელოთ?"
 
-#: mainwindow.cpp:118
+#: mainwindow.cpp:137
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "ერთ-ფაილიანი დარიპვისთვის ყველა ტრეკი მონიშნული არაა"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:161
 #, kde-format
 msgid "General settings"
 msgstr "ზოგადი პარამეტრები"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:164
 #, kde-format
 msgid "Device settings"
 msgstr "მოწყობილობის მორგება"
 
-#: mainwindow.cpp:148
+#: mainwindow.cpp:167
 #, kde-format
 msgid "Profiles"
 msgstr "პროფილები"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:176
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB-ის მორგება"
 
-#: mainwindow.cpp:160
+#: mainwindow.cpp:179
 #, kde-format
 msgid "Remote Server"
 msgstr "დაშორებული სერვერი"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:219
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1489,17 +1503,17 @@ msgstr ""
 "CDDB-ის ძებნის შეცდომა:\n"
 "%1"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:221
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD მოძებნის შეცდომა"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:326
 #, kde-format
 msgid "Split titles"
 msgstr "სათაურების დაყოფა"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:327
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1510,103 +1524,111 @@ msgstr ""
 "\n"
 "გამყოფი:"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "მართლა გნებავთ ყველა შემსრულებლისა და სათაურისთვის ადგილის შეცვლა?"
 
-#: mainwindow.cpp:308
+#: mainwindow.cpp:340
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "შემსრულებლებისა და სათაურების ადგილის შეცვლა"
 
-#: mainwindow.cpp:323
+#: mainwindow.cpp:354
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "მართლა გნებავთ ყველა შემსრულებლისა და სათაურის ზედა რეგისტრში გადაყვანა?"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:355
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "შემსრულებლებისა და სათაურების ზედა რეგისტრში გადაყვანა"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "გნებავთ ტრეკის შემსრულებლების ავტომატური შევსება?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Autofill artists"
 msgstr "ხელოვანის ავტომატური ჩაწერა"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:397
 #, kde-format
 msgid "Eject"
 msgstr "მოხსნა"
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:404
 #, kde-format
 msgid "Profile:"
 msgstr "პროფილი:"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:416
 #, kde-format
 msgid "&Profile:"
 msgstr "&პროფილი:"
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Profile"
 msgstr "პროფილი"
 
-#: mainwindow.cpp:400
-#, kde-format
-msgid "Fetch Info"
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+#| msgid "Fetch Info"
+msgid "Fetch"
 msgstr "ინფორმაციის გამოთხოვა"
 
-#: mainwindow.cpp:407
-#, kde-format
-msgid "Submit Info"
+#: mainwindow.cpp:437
+#, fuzzy, kde-format
+#| msgid "Submit Info"
+msgid "Submit"
 msgstr "ინფორმაციის გადაგზავნა"
 
-#: mainwindow.cpp:413
+#: mainwindow.cpp:443
+#, fuzzy, kde-format
+#| msgid "Edit Data"
+msgid "Edit"
+msgstr "მონაცემების ჩასწორება"
+
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Rip..."
 msgstr "რიპი..."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:459
 #, kde-format
 msgid "Split Titles..."
 msgstr "სათაურების დაყოფა..."
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:464
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "შემსრულებლებისა და სათაურების ადგილის შეცვლა"
 
-#: mainwindow.cpp:432
+#: mainwindow.cpp:469
 #, kde-format
 msgid "Capitalize"
 msgstr "დიდი ასოთი აღნიშვნა"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:474
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "შემსრულებლის ველის ავტომატური შევსება"
 
-#: mainwindow.cpp:442
+#: mainwindow.cpp:479
 #, kde-format
 msgid "Select All Tracks"
 msgstr "ყველა აუდიობილიკის მონიშვნა"
 
-#: mainwindow.cpp:447
+#: mainwindow.cpp:484
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "ყველა მონიშვნის მოხსნა"
 
-#: mainwindow.cpp:452
+#: mainwindow.cpp:489
 #, kde-format
 msgid "Invert Selection"
 msgstr "მონიშვნის ინვერსია"
@@ -1734,43 +1756,43 @@ msgstr "სათაური"
 msgid "Length"
 msgstr "ხანგრძლივობა"
 
-#: models/profilemodel.cpp:163
+#: models/profilemodel.cpp:167
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "პროფილის სახელი ცარიელი ვერ იქნება."
 
-#: models/profilemodel.cpp:163
+#: models/profilemodel.cpp:167
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "პროფილისთვის სახელი არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:174
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "პროფილის კოდირება აღწერილი არაა."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:174
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "პროფილისთვის ენკოდერი არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
 
-#: models/profilemodel.cpp:175
+#: models/profilemodel.cpp:180
 #, kde-format
 msgid "Profile filename pattern is not defined."
 msgstr "პროფილის ფაილის სახელი აღწერილი არაა."
 
-#: models/profilemodel.cpp:175
+#: models/profilemodel.cpp:181
 #, kde-format
 msgid "You have given no filename pattern for the profile. Please set one."
 msgstr ""
 "პროფილისთვის ფაილის სახელის ნიმუში არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
 
-#: models/profilemodel.cpp:193
+#: models/profilemodel.cpp:202
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "გამოსახულების ფაილის ფორმატი უცნობია."
 
-#: models/profilemodel.cpp:193
+#: models/profilemodel.cpp:203
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
@@ -1778,22 +1800,22 @@ msgid ""
 msgstr ""
 "მითითებული სურათის ფორმატი უცნობია. სწორი ფორმატებია JPG/JPEG, PNG და BMP."
 
-#: models/profilemodel.cpp:199
+#: models/profilemodel.cpp:211
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "ყდის სახელი ცარიელი არ შეიძლება, იყოს."
 
-#: models/profilemodel.cpp:199
+#: models/profilemodel.cpp:211
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "ყდისთვის სახელი არ დაგირქმევიათ. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:207
+#: models/profilemodel.cpp:219
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "დასაკრავი სიის ფაილის ფორმატი უცნობია."
 
-#: models/profilemodel.cpp:207
+#: models/profilemodel.cpp:220
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1802,43 +1824,43 @@ msgstr ""
 "დასაკრავი სიის მითითებული ფორმატი უცნობია. აირჩიეთ შემდეგი ფორმატებიდან: "
 "M3U, PLS და XSPF."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:228
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "დასაკრავი სიის სახელი ცარიელი არ შეიძლება, იყოს."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:228
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "დასაკრავ სიას სახელი არ აქვს. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:227
+#: models/profilemodel.cpp:242
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "ინფორმაციის ტექსტის სახელი ცარიელი არ შეიძლება, იყოს."
 
-#: models/profilemodel.cpp:227
+#: models/profilemodel.cpp:243
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "ტექსტური ფაილისთვის სახელი არ დაგირქმევიათ. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:234
+#: models/profilemodel.cpp:252
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "ინფორმაციის ტექსტის ფაილის სახელის სუფიქსი ცარიელი არ შეიძლება, იყოს."
 
-#: models/profilemodel.cpp:234
+#: models/profilemodel.cpp:253
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
 "ინფორმაციის ტექსტური ფაილისთვის სუფიქსი არ მიგინიჭებიათ. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:263
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "ჰეშლისტის ფაილის ფორმატი უცნობია."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:264
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
@@ -1847,42 +1869,42 @@ msgstr ""
 "მითითებული ჰეშლისტის ფაილის ფორმატი უცნობია. აირჩიეთ ერთ-ერთი შემდეგიდან: "
 "SFV, MD5."
 
-#: models/profilemodel.cpp:249
+#: models/profilemodel.cpp:273
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "ჰეშლისტის სახელი ცარიელი არ შეიძლება, იყოს."
 
-#: models/profilemodel.cpp:249
+#: models/profilemodel.cpp:273
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "ჰეშლისტისტვის სახელი არ დაგირქმევიათ. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:258
+#: models/profilemodel.cpp:283
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "Cue-ის ფაილის სახელი ცარიელი არ უნდა იყოს."
 
-#: models/profilemodel.cpp:258
+#: models/profilemodel.cpp:283
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Cue Sheet-ისთვის სახელი არ დაგირქმევიათ. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:267
+#: models/profilemodel.cpp:292
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "ფაილის სახელი ცარიელი არ უნდა იყოს."
 
-#: models/profilemodel.cpp:267
+#: models/profilemodel.cpp:293
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "ერთი აუდიო ფაილისთვის სახელი არ დაგირქმევიათ. გთხოვთ, დააყენოთ."
 
-#: models/profilemodel.cpp:299
+#: models/profilemodel.cpp:329
 #, kde-format
 msgid "Profile name already exists."
 msgstr "პროფილის სახელი უკვე არსებობს."
 
-#: models/profilemodel.cpp:299
+#: models/profilemodel.cpp:330
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
@@ -1891,12 +1913,12 @@ msgstr ""
 "პროფილის სახელი %1 უკვე არსებობს პროფილების ნაკრებში. შეიყვანეთ უნიკალური "
 "სახელი."
 
-#: models/profilemodel.cpp:316
+#: models/profilemodel.cpp:349
 #, kde-format
 msgid "Profile index already exists."
 msgstr "პროფილის ინდექსი უკვე არსებობს."
 
-#: models/profilemodel.cpp:316
+#: models/profilemodel.cpp:350
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
@@ -1905,62 +1927,69 @@ msgstr ""
 "პროფილის ინდექსი %1 პროფილების ნაკრებში უკვე არსებობს. აირჩიეთ უნიკალური "
 "სახელი."
 
-#: models/profilemodel.cpp:439
+#: models/profilemodel.cpp:478
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "უცნობი შეცდომა. პროფილის მოდელში ინდექსი ვერ ვიპოვე."
 
-#: models/profilemodel.cpp:439
+#: models/profilemodel.cpp:478
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "შიდა შეცდომა. შეგვატყობინეთ, გეთაყვა."
 
-#: models/profilemodel.h:162
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
+#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#, kde-format
+msgid "Copy"
+msgstr "კოპირება"
+
+#: models/profilemodel.h:164
 #, kde-format
 msgid " (Mobile Quality)"
 msgstr " (მობილურის ხარისხი)"
 
-#: models/profilemodel.h:163
+#: models/profilemodel.h:165
 #, kde-format
 msgid " (Normal Quality)"
 msgstr " (ნორმალური ხარისხი)"
 
-#: models/profilemodel.h:164
+#: models/profilemodel.h:166
 #, kde-format
 msgid " (Extreme Quality)"
 msgstr " (მაღალი ხარისხი)"
 
-#: utils/cachedimage.cpp:115
+#. i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
+#: utils/cachedimage.cpp:117
 #, kde-format
 msgid "Common image formats"
 msgstr "გამოსახულების ჩვეულებრივი ფორმატები"
 
-#: utils/cachedimage.cpp:160
+#: utils/cachedimage.cpp:162
 #, kde-format
 msgid "File does not exist."
 msgstr "ფაილი არ არსებობს."
 
-#: utils/cachedimage.cpp:160
+#: utils/cachedimage.cpp:162
 #, kde-format
 msgid "Please check if the file really exists."
 msgstr "შეამოწმეთ, ფაილი მართლა თუ არსებობს."
 
-#: utils/cachedimage.cpp:169
+#: utils/cachedimage.cpp:171
 #, kde-format
 msgid "Cannot open file."
 msgstr "ფაილის გახსნის შეცდომა."
 
-#: utils/cachedimage.cpp:169
+#: utils/cachedimage.cpp:171
 #, kde-format
 msgid "Please check your file. Maybe you do not have proper permissions."
 msgstr "შეამოწმეთ თქვენი ფაილი. შეიძლება, წვდომები არ გაგაჩნათ."
 
-#: utils/cachedimage.cpp:175 utils/cachedimage.cpp:229
+#: utils/cachedimage.cpp:177 utils/cachedimage.cpp:234
 #, kde-format
 msgid "Unsupported image format"
 msgstr "გამოსახულების მხარდაუჭერელი ფორმატი"
 
-#: utils/cachedimage.cpp:175
+#: utils/cachedimage.cpp:178
 #, kde-format
 msgid ""
 "Please check your file. Maybe it is corrupted. Otherwise try to convert your "
@@ -1969,41 +1998,44 @@ msgstr ""
 "შეამოწმეთ თქვენი ფაილი. შეიძლება ის დაზიანებულია. არადა სცადეთ, თქვენი ყდის "
 "ფაილი გარე პროგრამით უფრო ცნობილ ფორმატში გადაიყვანოთ, მაგალითად JPG."
 
-#: utils/cachedimage.cpp:194
+#: utils/cachedimage.cpp:199
 #, kde-format
 msgid "Cannot open file"
 msgstr "ფაილის გახსნის შეცდომა"
 
-#: utils/cachedimage.cpp:194
+#: utils/cachedimage.cpp:199
 #, kde-format
 msgid "Please check your permissions."
 msgstr "შეამოწმეთ თქვენი წვდომები."
 
-#: utils/cachedimage.cpp:202
+#: utils/cachedimage.cpp:207
 #, kde-format
 msgid "Cannot save file"
 msgstr "ფაილის შენახვა შეუძლებელია"
 
-#: utils/cachedimage.cpp:202
+#: utils/cachedimage.cpp:207
 #, kde-format
 msgid "Please check your permissions. Do you have enough space?"
 msgstr "გადაამოწმეთ თქვენი წვდომები. თავისუფალი ადგილი საკმარისია?"
 
-#: utils/cachedimage.cpp:229
-#, kde-format
+#: utils/cachedimage.cpp:235
+#, fuzzy, kde-format
+#| msgid ""
+#| "Please use common image formats like JPEG, PNG or GIF as they are "
+#| "supported on almost all systems."
 msgid ""
-"Please use common image formats like JPEG, PNG or GIF as they are supported "
-"on almost all systems."
+"Please use common image formats like JPEG or PNG as they are supported on "
+"almost all systems."
 msgstr ""
 "გამოიყენეთ ცნობილი ფორმატები, როგორიცაა JPEG, PNG ან GIF, რადგან ისინი "
 "თითქმის ყველა პლატფორმაზეა მხარდაჭერილი."
 
-#: utils/cachedimage.cpp:241
+#: utils/cachedimage.cpp:248
 #, kde-format
 msgid "Cannot write on device"
 msgstr "მოწყობილობაზე ჩაწერის შეცდომა"
 
-#: utils/cachedimage.cpp:241
+#: utils/cachedimage.cpp:248
 #, kde-format
 msgid "Please check your permissions. Do you have enough space on your device?"
 msgstr "გადაამოწმეთ თქვენი წვდომები. თავისუფალი ადგილი საკმარისია?"
@@ -2182,58 +2214,38 @@ msgstr ""
 "გადაამოწმეთ მოწყობილობა. მართლა \"%1\"-ა? თუ ასეა, \"%1\"-ზე წვდომებიც "
 "გადაამოწმეთ."
 
-#: utils/coverfetcher.cpp:137
-#, kde-format
-msgid "There was an error communicating with Google."
-msgstr "Google-სთან მიერთების შეცდომა."
-
-#: utils/coverfetcher.cpp:137
-#, kde-format
-msgid "Try again later. Otherwise make a bug report."
-msgstr "მოგვიანებით სცადეთ. ან შეცდომის ანგარიში გამოგვიგზავნეთ."
-
-#: utils/coverfetcher.cpp:150
-#, kde-format
-msgid "Google server: Empty response."
-msgstr "Google-ის სერვერი: პასუხი ცარიელია."
-
-#: utils/coverfetcher.cpp:150
-#, kde-format
-msgid "Try again later. Make a bug report."
-msgstr "მოგვიანებით სცადეთ. ან შეცდომის ანგარიში გამოგვიგზავნეთ."
-
-#: utils/coverfetcher.cpp:223
-#, kde-format
-msgid "%1x%2"
-msgstr "%1x%2"
-
-#: utils/encoderassistant.h:54
+#: utils/encoderassistant.h:57
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:84
+#: utils/encoderassistant.h:83
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:112
+#: utils/encoderassistant.h:111
+#, kde-format
+msgid "Opus"
+msgstr ""
+
+#: utils/encoderassistant.h:127
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (კარგვის გარეშე)"
 
-#: utils/encoderassistant.h:122
+#: utils/encoderassistant.h:137
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:138
+#: utils/encoderassistant.h:153
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (დაუმუშავებელი, შეუკუმშავი)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:145 utils/encoderassistant.h:146
+#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
@@ -2335,77 +2347,42 @@ msgstr "ფაილის %1 სერვერზე ატვირთვა.
 msgid "Finished uploading file %1 to server."
 msgstr "ფაილის %1 სერვერზე ატვირთვა წარმატებულია."
 
-#: widgets/cddaheaderwidget.cpp:465
-#, kde-format
-msgid "Released: "
-msgstr "გამოცემის თარიღი: "
-
-#: widgets/cddaheaderwidget.cpp:465
-#, kde-format
-msgid "Genre: "
-msgstr "ჟანრი: "
-
-#: widgets/cddaheaderwidget.cpp:465
+#: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "CD Number: "
 msgstr "CD-ის ნომერი: "
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: widgets/cddaheaderwidget.cpp:498 widgets/generalsettingswidgetUI.ui:117
-#, kde-format
-msgid "Wikipedia"
-msgstr "Wikipedia - უფასო ენციკლოპედია"
-
-#: widgets/cddaheaderwidget.cpp:522
+#: widgets/cddaheaderwidget.cpp:164
 #, kde-format
 msgid "No audio CD detected"
 msgstr "Audio CD ვერ ვიპოვე"
 
-#: widgets/cddaheaderwidget.cpp:695
+#: widgets/cddaheaderwidget.cpp:284
 #, kde-format
 msgid "Load Cover"
 msgstr "ყდის ჩატვირთვა"
 
-#: widgets/cddaheaderwidget.cpp:705 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:294 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "ყდის შენახვა"
 
-#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
-#, kde-format
-msgid "No cover found."
-msgstr "ყდა ნაპოვნი არაა."
-
-#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
-#, kde-format
-msgid ""
-"Check your artist name and title. Otherwise you can load a custom cover from "
-"an image file."
-msgstr ""
-"შეამოწმეთ შემსრულებლის სახელი და სათაური. არადა შეგიძლიათ ყდა სურათიდან "
-"ხელით მიუთითოთ."
-
-#: widgets/cddaheaderwidget.cpp:862
-#, kde-format
-msgid "Fetch cover from Google..."
-msgstr "ყდის გუგლიდან გამოთხოვა..."
-
-#: widgets/cddaheaderwidget.cpp:867
+#: widgets/cddaheaderwidget.cpp:381
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "ყდის ხელით მითითება..."
 
-#: widgets/cddaheaderwidget.cpp:872
+#: widgets/cddaheaderwidget.cpp:386
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "ყდის ფაილში შენახვა..."
 
-#: widgets/cddaheaderwidget.cpp:877
+#: widgets/cddaheaderwidget.cpp:391
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "ყდის სრულ ზომაში ჩვენება..."
 
-#: widgets/cddaheaderwidget.cpp:882
+#: widgets/cddaheaderwidget.cpp:396
 #, kde-format
 msgid "Remove Cover"
 msgstr "ყდის წაშლა"
@@ -2437,6 +2414,7 @@ msgstr "ხარისხი"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+#: widgets/opusencwidgetUI.ui:135
 #, kde-format
 msgid "Lowest"
 msgstr "უმდაბლესი"
@@ -2444,6 +2422,7 @@ msgstr "უმდაბლესი"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+#: widgets/opusencwidgetUI.ui:149
 #, kde-format
 msgid "Highest"
 msgstr "უმაღლესი"
@@ -2455,101 +2434,40 @@ msgid "Compression"
 msgstr "შეკუმშვა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:248
+#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
 #, kde-format
 msgid "Embed cover in music file"
 msgstr "ყდის მუსიკის ფაილში ჩაშენება"
 
-#: widgets/generalsettingswidget.cpp:17
-#, kde-format
-msgid "English"
-msgstr "ინგლისური"
-
-#: widgets/generalsettingswidget.cpp:18
-#, kde-format
-msgid "Deutsch"
-msgstr "გერმანული"
-
-#: widgets/generalsettingswidget.cpp:19
-#, kde-format
-msgid "Français"
-msgstr "ფრანგული"
-
-#: widgets/generalsettingswidget.cpp:20
-#, kde-format
-msgid "Polski"
-msgstr "პოლონური"
-
-#: widgets/generalsettingswidget.cpp:21
-#, kde-format
-msgid "日本語"
-msgstr "ჩინური"
-
-#: widgets/generalsettingswidget.cpp:22
-#, kde-format
-msgid "Italiano"
-msgstr "იტალიური"
-
-#: widgets/generalsettingswidget.cpp:23
-#, kde-format
-msgid "Nederlands"
-msgstr "ჰოლანდიური"
-
-#: widgets/generalsettingswidget.cpp:24
-#, kde-format
-msgid "Español"
-msgstr "ესპანური"
-
-#: widgets/generalsettingswidget.cpp:25
-#, kde-format
-msgid "Português"
-msgstr "პორტუგალიური"
-
-#: widgets/generalsettingswidget.cpp:26
-#, kde-format
-msgid "Svenska"
-msgstr "შვედური"
-
-#: widgets/generalsettingswidget.cpp:27
-#, kde-format
-msgid "Català"
-msgstr "კატალანური"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
-#: widgets/generalsettingswidgetUI.ui:37
-#, kde-format
-msgid "Eject CD tray after finished extraction"
-msgstr "გადმოტანის შემდეგ CD-ის გამოღება"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
-#: widgets/generalsettingswidgetUI.ui:51
-#, kde-format
-msgid "Perform cover lookup automatically"
-msgstr "ყდის სურათის ავტომატური ძებნა"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:66
-#, kde-format
-msgid "Number of covers to fetch:"
-msgstr "გადმოსაწერი ყდების რაოდენობა:"
-
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: widgets/generalsettingswidgetUI.ui:94
+#: widgets/generalsettingswidgetUI.ui:17
 #, kde-format
 msgid "Paths"
 msgstr "კონტურები"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
-#: widgets/generalsettingswidgetUI.ui:102
+#: widgets/generalsettingswidgetUI.ui:25
 #, kde-format
 msgid "Base path to store music files:"
 msgstr "ბილიკი მუსიკის ფაილების შესანახად:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
-#: widgets/generalsettingswidgetUI.ui:129
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: widgets/generalsettingswidgetUI.ui:60
 #, kde-format
-msgid "Localization:"
-msgstr "ლოკალიზაცია:"
+msgid "Eject CD tray after finished extraction"
+msgstr "გადმოტანის შემდეგ CD-ის გამოღება"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
+#: widgets/generalsettingswidgetUI.ui:77
+#, kde-format
+msgid "Perform cover lookup automatically"
+msgstr "ყდის სურათის ავტომატური ძებნა"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/generalsettingswidgetUI.ui:92
+#, kde-format
+msgid "Number of covers to fetch:"
+msgstr "გადმოსაწერი ყდების რაოდენობა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
@@ -2627,16 +2545,26 @@ msgstr "არანორმალური (320 კბიტ/წმ)"
 msgid "Constant Bitrate"
 msgstr "მუდმივი ბიტრეიტი"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153
-#, kde-format
-msgid "Target Bitrate (kbit/s)"
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#, fuzzy, kde-format
+#| msgid "Target Bitrate (kbit/s)"
+msgid "Target bitrate (kbit/s)"
 msgstr "სამიზნე ბიტური სიჩქარე (კბიტ/წმ)"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#, fuzzy, kde-format
+#| msgid "kbit/s"
+msgid " kbit/s"
+msgstr "კბიტ/წმ"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, kde-format
-msgid "Target Bitrate ~"
+#, fuzzy, kde-format
+#| msgid "Target Bitrate ~"
+msgid "Target bitrate ~"
 msgstr "სამიზნე ბიტური სიჩქარე  ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
@@ -2675,30 +2603,34 @@ msgstr "პროფილის წაშლა"
 msgid "Load Profiles"
 msgstr "პროფილების ჩატვირთვა"
 
-#: widgets/profilewidget.cpp:140
-#, kde-format
+#: widgets/profilewidget.cpp:138
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
+#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
+#| "create some sample profiles based upon any found codecs.</font></p>"
 msgid ""
-"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
-"some sample profiles based upon any found codecs.</font></p>"
+"<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
+"p><p><font style=\"font-style:italic;\">This will attempt to create some "
+"sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>გნებავთ თავიდან მოვძებნო კოდეკები (Lame, Ogg Vorbis, Flac, ა.შ.)?</"
 "p><p><font style=\"font-style:italic;\">ასევე შეიქმნება პროფილები იმის "
 "მიხედვით, რომელ კოდეკებს ვიპოვი.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:142 widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
 msgstr "კოდეკების სკანირება"
 
-#: widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
 msgstr "ახალი კოდეკები ნაპოვნი არაა"
 
-#: widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
@@ -2723,12 +2655,6 @@ msgstr "წაშლა"
 msgid "Modify..."
 msgstr "ჩასწორება..."
 
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: widgets/profilewidgetUI.ui:42
-#, kde-format
-msgid "Copy"
-msgstr "კოპირება"
-
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
@@ -2746,3 +2672,105 @@ msgstr "შენახვა..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Searching for covers..."
+#~ msgstr "ყდების ძებნა..."
+
+#~ msgid "Fetching Thumbnail %1 / %2..."
+#~ msgstr "მინიატურის გამოთხოვა %1 / %2..."
+
+#~ msgid "Found 1 Cover"
+#~ msgid_plural "Found %1 Covers"
+#~ msgstr[0] "ნაპოვნია 1 ყდა"
+#~ msgstr[1] "ნაპოვნია %1 ყდა"
+
+#~ msgid "No Covers Found"
+#~ msgstr "ყდა ნაპოვნი არაა"
+
+#~ msgid "Fetch Cover From Google"
+#~ msgstr "ყდის გუგლიდან გამოთხოვა"
+
+#~ msgid "Usable Variables For Text Template"
+#~ msgstr "ტექსტის ნიმუშებისთვის გამოყენებადი ცვლადები"
+
+#~ msgid "freedb.org"
+#~ msgstr "freedb.org"
+
+#~ msgid ""
+#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
+#~ msgstr ""
+#~ "განსაკუთრებული მადლობა freedb.org-ს უფასო CDDB-ის მსგავსი ბაზის "
+#~ "მოწოდებისთვის"
+
+#~ msgid "There was an error communicating with Google."
+#~ msgstr "Google-სთან მიერთების შეცდომა."
+
+#~ msgid "Try again later. Otherwise make a bug report."
+#~ msgstr "მოგვიანებით სცადეთ. ან შეცდომის ანგარიში გამოგვიგზავნეთ."
+
+#~ msgid "Google server: Empty response."
+#~ msgstr "Google-ის სერვერი: პასუხი ცარიელია."
+
+#~ msgid "Try again later. Make a bug report."
+#~ msgstr "მოგვიანებით სცადეთ. ან შეცდომის ანგარიში გამოგვიგზავნეთ."
+
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"
+
+#~ msgid "Released: "
+#~ msgstr "გამოცემის თარიღი: "
+
+#~ msgid "Genre: "
+#~ msgstr "ჟანრი: "
+
+#~ msgid "Wikipedia"
+#~ msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#~ msgid "No cover found."
+#~ msgstr "ყდა ნაპოვნი არაა."
+
+#~ msgid ""
+#~ "Check your artist name and title. Otherwise you can load a custom cover "
+#~ "from an image file."
+#~ msgstr ""
+#~ "შეამოწმეთ შემსრულებლის სახელი და სათაური. არადა შეგიძლიათ ყდა სურათიდან "
+#~ "ხელით მიუთითოთ."
+
+#~ msgid "Fetch cover from Google..."
+#~ msgstr "ყდის გუგლიდან გამოთხოვა..."
+
+#~ msgid "English"
+#~ msgstr "ინგლისური"
+
+#~ msgid "Deutsch"
+#~ msgstr "გერმანული"
+
+#~ msgid "Français"
+#~ msgstr "ფრანგული"
+
+#~ msgid "Polski"
+#~ msgstr "პოლონური"
+
+#~ msgid "日本語"
+#~ msgstr "ჩინური"
+
+#~ msgid "Italiano"
+#~ msgstr "იტალიური"
+
+#~ msgid "Nederlands"
+#~ msgstr "ჰოლანდიური"
+
+#~ msgid "Español"
+#~ msgstr "ესპანური"
+
+#~ msgid "Português"
+#~ msgstr "პორტუგალიური"
+
+#~ msgid "Svenska"
+#~ msgstr "შვედური"
+
+#~ msgid "Català"
+#~ msgstr "კატალანური"
+
+#~ msgid "Localization:"
+#~ msgstr "ლოკალიზაცია:"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:30+0000\n"
+"POT-Creation-Date: 2023-12-23 00:41+0000\n"
 "PO-Revision-Date: 2019-08-04 21:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -25,14 +25,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
+#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "Перезаписывать существующие файлы"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
+#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "Удалять незавершённые файлы после отмены"
@@ -45,7 +45,7 @@ msgstr "Извлечь диск после копирования"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
+#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "Запрашивать информацию в CDDB автоматически"
@@ -113,92 +113,101 @@ msgstr "URL сервера"
 msgid "&Audex"
 msgstr "&Audex"
 
+#. i18n: ectx: Menu (metadata)
+#: audexui.rc:14
+#, fuzzy, kde-format
+#| msgid "Phonon Metadata"
+msgid "&Metadata"
+msgstr "Метаданные Phonon"
+
 #. i18n: ectx: Menu (cddb)
-#: audexui.rc:13
-#, kde-format
-msgid "&CDDB"
-msgstr "&CDDB"
+#: audexui.rc:16
+#, fuzzy, kde-format
+#| msgid "CDDB"
+msgctxt "@title:menu"
+msgid "CDDB"
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
-#: audexui.rc:18
+#: audexui.rc:24
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
 msgstr "Инструмент для исправления заголовков"
 
 #. i18n: ectx: Menu (settings)
-#: audexui.rc:25
+#: audexui.rc:32
 #, kde-format
 msgid "&Settings"
 msgstr "&Настройка"
 
-#: core/audex.cpp:97
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Профиль не выбран. Операция отменена."
 
-#: core/audex.cpp:114
+#: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Начало копирования и кодирования, используя профиль «%1»..."
 
-#: core/audex.cpp:576 core/audex.cpp:627
+#: core/audex.cpp:631 core/audex.cpp:691
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Невозможно найти путь «%1»."
 
-#: core/audex.cpp:576 core/audex.cpp:627 core/audex.cpp:636 core/audex.cpp:1031
+#: core/audex.cpp:631 core/audex.cpp:691 core/audex.cpp:700 core/audex.cpp:1106
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Проверьте введенный путь или права доступа"
 
-#: core/audex.cpp:589
+#: core/audex.cpp:644
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Свободное место на «%1» менее 200 Мб."
 
-#: core/audex.cpp:595 core/audex.cpp:655
+#: core/audex.cpp:650 core/audex.cpp:719
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Внимание! Файл «%1» уже существует. Перезаписываю."
 
-#: core/audex.cpp:597 core/audex.cpp:657 core/audex.cpp:1011
+#: core/audex.cpp:652 core/audex.cpp:721 core/audex.cpp:1086
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Внимание! Файл «%1» уже существует. Пропущено."
 
-#: core/audex.cpp:636 core/audex.cpp:1031
+#: core/audex.cpp:700 core/audex.cpp:1106
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Невозможно создать папку «%1»."
 
-#: core/audex.cpp:639 core/audex.cpp:1034
+#: core/audex.cpp:703 core/audex.cpp:1109
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Папка «%1» успешно создана."
 
-#: core/audex.cpp:642
+#: core/audex.cpp:706
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Папка «%1» уже существует."
 
-#: core/audex.cpp:649
+#: core/audex.cpp:713
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Свободное место на «%1» менее 800 Мб."
 
-#: core/audex.cpp:672
+#: core/audex.cpp:736
 #, fuzzy, kde-format
 #| msgid "Temporary directory \"%1\" does not exists."
 msgid "Temporary folder \"%1\" error."
 msgstr "Временный каталог «%1» не существует."
 
-#: core/audex.cpp:672
+#: core/audex.cpp:736
 #, kde-format
 msgid "Please check."
 msgstr "Пожалуйста, проверьте."
 
-#: core/audex.cpp:678
+#: core/audex.cpp:742
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 200 MB. Problems with low space "
@@ -207,95 +216,95 @@ msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Свободное место на «%1» менее 200 Мб. Возможны проблемы с нехваткой места."
 
-#: core/audex.cpp:680
+#: core/audex.cpp:744
 #, fuzzy, kde-format
 #| msgid "Temporary directory \"%1\" needs at least 200 MiB of free memory."
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Для временного каталога «%1» требуется как минимум 200 Мб."
 
-#: core/audex.cpp:680
+#: core/audex.cpp:745
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Освободите место или укажите другой путь."
 
-#: core/audex.cpp:709
+#: core/audex.cpp:774
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Извлечь диск"
 
-#: core/audex.cpp:756
+#: core/audex.cpp:822
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Обложка «%1» успешно сохранена."
 
-#: core/audex.cpp:759
+#: core/audex.cpp:825
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save cover \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:759 core/audex.cpp:830 core/audex.cpp:867 core/audex.cpp:910
-#: core/audex.cpp:945 core/audex.cpp:999 core/audex.cpp:1026
+#: core/audex.cpp:825 core/audex.cpp:899 core/audex.cpp:938 core/audex.cpp:983
+#: core/audex.cpp:1020 core/audex.cpp:1074 core/audex.cpp:1101
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your path and permissions"
 msgstr "Проверьте профиль."
 
-#: core/audex.cpp:826
+#: core/audex.cpp:895
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Playlist \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:830
+#: core/audex.cpp:899
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save playlist \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:864
+#: core/audex.cpp:935
 #, fuzzy, kde-format
 #| msgid "Infofile \"%1\" successfully stored."
 msgid "Info file \"%1\" successfully created."
 msgstr "Файл информации «%1» успешно сохранен."
 
-#: core/audex.cpp:867
+#: core/audex.cpp:938
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save info file \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:907
+#: core/audex.cpp:980
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:910
+#: core/audex.cpp:983
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:942
+#: core/audex.cpp:1017
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:945
+#: core/audex.cpp:1020
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:999 core/audex.cpp:1026
+#: core/audex.cpp:1074 core/audex.cpp:1101
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to open folder \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: dialogs/cddaheaderdatadialog.cpp:174 widgets/cddaheaderwidget.cpp:497
+#: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
 msgid "Edit Data"
 msgstr "Редактировать данные"
@@ -360,10 +369,10 @@ msgstr "Дополнительная информация:"
 #: dialogs/cddaheaderdatawidgetUI.ui:176
 #, fuzzy, kde-format
 #| msgid "Disc ID:"
-msgid "FreeDB disc ID:"
+msgid "CDDB disc ID:"
 msgstr "ID диска:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_freedbdiscid)
+#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
 #, kde-format
 msgid "0x00000000"
@@ -523,36 +532,6 @@ msgstr "Входной файл"
 #, kde-format
 msgid "Output File"
 msgstr "Выходной файл"
-
-#: dialogs/coverbrowserdialog.cpp:31
-#, kde-format
-msgid "Searching for covers..."
-msgstr "Поиск обложек..."
-
-#: dialogs/coverbrowserdialog.cpp:69
-#, kde-format
-msgid "Fetching Thumbnail %1 / %2..."
-msgstr "Получение миниатюры %1 / %2..."
-
-#: dialogs/coverbrowserdialog.cpp:74
-#, fuzzy, kde-format
-#| msgid "Found %1 Covers"
-msgid "Found 1 Cover"
-msgid_plural "Found %1 Covers"
-msgstr[0] "Найдено %1 обложек"
-msgstr[1] "Найдено %1 обложек"
-msgstr[2] "Найдено %1 обложек"
-msgstr[3] "Найдено %1 обложек"
-
-#: dialogs/coverbrowserdialog.cpp:80
-#, kde-format
-msgid "No Covers Found"
-msgstr "Обложки не найдены"
-
-#: dialogs/coverbrowserdialog.cpp:98
-#, kde-format
-msgid "Fetch Cover From Google"
-msgstr "Загрузить обложку с Google"
 
 #: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
@@ -878,17 +857,17 @@ msgstr "Настройки обложек"
 msgid "Name/Pattern:"
 msgstr "Шаблон названия:"
 
-#: dialogs/profiledatadialog.cpp:91
+#: dialogs/profiledatadialog.cpp:95
 #, kde-format
 msgid "Modify Profile"
 msgstr "Редактировать профиль"
 
-#: dialogs/profiledatadialog.cpp:182
+#: dialogs/profiledatadialog.cpp:186
 #, kde-format
 msgid "Create Profile"
 msgstr "Создать профиль"
 
-#: dialogs/profiledatadialog.cpp:192
+#: dialogs/profiledatadialog.cpp:196
 #, kde-format
 msgid "New Profile"
 msgstr "Новый профиль"
@@ -915,11 +894,6 @@ msgid "Info Settings"
 msgstr "Настройки информации"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, kde-format
-msgid "Usable Variables For Text Template"
-msgstr "Переменные используемые для текстовых шаблонов"
-
-#: dialogs/profiledatainfodialog.cpp:127
 #, fuzzy, kde-format
 #| msgid ""
 #| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -1031,47 +1005,15 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"specifies the output. <i>Please have a look at the offical qt documentation "
+"for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
-"The attribute format specifies the output (*).</td><td>${now format=\"yyyy-"
-"MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
+"The attribute format specifies the output. <i>Please have a look at the "
+"offical qt documentation for the format variables.</i></td><td>${now format="
+"\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
-"linebreak.</td><td></td></tr></tbody></table><br /><br />(* date/time format "
-"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-"thead><tr valign=\"top\"><td>d</td><td>The day as a number without a leading "
-"zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The day as a "
-"number with a leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</"
-"td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></"
-"tr><tr valign=\"top\"><td>dddd</td><td>The long localized day name (e."
-"g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</td><td>The "
-"month as a number without a leading zero (1 to 12).</td></tr><tr valign=\"top"
-"\"><td>MM</td><td>The month as a number with a leading zero (01 to 12).</"
-"td></tr><tr valign=\"top\"><td>MMM</td><td>The abbreviated localized month "
-"name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign=\"top\"><td>MMMM</"
-"td><td>The long localized month name (e.g&#x2e; 'January' to 'December').</"
-"td></tr><tr valign=\"top\"><td>yy</td><td>The year as two digit number (00 "
-"to 99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>The year as four digit "
-"number.</td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" "
-"border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></"
-"tr></thead><tr valign=\"top\"><td>h</td><td>The hour without a leading zero "
-"(0 to 23 or 1 to 12 if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</"
-"td><td>The hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)."
-"</td></tr><tr valign=\"top\"><td>H</td><td>The hour without a leading zero "
-"(0 to 23, even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</"
-"td><td>The hour with a leading zero (00 to 23, even with AM/PM display).</"
-"td></tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero "
-"(0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-"leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-"second without a leading zero (0 to 59).</td></tr><tr valign=\"top\"><td>ss</"
-"td><td>The second with a leading zero (00 to 59).</td></tr><tr valign=\"top"
-"\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</td></"
-"tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with leading zeroes "
-"(000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</td><td>Interpret as "
-"an AM/PM time. AP must be either 'AM' or 'PM'.</td></tr><tr valign=\"top"
-"\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or "
-"'pm'.</td></tr></table></body></html>"
+"linebreak.</td><td></td></tr></tbody></table></body></html>"
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"> <html> <head> <style type=\"text/css\">     p, li "
@@ -1145,13 +1087,13 @@ msgstr ""
 "\"top\"> <td>ap или a</td> <td>Интерпретировать как AM/PM время. ap должно "
 "быть или 'am' или 'pm'.</td> </tr> </table> </body> </html>"
 
-#: dialogs/profiledatainfodialog.cpp:244
+#: dialogs/profiledatainfodialog.cpp:197
 #, fuzzy, kde-format
 #| msgid "Load text template"
 msgid "Load Text Template"
 msgstr "Загрузить текстовый шаблон"
 
-#: dialogs/profiledatainfodialog.cpp:257
+#: dialogs/profiledatainfodialog.cpp:210
 #, fuzzy, kde-format
 #| msgid "Save text template"
 msgid "Save Text Template"
@@ -1172,8 +1114,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
 #: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
-#: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
-#: widgets/wavewidgetUI.ui:31
+#: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
+#: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "Расширение:"
@@ -1373,7 +1315,7 @@ msgstr "Программа для копирования и кодировани
 #: main.cpp:35
 #, fuzzy, kde-format
 #| msgid "(c) 2007-2009 by Marco Nelles"
-msgid "Copyright © 2007–2015 by Marco Nelles"
+msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "© Marco Nelles, 2007-2009"
 
 #: main.cpp:38
@@ -1415,20 +1357,10 @@ msgstr ""
 
 #: main.cpp:41
 #, kde-format
-msgid "Special thanks to credativ GmbH (Germany) for support"
+msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 
 #: main.cpp:42
-#, kde-format
-msgid "freedb.org"
-msgstr "freedb.org"
-
-#: main.cpp:42
-#, kde-format
-msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr "Особая благодарность freedb.org за предоставление базы данных CDDB"
-
-#: main.cpp:43
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr ""
@@ -1438,24 +1370,24 @@ msgstr ""
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Сергей Полтавский"
 
-#: main.cpp:44
+#: main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "serge.uliss@gmail.com"
 
-#: mainwindow.cpp:19
+#: mainwindow.cpp:38
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "Unable to create ProfileModel object."
 
-#: mainwindow.cpp:19 mainwindow.cpp:32
+#: mainwindow.cpp:39 mainwindow.cpp:52
 #, fuzzy, kde-format
 #| msgid ""
 #| "Internal error. Check your hardware. If all okay please make bug report."
@@ -1465,22 +1397,22 @@ msgstr ""
 "Ошибка программы. Проверьте ваше оборудование. Если все в порядке, "
 "пожалуйста, отправьте отчет об ошибке."
 
-#: mainwindow.cpp:32
+#: mainwindow.cpp:52
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "Unable to create CDDAModel object."
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:124
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:125
 #, kde-format
 msgid "Disc information not found"
 msgstr "Информация о диске не найдена."
 
-#: mainwindow.cpp:117
+#: mainwindow.cpp:136
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid ""
@@ -1488,54 +1420,54 @@ msgid ""
 "really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:118
+#: mainwindow.cpp:137
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:161
 #, kde-format
 msgid "General settings"
 msgstr "Общие настройки"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:164
 #, kde-format
 msgid "Device settings"
 msgstr "Параметры устройства"
 
-#: mainwindow.cpp:148
+#: mainwindow.cpp:167
 #, kde-format
 msgid "Profiles"
 msgstr "Профили"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:176
 #, kde-format
 msgid "CDDB settings"
 msgstr "Параметры CDDB"
 
-#: mainwindow.cpp:160
+#: mainwindow.cpp:179
 #, kde-format
 msgid "Remote Server"
 msgstr "Удаленный сервер"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:219
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:221
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr ""
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:326
 #, kde-format
 msgid "Split titles"
 msgstr "Разделить заголовки"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:327
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1547,110 +1479,118 @@ msgstr ""
 "\n"
 "Разделитель:"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Вы действительно хотите поменять местами поля исполнителей и названий?"
 
-#: mainwindow.cpp:308
+#: mainwindow.cpp:340
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Поменять местами исполнителей и названия"
 
-#: mainwindow.cpp:323
+#: mainwindow.cpp:354
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Вы действительно хотите записать названия и исполнителей с заглавной буквы"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:355
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Сделать заглавными названия и исполнителей"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Вы действительно хотите автоматически заполнить исполнителей?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Autofill artists"
 msgstr "Автоматически заполнить исполнителей"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:397
 #, kde-format
 msgid "Eject"
 msgstr "Извлечь диск"
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:404
 #, fuzzy, kde-format
 #| msgid "Profile: "
 msgid "Profile:"
 msgstr "Профиль:"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:416
 #, fuzzy, kde-format
 #| msgid "&Profile: "
 msgid "&Profile:"
 msgstr "&Профиль:"
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Profile"
 msgstr "Профиль"
 
-#: mainwindow.cpp:400
-#, kde-format
-msgid "Fetch Info"
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+#| msgid "Fetch Info"
+msgid "Fetch"
 msgstr "Получить информацию"
 
-#: mainwindow.cpp:407
-#, kde-format
-msgid "Submit Info"
+#: mainwindow.cpp:437
+#, fuzzy, kde-format
+#| msgid "Submit Info"
+msgid "Submit"
 msgstr "Отправить информацию"
 
-#: mainwindow.cpp:413
+#: mainwindow.cpp:443
+#, fuzzy, kde-format
+#| msgid "Edit Data"
+msgid "Edit"
+msgstr "Редактировать данные"
+
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Rip..."
 msgstr "Копировать..."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:459
 #, fuzzy, kde-format
 #| msgid "Split titles..."
 msgid "Split Titles..."
 msgstr "Разделить заголовки"
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:464
 #, fuzzy, kde-format
 #| msgid "Swap artists and titles"
 msgid "Swap Artists And Titles"
 msgstr "Поменять местами исполнителей и названия"
 
-#: mainwindow.cpp:432
+#: mainwindow.cpp:469
 #, kde-format
 msgid "Capitalize"
 msgstr "Сделать заглавными"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:474
 #, fuzzy, kde-format
 #| msgid "Auto fill artists"
 msgid "Auto Fill Artists"
 msgstr "Автоматически заполнить исполнителей"
 
-#: mainwindow.cpp:442
+#: mainwindow.cpp:479
 #, fuzzy, kde-format
 #| msgid "Select all tracks"
 msgid "Select All Tracks"
 msgstr "Выбрать все дорожки"
 
-#: mainwindow.cpp:447
+#: mainwindow.cpp:484
 #, fuzzy, kde-format
 #| msgid "Select all tracks"
 msgid "Deselect All Tracks"
 msgstr "Выбрать все дорожки"
 
-#: mainwindow.cpp:452
+#: mainwindow.cpp:489
 #, kde-format
 msgid "Invert Selection"
 msgstr "Инвертировать выбор"
@@ -1787,45 +1727,45 @@ msgstr "Название"
 msgid "Length"
 msgstr "Продолжительность"
 
-#: models/profilemodel.cpp:163
+#: models/profilemodel.cpp:167
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:163
+#: models/profilemodel.cpp:167
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no name for the profile. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:174
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Не указан кодировщик в профиле."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:174
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:175
+#: models/profilemodel.cpp:180
 #, kde-format
 msgid "Profile filename pattern is not defined."
 msgstr "Шаблон наименования файлов не определён."
 
-#: models/profilemodel.cpp:175
+#: models/profilemodel.cpp:181
 #, fuzzy, kde-format
 #| msgid "You've given no filename pattern for the profile. Please set one."
 msgid "You have given no filename pattern for the profile. Please set one."
 msgstr "Укажите шаблон наименования файлов в профиле."
 
-#: models/profilemodel.cpp:193
+#: models/profilemodel.cpp:202
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Неизвестный формат изображения."
 
-#: models/profilemodel.cpp:193
+#: models/profilemodel.cpp:203
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given image file format is unknown. Please choose on of these "
@@ -1837,23 +1777,23 @@ msgstr ""
 "Изображение неизвестного формата. Используйте один из этих форматов: JPG/"
 "JPEG, PNG или BMP."
 
-#: models/profilemodel.cpp:199
+#: models/profilemodel.cpp:211
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Название обложки не должно быть пустым."
 
-#: models/profilemodel.cpp:199
+#: models/profilemodel.cpp:211
 #, fuzzy, kde-format
 #| msgid "You've given no name for the cover. Please set one."
 msgid "You have given no name for the cover. Please set one."
 msgstr "Укажите название обложки."
 
-#: models/profilemodel.cpp:207
+#: models/profilemodel.cpp:219
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Неизвестный формат плейлиста."
 
-#: models/profilemodel.cpp:207
+#: models/profilemodel.cpp:220
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given playlist file format is unknown. Please choose on of these "
@@ -1865,45 +1805,45 @@ msgstr ""
 "Неизвестный формат плейлиста. Используйте один из этих форматов: M3U, PLS "
 "или XSPF."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:228
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Название плейлиста не может быть пустым."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:228
 #, fuzzy, kde-format
 #| msgid "You've given no name for the playlist. Please set one."
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Укажите название для плейлиста."
 
-#: models/profilemodel.cpp:227
+#: models/profilemodel.cpp:242
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Необходимо ввести название файла информации."
 
-#: models/profilemodel.cpp:227
+#: models/profilemodel.cpp:243
 #, fuzzy, kde-format
 #| msgid "You've given no name for the info text file. Please set one."
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Пожалуйста, укажите имя для файла информации."
 
-#: models/profilemodel.cpp:234
+#: models/profilemodel.cpp:252
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Расширение файла информации не должно быть пустым."
 
-#: models/profilemodel.cpp:234
+#: models/profilemodel.cpp:253
 #, fuzzy, kde-format
 #| msgid "You've given no suffix for the info text file. Please set one."
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "Укажите расширение для файла информации."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:263
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Неизвестный формат хэшлиста."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:264
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
@@ -1913,47 +1853,47 @@ msgid ""
 "formats: SFV, MD5."
 msgstr "Неизвестный формат хэшлиста. Выберите один из следующих форматов: SFV."
 
-#: models/profilemodel.cpp:249
+#: models/profilemodel.cpp:273
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Введите имя хэшлиста."
 
-#: models/profilemodel.cpp:249
+#: models/profilemodel.cpp:273
 #, fuzzy, kde-format
 #| msgid "You've given no name for the hashlist. Please set one."
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Не указано имя хэшлиста."
 
-#: models/profilemodel.cpp:258
+#: models/profilemodel.cpp:283
 #, fuzzy, kde-format
 #| msgid "Profile name must not be empty."
 msgid "Cue filename name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:258
+#: models/profilemodel.cpp:283
 #, fuzzy, kde-format
 #| msgid "You've given no name for the cover. Please set one."
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Укажите название обложки."
 
-#: models/profilemodel.cpp:267
+#: models/profilemodel.cpp:292
 #, fuzzy, kde-format
 #| msgid "Profile name must not be empty."
 msgid "Filename name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:267
+#: models/profilemodel.cpp:293
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:299
+#: models/profilemodel.cpp:329
 #, kde-format
 msgid "Profile name already exists."
 msgstr "Профиль уже существует."
 
-#: models/profilemodel.cpp:299
+#: models/profilemodel.cpp:330
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your profile name %1 already exists in the set of profiles. Please choose "
@@ -1963,12 +1903,12 @@ msgid ""
 "unique one."
 msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
 
-#: models/profilemodel.cpp:316
+#: models/profilemodel.cpp:349
 #, kde-format
 msgid "Profile index already exists."
 msgstr "Индекс профиля уже существует."
 
-#: models/profilemodel.cpp:316
+#: models/profilemodel.cpp:350
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your profile name %1 already exists in the set of profiles. Please choose "
@@ -1978,109 +1918,116 @@ msgid ""
 "unique one."
 msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
 
-#: models/profilemodel.cpp:439
+#: models/profilemodel.cpp:478
 #, fuzzy, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "Ошибка! Не найден индекс в профиле"
 
-#: models/profilemodel.cpp:439
+#: models/profilemodel.cpp:478
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "Произошла внутренняя ошибка программы. Пожалуйста, сообщите нам о ней."
 
-#: models/profilemodel.h:162
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
+#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#, kde-format
+msgid "Copy"
+msgstr "Копировать"
+
+#: models/profilemodel.h:164
 #, kde-format
 msgid " (Mobile Quality)"
 msgstr "(мобильное качество)"
 
-#: models/profilemodel.h:163
+#: models/profilemodel.h:165
 #, kde-format
 msgid " (Normal Quality)"
 msgstr "(нормальное качество)"
 
-#: models/profilemodel.h:164
+#: models/profilemodel.h:166
 #, kde-format
 msgid " (Extreme Quality)"
 msgstr "(высокое качество)"
 
-#: utils/cachedimage.cpp:115
+#. i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
+#: utils/cachedimage.cpp:117
 #, kde-format
 msgid "Common image formats"
 msgstr ""
 
-#: utils/cachedimage.cpp:160
+#: utils/cachedimage.cpp:162
 #, fuzzy, kde-format
 #| msgid "Temporary directory \"%1\" does not exists."
 msgid "File does not exist."
 msgstr "Временный каталог «%1» не существует."
 
-#: utils/cachedimage.cpp:160
+#: utils/cachedimage.cpp:162
 #, fuzzy, kde-format
 #| msgid "Please check your path (write access?)"
 msgid "Please check if the file really exists."
 msgstr "Проверьте введенный путь или права доступа"
 
-#: utils/cachedimage.cpp:169
+#: utils/cachedimage.cpp:171
 #, fuzzy, kde-format
 #| msgid "Create Profile"
 msgid "Cannot open file."
 msgstr "Создать профиль"
 
-#: utils/cachedimage.cpp:169
+#: utils/cachedimage.cpp:171
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your file. Maybe you do not have proper permissions."
 msgstr "Проверьте профиль."
 
-#: utils/cachedimage.cpp:175 utils/cachedimage.cpp:229
+#: utils/cachedimage.cpp:177 utils/cachedimage.cpp:234
 #, kde-format
 msgid "Unsupported image format"
 msgstr ""
 
-#: utils/cachedimage.cpp:175
+#: utils/cachedimage.cpp:178
 #, kde-format
 msgid ""
 "Please check your file. Maybe it is corrupted. Otherwise try to convert your "
 "cover image with an external program to a common file format like JPEG."
 msgstr ""
 
-#: utils/cachedimage.cpp:194
+#: utils/cachedimage.cpp:199
 #, fuzzy, kde-format
 #| msgid "Create Profile"
 msgid "Cannot open file"
 msgstr "Создать профиль"
 
-#: utils/cachedimage.cpp:194
+#: utils/cachedimage.cpp:199
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your permissions."
 msgstr "Проверьте профиль."
 
-#: utils/cachedimage.cpp:202
+#: utils/cachedimage.cpp:207
 #, fuzzy, kde-format
 #| msgid "Create Profile"
 msgid "Cannot save file"
 msgstr "Создать профиль"
 
-#: utils/cachedimage.cpp:202
+#: utils/cachedimage.cpp:207
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your permissions. Do you have enough space?"
 msgstr "Проверьте профиль."
 
-#: utils/cachedimage.cpp:229
+#: utils/cachedimage.cpp:235
 #, kde-format
 msgid ""
-"Please use common image formats like JPEG, PNG or GIF as they are supported "
-"on almost all systems."
+"Please use common image formats like JPEG or PNG as they are supported on "
+"almost all systems."
 msgstr ""
 
-#: utils/cachedimage.cpp:241
+#: utils/cachedimage.cpp:248
 #, kde-format
 msgid "Cannot write on device"
 msgstr ""
 
-#: utils/cachedimage.cpp:241
+#: utils/cachedimage.cpp:248
 #, kde-format
 msgid "Please check your permissions. Do you have enough space on your device?"
 msgstr ""
@@ -2292,61 +2239,39 @@ msgstr ""
 "Проверьте устройство. Это действительно «%1»? Также проверьте права для "
 "работы с «%1»."
 
-#: utils/coverfetcher.cpp:137
-#, fuzzy, kde-format
-#| msgid "There was an error communicating with Amazon."
-msgid "There was an error communicating with Google."
-msgstr "Ошибка соединения с Amazon."
-
-#: utils/coverfetcher.cpp:137
-#, kde-format
-msgid "Try again later. Otherwise make a bug report."
-msgstr "Попробуйте позже. "
-
-#: utils/coverfetcher.cpp:150
-#, fuzzy, kde-format
-#| msgid "amazon server: Empty response."
-msgid "Google server: Empty response."
-msgstr " "
-
-#: utils/coverfetcher.cpp:150
-#, kde-format
-msgid "Try again later. Make a bug report."
-msgstr ""
-
-#: utils/coverfetcher.cpp:223
-#, kde-format
-msgid "%1x%2"
-msgstr ""
-
-#: utils/encoderassistant.h:54
+#: utils/encoderassistant.h:57
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:84
+#: utils/encoderassistant.h:83
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:112
+#: utils/encoderassistant.h:111
+#, kde-format
+msgid "Opus"
+msgstr ""
+
+#: utils/encoderassistant.h:127
 #, fuzzy, kde-format
 #| msgid "FLAC (Uncompressed)"
 msgid "FLAC (Lossless)"
 msgstr "FLAC (сжатие без потерь)"
 
-#: utils/encoderassistant.h:122
+#: utils/encoderassistant.h:137
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr ""
 
-#: utils/encoderassistant.h:138
+#: utils/encoderassistant.h:153
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (без сжатия)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:145 utils/encoderassistant.h:146
+#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
@@ -2448,75 +2373,42 @@ msgstr "Загрузка файла %1 на сервер. Пожалуйста, 
 msgid "Finished uploading file %1 to server."
 msgstr "Загрузка файла %1 на сервер завершена."
 
-#: widgets/cddaheaderwidget.cpp:465
-#, kde-format
-msgid "Released: "
-msgstr "Выпущен:"
-
-#: widgets/cddaheaderwidget.cpp:465
-#, kde-format
-msgid "Genre: "
-msgstr "Жанр:"
-
-#: widgets/cddaheaderwidget.cpp:465
+#: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "CD Number: "
 msgstr "Номер CD:"
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: widgets/cddaheaderwidget.cpp:498 widgets/generalsettingswidgetUI.ui:117
-#, kde-format
-msgid "Wikipedia"
-msgstr "Wikipedia"
-
-#: widgets/cddaheaderwidget.cpp:522
+#: widgets/cddaheaderwidget.cpp:164
 #, kde-format
 msgid "No audio CD detected"
 msgstr "Аудиодисков не обнаружено"
 
-#: widgets/cddaheaderwidget.cpp:695
+#: widgets/cddaheaderwidget.cpp:284
 #, kde-format
 msgid "Load Cover"
 msgstr "Загрузить обложку"
 
-#: widgets/cddaheaderwidget.cpp:705 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:294 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "Сохранить обложку"
 
-#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
-#, kde-format
-msgid "No cover found."
-msgstr "Обложки не найдены."
-
-#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
-#, kde-format
-msgid ""
-"Check your artist name and title. Otherwise you can load a custom cover from "
-"an image file."
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:862
-#, kde-format
-msgid "Fetch cover from Google..."
-msgstr "Загрузить обложку с Google..."
-
-#: widgets/cddaheaderwidget.cpp:867
+#: widgets/cddaheaderwidget.cpp:381
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "Установить другую обложку"
 
-#: widgets/cddaheaderwidget.cpp:872
+#: widgets/cddaheaderwidget.cpp:386
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "Сохранить в файл"
 
-#: widgets/cddaheaderwidget.cpp:877
+#: widgets/cddaheaderwidget.cpp:391
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "Показать в оригинальном размере"
 
-#: widgets/cddaheaderwidget.cpp:882
+#: widgets/cddaheaderwidget.cpp:396
 #, kde-format
 msgid "Remove Cover"
 msgstr "Удалить обложку"
@@ -2549,6 +2441,7 @@ msgstr "Качество"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+#: widgets/opusencwidgetUI.ui:135
 #, kde-format
 msgid "Lowest"
 msgstr "Низкое"
@@ -2556,6 +2449,7 @@ msgstr "Низкое"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+#: widgets/opusencwidgetUI.ui:149
 #, kde-format
 msgid "Highest"
 msgstr "Высокое"
@@ -2567,101 +2461,40 @@ msgid "Compression"
 msgstr "Сжатие"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:248
+#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
 #, kde-format
 msgid "Embed cover in music file"
 msgstr "Встроить обложку в файл"
 
-#: widgets/generalsettingswidget.cpp:17
-#, kde-format
-msgid "English"
-msgstr "Английский"
-
-#: widgets/generalsettingswidget.cpp:18
-#, kde-format
-msgid "Deutsch"
-msgstr "Немецкий"
-
-#: widgets/generalsettingswidget.cpp:19
-#, kde-format
-msgid "Français"
-msgstr "Французский"
-
-#: widgets/generalsettingswidget.cpp:20
-#, kde-format
-msgid "Polski"
-msgstr "Польский"
-
-#: widgets/generalsettingswidget.cpp:21
-#, kde-format
-msgid "日本語"
-msgstr "Японский"
-
-#: widgets/generalsettingswidget.cpp:22
-#, kde-format
-msgid "Italiano"
-msgstr "Итальянский"
-
-#: widgets/generalsettingswidget.cpp:23
-#, kde-format
-msgid "Nederlands"
-msgstr "Голландский"
-
-#: widgets/generalsettingswidget.cpp:24
-#, kde-format
-msgid "Español"
-msgstr "Испанский"
-
-#: widgets/generalsettingswidget.cpp:25
-#, kde-format
-msgid "Português"
-msgstr "Португальский"
-
-#: widgets/generalsettingswidget.cpp:26
-#, kde-format
-msgid "Svenska"
-msgstr "Шведский"
-
-#: widgets/generalsettingswidget.cpp:27
-#, kde-format
-msgid "Català"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
-#: widgets/generalsettingswidgetUI.ui:37
-#, kde-format
-msgid "Eject CD tray after finished extraction"
-msgstr "Извлекать диск после копирования"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
-#: widgets/generalsettingswidgetUI.ui:51
-#, kde-format
-msgid "Perform cover lookup automatically"
-msgstr "Запрашивать обложу автоматически"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:66
-#, kde-format
-msgid "Number of covers to fetch:"
-msgstr "Количество запрашиваемых обложек:"
-
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: widgets/generalsettingswidgetUI.ui:94
+#: widgets/generalsettingswidgetUI.ui:17
 #, kde-format
 msgid "Paths"
 msgstr "Пути"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
-#: widgets/generalsettingswidgetUI.ui:102
+#: widgets/generalsettingswidgetUI.ui:25
 #, kde-format
 msgid "Base path to store music files:"
 msgstr "Основной каталог для сохранения файлов:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
-#: widgets/generalsettingswidgetUI.ui:129
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: widgets/generalsettingswidgetUI.ui:60
 #, kde-format
-msgid "Localization:"
-msgstr "Используемый язык:"
+msgid "Eject CD tray after finished extraction"
+msgstr "Извлекать диск после копирования"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
+#: widgets/generalsettingswidgetUI.ui:77
+#, kde-format
+msgid "Perform cover lookup automatically"
+msgstr "Запрашивать обложу автоматически"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/generalsettingswidgetUI.ui:92
+#, kde-format
+msgid "Number of covers to fetch:"
+msgstr "Количество запрашиваемых обложек:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
@@ -2734,16 +2567,26 @@ msgstr "Лучшее (320 кбит/с)"
 msgid "Constant Bitrate"
 msgstr "Постоянный битрейт"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153
-#, kde-format
-msgid "Target Bitrate (kbit/s)"
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#, fuzzy, kde-format
+#| msgid "Target Bitrate (kbit/s)"
+msgid "Target bitrate (kbit/s)"
 msgstr "Скорость потока (кбит/сек)"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#, fuzzy, kde-format
+#| msgid "kbit/s"
+msgid " kbit/s"
+msgstr "кбит/с"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, kde-format
-msgid "Target Bitrate ~"
+#, fuzzy, kde-format
+#| msgid "Target Bitrate ~"
+msgid "Target bitrate ~"
 msgstr "Требуемый битрейт ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
@@ -2783,30 +2626,34 @@ msgstr "Удалить профиль"
 msgid "Load Profiles"
 msgstr "Загрузить профили"
 
-#: widgets/profilewidget.cpp:140
-#, kde-format
+#: widgets/profilewidget.cpp:138
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
+#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
+#| "create some sample profiles based upon any found codecs.</font></p>"
 msgid ""
-"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
-"some sample profiles based upon any found codecs.</font></p>"
+"<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
+"p><p><font style=\"font-style:italic;\">This will attempt to create some "
+"sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>Вы хотите выполнить поиск кодеков (Lame, Ogg Vorbis, Flac, и др.)?</p> "
 "<p><font style=\"font-style:italic;\">Это позволит создать профили "
 "кодирования на основе найденных кодеков.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:142 widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
 msgstr "Поиск кодеков"
 
-#: widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
 msgstr "Новые кодеки не найдены"
 
-#: widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:144
 #, fuzzy, kde-format
 #| msgid "1 new profile added"
 msgid "1 new profile added"
@@ -2834,12 +2681,6 @@ msgstr "Удалить"
 msgid "Modify..."
 msgstr "Изменить..."
 
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: widgets/profilewidgetUI.ui:42
-#, kde-format
-msgid "Copy"
-msgstr "Копировать"
-
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
@@ -2857,6 +2698,101 @@ msgstr "Сохранить..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "&CDDB"
+#~ msgstr "&CDDB"
+
+#~ msgid "Searching for covers..."
+#~ msgstr "Поиск обложек..."
+
+#~ msgid "Fetching Thumbnail %1 / %2..."
+#~ msgstr "Получение миниатюры %1 / %2..."
+
+#, fuzzy
+#~| msgid "Found %1 Covers"
+#~ msgid "Found 1 Cover"
+#~ msgid_plural "Found %1 Covers"
+#~ msgstr[0] "Найдено %1 обложек"
+#~ msgstr[1] "Найдено %1 обложек"
+#~ msgstr[2] "Найдено %1 обложек"
+#~ msgstr[3] "Найдено %1 обложек"
+
+#~ msgid "No Covers Found"
+#~ msgstr "Обложки не найдены"
+
+#~ msgid "Fetch Cover From Google"
+#~ msgstr "Загрузить обложку с Google"
+
+#~ msgid "Usable Variables For Text Template"
+#~ msgstr "Переменные используемые для текстовых шаблонов"
+
+#~ msgid "freedb.org"
+#~ msgstr "freedb.org"
+
+#~ msgid ""
+#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
+#~ msgstr "Особая благодарность freedb.org за предоставление базы данных CDDB"
+
+#, fuzzy
+#~| msgid "There was an error communicating with Amazon."
+#~ msgid "There was an error communicating with Google."
+#~ msgstr "Ошибка соединения с Amazon."
+
+#~ msgid "Try again later. Otherwise make a bug report."
+#~ msgstr "Попробуйте позже. "
+
+#, fuzzy
+#~| msgid "amazon server: Empty response."
+#~ msgid "Google server: Empty response."
+#~ msgstr " "
+
+#~ msgid "Released: "
+#~ msgstr "Выпущен:"
+
+#~ msgid "Genre: "
+#~ msgstr "Жанр:"
+
+#~ msgid "Wikipedia"
+#~ msgstr "Wikipedia"
+
+#~ msgid "No cover found."
+#~ msgstr "Обложки не найдены."
+
+#~ msgid "Fetch cover from Google..."
+#~ msgstr "Загрузить обложку с Google..."
+
+#~ msgid "English"
+#~ msgstr "Английский"
+
+#~ msgid "Deutsch"
+#~ msgstr "Немецкий"
+
+#~ msgid "Français"
+#~ msgstr "Французский"
+
+#~ msgid "Polski"
+#~ msgstr "Польский"
+
+#~ msgid "日本語"
+#~ msgstr "Японский"
+
+#~ msgid "Italiano"
+#~ msgstr "Итальянский"
+
+#~ msgid "Nederlands"
+#~ msgstr "Голландский"
+
+#~ msgid "Español"
+#~ msgstr "Испанский"
+
+#~ msgid "Português"
+#~ msgstr "Португальский"
+
+#~ msgid "Svenska"
+#~ msgstr "Шведский"
+
+#~ msgid "Localization:"
+#~ msgstr "Используемый язык:"
 
 #~ msgid "CD Device"
 #~ msgstr "Устройство CD"
@@ -2918,12 +2854,6 @@ msgstr "URL:"
 
 #~ msgid "CD-Text"
 #~ msgstr "CD-Тест"
-
-#~ msgid "CDDB"
-#~ msgstr "CDDB"
-
-#~ msgid "Phonon Metadata"
-#~ msgstr "Метаданные Phonon"
 
 #~ msgid "No disc information available"
 #~ msgstr "Недоступна информация о диске"

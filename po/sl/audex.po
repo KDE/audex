@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:30+0000\n"
+"POT-Creation-Date: 2023-12-23 00:41+0000\n"
 "PO-Revision-Date: 2023-04-27 06:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -21,14 +21,14 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
+#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "Prepiši obstoječe datoteke"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
+#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "Izbriši nedokončane datoteke po preklicu"
@@ -41,7 +41,7 @@ msgstr "Izvrzi medij po končanem odpakiranju"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
+#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "Samodejno preveri podatke o albumu na CDDB"
@@ -109,172 +109,180 @@ msgstr "URL do strežnika"
 msgid "&Audex"
 msgstr "&Audex"
 
-#. i18n: ectx: Menu (cddb)
-#: audexui.rc:13
+#. i18n: ectx: Menu (metadata)
+#: audexui.rc:14
 #, kde-format
-msgid "&CDDB"
+msgid "&Metadata"
+msgstr ""
+
+#. i18n: ectx: Menu (cddb)
+#: audexui.rc:16
+#, fuzzy, kde-format
+#| msgid "&CDDB"
+msgctxt "@title:menu"
+msgid "CDDB"
 msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
-#: audexui.rc:18
+#: audexui.rc:24
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
 msgstr "Orodja za popravilo naslovov"
 
 #. i18n: ectx: Menu (settings)
-#: audexui.rc:25
+#: audexui.rc:32
 #, kde-format
 msgid "&Settings"
 msgstr "&Settings"
 
-#: core/audex.cpp:97
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Noben profil ni izbran. Preklicujem opravilo."
 
-#: core/audex.cpp:114
+#: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Začni zajemati in kodirati s profilom \"%1\"..."
 
-#: core/audex.cpp:576 core/audex.cpp:627
+#: core/audex.cpp:631 core/audex.cpp:691
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ne najdem poti \"%1\"."
 
-#: core/audex.cpp:576 core/audex.cpp:627 core/audex.cpp:636 core/audex.cpp:1031
+#: core/audex.cpp:631 core/audex.cpp:691 core/audex.cpp:700 core/audex.cpp:1106
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Prosim preverite ciljno pot (uporabniška dovoljenja?)"
 
-#: core/audex.cpp:589
+#: core/audex.cpp:644
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Prostora na \"%1\" je manj kot 200 MiB."
 
-#: core/audex.cpp:595 core/audex.cpp:655
+#: core/audex.cpp:650 core/audex.cpp:719
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Prepisujem."
 
-#: core/audex.cpp:597 core/audex.cpp:657 core/audex.cpp:1011
+#: core/audex.cpp:652 core/audex.cpp:721 core/audex.cpp:1086
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Preskakovanje."
 
-#: core/audex.cpp:636 core/audex.cpp:1031
+#: core/audex.cpp:700 core/audex.cpp:1106
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Ni bilo mogoče ustvariti mape \"%1\"."
 
-#: core/audex.cpp:639 core/audex.cpp:1034
+#: core/audex.cpp:703 core/audex.cpp:1109
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Mapa \"%1\" uspešno ustvarjena."
 
-#: core/audex.cpp:642
+#: core/audex.cpp:706
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Mapa \"%1\" že obstaja."
 
-#: core/audex.cpp:649
+#: core/audex.cpp:713
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Prostora na \"%1\" je manj kot 800 MiB."
 
-#: core/audex.cpp:672
+#: core/audex.cpp:736
 #, kde-format
 msgid "Temporary folder \"%1\" error."
 msgstr "Napaka v začasni mapi \"%1\"."
 
-#: core/audex.cpp:672
+#: core/audex.cpp:736
 #, kde-format
 msgid "Please check."
 msgstr "Preverite."
 
-#: core/audex.cpp:678
+#: core/audex.cpp:742
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Prostora v začasni mapi \"%1\" je manj kot 800 MiB."
 
-#: core/audex.cpp:680
+#: core/audex.cpp:744
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Začasna mapa \"%1\" rabi najmanj 200 MiB prostora."
 
-#: core/audex.cpp:680
+#: core/audex.cpp:745
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Napravite prostor, ali določite drug cilj."
 
-#: core/audex.cpp:709
+#: core/audex.cpp:774
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Izvrzi/vstavi medij"
 
-#: core/audex.cpp:756
+#: core/audex.cpp:822
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Naslovnica \"%1\" uspešno shranjena."
 
-#: core/audex.cpp:759
+#: core/audex.cpp:825
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Naslovnice \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:759 core/audex.cpp:830 core/audex.cpp:867 core/audex.cpp:910
-#: core/audex.cpp:945 core/audex.cpp:999 core/audex.cpp:1026
+#: core/audex.cpp:825 core/audex.cpp:899 core/audex.cpp:938 core/audex.cpp:983
+#: core/audex.cpp:1020 core/audex.cpp:1074 core/audex.cpp:1101
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Preverite ciljno pot in dovoljenja"
 
-#: core/audex.cpp:826
+#: core/audex.cpp:895
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Uspešno ustvarjen seznam predvajanja \"%1\"."
 
-#: core/audex.cpp:830
+#: core/audex.cpp:899
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Seznama predvajanja \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:864
+#: core/audex.cpp:935
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Podatkovna datoteka \"%1\" je bila uspešno ustvarjena."
 
-#: core/audex.cpp:867
+#: core/audex.cpp:938
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Podatkovne datoteke \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:907
+#: core/audex.cpp:980
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Zgoščevalna datoteka \"%1\" uspešno ustvarjena."
 
-#: core/audex.cpp:910
+#: core/audex.cpp:983
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Zgoščevalne datoteke (hashlist) \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:942
+#: core/audex.cpp:1017
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue seznam \"%1\" uspešno ustvarjen."
 
-#: core/audex.cpp:945
+#: core/audex.cpp:1020
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue seznama \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:999 core/audex.cpp:1026
+#: core/audex.cpp:1074 core/audex.cpp:1101
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Mape \"%1\" ni mogoče odpreti."
 
-#: dialogs/cddaheaderdatadialog.cpp:174 widgets/cddaheaderwidget.cpp:497
+#: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
 msgid "Edit Data"
 msgstr "Uredi podatke"
@@ -339,11 +347,12 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, kde-format
-msgid "FreeDB disc ID:"
+#, fuzzy, kde-format
+#| msgid "FreeDB disc ID:"
+msgid "CDDB disc ID:"
 msgstr "ID diska na FreeDB:"
 
-#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_freedbdiscid)
+#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
 #, kde-format
 msgid "0x00000000"
@@ -538,35 +547,6 @@ msgstr "Vhodna datoteka"
 #, kde-format
 msgid "Output File"
 msgstr "Izhodna datoteka"
-
-#: dialogs/coverbrowserdialog.cpp:31
-#, kde-format
-msgid "Searching for covers..."
-msgstr "Iščem naslovnice..."
-
-#: dialogs/coverbrowserdialog.cpp:69
-#, kde-format
-msgid "Fetching Thumbnail %1 / %2..."
-msgstr "Pridobivam sličice %1 / %2..."
-
-#: dialogs/coverbrowserdialog.cpp:74
-#, kde-format
-msgid "Found 1 Cover"
-msgid_plural "Found %1 Covers"
-msgstr[0] "Najdena %1 naslovnica"
-msgstr[1] "Najdeni %1 naslovnici"
-msgstr[2] "Najdene %1 naslovnice"
-msgstr[3] "Najdenih %1 naslovnic"
-
-#: dialogs/coverbrowserdialog.cpp:80
-#, kde-format
-msgid "No Covers Found"
-msgstr "Ni najdenih naslovnic"
-
-#: dialogs/coverbrowserdialog.cpp:98
-#, kde-format
-msgid "Fetch Cover From Google"
-msgstr "Pridobi naslovnico z Googla"
 
 #: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
@@ -895,17 +875,17 @@ msgstr "Nastavitve seznama cue"
 msgid "Name/Pattern:"
 msgstr "Ime/vzorec:"
 
-#: dialogs/profiledatadialog.cpp:91
+#: dialogs/profiledatadialog.cpp:95
 #, kde-format
 msgid "Modify Profile"
 msgstr "Spremeni profil"
 
-#: dialogs/profiledatadialog.cpp:182
+#: dialogs/profiledatadialog.cpp:186
 #, kde-format
 msgid "Create Profile"
 msgstr "Ustvari profil"
 
-#: dialogs/profiledatadialog.cpp:192
+#: dialogs/profiledatadialog.cpp:196
 #, kde-format
 msgid "New Profile"
 msgstr "Nov profil"
@@ -932,12 +912,85 @@ msgid "Info Settings"
 msgstr "Nastavitve informacij"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, kde-format
-msgid "Usable Variables For Text Template"
-msgstr "Uporabne spremenljivke za besedilno predlogo"
-
-#: dialogs/profiledatainfodialog.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
+#| "by a special value and can even contain parameters.<br />For example the "
+#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
+#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
+#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
+#| "div>will be replaced by the relevant artist of the cd. Variables may also "
+#| "have attribute, for example:<div style=\"font-family:monospace; "
+#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
+#| "pre></div>This would print the current date. Setting the format will "
+#| "control how this is done. The example (above)would result int the date "
+#| "being printed as 2010-10-07 (if this was the current date). See below for "
+#| "more details.<br /><br />You can make use of the following variables:<br /"
+#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
+#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
+#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
+#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
+#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
+#| "td><td></td><td>Prints the relevant date (usually release year) of the "
+#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
+#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
+#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
+#| "(compressed) music files (incl. the cover). The attribute iec can be one "
+#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
+#| "attribute precision gives the number of decimal places. Default "
+#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
+#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
+#| "relevant overall length of all extracted tracks. The format is min:sec.</"
+#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
+#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
+#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
+#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
+#| "td><td>Prints the current date. The attribute format specifies the output "
+#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
+#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
+#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
+#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
+#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
+#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
+#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
+#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
+#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
+#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
+#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
+#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
+#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
+#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
+#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
+#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
+#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
+#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
+#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
+#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
+#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
+#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
+#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
+#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
+#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
+#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
+#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
+#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
+#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
+#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
+#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
+#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
+#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
+#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
+#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
+#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
+#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
+#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
+#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
+#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
+#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
+#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -973,47 +1026,15 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"specifies the output. <i>Please have a look at the offical qt documentation "
+"for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
-"The attribute format specifies the output (*).</td><td>${now format=\"yyyy-"
-"MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
+"The attribute format specifies the output. <i>Please have a look at the "
+"offical qt documentation for the format variables.</i></td><td>${now format="
+"\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
-"linebreak.</td><td></td></tr></tbody></table><br /><br />(* date/time format "
-"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-"thead><tr valign=\"top\"><td>d</td><td>The day as a number without a leading "
-"zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The day as a "
-"number with a leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</"
-"td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></"
-"tr><tr valign=\"top\"><td>dddd</td><td>The long localized day name (e."
-"g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</td><td>The "
-"month as a number without a leading zero (1 to 12).</td></tr><tr valign=\"top"
-"\"><td>MM</td><td>The month as a number with a leading zero (01 to 12).</"
-"td></tr><tr valign=\"top\"><td>MMM</td><td>The abbreviated localized month "
-"name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign=\"top\"><td>MMMM</"
-"td><td>The long localized month name (e.g&#x2e; 'January' to 'December').</"
-"td></tr><tr valign=\"top\"><td>yy</td><td>The year as two digit number (00 "
-"to 99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>The year as four digit "
-"number.</td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" "
-"border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></"
-"tr></thead><tr valign=\"top\"><td>h</td><td>The hour without a leading zero "
-"(0 to 23 or 1 to 12 if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</"
-"td><td>The hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)."
-"</td></tr><tr valign=\"top\"><td>H</td><td>The hour without a leading zero "
-"(0 to 23, even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</"
-"td><td>The hour with a leading zero (00 to 23, even with AM/PM display).</"
-"td></tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero "
-"(0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-"leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-"second without a leading zero (0 to 59).</td></tr><tr valign=\"top\"><td>ss</"
-"td><td>The second with a leading zero (00 to 59).</td></tr><tr valign=\"top"
-"\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</td></"
-"tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with leading zeroes "
-"(000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</td><td>Interpret as "
-"an AM/PM time. AP must be either 'AM' or 'PM'.</td></tr><tr valign=\"top"
-"\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or "
-"'pm'.</td></tr></table></body></html>"
+"linebreak.</td><td></td></tr></tbody></table></body></html>"
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1089,12 +1110,12 @@ msgstr ""
 "'PM'.</td></tr><tr valign=\"top\"><td>ap or a</td><td>Preklopi na AM/PM "
 "način. ap mora biti 'am' ali 'pm'.</td></tr></table></body></html>"
 
-#: dialogs/profiledatainfodialog.cpp:244
+#: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
 msgid "Load Text Template"
 msgstr "Odpri predlogo besedila"
 
-#: dialogs/profiledatainfodialog.cpp:257
+#: dialogs/profiledatainfodialog.cpp:210
 #, kde-format
 msgid "Save Text Template"
 msgstr "Shrani predlogo besedila"
@@ -1114,8 +1135,8 @@ msgstr "O spremenljivkah"
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
 #: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
-#: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
-#: widgets/wavewidgetUI.ui:31
+#: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
+#: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "Predpona:"
@@ -1329,8 +1350,9 @@ msgid "KDE CDDA Extractor"
 msgstr "Odpakirnik KDE CDDA"
 
 #: main.cpp:35
-#, kde-format
-msgid "Copyright © 2007–2015 by Marco Nelles"
+#, fuzzy, kde-format
+#| msgid "Copyright © 2007–2015 by Marco Nelles"
+msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Avtorske pravice © 2007–2015: Marco Nelles"
 
 #: main.cpp:38
@@ -1369,23 +1391,12 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:41
-#, kde-format
-msgid "Special thanks to credativ GmbH (Germany) for support"
+#, fuzzy, kde-format
+#| msgid "Special thanks to credativ GmbH (Germany) for support"
+msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Posebna zahvala Credativ GmbH (Nemčija) za podporo"
 
 #: main.cpp:42
-#, kde-format
-msgid "freedb.org"
-msgstr "freedb.org"
-
-#: main.cpp:42
-#, kde-format
-msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr ""
-"Posebna zahvala freedb.org za storitev nudenja proste podatkovne baze CD-jev "
-"(kot CDDB)"
-
-#: main.cpp:43
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Fundacija Xiph.Org"
@@ -1395,24 +1406,24 @@ msgstr "Fundacija Xiph.Org"
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr "Posebna zahvala fundaciji Xiph.org za nudenje zajemalnika diskov"
 
-#: main.cpp:44
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ugo Ugowsky"
 
-#: main.cpp:44
+#: main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ugowsky@gmail.com"
 
-#: mainwindow.cpp:19
+#: mainwindow.cpp:38
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "Ni bilo mogoče ustvariti objekta ProfileModel."
 
-#: mainwindow.cpp:19 mainwindow.cpp:32
+#: mainwindow.cpp:39 mainwindow.cpp:52
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
@@ -1420,22 +1431,22 @@ msgstr ""
 "Notranja napaka. Preverite strojno opremo. Če je vse ok, nam pošljite "
 "poročilo o napaki."
 
-#: mainwindow.cpp:32
+#: mainwindow.cpp:52
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "Ni bilo mogoče ustvariti objekta CDDAModel."
 
-#: mainwindow.cpp:105
+#: mainwindow.cpp:124
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Podatki o disku niso nastavljeni. Ali res želite nadaljevati?"
 
-#: mainwindow.cpp:106
+#: mainwindow.cpp:125
 #, kde-format
 msgid "Disc information not found"
 msgstr "Informacij o disku ni bilo mogoče najti"
 
-#: mainwindow.cpp:117
+#: mainwindow.cpp:136
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1444,37 +1455,37 @@ msgstr ""
 "Za zajem je izbran način \"zapiši v eno datoteko\", izbrane pa niso vse "
 "skladbe na CD-ju. Ali res želite nadaljevati?"
 
-#: mainwindow.cpp:118
+#: mainwindow.cpp:137
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Za način \"zapiši v eno datoteko\" niso izbrane vse skladbe"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:161
 #, kde-format
 msgid "General settings"
 msgstr "Splošne nastavitve"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:164
 #, kde-format
 msgid "Device settings"
 msgstr "Nastavitve naprav"
 
-#: mainwindow.cpp:148
+#: mainwindow.cpp:167
 #, kde-format
 msgid "Profiles"
 msgstr "Profili"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:176
 #, kde-format
 msgid "CDDB settings"
 msgstr "Nastavitve CDDB"
 
-#: mainwindow.cpp:160
+#: mainwindow.cpp:179
 #, kde-format
 msgid "Remote Server"
 msgstr "Oddaljeni strežnik"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:219
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1483,17 +1494,17 @@ msgstr ""
 "Poizvedba na CDDB-ju neuspešna, javljena je bila napaka:\n"
 "%1"
 
-#: mainwindow.cpp:194
+#: mainwindow.cpp:221
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Napaka med poizvedbo na CDDB-ju"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:326
 #, kde-format
 msgid "Split titles"
 msgstr "Loči naslove"
 
-#: mainwindow.cpp:297
+#: mainwindow.cpp:327
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1504,103 +1515,111 @@ msgstr ""
 "\n"
 "Razdelilnik:"
 
-#: mainwindow.cpp:307
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Ali res želite zamenjati vse izvajalce in naslove?"
 
-#: mainwindow.cpp:308
+#: mainwindow.cpp:340
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Zamenjaj izvajalce in naslove"
 
-#: mainwindow.cpp:323
+#: mainwindow.cpp:354
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Ali res želite uporabiti velike začetnice v imenih vseh izvajalcev in skladb?"
 
-#: mainwindow.cpp:324
+#: mainwindow.cpp:355
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Uporabi velike začetnice v imenih izvajalcev in skladb"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Ali res želite, da se imena izvajalcev samodejno izpolnijo?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Autofill artists"
 msgstr "Samodejno izpolni izvajalce"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:397
 #, kde-format
 msgid "Eject"
 msgstr "Izvrzi"
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:404
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:416
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profile:"
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:400
-#, kde-format
-msgid "Fetch Info"
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+#| msgid "Fetch Info"
+msgid "Fetch"
 msgstr "Pridobi podatke"
 
-#: mainwindow.cpp:407
-#, kde-format
-msgid "Submit Info"
+#: mainwindow.cpp:437
+#, fuzzy, kde-format
+#| msgid "Submit Info"
+msgid "Submit"
 msgstr "Pošlji podatke"
 
-#: mainwindow.cpp:413
+#: mainwindow.cpp:443
+#, fuzzy, kde-format
+#| msgid "Edit Data"
+msgid "Edit"
+msgstr "Uredi podatke"
+
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Rip..."
 msgstr "Zajemi..."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:459
 #, kde-format
 msgid "Split Titles..."
 msgstr "Loči naslove..."
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:464
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Zamenjaj imena izvajalcev in skladb"
 
-#: mainwindow.cpp:432
+#: mainwindow.cpp:469
 #, kde-format
 msgid "Capitalize"
 msgstr "Uporabi velike začetnice"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:474
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Samodejno izpolni izvajalce"
 
-#: mainwindow.cpp:442
+#: mainwindow.cpp:479
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Izberi vse zvočne sledi"
 
-#: mainwindow.cpp:447
+#: mainwindow.cpp:484
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Odstrani izbiro vseh zvočnih sledi"
 
-#: mainwindow.cpp:452
+#: mainwindow.cpp:489
 #, kde-format
 msgid "Invert Selection"
 msgstr "Obrni izbiro"
@@ -1729,42 +1748,42 @@ msgstr "Naslov"
 msgid "Length"
 msgstr "Dolžina"
 
-#: models/profilemodel.cpp:163
+#: models/profilemodel.cpp:167
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Ime profila ne sme ostati prazno."
 
-#: models/profilemodel.cpp:163
+#: models/profilemodel.cpp:167
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "Ime profila ni določeno. Določite ime profila."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:174
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Noben kodirnik ni določen."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:174
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Za ta profil ni določen noben kodirnik. Določite ga."
 
-#: models/profilemodel.cpp:175
+#: models/profilemodel.cpp:180
 #, kde-format
 msgid "Profile filename pattern is not defined."
 msgstr "Vzorčenje poimenovanja v profilu ni določeno."
 
-#: models/profilemodel.cpp:175
+#: models/profilemodel.cpp:181
 #, kde-format
 msgid "You have given no filename pattern for the profile. Please set one."
 msgstr "Vzorčenje poimenovanja v profilu ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:193
+#: models/profilemodel.cpp:202
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Neznana vrsta datoteke."
 
-#: models/profilemodel.cpp:193
+#: models/profilemodel.cpp:203
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
@@ -1773,22 +1792,22 @@ msgstr ""
 "Vrsta datoteke je neznana. Izbirate lahko med sledečimi vrstami datotek:JPG/"
 "JPEG, PNG ali BMP."
 
-#: models/profilemodel.cpp:199
+#: models/profilemodel.cpp:211
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Ime naslovnice ne sme ostati prazno."
 
-#: models/profilemodel.cpp:199
+#: models/profilemodel.cpp:211
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "Ime naslovnice ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:207
+#: models/profilemodel.cpp:219
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Neznana vrsta datoteke seznama predvajanja."
 
-#: models/profilemodel.cpp:207
+#: models/profilemodel.cpp:220
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1797,158 +1816,165 @@ msgstr ""
 "Vrsta datoteke seznama predvajanja je neznana. Izbirate lahko med: M3U, PLS "
 "in XSPF."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:228
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Ime seznama predvajanja ne sme ostati prazno."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:228
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Ime seznama predvajanja ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:227
+#: models/profilemodel.cpp:242
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Ime besedila opombe ne sme ostati prazno."
 
-#: models/profilemodel.cpp:227
+#: models/profilemodel.cpp:243
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Ime besedila opombe ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:234
+#: models/profilemodel.cpp:252
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Pripona imena besedilne opombe ne sme ostati prazna."
 
-#: models/profilemodel.cpp:234
+#: models/profilemodel.cpp:253
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "Za besedilno opombo ni določena nobena pripona. Določite jo."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:263
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Vrsta razpršenega seznama ni znana."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:264
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
 "formats: SFV, MD5."
 msgstr "Vrsta razpršenega seznama ni znana. Na voljo sta: SFV in MD5."
 
-#: models/profilemodel.cpp:249
+#: models/profilemodel.cpp:273
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Ime raspršenega seznama ne sme ostati prazno."
 
-#: models/profilemodel.cpp:249
+#: models/profilemodel.cpp:273
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Ime razpršenega seznama ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:258
+#: models/profilemodel.cpp:283
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "Ime seznama cue ne sme ostati prazno."
 
-#: models/profilemodel.cpp:258
+#: models/profilemodel.cpp:283
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Ime seznama cue ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:267
+#: models/profilemodel.cpp:292
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "Ime skladbe ne sme ostati prazno."
 
-#: models/profilemodel.cpp:267
+#: models/profilemodel.cpp:293
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "Ime skladbe ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:299
+#: models/profilemodel.cpp:329
 #, kde-format
 msgid "Profile name already exists."
 msgstr "Ime profila že obstaja."
 
-#: models/profilemodel.cpp:299
+#: models/profilemodel.cpp:330
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr "Ime profila %1 že obstaja v zbirki profilov. Določite drugo ime."
 
-#: models/profilemodel.cpp:316
+#: models/profilemodel.cpp:349
 #, kde-format
 msgid "Profile index already exists."
 msgstr "Indeks profila že obstaja."
 
-#: models/profilemodel.cpp:316
+#: models/profilemodel.cpp:350
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr "Indeks profila %1 že obstaja v zbirki profilov. Določite drugega."
 
-#: models/profilemodel.cpp:439
+#: models/profilemodel.cpp:478
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "Neznana napaka. Indeks ni bil najden v modelu profila."
 
-#: models/profilemodel.cpp:439
+#: models/profilemodel.cpp:478
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "Notranja napaka. Oddajte poročilo."
 
-#: models/profilemodel.h:162
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
+#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#, kde-format
+msgid "Copy"
+msgstr "Kopiraj"
+
+#: models/profilemodel.h:164
 #, kde-format
 msgid " (Mobile Quality)"
 msgstr " (mobilna kakovost)"
 
-#: models/profilemodel.h:163
+#: models/profilemodel.h:165
 #, kde-format
 msgid " (Normal Quality)"
 msgstr " (običajna kakovost)"
 
-#: models/profilemodel.h:164
+#: models/profilemodel.h:166
 #, kde-format
 msgid " (Extreme Quality)"
 msgstr " (izjemna kakovost)"
 
-#: utils/cachedimage.cpp:115
+#. i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
+#: utils/cachedimage.cpp:117
 #, kde-format
 msgid "Common image formats"
 msgstr "Pogoste vrste datotek"
 
-#: utils/cachedimage.cpp:160
+#: utils/cachedimage.cpp:162
 #, kde-format
 msgid "File does not exist."
 msgstr "Datoteka ne obstaja."
 
-#: utils/cachedimage.cpp:160
+#: utils/cachedimage.cpp:162
 #, kde-format
 msgid "Please check if the file really exists."
 msgstr "Preverite, če datoteka že obstaja."
 
-#: utils/cachedimage.cpp:169
+#: utils/cachedimage.cpp:171
 #, kde-format
 msgid "Cannot open file."
 msgstr "Datoteke ni mogoče odpreti."
 
-#: utils/cachedimage.cpp:169
+#: utils/cachedimage.cpp:171
 #, kde-format
 msgid "Please check your file. Maybe you do not have proper permissions."
 msgstr "Preverite lastnosti datoteke. Morda nimate ustreznih pravic."
 
-#: utils/cachedimage.cpp:175 utils/cachedimage.cpp:229
+#: utils/cachedimage.cpp:177 utils/cachedimage.cpp:234
 #, kde-format
 msgid "Unsupported image format"
 msgstr "Nepodprta vrsta datoteke"
 
-#: utils/cachedimage.cpp:175
+#: utils/cachedimage.cpp:178
 #, kde-format
 msgid ""
 "Please check your file. Maybe it is corrupted. Otherwise try to convert your "
@@ -1957,41 +1983,44 @@ msgstr ""
 "Preverite datoteko, mogoče je pokvarjena. Lahko poskusite pretvoriti sliko z "
 "zunanjim programom v drugo obliko, npr. JPEG."
 
-#: utils/cachedimage.cpp:194
+#: utils/cachedimage.cpp:199
 #, kde-format
 msgid "Cannot open file"
 msgstr "Datoteke ni mogoče odpreti"
 
-#: utils/cachedimage.cpp:194
+#: utils/cachedimage.cpp:199
 #, kde-format
 msgid "Please check your permissions."
 msgstr "Preverite dovoljenja."
 
-#: utils/cachedimage.cpp:202
+#: utils/cachedimage.cpp:207
 #, kde-format
 msgid "Cannot save file"
 msgstr "Datoteke ni mogoče shraniti"
 
-#: utils/cachedimage.cpp:202
+#: utils/cachedimage.cpp:207
 #, kde-format
 msgid "Please check your permissions. Do you have enough space?"
 msgstr "Preverite dovoljenja . Ali je na ciljnem mestu dovolj prostora?"
 
-#: utils/cachedimage.cpp:229
-#, kde-format
+#: utils/cachedimage.cpp:235
+#, fuzzy, kde-format
+#| msgid ""
+#| "Please use common image formats like JPEG, PNG or GIF as they are "
+#| "supported on almost all systems."
 msgid ""
-"Please use common image formats like JPEG, PNG or GIF as they are supported "
-"on almost all systems."
+"Please use common image formats like JPEG or PNG as they are supported on "
+"almost all systems."
 msgstr ""
 "Uporabite pogoste oblike, kot so JPEG, PNG ali GIF, saj so te podprte skoraj "
 "na vseh sistemih."
 
-#: utils/cachedimage.cpp:241
+#: utils/cachedimage.cpp:248
 #, kde-format
 msgid "Cannot write on device"
 msgstr "Ne morem pisati na napravo"
 
-#: utils/cachedimage.cpp:241
+#: utils/cachedimage.cpp:248
 #, kde-format
 msgid "Please check your permissions. Do you have enough space on your device?"
 msgstr "Preverite dovoljenja. Je na ciljni napravi dovolj prostora?"
@@ -2155,58 +2184,38 @@ msgstr ""
 "Preverite napravo. Ali je res \"%1\"? Če je, preverite še dovoljenja na "
 "\"%1\"."
 
-#: utils/coverfetcher.cpp:137
-#, kde-format
-msgid "There was an error communicating with Google."
-msgstr "Napaka pri komunikaciji z Googlom."
-
-#: utils/coverfetcher.cpp:137
-#, kde-format
-msgid "Try again later. Otherwise make a bug report."
-msgstr "Poskusite kasneje. Sicer pošljite poročilo o napaki."
-
-#: utils/coverfetcher.cpp:150
-#, kde-format
-msgid "Google server: Empty response."
-msgstr "Googlov strežnik: prazen odziv."
-
-#: utils/coverfetcher.cpp:150
-#, kde-format
-msgid "Try again later. Make a bug report."
-msgstr "Poskusite kasneje. Pošljite poročilo o napaki."
-
-#: utils/coverfetcher.cpp:223
-#, kde-format
-msgid "%1x%2"
-msgstr "%1x%2"
-
-#: utils/encoderassistant.h:54
+#: utils/encoderassistant.h:57
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:84
+#: utils/encoderassistant.h:83
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:112
+#: utils/encoderassistant.h:111
+#, kde-format
+msgid "Opus"
+msgstr ""
+
+#: utils/encoderassistant.h:127
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (brez izgub)"
 
-#: utils/encoderassistant.h:122
+#: utils/encoderassistant.h:137
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:138
+#: utils/encoderassistant.h:153
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (surov, nekompresiran)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:145 utils/encoderassistant.h:146
+#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
@@ -2309,77 +2318,42 @@ msgstr "Pošiljanje datoteke %1 na strežnik. Počakajte..."
 msgid "Finished uploading file %1 to server."
 msgstr "Prenašanje datoteke %1 na strežnik dokončano."
 
-#: widgets/cddaheaderwidget.cpp:465
-#, kde-format
-msgid "Released: "
-msgstr "Izdano: "
-
-#: widgets/cddaheaderwidget.cpp:465
-#, kde-format
-msgid "Genre: "
-msgstr "Žanr: "
-
-#: widgets/cddaheaderwidget.cpp:465
+#: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "CD Number: "
 msgstr "Št. CD-ja: "
 
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: widgets/cddaheaderwidget.cpp:498 widgets/generalsettingswidgetUI.ui:117
-#, kde-format
-msgid "Wikipedia"
-msgstr "Wikipedija"
-
-#: widgets/cddaheaderwidget.cpp:522
+#: widgets/cddaheaderwidget.cpp:164
 #, kde-format
 msgid "No audio CD detected"
 msgstr "Noben zvočni CD ni bil zaznan"
 
-#: widgets/cddaheaderwidget.cpp:695
+#: widgets/cddaheaderwidget.cpp:284
 #, kde-format
 msgid "Load Cover"
 msgstr "Naloži naslovnico"
 
-#: widgets/cddaheaderwidget.cpp:705 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:294 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "Shrani naslovnico"
 
-#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
-#, kde-format
-msgid "No cover found."
-msgstr "Naslovnice ni bilo mogoče najti."
-
-#: widgets/cddaheaderwidget.cpp:802 widgets/cddaheaderwidget.cpp:818
-#, kde-format
-msgid ""
-"Check your artist name and title. Otherwise you can load a custom cover from "
-"an image file."
-msgstr ""
-"Preverite naslov in izvajalca. Lahko tudi naložite naslovnico iz slike po "
-"meri."
-
-#: widgets/cddaheaderwidget.cpp:862
-#, kde-format
-msgid "Fetch cover from Google..."
-msgstr "Pridobi naslovnico z Googla..."
-
-#: widgets/cddaheaderwidget.cpp:867
+#: widgets/cddaheaderwidget.cpp:381
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "Določi naslovnico po meri..."
 
-#: widgets/cddaheaderwidget.cpp:872
+#: widgets/cddaheaderwidget.cpp:386
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "Shrani naslovnico v datoteko..."
 
-#: widgets/cddaheaderwidget.cpp:877
+#: widgets/cddaheaderwidget.cpp:391
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "Prikaži naslovnico v polni velikosti..."
 
-#: widgets/cddaheaderwidget.cpp:882
+#: widgets/cddaheaderwidget.cpp:396
 #, kde-format
 msgid "Remove Cover"
 msgstr "Odstrani naslovnico"
@@ -2411,6 +2385,7 @@ msgstr "Kakovost"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+#: widgets/opusencwidgetUI.ui:135
 #, kde-format
 msgid "Lowest"
 msgstr "Najnižje"
@@ -2418,6 +2393,7 @@ msgstr "Najnižje"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+#: widgets/opusencwidgetUI.ui:149
 #, kde-format
 msgid "Highest"
 msgstr "Najvišje"
@@ -2429,101 +2405,40 @@ msgid "Compression"
 msgstr "Stiskanje"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:248
+#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
 #, kde-format
 msgid "Embed cover in music file"
 msgstr "Vstavi naslovnico v zvočno datoteko"
 
-#: widgets/generalsettingswidget.cpp:17
-#, kde-format
-msgid "English"
-msgstr "Angleško"
-
-#: widgets/generalsettingswidget.cpp:18
-#, kde-format
-msgid "Deutsch"
-msgstr "Nemško"
-
-#: widgets/generalsettingswidget.cpp:19
-#, kde-format
-msgid "Français"
-msgstr "Francosko"
-
-#: widgets/generalsettingswidget.cpp:20
-#, kde-format
-msgid "Polski"
-msgstr "Poljsko"
-
-#: widgets/generalsettingswidget.cpp:21
-#, kde-format
-msgid "日本語"
-msgstr "Japonsko"
-
-#: widgets/generalsettingswidget.cpp:22
-#, kde-format
-msgid "Italiano"
-msgstr "Italijansko"
-
-#: widgets/generalsettingswidget.cpp:23
-#, kde-format
-msgid "Nederlands"
-msgstr "Nizozemsko"
-
-#: widgets/generalsettingswidget.cpp:24
-#, kde-format
-msgid "Español"
-msgstr "Špansko"
-
-#: widgets/generalsettingswidget.cpp:25
-#, kde-format
-msgid "Português"
-msgstr "Portugalsko"
-
-#: widgets/generalsettingswidget.cpp:26
-#, kde-format
-msgid "Svenska"
-msgstr "Švedsko"
-
-#: widgets/generalsettingswidget.cpp:27
-#, kde-format
-msgid "Català"
-msgstr "Katalonsko"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
-#: widgets/generalsettingswidgetUI.ui:37
-#, kde-format
-msgid "Eject CD tray after finished extraction"
-msgstr "Po končanem zajemanju izvrzi CD"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
-#: widgets/generalsettingswidgetUI.ui:51
-#, kde-format
-msgid "Perform cover lookup automatically"
-msgstr "Samodejno preveri za naslovnico"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:66
-#, kde-format
-msgid "Number of covers to fetch:"
-msgstr "Število naslovnic za pridobivanje:"
-
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: widgets/generalsettingswidgetUI.ui:94
+#: widgets/generalsettingswidgetUI.ui:17
 #, kde-format
 msgid "Paths"
 msgstr "Poti"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
-#: widgets/generalsettingswidgetUI.ui:102
+#: widgets/generalsettingswidgetUI.ui:25
 #, kde-format
 msgid "Base path to store music files:"
 msgstr "Pot za shranjevanje glasbenih datotek:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
-#: widgets/generalsettingswidgetUI.ui:129
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: widgets/generalsettingswidgetUI.ui:60
 #, kde-format
-msgid "Localization:"
-msgstr "Lokalizacija:"
+msgid "Eject CD tray after finished extraction"
+msgstr "Po končanem zajemanju izvrzi CD"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
+#: widgets/generalsettingswidgetUI.ui:77
+#, kde-format
+msgid "Perform cover lookup automatically"
+msgstr "Samodejno preveri za naslovnico"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/generalsettingswidgetUI.ui:92
+#, kde-format
+msgid "Number of covers to fetch:"
+msgstr "Število naslovnic za pridobivanje:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
@@ -2601,16 +2516,26 @@ msgstr "Noro (320 kbit/s)"
 msgid "Constant Bitrate"
 msgstr "Konstantna bitna hitrost"
 
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153
-#, kde-format
-msgid "Target Bitrate (kbit/s)"
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#, fuzzy, kde-format
+#| msgid "Target Bitrate (kbit/s)"
+msgid "Target bitrate (kbit/s)"
 msgstr "Ciljna bitna hitrost (kbit/s)"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#, fuzzy, kde-format
+#| msgid "kbit/s"
+msgid " kbit/s"
+msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, kde-format
-msgid "Target Bitrate ~"
+#, fuzzy, kde-format
+#| msgid "Target Bitrate ~"
+msgid "Target bitrate ~"
 msgstr "Ciljna bitna hitrost ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
@@ -2649,12 +2574,16 @@ msgstr "Izbriši profil"
 msgid "Load Profiles"
 msgstr "Naloži profile"
 
-#: widgets/profilewidget.cpp:140
-#, kde-format
+#: widgets/profilewidget.cpp:138
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
+#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
+#| "create some sample profiles based upon any found codecs.</font></p>"
 msgid ""
-"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
-"some sample profiles based upon any found codecs.</font></p>"
+"<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
+"p><p><font style=\"font-style:italic;\">This will attempt to create some "
+"sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>Ali želite ponovno pregledati sistem za kodirniki (Lame, Ogg Vorbis, "
 "Flac, ipd.)?</p><p><font style=\"font-style:italic;\">To bo poskusilo "
@@ -2662,18 +2591,18 @@ msgstr ""
 "p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:142 widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
 msgstr "Preiskovanje kodirnikov"
 
-#: widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
 msgstr "Ni najdenih novih kodirnikov"
 
-#: widgets/profilewidget.cpp:148
+#: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
@@ -2700,12 +2629,6 @@ msgstr "Odstrani"
 msgid "Modify..."
 msgstr "Spremeni..."
 
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: widgets/profilewidgetUI.ui:42
-#, kde-format
-msgid "Copy"
-msgstr "Kopiraj"
-
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
@@ -2723,3 +2646,107 @@ msgstr "Shrani..."
 #, kde-format
 msgid "URL:"
 msgstr "URL naslov:"
+
+#~ msgid "Searching for covers..."
+#~ msgstr "Iščem naslovnice..."
+
+#~ msgid "Fetching Thumbnail %1 / %2..."
+#~ msgstr "Pridobivam sličice %1 / %2..."
+
+#~ msgid "Found 1 Cover"
+#~ msgid_plural "Found %1 Covers"
+#~ msgstr[0] "Najdena %1 naslovnica"
+#~ msgstr[1] "Najdeni %1 naslovnici"
+#~ msgstr[2] "Najdene %1 naslovnice"
+#~ msgstr[3] "Najdenih %1 naslovnic"
+
+#~ msgid "No Covers Found"
+#~ msgstr "Ni najdenih naslovnic"
+
+#~ msgid "Fetch Cover From Google"
+#~ msgstr "Pridobi naslovnico z Googla"
+
+#~ msgid "Usable Variables For Text Template"
+#~ msgstr "Uporabne spremenljivke za besedilno predlogo"
+
+#~ msgid "freedb.org"
+#~ msgstr "freedb.org"
+
+#~ msgid ""
+#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
+#~ msgstr ""
+#~ "Posebna zahvala freedb.org za storitev nudenja proste podatkovne baze CD-"
+#~ "jev (kot CDDB)"
+
+#~ msgid "There was an error communicating with Google."
+#~ msgstr "Napaka pri komunikaciji z Googlom."
+
+#~ msgid "Try again later. Otherwise make a bug report."
+#~ msgstr "Poskusite kasneje. Sicer pošljite poročilo o napaki."
+
+#~ msgid "Google server: Empty response."
+#~ msgstr "Googlov strežnik: prazen odziv."
+
+#~ msgid "Try again later. Make a bug report."
+#~ msgstr "Poskusite kasneje. Pošljite poročilo o napaki."
+
+#~ msgid "%1x%2"
+#~ msgstr "%1x%2"
+
+#~ msgid "Released: "
+#~ msgstr "Izdano: "
+
+#~ msgid "Genre: "
+#~ msgstr "Žanr: "
+
+#~ msgid "Wikipedia"
+#~ msgstr "Wikipedija"
+
+#~ msgid "No cover found."
+#~ msgstr "Naslovnice ni bilo mogoče najti."
+
+#~ msgid ""
+#~ "Check your artist name and title. Otherwise you can load a custom cover "
+#~ "from an image file."
+#~ msgstr ""
+#~ "Preverite naslov in izvajalca. Lahko tudi naložite naslovnico iz slike po "
+#~ "meri."
+
+#~ msgid "Fetch cover from Google..."
+#~ msgstr "Pridobi naslovnico z Googla..."
+
+#~ msgid "English"
+#~ msgstr "Angleško"
+
+#~ msgid "Deutsch"
+#~ msgstr "Nemško"
+
+#~ msgid "Français"
+#~ msgstr "Francosko"
+
+#~ msgid "Polski"
+#~ msgstr "Poljsko"
+
+#~ msgid "日本語"
+#~ msgstr "Japonsko"
+
+#~ msgid "Italiano"
+#~ msgstr "Italijansko"
+
+#~ msgid "Nederlands"
+#~ msgstr "Nizozemsko"
+
+#~ msgid "Español"
+#~ msgstr "Špansko"
+
+#~ msgid "Português"
+#~ msgstr "Portugalsko"
+
+#~ msgid "Svenska"
+#~ msgstr "Švedsko"
+
+#~ msgid "Català"
+#~ msgstr "Katalonsko"
+
+#~ msgid "Localization:"
+#~ msgstr "Lokalizacija:"
