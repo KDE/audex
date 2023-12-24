@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16.0)
 
-project(Audex VERSION "0.96")
+project(Audex VERSION "0.97-kf5")
 
 set(KF5_MIN_VERSION "5.100.0")
 
