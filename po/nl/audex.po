@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Kenny Verstraete <verstraete_kenny@skynet.be>, 2009.
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2011.
+# SPDX-FileCopyrightText: 2011, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 # Freek de Kruijf <f.de.kruijf@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2017, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
-"PO-Revision-Date: 2023-04-27 14:43+0200\n"
+"POT-Creation-Date: 2023-12-24 00:41+0000\n"
+"PO-Revision-Date: 2023-12-23 11:04+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -111,15 +111,13 @@ msgstr "&Audex"
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
-#, fuzzy, kde-format
-#| msgid "Phonon Metadata"
+#, kde-format
 msgid "&Metadata"
-msgstr "Phonon Metadata"
+msgstr "&Metagegevens"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -349,10 +347,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "FreeDB schijf-id:"
+msgstr "CDDB schijf-ID:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -959,49 +956,17 @@ msgstr "Info Instellingen"
 #| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
 #| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
 #| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
-#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
-#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#| "td><td>Prints the current date. The attribute format specifies the "
+#| "output. <i>Please have a look at the offical qt documentation for the "
+#| "format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+#| "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
+#| "time. The attribute format specifies the output. <i>Please have a look at "
+#| "the offical qt documentation for the format variables.</i></td><td>${now "
+#| "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
+#| "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</td><td></"
+#| "td><td>Prints Audex name and version.</td></tr><tr><td>$br</td><td></"
+#| "td><td>Prints a linebreak.</td><td></td></tr></tbody></table></body></"
+#| "html>"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1037,11 +1002,11 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the offical qt documentation "
+"specifies the output. <i>Please have a look at the official qt documentation "
 "for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
 "The attribute format specifies the output. <i>Please have a look at the "
-"offical qt documentation for the format variables.</i></td><td>${now format="
+"official qt documentation for the format variables.</i></td><td>${now format="
 "\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
@@ -1083,48 +1048,16 @@ msgstr ""
 "is de basis van het aantal. De standaard waarde is 16 (hexadecimaal).</"
 "td><td>${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
 "td><td>Drukt de huidige datum af. Het attribuut format specificeert de "
-"uitvoer (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-"td><td>format</td><td>Drukt de huidige datum en/of tijd af. Het attribuut "
-"format specificeert de uitvoer (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-"mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Drukt de naam en versie "
-"van de encoder af.</td></tr><tr><td>$audex</td><td></td><td>Drukt Audex-naam "
-"en versie af.</td></tr><tr><td>$br</td><td></td><td>Drukt een nieuwe regel "
-"af.</td><td></td></tr></tbody></table><br /><br />(* datum/tijd-"
-"formatexpressies)<table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expressie</th><th>Uitvoer</th></tr></"
-"thead><tr valign=\"top\"><td>d</td><td>De dag als getal zonder een "
-"voorloopnul (1 tot 31).</td></tr><tr valign=\"top\"><td>dd</td><td>De dag "
-"als getal met een voorloopnul (01 tot 31).</td></tr><tr valign=\"top"
-"\"><td>ddd</td><td>De afgekorte lokale naam van de dag (bijvoorbeeld&#x2e; "
-"'maa' tot 'zon').</td></tr><tr valign=\"top\"><td>dddd</td><td>De lange "
-"lokale naam van de dag (bijvoorbeeld&#x2e; 'maandag' tot 'zondag').</td></"
-"tr><tr valign=\"top\"><td>M</td><td>De maand als getal zonder voorloopnul (1 "
-"tot 12).</td></tr><tr valign=\"top\"><td>MM</td><td>De maand als getal met "
-"voorloopnul (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>De "
-"afgekorte lokale naam van de maand (bijvoorbeeld&#x2e; 'jan' tot 'dec').</"
-"td></tr><tr valign=\"top\"><td>MMMM</td><td>De lange lokale naam van de "
-"maand (bijvoorbeeld&#x2e; 'januari' tot 'december').</td></tr><tr valign="
-"\"top\"><td>yy</td><td>Het jaar als tweecijferig getal (00 tot 99).</td></"
-"tr><tr valign=\"top\"><td>yyyy</td><td>Het jaar als viercijferig getal.</"
-"td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expressie</th><th>Uitvoer</th></tr></"
-"thead><tr valign=\"top\"><td>h</td><td>Het uur zonder een voorloopnul (0 tot "
-"23 of 1 tot 12 bij AM/PM weergave).</td></tr><tr valign=\"top\"><td>hh</"
-"td><td>Het uur met een voorloopnul (00 tot 23 of 01 tot 12 Bij AM/PM "
-"weergave).</td></tr><tr valign=\"top\"><td>H</td><td>Het uur zonder een "
-"voorloopnul (0 tot 23, zelfs bij AM/PM weergave).</td></tr><tr valign=\"top"
-"\"><td>HH</td><td>Het uur met een voorloopnul (00 tot 23, zelfs bij AM/PM "
-"weergave).</td></tr><tr valign=\"top\"><td>m</td><td>De minuut zonder een "
-"voorloopnul (0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>De minuut "
-"met een voorloopnul (00 tot 59).</td></tr><tr valign=\"top\"><td>s</"
-"td><td>De seconden zonder een voorloopnul (0 tot 59).</td></tr><tr valign="
-"\"top\"><td>ss</td><td>De seconden met een voorloopnul (00 tot 59).</td></"
-"tr><tr valign=\"top\"><td>z</td><td>De milliseconden zonder voorloopnullen "
-"(0 tot 999).</td></tr><tr valign=\"top\"><td>zz</td><td>De milliseconden met "
-"voorloopnullen (000 tot 999).</td></tr><tr valign=\"top\"><td>AP of A</"
-"td><td>Geïnterpreteerd als een AM/PM tijd. AP moet ofwel 'AM' of 'PM' zijn.</"
-"td></tr><tr valign=\"top\"><td>ap of a</td><td>Geïnterpreteerd als een AM/PM "
-"tijd. ap moet ofwel 'am' of 'pm' zijn.</td></tr></table></body></html>"
+"uitvoer. <i>Neem een kijkje in de officiële qt documentatie voor het format "
+"van de variabelen.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"tr><tr><td>$now</td><td>format</td><td>Drukt de huidige datum en/of tijd af. "
+"Het attribuut format specificeert de uitvoer.<i>Neem een kijkje in de "
+"officiële qt documentatie voor het format van de variabelen.</i></td><td>"
+"${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
+"td><td>Drukt de naam en versie van de encoder af.</td></tr><tr><td>$audex</"
+"td><td></td><td>Drukt Audex-naam en versie af.</td></tr><tr><td>$br</"
+"td><td></td><td>Drukt een nieuwe regel af.</td><td></td></tr></tbody></"
+"table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
@@ -1372,10 +1305,9 @@ msgid "KDE CDDA Extractor"
 msgstr "CDDA-extractor voor KDE"
 
 #: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Copyright © 2007–2015 door Marco Nelles"
+msgstr "Copyright © 2007–2023 door Marco Nelles"
 
 #: main.cpp:38
 #, kde-format
@@ -1413,10 +1345,10 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Speciale dank aan credativ GmbH (Duitsland) voor ondersteuning"
+msgstr ""
+"Speciale dank aan voormalig credativ GmbH (Duitsland) voor ondersteuning"
 
 #: main.cpp:42
 #, kde-format
@@ -1592,22 +1524,19 @@ msgid "Profile"
 msgstr "Profiel"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Info Ophalen"
+msgstr "Ophalen"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Info Indienen"
+msgstr "Indienen"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Gegevens Bewerken"
+msgstr "Bewerken"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -2047,16 +1976,13 @@ msgid "Please check your permissions. Do you have enough space?"
 msgstr "Controleer uw rechten. Hebt u genoeg ruimte?"
 
 #: utils/cachedimage.cpp:235
-#, fuzzy, kde-format
-#| msgid ""
-#| "Please use common image formats like JPEG, PNG or GIF as they are "
-#| "supported on almost all systems."
+#, kde-format
 msgid ""
 "Please use common image formats like JPEG or PNG as they are supported on "
 "almost all systems."
 msgstr ""
-"Gaarne algemeen gebruikelijke afbeeldingsformaten, zoals  JPEG, PNG of GIF "
-"omdat die op bijna alle systemen worden ondersteund."
+"Gaarne algemeen gebruikelijke afbeeldingsformaten, zoals JPEG of PNG omdat "
+"die op bijna alle systemen worden ondersteund."
 
 #: utils/cachedimage.cpp:248
 #, kde-format
@@ -2249,7 +2175,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2575,24 +2501,21 @@ msgstr "Constante Bitrate"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Gewenste Bitrate (kbit/s)"
+msgstr "Gewenste bitsnelheid (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
-msgstr "Gewenste Bitrate ~"
+msgstr "Gewenste bitsnelheid ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2631,20 +2554,16 @@ msgid "Load Profiles"
 msgstr "Profielen laden"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>Wenst u uw systeem opnieuw te scannen naar codecs (Lame, Ogg Vorbis, "
-"Flac, enz.)?</p><p><font style=\"font-style:italic;\">Dit zorgt ervoor dat "
-"er zal geprobeerd worden om enkele voorbeeldprofielen aan te maken, "
-"gebaseerd op elk van de gevonden codecs.</font></p>"
+"<p>Wenst u uw systeem opnieuw te scannen naar codecs (Lame, Opus, FlAC, "
+"enz.)?</p><p><font style=\"font-style:italic;\">Dit zorgt ervoor dat er zal "
+"geprobeerd worden om enkele voorbeeldprofielen aan te maken, gebaseerd op "
+"elk van de gevonden codecs.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144

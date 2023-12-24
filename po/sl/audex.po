@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
-"PO-Revision-Date: 2023-04-27 06:51+0200\n"
+"POT-Creation-Date: 2023-12-24 00:41+0000\n"
+"PO-Revision-Date: 2023-12-23 08:50+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -113,15 +113,14 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metapodatki"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "&CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr "&CDDB"
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
@@ -134,7 +133,7 @@ msgstr "Orodja za popravilo naslovov"
 #: audexui.rc:32
 #, kde-format
 msgid "&Settings"
-msgstr "&Settings"
+msgstr "Nastavitve"
 
 #: core/audex.cpp:100
 #, kde-format
@@ -347,10 +346,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "ID diska na FreeDB:"
+msgstr "CDDB disc ID:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -948,49 +946,17 @@ msgstr "Nastavitve informacij"
 #| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
 #| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
 #| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
-#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
-#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#| "td><td>Prints the current date. The attribute format specifies the "
+#| "output. <i>Please have a look at the offical qt documentation for the "
+#| "format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+#| "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
+#| "time. The attribute format specifies the output. <i>Please have a look at "
+#| "the offical qt documentation for the format variables.</i></td><td>${now "
+#| "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
+#| "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</td><td></"
+#| "td><td>Prints Audex name and version.</td></tr><tr><td>$br</td><td></"
+#| "td><td>Prints a linebreak.</td><td></td></tr></tbody></table></body></"
+#| "html>"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1026,11 +992,11 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the offical qt documentation "
+"specifies the output. <i>Please have a look at the official qt documentation "
 "for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
 "The attribute format specifies the output. <i>Please have a look at the "
-"offical qt documentation for the format variables.</i></td><td>${now format="
+"official qt documentation for the format variables.</i></td><td>${now format="
 "\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
@@ -1038,77 +1004,46 @@ msgid ""
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
-"space: pre-wrap; }</style></head><body>Spremenljivke bodo nadomeščenes "
-"posebno vrednostjo in lahko vsebujejo tudi parametre.<br />Npr. "
+"space: pre-wrap; }</style></head><body>Spremenljivke bodo nadomeščene s "
+"posebno vrednostjo in lahko vsebujejo tudi  parametre.<br />Na primer "
 "spremenljivka <div style=\"font-family:monospace; background: #b3c1d6; "
-"color: black\"><pre>$artist</pre></div>ali ustrezno<div style=\"font-family:"
-"monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></div>bo "
-"nadomeščena z izvajalcem na CD-ju. Spremenljivke imajo lahko tudi atribute, "
-"na primer:<div style=\"font-family:monospace; background: #b3c1d6; color: "
-"black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>To bo izpisalo "
-"trenutni datum. Postopek se nadzira z urejanjem formata. Zgornji primer bo "
-"posledično prikazal datum v tej obliki: 2020-10-07. Glej nižje spodaj za več "
-"podrobnosti.<br /><br />Uporabite lahko sledeče spremenljivke:<br /><table "
-"border=1><thead><tr><th>Variable</th><th>Parameter</th><th>Description</"
-"th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
-"td><td>Izpiše ustreznega izvajalca z zajetega CD-ja.</td><td>${artist }</"
-"td></tr><tr><td>$title</td><td></td><td>Izriše ustrezno naslovnico z "
-"zajetega CD-ja.</td><td></td></tr><tr><td>$date</td><td></td><td>Izpiše "
-"ustrezen datum (običajno datum izida) zajetega CD-ja.</td><td></td></"
-"tr><tr><td>$genre;</td><td></td><td>Izpiše ustrezen žanr zajetega CD-ja.  </"
-"td><td></td></tr><tr><td>$size</td><td>iec,precision</td><td>Izpiše skupno "
-"velikost vseh zajetih (stisnjenih) zvočnih datotek (vključno z naslovnico). "
-"Atribut iec je lahko eden od sledečih: b, k, m ali g. \"b\" predstavlja bit, "
-"\"k\" KiB, \"m\" MiB, \"g\" pa GiB. Atribut precision predstavlja število "
-"decimalnih mest. Privzeti atributi so: iec=\"m\" in precision=\"2\"</td><td>"
-"${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</td><td></"
-"td><td>Izpiše ustrezno skupno dolžino vseh zajetih zvočnih sledi. Format "
-"zapisa je min:sek.</td><td></td></tr><tr><td>$nooftracks</td><td></"
-"td><td>Izpiše skupno število vseh zajetih zvočnih sledi.</td><td></td></"
-"tr><tr><td>$discid</td><td>base</td><td>Izpiše ID trenutnega CD-ja. "
-"Izhodišče atributa je izhodišče števila. Privzeto število je 16 "
-"(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
-"td><td>format</td><td>Izpiše trenutni datum. Format atributa določi "
-"lastnosti izhodne datoteke (*).</td><td>${today format=\"yyyy-MM-dddd\"}</"
-"td></tr><tr><td>$now</td><td>format</td><td>Izpiše trenutni datum in/ali "
-"čas. Format atributa določi lastnosti izhodne datoteke (*).</td><td>${now "
-"format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
-"td><td>Izpiše ime in različico kodirnika.</td></tr><tr><td>$audex</td><td></"
-"td><td>Izpiše Ime in različico Audex-a.</td></tr><tr><td>$br</td><td></"
-"td><td>Izpiše prelom vrstice.</td><td></td></tr></tbody></table><br /><br /"
-">(* različni prikazi čas. formata)<table cellpadding=\"2\" cellspacing=\"1\" "
-"border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></"
-"tr></thead><tr valign=\"top\"><td>d</td><td>Dan je številka brez predpone "
-"\"0\" (od 1 do 31).</td></tr><tr valign=\"top\"><td>dd</td><td>Dan je "
-"številka s predpono \"0\" (od 01 do 31).</td></tr><tr valign=\"top"
-"\"><td>ddd</td><td>Skrajšano lokalizirano datiranje (e.g&#x2e; 'Mon' to "
-"'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>Dolgo lokalizirano "
-"datiranje (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-"\"><td>M</td><td> Mesec je brez predpone \"0\" (od 1 do 12).</td></tr><tr "
-"valign=\"top\"><td>MM</td><td>Mesec ima predpono \"0\" (od 01 do 12).</td></"
-"tr><tr valign=\"top\"><td>MMM</td><td>Skrajšano lokalizirano ime meseca (e."
-"g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign=\"top\"><td>MMMM</td><td>Dolgo "
-"lokalizirano ime meseca (e.g&#x2e; 'January' to 'December').</td></tr><tr "
-"valign=\"top\"><td>yy</td><td>Leto z dvema decimalkama (od 00 do 99).</td></"
-"tr><tr valign=\"top\"><td>yyyy</td><td>Leto prikazano s štirimi decimalkami."
-"</td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-"thead><tr valign=\"top\"><td>h</td><td>Ura je brez predpone \"0\" (0 - 23, "
-"oz. 1 - 12 v AM/PM načinu).</td></tr><tr valign=\"top\"><td>hh</td><td>Ura "
-"ima predpono \"0\" (od 00 do 23, oz. 01 - 12 v AM/PM načinu).</td></tr><tr "
-"valign=\"top\"><td>H</td><td>Ura je brz predpone \"0\" (od 0 do 23, tudi v "
-"AM/PM načinu).</td></tr><tr valign=\"top\"><td>HH</td><td>Ura ima predpono "
-"\"0\" (od 00 do 23, tudi v AM/PM načinu).</td></tr><tr valign=\"top\"><td>m</"
-"td><td>Minute so brez predpone \"0\" (od 0 do 59).</td></tr><tr valign=\"top"
-"\"><td>mm</td><td>Minute imajo predpono \"0\" (od 00 do 59).</td></tr><tr "
-"valign=\"top\"><td>s</td><td> Sekunde so brez predpone \"0\" (od 0 do 59).</"
-"td></tr><tr valign=\"top\"><td>ss</td><td>Sekunde imajo predpono \"0\" (od "
-"00 do 59).</td></tr><tr valign=\"top\"><td>z</td><td>Milisekunde so brez "
-"predpone \"0\" (od 0 do 999).</td></tr><tr valign=\"top\"><td>zz</"
-"td><td>Milisekunde imajo predpono \"0\" (od 000 do 999).</td></tr><tr valign="
-"\"top\"><td>AP or A</td><td>Preklopi na AM/PM način. AP mora biti 'AM' ali "
-"'PM'.</td></tr><tr valign=\"top\"><td>ap or a</td><td>Preklopi na AM/PM "
-"način. ap mora biti 'am' ali 'pm'.</td></tr></table></body></html>"
+"color: black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-"
+"family:monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
+"div>bo zamenjal ustrezni izvajalec cd-ja. Spremenljivke imajo lahko tudi "
+"atribut, na primer:<div style=\"font-family:monospace; background: #b3c1d6; "
+"color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>To bi "
+"natisnilo trenutni datum. Z nastavitvijo oblike boste nadzorovali, kako se "
+"to izvede. Zgornji primer bi povzročil, da bi bil datum natisnjen kot "
+"2010-10-07 (če bi bil to trenutni datum). Za več podrobnosti glejte spodaj."
+"<br /><br />Uporabite lahko naslednje spremenljivke:<br /><table "
+"border=1><thead><tr><th>Spremenljivka</th><th>Parameter</th><th>Opis</"
+"th><th>Primer</th></tr></thead><tbody><tr><td>$artist</td><td></"
+"td><td>Natisne ustreznega izvajalca ekstrahiranega CD-ja.</td><td>${artist }"
+"</td></tr><tr><td>$title</td><td></td><td>Natisne ustrezen naslov "
+"ekstrahiranega cd-ja.</td><td></td></tr><tr><td>$date</td><td></"
+"td><td>Natisne ustrezni datum (običajno leto izdaje) ekstrahiranega cd-ja.</"
+"td><td></td></tr><tr><td>$genre;</td><td></td><td>Natisne ustrezno zvrst "
+"izvlečenega cd-ja.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
+"td><td>Natisne celotno velikost vseh ekstrahiranih (stisnjenih) glasbenih "
+"datotek (vključno z naslovnico). Atribut iec je lahko eden od naslednjih: b, "
+"k, m, g. b pomeni bajt, k KiB, m MiB in g GiB. Atribut natančnost podaja "
+"število decimalnih mest. Privzeti atributi so iec=\"m\" in precision=\"2\"</"
+"td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</td><td></"
+"td><td>Natisne ustrezno skupno dolžino vseh ekstrahiranih skladb. Format je "
+"min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Natisne "
+"skupno število ekstrahiranih skladb.</td><td></td></tr><tr><td>$discid</"
+"td><td>base</td><td>Natisne discid trenutnega cd-ja. Osnova atributa je "
+"osnova števila. Privzeta vrednost je 16 (šestnajstiško).</td><td>${discid "
+"base=\"16\"}</td></tr><tr><td>$today</td><td>format</td><td>Natisne trenutni "
+"datum. Format atributa določa izhod. <i>Oglejte si uradno dokumentacijo qt "
+"za spremenljivke oblike.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"tr><tr><td>$now</td><td>format</td><td>Natisne trenutni datum in/ali uro. "
+"Format atributa določa izhod. <i>Oglejte si uradno dokumentacijo qt za "
+"spremenljivke oblike.</i></td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</"
+"td></tr><tr><td>$encoder</td><td></td><td>Natisne ime in različico kodirnika."
+"</td></tr><tr><td>$audex</td><td></td><td>Natisne ime in različico Audex.</"
+"td></tr><tr><td>$br</td><td></td><td>Natisne prelom vrstice.</td><td></td></"
+"tr></tbody></table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
@@ -1350,10 +1285,9 @@ msgid "KDE CDDA Extractor"
 msgstr "Odpakirnik KDE CDDA"
 
 #: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Avtorske pravice © 2007–2015: Marco Nelles"
+msgstr "Avtorske pravice © 2007–2023: Marco Nelles"
 
 #: main.cpp:38
 #, kde-format
@@ -1391,10 +1325,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Posebna zahvala Credativ GmbH (Nemčija) za podporo"
+msgstr "Posebna zahvala nekdanji credativ GmbH (Nemčija) za podporo"
 
 #: main.cpp:42
 #, kde-format
@@ -1567,22 +1500,19 @@ msgid "Profile"
 msgstr "Profil"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Pridobi podatke"
+msgstr "Pridobi"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Pošlji podatke"
+msgstr "Pošlji"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Uredi podatke"
+msgstr "Uredi"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -2004,15 +1934,12 @@ msgid "Please check your permissions. Do you have enough space?"
 msgstr "Preverite dovoljenja . Ali je na ciljnem mestu dovolj prostora?"
 
 #: utils/cachedimage.cpp:235
-#, fuzzy, kde-format
-#| msgid ""
-#| "Please use common image formats like JPEG, PNG or GIF as they are "
-#| "supported on almost all systems."
+#, kde-format
 msgid ""
 "Please use common image formats like JPEG or PNG as they are supported on "
 "almost all systems."
 msgstr ""
-"Uporabite pogoste oblike, kot so JPEG, PNG ali GIF, saj so te podprte skoraj "
+"Uporabite pogoste oblike slik, kot so JPEG ali PNG, saj so te podprte skoraj "
 "na vseh sistemih."
 
 #: utils/cachedimage.cpp:248
@@ -2197,7 +2124,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2519,22 +2446,19 @@ msgstr "Konstantna bitna hitrost"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Ciljna bitna hitrost (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
 msgstr "Ciljna bitna hitrost ~"
 
@@ -2575,11 +2499,7 @@ msgid "Load Profiles"
 msgstr "Naloži profile"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "

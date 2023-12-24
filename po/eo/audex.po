@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
-"PO-Revision-Date: 2023-09-19 07:51+0100\n"
+"POT-Creation-Date: 2023-12-24 00:41+0000\n"
+"PO-Revision-Date: 2023-12-23 07:10+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -111,15 +111,14 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metadatenoj"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "&CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr "&CDDB"
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
@@ -343,10 +342,9 @@ msgstr "Kromaj Informoj:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "FreeDB-diska ID:"
+msgstr "CDDB-diska ID:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -1026,11 +1024,11 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the offical qt documentation "
+"specifies the output. <i>Please have a look at the official qt documentation "
 "for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
 "The attribute format specifies the output. <i>Please have a look at the "
-"offical qt documentation for the format variables.</i></td><td>${now format="
+"official qt documentation for the format variables.</i></td><td>${now format="
 "\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
@@ -1353,10 +1351,9 @@ msgid "KDE CDDA Extractor"
 msgstr "KDE CDDA Eltiro"
 
 #: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Kopirajto © 2007–2015 de Marco Nelles"
+msgstr "Kopirajto © 2007–2023 de Marco Nelles"
 
 #: main.cpp:38
 #, kde-format
@@ -1394,10 +1391,9 @@ msgid "credativ GmbH"
 msgstr "creditiv GmbH"
 
 #: main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Specialan dankon al credativ GmbH (Germanio) pro subteno"
+msgstr "Specialan dankon al iama credativ GmbH (Germanio) pro subteno"
 
 #: main.cpp:42
 #, kde-format
@@ -1568,22 +1564,19 @@ msgid "Profile"
 msgstr "Profilo"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Preni Informojn"
+msgstr "Ekpreni"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Sendi Informojn"
+msgstr "Sendi"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Redakti Datumojn"
+msgstr "Redakti"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -2012,16 +2005,13 @@ msgid "Please check your permissions. Do you have enough space?"
 msgstr "Bonvolu kontroli viajn permesojn. Ĉu vi havas sufiĉe da spaco?"
 
 #: utils/cachedimage.cpp:235
-#, fuzzy, kde-format
-#| msgid ""
-#| "Please use common image formats like JPEG, PNG or GIF as they are "
-#| "supported on almost all systems."
+#, kde-format
 msgid ""
 "Please use common image formats like JPEG or PNG as they are supported on "
 "almost all systems."
 msgstr ""
-"Bonvolu uzi komunajn bildformatojn kiel JPEG, PNG aŭ GIF ĉar ili estas "
-"subtenataj en preskaŭ ĉiuj sistemoj."
+"Bonvolu uzi komunajn bildformatojn kiel JPEG aŭ PNG ĉar ili estas subtenataj "
+"en preskaŭ ĉiuj sistemoj."
 
 #: utils/cachedimage.cpp:248
 #, kde-format
@@ -2214,7 +2204,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2537,24 +2527,21 @@ msgstr "Konstanta bitkvanto"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Celo-bitrapideco (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
-msgstr "Celo Bitrate ~"
+msgstr "Cela bitrapideco ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2593,18 +2580,14 @@ msgid "Load Profiles"
 msgstr "Ŝargi Profilojn"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>Ĉu vi volas reskani vian sistemon por kodekoj (Lame, Ogg Vorbis, Flac, "
-"ktp.)?</p><p><font style=\"font-style:italic;\">Ĉi tio provos krei kelkajn "
+"<p>Ĉu vi volas reskani vian sistemon por kodekoj (Lame, Opus, FLAC, ktp.)?</"
+"p><p><font style=\"font-style:italic;\">Ĉi tio provos krei kelkajn "
 "specimenajn profilojn bazitajn sur iuj trovitaj kodekoj.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
