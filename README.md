@@ -25,15 +25,6 @@ make
 (sudo) make install
 ```
 
-### Debian packages
-
-For latest stable Debian Release there are packages available at
-[this](https://github.com/marco-mania/Audex) GitHub mirror.
-
-### Ubuntu packages
-
-Please use PPA: `ppa:tomtomtom/audex`
-
 ### Further information
 
 These files make Audex linux dependent:
