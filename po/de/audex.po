@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-24 00:41+0000\n"
+"POT-Creation-Date: 2023-12-25 00:40+0000\n"
 "PO-Revision-Date: 2023-04-29 12:27+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -290,7 +290,7 @@ msgid "Edit Data"
 msgstr "Daten ändern"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
 #, kde-format
 msgid "Various Artists"
 msgstr "Verschiedene Interpreten"
@@ -1358,83 +1358,83 @@ msgstr "Beispiel:"
 msgid "About schemes"
 msgstr "Über Schemata"
 
-#: main.cpp:32
+#: main.cpp:25
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:33
+#: main.cpp:26
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr "CDDA-Ausleseprogramm für KDE"
 
-#: main.cpp:35
+#: main.cpp:28
 #, fuzzy, kde-format
 #| msgid "Copyright © 2007–2015 by Marco Nelles"
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Copyright © 2007–2015 Marco Nelles"
 
-#: main.cpp:38
+#: main.cpp:31
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:38
+#: main.cpp:31
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Aktueller Betreuer, Hauptentwickler"
 
-#: main.cpp:39
+#: main.cpp:32
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:39
+#: main.cpp:32
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Verbesserungen der Benutzeroberfläche, Entwicklung"
 
-#: main.cpp:40
+#: main.cpp:33
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:40
+#: main.cpp:33
 #, kde-format
 msgid "development"
 msgstr "Entwicklung"
 
-#: main.cpp:41
+#: main.cpp:34
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:41
+#: main.cpp:34
 #, fuzzy, kde-format
 #| msgid "Special thanks to credativ GmbH (Germany) for support"
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 "Besonderer Dank geht an die credativ GmbH (Deutschland) für die Unterstützung"
 
-#: main.cpp:42
+#: main.cpp:35
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org Foundation"
 
-#: main.cpp:43
+#: main.cpp:36
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Besonderer Dank geht an die „Xiph.Org Foundation“, die einen CD-Ripper zur "
 "Verfügung gestellt hat"
 
-#: main.cpp:46
+#: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Markus Slopianka, Thomas Kamps"
 
-#: main.cpp:46
+#: main.cpp:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1647,12 +1647,12 @@ msgstr "Stückauswahl aufheben"
 msgid "Invert Selection"
 msgstr "Auswahl umkehren"
 
-#: models/cddamodel.cpp:20
+#: models/cddamodel.cpp:21
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "Geräte-Objekt kann nicht erstellt werden."
 
-#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1661,22 +1661,22 @@ msgstr ""
 "Dies ist ein interner Fehler. Überprüfen Sie Ihre Hardware. Sollte alles in "
 "Ordnung sein, erstellen Sie bitte einen Fehlerbericht."
 
-#: models/cddamodel.cpp:29
+#: models/cddamodel.cpp:30
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Das KCDDB-Objekt kann nicht erstellt werden."
 
-#: models/cddamodel.cpp:121
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "Stück %1"
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:825
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "Die CDDB-Übertragung läuft bereits."
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:825
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1685,7 +1685,7 @@ msgstr ""
 "Eine CDDB-Übertragung läuft bereits. Bitte warten Sie, bis sie beendet ist "
 "und versuchen Sie es dann erneut."
 
-#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
+#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1694,7 +1694,7 @@ msgstr ""
 "Es gibt ein Problem mit dem CDDB-Server. Bitte warten Sie oder nehmen Sie "
 "Kontakt mit der Verwaltung des CDDB-Servers auf."
 
-#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
+#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1703,7 +1703,7 @@ msgstr ""
 "Es wurde kein CDDB-Server gefunden. Überprüfen Sie Ihr Netzwerk. "
 "Möglicherweise ist der CDDB-Server offline."
 
-#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
+#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1712,65 +1712,65 @@ msgstr ""
 "Bitte warten Sie, möglicherweise ist der Server ausgelastet, oder nehmen Sie "
 "Kontakt mit der Verwaltung des CDDB-Servers auf."
 
-#: models/cddamodel.cpp:849
+#: models/cddamodel.cpp:850
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Bitte nehmen Sie Kontakt zur Verwaltung des CDDB-Servers auf."
 
-#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
+#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr ""
 "Versuchen Sie es später erneut. Ansonsten erstellen Sie einen Fehlerbericht."
 
-#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
+#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "Bitte schreiben Sie einen Fehlerbericht und nehmen Sie Kontakt zur "
 "Verwaltung des CDDB-Servers auf."
 
-#: models/cddamodel.cpp:892
+#: models/cddamodel.cpp:893
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "CDDA-Paranoia-Objekt kann nicht erstellt werden."
 
-#: models/cddamodel.cpp:960
+#: models/cddamodel.cpp:961
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Es wurden keine Daten in der CDDB-Datenbank gefunden."
 
-#: models/cddamodel.cpp:977
+#: models/cddamodel.cpp:978
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "CDDB-Eintrag wählen"
 
-#: models/cddamodel.cpp:977
+#: models/cddamodel.cpp:978
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Wählen Sie einen CDDB-Eintrag"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:34
 #, kde-format
 msgid "Rip"
 msgstr "Auslesen"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Track"
 msgstr "Stück"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Artist"
 msgstr "Interpret"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Title"
 msgstr "Titel"
 
-#: models/cddamodel.h:39
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Length"
 msgstr "Länge"
@@ -2313,50 +2313,50 @@ msgstr "Unfertige Datei „%1“ gelöscht."
 msgid "User canceled encoding."
 msgstr "Kodierung durch Benutzer abgebrochen."
 
-#: utils/encoderwrapper.cpp:156
+#: utils/encoderwrapper.cpp:157
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Kodierung OK („%1“)."
 
-#: utils/encoderwrapper.cpp:158
+#: utils/encoderwrapper.cpp:159
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "Beim Kodieren der Datei „%1“ trat ein Fehler auf."
 
-#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
-#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "Please check your profile."
 msgstr "Bitte überprüfen Sie Ihr Profil."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 kann nicht gestartet werden."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr "Entweder fehlt das Programm oder Sie haben keine Rechte es aufzurufen."
 
-#: utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 ist nach dem erfolgreichen Start abgestürzt."
 
-#: utils/encoderwrapper.cpp:176
+#: utils/encoderwrapper.cpp:177
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "Zeitüberschreitung für %1. Dies sollte normalerweise nicht geschehen."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:180
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "Beim Versuch auf %1 zu schreiben trat ein Fehler auf."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:180
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2365,17 +2365,17 @@ msgstr ""
 "Zum Beispiel läuft der Prozess nicht oder er hat seinen Eingangskanal "
 "geschlossen."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:183
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "Beim Versuch von %1 zu lesen trat ein Fehler auf."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:183
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Zum Beispiel läuft der Prozess nicht."
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "Bei %1 trat ein unbekannter Fehler auf. Dies sollte nicht geschehen."
