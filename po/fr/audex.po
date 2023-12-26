@@ -15,15 +15,15 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-25 00:40+0000\n"
-"PO-Revision-Date: 2023-10-11 17:25+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: fr\n"
+"PO-Revision-Date: 2023-12-24 16:00+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -120,13 +120,13 @@ msgstr "&Audex"
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Metadata"
-msgstr "Métadonnées Phonon"
+msgstr "&Métadonnées"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -357,10 +357,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "Identifiant de disque FreeDB :"
+msgstr "Identifiant de disque CDDB :"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -1385,10 +1384,9 @@ msgid "KDE CDDA Extractor"
 msgstr "Extracteur « CDDA » pour KDE"
 
 #: main.cpp:28
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Copyright © 2007–2015, Marco Nelles"
+msgstr "Copyright © 2007-2023 Marco Nelles"
 
 #: main.cpp:31
 #, kde-format
@@ -1426,8 +1424,7 @@ msgid "credativ GmbH"
 msgstr "Credativ GmbH"
 
 #: main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 "Remerciements tout particulièrement à « Credativ GmbH » (Allemagne) pour son "
@@ -1609,22 +1606,19 @@ msgid "Profile"
 msgstr "Profil"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Extraire des informations"
+msgstr "Rechercher"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Soumettre des informations"
+msgstr "Soumettre"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Modifier des données"
+msgstr "Modifier"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -2078,16 +2072,13 @@ msgid "Please check your permissions. Do you have enough space?"
 msgstr "Veuillez vérifier vos droits d'accès. Avez-vous assez d'espace libre ?"
 
 #: utils/cachedimage.cpp:235
-#, fuzzy, kde-format
-#| msgid ""
-#| "Please use common image formats like JPEG, PNG or GIF as they are "
-#| "supported on almost all systems."
+#, kde-format
 msgid ""
 "Please use common image formats like JPEG or PNG as they are supported on "
 "almost all systems."
 msgstr ""
-"Veuillez utiliser des formats d'images courants comme « JPEG », « PNG » ou "
-"« GIF » car ils sont pris en charge sur pratiquement tous les systèmes."
+"Veuillez utiliser des formats d'images courants comme « JPEG » ou « PNG » "
+"car ils sont pris en charge sur pratiquement tous les systèmes."
 
 #: utils/cachedimage.cpp:248
 #, kde-format
@@ -2288,7 +2279,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2620,22 +2611,19 @@ msgstr "Débit binaire constant"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Débit binaire cible (kbit/s)"
+msgstr "Débit binaire cible (Kbit / s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit / s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
 msgstr "Débit binaire cible ~"
 
@@ -2676,20 +2664,16 @@ msgid "Load Profiles"
 msgstr "Charger des profils"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>Voulez-vous rechercher à nouveau des codecs dans votre système (« Lame », "
-"« Ogg Vorbis », « Flac », etc.) ?</p><p><font style=\"font-style:italic;"
-"\">Cette opération tentera de créer certains échantillons de profils à "
-"partir de n'importe quel codec trouvé.</font></p>"
+"« Opus », « Flac », etc.) ?</p><p><font style=\"font-style:italic;\">Cette "
+"opération tentera de créer certains profils d'échaàtillons  partir de "
+"n'importe quel codec trouvé.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
