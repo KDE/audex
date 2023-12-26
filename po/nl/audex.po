@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Kenny Verstraete <verstraete_kenny@skynet.be>, 2009.
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2011.
+# SPDX-FileCopyrightText: 2011, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 # Freek de Kruijf <f.de.kruijf@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2017, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
-"PO-Revision-Date: 2023-04-27 14:43+0200\n"
+"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"PO-Revision-Date: 2023-12-24 09:09+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -111,15 +111,13 @@ msgstr "&Audex"
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
-#, fuzzy, kde-format
-#| msgid "Phonon Metadata"
+#, kde-format
 msgid "&Metadata"
-msgstr "Phonon Metadata"
+msgstr "&Metagegevens"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -290,7 +288,7 @@ msgid "Edit Data"
 msgstr "Gegevens Bewerken"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
 #, kde-format
 msgid "Various Artists"
 msgstr "Diverse artiesten"
@@ -349,10 +347,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "FreeDB schijf-id:"
+msgstr "CDDB schijf-ID:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -923,85 +920,7 @@ msgid "Info Settings"
 msgstr "Info Instellingen"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#| "by a special value and can even contain parameters.<br />For example the "
-#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#| "div>will be replaced by the relevant artist of the cd. Variables may also "
-#| "have attribute, for example:<div style=\"font-family:monospace; "
-#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#| "pre></div>This would print the current date. Setting the format will "
-#| "control how this is done. The example (above)would result int the date "
-#| "being printed as 2010-10-07 (if this was the current date). See below for "
-#| "more details.<br /><br />You can make use of the following variables:<br /"
-#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#| "td><td></td><td>Prints the relevant date (usually release year) of the "
-#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#| "(compressed) music files (incl. the cover). The attribute iec can be one "
-#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#| "attribute precision gives the number of decimal places. Default "
-#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#| "relevant overall length of all extracted tracks. The format is min:sec.</"
-#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
-#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
-#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1037,11 +956,11 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the offical qt documentation "
+"specifies the output. <i>Please have a look at the official qt documentation "
 "for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
 "The attribute format specifies the output. <i>Please have a look at the "
-"offical qt documentation for the format variables.</i></td><td>${now format="
+"official qt documentation for the format variables.</i></td><td>${now format="
 "\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
@@ -1083,48 +1002,16 @@ msgstr ""
 "is de basis van het aantal. De standaard waarde is 16 (hexadecimaal).</"
 "td><td>${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
 "td><td>Drukt de huidige datum af. Het attribuut format specificeert de "
-"uitvoer (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-"td><td>format</td><td>Drukt de huidige datum en/of tijd af. Het attribuut "
-"format specificeert de uitvoer (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-"mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Drukt de naam en versie "
-"van de encoder af.</td></tr><tr><td>$audex</td><td></td><td>Drukt Audex-naam "
-"en versie af.</td></tr><tr><td>$br</td><td></td><td>Drukt een nieuwe regel "
-"af.</td><td></td></tr></tbody></table><br /><br />(* datum/tijd-"
-"formatexpressies)<table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expressie</th><th>Uitvoer</th></tr></"
-"thead><tr valign=\"top\"><td>d</td><td>De dag als getal zonder een "
-"voorloopnul (1 tot 31).</td></tr><tr valign=\"top\"><td>dd</td><td>De dag "
-"als getal met een voorloopnul (01 tot 31).</td></tr><tr valign=\"top"
-"\"><td>ddd</td><td>De afgekorte lokale naam van de dag (bijvoorbeeld&#x2e; "
-"'maa' tot 'zon').</td></tr><tr valign=\"top\"><td>dddd</td><td>De lange "
-"lokale naam van de dag (bijvoorbeeld&#x2e; 'maandag' tot 'zondag').</td></"
-"tr><tr valign=\"top\"><td>M</td><td>De maand als getal zonder voorloopnul (1 "
-"tot 12).</td></tr><tr valign=\"top\"><td>MM</td><td>De maand als getal met "
-"voorloopnul (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>De "
-"afgekorte lokale naam van de maand (bijvoorbeeld&#x2e; 'jan' tot 'dec').</"
-"td></tr><tr valign=\"top\"><td>MMMM</td><td>De lange lokale naam van de "
-"maand (bijvoorbeeld&#x2e; 'januari' tot 'december').</td></tr><tr valign="
-"\"top\"><td>yy</td><td>Het jaar als tweecijferig getal (00 tot 99).</td></"
-"tr><tr valign=\"top\"><td>yyyy</td><td>Het jaar als viercijferig getal.</"
-"td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expressie</th><th>Uitvoer</th></tr></"
-"thead><tr valign=\"top\"><td>h</td><td>Het uur zonder een voorloopnul (0 tot "
-"23 of 1 tot 12 bij AM/PM weergave).</td></tr><tr valign=\"top\"><td>hh</"
-"td><td>Het uur met een voorloopnul (00 tot 23 of 01 tot 12 Bij AM/PM "
-"weergave).</td></tr><tr valign=\"top\"><td>H</td><td>Het uur zonder een "
-"voorloopnul (0 tot 23, zelfs bij AM/PM weergave).</td></tr><tr valign=\"top"
-"\"><td>HH</td><td>Het uur met een voorloopnul (00 tot 23, zelfs bij AM/PM "
-"weergave).</td></tr><tr valign=\"top\"><td>m</td><td>De minuut zonder een "
-"voorloopnul (0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>De minuut "
-"met een voorloopnul (00 tot 59).</td></tr><tr valign=\"top\"><td>s</"
-"td><td>De seconden zonder een voorloopnul (0 tot 59).</td></tr><tr valign="
-"\"top\"><td>ss</td><td>De seconden met een voorloopnul (00 tot 59).</td></"
-"tr><tr valign=\"top\"><td>z</td><td>De milliseconden zonder voorloopnullen "
-"(0 tot 999).</td></tr><tr valign=\"top\"><td>zz</td><td>De milliseconden met "
-"voorloopnullen (000 tot 999).</td></tr><tr valign=\"top\"><td>AP of A</"
-"td><td>Geïnterpreteerd als een AM/PM tijd. AP moet ofwel 'AM' of 'PM' zijn.</"
-"td></tr><tr valign=\"top\"><td>ap of a</td><td>Geïnterpreteerd als een AM/PM "
-"tijd. ap moet ofwel 'am' of 'pm' zijn.</td></tr></table></body></html>"
+"uitvoer. <i>Neem een kijkje in de officiële qt documentatie voor het format "
+"van de variabelen.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"tr><tr><td>$now</td><td>format</td><td>Drukt de huidige datum en/of tijd af. "
+"Het attribuut format specificeert de uitvoer.<i>Neem een kijkje in de "
+"officiële qt documentatie voor het format van de variabelen.</i></td><td>"
+"${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
+"td><td>Drukt de naam en versie van de encoder af.</td></tr><tr><td>$audex</"
+"td><td></td><td>Drukt Audex-naam en versie af.</td></tr><tr><td>$br</"
+"td><td></td><td>Drukt een nieuwe regel af.</td><td></td></tr></tbody></"
+"table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
@@ -1361,82 +1248,81 @@ msgstr "Voorbeeld:"
 msgid "About schemes"
 msgstr "Over schema's"
 
-#: main.cpp:32
+#: main.cpp:25
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:33
+#: main.cpp:26
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr "CDDA-extractor voor KDE"
 
-#: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#: main.cpp:28
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Copyright © 2007–2015 door Marco Nelles"
+msgstr "Copyright © 2007–2023 door Marco Nelles"
 
-#: main.cpp:38
+#: main.cpp:31
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:38
+#: main.cpp:31
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Huidige onderhouder, hoofdontwikkelaar"
 
-#: main.cpp:39
+#: main.cpp:32
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:39
+#: main.cpp:32
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Verbeteringen aan de GUI, ontwikkeling"
 
-#: main.cpp:40
+#: main.cpp:33
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:40
+#: main.cpp:33
 #, kde-format
 msgid "development"
 msgstr "ontwikkeling"
 
-#: main.cpp:41
+#: main.cpp:34
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#: main.cpp:34
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Speciale dank aan credativ GmbH (Duitsland) voor ondersteuning"
+msgstr ""
+"Speciale dank aan voormalig credativ GmbH (Duitsland) voor ondersteuning"
 
-#: main.cpp:42
+#: main.cpp:35
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org foundation"
 
-#: main.cpp:43
+#: main.cpp:36
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Speciale dank aan Xiph.Org Foundation voor het leveren van de ripper voor de "
 "compact disc"
 
-#: main.cpp:46
+#: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kenny Verstraete"
 
-#: main.cpp:46
+#: main.cpp:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1592,22 +1478,19 @@ msgid "Profile"
 msgstr "Profiel"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Info Ophalen"
+msgstr "Ophalen"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Info Indienen"
+msgstr "Indienen"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Gegevens Bewerken"
+msgstr "Bewerken"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -1649,12 +1532,12 @@ msgstr "Deselecteer alle tracks"
 msgid "Invert Selection"
 msgstr "Selectie omkeren"
 
-#: models/cddamodel.cpp:20
+#: models/cddamodel.cpp:21
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "Kan apparaatobject niet creëren."
 
-#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1663,22 +1546,22 @@ msgstr ""
 "Dit is een interne fout. Controleer uw hardware. Als alles in orde is, maak "
 "dan a.u.b. een bugrapport."
 
-#: models/cddamodel.cpp:29
+#: models/cddamodel.cpp:30
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Kan KCDDB object niet creëren."
 
-#: models/cddamodel.cpp:121
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "Track %1"
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:825
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB-transactie is al bezig."
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:825
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1687,7 +1570,7 @@ msgstr ""
 "Een CDDB-transactie is al bezig. Wacht totdat deze gereed is en probeer het "
 "opnieuw."
 
-#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
+#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1696,7 +1579,7 @@ msgstr ""
 "Er is een probleem met de CDDB-server. Heb even geduld of neem contact op "
 "met de beheerder van de CDDB-server."
 
-#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
+#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1705,7 +1588,7 @@ msgstr ""
 "Kan de CDDB-server niet vinden. Controleer uw netwerk. De CDDB-server is "
 "misschien offline."
 
-#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
+#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1714,62 +1597,62 @@ msgstr ""
 "Een ogenblik geduld, misschien is de server bezig of neem contact op met de "
 "serverbeheerder."
 
-#: models/cddamodel.cpp:849
+#: models/cddamodel.cpp:850
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Neem contact op met de CDDB-serverbeheerder."
 
-#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
+#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "Dit zou niet moeten gebeuren. Gaarne een bugrapport maken."
 
-#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
+#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "Rapporteer een bug en neem contact op met de CDDB-serverbeheerder."
 
-#: models/cddamodel.cpp:892
+#: models/cddamodel.cpp:893
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "Kan CDDA-paranoia-object niet creëren."
 
-#: models/cddamodel.cpp:960
+#: models/cddamodel.cpp:961
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Dit betekent dat er geen gegevens werden gevonden in de CDDB-database."
 
-#: models/cddamodel.cpp:977
+#: models/cddamodel.cpp:978
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Selecteer CDDB vermelding"
 
-#: models/cddamodel.cpp:977
+#: models/cddamodel.cpp:978
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Selecteer een CDDB vermelding:"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:34
 #, kde-format
 msgid "Rip"
 msgstr "Rip"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Track"
 msgstr "Track"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Artist"
 msgstr "Artiest"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Title"
 msgstr "Titel"
 
-#: models/cddamodel.h:39
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Length"
 msgstr "Lengte"
@@ -2047,16 +1930,13 @@ msgid "Please check your permissions. Do you have enough space?"
 msgstr "Controleer uw rechten. Hebt u genoeg ruimte?"
 
 #: utils/cachedimage.cpp:235
-#, fuzzy, kde-format
-#| msgid ""
-#| "Please use common image formats like JPEG, PNG or GIF as they are "
-#| "supported on almost all systems."
+#, kde-format
 msgid ""
 "Please use common image formats like JPEG or PNG as they are supported on "
 "almost all systems."
 msgstr ""
-"Gaarne algemeen gebruikelijke afbeeldingsformaten, zoals  JPEG, PNG of GIF "
-"omdat die op bijna alle systemen worden ondersteund."
+"Gaarne algemeen gebruikelijke afbeeldingsformaten, zoals JPEG of PNG omdat "
+"die op bijna alle systemen worden ondersteund."
 
 #: utils/cachedimage.cpp:248
 #, kde-format
@@ -2249,7 +2129,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2293,28 +2173,28 @@ msgstr "Gedeeltelijk bestand \"%1\" verwijderd."
 msgid "User canceled encoding."
 msgstr "Encoderen afgebroken door gebruiker."
 
-#: utils/encoderwrapper.cpp:156
+#: utils/encoderwrapper.cpp:157
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Encoderen OK (\"%1\")."
 
-#: utils/encoderwrapper.cpp:158
+#: utils/encoderwrapper.cpp:159
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "Er is een fout opgetreden tijdens het coderen van bestand \"%1\"."
 
-#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
-#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "Please check your profile."
 msgstr "Controleer uw profiel a.u.b."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid "%1 failed to start."
 msgstr "start van %1 mislukt."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
@@ -2323,22 +2203,22 @@ msgstr ""
 "Ofwel ontbreekt het, of u hebt onvoldoende rechten om het programma aan te "
 "spreken."
 
-#: utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 crashte enige tijd na een succesvolle start."
 
-#: utils/encoderwrapper.cpp:176
+#: utils/encoderwrapper.cpp:177
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1 timed out. Dit mag niet gebeuren."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:180
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "Er is een fout opgetreden bij een poging om te schrijven naar %1."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:180
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2347,17 +2227,17 @@ msgstr ""
 "Bijvoorbeeld, het proces draait misschien niet of het heeft zijn "
 "invoerkanaal gesloten."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:183
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "Er is een fout opgetreden bij een poging om te lezen van %1."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:183
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Bijvoorbeeld, het proces draait misschien niet."
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "Er is een onbekende fout opgetreden bij %1. Dit mag niet gebeuren."
@@ -2575,24 +2455,21 @@ msgstr "Constante Bitrate"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Gewenste Bitrate (kbit/s)"
+msgstr "Gewenste bitsnelheid (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
-msgstr "Gewenste Bitrate ~"
+msgstr "Gewenste bitsnelheid ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2631,20 +2508,16 @@ msgid "Load Profiles"
 msgstr "Profielen laden"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>Wenst u uw systeem opnieuw te scannen naar codecs (Lame, Ogg Vorbis, "
-"Flac, enz.)?</p><p><font style=\"font-style:italic;\">Dit zorgt ervoor dat "
-"er zal geprobeerd worden om enkele voorbeeldprofielen aan te maken, "
-"gebaseerd op elk van de gevonden codecs.</font></p>"
+"<p>Wenst u uw systeem opnieuw te scannen naar codecs (Lame, Opus, FlAC, "
+"enz.)?</p><p><font style=\"font-style:italic;\">Dit zorgt ervoor dat er zal "
+"geprobeerd worden om enkele voorbeeldprofielen aan te maken, gebaseerd op "
+"elk van de gevonden codecs.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144

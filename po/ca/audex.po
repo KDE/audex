@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-23 00:41+0000\n"
-"PO-Revision-Date: 2023-08-07 17:38+0200\n"
+"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"PO-Revision-Date: 2023-12-24 11:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -114,15 +114,14 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metadades"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "&CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr "&CDDB"
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
@@ -289,7 +288,7 @@ msgid "Edit Data"
 msgstr "Edita les dades"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
 #, kde-format
 msgid "Various Artists"
 msgstr "Artistes diversos"
@@ -348,10 +347,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "ID del disc a FreeDB:"
+msgstr "ID del disc a CDDB:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -925,85 +923,7 @@ msgid "Info Settings"
 msgstr "Configuració de la informació"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#| "by a special value and can even contain parameters.<br />For example the "
-#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#| "div>will be replaced by the relevant artist of the cd. Variables may also "
-#| "have attribute, for example:<div style=\"font-family:monospace; "
-#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#| "pre></div>This would print the current date. Setting the format will "
-#| "control how this is done. The example (above)would result int the date "
-#| "being printed as 2010-10-07 (if this was the current date). See below for "
-#| "more details.<br /><br />You can make use of the following variables:<br /"
-#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#| "td><td></td><td>Prints the relevant date (usually release year) of the "
-#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#| "(compressed) music files (incl. the cover). The attribute iec can be one "
-#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#| "attribute precision gives the number of decimal places. Default "
-#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#| "relevant overall length of all extracted tracks. The format is min:sec.</"
-#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
-#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
-#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1039,11 +959,11 @@ msgid ""
 "The attribute base is the base of the number. The default is 16 "
 "(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
 "td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the offical qt documentation "
+"specifies the output. <i>Please have a look at the official qt documentation "
 "for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
 "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
 "The attribute format specifies the output. <i>Please have a look at the "
-"offical qt documentation for the format variables.</i></td><td>${now format="
+"official qt documentation for the format variables.</i></td><td>${now format="
 "\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
 "encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
 "Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
@@ -1051,10 +971,10 @@ msgid ""
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
-"space: pre-wrap; }</style></head><body>Les variables seran substituïdes per "
-"un valor especial, fins i tot poden contenir paràmetres.<br />Per exemple, "
-"la variable<div style=\"font-family:monospace; background: #b3c1d6; color: "
-"black\">$artist</pre></div>o l'equivalent<div style=\"font-family:monospace; "
+"space: pre-wrap; }</style></head><body>Les variables se substituiran per un "
+"valor especial, fins i tot poden contenir paràmetres.<br />Per exemple, la "
+"variable<div style=\"font-family:monospace; background: #b3c1d6; color: black"
+"\">$artist</pre></div>o l'equivalent<div style=\"font-family:monospace; "
 "background: #b3c1d6; color: black\">${artist}</pre></div>serà substituïda "
 "per l'artista corresponent del CD. Les variables també poden tenir atributs, "
 "per exemple:<div style=\"font-family:monospace; background: #b3c1d6; color: "
@@ -1062,7 +982,7 @@ msgstr ""
 "data actual. La definició del format controlarà com es farà. L'exemple "
 "(anterior) resultaria en el fet que la data s'imprimiria com 2010-10-07 (si "
 "aquesta era la data actual). Vegeu més avall per a més detalls.<br /><br /"
-">Podeu usar les següents variables:<br /><table "
+">Podeu usar les variables següents:<br /><table "
 "border=1><thead><tr><th>Variable</th><th>Paràmetre</th><th>Descripció</"
 "th><th>Exemple</th></tr></thead><tbody><tr><td>$artist</td><td></"
 "td><td>Imprimeix l'artista corresponent del CD extret.</td><td>${artist }</"
@@ -1083,50 +1003,16 @@ msgstr ""
 "l'ID del disc del CD actual. L'atribut base és la base del número. Per "
 "omissió és 16 (en hexadecimal).</td><td>${discid base=\"16\"}</td></"
 "tr><tr><td>$today</td><td>format</td><td>Imprimeix la data actual. El format "
-"de l'atribut especificarà la sortida (*).</td><td>${today format=\"aaaa-MM-"
-"dddd\"}</td></tr><tr><td>$now</td><td>format</td><td>Imprimeix la data i/o "
-"hora actual. El format de l'atribut especificarà la sortida (*).</td><td>"
-"${now format=\"aaaa-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
-"td><td>Imprimeix el nom i la versió del codificador.</td></tr><tr><td>"
-"$audex</td><td></td><td>Imprimeix el nom i la versió de l'Audex.</td></"
-"tr><tr><td>$br</td><td></td><td>Imprimeix un salt de línia.</td><td></td></"
-"tr></tbody></table><br /><br />(* expressions per al format de la data/"
-"hora)<table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-"valign=\"top\"><th>Expressió</th><th>Sortida</th></tr></thead><tr valign="
-"\"top\"><td>d</td><td>El dia com un número sense un zero al davant (de l'1 "
-"al 31).</td></tr><tr valign=\"top\"><td>dd</td><td>El dia com un número amb "
-"un zero al davant (del 01 al 31).</td></tr><tr valign=\"top\"><td>ddd</"
-"td><td>El nom abreujat i localitzat del dia (p. ex. &#x2e; de «dil» a «diu»)."
-"</td></tr><tr valign=\"top\"><td>dddd</td><td>El nom llarg i localitzat del "
-"dia (p. ex. &#x2e; de «Dilluns» a «Diumenge»).</td></tr><tr valign=\"top"
-"\"><td>M</td><td>El mes com un número sense un zero al començament (de l'1 "
-"al 12).</td></tr><tr valign=\"top\"><td>MM</td><td>El mes com un número amb "
-"un zero al començament (del 01 al 12).</td></tr><tr valign=\"top\"><td>MMM</"
-"td><td>El nom abreujat i localitzat del mes (p. ex. &#x2e; de «Gen» a «Des»)."
-"</td></tr><tr valign=\"top\"><td>MMMM</td><td>El nom llarg i localitzat del "
-"mes (p. ex. &#x2e; de «Gener» a «Desembre»).</td></tr><tr valign=\"top"
-"\"><td>yy</td><td>L'any com un número de dos dígits (del 00 al 99).</td></"
-"tr><tr valign=\"top\"><td>yyyy</td><td>L'any com un número de quatre dígits."
-"</td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Expressió</th><th>Sortida</th></tr></"
-"thead><tr valign=\"top\"><td>h</td><td>L'hora sense un zero al començament "
-"(del 0 al 23 o de l'1 al 12 si es mostra en AM/PM).</td></tr><tr valign=\"top"
-"\"><td>hh</td><td>L'hora amb un zero al començament (del 00 al 23 o del 01 "
-"al 12 si es mostra en AM/PM).</td></tr><tr valign=\"top\"><td>H</"
-"td><td>L'hora sense un zero al començament (del 0 al 23, fins i tot si es "
-"mostra en AM/PM).</td></tr><tr valign=\"top\"><td>HH</td><td>L'hora amb un "
-"zero al començament (del 00 al 23, fins i tot si es mostra en AM/PM).</td></"
-"tr><tr valign=\"top\"><td>m</td><td>El minut sense un zero al començament "
-"(del 0 al 59).</td></tr><tr valign=\"top\"><td>mm</td><td>El minut amb un "
-"zero al començament (del 00 al 59).</td></tr><tr valign=\"top\"><td>s</"
-"td><td>El segon sense un zero al començament (del 0 al 59).</td></tr><tr "
-"valign=\"top\"><td>ss</td><td>El segon amb un zero al començament (del 00 al "
-"59).</td></tr><tr valign=\"top\"><td>z</td><td>Els mil·lisegons sense zeros "
-"al començament (del 0 al 999).</td></tr><tr valign=\"top\"><td>zz</"
-"td><td>Els mil·lisegons amb zeros al començament (del 000 al 999).</td></"
-"tr><tr valign=\"top\"><td>AP o A</td><td>S'interpreta com una hora en AM/PM. "
-"AP serà «AM» o «PM».</td></tr><tr valign=\"top\"><td>ap o a</"
-"td><td>S'interpreta com una hora en AM/PM. ap serà «am» o «pm».</td></tr></"
+"de l'atribut especificarà la sortida. <i>Doneu un cop d'ull a la "
+"documentació oficial de les Qt quant al format de les variables.</i></td><td>"
+"${today format=\"aaaa-MM-dddd\"}</td></tr><tr><td>$now</td><td>format</"
+"td><td>Imprimeix la data i/o hora actual. El format de l'atribut "
+"especificarà la sortida. <i>Doneu un cop d'ull a la documentació oficial de "
+"les Qt quant al format de les variables.</i></td><td>${now format=\"aaaa-MM-"
+"dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Imprimeix el nom "
+"i la versió del codificador.</td></tr><tr><td>$audex</td><td></"
+"td><td>Imprimeix el nom i la versió de l'Audex.</td></tr><tr><td>$br</"
+"td><td></td><td>Imprimeix un salt de línia.</td><td></td></tr></tbody></"
 "table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:197
@@ -1364,82 +1250,80 @@ msgstr "Exemple:"
 msgid "About schemes"
 msgstr "Quant als esquemes"
 
-#: main.cpp:32
+#: main.cpp:25
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:33
+#: main.cpp:26
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr "Extractor de CDDA pel KDE"
 
-#: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#: main.cpp:28
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Copyright © 2007–2015 per Marco Nelles"
+msgstr "Copyright © 2007-2023 Marco Nelles"
 
-#: main.cpp:38
+#: main.cpp:31
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:38
+#: main.cpp:31
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Mantenidor actual, desenvolupador principal"
 
-#: main.cpp:39
+#: main.cpp:32
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:39
+#: main.cpp:32
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Millores a la IGU, desenvolupament"
 
-#: main.cpp:40
+#: main.cpp:33
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:40
+#: main.cpp:33
 #, kde-format
 msgid "development"
 msgstr "desenvolupament"
 
-#: main.cpp:41
+#: main.cpp:34
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#: main.cpp:34
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Un agraïment especial a credativ GmbH (Alemanya) pel suport"
+msgstr "Un agraïment especial a l'antic credativ GmbH (Alemanya) pel suport"
 
-#: main.cpp:42
+#: main.cpp:35
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Fundació Xiph.Org"
 
-#: main.cpp:43
+#: main.cpp:36
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Un agraïment especial a la Xiph.Org Foundation per proporcionar un extractor "
 "per a discs compactes"
 
-#: main.cpp:46
+#: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Antoni Bella"
 
-#: main.cpp:46
+#: main.cpp:39
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1597,22 +1481,19 @@ msgid "Profile"
 msgstr "Perfil"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Obtén la informació"
+msgstr "Recupera"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Envia la informació"
+msgstr "Envia"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Edita les dades"
+msgstr "Edita"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -1654,12 +1535,12 @@ msgstr "Desselecciona totes les pistes"
 msgid "Invert Selection"
 msgstr "Inverteix la selecció"
 
-#: models/cddamodel.cpp:20
+#: models/cddamodel.cpp:21
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "No s'ha pogut crear l'objecte dels dispositius."
 
-#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1668,22 +1549,22 @@ msgstr ""
 "Això és un error intern. Comproveu el vostre maquinari i, si tot està bé, "
 "envieu un informe d'error."
 
-#: models/cddamodel.cpp:29
+#: models/cddamodel.cpp:30
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "No s'ha pogut crear l'objecte de la KCDDB."
 
-#: models/cddamodel.cpp:121
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "Pista %1"
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:825
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "La transacció amb la CDDB ja es troba en curs."
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:825
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1692,7 +1573,7 @@ msgstr ""
 "Ja es troba en curs una transacció amb la CDDB. Si us plau, espereu fins que "
 "acabi i torneu-ho a intentar de nou."
 
-#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
+#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1701,7 +1582,7 @@ msgstr ""
 "Hi ha un error amb el servidor de la CDDB. Espereu o poseu-vos en contacte "
 "amb l'administrador del servidor de la CDDB."
 
-#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
+#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1710,7 +1591,7 @@ msgstr ""
 "No s'ha trobat el servidor de la CDDB. Comproveu la xarxa. És possible que "
 "el servidor de la CDDB estigui fora de línia."
 
-#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
+#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1719,64 +1600,64 @@ msgstr ""
 "Espereu, potser el servidor estigui ocupat, o contacteu amb l'administrador "
 "del servidor de la CDDB."
 
-#: models/cddamodel.cpp:849
+#: models/cddamodel.cpp:850
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Si us plau, contacteu amb l'administrador de la CDDB."
 
-#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
+#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "Això no hauria de passar. Si us plau, envieu un informe d'error."
 
-#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
+#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "Si us plau, creeu un informe d'error i contacteu amb l'administrador de la "
 "CDDB."
 
-#: models/cddamodel.cpp:892
+#: models/cddamodel.cpp:893
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "No s'ha pogut crear l'objecte paranoia pel CDDA."
 
-#: models/cddamodel.cpp:960
+#: models/cddamodel.cpp:961
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Això vol dir que no s'han trobat dades a la base de dades de la CDDB."
 
-#: models/cddamodel.cpp:977
+#: models/cddamodel.cpp:978
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Seleccioneu l'entrada de la CDDB"
 
-#: models/cddamodel.cpp:977
+#: models/cddamodel.cpp:978
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Seleccioneu una entrada de la CDDB:"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:34
 #, kde-format
 msgid "Rip"
 msgstr "Extreu"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Track"
 msgstr "Pista"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Artist"
 msgstr "Artista"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Title"
 msgstr "Títol"
 
-#: models/cddamodel.h:39
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Length"
 msgstr "Durada"
@@ -2056,16 +1937,13 @@ msgstr ""
 "Si us plau, comproveu els vostres permisos. Teniu prou espai disponible?"
 
 #: utils/cachedimage.cpp:235
-#, fuzzy, kde-format
-#| msgid ""
-#| "Please use common image formats like JPEG, PNG or GIF as they are "
-#| "supported on almost all systems."
+#, kde-format
 msgid ""
 "Please use common image formats like JPEG or PNG as they are supported on "
 "almost all systems."
 msgstr ""
-"Si us plau, empreu formats d'imatge típics com JPEG, PNG o GIF, ja que són "
-"admesos per a gairebé tots els sistemes."
+"Empreu formats d'imatge típics com JPEG o PNG, ja que són admesos en gairebé "
+"tots els sistemes."
 
 #: utils/cachedimage.cpp:248
 #, kde-format
@@ -2265,7 +2143,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2309,50 +2187,50 @@ msgstr "S'ha eliminat el fitxer parcial «%1»."
 msgid "User canceled encoding."
 msgstr "L'usuari ha cancel·lat la codificació."
 
-#: utils/encoderwrapper.cpp:156
+#: utils/encoderwrapper.cpp:157
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Codificació correcta (pista %1)."
 
-#: utils/encoderwrapper.cpp:158
+#: utils/encoderwrapper.cpp:159
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "S'ha produït un error mentre es codificava el fitxer «%1»."
 
-#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
-#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "Please check your profile."
 msgstr "Si us plau, comproveu el vostre perfil."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 ha fallat en començar."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr "Bé manca el programa o no disposeu de prou permisos per a executar-lo."
 
-#: utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 ha petat algun temps després d'iniciar-se correctament."
 
-#: utils/encoderwrapper.cpp:176
+#: utils/encoderwrapper.cpp:177
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1 ha esgotat el temps. Això no hauria de passar."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:180
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "S'ha produït un error en intentar escriure a %1."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:180
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2361,17 +2239,17 @@ msgstr ""
 "Per exemple, potser no s'està executant el procés, o no heu tancat el seu "
 "canal d'entrada."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:183
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "S'ha produït un error en intentar llegir des de %1."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:183
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Per exemple, potser no s'està executant el procés."
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "S'ha produït un error desconegut a %1. Això no hauria de passar."
@@ -2589,22 +2467,19 @@ msgstr "Taxa de bits constant"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Taxa de bits de destinació (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
 msgstr "Taxa de bits de destinació ~"
 
@@ -2645,18 +2520,14 @@ msgid "Load Profiles"
 msgstr "Carrega els perfils"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>Voleu tornar a escanejar el sistema per a còdecs (Lame, Ogg Vorbis, Flac, "
-"etc.)?</p><p><font style=\"font-style:italic;\">Això intentarà crear alguns "
+"<p>Voleu tornar a escanejar el sistema per a còdecs (Lame, Opus, FLAC, etc.)?"
+"</p><p><font style=\"font-style:italic;\">Això intentarà crear alguns "
 "perfils d'exemple basats en qualsevol dels còdecs trobats.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
