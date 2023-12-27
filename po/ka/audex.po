@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"POT-Creation-Date: 2023-12-27 02:26+0000\n"
 "PO-Revision-Date: 2023-12-24 04:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -286,7 +286,7 @@ msgid "Edit Data"
 msgstr "მონაცემების ჩასწორება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
 #, kde-format
 msgid "Various Artists"
 msgstr "სხვადასხვა შემსრულებლები"
@@ -1267,80 +1267,80 @@ msgstr "მაგალითი:"
 msgid "About schemes"
 msgstr "სქემების შესახებ"
 
-#: main.cpp:25
+#: main.cpp:32
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:33
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr "KDE CDDA -ის გამშლელი"
 
-#: main.cpp:28
+#: main.cpp:35
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "© 2007–2023 Marco Nellses, ყველა უფლება დაცულია"
 
-#: main.cpp:31
+#: main.cpp:38
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:38
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "მიმდინარე წამყვანი, მთავარი პროგრამისტი"
 
-#: main.cpp:32
+#: main.cpp:39
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:39
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "ინტერფეისის გაუმჯობესება, პროგრამისტი"
 
-#: main.cpp:33
+#: main.cpp:40
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:40
 #, kde-format
 msgid "development"
 msgstr "შემუშავება"
 
-#: main.cpp:34
+#: main.cpp:41
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:41
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 "განსაკუთრებული მადლობა ყოფილ credativ GmbH-ს (გერმანია) მხარდაჭერისთვის"
 
-#: main.cpp:35
+#: main.cpp:42
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org Foundation"
 
-#: main.cpp:36
+#: main.cpp:43
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "განსაკუთრებული მადლობა Xiph.Org-ს, კომპაქტ დისკის დარიპვის მხარდაჭერისთვის"
 
-#: main.cpp:39
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: main.cpp:39
+#: main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1549,12 +1549,12 @@ msgstr "ყველა მონიშვნის მოხსნა"
 msgid "Invert Selection"
 msgstr "მონიშვნის ინვერსია"
 
-#: models/cddamodel.cpp:21
+#: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "მოწყობილობის ობიექტის შექმნის შეცდომა."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
+#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1563,22 +1563,22 @@ msgstr ""
 "ეს შიდა შეცდომაა. გადაამოწმეთ აპარატურა. თუ ყველაფერი კარგადაა, "
 "გადმოგვიგზავნეთ ანგარიში შეცდომის შესახებ."
 
-#: models/cddamodel.cpp:30
+#: models/cddamodel.cpp:29
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "KDCDDB ობიექტის შექმნის შეცდომა."
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "ტრეკი %1"
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB ტრანზაქცია უკვე მიმდინარეობს."
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1587,14 +1587,14 @@ msgstr ""
 "CDDB ტრანზაქცია უკვე მიმდინარეობს. მოიცადეთ, სანამ ის დასრულდება და თავიდან "
 "სცადეთ."
 
-#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
+#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr "CDDB სერვერის შეცდომა. დაუკავშირდით CDDB სერვერის ადმინისტრატორს."
 
-#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1602,7 +1602,7 @@ msgid ""
 msgstr ""
 "CDDB სერვერი ვერ ვიპოვე. ქსელი შეამოწმეთ. შეიძლება CDDB სერვერი გამორთულია."
 
-#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
+#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1611,63 +1611,63 @@ msgstr ""
 "მოითმინეთ, შეიძლება სერვერი დაკავებულია. ან დაუკავშირდით CDDB სერვერის "
 "ადმინისტრატორს."
 
-#: models/cddamodel.cpp:850
+#: models/cddamodel.cpp:849
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "დაუკავშირდით CDDB სერვერის ადმინისტრატორს."
 
-#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
+#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "ეს არ უნდა მომხდარიყო. გამოგვიგზავნეთ ანგარიში შეცდომის შესახებ."
 
-#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
+#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "შეავსეთ შეცდომის ანგარიში და დაუკავშირდით CDDB სერვერის ადმინისტრატორს."
 
-#: models/cddamodel.cpp:893
+#: models/cddamodel.cpp:892
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "CDDA paranoia-ის ობიექტის შექმნის შეცდომა."
 
-#: models/cddamodel.cpp:961
+#: models/cddamodel.cpp:960
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "ნიშნავს, რომ CDDB ბაზაში მონაცემები ვერ ვიპოვე."
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "აირჩიეთ CDDB-ის ჩანაწერი"
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "აირჩიეთ CDDB-ის ჩანაწერი:"
 
-#: models/cddamodel.h:34
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
 msgstr "რიპი"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
 msgstr "ტრეკი"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
 msgstr "შემსრულებელი"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
 msgstr "სათაური"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
 msgstr "ხანგრძლივობა"
@@ -2184,50 +2184,50 @@ msgstr "ნაწილობრივი ფაილი \"%1\" წაშლი
 msgid "User canceled encoding."
 msgstr "კოდირება გაუქმებულია მომხმარებლის მიერ."
 
-#: utils/encoderwrapper.cpp:157
+#: utils/encoderwrapper.cpp:156
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "კოდირება OK (\"%1\")."
 
-#: utils/encoderwrapper.cpp:159
+#: utils/encoderwrapper.cpp:158
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "შეცდომა ფაილის (\"%1\") კოდირებისას."
 
-#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
-#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "Please check your profile."
 msgstr "შეამოწმეთ თქვენი პროფილ."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1-ის გაშვების შეცდომა."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr "ის ან არ არსებობს, ან პროგრამის გასაშვებად წვდომები არ გაგაჩნიათ."
 
-#: utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "წარმატებულად გაშვებიდან ცოტა ხნის შემდეგ %1 ავარიულად დასრულდა."
 
-#: utils/encoderwrapper.cpp:177
+#: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1-ის მოლოდინის დრო გავიდა. ეს არ უნდა მომხდარიყო."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "შეცდომა %1-ში ჩაწერისას."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2235,17 +2235,17 @@ msgid ""
 msgstr ""
 "მაგალითად, შეიძლება პროცესი არაა გაშვებული, ან მისი შეყვანის არხი დახურულია."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "შეცდომა %1-დან წაკითხვის მცდელობისას."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "მაგალითად, შეიძლება პროცესი გაშვებული არაა."
 
-#: utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "%1-ის უცნობი შეცდომა. ეს არ უნდა მომხდარიყო."

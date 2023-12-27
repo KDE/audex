@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"POT-Creation-Date: 2023-12-27 02:26+0000\n"
 "PO-Revision-Date: 2023-12-24 07:26+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -287,7 +287,7 @@ msgid "Edit Data"
 msgstr "Uredi podatke"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
 #, kde-format
 msgid "Various Artists"
 msgstr "Razni izvajalci"
@@ -1228,78 +1228,78 @@ msgstr "Primer:"
 msgid "About schemes"
 msgstr "O shemah"
 
-#: main.cpp:25
+#: main.cpp:32
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:33
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr "Odpakirnik KDE CDDA"
 
-#: main.cpp:28
+#: main.cpp:35
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Avtorske pravice © 2007–2023: Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:38
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:38
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Trenutni vzdrževalec, glavni razvijalec"
 
-#: main.cpp:32
+#: main.cpp:39
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:39
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Razvoj in izboljšave grafičnega vmesnika"
 
-#: main.cpp:33
+#: main.cpp:40
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:40
 #, kde-format
 msgid "development"
 msgstr "razvoj"
 
-#: main.cpp:34
+#: main.cpp:41
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:41
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Posebna zahvala nekdanji credativ GmbH (Nemčija) za podporo"
 
-#: main.cpp:35
+#: main.cpp:42
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Fundacija Xiph.Org"
 
-#: main.cpp:36
+#: main.cpp:43
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr "Posebna zahvala fundaciji Xiph.org za nudenje zajemalnika diskov"
 
-#: main.cpp:39
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ugo Ugowsky"
 
-#: main.cpp:39
+#: main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1508,12 +1508,12 @@ msgstr "Odstrani izbiro vseh zvočnih sledi"
 msgid "Invert Selection"
 msgstr "Obrni izbiro"
 
-#: models/cddamodel.cpp:21
+#: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "Ni bilo mogoče ustvariti objekta naprave."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
+#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1522,22 +1522,22 @@ msgstr ""
 "To je notranja napaka. Preverite strojno opremo. Če je vse ok, nam pošljite "
 "poročilo o napaki."
 
-#: models/cddamodel.cpp:30
+#: models/cddamodel.cpp:29
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Objekta KCDDB ni bilo mogoče ustvariti."
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "Sled %1"
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "Prenos podatkov CDDB je že v teku."
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1546,7 +1546,7 @@ msgstr ""
 "Prenos podatkov CDDB je že v teku. Prosimo počakajte, da se zaključi in "
 "potem poskusite še enkrat."
 
-#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
+#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1555,7 +1555,7 @@ msgstr ""
 "Prišlo je do napake s CDDB strežnikom. Počakajte, ali pa se obrnite na "
 "skrbnika CDDB strežnika."
 
-#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1564,7 +1564,7 @@ msgstr ""
 "Strežnika CDDB ni mogoče najti. Preverite svojo povezavo. Mogoče je tudi, da "
 "strežnik trenutno ne deluje."
 
-#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
+#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1572,62 +1572,62 @@ msgid ""
 msgstr ""
 "Počakajte, strežnik je zaseden, ali pa se obrnite na skrbnika strežnika CDDB."
 
-#: models/cddamodel.cpp:850
+#: models/cddamodel.cpp:849
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Obrnite se na skrbnika strežnika CDDB."
 
-#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
+#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "To se ne bi smelo zgoditi. Oddajte poročilo o napaki."
 
-#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
+#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "Oddajte poročilo o napaki in se obrnite na skrbnika strežnika CDDB."
 
-#: models/cddamodel.cpp:893
+#: models/cddamodel.cpp:892
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "Ni bilo mogoče ustvariti objekta \"skrajno previdni CDDA\"."
 
-#: models/cddamodel.cpp:961
+#: models/cddamodel.cpp:960
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "To pomeni, da ni bilo moč najti podatkov v bazi CDDB."
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Izberi vnos CDDB"
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Izberi vnos CDDB:"
 
-#: models/cddamodel.h:34
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
 msgstr "Zajemi"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
 msgstr "Sled"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
 msgstr "Izvajalec"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
 msgstr "Naslov"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
 msgstr "Dolžina"
@@ -2122,28 +2122,28 @@ msgstr "Delna datoteka %1 izbrisana."
 msgid "User canceled encoding."
 msgstr "Kodiranje ustavljeno s strani uporabnika."
 
-#: utils/encoderwrapper.cpp:157
+#: utils/encoderwrapper.cpp:156
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Kodiranje uspešno (\"%1\")."
 
-#: utils/encoderwrapper.cpp:159
+#: utils/encoderwrapper.cpp:158
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "Napaka pri kodiranju datoteke \"%1\"."
 
-#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
-#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "Please check your profile."
 msgstr "Preverite profil."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 ni uspelo zagnati."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
@@ -2151,22 +2151,22 @@ msgid ""
 msgstr ""
 "Ali program ni na voljo, ali pa nimate ustreznih pravic za zagon aplikacije."
 
-#: utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "Po uspešnem zagonu %1 se je program sesul."
 
-#: utils/encoderwrapper.cpp:177
+#: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "Omejeni čas %1 je potekel. To se ne bi smelo zgoditi."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "Med poskusom zapisovanja na %1 je prišlo do napake."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2174,17 +2174,17 @@ msgid ""
 msgstr ""
 "Mogoče je, da se opravilo ne izvaja, ali pa je zaprlo svoj vhodni kanal."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "Med poskusom branja z %1 je prišlo do napake."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Mogoče je, da se opravilo ne izvaja."
 
-#: utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "V %1 je prišlo do neznane napake. To se ne bi smelo zgoditi."

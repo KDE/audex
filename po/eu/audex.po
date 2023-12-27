@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"POT-Creation-Date: 2023-12-27 02:26+0000\n"
 "PO-Revision-Date: 2023-07-20 23:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -291,7 +291,7 @@ msgid "Edit Data"
 msgstr "Editatu datuak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1002
 #, kde-format
 msgid "Various Artists"
 msgstr "Hainbat artista"
@@ -1353,81 +1353,81 @@ msgstr "Adibidea:"
 msgid "About schemes"
 msgstr "Antolaerei buru"
 
-#: main.cpp:25
+#: main.cpp:32
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:33
 #, kde-format
 msgid "KDE CDDA Extractor"
 msgstr "KDE CDDA erauzlea"
 
-#: main.cpp:28
+#: main.cpp:35
 #, fuzzy, kde-format
 #| msgid "Copyright © 2007–2015 by Marco Nelles"
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Copyright © 2007–2015 Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:38
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:38
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Egungo arduraduna, garatzaile nagusia"
 
-#: main.cpp:32
+#: main.cpp:39
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:39
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "GUI hobekuntzak, garapena"
 
-#: main.cpp:33
+#: main.cpp:40
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:40
 #, kde-format
 msgid "development"
 msgstr "garapena"
 
-#: main.cpp:34
+#: main.cpp:41
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:41
 #, fuzzy, kde-format
 #| msgid "Special thanks to credativ GmbH (Germany) for support"
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Esker bereziak credativ GmbH-ri (Alemania) babesagatik"
 
-#: main.cpp:35
+#: main.cpp:42
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org Foundation"
 
-#: main.cpp:36
+#: main.cpp:43
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Esker bereziak Xiph.Org Fundazioari disko konpaktu erauzlea hornitzeagatik"
 
-#: main.cpp:39
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Iñigo Salvador Azurmendi"
 
-#: main.cpp:39
+#: main.cpp:46
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1638,12 +1638,12 @@ msgstr "Desautatu pista guztiak"
 msgid "Invert Selection"
 msgstr "Alderantzikatu hautapena"
 
-#: models/cddamodel.cpp:21
+#: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "Ezin du «devices» objektua sortu."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
+#: models/cddamodel.cpp:20 models/cddamodel.cpp:29 models/cddamodel.cpp:892
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1652,22 +1652,22 @@ msgstr ""
 "Hori barneko errore bat da. Egiaztatu zure hardwarea. Dena ondo badago, "
 "mesedez, bete akats txosten bat."
 
-#: models/cddamodel.cpp:30
+#: models/cddamodel.cpp:29
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Ezin du KCDDB objektu bat sortu."
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "%1 pista"
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB transakzioa dagoeneko egiten ari da."
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1676,7 +1676,7 @@ msgstr ""
 "CDDB eragiketa bat dagoeneko egiten ari da. Mesedez, itxoin bukatu arte eta "
 "saiatu berriz."
 
-#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
+#: models/cddamodel.cpp:840 models/cddamodel.cpp:942
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1685,7 +1685,7 @@ msgstr ""
 "CDDB zerbitzariarekin arazo bat dago. Mesedez, itxoin, edo jar zaitez CDDB "
 "zerbitzariaren administratzailearekin harremanean."
 
-#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:945
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1694,7 +1694,7 @@ msgstr ""
 "Ezin du CDDB zerbitzaria aurkitu. Egiaztatu zure sarea. Agian CDDB "
 "zerbitzaria lerroz kanpo dago."
 
-#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
+#: models/cddamodel.cpp:846 models/cddamodel.cpp:948
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1703,65 +1703,65 @@ msgstr ""
 "Itxoin mesedez, agian zerbitzaria lanpetuta dago, edo jar zaitez CDDB "
 "zerbitzariaren administratzailearekin harremanean."
 
-#: models/cddamodel.cpp:850
+#: models/cddamodel.cpp:849
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr ""
 "Mesedez, jar zaitez CDDB zerbitzariaren administratzailearekin harremanean."
 
-#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
+#: models/cddamodel.cpp:852 models/cddamodel.cpp:951
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "Hau ez litzateke gertatu behar. Mesedez, bete akats-txosten bat."
 
-#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
+#: models/cddamodel.cpp:859 models/cddamodel.cpp:954
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "Mesedez, bete akats-txosten bat eta jar zaitez CDDB zerbitzariaren  "
 "administratzailearekin harremanean."
 
-#: models/cddamodel.cpp:893
+#: models/cddamodel.cpp:892
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "Ezin du CDDA «paranoia» objektua sortu."
 
-#: models/cddamodel.cpp:961
+#: models/cddamodel.cpp:960
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Horrek esan nahi du CDDB datu-basean ez dela daturik aurkitu."
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Hautatu CDDB sarrera"
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:977
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Hautatu CDDB sarrera bat:"
 
-#: models/cddamodel.h:34
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
 msgstr "Erauzi"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
 msgstr "Pista"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
 msgstr "Artista"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
 msgstr "Titulua"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
 msgstr "Luzera"
@@ -2286,28 +2286,28 @@ msgstr "Osatu gabeko «%1» fitxategia ezabatu da."
 msgid "User canceled encoding."
 msgstr "Erabiltzaileak kodetzea bertan behera utzi du."
 
-#: utils/encoderwrapper.cpp:157
+#: utils/encoderwrapper.cpp:156
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Kodeketa ondo («%1»)."
 
-#: utils/encoderwrapper.cpp:159
+#: utils/encoderwrapper.cpp:158
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "Errore bat gertatu da «%1» fitxategia kodetzean."
 
-#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
-#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "Please check your profile."
 msgstr "Mesedez, egiaztatu zure profila."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 hastean huts egin du."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:170
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
@@ -2315,22 +2315,22 @@ msgid ""
 msgstr ""
 "Edo falta da, edo baliteke programari deitzeko behar adina baimen ez izatea."
 
-#: utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 kraskatu da, ondo abiatu eta denbora bat igarota."
 
-#: utils/encoderwrapper.cpp:177
+#: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1(e)k denbora-muga gainditu du. Ez litzateke halakorik gertatu behar."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "Errore bat gertatu da %1(e)ra idazten saiatzean."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:179
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2339,17 +2339,17 @@ msgstr ""
 "Adibidez, baliteke prozesua martxan ez egotea, edo baliteke bere sarrerako "
 "kanalak itxi izana."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "Errore bat gertatu da %1(e)tik irakurtzen saiatzean."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:182
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Adibidez, baliteke prozesua martxan ez egotea."
 
-#: utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr ""
