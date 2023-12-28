@@ -97,13 +97,15 @@ void CommandWizardDialog::about_commandline_schemes()
              "<tr><td>$title</td><td>The title of the CD. If your CD is a compilation, then this tag represents the subtitle in most cases.</td></tr>"
              "<tr><td>$date</td><td>The release date of the CD. In almost all cases this is the year.</td></tr>"
              "<tr><td>$genre</td><td>The genre of the CD.</td></tr>"
-             "<tr><td>$cdno</td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is <b>not</b> set for the current CD, than this value will be just empty.</td></tr>"
+             "<tr><td>$cdno</td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+             "<b>not</b> set for the current CD, than this value will be just empty.</td></tr>"
              "<tr><td>$tartist</td><td>This is the artist of every individual track. It is especially useful on compilation CDs.</td></tr>"
              "<tr><td>$ttitle</td><td>The track title. Normally each track on a CD has its own title, which is the name of the song.</td></tr>"
              "<tr><td>$trackno</td><td>The track number. First track is 1.</td></tr>"
              "<tr><td>$cover</td><td>The cover file.</td></tr>"
              "<tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</td></tr>"
-             "<tr><td>$i</td><td>The temporary WAV file (input file) created by Audex from CD audio track. You can use it as a normal input file for your command line encoder.</td></tr>"
+             "<tr><td>$i</td><td>The temporary WAV file (input file) created by Audex from CD audio track. You can use it as a normal input file for your "
+             "command line encoder.</td></tr>"
              "<tr><td>$o</td><td>The full output filename and path (output file). Use it as the output for your command line encoder.</td></tr>"
              "<tr><td>$encoder</td><td>Encoder name and version.</td></tr>"
              "<tr><td>$audex</td><td>Audex name and version.</td></tr>"
@@ -116,19 +118,16 @@ void CommandWizardDialog::about_parameters()
     QWhatsThis::showText(ui.kurllabel_aboutparameters->mapToGlobal(ui.kurllabel_aboutparameters->geometry().topLeft()),
                          i18n("<p>Variables in Audex can have parameters. E.g.</p>"
                               "<pre>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre>"
-                              "<p>A filename of a JPG image with the size of 300x300 will be inserted. "
-                              "If no size is set, the size of the original cover file will be taken. If "
-                              "no cover is set, this variable will be replaced by nothing, otherwise "
-                              "something like <i>/tmp/cover.123.jpg</i> will be inserted. Possible "
-                              "formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-                              "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-                              "bear this in mind, if you set the format and size.</i></p>"
+                              "<p>In this example a temporary filename of a copy in jpeg format and size"
+                              "of 300x300 pixels of the cover will be inserted."
+                              "If no size is set, the size of the original cover image file will be taken."
+                              "If no cover is set, this variable will be omitted."
+                              "Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+                              "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></p>"
                               "<hr />"
                               "<p>\"preparam\" and \"postparam\" define parameters inserted before "
-                              "(pre) or behind (post) the variable. These values are <b>only</b> shown if a value is set."
-                              "Works with all commandline variables.</p>"
-                              "<hr />"
-                              "<p><b><i>To have a complete overview of parameters go to the Audex webpage.</i></b></p>"),
+                              "(pre) or behind (post) the variable. These values are <b>only</b>"
+                              "shown if a value is set. Works with all commandline variables."),
                          ui.kurllabel_aboutparameters);
 }
 
@@ -252,32 +251,33 @@ void CommandWizardDialog::update_example()
                                                          "2006",
                                                          "Rock",
                                                          "ogg",
-                                                         NULL,
+                                                         QImage(),
                                                          false,
                                                          QDir::tempPath(),
                                                          "LAME 3.98.2",
                                                          true);
     ui.qlineedit_album_example->setText(filename);
     ui.qlineedit_album_example->setCursorPosition(0);
-    filename = patternparser.parseCommandPattern(ui.qlineedit_command->text(),
-                                                 "/tmp/tmp.wav",
-                                                 QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
-                                                 4,
-                                                 2,
-                                                 1,
-                                                 18,
-                                                 "Alternative Hits",
-                                                 "Volume 4",
-                                                 "Wolfsheim",
-                                                 "Approaching Lightspeed",
-                                                 "2003",
-                                                 "Darkwave",
-                                                 "ogg",
-                                                 NULL,
-                                                 false,
-                                                 QDir::tempPath(),
-                                                 "LAME 3.98.2",
-                                                 true);
+    filename =
+        patternparser.parseCommandPattern(ui.qlineedit_command->text(),
+                                          "/tmp/tmp.wav",
+                                          QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
+                                          4,
+                                          2,
+                                          1,
+                                          18,
+                                          "Alternative Hits",
+                                          "Volume 4",
+                                          "Wolfsheim",
+                                          "Approaching Lightspeed",
+                                          "2003",
+                                          "Darkwave",
+                                          "ogg",
+                                          QImage(),
+                                          false,
+                                          QDir::tempPath(),
+                                          "LAME 3.98.2",
+                                          true);
     ui.qlineedit_sampler_example->setText(filename);
     ui.qlineedit_sampler_example->setCursorPosition(0);
 }

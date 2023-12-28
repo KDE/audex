@@ -29,11 +29,6 @@ make
 
 ### Further information
 
-These files make Audex linux dependent:
-
-* utils/pid.h
-* utils/pid.cpp
-
 These files make Audex cdda paranoia dependent:
 
 * utils/cddaparanoia.h

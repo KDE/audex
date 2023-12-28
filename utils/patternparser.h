@@ -8,11 +8,11 @@
 #ifndef PATTERNPARSER_H
 #define PATTERNPARSER_H
 
-#include <QCryptographicHash>
 #include <QDate>
 #include <QDateTime>
 #include <QDir>
 #include <QImage>
+#include <QImageReader>
 #include <QObject>
 #include <QString>
 #include <QXmlDefaultHandler>
@@ -20,8 +20,6 @@
 #include <KLocalizedString>
 
 #include "config.h"
-
-#include "utils/cachedimage.h"
 
 #define IS_TRUE(val) (((val.toLower() == "true") || (val == "1") || (val.toLower() == "on")) ? true : false)
 
@@ -55,7 +53,8 @@
 #define VAR_AUDEX "audex"
 #define VAR_NO_OF_TRACKS "nooftracks"
 
-#define STANDARD_EMBED_COVER_FORMAT "jpg"
+#define STANDARD_EMBED_COVER_FORMAT "jpeg"
+#define STANDARD_EMBED_NOCOVER_PLACEHOLDER_WIDTH 300
 
 class SaxHandler : public QXmlDefaultHandler
 {
@@ -116,7 +115,7 @@ public:
     {
         this->suffix = suffix;
     }
-    void setCover(CachedImage *cover)
+    void setCover(const QImage &cover)
     {
         this->cover = cover;
     }
@@ -180,7 +179,7 @@ private:
     QString date;
     QString genre;
     QString suffix;
-    CachedImage *cover;
+    QImage cover;
     bool fat32compatible;
     bool replacespaceswithunderscores;
     bool _2digitstracknum;
@@ -246,15 +245,31 @@ public:
                                       const QString &date,
                                       const QString &genre,
                                       const QString &suffix,
-                                      CachedImage *cover,
+                                      const QImage &cover,
                                       bool fat32compatible,
                                       const QString &tmppath,
                                       const QString &encoder,
                                       const bool demomode = false);
 
-    const QString parseSimplePattern(const QString &pattern, int cdno, int nooftracks, const QString &artist, const QString &title, const QString &date, const QString &genre, const QString &suffix, bool fat32compatible);
+    const QString parseSimplePattern(const QString &pattern,
+                                     int cdno,
+                                     int nooftracks,
+                                     const QString &artist,
+                                     const QString &title,
+                                     const QString &date,
+                                     const QString &genre,
+                                     const QString &suffix,
+                                     bool fat32compatible);
 
-    void parseInfoText(QStringList &text, const QString &artist, const QString &title, const QString &date, const QString &genre, const quint32 discid, const qreal size, const int length, const int nooftracks);
+    void parseInfoText(QStringList &text,
+                       const QString &artist,
+                       const QString &title,
+                       const QString &date,
+                       const QString &genre,
+                       const quint32 discid,
+                       const qreal size,
+                       const int length,
+                       const int nooftracks);
 
 Q_SIGNALS:
     void error(const QString &message, const QString &details = QString());

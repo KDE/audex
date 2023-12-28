@@ -10,9 +10,10 @@
 
 #include <QDir>
 #include <QQueue>
-#include <QString>
-#include <QTimer>
 #include <QStorageInfo>
+#include <QString>
+#include <QTemporaryDir>
+#include <QTimer>
 
 #include <KLocalizedString>
 
@@ -26,7 +27,6 @@
 #include "utils/parameters.h"
 #include "utils/patternparser.h"
 #include "utils/playlist.h"
-#include "utils/tmpdir.h"
 #include "utils/upload.h"
 #include "utils/wavefilewriter.h"
 
@@ -202,7 +202,7 @@ private:
     CDDAExtractThread *cdda_extract_thread;
     AudexJobs *jobs;
     WaveFileWriter *wave_file_writer;
-    TmpDir *tmp_dir;
+    QTemporaryDir tmp_dir;
 
     QString p_profile_name;
     QString p_suffix;
@@ -240,7 +240,6 @@ private:
 
     bool check();
 
-    QString tmp_path;
     QString target_dir;
 
     bool _finished;

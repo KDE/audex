@@ -18,7 +18,10 @@ CDDAModel::CDDAModel(QObject *parent)
     devices = new CDDADevices(this);
     if (!devices) {
         qDebug() << "Unable to create devices object. low mem?";
-        error = Error(i18n("Unable to create devices object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
+        error = Error(i18n("Unable to create devices object."),
+                      i18n("This is an internal error. Check your hardware. If all okay please make bug report."),
+                      Error::ERROR,
+                      this);
         return;
     }
     connect(devices, SIGNAL(audioDiscDetected(const QString &)), this, SLOT(new_audio_disc_available(const QString &)));
@@ -27,14 +30,15 @@ CDDAModel::CDDAModel(QObject *parent)
     cddb = new KCDDB::Client();
     if (!cddb) {
         qDebug() << "Unable to create KCDDB object. Low mem?";
-        error = Error(i18n("Unable to create KCDDB object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
+        error = Error(i18n("Unable to create KCDDB object."),
+                      i18n("This is an internal error. Check your hardware. If all okay please make bug report."),
+                      Error::ERROR,
+                      this);
         return;
     }
     connect(cddb, SIGNAL(finished(KCDDB::Result)), this, SLOT(lookup_cddb_done(KCDDB::Result)));
 
     cddb_transaction_pending = false;
-
-    _cover = new CachedImage();
 
     cd_info.clear();
     modified = false;
@@ -45,7 +49,6 @@ CDDAModel::CDDAModel(QObject *parent)
 
 CDDAModel::~CDDAModel()
 {
-    delete _cover;
     delete cddb;
     delete devices;
 
@@ -95,7 +98,8 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const
       }
     }*/
 
-    if ((role == Qt::DisplayRole) || (role == Qt::CheckStateRole && index.column() == CDDA_MODEL_COLUMN_RIP_INDEX) || (role == CDDA_MODEL_INTERNAL_ROLE) || (role == Qt::EditRole)) {
+    if ((role == Qt::DisplayRole) || (role == Qt::CheckStateRole && index.column() == CDDA_MODEL_COLUMN_RIP_INDEX) || (role == CDDA_MODEL_INTERNAL_ROLE)
+        || (role == Qt::EditRole)) {
         switch (index.column()) {
         case CDDA_MODEL_COLUMN_RIP_INDEX:
             if (role == Qt::CheckStateRole) {
@@ -472,73 +476,74 @@ const QVariant CDDAModel::getCustomDataPerTrack(const int n, const QString &type
     return cd_info.track(n).get(type);
 }
 
-CachedImage *CDDAModel::cover() const
+const QImage &CDDAModel::cover() const
 {
-    return _cover;
-}
-
-const QImage CDDAModel::coverImage() const
-{
-    return _cover->coverImage();
-}
-
-const QString CDDAModel::coverChecksum() const
-{
-    return _cover->checksum();
+    return p_cover;
 }
 
 bool CDDAModel::setCover(const QByteArray &data)
 {
-    if (_cover->load(data)) {
+    if (p_cover.load(data)) {
         beginResetModel();
         endResetModel();
         return true;
-    } else {
-        error = _cover->lastError();
     }
     return false;
 }
 
 bool CDDAModel::setCover(const QString &filename)
 {
-    if (_cover->load(filename)) {
+    if (p_cover.load(filename)) {
         beginResetModel();
         endResetModel();
         return true;
-    } else {
-        error = _cover->lastError();
     }
     return false;
 }
 
 bool CDDAModel::saveCoverToFile(const QString &filename)
 {
-    if (_cover->save(filename)) {
+    if (p_cover.save(filename)) {
         return true;
-    } else {
-        error = _cover->lastError();
     }
     return false;
 }
 
 bool CDDAModel::isCoverEmpty() const
 {
-    return _cover->isEmpty();
+    return p_cover.isNull();
 }
 
 void CDDAModel::clearCover()
 {
-    if (_cover->isEmpty())
-        return;
-
     beginResetModel();
-    _cover->clear();
+    p_cover = QImage();
     endResetModel();
 }
 
 const QString CDDAModel::coverSupportedMimeTypeList() const
 {
-    return _cover->supportedMimeTypeList();
+    QList<QByteArray> supp_list = QImageReader::supportedImageFormats();
+    QMap<QString, QStringList> map;
+    QMimeDatabase db;
+    QMimeType mime = db.mimeTypeForData(QByteArray(""));
+    for (int i = 0; i < supp_list.count(); ++i) {
+        map[db.mimeTypeForUrl("dummy." + QString(supp_list[i]).toLower()).comment()].append("*." + QString(supp_list[i]).toLower());
+    }
+    QString result = i18n("Common image formats") + " (*.jpg *.jpeg *.png *.bmp *.tif *.tiff *.gif *.avif)";
+    QMap<QString, QStringList>::const_iterator i = map.constBegin();
+    while (i != map.constEnd()) {
+        if (i.key() == mime.comment()) {
+            ++i;
+            continue;
+        }
+        result += ";;";
+        QStringList extensions = i.value();
+        extensions.removeDuplicates();
+        result += i.key() + " (" + extensions.join(" ") + ')';
+        ++i;
+    }
+    return result;
 }
 
 bool CDDAModel::guessVarious() const
@@ -744,7 +749,7 @@ void CDDAModel::clear()
 
 void CDDAModel::toggle(int row)
 {
-    _toggle(row + 1);
+    p_toggle(row + 1);
 
     Q_EMIT hasSelection(0 != sel_tracks.count());
     Q_EMIT selectionChanged(sel_tracks.count());
@@ -759,7 +764,7 @@ void CDDAModel::invertSelection()
 {
     for (int i = 1; i <= numOfTracks(); ++i) {
         if (isAudioTrack(i))
-            _toggle(i);
+            p_toggle(i);
     }
     Q_EMIT hasSelection(0 != sel_tracks.count());
     Q_EMIT selectionChanged(sel_tracks.count());
@@ -822,7 +827,10 @@ bool CDDAModel::submitCDDB()
 
     if (cddb_transaction_pending) {
         qDebug() << "CDDB transaction already in progress.";
-        error = Error(i18n("CDDB transaction already in progress."), i18n("A CDDB transaction is already in progress. Please wait until it has finished and try again."), Error::ERROR, this);
+        error = Error(i18n("CDDB transaction already in progress."),
+                      i18n("A CDDB transaction is already in progress. Please wait until it has finished and try again."),
+                      Error::ERROR,
+                      this);
         return false;
     }
 
@@ -838,13 +846,22 @@ bool CDDAModel::submitCDDB()
     if (result != KCDDB::Success) {
         switch (result) {
         case KCDDB::ServerError:
-            error = Error(KCDDB::resultToString(result), i18n("There is an error with the CDDB server. Please wait or contact the administrator of the CDDB server."), Error::ERROR, this);
+            error = Error(KCDDB::resultToString(result),
+                          i18n("There is an error with the CDDB server. Please wait or contact the administrator of the CDDB server."),
+                          Error::ERROR,
+                          this);
             break;
         case KCDDB::HostNotFound:
-            error = Error(KCDDB::resultToString(result), i18n("Cannot find the CDDB server. Check your network. Maybe the CDDB server is offline."), Error::ERROR, this);
+            error = Error(KCDDB::resultToString(result),
+                          i18n("Cannot find the CDDB server. Check your network. Maybe the CDDB server is offline."),
+                          Error::ERROR,
+                          this);
             break;
         case KCDDB::NoResponse:
-            error = Error(KCDDB::resultToString(result), i18n("Please wait, maybe the server is busy, or contact the CDDB server administrator."), Error::ERROR, this);
+            error = Error(KCDDB::resultToString(result),
+                          i18n("Please wait, maybe the server is busy, or contact the CDDB server administrator."),
+                          Error::ERROR,
+                          this);
             break;
         case KCDDB::CannotSave:
             error = Error(KCDDB::resultToString(result), i18n("Please contact the CDDB server administrator."), Error::ERROR, this);
@@ -890,7 +907,10 @@ void CDDAModel::new_audio_disc_available(const QString &udi)
     pn = new CDDAParanoia(this);
     if (!pn) {
         qDebug() << "Unable to create paranoia class. low mem?";
-        error = Error(i18n("Unable to create CDDA paranoia object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
+        error = Error(i18n("Unable to create CDDA paranoia object."),
+                      i18n("This is an internal error. Check your hardware. If all okay please make bug report."),
+                      Error::ERROR,
+                      this);
         return;
     }
     pn->setDevice(_device);
@@ -940,13 +960,22 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
     if ((result != KCDDB::Success) && (result != KCDDB::MultipleRecordFound)) {
         switch (result) {
         case KCDDB::ServerError:
-            error = Error(KCDDB::resultToString(result), i18n("There is an error with the CDDB server. Please wait or contact the administrator of the CDDB server."), Error::ERROR, this);
+            error = Error(KCDDB::resultToString(result),
+                          i18n("There is an error with the CDDB server. Please wait or contact the administrator of the CDDB server."),
+                          Error::ERROR,
+                          this);
             break;
         case KCDDB::HostNotFound:
-            error = Error(KCDDB::resultToString(result), i18n("Cannot find the CDDB server. Check your network. Maybe the CDDB server is offline."), Error::ERROR, this);
+            error = Error(KCDDB::resultToString(result),
+                          i18n("Cannot find the CDDB server. Check your network. Maybe the CDDB server is offline."),
+                          Error::ERROR,
+                          this);
             break;
         case KCDDB::NoResponse:
-            error = Error(KCDDB::resultToString(result), i18n("Please wait, maybe the server is busy, or contact the CDDB server administrator."), Error::ERROR, this);
+            error = Error(KCDDB::resultToString(result),
+                          i18n("Please wait, maybe the server is busy, or contact the CDDB server administrator."),
+                          Error::ERROR,
+                          this);
             break;
         case KCDDB::InvalidCategory:
             error = Error(KCDDB::resultToString(result), i18n("This should not happen. Please make a bug report."), Error::ERROR, this);
@@ -970,7 +999,11 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
         KCDDB::CDInfoList::iterator it;
         QStringList list;
         for (it = cddb_info.begin(); it != cddb_info.end(); ++it) {
-            list.append(QString("%1, %2, %3, %4").arg((it->get(KCDDB::Artist).toString()), it->get(KCDDB::Title).toString(), it->get(KCDDB::Genre).toString(), it->get(KCDDB::Year).toString()));
+            list.append(QString("%1, %2, %3, %4")
+                            .arg((it->get(KCDDB::Artist).toString()),
+                                 it->get(KCDDB::Title).toString(),
+                                 it->get(KCDDB::Genre).toString(),
+                                 it->get(KCDDB::Year).toString()));
         }
 
         bool ok = false;
@@ -1019,7 +1052,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
     Q_EMIT cddbLookupDone(true);
 }
 
-void CDDAModel::_toggle(const unsigned int track)
+void CDDAModel::p_toggle(const unsigned int track)
 {
     if (sel_tracks.contains(track)) {
         sel_tracks.remove(track);

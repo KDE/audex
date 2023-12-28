@@ -91,7 +91,6 @@ Audex::~Audex()
     delete cdda_extract_thread;
     delete wave_file_writer;
     delete jobs;
-    delete tmp_dir;
 }
 
 bool Audex::prepare()
@@ -102,11 +101,6 @@ bool Audex::prepare()
     }
 
     qDebug() << "Using profile with index" << profile_model->currentProfileIndex();
-
-    tmp_dir = new TmpDir("audex", "work");
-    tmp_path = tmp_dir->tmpPath();
-    if (tmp_dir->error())
-        return false;
 
     return true;
 }
@@ -177,7 +171,7 @@ void Audex::start_extract()
         if (!targetFilename.isEmpty()) {
             Q_EMIT changedExtractTrack(ex_track_index, 1, artist, title);
 
-            QString sourceFilename = tmp_path + QString("%1").arg(DiscIDCalculator::CDDBId(cdda_model->discSignature())) + ".wav";
+            QString sourceFilename = tmp_dir.path() + '/' + "tracks-all.wav";
             ex_track_source_filename = sourceFilename;
             wave_file_writer->open(sourceFilename);
 
@@ -288,8 +282,7 @@ void Audex::start_extract()
             if (!targetFilename.isEmpty()) {
                 Q_EMIT changedExtractTrack(ex_track_index, cdda_model->numOfAudioTracks(), tartist, ttitle);
 
-                QString sourceFilename =
-                    tmp_path + QString("%1").arg(DiscIDCalculator::CDDBId(cdda_model->discSignature())) + '.' + QString("%1").arg(ex_track_index) + ".wav";
+                QString sourceFilename = tmp_dir.path() + '/' + QString("track-%1").arg(ex_track_index) + ".wav";
                 ex_track_source_filename = sourceFilename;
                 wave_file_writer->open(sourceFilename);
 
@@ -359,7 +352,6 @@ void Audex::start_encode()
         QString year = cdda_model->year();
         QString genre = cdda_model->genre();
         QString suffix = p_suffix;
-        CachedImage *cover = cdda_model->cover();
 
         QString targetFilename = job->targetFilename();
         en_track_target_filename = targetFilename;
@@ -380,9 +372,9 @@ void Audex::start_encode()
                                      genre,
                                      year,
                                      suffix,
-                                     cover,
+                                     cdda_model->cover(),
                                      false,
-                                     tmp_path,
+                                     tmp_dir.path(),
                                      job->sourceFilename(),
                                      targetFilename)) {
             request_finish(false);
@@ -412,7 +404,6 @@ void Audex::start_encode()
         QString year = cdda_model->year();
         QString genre = cdda_model->genre();
         QString suffix = p_suffix;
-        CachedImage *cover = cdda_model->cover();
         bool fat32_compatible =
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
 
@@ -436,9 +427,9 @@ void Audex::start_encode()
                                          genre,
                                          year,
                                          suffix,
-                                         cover,
+                                         cdda_model->cover(),
                                          fat32_compatible,
-                                         tmp_path,
+                                         tmp_dir.path(),
                                          job->sourceFilename(),
                                          targetFilename)) {
                 request_finish(false);
@@ -455,9 +446,9 @@ void Audex::start_encode()
                                          genre,
                                          year,
                                          suffix,
-                                         cover,
+                                         cdda_model->cover(),
                                          fat32_compatible,
-                                         tmp_path,
+                                         tmp_dir.path(),
                                          job->sourceFilename(),
                                          targetFilename)) {
                 request_finish(false);
@@ -732,17 +723,18 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
 
 bool Audex::check()
 {
-    if (tmp_dir->error()) {
-        slot_error(i18n("Temporary folder \"%1\" error.", tmp_dir->tmpPath()), i18n("Please check."));
+    if (!tmp_dir.isValid()) {
+        slot_error(i18n("Temporary folder \"%1\" error (%2).", tmp_dir.path(), tmp_dir.errorString()), i18n("Please check."));
         return false;
     }
 
-    quint64 free = tmp_dir->freeSpace() / 1024;
-    if (free < 800 * 1024) {
-        slot_warning(i18n("Free space on temporary folder \"%1\" is less than 800 MiB.", tmp_dir->tmpPathBase()));
-    } else if (free < 200 * 1024) {
-        slot_error(i18n("Temporary folder \"%1\" needs at least 200 MiB of free space.", tmp_dir->tmpPathBase()),
-                   i18n("Please free space or set another path."));
+    QStorageInfo diskfreespace(tmp_dir.path());
+    quint64 free = diskfreespace.bytesAvailable() / (1024 * 1024);
+
+    if (free < 800) {
+        slot_warning(i18n("Free space on temporary folder \"%1\" is less than 800 MiB.", tmp_dir.path()));
+    } else if (free < 200) {
+        slot_error(i18n("Temporary folder \"%1\" needs at least 200 MiB of free space.", tmp_dir.path()), i18n("Please free space or set another path."));
         return false;
     }
 
@@ -796,7 +788,7 @@ void Audex::execute_finish()
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
         // store the cover
         if (!cdda_model->isCoverEmpty()) {
-            QImage image(cdda_model->coverImage());
+            QImage image(cdda_model->cover());
             if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()) {
                 QSize size = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
                 image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
@@ -1044,14 +1036,7 @@ void Audex::execute_finish()
     }
 
     // flush temporary path
-    if (!tmp_path.isEmpty()) {
-        QDir tmp(tmp_path);
-        QStringList files = tmp.entryList(QStringList() << "*", QDir::Files | QDir::NoDotAndDotDot);
-        for (int i = 0; i < files.count(); ++i) {
-            QFile::remove(tmp_path + files[i]);
-            qDebug() << "Deleted temporary file" << tmp_path + files[i];
-        }
-    }
+    tmp_dir.remove();
 
     Q_EMIT finished(_finished_successful);
 }
