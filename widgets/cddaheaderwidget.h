@@ -17,6 +17,7 @@
 #include <QImage>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QTemporaryDir>
 #include <QTimer>
 #include <QWidget>
 #include <QX11Info>
@@ -30,8 +31,6 @@
 #include "dialogs/cddaheaderdatadialog.h"
 #include "dialogs/errordialog.h"
 #include "models/cddamodel.h"
-#include "utils/cachedimage.h"
-#include "utils/tmpdir.h"
 
 // fixed point defines
 #define FP_BITS 10
@@ -53,7 +52,7 @@ public:
                               const int padding = 20);
     ~CDDAHeaderWidget() override;
     QSize sizeHint() const override;
-    void setCover(CachedImage *cover);
+    // void setCover(const QImage &cover);
 
     bool isEnabled() const;
 
@@ -90,8 +89,6 @@ private:
     int cover_size_max;
     int padding;
 
-    QString cover_checksum;
-    QImage cover;
     QImage cd_case;
     void construct_cd_case();
 
@@ -111,7 +108,7 @@ private:
 
     bool enabled;
 
-    TmpDir *tmp_dir;
+    QTemporaryDir tmp_dir;
 };
 
 #endif

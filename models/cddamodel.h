@@ -13,6 +13,7 @@
 #include <QImage>
 #include <QImageReader>
 #include <QInputDialog>
+#include <QMimeDatabase>
 #include <QModelIndexList>
 #include <QRegExp>
 #include <QSet>
@@ -26,7 +27,6 @@
 #include <KCDDB/Client>
 #include <KCDDB/KCDDB>
 
-#include "utils/cachedimage.h"
 #include "utils/cddadevices.h"
 #include "utils/cddaparanoia.h"
 
@@ -109,9 +109,7 @@ public:
     void setCustomDataPerTrack(const int n, const QString &type, const QVariant &data);
     const QVariant getCustomDataPerTrack(const int n, const QString &type);
 
-    CachedImage *cover() const;
-    const QImage coverImage() const;
-    const QString coverChecksum() const;
+    const QImage &cover() const;
     bool setCover(const QByteArray &data);
     bool setCover(const QString &filename);
     bool saveCoverToFile(const QString &filename);
@@ -200,14 +198,14 @@ private:
 
     KCDDB::Client *cddb;
     KCDDB::CDInfo cd_info;
-    CachedImage *_cover;
+    QImage p_cover;
     bool modified;
     bool _empty; // no metadata available yet
     Error error;
     bool cddb_transaction_pending;
 
     QSet<int> sel_tracks;
-    void _toggle(const unsigned int track);
+    void p_toggle(const unsigned int track);
 
     const QString capitalize(const QString &s);
 

@@ -28,8 +28,6 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
     this->cover_size_max = cover_size_max;
     this->padding = padding;
 
-    this->cover_checksum.clear();
-
     setMouseTracking(true);
     cursor_on_cover = false;
     cursor_on_artist_label = false;
@@ -42,32 +40,17 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
 
     setMinimumSize(QSize(cover_size_min + (padding * 2), cover_size_min + (padding * 2)));
 
-    tmp_dir = new TmpDir("audex", "cover");
-
     update();
 }
 
 CDDAHeaderWidget::~CDDAHeaderWidget()
 {
     delete action_collection;
-    delete tmp_dir;
 }
 
 QSize CDDAHeaderWidget::sizeHint() const
 {
     return QSize(cover_size_min + (padding * 2), cover_size_min + (padding * 2));
-}
-
-void CDDAHeaderWidget::setCover(CachedImage *cover)
-{
-    if (cover) {
-        cover_checksum = cover->checksum();
-        this->cover = cover->coverImage();
-    } else {
-        cover_checksum.clear();
-        this->cover = QImage();
-    }
-    construct_cd_case();
 }
 
 bool CDDAHeaderWidget::isEnabled() const
@@ -183,8 +166,8 @@ void CDDAHeaderWidget::construct_cd_case()
     cover_painter.drawImage(0, 0, cdcase_wo_latches);
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    if (!cover_checksum.isEmpty())
-        cover_painter.drawImage(125, 15, this->cover.scaled(QSize(1110, 1080), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    if (!cdda_model->cover().isNull())
+        cover_painter.drawImage(125, 15, cdda_model->cover().scaled(QSize(1110, 1080), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
     cover_painter.drawImage(259, 0, latches);
@@ -259,14 +242,7 @@ void CDDAHeaderWidget::update()
     // action_collection->action("fetch")->setEnabled(!cdda_model->empty());
 
     bool activate = false;
-    if (cdda_model->isCoverEmpty()) {
-        if (cover_checksum.isEmpty())
-            setCover(nullptr);
-    } else {
-        qDebug() << "current cover checksum:" << cover_checksum;
-        qDebug() << "new cover checksum:" << cdda_model->coverChecksum();
-        if (cover_checksum != cdda_model->coverChecksum())
-            setCover(cdda_model->cover());
+    if (!cdda_model->cover().isNull()) {
         activate = true;
     }
 
@@ -301,17 +277,10 @@ void CDDAHeaderWidget::save()
 
 void CDDAHeaderWidget::view_cover()
 {
-    QString tmp_path = tmp_dir->tmpPath();
-    if (tmp_dir->error()) {
-        QStringList dirs = QStandardPaths::standardLocations(QStandardPaths::TempLocation);
-        tmp_path = dirs.size() ? dirs[0] : "/var/tmp/";
-        if (tmp_path.right(1) != "/")
-            tmp_path += "/";
-        qDebug() << "Temporary folder in use:" << tmp_path;
-    }
-
-    QString filename = tmp_path + QString("%1.jpeg").arg(cdda_model->coverChecksum());
+    QString filename = tmp_dir.path() + QString("%1.jpeg").arg(cdda_model->cover().cacheKey(), 8, 16);
     cdda_model->saveCoverToFile(filename);
+
+    qDebug() << "Open" << filename;
 
     QDesktopServices::openUrl(QUrl(filename));
 }

@@ -25,7 +25,6 @@ SaxHandler::SaxHandler()
     is_command_pattern = false;
     is_simple_pattern = false;
     is_text_pattern = false;
-    cover = nullptr;
     /*TEMP*/ found_suffix = false;
 }
 
@@ -277,14 +276,14 @@ bool SaxHandler::startElement(const QString &namespaceURI, const QString &localN
             if (!atts.value("format").isEmpty())
                 format = atts.value("format");
 
-            // cover set by setCover
-            if ((cover) && (!cover->supportedFormats().contains(format.toLatin1().toLower())))
+            if (!QImageReader::supportedImageFormats().contains(format.toLatin1().toUpper()))
                 format = STANDARD_EMBED_COVER_FORMAT;
 
             QString filename;
-            bool stop = false;
+            bool success = false;
             if (demomode) {
-                filename = tmppath + "audexcover.123." + format.toLower();
+                filename = tmppath + "/cover-embedded." + format.toLower();
+                success = true;
 
             } else {
                 int x = -1;
@@ -302,41 +301,30 @@ bool SaxHandler::startElement(const QString &namespaceURI, const QString &localN
                         y = -1;
                 }
 
-                QByteArray ba = QCryptographicHash::hash(QString(artist + title + date + QString("%1").arg(x * y) + format).toUtf8(), QCryptographicHash::Md5);
-                QString md5 = ba.toHex();
+                filename = tmppath + "/cover-embedded." + format.toLower();
 
-                if (!stop)
-                    filename = tmppath + "cover." + QString("%1").arg(md5) + '.' + format.toLower();
-
-                QFileInfo finfo(filename);
-                if ((!finfo.exists()) && (!stop)) {
-                    bool success;
-                    if ((!cover) || ((cover) && (cover->isEmpty()))) {
-                        if (IS_TRUE(atts.value("usenocover"))) {
-                            QImage c = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/nocover.png")));
-                            if ((x != -1) && (y != -1)) {
-                                c = c.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-                            }
-                            success = c.save(filename, format.toLatin1());
-                        } else {
-                            stop = true;
-                        }
+                // cover set by setCover
+                if (!QFileInfo::exists(filename)) {
+                    if (cover.isNull()) {
+                        success = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/cdcase_wo_latches.png")))
+                                      .scaledToWidth(STANDARD_EMBED_NOCOVER_PLACEHOLDER_WIDTH)
+                                      .save(filename, format.toLatin1());
                     } else {
-                        success = cover->save(filename, QSize(x, y));
+                        if (x != -1 && y != -1)
+                            success = cover.scaled(QSize(x, y)).save(filename);
+                        else
+                            success = cover.save(filename);
                     }
 
-                    if (!stop) {
-                        if (!success) {
-                            qDebug() << "WARNING! Could not create temporary cover file" << filename;
-                        } else {
-                            qDebug() << "Successfully created temporary cover file" << filename << "(" << QFile(filename).size() / 1024 << "KiB)";
-                        }
+                    if (success) {
+                        qDebug() << "Successfully created temporary cover file" << filename << "(" << QFileInfo(filename).size() / 1024 << "KiB)";
+                    } else {
+                        qDebug() << "WARNING! Could not create temporary cover file" << filename;
                     }
                 }
-            }
 
-            if (!stop) {
-                p_element = "\"" + filename + "\"";
+                if (success)
+                    p_element = "\"" + filename + "\"";
             }
         }
     }
@@ -605,7 +593,7 @@ const QString PatternParser::parseCommandPattern(const QString &pattern,
                                                  const QString &date,
                                                  const QString &genre,
                                                  const QString &suffix,
-                                                 CachedImage *cover,
+                                                 const QImage &cover,
                                                  bool fatcompatible,
                                                  const QString &tmppath,
                                                  const QString &encoder,
@@ -625,7 +613,6 @@ const QString PatternParser::parseCommandPattern(const QString &pattern,
     handler.setDate(date);
     handler.setGenre(genre);
     handler.setSuffix(suffix);
-    // cover is initialized!
     handler.setCover(cover);
     handler.setFAT32Compatible(fatcompatible);
     handler.setTMPPath(tmppath);

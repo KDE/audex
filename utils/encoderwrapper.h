@@ -9,12 +9,12 @@
 #define ENCODERWRAPPER_HEADER
 
 #include <QImage>
+#include <QRegularExpression>
 #include <QString>
 
 #include <KLocalizedString>
 #include <KProcess>
 
-#include "utils/cachedimage.h"
 #include "utils/patternparser.h"
 
 class EncoderWrapper : public QObject
@@ -22,7 +22,10 @@ class EncoderWrapper : public QObject
     Q_OBJECT
 
 public:
-    explicit EncoderWrapper(QObject *parent = nullptr, const QString &commandPattern = "", const QString &encoderName = "", const bool deleteFractionFiles = true);
+    explicit EncoderWrapper(QObject *parent = nullptr,
+                            const QString &commandPattern = "",
+                            const QString &encoderName = "",
+                            const bool deleteFractionFiles = true);
     ~EncoderWrapper() override;
 
     bool isProcessing();
@@ -40,7 +43,7 @@ public Q_SLOTS:
                 const QString &genre,
                 const QString &date,
                 const QString &suffix,
-                CachedImage *cover,
+                const QImage &cover,
                 bool fat_compatible,
                 const QString &tmppath,
                 const QString &input,

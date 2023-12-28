@@ -61,7 +61,6 @@ set(audex_SRCS
     mainwindow.cpp
     models/cddamodel.cpp
     models/profilemodel.cpp
-    utils/pid.cpp
     utils/patternparser.cpp
     utils/playlist.cpp
     utils/wavefilewriter.cpp
@@ -74,9 +73,7 @@ set(audex_SRCS
     utils/hashlist.cpp
     utils/3rdparty/crc32.cpp
     utils/parameters.cpp
-    utils/cachedimage.cpp
     utils/cuesheetwriter.cpp
-    utils/tmpdir.cpp
     utils/discidcalculator.cpp
     widgets/cddaheaderwidget.cpp
     widgets/generalsettingswidget.cpp
