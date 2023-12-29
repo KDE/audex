@@ -46,7 +46,16 @@
    <item row="1" column="0" colspan="2">
     <widget class="QWidget" name="details" native="true">
      <layout class="QGridLayout" name="gridLayout">
-      <property name="margin">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
        <number>0</number>
       </property>
       <item row="0" column="0">
@@ -103,6 +112,9 @@
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
+        <property name="format">
+         <string>%p%</string>
+        </property>
        </widget>
       </item>
       <item row="5" column="0">
@@ -145,6 +157,9 @@
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="format">
+         <string>%p%</string>
         </property>
        </widget>
       </item>
@@ -197,16 +212,14 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
+     <property name="format">
+      <string>%p%</string>
+     </property>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QListWidget</class>
-   <extends>QListWidget</extends>
-   <header>klistwidget.h</header>
-  </customwidget>
   <customwidget>
    <class>KSqueezedTextLabel</class>
    <extends>QLabel</extends>
