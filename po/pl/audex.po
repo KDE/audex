@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"POT-Creation-Date: 2023-12-29 01:37+0000\n"
 "PO-Revision-Date: 2023-12-27 18:26+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -135,152 +135,153 @@ msgstr "Narzędzia korekcji tytułu"
 msgid "&Settings"
 msgstr "&Ustawienia"
 
-#: core/audex.cpp:100
+#: core/audex.cpp:99
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Nie wybrano profilu. Przerywanie operacji."
 
-#: core/audex.cpp:117
+#: core/audex.cpp:111
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Rozpocznij zgrywanie i kodowanie z profilem \"%1\"..."
 
-#: core/audex.cpp:631 core/audex.cpp:691
+#: core/audex.cpp:622 core/audex.cpp:682
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Nie można znaleźć ścieżki \"%1\"."
 
-#: core/audex.cpp:631 core/audex.cpp:691 core/audex.cpp:700 core/audex.cpp:1106
+#: core/audex.cpp:622 core/audex.cpp:682 core/audex.cpp:691 core/audex.cpp:1091
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Proszę sprawdzić swoją ścieżkę (prawa zapisu?)"
 
-#: core/audex.cpp:644
+#: core/audex.cpp:635
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Jest mniej niż 200 MiB wolnej przestrzeni dyskowej na \"%1\"."
 
-#: core/audex.cpp:650 core/audex.cpp:719
+#: core/audex.cpp:641 core/audex.cpp:710
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Ostrzeżenie! Plik \"%1\" już istnieje. Zastępowanie."
 
-#: core/audex.cpp:652 core/audex.cpp:721 core/audex.cpp:1086
+#: core/audex.cpp:643 core/audex.cpp:712 core/audex.cpp:1071
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Ostrzeżenie! Plik \"%1\" już istnieje. Pomijanie."
 
-#: core/audex.cpp:700 core/audex.cpp:1106
+#: core/audex.cpp:691 core/audex.cpp:1091
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nie można utworzyć katalogu \"%1\"."
 
-#: core/audex.cpp:703 core/audex.cpp:1109
+#: core/audex.cpp:694 core/audex.cpp:1094
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Pomyślnie utworzono katalog \"%1\"."
 
-#: core/audex.cpp:706
+#: core/audex.cpp:697
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Katalog \"%1\" już istnieje."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:704
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Jest mniej niż 800 MiB wolnej przestrzeni dyskowej na \"%1\"."
 
-#: core/audex.cpp:736
-#, kde-format
-msgid "Temporary folder \"%1\" error."
+#: core/audex.cpp:727
+#, fuzzy, kde-format
+#| msgid "Temporary folder \"%1\" error."
+msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Błąd katalogu tymczasowego \"%1\"."
 
-#: core/audex.cpp:736
+#: core/audex.cpp:727
 #, kde-format
 msgid "Please check."
 msgstr "Proszę sprawdzić."
 
-#: core/audex.cpp:742
+#: core/audex.cpp:735
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Jest mniej niż 800 MiB wolnej przestrzeni dyskowej w katalogu tymczasowym "
 "\"%1\"."
 
-#: core/audex.cpp:744
+#: core/audex.cpp:737
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "Katalog tymczasowy \"%1\" potrzebuje co najmniej 200 MiB wolnej przestrzeni "
 "dyskowej."
 
-#: core/audex.cpp:745
+#: core/audex.cpp:737
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Proszę zwolnić przestrzeń dyskową lub ustawić inną ścieżkę."
 
-#: core/audex.cpp:774
+#: core/audex.cpp:766
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Wysuń tackę płyt CD"
 
-#: core/audex.cpp:822
+#: core/audex.cpp:814
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Pomyślnie zapisano okładkę \"%1\"."
 
-#: core/audex.cpp:825
+#: core/audex.cpp:817
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Nie można zapisać okładki \"%1\"."
 
-#: core/audex.cpp:825 core/audex.cpp:899 core/audex.cpp:938 core/audex.cpp:983
-#: core/audex.cpp:1020 core/audex.cpp:1074 core/audex.cpp:1101
+#: core/audex.cpp:817 core/audex.cpp:891 core/audex.cpp:930 core/audex.cpp:975
+#: core/audex.cpp:1012 core/audex.cpp:1059 core/audex.cpp:1086
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Proszę sprawdzić ścieżkę i uprawnienia"
 
-#: core/audex.cpp:895
+#: core/audex.cpp:887
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Pomyślnie utworzono listę odtwarzania \"%1\"."
 
-#: core/audex.cpp:899
+#: core/audex.cpp:891
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Nie można zapisać listy odtwarzania \"%1\"."
 
-#: core/audex.cpp:935
+#: core/audex.cpp:927
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Pomyślnie utworzono plik informacyjny \"%1\"."
 
-#: core/audex.cpp:938
+#: core/audex.cpp:930
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Nie można zapisać pliku informacyjnego \"%1\"."
 
-#: core/audex.cpp:980
+#: core/audex.cpp:972
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Pomyślnie utworzono plik listę haszu \"%1\"."
 
-#: core/audex.cpp:983
+#: core/audex.cpp:975
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nie można zapisać listy haszowanej \"%1\"."
 
-#: core/audex.cpp:1017
+#: core/audex.cpp:1009
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Pomyślnie utworzono arkusz cue \"%1\"."
 
-#: core/audex.cpp:1020
+#: core/audex.cpp:1012
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nie można zapisać arkusza cue \"%1\"."
 
-#: core/audex.cpp:1074 core/audex.cpp:1101
+#: core/audex.cpp:1059 core/audex.cpp:1086
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Nie można otworzyć katalogu \"%1\"."
@@ -291,7 +292,7 @@ msgid "Edit Data"
 msgstr "Edytuj dane"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1036
 #, kde-format
 msgid "Various Artists"
 msgstr "Różni wykonawcy"
@@ -418,22 +419,33 @@ msgstr ""
 "wersja enkodera.</td></tr><tr><td>$audex</td><td>Nazwa i wersja Audex.</td></"
 "tr></table></p>"
 
-#: dialogs/commandwizarddialog.cpp:117
-#, kde-format
+#: dialogs/commandwizarddialog.cpp:119
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
+#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
+#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
+#| "the size of the original cover file will be taken. If no cover is set, "
+#| "this variable will be replaced by nothing, otherwise something like <i>/"
+#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
+#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
+#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
+#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
+#| "behind (post) the variable. These values are <b>only</b> shown if a value "
+#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
+#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
-"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a JPG image "
-"with the size of 300x300 will be inserted. If no size is set, the size of "
-"the original cover file will be taken. If no cover is set, this variable "
-"will be replaced by nothing, otherwise something like <i>/tmp/cover.123.jpg</"
-"i> will be inserted. Possible formats are \"JPG\", \"PNG\" and \"GIF"
-"\" (Default: \"JPG\").</p>\n"
-"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-"bear this in mind, if you set the format and size.</i></p><hr /><p>\"preparam"
-"\" and \"postparam\" define parameters inserted before (pre) or behind "
-"(post) the variable. These values are <b>only</b> shown if a value is set."
-"Works with all commandline variables.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
+"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
+"temporary filename of a copy in jpeg format and sizeof 300x300 pixels of the "
+"cover will be inserted.If no size is set, the size of the original cover "
+"image file will be taken.If no cover is set, this variable will be omitted."
+"Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
+"p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted before "
+"(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
+"value is set. Works with all commandline variables."
 msgstr ""
 "<p>Zmienne w Audex mogą mieć parametry. Np.</p><pre>${cover format=\"JPG\" x="
 "\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Zostanie wstawiona nazwa pliku "
@@ -1532,7 +1544,7 @@ msgstr "Odwróć zaznaczenie"
 msgid "Unable to create devices object."
 msgstr "Nie można utworzyć obiektu urządzeń."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1541,22 +1553,27 @@ msgstr ""
 "To jest wewnętrzny błąd. Sprawdź swój sprzęt. Jeżeli wszystko jest ok, to "
 "zgłoś błąd."
 
-#: models/cddamodel.cpp:30
+#: models/cddamodel.cpp:33
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Nie można utworzyć obiektu KCDDB."
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:126
 #, kde-format
 msgid "Track %1"
 msgstr "Ścieżka %1"
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:533
+#, kde-format
+msgid "Common image formats"
+msgstr "Powszechne formaty obrazów"
+
+#: models/cddamodel.cpp:830
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "Transakcja CDDB już jest w trakcie."
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:831
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1565,7 +1582,7 @@ msgstr ""
 "Transakcja CDDB już jest w trakcie. Poczekaj, aż skończy i wtedy spróbuj "
 "ponownie."
 
-#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
+#: models/cddamodel.cpp:850 models/cddamodel.cpp:964
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1574,7 +1591,7 @@ msgstr ""
 "Wystąpił błąd z serwerem CDDB. Proszę czekać lub skontaktować się z "
 "administratorem serwera CDDB."
 
-#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
+#: models/cddamodel.cpp:856 models/cddamodel.cpp:970
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1583,7 +1600,7 @@ msgstr ""
 "Nie można znaleźć serwera CDDB. Sprawdź swoją sieć. Serwer CDDB może być "
 "niedostępny."
 
-#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
+#: models/cddamodel.cpp:862 models/cddamodel.cpp:976
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1592,37 +1609,37 @@ msgstr ""
 "Proszę czekać, serwer może być zajęty, lub skontaktuj się z administratorem "
 "serwera CDDB."
 
-#: models/cddamodel.cpp:850
+#: models/cddamodel.cpp:867
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Proszę skontaktować się z administratorem CDDB."
 
-#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:981
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "To nie powinno się wydarzyć. Proszę zgłosić błąd."
 
-#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
+#: models/cddamodel.cpp:877 models/cddamodel.cpp:984
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "Proszę zgłosić błąd i skontaktować się z administratorem serwera CDDB."
 
-#: models/cddamodel.cpp:893
+#: models/cddamodel.cpp:910
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "Nie można utworzyć obiektu paranoia CDDA."
 
-#: models/cddamodel.cpp:961
+#: models/cddamodel.cpp:990
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "To oznacza, że nie znaleziono danych w bazie danych CDDB."
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:1011
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Wybierz wpis CDDB"
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:1011
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Wybierz wpis CDDB:"
@@ -1854,90 +1871,6 @@ msgstr " (Zwykła jakość)"
 #, kde-format
 msgid " (Extreme Quality)"
 msgstr " (Ekstremalna jakość)"
-
-#. i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
-#: utils/cachedimage.cpp:117
-#, kde-format
-msgid "Common image formats"
-msgstr "Powszechne formaty obrazów"
-
-#: utils/cachedimage.cpp:162
-#, kde-format
-msgid "File does not exist."
-msgstr "Plik nie istnieje."
-
-#: utils/cachedimage.cpp:162
-#, kde-format
-msgid "Please check if the file really exists."
-msgstr "Proszę sprawdzić czy plik na pewno istnieje."
-
-#: utils/cachedimage.cpp:171
-#, kde-format
-msgid "Cannot open file."
-msgstr "Nie można otworzyć pliku."
-
-#: utils/cachedimage.cpp:171
-#, kde-format
-msgid "Please check your file. Maybe you do not have proper permissions."
-msgstr "Proszę sprawdzić swój plik. Może nie masz właściwych uprawnień."
-
-#: utils/cachedimage.cpp:177 utils/cachedimage.cpp:234
-#, kde-format
-msgid "Unsupported image format"
-msgstr "Niewspierany format obrazu"
-
-#: utils/cachedimage.cpp:178
-#, kde-format
-msgid ""
-"Please check your file. Maybe it is corrupted. Otherwise try to convert your "
-"cover image with an external program to a common file format like JPEG."
-msgstr ""
-"Proszę sprawdzić swój plik. Może jest on uszkodzony. W przeciwnym przypadku "
-"spróbuj przekształcić twój obraz okładki zewnętrznym programem do "
-"powszechnego formatu pliku takiego jak JPEG."
-
-#: utils/cachedimage.cpp:199
-#, kde-format
-msgid "Cannot open file"
-msgstr "Nie można otworzyć pliku"
-
-#: utils/cachedimage.cpp:199
-#, kde-format
-msgid "Please check your permissions."
-msgstr "Proszę sprawdzić swoje uprawnienia."
-
-#: utils/cachedimage.cpp:207
-#, kde-format
-msgid "Cannot save file"
-msgstr "Nie można zapisać pliku"
-
-#: utils/cachedimage.cpp:207
-#, kde-format
-msgid "Please check your permissions. Do you have enough space?"
-msgstr ""
-"Proszę sprawdzić swoje uprawnienia. Czy masz wystarczająco przestrzeni "
-"dyskowej?"
-
-#: utils/cachedimage.cpp:235
-#, kde-format
-msgid ""
-"Please use common image formats like JPEG or PNG as they are supported on "
-"almost all systems."
-msgstr ""
-"Proszę używać powszechnych formatów plików takich jak JPEG lub PNG, jako że "
-"są one wspierane na prawie wszystkich systemach."
-
-#: utils/cachedimage.cpp:248
-#, kde-format
-msgid "Cannot write on device"
-msgstr "Nie można zapisać na urządzenie"
-
-#: utils/cachedimage.cpp:248
-#, kde-format
-msgid "Please check your permissions. Do you have enough space on your device?"
-msgstr ""
-"Proszę sprawdzić swoje uprawnienia. Czy masz wystarczająco przestrzeni "
-"dyskowej?"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -2248,42 +2181,42 @@ msgstr "Wysyłanie pliku %1 na serwer. Proszę czekać..."
 msgid "Finished uploading file %1 to server."
 msgstr "Ukończono wysyłanie pliku %1 na serwer."
 
-#: widgets/cddaheaderwidget.cpp:150
+#: widgets/cddaheaderwidget.cpp:133
 #, kde-format
 msgid "CD Number: "
 msgstr "Numer CD: "
 
-#: widgets/cddaheaderwidget.cpp:164
+#: widgets/cddaheaderwidget.cpp:147
 #, kde-format
 msgid "No audio CD detected"
 msgstr "Nie wykryto płyty z muzyką"
 
-#: widgets/cddaheaderwidget.cpp:284
+#: widgets/cddaheaderwidget.cpp:260
 #, kde-format
 msgid "Load Cover"
 msgstr "Wczytaj okładkę"
 
-#: widgets/cddaheaderwidget.cpp:294 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:270 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "Zapisz okładkę"
 
-#: widgets/cddaheaderwidget.cpp:381
+#: widgets/cddaheaderwidget.cpp:350
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "Ustaw własną okładkę..."
 
-#: widgets/cddaheaderwidget.cpp:386
+#: widgets/cddaheaderwidget.cpp:355
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "Zapisz okładkę do pliku..."
 
-#: widgets/cddaheaderwidget.cpp:391
+#: widgets/cddaheaderwidget.cpp:360
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "Pokaż pełnowymiarową okładkę..."
 
-#: widgets/cddaheaderwidget.cpp:396
+#: widgets/cddaheaderwidget.cpp:365
 #, kde-format
 msgid "Remove Cover"
 msgstr "Usuń okładkę"
@@ -2567,6 +2500,60 @@ msgstr "Zapisz..."
 #, kde-format
 msgid "URL:"
 msgstr "Adres URL:"
+
+#~ msgid "File does not exist."
+#~ msgstr "Plik nie istnieje."
+
+#~ msgid "Please check if the file really exists."
+#~ msgstr "Proszę sprawdzić czy plik na pewno istnieje."
+
+#~ msgid "Cannot open file."
+#~ msgstr "Nie można otworzyć pliku."
+
+#~ msgid "Please check your file. Maybe you do not have proper permissions."
+#~ msgstr "Proszę sprawdzić swój plik. Może nie masz właściwych uprawnień."
+
+#~ msgid "Unsupported image format"
+#~ msgstr "Niewspierany format obrazu"
+
+#~ msgid ""
+#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
+#~ "your cover image with an external program to a common file format like "
+#~ "JPEG."
+#~ msgstr ""
+#~ "Proszę sprawdzić swój plik. Może jest on uszkodzony. W przeciwnym "
+#~ "przypadku spróbuj przekształcić twój obraz okładki zewnętrznym programem "
+#~ "do powszechnego formatu pliku takiego jak JPEG."
+
+#~ msgid "Cannot open file"
+#~ msgstr "Nie można otworzyć pliku"
+
+#~ msgid "Please check your permissions."
+#~ msgstr "Proszę sprawdzić swoje uprawnienia."
+
+#~ msgid "Cannot save file"
+#~ msgstr "Nie można zapisać pliku"
+
+#~ msgid "Please check your permissions. Do you have enough space?"
+#~ msgstr ""
+#~ "Proszę sprawdzić swoje uprawnienia. Czy masz wystarczająco przestrzeni "
+#~ "dyskowej?"
+
+#~ msgid ""
+#~ "Please use common image formats like JPEG or PNG as they are supported on "
+#~ "almost all systems."
+#~ msgstr ""
+#~ "Proszę używać powszechnych formatów plików takich jak JPEG lub PNG, jako "
+#~ "że są one wspierane na prawie wszystkich systemach."
+
+#~ msgid "Cannot write on device"
+#~ msgstr "Nie można zapisać na urządzenie"
+
+#~ msgid ""
+#~ "Please check your permissions. Do you have enough space on your device?"
+#~ msgstr ""
+#~ "Proszę sprawdzić swoje uprawnienia. Czy masz wystarczająco przestrzeni "
+#~ "dyskowej?"
 
 #~ msgid "&CDDB"
 #~ msgstr "&CDDB"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-25 00:40+0000\n"
+"POT-Creation-Date: 2023-12-29 01:37+0000\n"
 "PO-Revision-Date: 2023-12-24 07:26+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -135,148 +135,149 @@ msgstr "Orodja za popravilo naslovov"
 msgid "&Settings"
 msgstr "Nastavitve"
 
-#: core/audex.cpp:100
+#: core/audex.cpp:99
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Noben profil ni izbran. Preklicujem opravilo."
 
-#: core/audex.cpp:117
+#: core/audex.cpp:111
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Začni zajemati in kodirati s profilom \"%1\"..."
 
-#: core/audex.cpp:631 core/audex.cpp:691
+#: core/audex.cpp:622 core/audex.cpp:682
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ne najdem poti \"%1\"."
 
-#: core/audex.cpp:631 core/audex.cpp:691 core/audex.cpp:700 core/audex.cpp:1106
+#: core/audex.cpp:622 core/audex.cpp:682 core/audex.cpp:691 core/audex.cpp:1091
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Prosim preverite ciljno pot (uporabniška dovoljenja?)"
 
-#: core/audex.cpp:644
+#: core/audex.cpp:635
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Prostora na \"%1\" je manj kot 200 MiB."
 
-#: core/audex.cpp:650 core/audex.cpp:719
+#: core/audex.cpp:641 core/audex.cpp:710
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Prepisujem."
 
-#: core/audex.cpp:652 core/audex.cpp:721 core/audex.cpp:1086
+#: core/audex.cpp:643 core/audex.cpp:712 core/audex.cpp:1071
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Preskakovanje."
 
-#: core/audex.cpp:700 core/audex.cpp:1106
+#: core/audex.cpp:691 core/audex.cpp:1091
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Ni bilo mogoče ustvariti mape \"%1\"."
 
-#: core/audex.cpp:703 core/audex.cpp:1109
+#: core/audex.cpp:694 core/audex.cpp:1094
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Mapa \"%1\" uspešno ustvarjena."
 
-#: core/audex.cpp:706
+#: core/audex.cpp:697
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Mapa \"%1\" že obstaja."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:704
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Prostora na \"%1\" je manj kot 800 MiB."
 
-#: core/audex.cpp:736
-#, kde-format
-msgid "Temporary folder \"%1\" error."
+#: core/audex.cpp:727
+#, fuzzy, kde-format
+#| msgid "Temporary folder \"%1\" error."
+msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Napaka v začasni mapi \"%1\"."
 
-#: core/audex.cpp:736
+#: core/audex.cpp:727
 #, kde-format
 msgid "Please check."
 msgstr "Preverite."
 
-#: core/audex.cpp:742
+#: core/audex.cpp:735
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Prostora v začasni mapi \"%1\" je manj kot 800 MiB."
 
-#: core/audex.cpp:744
+#: core/audex.cpp:737
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Začasna mapa \"%1\" rabi najmanj 200 MiB prostora."
 
-#: core/audex.cpp:745
+#: core/audex.cpp:737
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Napravite prostor, ali določite drug cilj."
 
-#: core/audex.cpp:774
+#: core/audex.cpp:766
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Izvrzi/vstavi medij"
 
-#: core/audex.cpp:822
+#: core/audex.cpp:814
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Naslovnica \"%1\" uspešno shranjena."
 
-#: core/audex.cpp:825
+#: core/audex.cpp:817
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Naslovnice \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:825 core/audex.cpp:899 core/audex.cpp:938 core/audex.cpp:983
-#: core/audex.cpp:1020 core/audex.cpp:1074 core/audex.cpp:1101
+#: core/audex.cpp:817 core/audex.cpp:891 core/audex.cpp:930 core/audex.cpp:975
+#: core/audex.cpp:1012 core/audex.cpp:1059 core/audex.cpp:1086
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Preverite ciljno pot in dovoljenja"
 
-#: core/audex.cpp:895
+#: core/audex.cpp:887
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Uspešno ustvarjen seznam predvajanja \"%1\"."
 
-#: core/audex.cpp:899
+#: core/audex.cpp:891
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Seznama predvajanja \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:935
+#: core/audex.cpp:927
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Podatkovna datoteka \"%1\" je bila uspešno ustvarjena."
 
-#: core/audex.cpp:938
+#: core/audex.cpp:930
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Podatkovne datoteke \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:980
+#: core/audex.cpp:972
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Zgoščevalna datoteka \"%1\" uspešno ustvarjena."
 
-#: core/audex.cpp:983
+#: core/audex.cpp:975
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Zgoščevalne datoteke (hashlist) \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:1017
+#: core/audex.cpp:1009
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue seznam \"%1\" uspešno ustvarjen."
 
-#: core/audex.cpp:1020
+#: core/audex.cpp:1012
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue seznama \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:1074 core/audex.cpp:1101
+#: core/audex.cpp:1059 core/audex.cpp:1086
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Mape \"%1\" ni mogoče odpreti."
@@ -287,7 +288,7 @@ msgid "Edit Data"
 msgstr "Uredi podatke"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1003
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1036
 #, kde-format
 msgid "Various Artists"
 msgstr "Razni izvajalci"
@@ -412,22 +413,33 @@ msgstr ""
 "različica.</td></tr><tr><td>$audex</td><td>Ime in različica Audex-a.</td></"
 "tr></table></p>"
 
-#: dialogs/commandwizarddialog.cpp:117
-#, kde-format
+#: dialogs/commandwizarddialog.cpp:119
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
+#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
+#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
+#| "the size of the original cover file will be taken. If no cover is set, "
+#| "this variable will be replaced by nothing, otherwise something like <i>/"
+#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
+#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
+#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
+#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
+#| "behind (post) the variable. These values are <b>only</b> shown if a value "
+#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
+#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
-"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a JPG image "
-"with the size of 300x300 will be inserted. If no size is set, the size of "
-"the original cover file will be taken. If no cover is set, this variable "
-"will be replaced by nothing, otherwise something like <i>/tmp/cover.123.jpg</"
-"i> will be inserted. Possible formats are \"JPG\", \"PNG\" and \"GIF"
-"\" (Default: \"JPG\").</p>\n"
-"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-"bear this in mind, if you set the format and size.</i></p><hr /><p>\"preparam"
-"\" and \"postparam\" define parameters inserted before (pre) or behind "
-"(post) the variable. These values are <b>only</b> shown if a value is set."
-"Works with all commandline variables.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
+"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
+"temporary filename of a copy in jpeg format and sizeof 300x300 pixels of the "
+"cover will be inserted.If no size is set, the size of the original cover "
+"image file will be taken.If no cover is set, this variable will be omitted."
+"Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
+"p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted before "
+"(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
+"value is set. Works with all commandline variables."
 msgstr ""
 "<p>Spremenljivke v Audex-u imajo lahko parametre. Npr.</p><pre>${cover "
 "format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Ime datoteke "
@@ -1513,7 +1525,7 @@ msgstr "Obrni izbiro"
 msgid "Unable to create devices object."
 msgstr "Ni bilo mogoče ustvariti objekta naprave."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:30 models/cddamodel.cpp:893
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1522,22 +1534,27 @@ msgstr ""
 "To je notranja napaka. Preverite strojno opremo. Če je vse ok, nam pošljite "
 "poročilo o napaki."
 
-#: models/cddamodel.cpp:30
+#: models/cddamodel.cpp:33
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Objekta KCDDB ni bilo mogoče ustvariti."
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:126
 #, kde-format
 msgid "Track %1"
 msgstr "Sled %1"
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:533
+#, kde-format
+msgid "Common image formats"
+msgstr "Pogoste vrste datotek"
+
+#: models/cddamodel.cpp:830
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "Prenos podatkov CDDB je že v teku."
 
-#: models/cddamodel.cpp:825
+#: models/cddamodel.cpp:831
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1546,7 +1563,7 @@ msgstr ""
 "Prenos podatkov CDDB je že v teku. Prosimo počakajte, da se zaključi in "
 "potem poskusite še enkrat."
 
-#: models/cddamodel.cpp:841 models/cddamodel.cpp:943
+#: models/cddamodel.cpp:850 models/cddamodel.cpp:964
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1555,7 +1572,7 @@ msgstr ""
 "Prišlo je do napake s CDDB strežnikom. Počakajte, ali pa se obrnite na "
 "skrbnika CDDB strežnika."
 
-#: models/cddamodel.cpp:844 models/cddamodel.cpp:946
+#: models/cddamodel.cpp:856 models/cddamodel.cpp:970
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1564,7 +1581,7 @@ msgstr ""
 "Strežnika CDDB ni mogoče najti. Preverite svojo povezavo. Mogoče je tudi, da "
 "strežnik trenutno ne deluje."
 
-#: models/cddamodel.cpp:847 models/cddamodel.cpp:949
+#: models/cddamodel.cpp:862 models/cddamodel.cpp:976
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1572,37 +1589,37 @@ msgid ""
 msgstr ""
 "Počakajte, strežnik je zaseden, ali pa se obrnite na skrbnika strežnika CDDB."
 
-#: models/cddamodel.cpp:850
+#: models/cddamodel.cpp:867
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Obrnite se na skrbnika strežnika CDDB."
 
-#: models/cddamodel.cpp:853 models/cddamodel.cpp:952
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:981
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "To se ne bi smelo zgoditi. Oddajte poročilo o napaki."
 
-#: models/cddamodel.cpp:860 models/cddamodel.cpp:955
+#: models/cddamodel.cpp:877 models/cddamodel.cpp:984
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "Oddajte poročilo o napaki in se obrnite na skrbnika strežnika CDDB."
 
-#: models/cddamodel.cpp:893
+#: models/cddamodel.cpp:910
 #, kde-format
 msgid "Unable to create CDDA paranoia object."
 msgstr "Ni bilo mogoče ustvariti objekta \"skrajno previdni CDDA\"."
 
-#: models/cddamodel.cpp:961
+#: models/cddamodel.cpp:990
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "To pomeni, da ni bilo moč najti podatkov v bazi CDDB."
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:1011
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Izberi vnos CDDB"
 
-#: models/cddamodel.cpp:978
+#: models/cddamodel.cpp:1011
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Izberi vnos CDDB:"
@@ -1826,85 +1843,6 @@ msgstr " (običajna kakovost)"
 #, kde-format
 msgid " (Extreme Quality)"
 msgstr " (izjemna kakovost)"
-
-#. i18n("Common image formats") + " (*.jpg, *.jpeg, *.png, *.gif)";
-#: utils/cachedimage.cpp:117
-#, kde-format
-msgid "Common image formats"
-msgstr "Pogoste vrste datotek"
-
-#: utils/cachedimage.cpp:162
-#, kde-format
-msgid "File does not exist."
-msgstr "Datoteka ne obstaja."
-
-#: utils/cachedimage.cpp:162
-#, kde-format
-msgid "Please check if the file really exists."
-msgstr "Preverite, če datoteka že obstaja."
-
-#: utils/cachedimage.cpp:171
-#, kde-format
-msgid "Cannot open file."
-msgstr "Datoteke ni mogoče odpreti."
-
-#: utils/cachedimage.cpp:171
-#, kde-format
-msgid "Please check your file. Maybe you do not have proper permissions."
-msgstr "Preverite lastnosti datoteke. Morda nimate ustreznih pravic."
-
-#: utils/cachedimage.cpp:177 utils/cachedimage.cpp:234
-#, kde-format
-msgid "Unsupported image format"
-msgstr "Nepodprta vrsta datoteke"
-
-#: utils/cachedimage.cpp:178
-#, kde-format
-msgid ""
-"Please check your file. Maybe it is corrupted. Otherwise try to convert your "
-"cover image with an external program to a common file format like JPEG."
-msgstr ""
-"Preverite datoteko, mogoče je pokvarjena. Lahko poskusite pretvoriti sliko z "
-"zunanjim programom v drugo obliko, npr. JPEG."
-
-#: utils/cachedimage.cpp:199
-#, kde-format
-msgid "Cannot open file"
-msgstr "Datoteke ni mogoče odpreti"
-
-#: utils/cachedimage.cpp:199
-#, kde-format
-msgid "Please check your permissions."
-msgstr "Preverite dovoljenja."
-
-#: utils/cachedimage.cpp:207
-#, kde-format
-msgid "Cannot save file"
-msgstr "Datoteke ni mogoče shraniti"
-
-#: utils/cachedimage.cpp:207
-#, kde-format
-msgid "Please check your permissions. Do you have enough space?"
-msgstr "Preverite dovoljenja . Ali je na ciljnem mestu dovolj prostora?"
-
-#: utils/cachedimage.cpp:235
-#, kde-format
-msgid ""
-"Please use common image formats like JPEG or PNG as they are supported on "
-"almost all systems."
-msgstr ""
-"Uporabite pogoste oblike slik, kot so JPEG ali PNG, saj so te podprte skoraj "
-"na vseh sistemih."
-
-#: utils/cachedimage.cpp:248
-#, kde-format
-msgid "Cannot write on device"
-msgstr "Ne morem pisati na napravo"
-
-#: utils/cachedimage.cpp:248
-#, kde-format
-msgid "Please check your permissions. Do you have enough space on your device?"
-msgstr "Preverite dovoljenja. Je na ciljni napravi dovolj prostora?"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -2199,42 +2137,42 @@ msgstr "Pošiljanje datoteke %1 na strežnik. Počakajte..."
 msgid "Finished uploading file %1 to server."
 msgstr "Prenašanje datoteke %1 na strežnik dokončano."
 
-#: widgets/cddaheaderwidget.cpp:150
+#: widgets/cddaheaderwidget.cpp:133
 #, kde-format
 msgid "CD Number: "
 msgstr "Št. CD-ja: "
 
-#: widgets/cddaheaderwidget.cpp:164
+#: widgets/cddaheaderwidget.cpp:147
 #, kde-format
 msgid "No audio CD detected"
 msgstr "Noben zvočni CD ni bil zaznan"
 
-#: widgets/cddaheaderwidget.cpp:284
+#: widgets/cddaheaderwidget.cpp:260
 #, kde-format
 msgid "Load Cover"
 msgstr "Naloži naslovnico"
 
-#: widgets/cddaheaderwidget.cpp:294 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:270 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "Shrani naslovnico"
 
-#: widgets/cddaheaderwidget.cpp:381
+#: widgets/cddaheaderwidget.cpp:350
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "Določi naslovnico po meri..."
 
-#: widgets/cddaheaderwidget.cpp:386
+#: widgets/cddaheaderwidget.cpp:355
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "Shrani naslovnico v datoteko..."
 
-#: widgets/cddaheaderwidget.cpp:391
+#: widgets/cddaheaderwidget.cpp:360
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "Prikaži naslovnico v polni velikosti..."
 
-#: widgets/cddaheaderwidget.cpp:396
+#: widgets/cddaheaderwidget.cpp:365
 #, kde-format
 msgid "Remove Cover"
 msgstr "Odstrani naslovnico"
@@ -2520,6 +2458,55 @@ msgstr "Shrani..."
 #, kde-format
 msgid "URL:"
 msgstr "URL naslov:"
+
+#~ msgid "File does not exist."
+#~ msgstr "Datoteka ne obstaja."
+
+#~ msgid "Please check if the file really exists."
+#~ msgstr "Preverite, če datoteka že obstaja."
+
+#~ msgid "Cannot open file."
+#~ msgstr "Datoteke ni mogoče odpreti."
+
+#~ msgid "Please check your file. Maybe you do not have proper permissions."
+#~ msgstr "Preverite lastnosti datoteke. Morda nimate ustreznih pravic."
+
+#~ msgid "Unsupported image format"
+#~ msgstr "Nepodprta vrsta datoteke"
+
+#~ msgid ""
+#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
+#~ "your cover image with an external program to a common file format like "
+#~ "JPEG."
+#~ msgstr ""
+#~ "Preverite datoteko, mogoče je pokvarjena. Lahko poskusite pretvoriti "
+#~ "sliko z zunanjim programom v drugo obliko, npr. JPEG."
+
+#~ msgid "Cannot open file"
+#~ msgstr "Datoteke ni mogoče odpreti"
+
+#~ msgid "Please check your permissions."
+#~ msgstr "Preverite dovoljenja."
+
+#~ msgid "Cannot save file"
+#~ msgstr "Datoteke ni mogoče shraniti"
+
+#~ msgid "Please check your permissions. Do you have enough space?"
+#~ msgstr "Preverite dovoljenja . Ali je na ciljnem mestu dovolj prostora?"
+
+#~ msgid ""
+#~ "Please use common image formats like JPEG or PNG as they are supported on "
+#~ "almost all systems."
+#~ msgstr ""
+#~ "Uporabite pogoste oblike slik, kot so JPEG ali PNG, saj so te podprte "
+#~ "skoraj na vseh sistemih."
+
+#~ msgid "Cannot write on device"
+#~ msgstr "Ne morem pisati na napravo"
+
+#~ msgid ""
+#~ "Please check your permissions. Do you have enough space on your device?"
+#~ msgstr "Preverite dovoljenja. Je na ciljni napravi dovolj prostora?"
 
 #~ msgid "Searching for covers..."
 #~ msgstr "Iščem naslovnice..."
