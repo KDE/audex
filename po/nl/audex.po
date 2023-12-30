@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 02:32+0000\n"
-"PO-Revision-Date: 2023-12-24 09:09+0100\n"
+"POT-Creation-Date: 2023-12-30 02:37+0000\n"
+"PO-Revision-Date: 2023-12-29 15:32+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -191,10 +191,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Vrije ruimte op \"%1\" is minder dan 800 MiB."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Fout met tijdelijke map \"%1\"."
+msgstr "Fout met tijdelijke map \"%1\" (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -418,21 +417,7 @@ msgstr ""
 "td><td>Naam en versie van Audex.</td></tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -446,20 +431,17 @@ msgid ""
 "value is set. Works with all commandline variables."
 msgstr ""
 "<p>Variabelen in Audex kunnen parameters hebben. Bijv.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Een "
-"bestandsnaam van een JPG-image met de afmeting 300x300 zal worden ingevoegd. "
-"Als geen afmeting is ingesteld, zal de afmeting van het originele "
-"hoesbestand worden genomen. Als er geen hoes is ingesteld, wordt deze "
-"variabele door niets worden vervangen, anders door zoiets als <i>/tmp/"
-"cover.123.jpg</i> zal worden ingevoegd. Mogelijke formaten zijn \"JPG\", "
-"\"PNG\" and \"GIF\" (Standaard: \"JPG\").</p>\n"
-"<p><i><b>Opmerking:</b> LAME gooit hoesbestanden groter dan 128 KiB weg. "
-"Denk hier aan als u het formaat en afmeting instelt.</i></p><hr /><p>"
-"\"preparam\" en \"postparam\" definiëren parameters die worden ingevoegd "
-"voor (pre) or na (post) de variable. Deze waarden worden <b>alleen</b> "
-"getoond als een waarde wordt ingesteld. Werkt met alle "
-"commandregelvariabelen.</p><hr /><p><b><i>Om een compleet overzicht van "
-"parameters te krijgen gaat u naar de Audex-webpage.</i></b></p>"
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In dit "
+"voorbeeld zal een tijdelijke bestandsnaam van een kopie in jpeg-formaat en "
+"afmetingen 300x300 pixels van de hoes ingevoegd worden. Als geen afmeting is "
+"ingesteld, zal de afmeting van het originele hoesbestand worden genomen. Als "
+"er geen hoes is ingesteld, wordt deze variabele overgeslagen. Mogelijke "
+"formaten zijn \"JPG\", \"PNG\" en \"GIF\" (Standaard: \"JPG\").</p>\n"
+"<p><i><b>Opmerking:</b> LAME slaat hoesbestanden groter dan 128 KiB over.</"
+"i></p><hr /><p>\"preparam\" en \"postparam\" definiëren parameters die "
+"worden ingevoegd voor (pre) of achter (post) de variabele. Deze waarden "
+"worden <b>alleen</b> getoond als een waarde is ingesteld. Werkt met alle "
+"variabelen op de opdrachtregel."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -613,7 +595,7 @@ msgstr "Rippen van track %1 van %2"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Totale voortgang"
@@ -727,22 +709,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "Rippen van track 8 van 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "Speed: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "Coderen van Track 8 van 12"

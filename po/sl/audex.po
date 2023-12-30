@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 02:32+0000\n"
-"PO-Revision-Date: 2023-12-24 07:26+0100\n"
+"POT-Creation-Date: 2023-12-30 02:37+0000\n"
+"PO-Revision-Date: 2023-12-29 19:25+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -191,10 +191,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Prostora na \"%1\" je manj kot 800 MiB."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Napaka v začasni mapi \"%1\"."
+msgstr "Začasna mapa \"%1\" napaka (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -414,21 +413,7 @@ msgstr ""
 "tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -441,19 +426,17 @@ msgid ""
 "(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
 "value is set. Works with all commandline variables."
 msgstr ""
-"<p>Spremenljivke v Audex-u imajo lahko parametre. Npr.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Ime datoteke "
-"JPG velikosti 300 x 300 b vstavljeno. Če velikost ni določena, bo "
-"uporabljena velikost izvorne slike. Če ni določena nobena naslovnica, bo ta "
-"spremenljivka ostala nespremenjena, sicer pa bo nekaj kot  <i>/tmp/cover.123."
-"jpg</i> vstavljeno na to mesto. Možni formati so \"JPG\", \"PNG\" in \"GIF"
-"\" (privzeto: \"JPG\").</p>\n"
-"<p><i><b>Opomba:</b> LAME zavrača naslovnice, večje od 128 KiB. To "
-"upoštevajte, če določate format in velikost.</i></p><hr /><p>\"preparam\" in "
-"\"postparam\" določata parametre, vstavljene pred (pre) ali za (post) "
-"spremenljivko. Te vrednosti so <b>only</b> prikazane, če so določene.Deluje "
-"z vsemi spremenljivkami v opravilni vrstici.</p><hr /><p><b><i> Za popoln "
-"pregled nad parametri obiščite spletno stran Audex-a.</i></b></p>"
+"<p>Spremenljivke v Audexu imajo lahko parametre. Npr.</p><pre>${cover format="
+"\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>V tem primeru je "
+"vstavljeno začasno ime datoteke kopije v formatu jpeg in velikost 300 x 300 "
+"slikovnih pik naslovnice. Če velikost ni nastavljena, bo uporabljena "
+"velikost izvirne slikovne datoteke naslovnice. Če naslovnica ni nastavljena, "
+"bo ta spremenljivka izpuščena. Možni formati so \"JPG\", »PNG« in "
+"»GIF« (privzeto: »JPG«).</p>\n"
+"<p><i><b>Opomba:</b> LAME zavrže naslovne datoteke, večje od 128 KiB.</i></"
+"p><hr /><p>\"preparam\" in \"postparam\" definirata parametre, vstavljene "
+"pred (pred) ali za (po) spremenljivko. Te vrednosti so <b>samo</b>prikazane, "
+"če je vrednost nastavljena. Deluje z vsemi spremenljivkami ukazne vrstice."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -607,7 +590,7 @@ msgstr "Zajemam sled %1 od %2"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Napredek"
@@ -721,22 +704,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "Zajemam sled 8 od 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "Hitrost: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "Kodiram sled 8 od 12"

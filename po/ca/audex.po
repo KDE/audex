@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 02:32+0000\n"
-"PO-Revision-Date: 2023-12-24 11:05+0100\n"
+"POT-Creation-Date: 2023-12-30 02:37+0000\n"
+"PO-Revision-Date: 2023-12-29 08:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -192,10 +192,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "L'espai lliure a «%1» és menys que 800 MiB."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Error amb la carpeta temporal «%1»."
+msgstr "Error amb la carpeta temporal «%1» (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -418,21 +417,7 @@ msgstr ""
 "td><td>Nom i versió de l'Audex.</td></tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -446,19 +431,17 @@ msgid ""
 "value is set. Works with all commandline variables."
 msgstr ""
 "<p>Les variables a l'Audex poden tenir paràmetres. P. ex.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Inserirà el "
-"nom de fitxer d'una imatge JPG amb la mida de 300x300. Si no hi ha cap mida "
-"establerta, es prendrà la mida del fitxer de la coberta original. Si no "
-"s'estableix cap mida de la coberta, aquesta variable no serà substituïda, en "
-"cas contrari s'insereix com <i>/tmp/cover.123.jpg</i>. Els formats possibles "
-"són «JPG», «PNG» i «GIF» (per omissió: «JPG»).</p>\n"
-"<p><i><b>Nota:</b> LAME descarta els fitxers de caràtula més grans que 128 "
-"KiB. Teniu-ho en compte, si s'estableix el format i la mida.</i></p><hr /"
-"><p>«preparam» i «postparam» defineixen els paràmetres inserits abans (pre) "
-"o darrere (post) de la variable. Aquests valors <b>només</b> es mostraran si "
-"s'ha establert un valor. Funciona amb totes les variables de la línia "
-"d'ordres.</p><hr /><p><b><i>Per a tenir un resum complet dels paràmetres, "
-"aneu a la pàgina web de l'Audex.</i></b></p>"
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En aquest "
+"exemple, s´inserirà un nom de fitxer temporal d'una imatge en format JPEG i "
+"una de 300x300 píxels. Si no hi ha cap mida establerta, es prendrà la mida "
+"del fitxer d'imatge de la coberta original. Si no s'estableix cap coberta, "
+"aquesta variable s'ometrà. Els formats possibles són «JPG», «PNG» i "
+"«GIF» (predeterminat: «JPG»).</p>\n"
+"<p><i><b>Nota:</b> El LAME descarta els fitxers de caràtula més grans que "
+"128 KiB.</i></p><hr /><p>«preparam» i «postparam» defineixen els paràmetres "
+"inserits abans (pre) o darrere (post) de la variable. Aquests valors "
+"<b>només</b> es mostraran si s'ha establert un valor. Funciona amb totes les "
+"variables de la línia d'ordres."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -614,7 +597,7 @@ msgstr "S'extreu la pista %1 de %2"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Progrés global"
@@ -730,22 +713,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "S'extreu la pista 8 de 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "Velocitat: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "S'està codificant la pista 8 de 12"
@@ -2519,159 +2512,3 @@ msgstr "Desa..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "File does not exist."
-#~ msgstr "El fitxer no existeix."
-
-#~ msgid "Please check if the file really exists."
-#~ msgstr "Si us plau, comproveu si el fitxer realment existeix."
-
-#~ msgid "Cannot open file."
-#~ msgstr "No s'ha pogut obrir el fitxer."
-
-#~ msgid "Please check your file. Maybe you do not have proper permissions."
-#~ msgstr "Comproveu el fitxer. Potser no teniu els permisos necessaris."
-
-#~ msgid "Unsupported image format"
-#~ msgstr "Format d'imatge no admès"
-
-#~ msgid ""
-#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
-#~ "your cover image with an external program to a common file format like "
-#~ "JPEG."
-#~ msgstr ""
-#~ "Comproveu el fitxer, potser està malmès. Si no, proveu de convertir la "
-#~ "imatge de la caràtula amb un programa extern, a un format típic com JPEG."
-
-#~ msgid "Cannot open file"
-#~ msgstr "No s'ha pogut obrir el fitxer"
-
-#~ msgid "Please check your permissions."
-#~ msgstr "Verifiqueu els permisos."
-
-#~ msgid "Cannot save file"
-#~ msgstr "No s'ha pogut desar el fitxer"
-
-#~ msgid "Please check your permissions. Do you have enough space?"
-#~ msgstr ""
-#~ "Si us plau, comproveu els vostres permisos. Teniu prou espai disponible?"
-
-#~ msgid ""
-#~ "Please use common image formats like JPEG or PNG as they are supported on "
-#~ "almost all systems."
-#~ msgstr ""
-#~ "Empreu formats d'imatge típics com JPEG o PNG, ja que són admesos en "
-#~ "gairebé tots els sistemes."
-
-#~ msgid "Cannot write on device"
-#~ msgstr "No s'ha pogut escriure al dispositiu"
-
-#~ msgid ""
-#~ "Please check your permissions. Do you have enough space on your device?"
-#~ msgstr ""
-#~ "Si us plau, comproveu els vostres permisos. Teniu prou espai disponible "
-#~ "al dispositiu?"
-
-#~ msgid "Searching for covers..."
-#~ msgstr "S'estan cercant les caràtules..."
-
-#~ msgid "Fetching Thumbnail %1 / %2..."
-#~ msgstr "S'està recuperant la miniatura %1 / %2..."
-
-#~ msgid "Found 1 Cover"
-#~ msgid_plural "Found %1 Covers"
-#~ msgstr[0] "S'ha trobat 1 caràtula"
-#~ msgstr[1] "S'han trobat %1 caràtules"
-
-#~ msgid "No Covers Found"
-#~ msgstr "No s'ha trobat cap caràtula"
-
-#~ msgid "Fetch Cover From Google"
-#~ msgstr "Recupera la caràtula des de Google"
-
-#~ msgid "Usable Variables For Text Template"
-#~ msgstr "Variables que es poden usar per a la plantilla de text"
-
-#~ msgid "freedb.org"
-#~ msgstr "freedb.org"
-
-#~ msgid ""
-#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
-#~ msgstr ""
-#~ "Un agraïment especial a freedb.org per proporcionar una base de dades de "
-#~ "CD lliure com CDDB"
-
-#~ msgid "There was an error communicating with Google."
-#~ msgstr "Ha succeït un error de comunicació amb Google."
-
-#~ msgid "Try again later. Otherwise make a bug report."
-#~ msgstr ""
-#~ "Torneu-ho a intentar més tard. D'altra manera, elaboreu un informe "
-#~ "d'error."
-
-#~ msgid "Google server: Empty response."
-#~ msgstr "Servidor de Google: Resposta buida."
-
-#~ msgid "Try again later. Make a bug report."
-#~ msgstr "Torneu-ho a intentar més tard. Elaboreu un informe d'error."
-
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgid "Released: "
-#~ msgstr "Publicat: "
-
-#~ msgid "Genre: "
-#~ msgstr "Gènere: "
-
-#~ msgid "Wikipedia"
-#~ msgstr "Viquipèdia"
-
-#~ msgid "No cover found."
-#~ msgstr "No s'ha trobat cap caràtula."
-
-#~ msgid ""
-#~ "Check your artist name and title. Otherwise you can load a custom cover "
-#~ "from an image file."
-#~ msgstr ""
-#~ "Comproveu el nom de l'artista i el títol. En cas contrari, podreu "
-#~ "carregar una caràtula des d'un fitxer d'imatge."
-
-#~ msgid "Fetch cover from Google..."
-#~ msgstr "Recupera la caràtula des de Google..."
-
-#~ msgid "English"
-#~ msgstr "Anglès"
-
-#~ msgid "Deutsch"
-#~ msgstr "Alemany"
-
-#~ msgid "Français"
-#~ msgstr "Francès"
-
-#~ msgid "Polski"
-#~ msgstr "Polonès"
-
-#~ msgid "日本語"
-#~ msgstr "Japonès"
-
-#~ msgid "Italiano"
-#~ msgstr "Italià"
-
-#~ msgid "Nederlands"
-#~ msgstr "Neerlandès"
-
-#~ msgid "Español"
-#~ msgstr "Espanyol"
-
-#~ msgid "Português"
-#~ msgstr "Portuguès"
-
-#~ msgid "Svenska"
-#~ msgstr "Suec"
-
-#~ msgid "Català"
-#~ msgstr "Català"
-
-#~ msgid "Localization:"
-#~ msgstr "Localització:"

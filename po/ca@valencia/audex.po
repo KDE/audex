@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 02:32+0000\n"
-"PO-Revision-Date: 2023-12-24 11:05+0100\n"
+"POT-Creation-Date: 2023-12-30 02:37+0000\n"
+"PO-Revision-Date: 2023-12-29 08:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -192,10 +192,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "L'espai lliure a «%1» és menys que 800 MiB."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Error amb la carpeta temporal «%1»."
+msgstr "Error amb la carpeta temporal «%1» (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -418,21 +417,7 @@ msgstr ""
 "tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -446,19 +431,17 @@ msgid ""
 "value is set. Works with all commandline variables."
 msgstr ""
 "<p>Les variables a Audex poden tindre paràmetres. P. ex.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Inserirà el "
-"nom de fitxer d'una imatge JPG amb la mida de 300x300. Si no hi ha cap mida "
-"establida, es prendrà la mida del fitxer de la coberta original. Si no "
-"s'establix cap mida de la coberta, esta variable no serà substituïda, en cas "
-"contrari s'inserix com <i>/tmp/cover.123.jpg</i>. Els formats possibles són "
-"«JPG», «PNG» i «GIF» (de manera predeterminada: «JPG»).</p>\n"
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En este "
+"exemple, s´inserirà un nom de fitxer temporal d'una imatge en format JPEG i "
+"una de 300x300 píxels. Si no hi ha cap mida establida, es prendrà la mida "
+"del fitxer d'imatge de la coberta original. Si no s'establix cap coberta, "
+"esta variable s'ometrà. Els formats possibles són «JPG», «PNG» i "
+"«GIF» (predeterminat: «JPG»).</p>\n"
 "<p><i><b>Nota:</b> LAME descarta els fitxers de caràtula més grans que 128 "
-"KiB. Teniu-ho en compte, si s'establix el format i la mida.</i></p><hr /"
-"><p>«preparam» i «postparam» definixen els paràmetres inserits abans (pre) o "
-"darrere (post) de la variable. Estos valors <b>només</b> es mostraran si "
-"s'ha establit un valor. Funciona amb totes les variables de la línia "
-"d'ordres.</p><hr /><p><b><i>Per a tindre un resum complet dels paràmetres, "
-"aneu fins a la pàgina web d'Audex.</i></b></p>"
+"KiB.</i></p><hr /><p>«preparam» i «postparam» definixen els paràmetres "
+"inserits abans (pre) o darrere (post) de la variable. Estos valors <b>només</"
+"b> es mostraran si s'ha establit un valor. Funciona amb totes les variables "
+"de la línia d'ordres."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -614,7 +597,7 @@ msgstr "S'extrau la pista %1 de %2"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Progrés global"
@@ -729,22 +712,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "S'extrau la pista 8 de 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "Velocitat: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "S'està codificant la pista 8 de 12"
@@ -2507,53 +2500,3 @@ msgstr "Guarda..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "File does not exist."
-#~ msgstr "El fitxer no existix."
-
-#~ msgid "Please check if the file really exists."
-#~ msgstr "Comproveu si el fitxer realment existix."
-
-#~ msgid "Cannot open file."
-#~ msgstr "No s'ha pogut obrir el fitxer."
-
-#~ msgid "Please check your file. Maybe you do not have proper permissions."
-#~ msgstr "Comproveu el fitxer. Potser no teniu els permisos necessaris."
-
-#~ msgid "Unsupported image format"
-#~ msgstr "Format d'imatge no admés"
-
-#~ msgid ""
-#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
-#~ "your cover image with an external program to a common file format like "
-#~ "JPEG."
-#~ msgstr ""
-#~ "Comproveu el fitxer, potser està malmés. Si no, proveu de convertir la "
-#~ "imatge de la caràtula amb un programa extern, a un format típic com JPEG."
-
-#~ msgid "Cannot open file"
-#~ msgstr "No s'ha pogut obrir el fitxer"
-
-#~ msgid "Please check your permissions."
-#~ msgstr "Verifiqueu els permisos."
-
-#~ msgid "Cannot save file"
-#~ msgstr "No s'ha pogut guardar el fitxer"
-
-#~ msgid "Please check your permissions. Do you have enough space?"
-#~ msgstr "Comproveu els vostres permisos. Teniu prou espai disponible?"
-
-#~ msgid ""
-#~ "Please use common image formats like JPEG or PNG as they are supported on "
-#~ "almost all systems."
-#~ msgstr ""
-#~ "Utilitzeu formats d'imatge típics com JPEG o PNG, ja que són admesos en "
-#~ "quasi tots els sistemes."
-
-#~ msgid "Cannot write on device"
-#~ msgstr "No s'ha pogut escriure al dispositiu"
-
-#~ msgid ""
-#~ "Please check your permissions. Do you have enough space on your device?"
-#~ msgstr ""
-#~ "Comproveu els vostres permisos. Teniu prou espai disponible al dispositiu?"
