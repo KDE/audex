@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:37+0000\n"
-"PO-Revision-Date: 2023-12-24 13:35+0300\n"
+"POT-Creation-Date: 2023-12-30 01:37+0000\n"
+"PO-Revision-Date: 2023-12-29 10:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -192,10 +192,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\" üzerindeki boş alan 800 MiB'tan daha az."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Geçici klasör \"%1\" hatası."
+msgstr "Geçici klasör \"%1\" hatası (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -316,13 +315,13 @@ msgstr "Başlık:"
 #: dialogs/cddaheaderdatawidgetUI.ui:76
 #, kde-format
 msgid "CD Number:"
-msgstr "CD Numarası:"
+msgstr "CD numarası:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
 #, kde-format
 msgid "Track Offset:"
-msgstr "Parça Ofseti:"
+msgstr "Parça ofseti:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
@@ -415,21 +414,7 @@ msgstr ""
 "table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -442,26 +427,23 @@ msgid ""
 "(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
 "value is set. Works with all commandline variables."
 msgstr ""
-"<p>Audeks'in parametre olarak alabildiği değişkenler. Örn.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>300 × 300 "
-"boyutlu bir JPG görseline bir dosya adı eklenecektir. Hiçbir boyut "
-"ayarlanmazsa özgün kapak dosyasının boyutu alınır. Kapak yoksa bu değişken "
-"onun yerini alır, aksi takdirde <i>/tmp/cover.123.jpg</i> gibi bir şey "
-"eklenecektir. Kullanılabilir biçimler \"JPG\", \"PNG\" ve \"GIF"
-"\" (Öntanımlı: \"JPG\") şeklindedir.</p>\n"
-"<p><i><b>Not:</b> LAME, 128 KiB'den daha büyük dosyaları çıkarır. Biçimi ve "
-"boyutu ayarlarsanız lütfen bunu göz önünde bulundurun.</i></p><hr /><p>"
-"\"preparam\" ve \"postparam\" değişkenin öncesine ve sonrasına eklenen "
-"parametreleri tanımlar. Bir değer ayarlanırsa <b>yalnızca</b> olarak "
-"gösterilir. Tüm komut satırı değişkenleri ile çalışır.</p><hr /"
-"><p><b><i>Parametrelere genel bir bakış için Audeks web sayfasına göz "
-"atabilirsiniz.</i></b></p>"
+"<p>Audeks'teki değişkenlerin parametreleri olabilir. Örn.</p><pre>${cover "
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Bu örnekte, "
+"kapağın JPEG biçiminde ve 300 × 300 piksel boyutunda bir kopyasının geçici "
+"dosya adı eklenecektir. Herhangi bir boyut ayarlanmadıysa özgün kapak "
+"görseli dosyasının boyutu alınacaktır. Kapak ayarlanmadıysa bu değişken "
+"çıkarılır. Olası formatlar \"JPG\", \"PNG\" ve \"GIF\"tir (Öntanımlı: \"JPG"
+"\").</p>\n"
+"<p><i><b>Not:</b> LAME, 128 KiB'ten daha büyük kapak görseli dosyalarını "
+"atar.</i></p><hr /><p>\"preparam\" ve \"postparam\", değişkenin önüne veya "
+"arkasına eklenen parametreleri tanımlar. Bu değişken yalnızca değerler "
+"<b>ayarlanmışsa</b> gösterilirler. Tüm komut satırı değişkenleriyle çalışır."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
-msgstr "Albüm Örneği:"
+msgstr "Albüm örneği:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
@@ -579,7 +561,7 @@ msgstr "Kodlanıyor"
 #: dialogs/extractingprogressdialog.cpp:40
 #, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr "Parça Dönüştürülüyor 0/%1"
+msgstr "0/%1 parça dönüştürülüyor"
 
 #: dialogs/extractingprogressdialog.cpp:41
 #, kde-format
@@ -599,17 +581,17 @@ msgstr "İptal"
 #: dialogs/extractingprogressdialog.cpp:170
 #, kde-format
 msgid "Ripping Track"
-msgstr "Parça Dönüştürülüyor"
+msgstr "Parça dönüştürülüyor"
 
 #: dialogs/extractingprogressdialog.cpp:170
 #, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr "Parça Dönüştürme %1/%2"
+msgstr "%1/%2 parça dönüştürülüyor"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Toplam İlerleme"
@@ -617,7 +599,7 @@ msgstr "Toplam İlerleme"
 #: dialogs/extractingprogressdialog.cpp:171
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr "Toplam İlerleme (Parça Dönüştürme %1/%2)"
+msgstr "Toplam ilerleme (%1/%2 parça dönüştürülüyor)"
 
 #: dialogs/extractingprogressdialog.cpp:186
 #, kde-format
@@ -722,22 +704,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr "Parça Dönüştürme 8/12"
+msgstr "8/12 parça dönüştürülüyor"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "Hız: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "Parça Kodlama 8/12"
@@ -1899,7 +1891,7 @@ msgstr "Kullanıcı aktarımı iptal etti."
 #: utils/cddaextractthread.cpp:144
 #, kde-format
 msgid "An error occurred while ripping track %1."
-msgstr "%1 parçası dönüştürülürken bir hata oluştu."
+msgstr "Parça %1 dönüştürülürken bir hata oluştu."
 
 #: utils/cddaextractthread.cpp:148
 #, kde-format
@@ -2151,7 +2143,7 @@ msgstr "%1 dosyasının sunucuya yüklenmesi tamamlandı."
 #: widgets/cddaheaderwidget.cpp:133
 #, kde-format
 msgid "CD Number: "
-msgstr "CD Numarası: "
+msgstr "CD numarası: "
 
 #: widgets/cddaheaderwidget.cpp:147
 #, kde-format
@@ -2192,7 +2184,7 @@ msgstr "Kapağı Kaldır"
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Pattern:"
-msgstr "Komut Şablonu:"
+msgstr "Komut şablonu:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2408,9 +2400,9 @@ msgid ""
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>Sisteminizi kod çözücü bileşenleri (Lame, Opus, FLAC vb.) için yeniden "
-"taramak ister misiniz?</p><p><font style=\"font-style:italic;\">Bu, bulunan "
-"herhangi bir kod çözücü bileşenine dayanan bazı örnek profiller oluşturmaya "
-"çalışacaktır.</font></p>"
+"taramak istiyor musunuz?</p><p><font style=\"font-style:italic;\">Bu, "
+"bulunan herhangi bir kod çözücü bileşenine dayanan bazı örnek profiller "
+"oluşturmaya çalışacaktır.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144

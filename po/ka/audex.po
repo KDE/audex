@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:37+0000\n"
-"PO-Revision-Date: 2023-12-24 04:53+0100\n"
+"POT-Creation-Date: 2023-12-30 01:37+0000\n"
+"PO-Revision-Date: 2023-12-29 05:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -190,10 +190,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 800 მიბ-ზე ნაკლებია."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "დროებითი საქაღალდის \"%1\" შეცდომა."
+msgstr "დროებითი საქაღალდის \"%1\" შეცდომა (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -413,21 +412,7 @@ msgstr ""
 "td></tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -447,13 +432,11 @@ msgstr ""
 "შეიცვლება არაფრით, წინააღმდეგ შემთხვევაში მსგავსი <i>/ tmp / cover.123.jpg</"
 "i> ჩასმული იქნება. შესაძლო ფორმატებია \"JPG\", \"PNG\" და \"GIF"
 "\" (ნაგულისხმევი: \"JPG\").</p>\n"
-"<p><i><b>შენიშვნა:</b> LAME უგულებელყოფები მოიცავს 128 KiB- ზე მეტ ფაილებს. "
-"გთხოვთ გაითვალისწინოთ ეს, თუ ფორმატს და ზომას დააყენებთ.</i></p><hr /><p>"
-"\"preparam\" და \"postparam\" განსაზღვრავს პარამეტრების ჩასმული ადრე (pre) "
-"ან უკან (პოსტი) ცვლადი. ეს ღირებულებები ნაჩვენებია <b>მხოლოდ</b> იმ "
-"შემთხვევაში, თუ ღირებულება დადგენილია. მუშაობს ყველა ბრძანების ცვლადთან.</"
-"p><hr /><p><b><i>პარამეტრების სრული მიმოხილვა გადადით Audex ვებ – გვერდზე.</"
-"i></b></p>"
+"<p><i><b>შენიშვნა:</b> LAME უგულებელყოფებს 128 KiB-ზე დიდ ფაილებს.</i></"
+"p><hr /><p> გთხოვთ გაითვალისწინოთ ეს, თუ ფორმატს და ზომას დააყენებთ.</i></"
+"p><hr /><p>\"preparam\" და \"postparam\" განსაზღვრავს პარამეტრების ჩასმული "
+"ადრე (pre) ან უკან (პოსტი) ცვლადი. მნიშვნელობები ნაჩვენებია, <b>მხოლოდ,</b> "
+"იმ შემთხვევაში, თუ მნიშვნელობა დადგენილია. მუშაობს ყველა ბრძანების ცვლადთან."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -607,7 +590,7 @@ msgstr "%2-დან %1-ე ტრეკის დარიპვა"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "სრული მიდინარეობა"
@@ -721,22 +704,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "ტრეკის დარიპვა: 8 12-დან"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "სიჩქარე: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "ტრეკის კოდირება: 8 12-დან"

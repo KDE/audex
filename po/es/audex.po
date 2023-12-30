@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-29 01:37+0000\n"
-"PO-Revision-Date: 2023-12-25 23:28+0100\n"
+"POT-Creation-Date: 2023-12-30 01:37+0000\n"
+"PO-Revision-Date: 2023-12-29 05:05+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -192,10 +192,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "«%1» tiene menos de 800 MiB libres."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Error en la carpeta temporal «%1»."
+msgstr "Error en la carpeta temporal «%1» (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -418,21 +417,7 @@ msgstr ""
 "de Audex.</td></tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -446,20 +431,17 @@ msgid ""
 "value is set. Works with all commandline variables."
 msgstr ""
 "<p>Las variables de Audex pueden tener parámetros. Por ejemplo:</p><pre>"
-"${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Se "
-"insertará el nombre de una imagen JPG con un tamaño de 300x300. Si no se "
-"indica ningún tamaño se usará el tamaño original del archivo de carátula. Si "
-"no se ha indicado ninguna carátula, esta variable se sustituirá con una "
-"cadena vacía; en caso contrario, se insertará algo parecido a <i>/tmp/"
-"cover.123.jpg</i>. Los formatos posibles son «JPG», «PNG» y «GIF» (por "
-"omisión es «JPG»).</p>\n"
-"<p><i><b>Nota:</b> LAME descarta archivos de carátula mayores de 128 KiB. "
-"Téngalo presente si define el formato y el tamaño.</i></p><hr /"
-"><p>«preparam» y «postparam» definen parámetros insertados delante (pre) o "
-"detrás (post) de la variable. Estos valores se muestran <b>solo</b> si se "
-"define un valor. Funciona con todas las variables de la línea de órdenes.</"
-"p><hr /><p><b><i>Para ver un resumen completo de todos los parámetros, "
-"visite la página web de Audex.</i></b></p>"
+"${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En "
+"este ejemplo se insertará un nombre de archivo temporal de una copia en "
+"formato jpeg y un tamaño de 300x300 píxeles de la carátula. Si no se define "
+"ningún tamaño, se usará el tamaño del archivo de imagen de la carátula "
+"original. Si no se define ninguna carátula, esta variable se omitirá. Los "
+"formatos posibles son «JPG», «PNG» y «GIF» (por omisión es «JPG»).</p>\n"
+"<p><i><b>Nota:</b> LAME descarta archivos de carátula mayores de 128 KiB.</"
+"i></p><hr /><p>«preparam» y «postparam» definen parámetros insertados "
+"delante (pre) o detrás (post) de la variable. Estos valores se muestran "
+"<b>solo</b> si se define un valor. Funciona con todas las variables de la "
+"línea de órdenes."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -613,7 +595,7 @@ msgstr "Extrayendo pista %1 de %2"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:171
 #: dialogs/extractingprogressdialog.cpp:177
-#: dialogs/extractingprogresswidgetUI.ui:165
+#: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Progreso total"
@@ -729,22 +711,32 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:73
-#: dialogs/extractingprogresswidgetUI.ui:183
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "Convirtiendo pista 8 de 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:86
-#: dialogs/extractingprogresswidgetUI.ui:132
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
 msgstr "Velocidad: 0x"
 
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:119
+#: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "Codificando pista 8 de 12"
