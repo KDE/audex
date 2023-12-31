@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 01:37+0000\n"
-"PO-Revision-Date: 2023-12-29 15:33+0100\n"
+"PO-Revision-Date: 2023-12-30 14:38+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -731,7 +731,7 @@ msgstr "Speed: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131

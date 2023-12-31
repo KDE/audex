@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 01:37+0000\n"
-"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"PO-Revision-Date: 2023-12-30 07:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -189,10 +189,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Libera spaco sur \"%1\" estas malpli ol 800 MiB."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Provizora dosierujo \"%1\" eraro."
+msgstr "Eraro (%2) pri provizora dosierujo \"%1\"."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -411,21 +410,7 @@ msgstr ""
 "table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -439,19 +424,17 @@ msgid ""
 "value is set. Works with all commandline variables."
 msgstr ""
 "<p>Variabloj en Aŭdex povas havi parametrojn. Ekz.</p><pre>${cover format="
-"\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Dosiernomo de JPG-"
-"bildo kun la grandeco de 300x300 estos enmetita. Se neniu grandeco estas "
-"agordita, la grandeco de la originala kovrildosiero estos prenita. Se neniu "
-"kovrilo estas agordita, ĉi tiu variablo estos anstataŭigita per nenio, alie "
-"io kiel <i>/tmp/cover.123.jpg</i> estos enmetita. Eblaj formatoj estas \"JPG"
-"\", \"PNG\" kaj \"GIF\" (Defaŭlte: \"JPG\").</p>\n"
-"<p><i><b>Noto:</b> LAME-forĵetoj kovras dosierojn pli grandajn ol 128 KiB. "
-"Bonvolu memori tion, se vi agordas la formaton kaj grandecon.</i></p><hr /"
-"><p>\"preparam\" kaj \"postparam\" difinas parametrojn enmetitajn antaŭ "
-"(pre) aŭ malantaŭ (post) la variablo. Ĉi tiuj valoroj estas <b>nur</b> "
-"montritaj se valoro estas agordita. Funkcias kun ĉiuj komandliniaj variabloj."
-"</p><hr/><p><b><i>Por havi kompletan superrigardon de parametroj iru al la "
-"retpaĝo de Audex.</i></b></p>"
+"\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En ĉi tiu ekzemplo "
+"provizora dosiernomo de kopio en jpeg-formato kaj grandeco de 300x300 "
+"rastrumeroj de la kovrilo estos enmetita. Se neniu grandeco estas fiksita, "
+"la grandeco de la origina kovrila bilddosiero estos prenita. Se neniu "
+"kovrilo estas agordita, ĉi tiu variablo estos ellasita.  Eblaj formatoj "
+"estas \"JPG\", \"PNG\" kaj \"GIF\" (Defaŭlte: \"JPG\").</p>\n"
+"<p><i><b>Noto:</b> LAME forĵetas kovrildosierojn pli grandajn ol 128 KiB.</"
+"i></p><hr /><p>\"preparam\" kaj \"postparam\" difinas parametrojn enmetitajn "
+"antaŭ (pre) aŭ malantaŭ (post) la variablo. Ĉi tiuj valoroj estas <b>nur</"
+"b>montritaj se valoro estas fiksita. Funkcias kun ĉiuj komandliniaj "
+"variabloj."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -741,7 +724,7 @@ msgstr "Rapido: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -2482,156 +2465,3 @@ msgstr "Konservi..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "File does not exist."
-#~ msgstr "Dosiero ne ekzistas."
-
-#~ msgid "Please check if the file really exists."
-#~ msgstr "Bonvolu kontroli ĉu la dosiero vere ekzistas."
-
-#~ msgid "Cannot open file."
-#~ msgstr "Ne povas malfermi dosieron."
-
-#~ msgid "Please check your file. Maybe you do not have proper permissions."
-#~ msgstr "Bonvolu kontroli vian dosieron. Eble vi ne havas taŭgajn permesojn."
-
-#~ msgid "Unsupported image format"
-#~ msgstr "Nesubtenata bildformato"
-
-#~ msgid ""
-#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
-#~ "your cover image with an external program to a common file format like "
-#~ "JPEG."
-#~ msgstr ""
-#~ "Bonvolu kontroli vian dosieron. Eble ĝi estas koruptita. Alie provu "
-#~ "konverti vian kovrilan bildon per ekstera programo al komuna "
-#~ "dosierformato kiel JPEG."
-
-#~ msgid "Cannot open file"
-#~ msgstr "Ne povas malfermi dosieron"
-
-#~ msgid "Please check your permissions."
-#~ msgstr "Bonvolu kontroli viajn permesojn."
-
-#~ msgid "Cannot save file"
-#~ msgstr "Ne povas konservi dosieron"
-
-#~ msgid "Please check your permissions. Do you have enough space?"
-#~ msgstr "Bonvolu kontroli viajn permesojn. Ĉu vi havas sufiĉe da spaco?"
-
-#~ msgid ""
-#~ "Please use common image formats like JPEG or PNG as they are supported on "
-#~ "almost all systems."
-#~ msgstr ""
-#~ "Bonvolu uzi komunajn bildformatojn kiel JPEG aŭ PNG ĉar ili estas "
-#~ "subtenataj en preskaŭ ĉiuj sistemoj."
-
-#~ msgid "Cannot write on device"
-#~ msgstr "Ne povas skribi sur aparato"
-
-#~ msgid ""
-#~ "Please check your permissions. Do you have enough space on your device?"
-#~ msgstr ""
-#~ "Bonvolu kontroli viajn permesojn. Ĉu vi havas sufiĉe da spaco en via "
-#~ "aparato?"
-
-#~ msgid "Searching for covers..."
-#~ msgstr "Serĉante kovrilojn..."
-
-#~ msgid "Fetching Thumbnail %1 / %2..."
-#~ msgstr "Akiro de bildeto %1 / %2..."
-
-#~ msgid "Found 1 Cover"
-#~ msgid_plural "Found %1 Covers"
-#~ msgstr[0] "Trovis 1 kovrilon"
-#~ msgstr[1] "Trovis %1 kovrilojn"
-
-#~ msgid "No Covers Found"
-#~ msgstr "Neniuj Kovriloj Trovitaj"
-
-#~ msgid "Fetch Cover From Google"
-#~ msgstr "Preni Kovrilon De Guglo"
-
-#~ msgid "Usable Variables For Text Template"
-#~ msgstr "Uzeblaj Variabloj Por Teksta Ŝablono"
-
-#~ msgid "freedb.org"
-#~ msgstr "freedb.org"
-
-#~ msgid ""
-#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
-#~ msgstr ""
-#~ "Dankegojn al freedb.org por oferto de libera LDDB-simila LD-datumbazo"
-
-#~ msgid "There was an error communicating with Google."
-#~ msgstr "Okazis eraro dum komunikado kun Google."
-
-#~ msgid "Try again later. Otherwise make a bug report."
-#~ msgstr "Provu denove poste. Alie faru cimraporton."
-
-#~ msgid "Google server: Empty response."
-#~ msgstr "Guglo-servilo: Malplena respondo."
-
-#~ msgid "Try again later. Make a bug report."
-#~ msgstr "Provu denove poste. Faru cimraporton."
-
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgid "Released: "
-#~ msgstr "Eldonita:"
-
-#~ msgid "Genre: "
-#~ msgstr "Ĝenro: "
-
-#~ msgid "Wikipedia"
-#~ msgstr "Vikipedio"
-
-#~ msgid "No cover found."
-#~ msgstr "Neniu kovrilo trovita."
-
-#~ msgid ""
-#~ "Check your artist name and title. Otherwise you can load a custom cover "
-#~ "from an image file."
-#~ msgstr ""
-#~ "Kontrolu vian artistnomon kaj titolon. Alie vi povas ŝargi propran "
-#~ "kovrilon el bilddosiero."
-
-#~ msgid "Fetch cover from Google..."
-#~ msgstr "Preni kovrilon de Guglo..."
-
-#~ msgid "English"
-#~ msgstr "Angla"
-
-#~ msgid "Deutsch"
-#~ msgstr "Deutsch"
-
-#~ msgid "Français"
-#~ msgstr "Français"
-
-#~ msgid "Polski"
-#~ msgstr "Polski"
-
-#~ msgid "日本語"
-#~ msgstr "日本語"
-
-#~ msgid "Italiano"
-#~ msgstr "Italiano"
-
-#~ msgid "Nederlands"
-#~ msgstr "Nederlands"
-
-#~ msgid "Español"
-#~ msgstr "Hispana"
-
-#~ msgid "Português"
-#~ msgstr "Português"
-
-#~ msgid "Svenska"
-#~ msgstr "Svenska"
-
-#~ msgid "Català"
-#~ msgstr "Català"
-
-#~ msgid "Localization:"
-#~ msgstr "Loko:"

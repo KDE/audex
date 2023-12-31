@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 01:37+0000\n"
-"PO-Revision-Date: 2023-12-29 05:36+0100\n"
+"PO-Revision-Date: 2023-12-30 05:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -726,7 +726,7 @@ msgstr "სიჩქარე: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
