@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 02:37+0000\n"
-"PO-Revision-Date: 2023-12-29 08:28+0200\n"
+"PO-Revision-Date: 2023-12-30 08:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -128,7 +128,7 @@ msgstr "CDDB"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr "Eines per a la correcció del títol"
+msgstr "Eines de correcció de títols"
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:32
@@ -194,7 +194,7 @@ msgstr "L'espai lliure a «%1» és menys que 800 MiB."
 #: core/audex.cpp:727
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Error amb la carpeta temporal «%1» (%2)."
+msgstr "S'ha produït un error amb la carpeta temporal «%1» (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -349,7 +349,7 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:176
 #, kde-format
 msgid "CDDB disc ID:"
-msgstr "ID del disc a CDDB:"
+msgstr "ID del disc en la CDDB:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -430,7 +430,7 @@ msgid ""
 "(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
 "value is set. Works with all commandline variables."
 msgstr ""
-"<p>Les variables a Audex poden tindre paràmetres. P. ex.</p><pre>${cover "
+"<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>${cover "
 "format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En este "
 "exemple, s´inserirà un nom de fitxer temporal d'una imatge en format JPEG i "
 "una de 300x300 píxels. Si no hi ha cap mida establida, es prendrà la mida "
@@ -691,12 +691,12 @@ msgstr "Cancel·la l'extracció"
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding protocol"
-msgstr "Protocol per a la codificació"
+msgstr "Protocol de codificació"
 
 #: dialogs/extractingprogressdialog.cpp:351
 #, kde-format
 msgid "Ripping protocol"
-msgstr "Protocol per a l'extracció"
+msgstr "Protocol d'extracció"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -734,7 +734,7 @@ msgstr "Velocitat: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -805,7 +805,7 @@ msgid ""
 "from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
 "overview of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
-"<p>Les variables a Audex poden tindre paràmetres. P. ex.</p><pre>$artist/"
+"<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>$artist/"
 "$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>Açò "
 "vol dir, que el número de pista serà forçat a una llargària de 2 dígits. Si "
 "el número és inferior a 10, s'emplenarà amb un «0».</p><pre>$artist/${title "
@@ -1229,7 +1229,7 @@ msgid ""
 "left, which is the first one.</p><hr /><p><b><i>To have a complete overview "
 "of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
-"<p>Les variables a Audex poden tindre paràmetres. P. ex.</p><pre>$title "
+"<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>$title "
 "(${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre><p>Açò vol dir, que el "
 "número del CD serà forçat a una llargària de 2 dígits. Si el número és "
 "inferior a 10, s'emplenarà amb un «0».</p><pre>${title lowercase=\"true\"}."
@@ -1317,7 +1317,7 @@ msgstr "Fundació Xiph.Org"
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Un agraïment especial a la Xiph.Org Foundation per proporcionar un extractor "
-"per a discs compactes"
+"de discs compactes"
 
 #: main.cpp:46
 #, kde-format
@@ -1405,13 +1405,13 @@ msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
-"La busca a la CDDB ha fallat amb l'error següent:\n"
+"La busca en la CDDB ha fallat amb l'error següent:\n"
 "%1"
 
 #: mainwindow.cpp:221
 #, kde-format
 msgid "CDD Lookup Failure"
-msgstr "Ha fallat la busca a la CDDB"
+msgstr "No s'ha pogut fer la busca en la CDDB"
 
 #: mainwindow.cpp:326
 #, kde-format
@@ -1732,8 +1732,8 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"El format del fitxer per a la llista de reproducció és desconegut. Escolliu "
-"un dels formats següents: M3U, PLS o XSPF."
+"El format del fitxer de la llista de reproducció és desconegut. Escolliu un "
+"dels formats següents: M3U, PLS o XSPF."
 
 #: models/profilemodel.cpp:228
 #, kde-format
@@ -2321,7 +2321,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr "Mitjana (140...185 kbits)"
+msgstr "Mitjana (140...185 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2354,7 +2354,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "Estàndard (170...210 kbits)"
+msgstr "Estàndard (170...210 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2372,7 +2372,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:117
 #, kde-format
 msgid "Insane (320 kbit/s)"
-msgstr "Insana (320 kbits)"
+msgstr "Insana (320 kbits/s)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
@@ -2385,13 +2385,13 @@ msgstr "Taxa de bits constant"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Taxa de bits de destinació (kbits)"
+msgstr "Taxa de bits de destinació (kbits/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
 #, kde-format
 msgid " kbit/s"
-msgstr " kbits"
+msgstr " kbits/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
@@ -2406,7 +2406,7 @@ msgstr "Taxa de bits de destinació ~"
 #: widgets/oggencwidgetUI.ui:347
 #, kde-format
 msgid "kbit/s"
-msgstr "kbits"
+msgstr "kbits/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209

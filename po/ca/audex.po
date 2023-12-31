@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 02:37+0000\n"
-"PO-Revision-Date: 2023-12-29 08:28+0200\n"
+"PO-Revision-Date: 2023-12-30 08:18+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -128,7 +128,7 @@ msgstr "CDDB"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr "Eines per a la correcció del títol"
+msgstr "Eines de correcció de títols"
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:32
@@ -692,12 +692,12 @@ msgstr "Cancel·la l'extracció"
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding protocol"
-msgstr "Protocol per a la codificació"
+msgstr "Protocol de codificació"
 
 #: dialogs/extractingprogressdialog.cpp:351
 #, kde-format
 msgid "Ripping protocol"
-msgstr "Protocol per a l'extracció"
+msgstr "Protocol d'extracció"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -735,7 +735,7 @@ msgstr "Velocitat: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -1320,7 +1320,7 @@ msgstr "Fundació Xiph.Org"
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Un agraïment especial a la Xiph.Org Foundation per proporcionar un extractor "
-"per a discs compactes"
+"de discs compactes"
 
 #: main.cpp:46
 #, kde-format
@@ -1740,8 +1740,8 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"El format del fitxer per a la llista de reproducció és desconegut. Si us "
-"plau, escolliu un dels formats següents: M3U, PLS o XSPF."
+"El format del fitxer de la llista de reproducció és desconegut. Si us plau, "
+"escolliu un dels formats següents: M3U, PLS o XSPF."
 
 #: models/profilemodel.cpp:228
 #, kde-format

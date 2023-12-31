@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 02:37+0000\n"
-"PO-Revision-Date: 2023-12-27 18:39+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
+"PO-Revision-Date: 2023-12-30 11:06+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -191,10 +191,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Jest mniej niż 800 MiB wolnej przestrzeni dyskowej na \"%1\"."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Błąd katalogu tymczasowego \"%1\"."
+msgstr "Błąd katalogu tymczasowego \"%1\" (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -420,21 +419,7 @@ msgstr ""
 "tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -451,16 +436,13 @@ msgstr ""
 "\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Zostanie wstawiona nazwa pliku "
 "obrazu JPG o rozmiarze 300x300. Jeżeli nie ustawiono rozmiaru, to zostanie "
 "wzięty rozmiar oryginalnej okładki. Jeżeli nie ustawiono okładki, to zmienna "
-"ta zostanie zastąpiona przez nic, w przeciwnym przypadku przez coś takiego "
-"jak <i>/tmp/cover.123.jpg</i>. Możliwe formaty to \"JPG\", \"PNG\" i \"GIF"
+"ta zostanie pominięta. Możliwe formaty to \"JPG\", \"PNG\" i \"GIF"
 "\" (Domyślny: \"JPG\").</p>\n"
 "<p><i><b>Zauważ:</b> LAME porzuca pliki okładki większe niż 128 KiB. Proszę "
 "mieć to na uwadze przy ustawianiu formatu i rozmiaru.</i></p><hr /><p>"
 "\"preparam\" i \"postparam\" określają parametry wstawiane przed (pre) lub "
 "za (post) zmienną. Wartości te są pokazane <b>tylko</b> jeśli wartość "
-"zostanie ustawiona.Działa ze wszystkimi zmiennymi wiersza poleceń.</p><hr /"
-"><p><b><i>Aby mieć zupełny przegląd parametrów, zajrzyj na stronę "
-"internetową Audex.</i></b></p>"
+"zostanie ustawiona.Działa ze wszystkimi zmiennymi wiersza poleceń."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -750,7 +732,7 @@ msgstr "Szybkość: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
