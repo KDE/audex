@@ -1,14 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the audex package.
 # Michele Ganz <lilarcor89@gmail.com>, 2009.
-# Valter Mura <valtermura@gmail.com>, 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023.
+# SPDX-FileCopyrightText: 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023 Valter Mura <valtermura@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-30 01:37+0000\n"
-"PO-Revision-Date: 2023-04-27 20:30+0200\n"
+"PO-Revision-Date: 2023-12-29 19:54+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -110,15 +110,13 @@ msgstr "&Audex"
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
-#, fuzzy, kde-format
-#| msgid "Phonon Metadata"
+#, kde-format
 msgid "&Metadata"
-msgstr "Dati aggiuntivi Phonon"
+msgstr "&Metadati"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -192,10 +190,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "In «%1» lo spazio disponibile è inferiore a 800 MiB."
 
 #: core/audex.cpp:727
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "La cartella temporanea «%1» non esiste."
+msgstr "Errore nella cartella temporanea «%1» (%2)."
 
 #: core/audex.cpp:727
 #, kde-format
@@ -350,10 +347,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "ID FreeDB del disco:"
+msgstr "ID CDDB del disco:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -421,21 +417,7 @@ msgstr ""
 "table></p>"
 
 #: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
@@ -448,21 +430,18 @@ msgid ""
 "(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
 "value is set. Works with all commandline variables."
 msgstr ""
-"<p>Le variabili possono contenere parametri in Audex. Per es., </p><pre>"
-"${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Verrà "
-"inserito un nome file di un'immagine JPG della dimensione di 300x300 pixel. "
-"Se non è impostata alcuna dimensione, verrà utilizzata quella del file di "
+"<p>In Audex, le variabili possono contenere parametri. Per esempio, </p><pre>"
+"${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In "
+"questo esempio verrà inserito un nome file temporaneo di una copia della "
+"copertina in formato JPEG e di dimensione di 300x300 pixel. Se non è "
+"impostata alcuna dimensione, verrà usata quella del file immagine della "
 "copertina originale. Se non è impostata alcuna copertina, questa variabile "
-"non viene sostituita, in alternativa verrà inserito qualcosa di simile a <i>/"
-"tmp/cover.123.jpg</i>. I formati possibili sono «JPG», «PNG» e "
-"«GIF» (predefinito: «JPG»).</p>\n"
-"<p><i><b>Nota:</b> LAME scarta i file di copertina maggiori di 128 KiB. "
-"Ricorda questo fatto, se imposti il formato e la dimensione. </i></p><hr /"
-"><p>«preparam» e «postparam» definiscono i parametri inseriti davanti (pre)  "
-"o dietro (post) la variabile. Questi valori sono mostrati <b>solo</b> se è "
-"impostato un valore. Questo funziona con tutte le variabili a riga di "
-"comando.</p><hr /><p><b><i>Per una panoramica completa sui parametri, "
-"consultare la pagina web di Audex.</i></b></p>"
+"sarà omessa. I formati possibili sono «JPG», «PNG» e «GIF» (predefinito: "
+"«JPG»).</p>\n"
+"<p><i><b>Nota:</b> LAME scarta i file di copertina maggiori di 128 KiB.</i></"
+"p><hr /><p>«preparam» e «postparam» definiscono i parametri inseriti davanti "
+"(pre) o dietro (post) la variabile. Questi valori sono mostrati <b>solo</b> "
+"se è impostato un valore. Funziona con tutte le variabili a riga di comando."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
@@ -945,85 +924,7 @@ msgid "Info Settings"
 msgstr "Impostazioni delle informazioni"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#| "by a special value and can even contain parameters.<br />For example the "
-#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#| "div>will be replaced by the relevant artist of the cd. Variables may also "
-#| "have attribute, for example:<div style=\"font-family:monospace; "
-#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#| "pre></div>This would print the current date. Setting the format will "
-#| "control how this is done. The example (above)would result int the date "
-#| "being printed as 2010-10-07 (if this was the current date). See below for "
-#| "more details.<br /><br />You can make use of the following variables:<br /"
-#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#| "td><td></td><td>Prints the relevant date (usually release year) of the "
-#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#| "(compressed) music files (incl. the cover). The attribute iec can be one "
-#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#| "attribute precision gives the number of decimal places. Default "
-#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#| "relevant overall length of all extracted tracks. The format is min:sec.</"
-#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
-#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
-#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1104,51 +1005,17 @@ msgstr ""
 "td><td>Restituisce l'ID del CD corrente. L'attributo base è la base numerica "
 "del numero. Il valore predefinito è 16 (esadecimale).</td><td>${discid base="
 "\"16\"}</td></tr><tr><td>$today</td><td>format</td><td>Restituisce la data "
-"corrente. L'attributo format definisce il formato dell'output (*).</td><td>"
-"${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</td><td>format</"
-"td><td>Restituisce la data e, o in alternativa, l'ora corrente. L'attributo "
-"format definisce il formato del risultato (*).</td><td>${now format=\"yyyy-"
-"MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Restituisce "
-"il nome e la versione del codificatore.</td></tr><tr><td>$audex</td><td></"
-"td><td>Restituisce il nome e la versione di Audex.</td></tr><tr><td>$br</"
-"td><td></td><td>Restituisce un'interruzione di riga.</td><td></td></tr></"
-"tbody></table><br /><br />(* espressioni di formato per data/ora)<table "
-"cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
-"\"><th>Espressione</th><th>Risultato</th></tr></thead><tr valign=\"top"
-"\"><td>d</td><td>Il giorno inteso come numero, senza lo zero che lo precede "
-"(da 1 a 31).</td></tr><tr valign=\"top\"><td>dd</td><td>Il giorno inteso "
-"come numero a due cifre (da 01 a 31).</td></tr><tr valign=\"top\"><td>ddd</"
-"td><td>Il nome del giorno nella lingua locale abbreviato (ad es&#x2e; da "
-"'Lun' a 'Dom').</td></tr><tr valign=\"top\"><td>dddd</td><td>Il nome del "
-"giorno nella lingua locale esteso (ad es&#x2e; da 'Lunedì' a 'Domenica').</"
-"td></tr><tr valign=\"top\"><td>M</td><td>Il mese inteso come numero senza lo "
-"zero che lo precede (da 1 a 12).</td></tr><tr valign=\"top\"><td>MM</"
-"td><td>Il mese, inteso come numero a due cifre (da 01 a 12).</td></tr><tr "
-"valign=\"top\"><td>MMM</td><td>Il nome abbreviato del mese nella lingua "
-"locale (ad es&#x2e; da 'Gen' a 'Dic').</td></tr><tr valign=\"top\"><td>MMMM</"
-"td><td>Il nome esteso del mese nella lingua locale (ad es&#x2e; da 'Gennaio' "
-"a 'Dicembre').</td></tr><tr valign=\"top\"><td>yy</td><td>Il numero "
-"dell'anno ridotto a due cifre (da 00 a 99).</td></tr><tr valign=\"top"
-"\"><td>yyyy</td><td>Il numero dell'anno a quattro cifre.</td></tr></"
-"table><br /><table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>Espressione</th><th>Risultato</th></tr></"
-"thead><tr valign=\"top\"><td>h</td><td>L'ora non preceduta dallo zero (da 0 "
-"a 23, o da 1 a 12 se AM/PM è mostrato).</td></tr><tr valign=\"top\"><td>hh</"
-"td><td>L'ora sempre a due cifre (da 00 a 23, o da 01 a 12 se AM/PM è "
-"mostrato).</td></tr><tr valign=\"top\"><td>H</td><td>L'ora non preceduta "
-"dallo zero (da 0 a 23, anche con AM/PM visualizzato).</td></tr><tr valign="
-"\"top\"><td>HH</td><td>L'ora sempre a due cifre (da 00 a 23, anche con AM/PM "
-"visualizzato).</td></tr><tr valign=\"top\"><td>m</td><td>Il minuto non "
-"preceduto dallo zero (da 0 a 59).</td></tr><tr valign=\"top\"><td>mm</"
-"td><td>Il minuto preceduto dallo zero (da 00 a 59).</td></tr><tr valign=\"top"
-"\"><td>s</td><td>Il secondo non preceduto dallo zero (da 0 a 59).</td></"
-"tr><tr valign=\"top\"><td>ss</td><td>Il secondo preceduto dallo zero (da 0 a "
-"59).</td></tr><tr valign=\"top\"><td>z</td><td>I millisecondi non preceduti "
-"da zero (da 0 a 999).</td></tr><tr valign=\"top\"><td>zz</td><td>I "
-"millisecondi preceduti da zero (da 0 a 999).</td></tr><tr valign=\"top"
-"\"><td>AP o A</td><td>Interpreta l'orario come AM/PM. AP deve essere «AM» o "
-"«PM».</td></tr><tr valign=\"top\"><td>ap o a</td><td>Interpreta l'orario "
-"come AM/PM. ap deve essere «am» o «pm».</td></tr></table></body></html>"
+"corrente. L'attributo format definisce il formato dell'output. <i>Per le "
+"variabili di formato, dai uno sguardo alla documentazione ufficiale di Qt.</"
+"i></td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
+"td><td>format</td><td>Restituisce la data e, o in alternativa, l'ora "
+"corrente. L'attributo format definisce il formato del risultato (*). <i>Per "
+"le variabili di formato, dai uno sguardo alla documentazione ufficiale di Qt."
+"</i></td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>"
+"$encoder</td><td></td><td>Restituisce il nome e la versione del codificatore."
+"</td></tr><tr><td>$audex</td><td></td><td>Restituisce il nome e la versione "
+"di Audex.</td></tr><tr><td>$br</td><td></td><td>Restituisce un'interruzione "
+"di riga.</td><td></td></tr></tbody></table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
@@ -1394,10 +1261,9 @@ msgid "KDE CDDA Extractor"
 msgstr "Estrazione CDDA KDE"
 
 #: main.cpp:28
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Copyright © 2007–2015 di Marco Nelles"
+msgstr "Copyright © 2007–2023 di Marco Nelles"
 
 #: main.cpp:31
 #, kde-format
@@ -1435,10 +1301,11 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Ringraziamenti speciali a credativ GmbH (Germania) per il supporto"
+msgstr ""
+"Ringraziamenti speciali alla credativ GmbH (Germania) precedente per il "
+"supporto"
 
 #: main.cpp:35
 #, kde-format
@@ -1618,22 +1485,19 @@ msgid "Profile"
 msgstr "Profilo"
 
 #: mainwindow.cpp:430
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Recupera informazioni"
+msgstr "Recupera"
 
 #: mainwindow.cpp:437
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Invia informazioni"
+msgstr "Invia"
 
 #: mainwindow.cpp:443
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Modifica i dati"
+msgstr "Modifica"
 
 #: mainwindow.cpp:450
 #, kde-format
@@ -2196,7 +2060,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:111
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:127
 #, kde-format
@@ -2526,22 +2390,19 @@ msgstr "Bitrate costante"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Bitrate medio (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
 msgstr "Bitrate medio ~"
 
@@ -2582,20 +2443,16 @@ msgid "Load Profiles"
 msgstr "Carica profili"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>Vuoi eseguire una nuova scansione del sistema alla ricerca di altri codec "
-"(Lame, Ogg Vorbis, Flac, ecc.)?</p><p><font style=\"font-style:italic;"
-"\">Questo comporterà la creazione di nuovi profili di esempio per i nuovi "
-"codec trovati.</font></p>"
+"(Lame, Opus, FLAC, ecc.)?</p><p><font style=\"font-style:italic;\">Questo "
+"comporterà la creazione di nuovi profili di esempio per i nuovi codec "
+"trovati.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
