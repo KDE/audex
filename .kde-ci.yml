@@ -17,7 +17,7 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kxmlgui': '@stable'
     'frameworks/solid': '@stable'
-    'multimedia/libkcddb': '@same'
+    'multimedia/libkcddb': 'master'
 
 Options:
     require-passing-tests-on: [ 'Linux', 'FreeBSD' ]
