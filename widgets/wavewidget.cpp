@@ -20,7 +20,7 @@ waveWidget::waveWidget(Parameters *parameters, QWidget *parent)
         return;
     }
 
-    qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
+    qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
 
     connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
@@ -44,7 +44,7 @@ bool waveWidget::save()
 
 void waveWidget::trigger_changed()
 {
-    changed = (qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX));
+    changed = (qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }

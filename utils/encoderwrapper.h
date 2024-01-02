@@ -44,7 +44,6 @@ public Q_SLOTS:
                 const QString &date,
                 const QString &suffix,
                 const QImage &cover,
-                bool fat_compatible,
                 const QString &tmppath,
                 const QString &input,
                 const QString &output);

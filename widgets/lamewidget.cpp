@@ -22,10 +22,10 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent)
 
     bitrates << 80 << 96 << 112 << 128 << 160 << 192 << 224 << 256 << 320;
 
-    real_bitrate = parameters->valueToInt(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE);
-    p_cbr_flag = parameters->valueToBool(ENCODER_LAME_CBR_KEY);
+    real_bitrate = parameters->value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt();
+    p_cbr_flag = parameters->value(ENCODER_LAME_CBR_KEY).toBool();
     enable_CBR(p_cbr_flag);
-    preset = parameters->valueToInt(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET);
+    preset = parameters->value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt();
     switch (preset) {
     case ENCODER_LAME_PRESET_MEDIUM:
         radioButton_medium->setChecked(true);
@@ -49,8 +49,8 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent)
         break;
     }
     checkBox_cbr->setChecked(p_cbr_flag);
-    checkBox_embedcover->setChecked(parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY));
-    qlineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX));
+    checkBox_embedcover->setChecked(parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool());
+    qlineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
     connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(enable_medium(bool)));
     connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -134,7 +134,8 @@ void lameWidget::enable_custom(bool enable)
         preset = ENCODER_LAME_PRESET_CUSTOM;
 }
 
-template<class T> T square(const T &x)
+template<class T>
+T square(const T &x)
 {
     return x * x;
 }
@@ -232,9 +233,11 @@ void lameWidget::bitrate_changed_by_spinbox(int bitrate)
 
 void lameWidget::trigger_changed()
 {
-    changed = (preset != parameters->valueToInt(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET) || real_bitrate != parameters->valueToInt(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE) ||
-               checkBox_cbr->isChecked() != parameters->valueToBool(ENCODER_LAME_CBR_KEY) || checkBox_embedcover->isChecked() != parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY) ||
-               qlineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX));
+    changed = (preset != parameters->value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt()
+               || real_bitrate != parameters->value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt()
+               || checkBox_cbr->isChecked() != parameters->value(ENCODER_LAME_CBR_KEY).toBool()
+               || checkBox_embedcover->isChecked() != parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool()
+               || qlineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }

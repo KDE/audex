@@ -860,7 +860,7 @@ const Parameters ProfileModel::getSelectedEncoderParametersFromCurrentIndex()
 const QString ProfileModel::getSelectedEncoderPatternFromCurrentIndex()
 {
     EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
-    Parameters parameters = getSelectedEncoderParametersFromCurrentIndex();
+    Parameters parameters(getSelectedEncoderParametersFromCurrentIndex());
 
     return EncoderAssistant::pattern(encoder, parameters);
 }
@@ -868,23 +868,23 @@ const QString ProfileModel::getSelectedEncoderPatternFromCurrentIndex()
 const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex()
 {
     EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
-    Parameters parameters = getSelectedEncoderParametersFromCurrentIndex();
+    Parameters parameters(getSelectedEncoderParametersFromCurrentIndex());
 
     switch (encoder) {
     case EncoderAssistant::LAME:
-        return parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX);
+        return parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString();
     case EncoderAssistant::OGGENC:
-        return parameters.value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX);
+        return parameters.value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX).toString();
     case EncoderAssistant::OPUSENC:
-        return parameters.value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX);
+        return parameters.value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString();
     case EncoderAssistant::FLAC:
-        return parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX);
+        return parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString();
     case EncoderAssistant::FAAC:
-        return parameters.value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX);
+        return parameters.value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX).toString();
     case EncoderAssistant::WAVE:
-        return parameters.value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX);
+        return parameters.value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString();
     case EncoderAssistant::CUSTOM:
-        return parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX);
+        return parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX).toString();
     case EncoderAssistant::NUM:
         return "";
     }

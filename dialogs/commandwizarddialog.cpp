@@ -252,9 +252,8 @@ void CommandWizardDialog::update_example()
                                                          "Rock",
                                                          "ogg",
                                                          QImage(),
-                                                         false,
                                                          QDir::tempPath(),
-                                                         "LAME 3.98.2",
+                                                         "LAME 3.100",
                                                          true);
     ui.qlineedit_album_example->setText(filename);
     ui.qlineedit_album_example->setCursorPosition(0);
@@ -274,9 +273,8 @@ void CommandWizardDialog::update_example()
                                           "Darkwave",
                                           "ogg",
                                           QImage(),
-                                          false,
                                           QDir::tempPath(),
-                                          "LAME 3.98.2",
+                                          "LAME 3.100",
                                           true);
     ui.qlineedit_sampler_example->setText(filename);
     ui.qlineedit_sampler_example->setCursorPosition(0);
