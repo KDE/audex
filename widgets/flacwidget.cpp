@@ -20,11 +20,11 @@ flacWidget::flacWidget(Parameters *parameters, QWidget *parent)
         return;
     }
 
-    horizontalSlider_compression->setValue(parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION));
-    kintspinbox_compression->setValue(parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION));
+    horizontalSlider_compression->setValue(parameters->value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
+    kintspinbox_compression->setValue(parameters->value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
 
-    checkBox_embedcover->setChecked(parameters->valueToBool(ENCODER_FLAC_EMBED_COVER_KEY));
-    qlineedit_suffix->setText(parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX));
+    checkBox_embedcover->setChecked(parameters->value(ENCODER_FLAC_EMBED_COVER_KEY).toBool());
+    qlineedit_suffix->setText(parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
     connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_slider(int)));
     connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
@@ -71,8 +71,9 @@ void flacWidget::compression_changed_by_spinbox(int compression)
 
 void flacWidget::trigger_changed()
 {
-    changed = (horizontalSlider_compression->value() != parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION) || checkBox_embedcover->isChecked() != parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY) ||
-               qlineedit_suffix->text() != parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX));
+    changed = (horizontalSlider_compression->value() != parameters->value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt()
+               || checkBox_embedcover->isChecked() != parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool()
+               || qlineedit_suffix->text() != parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }

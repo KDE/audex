@@ -10,443 +10,451 @@
 #include <QDebug>
 #include <QStandardPaths>
 
-SaxHandler::SaxHandler()
-    : QXmlDefaultHandler()
+#if QT_VERSION >= 0x060000
+#define IS_TRUE(val) (val.typeId() == QMetaType::Bool && val.toBool())
+#define IS_INT(val)                                                                                                                                            \
+    (val.typeId() == QMetaType::Int || val.typeId() == QMetaType::UInt || val.typeId() == QMetaType::LongLong || val.typeId() == QMetaType::ULongLong)
+#define IS_DATETIME(val) (val.typeId() == QMetaType::QDateTime || val.typeId() == QMetaType::QDate || val.typeId() == QMetaType::QTime)
+#endif
+
+#if QT_VERSION < 0x060000
+#define IS_TRUE(val) (val.type() == QVariant::Bool && val.toBool())
+#define IS_INT(val) (val.type() == QVariant::Int || val.type() == QVariant::UInt || val.type() == QVariant::LongLong || val.type() == QVariant::ULongLong)
+#define IS_DATETIME(val) (val.type() == QVariant::DateTime || val.type() == QVariant::Date || val.type() == QVariant::Time)
+#endif
+
+PatternParser::PatternParser(QObject *parent)
+    : QObject(parent)
 {
-    trackno = 1;
-    cdno = 0;
-    trackoffset = 0;
-    fat32compatible = false;
-    discid = 0;
-    size = 0;
-    length = 0;
-    nooftracks = 0;
-    is_filename_pattern = false;
-    is_command_pattern = false;
-    is_simple_pattern = false;
-    is_text_pattern = false;
-    /*TEMP*/ found_suffix = false;
+    Q_UNUSED(parent);
 }
 
-SaxHandler::~SaxHandler()
+PatternParser::~PatternParser()
 {
 }
 
-bool SaxHandler::startElement(const QString &namespaceURI, const QString &localName, const QString &qName, const QXmlAttributes &atts)
+const QString PatternParser::parsePattern(const QString &pattern, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters)
 {
-    Q_UNUSED(namespaceURI);
-    Q_UNUSED(localName);
+    p_error_string.clear();
 
-    if (qName == VAR_FILENAME_PATTERN) {
-        is_filename_pattern = true;
-        return true;
-    }
-    if (qName == VAR_COMMAND_PATTERN) {
-        is_command_pattern = true;
-        return true;
-    }
-    if (qName == VAR_SIMPLE_PATTERN) {
-        is_simple_pattern = true;
-        return true;
-    }
-    if (qName == VAR_TEXT_PATTERN) {
-        is_text_pattern = true;
-        return true;
-    }
+    QString result;
 
-    p_element.clear();
+    bool region_placeholdername = false;
+    int index_placeholdername = 0;
+    QString placeholdername;
 
-    if (qName == VAR_ALBUM_ARTIST) {
-        if ((is_filename_pattern) || (is_simple_pattern)) {
-            QString s = artist;
-            if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible"))))
-                s = make_fat32_compatible(s);
-            else
-                s = make_compatible(s);
-            if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores"))))
-                s = replace_spaces_with_underscores(s);
-            // int QString::toInt(bool *ok, int base) const
-            // If a conversion error occurs, *\a{ok} is set to \c false; otherwise
-            // *\a{ok} is set to \c true.
-            // http://code.qt.io/cgit/qt/qtbase.git/tree/src/corelib/tools/qstring.cpp#n6418
-            bool ok;
-            int left = atts.value("left").toInt(&ok);
-            if ((ok) && (left > 0))
-                s = s.left(left);
-            if (IS_TRUE(atts.value("replace_char_list")))
-                s = replace_char_list(atts, s);
-            if (IS_TRUE(atts.value("lowercase")))
-                s = s.toLower();
-            else if (IS_TRUE(atts.value("uppercase")))
-                s = s.toUpper();
-            p_element += s;
-        } else if (is_command_pattern) {
-            p_element += make_compatible_2(artist);
-        } else {
-            p_element += artist;
-        }
-    }
-    if (qName == VAR_ALBUM_TITLE) {
-        if ((is_filename_pattern) || (is_simple_pattern)) {
-            QString s = title;
-            if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible"))))
-                s = make_fat32_compatible(s);
-            else
-                s = make_compatible(s);
-            if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores"))))
-                s = replace_spaces_with_underscores(s);
-            bool ok;
-            int left = atts.value("left").toInt(&ok);
-            if ((ok) && (left > 0))
-                s = s.left(left);
-            if (IS_TRUE(atts.value("replace_char_list")))
-                s = replace_char_list(atts, s);
-            if (IS_TRUE(atts.value("lowercase")))
-                s = s.toLower();
-            else if (IS_TRUE(atts.value("uppercase")))
-                s = s.toUpper();
-            p_element += s;
-        } else if (is_command_pattern) {
-            p_element += make_compatible_2(title);
-        } else {
-            p_element += title;
-        }
-    }
-    if (qName == VAR_DATE) {
-        if ((is_filename_pattern) || (is_simple_pattern)) {
-            QString s = date;
-            if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible"))))
-                s = make_fat32_compatible(s);
-            else
-                s = make_compatible(s);
-            if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores"))))
-                s = replace_spaces_with_underscores(s);
-            bool ok;
-            int left = atts.value("left").toInt(&ok);
-            if ((ok) && (left > 0))
-                s = s.left(left);
-            if (IS_TRUE(atts.value("replace_char_list")))
-                s = replace_char_list(atts, s);
-            if (IS_TRUE(atts.value("lowercase")))
-                s = s.toLower();
-            else if (IS_TRUE(atts.value("uppercase")))
-                s = s.toUpper();
-            p_element += s;
-        } else if (is_command_pattern) {
-            p_element += make_compatible_2(date);
-        } else {
-            p_element += date;
-        }
-    }
-    if (qName == VAR_GENRE) {
-        if ((is_filename_pattern) || (is_simple_pattern)) {
-            QString s = genre;
-            if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible"))))
-                s = make_fat32_compatible(s);
-            else
-                s = make_compatible(s);
-            if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores"))))
-                s = replace_spaces_with_underscores(s);
-            bool ok;
-            int left = atts.value("left").toInt(&ok);
-            if ((ok) && (left > 0))
-                s = s.left(left);
-            if (IS_TRUE(atts.value("replace_char_list")))
-                s = replace_char_list(atts, s);
-            if (IS_TRUE(atts.value("lowercase")))
-                s = s.toLower();
-            else if (IS_TRUE(atts.value("uppercase")))
-                s = s.toUpper();
-            p_element += s;
-        } else if (is_command_pattern) {
-            p_element += make_compatible_2(genre);
-        } else {
-            p_element += genre;
-        }
-    }
-    if (qName == VAR_ENCODER) {
-        p_element += encoder;
-    }
+    bool region_in_braces = false;
 
-    if ((is_filename_pattern) || (is_command_pattern) || (is_simple_pattern)) {
-        if (qName == VAR_CD_NO) {
-            if (cdno > 0) {
-                bool ok;
-                int l = atts.value("length").toInt(&ok);
-                QChar fc = '0';
-                if (!atts.value("fillchar").isEmpty())
-                    fc = atts.value("fillchar").at(0);
-                if (ok)
-                    p_element += QString("%1").arg(cdno, l, 10, fc);
-                else
-                    p_element += QString("%1").arg(cdno);
-            }
-        }
-    }
-    if ((is_filename_pattern) || (is_command_pattern)) {
-        if (qName == VAR_TRACK_ARTIST) {
-            if (is_filename_pattern) {
-                QString s = tartist;
-                if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible"))))
-                    s = make_fat32_compatible(s);
-                else
-                    s = make_compatible(s);
-                if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores"))))
-                    s = replace_spaces_with_underscores(s);
-                bool ok;
-                int left = atts.value("left").toInt(&ok);
-                if ((ok) && (left > 0))
-                    s = s.left(left);
-                if (IS_TRUE(atts.value("lowercase")))
-                    s = s.toLower();
-                else if (IS_TRUE(atts.value("uppercase")))
-                    s = s.toUpper();
-                if (IS_TRUE(atts.value("replace_char_list")))
-                    s = replace_char_list(atts, s);
-                p_element += s;
-            } else if (is_command_pattern) {
-                p_element += make_compatible_2(tartist);
-            } else {
-                p_element += tartist;
-            }
-        }
-        if (qName == VAR_TRACK_TITLE) {
-            if (is_filename_pattern) {
-                QString s = ttitle;
-                if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible"))))
-                    s = make_fat32_compatible(s);
-                else
-                    s = make_compatible(s);
-                if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores"))))
-                    s = replace_spaces_with_underscores(s);
-                bool ok;
-                int left = atts.value("left").toInt(&ok);
-                if ((ok) && (left > 0))
-                    s = s.left(left);
-                if (IS_TRUE(atts.value("replace_char_list")))
-                    s = replace_char_list(atts, s);
-                if (IS_TRUE(atts.value("lowercase")))
-                    s = s.toLower();
-                else if (IS_TRUE(atts.value("uppercase")))
-                    s = s.toUpper();
-                p_element += s;
-            } else if (is_command_pattern) {
-                p_element += make_compatible_2(ttitle);
-            } else {
-                p_element += ttitle;
-            }
-        }
-        if (qName == VAR_TRACK_NO) {
-            int t;
-            if (trackoffset > 1)
-                t = trackno + trackoffset;
-            else
-                t = trackno;
-            bool ok;
-            int l = atts.value("length").toInt(&ok);
-            QChar fc = '0';
-            if (!atts.value("fillchar").isEmpty())
-                fc = atts.value("fillchar").at(0);
-            if (ok) {
-                p_element += QString("%1").arg(t, l, 10, fc);
-            } else {
-                if (_2digitstracknum) {
-                    p_element += QString("%1").arg(t, 2, 10, QChar('0'));
+    bool region_placeholdername_in_braces = false;
+    bool region_parameters_in_braces = false;
+
+    QString parameters_string;
+
+    int index = 0;
+    while (index < pattern.length()) {
+        QChar c = pattern[index];
+
+        if (region_in_braces) {
+            if (region_placeholdername_in_braces) {
+                if (c.isLetterOrNumber() || c == QChar('_')) {
+                    placeholdername.append(c);
+                } else if (c == '}') {
+                    if (placeholders.contains(placeholdername)) {
+                        result.append(placeholders[placeholdername].toString());
+                    }
+                    if (placeholders_parameters)
+                        placeholders_parameters->insert(placeholdername, Parameters());
+                    region_placeholdername_in_braces = false;
+                    region_in_braces = false;
+                    placeholdername.clear();
+                } else if (c.isSpace()) {
+                    if (!placeholdername.isEmpty()) {
+                        region_placeholdername_in_braces = false;
+                        region_parameters_in_braces = true;
+                    }
                 } else {
-                    p_element += QString("%1").arg(t);
-                }
-            }
-        }
-    }
-
-    if ((is_filename_pattern) || (is_simple_pattern)) {
-        if (qName == VAR_SUFFIX) { /*TEMP*/
-            found_suffix = true;
-            p_element += suffix;
-        }
-    }
-
-    if (is_command_pattern) {
-        if (qName == VAR_INPUT_FILE)
-            p_element += "\"" + input + "\"";
-        if (qName == VAR_OUTPUT_FILE)
-            p_element += "\"" + output + "\"";
-        if (qName == VAR_COVER_FILE) {
-            QString format = STANDARD_EMBED_COVER_FORMAT;
-            if (!atts.value("format").isEmpty())
-                format = atts.value("format");
-
-            if (!QImageReader::supportedImageFormats().contains(format.toLatin1().toUpper()))
-                format = STANDARD_EMBED_COVER_FORMAT;
-
-            QString filename;
-            bool success = false;
-            if (demomode) {
-                filename = tmppath + "/cover-embedded." + format.toLower();
-                success = true;
-
-            } else {
-                int x = -1;
-                int y = -1;
-                bool ok;
-                if (!atts.value("x").isEmpty()) {
-                    // when *ok is false, QString::toInt() often return 0
-                    x = atts.value("x").toInt(&ok);
-                    if (!ok)
-                        x = -1;
-                }
-                if (!atts.value("y").isEmpty()) {
-                    y = atts.value("y").toInt(&ok);
-                    if (!ok)
-                        y = -1;
+                    p_error_string = i18n("Illegal character found at index %1: %2").arg(index).arg(c);
+                    return QString();
                 }
 
-                filename = tmppath + "/cover-embedded." + format.toLower();
+            } else if (region_parameters_in_braces) {
+                if (c == '}') {
+                    Parameters parameters(parameters_string, QChar(' '));
 
-                // cover set by setCover
-                if (!QFileInfo::exists(filename)) {
-                    if (cover.isNull()) {
-                        success = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/cdcase_wo_latches.png")))
-                                      .scaledToWidth(STANDARD_EMBED_NOCOVER_PLACEHOLDER_WIDTH)
-                                      .save(filename, format.toLatin1());
-                    } else {
-                        if (x != -1 && y != -1)
-                            success = cover.scaled(QSize(x, y)).save(filename);
-                        else
-                            success = cover.save(filename);
+                    if (parameters.error()) {
+                        p_error_string = parameters.errorString();
+                        return QString();
                     }
 
-                    if (success) {
-                        qDebug() << "Successfully created temporary cover file" << filename << "(" << QFileInfo(filename).size() / 1024 << "KiB)";
-                    } else {
-                        qDebug() << "WARNING! Could not create temporary cover file" << filename;
+                    if (placeholders_parameters)
+                        placeholders_parameters->insert(placeholdername, parameters);
+
+                    if (placeholders.contains(placeholdername)) {
+                        QVariant value = placeholders[placeholdername];
+
+                        KeyList keylist = parameters.keys();
+                        for (int i = 0; i < keylist.size(); ++i) {
+                            const QString key = keylist.at(i);
+
+                            if (key == "uppercase" && IS_TRUE(parameters.value("uppercase")))
+                                value = value.toString().toUpper();
+
+                            if (key == "lowercase" && IS_TRUE(parameters.value("lowercase")))
+                                value = value.toString().toLower();
+
+                            if (key == "left" && IS_INT(parameters.value("left"))) {
+                                int left = parameters.value("left").toInt();
+                                if (left > 0)
+                                    value = value.toString().left(left);
+                            }
+
+                            if (key == "underscores" && IS_TRUE(parameters.value("underscores")))
+                                value = replace_spaces_with_underscores(value.toString());
+
+                            if (key == "fat32compatible" && IS_TRUE(parameters.value("fat32compatible")))
+                                value = make_fat32_compatible(value.toString());
+
+                            if (key == "replace_char_list" && IS_TRUE(parameters.value("replace_char_list"))) {
+                                if (parameters.contains("replace_char_list_from") && parameters.contains("replace_char_list_to")
+                                    && parameters.value("replace_char_list_from").toString().length()
+                                        == parameters.value("replace_char_list_to").toString().length())
+                                    value = QVariant(replace_char_list(parameters.value("replace_char_list_from").toString(),
+                                                                       parameters.value("replace_char_list_to").toString(),
+                                                                       value.toString()));
+                                else
+                                    p_error_string = i18n(
+                                                         "replace_char_list parameter needs two more parameters replace_char_list_from and "
+                                                         "replace_char_list_to with equal size.")
+                                                         .arg(index)
+                                                         .arg(c);
+                            }
+
+                            if (key == "length" && IS_INT(value) && IS_INT(parameters.value("length"))) {
+                                int number = value.toInt();
+                                int l = parameters.value("length").toInt();
+                                QChar fc = '0';
+                                if (parameters.contains("fillchar") && !parameters.value("fillchar").toString().isEmpty())
+                                    fc = parameters.value("fillchar").toString().at(0);
+                                value = QString("%1").arg(number, l, 10, fc);
+                            }
+
+                            if (key == "iec" && IS_INT(value)) {
+                                QChar iec;
+                                if (!parameters.value("iec").toString().isEmpty())
+                                    iec = parameters.value("iec").toString().at(0).toLower();
+                                if ((iec != 'b') && (iec != 'k') && (iec != 'm') && (iec != 'g'))
+                                    iec = 'm';
+                                int p = 2;
+                                if (parameters.contains("precision"))
+                                    p = parameters.value("precision").toInt();
+                                if (p < 1)
+                                    p = 2;
+                                if (iec == 'b')
+                                    value = QString("%1").arg(value.toLongLong() / 1.0f, 0, 'f', p);
+                                else if (iec == 'k')
+                                    value = QString("%1").arg(value.toLongLong() / 1024.0f, 0, 'f', p);
+                                else if (iec == 'm')
+                                    value = QString("%1").arg(value.toLongLong() / (1024.0f * 1024.0f), 0, 'f', p);
+                                else if (iec == 'g')
+                                    value = QString("%1").arg(value.toLongLong() / (1024.0f * 1024.0f * 1024.0f), 0, 'f', p);
+                            }
+                            if (key == "format_datetime" && IS_DATETIME(value)) {
+                                QString format;
+                                if (!parameters.value("format_datetime").toString().isEmpty())
+                                    format = parameters.value("format_datetime").toString();
+                                if (format.isEmpty()) {
+                                    value = QString("%1").arg(value.toDateTime().toString());
+                                } else {
+                                    value = QString("%1").arg(value.toDateTime().toString(format));
+                                }
+                            }
+                        }
+
+                        result.append(value.toString());
+
+                        region_parameters_in_braces = false;
+                        region_in_braces = false;
+                        placeholdername.clear();
+
+                        parameters_string.clear();
                     }
+
+                } else {
+                    parameters_string.append(c);
+                }
+            }
+
+        } else if (region_placeholdername) {
+            if (c == '{' && index_placeholdername == 0) {
+                region_in_braces = true;
+                region_placeholdername_in_braces = true;
+                region_placeholdername = false;
+                placeholdername.clear();
+                index_placeholdername = 0;
+            } else {
+                if (!c.isLetterOrNumber() && c != QChar('_')) {
+                    if (placeholders.contains(placeholdername)) {
+                        result.append(placeholders[placeholdername].toString());
+                    }
+                    if (placeholders_parameters)
+                        placeholders_parameters->insert(placeholdername, Parameters());
+                    region_placeholdername = false;
+                    placeholdername.clear();
+                    index_placeholdername = 0;
+                    result.append(c);
+                } else {
+                    placeholdername.append(c);
+                    ++index_placeholdername;
+                }
+            }
+
+        } else {
+            switch (c.unicode()) {
+            case '$':
+                region_placeholdername = true;
+                break;
+            case '\\':
+                if (index < pattern.length() - 1 && pattern[index + 1] == '$') {
+                    result.append('$');
+                    ++index;
+                }
+                break;
+            default:
+                result.append(c);
+            }
+        }
+
+        ++index;
+    }
+
+    if (placeholders.contains(placeholdername)) {
+        result.append(placeholders[placeholdername].toString());
+    }
+
+    if (placeholders_parameters && !placeholdername.isEmpty())
+        placeholders_parameters->insert(placeholdername, Parameters());
+
+    if (region_in_braces) {
+        p_error_string = i18n("Unclosed brace.");
+        return QString();
+    }
+
+    return result;
+}
+
+const QString PatternParser::parseFilenamePattern(const QString &pattern,
+                                                  const int trackno,
+                                                  const int cdno,
+                                                  const int trackoffset,
+                                                  const int nooftracks,
+                                                  const QString &artist,
+                                                  const QString &title,
+                                                  const QString &tartist,
+                                                  const QString &ttitle,
+                                                  const QString &date,
+                                                  const QString &genre,
+                                                  const QString &suffix,
+                                                  const bool fat32compatible,
+                                                  const bool replacespaceswithunderscores,
+                                                  const bool twodigitstracknum)
+{
+    Placeholders placeholders;
+
+    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_TRACK_ARTIST, customize_placeholder_value(tartist, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, true, replacespaceswithunderscores));
+
+    placeholders.insert(VAR_SUFFIX, suffix);
+
+    int tn = trackno;
+    if (trackoffset > 1)
+        tn += trackoffset;
+
+    if (twodigitstracknum)
+        placeholders.insert(VAR_TRACK_NO, QString("%1").arg(tn, 2, 10, QChar('0')));
+    else
+        placeholders.insert(VAR_TRACK_NO, tn);
+
+    placeholders.insert(VAR_CD_NO, cdno);
+    placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
+
+    return parsePattern(pattern, placeholders);
+}
+
+const QString PatternParser::parseCommandPattern(const QString &pattern,
+                                                 const QString &input,
+                                                 const QString &output,
+                                                 const int trackno,
+                                                 const int cdno,
+                                                 const int trackoffset,
+                                                 const int nooftracks,
+                                                 const QString &artist,
+                                                 const QString &title,
+                                                 const QString &tartist,
+                                                 const QString &ttitle,
+                                                 const QString &date,
+                                                 const QString &genre,
+                                                 const QString &suffix,
+                                                 const QImage &cover,
+                                                 const QString &tmppath,
+                                                 const QString &encoder,
+                                                 const bool demomode)
+{
+    Placeholders placeholders;
+
+    placeholders.insert(VAR_INPUT_FILE, input);
+    placeholders.insert(VAR_OUTPUT_FILE, output);
+
+    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist));
+    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title));
+    placeholders.insert(VAR_TRACK_ARTIST, customize_placeholder_value(tartist));
+    placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle));
+    placeholders.insert(VAR_DATE, customize_placeholder_value(date));
+    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre));
+    placeholders.insert(VAR_ENCODER, customize_placeholder_value(encoder));
+
+    placeholders.insert(VAR_AUDEX, customize_placeholder_value(AUDEX_VERSION));
+
+    placeholders.insert(VAR_SUFFIX, suffix);
+
+    int tn = trackno;
+    if (trackoffset > 1)
+        tn += trackoffset;
+    placeholders.insert(VAR_TRACK_NO, tn);
+
+    placeholders.insert(VAR_CD_NO, cdno);
+    placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
+
+    PlaceholdersParameters placeholders_found;
+
+    // Just parse now only to check if cover placeholder is used and retrieve cover parameters - parse again later on:
+    QString result = parsePattern(pattern, placeholders, &placeholders_found);
+
+    if (placeholders_found.contains(VAR_COVER_FILE)) {
+        Parameters cover_parameters = placeholders_found.value(VAR_COVER_FILE, Parameters());
+
+        QString format = STANDARD_EMBED_COVER_FORMAT;
+        if (cover_parameters.contains("format") && !cover_parameters.value("format").toString().isEmpty())
+            format = cover_parameters.value("format").toString();
+
+        if (!QImageReader::supportedImageFormats().contains(format.toLatin1().toUpper()))
+            format = STANDARD_EMBED_COVER_FORMAT;
+
+        QString cover_filepath;
+        bool success = false;
+        if (demomode) {
+            cover_filepath = tmppath + "/cover-embedded." + format.toLower();
+            success = true;
+
+        } else {
+            int x = -1;
+            int y = -1;
+            bool ok;
+            if (cover_parameters.contains("x")) {
+                // when *ok is false, QString::toInt() often return 0
+                x = cover_parameters.value("x").toInt(&ok);
+                if (!ok)
+                    x = -1;
+            }
+            if (cover_parameters.contains("y")) {
+                // when *ok is false, QString::toInt() often return 0
+                x = cover_parameters.value("y").toInt(&ok);
+                if (!ok)
+                    y = -1;
+            }
+
+            cover_filepath = tmppath + "/cover-embedded." + format.toLower();
+
+            if (!QFileInfo::exists(cover_filepath)) {
+                if (cover.isNull()) {
+                    success = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/cdcase_wo_latches.png")))
+                                  .scaledToWidth(STANDARD_EMBED_COVER_WIDTH, Qt::SmoothTransformation)
+                                  .save(cover_filepath, format.toLatin1());
+                } else {
+                    if (x != -1 && y != -1)
+                        success = cover.scaled(QSize(x, y), Qt::IgnoreAspectRatio, Qt::SmoothTransformation).save(cover_filepath);
+                    else
+                        success = cover.scaledToWidth(STANDARD_EMBED_COVER_WIDTH, Qt::SmoothTransformation).save(cover_filepath);
                 }
 
-                if (success)
-                    p_element = "\"" + filename + "\"";
+                if (success) {
+                    qDebug() << "Successfully created temporary cover file" << cover_filepath << "(" << QFileInfo(cover_filepath).size() / 1024 << "KiB)";
+                } else {
+                    p_error_string = i18n("Could not create temporary cover file: %1").arg(cover_filepath);
+                    qDebug() << "WARNING! Could not create temporary cover file" << cover_filepath;
+                }
             }
         }
+
+        if (success)
+            placeholders.insert(VAR_COVER_FILE, cover_filepath);
     }
 
-    if (is_text_pattern) {
-        if (qName == VAR_CD_SIZE) {
-            QChar iec;
-            if (!atts.value("iec").isEmpty())
-                iec = atts.value("iec").at(0);
-            if ((iec != 'b') && (iec != 'k') && (iec != 'm') && (iec != 'g'))
-                iec = 'm';
-            bool ok;
-            int p = atts.value("precision").toInt(&ok);
-            if (!ok)
-                p = 2;
-            if (iec == 'b')
-                p_element += QString("%1").arg(size, 0, 'f', p);
-            else if (iec == 'k')
-                p_element += QString("%1").arg(size / 1024.0f, 0, 'f', p);
-            else if (iec == 'm')
-                p_element += QString("%1").arg(size / (1024.0f * 1024.0f), 0, 'f', p);
-            else if (iec == 'g')
-                p_element += QString("%1").arg(size / (1024.0f * 1024.0f * 1024.0f), 0, 'f', p);
-        }
-        if (qName == VAR_CD_LENGTH)
-            p_element += QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0'));
-        if (qName == VAR_TODAY) {
-            QString format;
-            if (!atts.value("format").isEmpty())
-                format = atts.value("format");
-            if (format.isEmpty()) {
-                p_element += QString("%1").arg(QDate::currentDate().toString());
-            } else {
-                p_element += QString("%1").arg(QDate::currentDate().toString(format));
-            }
-        }
-        if (qName == VAR_NOW) {
-            QString format;
-            if (!atts.value("format").isEmpty())
-                format = atts.value("format");
-            if (format.isEmpty()) {
-                p_element += QString("%1").arg(QDateTime::currentDateTime().toString());
-            } else {
-                p_element += QString("%1").arg(QDateTime::currentDateTime().toString(format));
-            }
-        }
-        if (qName == VAR_LINEBREAK)
-            p_element += '\n';
-        if (qName == VAR_DISCID) {
-            bool ok;
-            int base = atts.value("base").toInt(&ok);
-            if (!ok)
-                base = 16;
-            p_element += QString("%1").arg(discid, 0, base);
-        }
-    }
-
-    if (qName == VAR_NO_OF_TRACKS)
-        p_element += QString("%1").arg(nooftracks);
-    if (qName == VAR_AUDEX)
-        p_element += QString("Audex Version %1").arg(AUDEX_VERSION);
-
-    if ((!p_element.isEmpty()) && (is_command_pattern)) {
-        QString pre = atts.value("pre");
-        QString post = atts.value("post");
-        p_text += pre + p_element + post;
-
-    } else {
-        p_text += p_element;
-    }
-
-    return true;
+    return parsePattern(pattern, placeholders);
 }
 
-bool SaxHandler::endElement(const QString &namespaceURI, const QString &localName, const QString &qName)
+const QString PatternParser::parseSimplePattern(const QString &text,
+                                                const int cdno,
+                                                const int nooftracks,
+                                                const QString &artist,
+                                                const QString &title,
+                                                const QString &date,
+                                                const QString &genre,
+                                                const QString &suffix,
+                                                const bool fat32compatible)
 {
-    Q_UNUSED(namespaceURI);
-    Q_UNUSED(localName);
+    Placeholders placeholders;
 
-    if (qName == VAR_FILENAME_PATTERN) {
-        is_filename_pattern = false;
-        p_text.replace("//", "/");
-        p_text = p_text.simplified();
-        return true;
-    }
-    if (qName == VAR_COMMAND_PATTERN) {
-        is_command_pattern = false;
-        p_text.replace("//", "/");
-        p_text = p_text.simplified();
-        return true;
-    }
-    if (qName == VAR_SIMPLE_PATTERN) {
-        is_simple_pattern = false;
-        p_text.replace("//", "/");
-        p_text = p_text.simplified();
-        return true;
-    }
-    if (qName == VAR_TEXT_PATTERN) {
-        is_text_pattern = false;
-        return true;
-    }
+    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible, false));
+    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible, false));
+    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, false));
+    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, false));
 
-    return true;
+    placeholders.insert(VAR_SUFFIX, suffix);
+
+    placeholders.insert(VAR_CD_NO, cdno);
+    placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
+
+    return parsePattern(text, placeholders);
 }
 
-bool SaxHandler::characters(const QString &ch)
+void PatternParser::parseInfoTextPattern(QStringList &text,
+                                         const QString &artist,
+                                         const QString &title,
+                                         const QString &date,
+                                         const QString &genre,
+                                         const quint32 discid,
+                                         const qreal size,
+                                         const int length,
+                                         const int nooftracks)
 {
-    p_text += ch;
-    return true;
+    Placeholders placeholders;
+
+    placeholders.insert(VAR_ALBUM_ARTIST, artist);
+    placeholders.insert(VAR_ALBUM_TITLE, title);
+    placeholders.insert(VAR_DATE, date);
+    placeholders.insert(VAR_GENRE, genre);
+    placeholders.insert(VAR_AUDEX, AUDEX_VERSION);
+
+    placeholders.insert(VAR_DISCID, QString("%1").arg(discid, 0, 16));
+    placeholders.insert(VAR_CD_LENGTH, QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0')));
+    placeholders.insert(VAR_CD_SIZE, size);
+    placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
+    placeholders.insert(VAR_TODAY, QDate::currentDate());
+    placeholders.insert(VAR_NOW, QDateTime::currentDateTime());
+    placeholders.insert(VAR_LINEBREAK, QString("\n"));
+
+    text = parsePattern(text.join('\n'), placeholders).split('\n');
 }
 
-bool SaxHandler::fatalError(const QXmlParseException &exception)
-{
-    qDebug() << QString("XML pattern parse error: Column %1 (%2)").arg(exception.columnNumber()).arg(exception.message());
-    return false;
-}
-
-const QString SaxHandler::make_compatible(const QString &string)
+const QString PatternParser::make_compatible(const QString &string)
 {
     QString s = string;
     for (int i = 0; i < s.size(); i++) {
-        switch (s[i].toLatin1()) {
+        switch (s[i].unicode()) {
         case '/':
         case '\\':
             s[i] = '_';
@@ -463,19 +471,19 @@ const QString SaxHandler::make_compatible(const QString &string)
     return s;
 }
 
-const QString SaxHandler::make_compatible_2(const QString &string)
+const QString PatternParser::make_compatible_2(const QString &string)
 {
     QString s = string;
-    s.replace('"', "\\\"");
+    s = s.replace('"', "\"");
     return s;
 }
 
 // remove \ / : * ? " < > |
-const QString SaxHandler::make_fat32_compatible(const QString &string)
+const QString PatternParser::make_fat32_compatible(const QString &string)
 {
     QString s = string;
     for (int i = 0; i < s.size(); i++) {
-        switch (s[i].toLatin1()) {
+        switch (s[i].unicode()) {
         case '\\':
         case '/':
         case ':':
@@ -495,277 +503,28 @@ const QString SaxHandler::make_fat32_compatible(const QString &string)
     return s;
 }
 
-const QString SaxHandler::replace_spaces_with_underscores(const QString &string)
+const QString PatternParser::replace_spaces_with_underscores(const QString &string)
 {
     QString s = string;
     s.replace(' ', '_');
     return s;
 }
 
-const QString SaxHandler::replace_char_list(const QXmlAttributes &atts, const QString &string)
+const QString PatternParser::replace_char_list(const QString &from, const QString &to, const QString &string)
 {
-    int i;
-    QString from, to, result;
-
-    qDebug() << "starting replacement for: " << string;
-
-    from = atts.value("replace_char_list_from");
-    to = atts.value("replace_char_list_to");
+    qDebug() << "starting replacement for:" << string;
 
     if (from.count() != to.count()) {
         qDebug() << "Could not replace if list length are not equal";
         return string;
     }
 
-    result = string;
-    for (i = 0; i < from.count(); i++) {
-        result.replace(from.at(i), to.at(i));
+    QString result = string;
+    for (int i = 0; i < from.count(); i++) {
+        result = result.replace(from.at(i), to.at(i));
     }
 
-    qDebug() << "finished: " << result;
+    qDebug() << "finished:" << result;
 
     return result;
-}
-
-PatternParser::PatternParser(QObject *parent)
-    : QObject(parent)
-{
-    Q_UNUSED(parent);
-}
-
-PatternParser::~PatternParser()
-{
-}
-
-const QString PatternParser::parseFilenamePattern(const QString &pattern,
-                                                  int trackno,
-                                                  int cdno,
-                                                  int trackoffset,
-                                                  int nooftracks,
-                                                  const QString &artist,
-                                                  const QString &title,
-                                                  const QString &tartist,
-                                                  const QString &ttitle,
-                                                  const QString &date,
-                                                  const QString &genre,
-                                                  const QString &suffix,
-                                                  bool fat32compatible,
-                                                  bool replacespaceswithunderscores,
-                                                  bool _2digitstracknum)
-{
-    SaxHandler handler;
-    handler.setTrackNo(trackno);
-    handler.setCDNo(cdno);
-    handler.setTrackOffset(trackoffset);
-    handler.setNoOfTracks(nooftracks);
-    handler.setArtist(artist);
-    handler.setTitle(title);
-    handler.setTrackArtist(tartist);
-    handler.setTrackTitle(ttitle);
-    handler.setDate(date);
-    handler.setGenre(genre);
-    handler.setSuffix(suffix);
-    handler.setFAT32Compatible(fat32compatible);
-    handler.setReplaceSpacesWithUnderscores(replacespaceswithunderscores);
-    handler.set2DigitsTrackNum(_2digitstracknum);
-
-    QXmlInputSource inputSource;
-    inputSource.setData("<filenamepattern>" + p_xmlize_pattern(pattern) + "</filenamepattern>");
-    QXmlSimpleReader reader;
-    reader.setContentHandler(&handler);
-    reader.setErrorHandler(&handler);
-    reader.parse(inputSource);
-
-    return handler.text();
-}
-
-const QString PatternParser::parseCommandPattern(const QString &pattern,
-                                                 const QString &input,
-                                                 const QString &output,
-                                                 int trackno,
-                                                 int cdno,
-                                                 int trackoffset,
-                                                 int nooftracks,
-                                                 const QString &artist,
-                                                 const QString &title,
-                                                 const QString &tartist,
-                                                 const QString &ttitle,
-                                                 const QString &date,
-                                                 const QString &genre,
-                                                 const QString &suffix,
-                                                 const QImage &cover,
-                                                 bool fatcompatible,
-                                                 const QString &tmppath,
-                                                 const QString &encoder,
-                                                 const bool demomode)
-{
-    SaxHandler handler;
-    handler.setInputFile(input);
-    handler.setOutputFile(output);
-    handler.setTrackNo(trackno);
-    handler.setCDNo(cdno);
-    handler.setTrackOffset(trackoffset);
-    handler.setNoOfTracks(nooftracks);
-    handler.setArtist(artist);
-    handler.setTitle(title);
-    handler.setTrackArtist(tartist);
-    handler.setTrackTitle(ttitle);
-    handler.setDate(date);
-    handler.setGenre(genre);
-    handler.setSuffix(suffix);
-    handler.setCover(cover);
-    handler.setFAT32Compatible(fatcompatible);
-    handler.setTMPPath(tmppath);
-    handler.setDemoMode(demomode);
-    handler.set2DigitsTrackNum(false);
-    handler.setEncoder(encoder);
-
-    QXmlInputSource inputSource;
-    inputSource.setData("<commandpattern>" + p_xmlize_pattern(pattern) + "</commandpattern>");
-    QXmlSimpleReader reader;
-    reader.setContentHandler(&handler);
-    reader.setErrorHandler(&handler);
-    reader.parse(inputSource);
-
-    return handler.text();
-}
-
-const QString PatternParser::parseSimplePattern(const QString &pattern,
-                                                int cdno,
-                                                const int nooftracks,
-                                                const QString &artist,
-                                                const QString &title,
-                                                const QString &date,
-                                                const QString &genre,
-                                                const QString &suffix,
-                                                bool fat32compatible)
-{
-    SaxHandler handler;
-    handler.setCDNo(cdno);
-    handler.setNoOfTracks(nooftracks);
-    handler.setArtist(artist);
-    handler.setTitle(title);
-    handler.setDate(date);
-    handler.setGenre(genre);
-    handler.setSuffix(suffix);
-    handler.setFAT32Compatible(fat32compatible);
-    handler.setReplaceSpacesWithUnderscores(false);
-    handler.set2DigitsTrackNum(false);
-
-    QXmlInputSource inputSource;
-    inputSource.setData("<simplepattern>" + p_xmlize_pattern(pattern) + "</simplepattern>");
-    QXmlSimpleReader reader;
-    reader.setContentHandler(&handler);
-    reader.setErrorHandler(&handler);
-    reader.parse(inputSource);
-
-    return handler.text();
-}
-
-void PatternParser::parseInfoText(QStringList &text,
-                                  const QString &artist,
-                                  const QString &title,
-                                  const QString &date,
-                                  const QString &genre,
-                                  const quint32 discid,
-                                  const qreal size,
-                                  const int length,
-                                  const int nooftracks)
-{
-    SaxHandler handler;
-    handler.setArtist(artist);
-    handler.setTitle(title);
-    handler.setDate(date);
-    handler.setGenre(genre);
-    handler.setDiscid(discid);
-    handler.setSize(size);
-    handler.setLength(length);
-    handler.setNoOfTracks(nooftracks);
-    handler.set2DigitsTrackNum(false);
-
-    QXmlInputSource inputSource;
-    inputSource.setData("<textpattern>" + p_xmlize_pattern(text.join("\n")) + "</textpattern>");
-    QXmlSimpleReader reader;
-    reader.setContentHandler(&handler);
-    reader.setErrorHandler(&handler);
-    reader.parse(inputSource);
-
-    text = handler.text().split('\n');
-}
-
-const QString PatternParser::p_xmlize_pattern(const QString &pattern)
-{
-    QString newpattern;
-
-    QString name;
-    int s = 0;
-    for (int i = 0; i < pattern.length(); ++i) {
-        if (pattern[i] == '&') {
-            newpattern += "&amp;";
-            continue;
-        }
-
-        switch (s) {
-        // outside var
-        case 0:
-            if (pattern[i] == '$') {
-                name.clear();
-                s = 1;
-                continue;
-            }
-            break;
-
-        // inside var
-        case 1:
-            if (pattern[i] == '{') {
-                s = 3;
-            } else if (pattern[i] == '$') {
-                newpattern += '$';
-                s = 0;
-            } else {
-                s = 2;
-                name += pattern[i];
-            }
-            continue;
-
-        // inside simple var
-        case 2:
-            if (!pattern[i].isLetter()) {
-                if (!name.trimmed().isEmpty())
-                    newpattern += '<' + name + " />";
-                name.clear();
-                s = 0;
-                if (pattern[i] == '$') {
-                    name.clear();
-                    s = 1;
-                    continue;
-                } else {
-                    newpattern += pattern[i];
-                }
-                continue;
-            }
-            name += pattern[i];
-            continue;
-
-        // inside extended var
-        case 3:
-            if (pattern[i] == '}') {
-                if (!name.trimmed().isEmpty())
-                    newpattern += '<' + name + " />";
-                name.clear();
-                s = 0;
-                continue;
-            }
-            name += pattern[i];
-            continue;
-        }
-
-        newpattern += pattern[i];
-    }
-
-    // rest at the end?
-    if ((s == 2) && (!name.trimmed().isEmpty()))
-        newpattern += '<' + name + " />";
-
-    return newpattern;
 }

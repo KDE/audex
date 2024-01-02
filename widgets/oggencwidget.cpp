@@ -20,21 +20,21 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent)
         return;
     }
 
-    horizontalSlider_quality->setValue((int)(parameters->valueToFloat(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY) * 10));
+    horizontalSlider_quality->setValue(parameters->value(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY).toInt() * 10);
 
-    kdoublenuminput_quality->setValue(parameters->valueToFloat(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY));
+    kdoublenuminput_quality->setValue(parameters->value(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY).toReal());
 
-    set_bitrate(parameters->valueToInt(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY));
+    set_bitrate(parameters->value(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY).toInt());
 
-    enable_min_bitrate(parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY));
-    checkBox_minbitrate->setChecked(parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY));
-    kintspinbox_minbitrate->setValue(parameters->valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE));
-    set_minbitrate(parameters->valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE));
-    enable_max_bitrate(parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY));
-    checkBox_maxbitrate->setChecked(parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY));
-    kintspinbox_maxbitrate->setValue(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
-    set_maxbitrate(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
-    qlineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
+    enable_min_bitrate(parameters->value(ENCODER_OGGENC_MINBITRATE_KEY).toBool());
+    checkBox_minbitrate->setChecked(parameters->value(ENCODER_OGGENC_MINBITRATE_KEY).toBool());
+    kintspinbox_minbitrate->setValue(parameters->value(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE).toInt());
+    set_minbitrate(parameters->value(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE).toInt());
+    enable_max_bitrate(parameters->value(ENCODER_OGGENC_MAXBITRATE_KEY).toBool());
+    checkBox_maxbitrate->setChecked(parameters->value(ENCODER_OGGENC_MAXBITRATE_KEY).toBool());
+    kintspinbox_maxbitrate->setValue(parameters->value(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE).toInt());
+    set_maxbitrate(parameters->value(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE).toInt());
+    qlineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX).toString());
 
     connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
     connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
@@ -171,10 +171,12 @@ void oggencWidget::set_maxbitrate(int bitrate)
 
 void oggencWidget::trigger_changed()
 {
-    changed = (kdoublenuminput_quality->value() != parameters->valueToFloat(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY) ||
-               kintspinbox_minbitrate->value() != parameters->valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE) || checkBox_minbitrate->isChecked() != parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY) ||
-               kintspinbox_maxbitrate->value() != parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE) || checkBox_maxbitrate->isChecked() != parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY) ||
-               qlineedit_suffix->text() != parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
+    changed = (kdoublenuminput_quality->value() != parameters->value(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY).toReal()
+               || kintspinbox_minbitrate->value() != parameters->value(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE).toInt()
+               || checkBox_minbitrate->isChecked() != parameters->value(ENCODER_OGGENC_MINBITRATE_KEY).toBool()
+               || kintspinbox_maxbitrate->value() != parameters->value(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE).toInt()
+               || checkBox_maxbitrate->isChecked() != parameters->value(ENCODER_OGGENC_MAXBITRATE_KEY).toBool()
+               || qlineedit_suffix->text() != parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }

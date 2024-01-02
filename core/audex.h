@@ -221,7 +221,7 @@ private:
                                    const QString &genre,
                                    const QString &ext,
                                    const QString &basepath,
-                                   bool fat_compatible,
+                                   bool fat32_compatible,
                                    bool replacespaceswithunderscores,
                                    bool _2digitstracknum,
                                    bool overwrite_existing_files,

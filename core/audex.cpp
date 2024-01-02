@@ -373,7 +373,6 @@ void Audex::start_encode()
                                      year,
                                      suffix,
                                      cdda_model->cover(),
-                                     false,
                                      tmp_dir.path(),
                                      job->sourceFilename(),
                                      targetFilename)) {
@@ -404,8 +403,6 @@ void Audex::start_encode()
         QString year = cdda_model->year();
         QString genre = cdda_model->genre();
         QString suffix = p_suffix;
-        bool fat32_compatible =
-            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
 
         QString targetFilename = job->targetFilename();
         en_track_target_filename = targetFilename;
@@ -428,7 +425,6 @@ void Audex::start_encode()
                                          year,
                                          suffix,
                                          cdda_model->cover(),
-                                         fat32_compatible,
                                          tmp_dir.path(),
                                          job->sourceFilename(),
                                          targetFilename)) {
@@ -447,7 +443,6 @@ void Audex::start_encode()
                                          year,
                                          suffix,
                                          cdda_model->cover(),
-                                         fat32_compatible,
                                          tmp_dir.path(),
                                          job->sourceFilename(),
                                          targetFilename)) {
@@ -590,7 +585,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
                                       const QString &genre,
                                       const QString &ext,
                                       const QString &basepath,
-                                      bool fat_compatible,
+                                      bool fat32_compatible,
                                       bool replacespaceswithunderscores,
                                       bool _2digitstracknum,
                                       bool overwrite_existing_files,
@@ -613,7 +608,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
             year,
             genre,
             ext,
-            fat_compatible,
+            fat32_compatible,
             replacespaceswithunderscores,
             _2digitstracknum);
 
@@ -913,15 +908,15 @@ void Audex::execute_finish()
                 QTextStream out(&file);
                 QStringList text =
                     profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
-                patternparser.parseInfoText(text,
-                                            cdda_model->artist(),
-                                            cdda_model->title(),
-                                            QString("%1").arg(cdda_model->year()),
-                                            cdda_model->genre(),
-                                            DiscIDCalculator::CDDBId(cdda_model->discSignature()),
-                                            p_size_of_all_files(target_filename_list),
-                                            cdda_model->lengthOfAudioTracksInSelection(),
-                                            cdda_model->numOfAudioTracksInSelection());
+                patternparser.parseInfoTextPattern(text,
+                                                   cdda_model->artist(),
+                                                   cdda_model->title(),
+                                                   QString("%1").arg(cdda_model->year()),
+                                                   cdda_model->genre(),
+                                                   DiscIDCalculator::CDDBId(cdda_model->discSignature()),
+                                                   p_size_of_all_files(target_filename_list),
+                                                   cdda_model->lengthOfAudioTracksInSelection(),
+                                                   cdda_model->numOfAudioTracksInSelection());
                 out << text.join("\n");
                 file.close();
                 Q_EMIT info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));

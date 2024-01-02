@@ -64,21 +64,21 @@
 
 /* preset normal quality */
 #define ENCODER_LAME_PRESET 1
-#define ENCODER_LAME_CBR "false"
+#define ENCODER_LAME_CBR false
 #define ENCODER_LAME_BITRATE 192
-#define ENCODER_LAME_EMBED_COVER "false"
+#define ENCODER_LAME_EMBED_COVER false
 
 /* preset mobile quality */
 #define ENCODER_LAME_PRESET_M 4
-#define ENCODER_LAME_CBR_M "false"
+#define ENCODER_LAME_CBR_M false
 #define ENCODER_LAME_BITRATE_M 128
-#define ENCODER_LAME_EMBED_COVER_M "false"
+#define ENCODER_LAME_EMBED_COVER_M false
 
 /* preset extreme quality */
 #define ENCODER_LAME_PRESET_X 2
-#define ENCODER_LAME_CBR_X "false"
+#define ENCODER_LAME_CBR_X false
 #define ENCODER_LAME_BITRATE_X 192
-#define ENCODER_LAME_EMBED_COVER_X "false"
+#define ENCODER_LAME_EMBED_COVER_X false
 
 #define ENCODER_OGGENC_NAME i18n("Ogg Vorbis")
 #define ENCODER_OGGENC_ENCODER_NAME "OGGENC"
@@ -132,7 +132,7 @@
 #define ENCODER_FLAC_SUFFIX "flac"
 
 #define ENCODER_FLAC_COMPRESSION 5
-#define ENCODER_FLAC_EMBED_COVER "true"
+#define ENCODER_FLAC_EMBED_COVER true
 
 #define ENCODER_FAAC_NAME i18n("MP4 (AAC)")
 #define ENCODER_FAAC_ENCODER_NAME "FAAC"

@@ -46,7 +46,6 @@ bool EncoderWrapper::encode(int n,
                             const QString &date,
                             const QString &suffix,
                             const QImage &cover,
-                            bool fat_compatible,
                             const QString &tmppath,
                             const QString &input,
                             const QString &output)
@@ -63,7 +62,23 @@ bool EncoderWrapper::encode(int n,
     }
 
     PatternParser patternparser;
-    QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, nooftracks, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath, encoder_name);
+    QString command = patternparser.parseCommandPattern(command_pattern,
+                                                        input,
+                                                        output,
+                                                        n,
+                                                        cdno,
+                                                        trackoffset,
+                                                        nooftracks,
+                                                        artist,
+                                                        album,
+                                                        tartist,
+                                                        ttitle,
+                                                        date,
+                                                        genre,
+                                                        suffix,
+                                                        cover,
+                                                        tmppath,
+                                                        encoder_name);
 
     qDebug() << "executing command " << command;
     proc.setShellCommand(command);
@@ -176,7 +191,8 @@ void EncoderWrapper::processError(QProcess::ProcessError err)
         Q_EMIT error(i18n("%1 timed out. This should not happen.", encoder), i18n("Please check your profile."));
         break;
     case QProcess::WriteError:
-        Q_EMIT error(i18n("An error occurred when attempting to write to %1.", encoder), i18n("For example, the process may not be running, or it may have closed its input channel."));
+        Q_EMIT error(i18n("An error occurred when attempting to write to %1.", encoder),
+                     i18n("For example, the process may not be running, or it may have closed its input channel."));
         break;
     case QProcess::ReadError:
         Q_EMIT error(i18n("An error occurred when attempting to read from %1.", encoder), i18n("For example, the process may not be running."));

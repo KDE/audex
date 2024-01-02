@@ -20,9 +20,9 @@ opusencWidget::opusencWidget(Parameters *parameters, QWidget *parent)
         return;
     }
 
-    horizontalSlider_bitrate->setValue(parameters->valueToInt(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE));
-    kintspinbox_bitrate->setValue(parameters->valueToInt(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE));
-    qlineedit_suffix->setText(parameters->value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX));
+    horizontalSlider_bitrate->setValue(parameters->value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toInt());
+    kintspinbox_bitrate->setValue(parameters->value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toInt());
+    qlineedit_suffix->setText(parameters->value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString());
 
     connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_slider(int)));
     connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
@@ -67,8 +67,8 @@ void opusencWidget::bitrate_changed_by_spinbox(int bitrate)
 
 void opusencWidget::trigger_changed()
 {
-    changed = (horizontalSlider_bitrate->value() != parameters->valueToInt(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE)
-               || qlineedit_suffix->text() != parameters->value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX));
+    changed = (horizontalSlider_bitrate->value() != parameters->value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toInt()
+               || qlineedit_suffix->text() != parameters->value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }
