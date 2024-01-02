@@ -336,7 +336,7 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         cmd += QString(" --bitrate %1").arg(bitrate, 0, 'f', 2);
 
         cmd += QString::fromUtf8(" --artist \"$" VAR_TRACK_ARTIST "\" --title \"$" VAR_TRACK_TITLE "\" --album \"$" VAR_ALBUM_TITLE "\" --date \"$" VAR_DATE
-                                 "\" --track \"$" VAR_TRACK_NO "\" --genre \"$" VAR_GENRE
+                                 "\" --tracknumber \"$" VAR_TRACK_NO "\" --genre \"$" VAR_GENRE
                                  "\""
                                  " $" VAR_INPUT_FILE " $" VAR_OUTPUT_FILE);
 
