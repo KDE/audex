@@ -25,7 +25,7 @@ Beyond these you can define custom profiles for nearly any encoding binary suppo
 ### Build and install
 
 ```
-cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr -B build/
+cmake -DQT_MAJOR_VERSION=6 -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr -B build/
 cmake --build build/
 ```
 
