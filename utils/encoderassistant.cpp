@@ -268,32 +268,31 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         bool embed_cover = parameters.value(ENCODER_LAME_EMBED_COVER_KEY).toBool();
         QString cmd = ENCODER_LAME_BIN;
         switch (preset) {
-        case 0:
+        case ENCODER_LAME_PRESET_MEDIUM:
             cmd += " --preset medium";
             break;
-        case 1:
+        case ENCODER_LAME_PRESET_STANDARD:
             cmd += " --preset standard";
             break;
-        case 2:
+        case ENCODER_LAME_PRESET_EXTREME:
             cmd += " --preset extreme";
             break;
-        case 3:
+        case ENCODER_LAME_PRESET_INSANE:
             cmd += " --preset insane";
             break;
-        case 4:
+        case ENCODER_LAME_PRESET_CUSTOM:
             cmd += QString(" --preset") + (cbr ? QString(" cbr") : QString()) + QString(" %1").arg(bitrate);
             break;
         default:
             cmd += " --preset standard";
         }
         QString v = EncoderAssistant::version(EncoderAssistant::LAME);
-        if ((v.startsWith(QLatin1String("3.95"))) || (v.startsWith(QLatin1String("3.96"))) || (v.startsWith(QLatin1String("3.97")))) {
+        if ((v.startsWith(QLatin1String("3.95"))) || (v.startsWith(QLatin1String("3.96"))) || (v.startsWith(QLatin1String("3.97"))))
             cmd += QString(" --vbr-new");
-        }
 
-        if (embed_cover) {
-            cmd += QString::fromUtf8(" --ti ${" VAR_COVER_FILE "}");
-        }
+        if (embed_cover)
+            cmd += QString::fromUtf8(" --ti \"${" VAR_COVER_FILE "}\"");
+
         cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$" VAR_TRACK_TITLE "\" --ta \"$" VAR_TRACK_ARTIST
                                  "\" --tl \"$" VAR_ALBUM_TITLE "\" --ty \"$" VAR_DATE "\" --tn \"$" VAR_TRACK_NO "/$" VAR_NO_OF_TRACKS "\" --tc \"$" VAR_AUDEX
                                  " / Encoder $" VAR_ENCODER
@@ -312,13 +311,11 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         QString cmd = ENCODER_OGGENC_BIN;
         cmd += QString(" -q %1").arg(quality, 0, 'f', 2);
 
-        if (min_bitrate) {
+        if (min_bitrate)
             cmd += QString(" -m %1").arg(min_bitrate_value);
-        }
 
-        if (max_bitrate) {
+        if (max_bitrate)
             cmd += QString(" -M %1").arg(max_bitrate_value);
-        }
 
         cmd += QString::fromUtf8(" -c \"Artist=$" VAR_TRACK_ARTIST "\" -c \"Title=$" VAR_TRACK_TITLE "\" -c \"Album=$" VAR_ALBUM_TITLE "\" -c \"Date=$" VAR_DATE
                                  "\" -c \"Tracknumber=$" VAR_TRACK_NO "\" -c \"Genre=$" VAR_GENRE "\" -c Discnumber=$" VAR_CD_NO " -o \"$" VAR_OUTPUT_FILE
@@ -348,9 +345,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
         if (embed_cover) {
             long versionNumber = EncoderAssistant::versionNumber(EncoderAssistant::FLAC);
 
-            if (versionNumber >= makeVersionNumber(1, 1, 3)) {
+            if (versionNumber >= makeVersionNumber(1, 1, 3))
                 cmd += QString::fromUtf8(" --picture=\"\\|\\|\\|\\|$" VAR_COVER_FILE "\"");
-            }
         }
         cmd += QString(" -%1").arg(compression);
         cmd += QString::fromUtf8(" -T Artist=\"$" VAR_TRACK_ARTIST "\" -T Title=\"$" VAR_TRACK_TITLE "\" -T Album=\"$" VAR_ALBUM_TITLE "\" -T Date=\"$" VAR_DATE
@@ -382,83 +378,34 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
     return "";
 }
 
-Parameters EncoderAssistant::stdParameters(const Encoder encoder, const Quality quality)
+Parameters EncoderAssistant::stdParameters(const Encoder encoder)
 {
     Parameters parameters;
 
     switch (encoder) {
     case EncoderAssistant::LAME:
 
-        switch (quality) {
-        case NORMAL:
-            parameters.setValue(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET);
-            parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER);
-            parameters.setValue(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE);
-            parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER);
-            break;
-
-        case MOBILE:
-            parameters.setValue(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET_M);
-            parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER_M);
-            parameters.setValue(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE_M);
-            parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER_M);
-            break;
-
-        case EXTREME:
-            parameters.setValue(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET_X);
-            parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER_X);
-            parameters.setValue(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE_X);
-            parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER_X);
-            break;
-        }
+        parameters.setValue(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET);
+        parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER);
+        parameters.setValue(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE);
+        parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER);
 
         break;
 
     case EncoderAssistant::OGGENC:
 
-        switch (quality) {
-        case NORMAL:
-            parameters.setValue(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY);
-            parameters.setValue(ENCODER_OGGENC_MINBITRATE_KEY, ENCODER_OGGENC_MINBITRATE);
-            parameters.setValue(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE);
-            parameters.setValue(ENCODER_OGGENC_MAXBITRATE_KEY, ENCODER_OGGENC_MAXBITRATE);
-            parameters.setValue(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE);
-            break;
-
-        case MOBILE:
-            parameters.setValue(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY_M);
-            parameters.setValue(ENCODER_OGGENC_MINBITRATE_KEY, ENCODER_OGGENC_MINBITRATE_M);
-            parameters.setValue(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE_M);
-            parameters.setValue(ENCODER_OGGENC_MAXBITRATE_KEY, ENCODER_OGGENC_MAXBITRATE_M);
-            parameters.setValue(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE_M);
-            break;
-
-        case EXTREME:
-            parameters.setValue(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY_X);
-            parameters.setValue(ENCODER_OGGENC_MINBITRATE_KEY, ENCODER_OGGENC_MINBITRATE_X);
-            parameters.setValue(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE_X);
-            parameters.setValue(ENCODER_OGGENC_MAXBITRATE_KEY, ENCODER_OGGENC_MAXBITRATE_X);
-            parameters.setValue(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE_X);
-            break;
-        }
+        parameters.setValue(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY);
+        parameters.setValue(ENCODER_OGGENC_MINBITRATE_KEY, ENCODER_OGGENC_MINBITRATE);
+        parameters.setValue(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE);
+        parameters.setValue(ENCODER_OGGENC_MAXBITRATE_KEY, ENCODER_OGGENC_MAXBITRATE);
+        parameters.setValue(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE);
 
         break;
 
     case EncoderAssistant::OPUSENC:
 
-        switch (quality) {
-        case NORMAL:
-            parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE);
-            break;
-
-        case MOBILE:
-            parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE_M);
-            break;
-
-        case EXTREME:
-            parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE_X);
-            break;
-        }
+        parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE);
+        break;
 
         break;
 
@@ -471,19 +418,8 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder, const Quality 
 
     case EncoderAssistant::FAAC:
 
-        switch (quality) {
-        case NORMAL:
-            parameters.setValue(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
-            break;
-
-        case MOBILE:
-            parameters.setValue(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY_M);
-            break;
-
-        case EXTREME:
-            parameters.setValue(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY_X);
-            break;
-        }
+        parameters.setValue(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
+        break;
 
         break;
 

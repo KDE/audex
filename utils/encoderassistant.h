@@ -62,23 +62,11 @@
 #define ENCODER_LAME_SUFFIX "mp3"
 #define ENCODER_LAME_MAX_EMBED_COVER_SIZE 128 * 1024
 
-/* preset normal quality */
-#define ENCODER_LAME_PRESET 1
+/* preset quality */
+#define ENCODER_LAME_PRESET 2
 #define ENCODER_LAME_CBR false
-#define ENCODER_LAME_BITRATE 192
+#define ENCODER_LAME_BITRATE 224
 #define ENCODER_LAME_EMBED_COVER false
-
-/* preset mobile quality */
-#define ENCODER_LAME_PRESET_M 4
-#define ENCODER_LAME_CBR_M false
-#define ENCODER_LAME_BITRATE_M 128
-#define ENCODER_LAME_EMBED_COVER_M false
-
-/* preset extreme quality */
-#define ENCODER_LAME_PRESET_X 2
-#define ENCODER_LAME_CBR_X false
-#define ENCODER_LAME_BITRATE_X 192
-#define ENCODER_LAME_EMBED_COVER_X false
 
 #define ENCODER_OGGENC_NAME i18n("Ogg Vorbis")
 #define ENCODER_OGGENC_ENCODER_NAME "OGGENC"
@@ -87,26 +75,12 @@
 #define ENCODER_OGGENC_VERSION_PARA "--version"
 #define ENCODER_OGGENC_SUFFIX "ogg"
 
-/* preset normal quality */
-#define ENCODER_OGGENC_QUALITY 4
-#define ENCODER_OGGENC_MINBITRATE true
+/* preset quality */
+#define ENCODER_OGGENC_QUALITY 5
+#define ENCODER_OGGENC_MINBITRATE false
 #define ENCODER_OGGENC_MINBITRATE_VALUE 80
 #define ENCODER_OGGENC_MAXBITRATE false
-#define ENCODER_OGGENC_MAXBITRATE_VALUE 256
-
-/* preset mobile quality */
-#define ENCODER_OGGENC_QUALITY_M 2
-#define ENCODER_OGGENC_MINBITRATE_M false
-#define ENCODER_OGGENC_MINBITRATE_VALUE_M 80
-#define ENCODER_OGGENC_MAXBITRATE_M true
-#define ENCODER_OGGENC_MAXBITRATE_VALUE_M 224
-
-/* preset extreme quality */
-#define ENCODER_OGGENC_QUALITY_X 6
-#define ENCODER_OGGENC_MINBITRATE_X false
-#define ENCODER_OGGENC_MINBITRATE_VALUE_X 80
-#define ENCODER_OGGENC_MAXBITRATE_X false
-#define ENCODER_OGGENC_MAXBITRATE_VALUE_X 256
+#define ENCODER_OGGENC_MAXBITRATE_VALUE 320
 
 #define ENCODER_OPUSENC_NAME i18n("Opus")
 #define ENCODER_OPUSENC_ENCODER_NAME "OPUSENC"
@@ -117,12 +91,6 @@
 
 /* preset normal quality */
 #define ENCODER_OPUSENC_BITRATE 128
-
-/* preset mobile quality */
-#define ENCODER_OPUSENC_BITRATE_M 64
-
-/* preset extreme quality */
-#define ENCODER_OPUSENC_BITRATE_X 256
 
 #define ENCODER_FLAC_NAME i18n("FLAC (Lossless)")
 #define ENCODER_FLAC_ENCODER_NAME "FLAC"
@@ -141,14 +109,8 @@
 #define ENCODER_FAAC_VERSION_PARA "--help"
 #define ENCODER_FAAC_SUFFIX "mp4"
 
-/* preset normal quality */
-#define ENCODER_FAAC_QUALITY 150
-
-/* preset mobile quality */
-#define ENCODER_FAAC_QUALITY_M 110
-
-/* preset extreme quality */
-#define ENCODER_FAAC_QUALITY_X 300
+/* preset quality */
+#define ENCODER_FAAC_QUALITY 160
 
 #define ENCODER_WAVE_NAME i18n("WAVE (Raw Uncompressed)")
 #define ENCODER_WAVE_ENCODER_NAME "WAVE"
@@ -181,9 +143,7 @@ const QString version(const Encoder encoder);
 long versionNumber(const Encoder encoder);
 const QString pattern(const Encoder encoder, const Parameters &parameters);
 
-enum Quality { MOBILE = 0, NORMAL, EXTREME };
-
-Parameters stdParameters(const Encoder encoder, const Quality quality);
+Parameters stdParameters(const Encoder encoder);
 
 const QMap<int, QString> encoderList();
 const QMap<int, QString> availableEncoderNameList();
