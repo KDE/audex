@@ -10,7 +10,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &size, const QString &format, const QString &pattern, QWidget *parent)
+ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &size, const QString &format, const QString &scheme, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
@@ -18,7 +18,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &si
     this->scale = scale;
     this->size = size;
     this->format = format;
-    this->pattern = pattern;
+    this->scheme = scheme;
 
     setWindowTitle(i18n("Cover Settings"));
 
@@ -39,8 +39,8 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &si
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-    ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.checkBox_scale->setChecked(scale);
     enable_scale(ui.checkBox_scale->isChecked());
@@ -62,8 +62,8 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize &si
     }
     connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-    ui.qlineedit_pattern->setText(pattern);
-    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    ui.qlineedit_scheme->setText(scheme);
+    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
     applyButton->setEnabled(false);
 }
@@ -83,18 +83,18 @@ void ProfileDataCoverDialog::slotApplied()
     save();
 }
 
-void ProfileDataCoverDialog::pattern_wizard()
+void ProfileDataCoverDialog::scheme_wizard()
 {
     QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-    SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
+    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    ui.qlineedit_pattern->setText(dialog->pattern);
+    ui.qlineedit_scheme->setText(dialog->scheme);
 
     delete dialog;
 
@@ -119,7 +119,7 @@ void ProfileDataCoverDialog::trigger_changed()
         applyButton->setEnabled(true);
         return;
     }
-    if (ui.qlineedit_pattern->text() != pattern) {
+    if (ui.qlineedit_scheme->text() != scheme) {
         applyButton->setEnabled(true);
         return;
     }
@@ -138,7 +138,7 @@ bool ProfileDataCoverDialog::save()
     scale = ui.checkBox_scale->isChecked();
     size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
     format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-    pattern = ui.qlineedit_pattern->text();
+    scheme = ui.qlineedit_scheme->text();
     applyButton->setEnabled(false);
     return true;
 }

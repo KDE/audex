@@ -26,7 +26,7 @@
 #include "widgets/wavewidget.h"
 
 #include "dialogs/errordialog.h"
-#include "dialogs/patternwizarddialog.h"
+#include "dialogs/schemewizarddialog.h"
 #include "dialogs/profiledatacoverdialog.h"
 #include "dialogs/profiledatacuesheetdialog.h"
 #include "dialogs/profiledatahashlistdialog.h"
@@ -61,7 +61,7 @@ private Q_SLOTS:
     void enable_filenames(bool enabled);
     void disable_filenames(bool disabled);
 
-    void pattern_wizard();
+    void scheme_wizard();
 
     void cover_settings();
     void playlist_settings();
@@ -99,23 +99,23 @@ private:
     bool pdcd_scale;
     QSize pdcd_size;
     QString pdcd_format;
-    QString pdcd_pattern;
+    QString pdcd_scheme;
 
     QString pdpd_format;
-    QString pdpd_pattern;
+    QString pdpd_scheme;
     bool pdpd_abs_file_path;
     bool pdpd_utf8;
 
     QStringList pdid_text;
-    QString pdid_pattern;
+    QString pdid_scheme;
     QString pdid_suffix;
 
     QString pdhd_format;
-    QString pdhd_pattern;
+    QString pdhd_scheme;
 
-    QString pdud_pattern;
+    QString pdud_scheme;
 
-    QString pdsd_pattern;
+    QString pdsd_scheme;
 
     bool save();
 

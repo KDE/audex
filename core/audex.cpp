@@ -22,7 +22,7 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
 
     encoder_wrapper = new EncoderWrapper(this,
-                                         profile_model->getSelectedEncoderPatternFromCurrentIndex(),
+                                         profile_model->getSelectedEncoderSchemeFromCurrentIndex(),
                                          profile_model->getSelectedEncoderNameAndVersion(),
                                          Preferences::deletePartialFiles());
 
@@ -593,10 +593,10 @@ bool Audex::construct_target_filename(QString &targetFilename,
 {
     Q_UNUSED(is_first_track);
 
-    PatternParser patternparser;
+    SchemeParser schemeparser;
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/")
-        + patternparser.parseFilenamePattern(
-            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString(),
+        + schemeparser.parseFilenameScheme(
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString(),
             trackno,
             cdno,
             gindex,
@@ -659,9 +659,9 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
                                                      const QString &basepath,
                                                      bool overwrite_existing_files)
 {
-    PatternParser patternparser;
+    SchemeParser schemeparser;
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/")
-        + patternparser.parseSimplePattern(
+        + schemeparser.parseSimpleScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString(),
             cdno,
             nooftracks,
@@ -789,12 +789,12 @@ void Audex::execute_finish()
                 image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
                 qDebug() << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
             }
-            QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
+            QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
             QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
 
-            PatternParser patternparser;
-            QString filename = patternparser.parseSimplePattern(
-                pattern,
+            SchemeParser schemeparser;
+            QString filename = schemeparser.parseSimpleScheme(
+                scheme,
                 cdda_model->cdNum(),
                 cdda_model->numOfAudioTracks(),
                 cdda_model->artist(),
@@ -821,15 +821,15 @@ void Audex::execute_finish()
         // create the playlist
         Playlist playlist;
 
-        QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString();
+        QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString();
         QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString();
         bool is_absFilePath =
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool();
         bool is_utf8 = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool();
 
-        PatternParser patternparser;
-        QString filename = patternparser.parseSimplePattern(
-            pattern,
+        SchemeParser schemeparser;
+        QString filename = schemeparser.parseSimpleScheme(
+            scheme,
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
             cdda_model->artist(),
@@ -890,8 +890,8 @@ void Audex::execute_finish()
 
     QString in;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_INDEX)).toBool())) {
-        PatternParser patternparser;
-        QString filename = patternparser.parseSimplePattern(
+        SchemeParser schemeparser;
+        QString filename = schemeparser.parseSimpleScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
@@ -908,7 +908,7 @@ void Audex::execute_finish()
                 QTextStream out(&file);
                 QStringList text =
                     profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
-                patternparser.parseInfoTextPattern(text,
+                schemeparser.parseInfoTextScheme(text,
                                                    cdda_model->artist(),
                                                    cdda_model->title(),
                                                    QString("%1").arg(cdda_model->year()),
@@ -930,12 +930,12 @@ void Audex::execute_finish()
     QString hl;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_INDEX)).toBool())
         && (target_filename_list.count() > 0)) {
-        QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString();
+        QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString();
         QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
 
-        PatternParser patternparser;
-        QString filename = patternparser.parseSimplePattern(
-            pattern,
+        SchemeParser schemeparser;
+        QString filename = schemeparser.parseSimpleScheme(
+            scheme,
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
             cdda_model->artist(),
@@ -975,11 +975,11 @@ void Audex::execute_finish()
     QString cs;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool())
         && (((target_filename_list.count() > 0) && !p_single_file) || p_single_file)) {
-        QString pattern = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
+        QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
 
-        PatternParser patternparser;
-        QString filename = patternparser.parseSimplePattern(
-            pattern,
+        SchemeParser schemeparser;
+        QString filename = schemeparser.parseSimpleScheme(
+            scheme,
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
             cdda_model->artist(),

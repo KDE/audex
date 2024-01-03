@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SimplePatternWizardWidgetUI</class>
- <widget class="QWidget" name="SimplePatternWizardWidgetUI">
+ <class>SchemeWizardWidgetUI</class>
+ <widget class="QWidget" name="SchemeWizardWidgetUI">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>323</width>
-    <height>177</height>
+    <width>436</width>
+    <height>259</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="5">
-    <widget class="QLineEdit" name="qlineedit_pattern"/>
+   <item row="0" column="0" colspan="4">
+    <widget class="QLineEdit" name="qlineedit_scheme"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_album_example">
@@ -23,15 +23,12 @@
       </size>
      </property>
      <property name="text">
-      <string>Example:</string>
-     </property>
-     <property name="buddy">
-      <cstring>qlineedit_example</cstring>
+      <string>Album Example:</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="5">
-    <widget class="QLineEdit" name="qlineedit_example">
+   <item row="2" column="0" colspan="4">
+    <widget class="QLineEdit" name="qlineedit_album_example">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -131,7 +128,121 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="4">
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_sampler_example">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Sampler Example:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="4">
+    <widget class="QLineEdit" name="qlineedit_sampler_example">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>224</red>
+           <green>223</green>
+           <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>224</red>
+           <green>223</green>
+           <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>244</red>
+           <green>244</green>
+           <blue>244</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="4">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
@@ -147,9 +258,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="KUrlLabel" name="kurllabel_aboutschemes">
+      <widget class="KUrlLabel" name="kurllabel_aboutfilenameschemes">
        <property name="text">
-        <string>About schemes</string>
+        <string>About filename schemes</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -168,7 +279,7 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="0" colspan="2">
+   <item row="6" column="0">
     <widget class="QPushButton" name="kpushbutton_albumartist">
      <property name="minimumSize">
       <size>
@@ -190,7 +301,7 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="2" colspan="2">
+   <item row="6" column="1">
     <widget class="QPushButton" name="kpushbutton_albumtitle">
      <property name="minimumSize">
       <size>
@@ -212,17 +323,61 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="4">
-    <widget class="QPushButton" name="kpushbutton_genre">
+   <item row="6" column="2">
+    <widget class="QPushButton" name="kpushbutton_trackartist">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <property name="toolTip">
       <string/>
      </property>
      <property name="text">
-      <string>Genre</string>
+      <string>Track Artist</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="6" column="3">
+    <widget class="QPushButton" name="kpushbutton_tracktitle">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Track Title</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QPushButton" name="kpushbutton_trackno">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Track #</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
     <widget class="QPushButton" name="kpushbutton_cdno">
      <property name="toolTip">
       <string/>
@@ -232,7 +387,7 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="1">
+   <item row="7" column="2">
     <widget class="QPushButton" name="kpushbutton_date">
      <property name="toolTip">
       <string/>
@@ -242,21 +397,27 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="2">
+   <item row="7" column="3">
+    <widget class="QPushButton" name="kpushbutton_genre">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Genre</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
     <widget class="QPushButton" name="kpushbutton_suffix">
+     <property name="toolTip">
+      <string/>
+     </property>
      <property name="text">
       <string>Suffix</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="3" colspan="2">
-    <widget class="QPushButton" name="kpushbutton_nooftracks">
-     <property name="text">
-      <string># of Tracks</string>
-     </property>
-    </widget>
-   </item>
-   <item row="6" column="1">
+   <item row="9" column="1" colspan="2">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -264,10 +425,17 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>14</height>
+       <height>0</height>
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="8" column="1">
+    <widget class="QPushButton" name="kpushbutton_nooftracks">
+     <property name="text">
+      <string># of Tracks</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

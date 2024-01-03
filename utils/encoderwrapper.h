@@ -15,7 +15,7 @@
 #include <KLocalizedString>
 #include <KProcess>
 
-#include "utils/patternparser.h"
+#include "utils/schemeparser.h"
 
 class EncoderWrapper : public QObject
 {
@@ -23,7 +23,7 @@ class EncoderWrapper : public QObject
 
 public:
     explicit EncoderWrapper(QObject *parent = nullptr,
-                            const QString &commandPattern = "",
+                            const QString &commandScheme = "",
                             const QString &encoderName = "",
                             const bool deleteFractionFiles = true);
     ~EncoderWrapper() override;
@@ -63,7 +63,7 @@ Q_SIGNALS:
     void info(const QString &message);
 
 private:
-    QString command_pattern;
+    QString command_scheme;
     QString encoder_name;
     bool delete_fraction_files;
 

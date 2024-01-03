@@ -25,7 +25,7 @@
 #include "utils/encoderwrapper.h"
 #include "utils/hashlist.h"
 #include "utils/parameters.h"
-#include "utils/patternparser.h"
+#include "utils/schemeparser.h"
 #include "utils/playlist.h"
 #include "utils/upload.h"
 #include "utils/wavefilewriter.h"

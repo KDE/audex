@@ -9,10 +9,10 @@
 
 #include <QDebug>
 
-EncoderWrapper::EncoderWrapper(QObject *parent, const QString &commandPattern, const QString &encoderName, const bool deleteFractionFiles)
+EncoderWrapper::EncoderWrapper(QObject *parent, const QString &commandScheme, const QString &encoderName, const bool deleteFractionFiles)
     : QObject(parent)
 {
-    command_pattern = commandPattern;
+    command_scheme = commandScheme;
     encoder_name = encoderName;
     delete_fraction_files = deleteFractionFiles;
 
@@ -56,13 +56,13 @@ bool EncoderWrapper::encode(int n,
         return false;
     termination = false;
 
-    if (command_pattern.isEmpty()) {
-        Q_EMIT error(i18n("Command pattern is empty."));
+    if (command_scheme.isEmpty()) {
+        Q_EMIT error(i18n("Command scheme is empty."));
         return false;
     }
 
-    PatternParser patternparser;
-    QString command = patternparser.parseCommandPattern(command_pattern,
+    SchemeParser schemeparser;
+    QString command = schemeparser.parseCommandScheme(command_scheme,
                                                         input,
                                                         output,
                                                         n,

@@ -11,13 +11,13 @@
 #include <QDialogButtonBox>
 #include <QFileDialog>
 
-ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QString &pattern, const QString &suffix, QWidget *parent)
+ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QString &scheme, const QString &suffix, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
     this->text = text;
-    this->pattern = pattern;
+    this->scheme = scheme;
     this->suffix = suffix;
 
     setWindowTitle(i18n("Info Settings"));
@@ -39,14 +39,14 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QStr
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-    ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.ktextedit_text->setPlainText(text.join("\n"));
     connect(ui.ktextedit_text, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
 
-    ui.qlineedit_pattern->setText(pattern);
-    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    ui.qlineedit_scheme->setText(scheme);
+    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
     ui.qlineedit_suffix->setText(suffix);
     connect(ui.qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
@@ -77,16 +77,16 @@ void ProfileDataInfoDialog::slotApplied()
     save();
 }
 
-void ProfileDataInfoDialog::pattern_wizard()
+void ProfileDataInfoDialog::scheme_wizard()
 {
-    SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
+    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    ui.qlineedit_pattern->setText(dialog->pattern);
+    ui.qlineedit_scheme->setText(dialog->scheme);
 
     delete dialog;
 
@@ -103,7 +103,7 @@ void ProfileDataInfoDialog::trigger_changed()
         applyButton->setEnabled(true);
         return;
     }
-    if (ui.qlineedit_pattern->text() != pattern) {
+    if (ui.qlineedit_scheme->text() != scheme) {
         applyButton->setEnabled(true);
         return;
     }
@@ -222,7 +222,7 @@ bool ProfileDataInfoDialog::save()
 {
     text = ui.ktextedit_text->toPlainText().split('\n');
     suffix = ui.qlineedit_suffix->text();
-    pattern = ui.qlineedit_pattern->text();
+    scheme = ui.qlineedit_scheme->text();
     applyButton->setEnabled(false);
     return true;
 }

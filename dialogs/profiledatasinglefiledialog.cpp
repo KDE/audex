@@ -10,12 +10,12 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern, QWidget *parent)
+ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &scheme, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
-    this->pattern = pattern;
+    this->scheme = scheme;
 
     setWindowTitle(i18n("Single File Settings"));
 
@@ -36,11 +36,11 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(const QString &pattern,
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-    ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
-    ui.qlineedit_pattern->setText(pattern);
-    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    ui.qlineedit_scheme->setText(scheme);
+    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
     buttonBox->button(QDialogButtonBox::Apply)->setEnabled(false);
 }
@@ -60,16 +60,16 @@ void ProfileDataSingleFileDialog::slotApplied()
     save();
 }
 
-void ProfileDataSingleFileDialog::pattern_wizard()
+void ProfileDataSingleFileDialog::scheme_wizard()
 {
-    SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), "wav", this);
+    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), "wav", this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    ui.qlineedit_pattern->setText(dialog->pattern);
+    ui.qlineedit_scheme->setText(dialog->scheme);
 
     delete dialog;
 
@@ -78,7 +78,7 @@ void ProfileDataSingleFileDialog::pattern_wizard()
 
 void ProfileDataSingleFileDialog::trigger_changed()
 {
-    if (ui.qlineedit_pattern->text() != pattern) {
+    if (ui.qlineedit_scheme->text() != scheme) {
         applyButton->setEnabled(true);
         return;
     }
@@ -87,7 +87,7 @@ void ProfileDataSingleFileDialog::trigger_changed()
 
 bool ProfileDataSingleFileDialog::save()
 {
-    pattern = ui.qlineedit_pattern->text();
+    scheme = ui.qlineedit_scheme->text();
     applyButton->setEnabled(false);
     return true;
 }

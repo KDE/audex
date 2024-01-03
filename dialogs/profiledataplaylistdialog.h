@@ -13,7 +13,7 @@
 #include <QDialog>
 #include <QPushButton>
 
-#include "simplepatternwizarddialog.h"
+#include "simpleschemewizarddialog.h"
 
 #include "ui_profiledataplaylistwidgetUI.h"
 
@@ -22,16 +22,16 @@ class ProfileDataPlaylistDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataPlaylistDialog(const QString &format, const QString &pattern, const bool absFilePath, const bool utf8, QWidget *parent = nullptr);
+    ProfileDataPlaylistDialog(const QString &format, const QString &scheme, const bool absFilePath, const bool utf8, QWidget *parent = nullptr);
     ~ProfileDataPlaylistDialog() override;
 
     QString format;
-    QString pattern;
+    QString scheme;
     bool absFilePath;
     bool utf8;
 
 protected Q_SLOTS:
-    void pattern_wizard();
+    void scheme_wizard();
 
 private Q_SLOTS:
     void trigger_changed();

@@ -13,7 +13,7 @@
 #include <QDialog>
 #include <QPushButton>
 
-#include "simplepatternwizarddialog.h"
+#include "simpleschemewizarddialog.h"
 
 #include "ui_profiledatacoverwidgetUI.h"
 
@@ -22,16 +22,16 @@ class ProfileDataCoverDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataCoverDialog(const bool scale, const QSize &size, const QString &format, const QString &pattern, QWidget *parent = nullptr);
+    ProfileDataCoverDialog(const bool scale, const QSize &size, const QString &format, const QString &scheme, QWidget *parent = nullptr);
     ~ProfileDataCoverDialog() override;
 
     bool scale;
     QSize size;
     QString format;
-    QString pattern;
+    QString scheme;
 
 protected Q_SLOTS:
-    void pattern_wizard();
+    void scheme_wizard();
 
 private Q_SLOTS:
     void trigger_changed();

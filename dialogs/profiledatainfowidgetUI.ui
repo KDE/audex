@@ -94,14 +94,14 @@
    <item row="4" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="label_pattern">
+      <widget class="QLabel" name="label_scheme">
        <property name="text">
-        <string>Pattern:</string>
+        <string>Scheme:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="qlineedit_pattern">
+      <widget class="QLineEdit" name="qlineedit_scheme">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -111,7 +111,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="kpushbutton_pattern"/>
+      <widget class="QPushButton" name="kpushbutton_scheme"/>
      </item>
     </layout>
    </item>

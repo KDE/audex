@@ -61,7 +61,7 @@ set(audex_SRCS
     mainwindow.cpp
     models/cddamodel.cpp
     models/profilemodel.cpp
-    utils/patternparser.cpp
+    utils/schemeparser.cpp
     utils/playlist.cpp
     utils/wavefilewriter.cpp
     utils/cddaparanoia.cpp
@@ -95,9 +95,9 @@ set(audex_SRCS
     dialogs/profiledatahashlistdialog.cpp
     dialogs/profiledatacuesheetdialog.cpp
     dialogs/profiledatasinglefiledialog.cpp
-    dialogs/patternwizarddialog.cpp
+    dialogs/schemewizarddialog.cpp
     dialogs/commandwizarddialog.cpp
-    dialogs/simplepatternwizarddialog.cpp
+    dialogs/simpleschemewizarddialog.cpp
     dialogs/extractingprogressdialog.cpp
     dialogs/protocoldialog.cpp
     dialogs/errordialog.cpp
@@ -124,9 +124,9 @@ ki18n_wrap_ui(
   dialogs/profiledatahashlistwidgetUI.ui
   dialogs/profiledatacuesheetwidgetUI.ui
   dialogs/profiledatasinglefilewidgetUI.ui
-  dialogs/patternwizardwidgetUI.ui
+  dialogs/schemewizardwidgetUI.ui
   dialogs/commandwizardwidgetUI.ui
-  dialogs/simplepatternwizardwidgetUI.ui
+  dialogs/simpleschemewizardwidgetUI.ui
   dialogs/extractingprogresswidgetUI.ui
   dialogs/protocolwidgetUI.ui)
 

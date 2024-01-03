@@ -15,7 +15,7 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
 {
     Q_UNUSED(parent);
 
-    setWindowTitle(i18n("Command Pattern Wizard"));
+    setWindowTitle(i18n("Command Scheme Wizard"));
 
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -236,8 +236,8 @@ bool CommandWizardDialog::save()
 
 void CommandWizardDialog::update_example()
 {
-    PatternParser patternparser;
-    QString filename = patternparser.parseCommandPattern(ui.qlineedit_command->text(),
+    SchemeParser schemeparser;
+    QString filename = schemeparser.parseCommandScheme(ui.qlineedit_command->text(),
                                                          "/tmp/tmp.wav",
                                                          QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
                                                          2,
@@ -258,7 +258,7 @@ void CommandWizardDialog::update_example()
     ui.qlineedit_album_example->setText(filename);
     ui.qlineedit_album_example->setCursorPosition(0);
     filename =
-        patternparser.parseCommandPattern(ui.qlineedit_command->text(),
+        schemeparser.parseCommandScheme(ui.qlineedit_command->text(),
                                           "/tmp/tmp.wav",
                                           QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
                                           4,

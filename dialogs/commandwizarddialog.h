@@ -14,7 +14,7 @@
 #include <QDialog>
 #include <QPushButton>
 
-#include "utils/patternparser.h"
+#include "utils/schemeparser.h"
 
 #include "ui_commandwizardwidgetUI.h"
 

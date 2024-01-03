@@ -84,7 +84,7 @@
           <item row="0" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout">
             <item>
-             <widget class="QLabel" name="label_pattern">
+             <widget class="QLabel" name="label_scheme">
               <property name="font">
                <font>
                 <weight>50</weight>
@@ -92,12 +92,12 @@
                </font>
               </property>
               <property name="text">
-               <string>Pattern:</string>
+               <string>Scheme:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="qlineedit_pattern">
+             <widget class="QLineEdit" name="qlineedit_scheme">
               <property name="font">
                <font>
                 <weight>50</weight>
@@ -107,7 +107,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="kpushbutton_pattern">
+             <widget class="QPushButton" name="kpushbutton_scheme">
               <property name="font">
                <font>
                 <weight>50</weight>
@@ -147,7 +147,7 @@
           <item row="3" column="0">
            <widget class="QCheckBox" name="checkBox_2digitstracknum">
             <property name="toolTip">
-             <string>This setting overrides any parameterized variable settings in the pattern</string>
+             <string>This setting overrides any parameterized variable settings in the scheme</string>
             </property>
             <property name="text">
              <string>Set 2 digits track number (e.g. 01, 02, 03...)</string>

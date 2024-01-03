@@ -13,7 +13,7 @@
 #include <QDialog>
 #include <QPushButton>
 
-#include "simplepatternwizarddialog.h"
+#include "simpleschemewizarddialog.h"
 
 #include "ui_profiledatahashlistwidgetUI.h"
 
@@ -22,14 +22,14 @@ class ProfileDataHashlistDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataHashlistDialog(const QString &pattern, const QString &format, QWidget *parent = nullptr);
+    ProfileDataHashlistDialog(const QString &scheme, const QString &format, QWidget *parent = nullptr);
     ~ProfileDataHashlistDialog() override;
 
     QString format;
-    QString pattern;
+    QString scheme;
 
 protected Q_SLOTS:
-    void pattern_wizard();
+    void scheme_wizard();
 
 private Q_SLOTS:
     void trigger_changed();

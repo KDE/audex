@@ -13,7 +13,7 @@
 #include <QDialog>
 #include <QPushButton>
 
-#include "simplepatternwizarddialog.h"
+#include "simpleschemewizarddialog.h"
 
 #include "ui_profiledatacuesheetwidgetUI.h"
 
@@ -22,13 +22,13 @@ class ProfileDataCueSheetDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ProfileDataCueSheetDialog(const QString &pattern, QWidget *parent = nullptr);
+    explicit ProfileDataCueSheetDialog(const QString &scheme, QWidget *parent = nullptr);
     ~ProfileDataCueSheetDialog() override;
 
-    QString pattern;
+    QString scheme;
 
 protected Q_SLOTS:
-    void pattern_wizard();
+    void scheme_wizard();
 
 private Q_SLOTS:
     void trigger_changed();
