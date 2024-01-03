@@ -15,6 +15,7 @@
 
 #include <KIO/CopyJob>
 #include <KIO/Job>
+#include <KIO/MkdirJob>
 #include <KIO/SimpleJob>
 #include <KLocalizedString>
 
