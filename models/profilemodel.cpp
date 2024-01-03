@@ -654,110 +654,37 @@ void ProfileModel::autoCreate()
 
     bool wasEmpty = (p_cache.count() == 0);
 
-    if (EncoderAssistant::available(EncoderAssistant::LAME)) {
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_MOBILE_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_MOBILE_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
-            p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME, EncoderAssistant::MOBILE).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_NORMAL_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_NORMAL_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
-            p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME, EncoderAssistant::NORMAL).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_EXTREME_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_EXTREME_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
-            p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME, EncoderAssistant::EXTREME).toString();
-            ;
-            p_cache.append(p);
-            flag = true;
-        }
+    if (EncoderAssistant::available(EncoderAssistant::LAME) && (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME)))) {
+        Profile p = p_new_profile();
+        p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME);
+        p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
+        p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
+        p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME).toString();
+        p_cache.append(p);
+        flag = true;
     }
 
-    if (EncoderAssistant::available(EncoderAssistant::OGGENC)) {
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_MOBILE_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_MOBILE_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
-                EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::MOBILE).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_NORMAL_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_NORMAL_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
-                EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::NORMAL).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_EXTREME_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_EXTREME_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] =
-                EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::EXTREME).toString();
-            p_cache.append(p);
-            flag = true;
-        }
+    if (EncoderAssistant::available(EncoderAssistant::OGGENC) && (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC)))) {
+        Profile p = p_new_profile();
+        p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC);
+        p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
+        p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
+        p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC).toString();
+        p_cache.append(p);
+        flag = true;
     }
 
-    if (EncoderAssistant::available(EncoderAssistant::OPUSENC)) {
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_MOBILE_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_MOBILE_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
-                EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::MOBILE).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_NORMAL_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_NORMAL_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
-                EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::NORMAL).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_EXTREME_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC) + LABEL_EXTREME_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] =
-                EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC, EncoderAssistant::EXTREME).toString();
-            p_cache.append(p);
-            flag = true;
-        }
+    if (EncoderAssistant::available(EncoderAssistant::OPUSENC) && !nameExists(EncoderAssistant::name(EncoderAssistant::OPUSENC))) {
+        Profile p = p_new_profile();
+        p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OPUSENC);
+        p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OPUSENC);
+        p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OPUSENC;
+        p[PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OPUSENC).toString();
+        p_cache.append(p);
+        flag = true;
     }
 
-    if ((!nameExists(EncoderAssistant::name(EncoderAssistant::FLAC))) && (EncoderAssistant::available(EncoderAssistant::FLAC))) {
+    if (EncoderAssistant::available(EncoderAssistant::FLAC) && !nameExists(EncoderAssistant::name(EncoderAssistant::FLAC))) {
         Profile p = p_new_profile();
         p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FLAC);
         p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FLAC);
@@ -766,39 +693,17 @@ void ProfileModel::autoCreate()
         flag = true;
     }
 
-    if (EncoderAssistant::available(EncoderAssistant::FAAC)) {
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_MOBILE_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_MOBILE_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC, EncoderAssistant::MOBILE).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_NORMAL_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_NORMAL_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC, EncoderAssistant::NORMAL).toString();
-            p_cache.append(p);
-            flag = true;
-        }
-
-        if (!nameExists(EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_EXTREME_QUALITY)) {
-            Profile p = p_new_profile();
-            p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_EXTREME_QUALITY;
-            p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
-            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
-            p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC, EncoderAssistant::EXTREME).toString();
-            p_cache.append(p);
-            flag = true;
-        }
+    if (EncoderAssistant::available(EncoderAssistant::FAAC) && !nameExists(EncoderAssistant::name(EncoderAssistant::FAAC))) {
+        Profile p = p_new_profile();
+        p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC);
+        p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
+        p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
+        p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC).toString();
+        p_cache.append(p);
+        flag = true;
     }
 
-    if ((!nameExists(EncoderAssistant::name(EncoderAssistant::WAVE))) && (EncoderAssistant::available(EncoderAssistant::WAVE))) {
+    if (EncoderAssistant::available(EncoderAssistant::WAVE) && !nameExists(EncoderAssistant::name(EncoderAssistant::WAVE))) {
         Profile p = p_new_profile();
         p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::WAVE);
         p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::WAVE);

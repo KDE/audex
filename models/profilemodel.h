@@ -161,10 +161,6 @@ enum ProfileColumns {
 #define PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY "wave_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY "custom_parameters"
 
-#define LABEL_MOBILE_QUALITY i18n(" (Mobile Quality)")
-#define LABEL_NORMAL_QUALITY i18n(" (Normal Quality)")
-#define LABEL_EXTREME_QUALITY i18n(" (Extreme Quality)")
-
 typedef QMap<QString, QVariant> Profile;
 
 /** audex profile model **/
