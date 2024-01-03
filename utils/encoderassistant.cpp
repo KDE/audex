@@ -258,7 +258,7 @@ long EncoderAssistant::versionNumber(const EncoderAssistant::Encoder encoder)
     return versionNumber;
 }
 
-const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder, const Parameters &parameters)
+const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, const Parameters &parameters)
 {
     switch (encoder) {
     case EncoderAssistant::LAME: {
@@ -378,7 +378,7 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
     }
 
     case EncoderAssistant::CUSTOM: {
-        return parameters.value(ENCODER_CUSTOM_COMMAND_PATTERN_KEY, ENCODER_CUSTOM_COMMAND_PATTERN).toString();
+        return parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME).toString();
     }
 
     default:;

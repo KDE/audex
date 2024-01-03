@@ -5,40 +5,36 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PATTERNWIZARDDIALOG_H
-#define PATTERNWIZARDDIALOG_H
+#ifndef SIMPLESCHEMEWIZARDDIALOG_H
+#define SIMPLESCHEMEWIZARDDIALOG_H
 
 #include <QWhatsThis>
 #include <QWidget>
 
 #include <QDialog>
-#include <QPushButton>
 
-#include "utils/patternparser.h"
+#include "utils/schemeparser.h"
 
-#include "ui_patternwizardwidgetUI.h"
+#include "ui_simpleschemewizardwidgetUI.h"
 
-class PatternWizardDialog : public QDialog
+class SimpleSchemeWizardDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit PatternWizardDialog(const QString &pattern, QWidget *parent = nullptr);
-    ~PatternWizardDialog() override;
+    SimpleSchemeWizardDialog(const QString &scheme, const QString &suffix, QWidget *parent = nullptr);
+    ~SimpleSchemeWizardDialog() override;
 
-    QString pattern;
+    QString scheme;
 
 private Q_SLOTS:
     void trigger_changed();
 
-    void about_filename_schemes();
+    void about_schemes();
     void about_parameters();
 
     void insAlbumArtist();
     void insAlbumTitle();
-    void insTrackArtist();
-    void insTrackTitle();
-    void insTrackNo();
     void insCDNo();
     void insDate();
     void insGenre();
@@ -51,11 +47,11 @@ private Q_SLOTS:
     void slotApplied();
 
 private:
-    Ui::PatternWizardWidgetUI ui;
+    Ui::SimpleSchemeWizardWidgetUI ui;
+    QString suffix;
+    QPushButton *applyButton;
 
     bool save();
-
-    QPushButton *applyButton;
 };
 
 #endif

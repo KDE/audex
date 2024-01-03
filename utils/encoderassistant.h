@@ -16,7 +16,7 @@
 #include <KProcess>
 
 #include "utils/parameters.h"
-#include "utils/patternparser.h"
+#include "utils/schemeparser.h"
 
 #define ENCODER_LAME_SUFFIX_KEY "suffix"
 #define ENCODER_LAME_PRESET_KEY "preset"
@@ -51,7 +51,7 @@
 #define ENCODER_WAVE_SUFFIX_KEY "suffix"
 
 #define ENCODER_CUSTOM_SUFFIX_KEY "suffix"
-#define ENCODER_CUSTOM_COMMAND_PATTERN_KEY "command_pattern"
+#define ENCODER_CUSTOM_COMMAND_SCHEME_KEY "command_scheme"
 
 /******************/
 /* default values */
@@ -129,7 +129,7 @@
 #define ENCODER_CUSTOM_BIN ""
 #define ENCODER_CUSTOM_VERSION_PARA ""
 #define ENCODER_CUSTOM_SUFFIX ""
-#define ENCODER_CUSTOM_COMMAND_PATTERN ""
+#define ENCODER_CUSTOM_COMMAND_SCHEME ""
 
 #define ENCODER_NUM 6
 
@@ -145,7 +145,7 @@ bool available(const Encoder encoder);
 bool canEmbedCover(const Encoder encoder, int *maxCoverSize = nullptr);
 const QString version(const Encoder encoder);
 long versionNumber(const Encoder encoder);
-const QString pattern(const Encoder encoder, const Parameters &parameters);
+const QString scheme(const Encoder encoder, const Parameters &parameters);
 
 Parameters stdParameters(const Encoder encoder);
 

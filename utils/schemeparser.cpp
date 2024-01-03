@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "patternparser.h"
+#include "schemeparser.h"
 
 #include <QDebug>
 #include <QStandardPaths>
@@ -23,17 +23,17 @@
 #define IS_DATETIME(val) (val.type() == QVariant::DateTime || val.type() == QVariant::Date || val.type() == QVariant::Time)
 #endif
 
-PatternParser::PatternParser(QObject *parent)
+SchemeParser::SchemeParser(QObject *parent)
     : QObject(parent)
 {
     Q_UNUSED(parent);
 }
 
-PatternParser::~PatternParser()
+SchemeParser::~SchemeParser()
 {
 }
 
-const QString PatternParser::parsePattern(const QString &pattern, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters)
+const QString SchemeParser::parseScheme(const QString &scheme, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters)
 {
     p_error_string.clear();
 
@@ -51,8 +51,8 @@ const QString PatternParser::parsePattern(const QString &pattern, const Placehol
     QString parameters_string;
 
     int index = 0;
-    while (index < pattern.length()) {
-        QChar c = pattern[index];
+    while (index < scheme.length()) {
+        QChar c = scheme[index];
 
         if (region_in_braces) {
             if (region_placeholdername_in_braces) {
@@ -233,7 +233,7 @@ const QString PatternParser::parsePattern(const QString &pattern, const Placehol
                 region_placeholdername = true;
                 break;
             case '\\':
-                if (index < pattern.length() - 1 && pattern[index + 1] == '$') {
+                if (index < scheme.length() - 1 && scheme[index + 1] == '$') {
                     result.append('$');
                     ++index;
                 }
@@ -261,7 +261,7 @@ const QString PatternParser::parsePattern(const QString &pattern, const Placehol
     return result;
 }
 
-const QString PatternParser::parseFilenamePattern(const QString &pattern,
+const QString SchemeParser::parseFilenameScheme(const QString &scheme,
                                                   const int trackno,
                                                   const int cdno,
                                                   const int trackoffset,
@@ -300,10 +300,10 @@ const QString PatternParser::parseFilenamePattern(const QString &pattern,
     placeholders.insert(VAR_CD_NO, cdno);
     placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
 
-    return parsePattern(pattern, placeholders);
+    return parseScheme(scheme, placeholders);
 }
 
-const QString PatternParser::parseCommandPattern(const QString &pattern,
+const QString SchemeParser::parseCommandScheme(const QString &scheme,
                                                  const QString &input,
                                                  const QString &output,
                                                  const int trackno,
@@ -350,7 +350,7 @@ const QString PatternParser::parseCommandPattern(const QString &pattern,
     PlaceholdersParameters placeholders_found;
 
     // Just parse now only to check if cover placeholder is used and retrieve cover parameters - parse again later on:
-    QString result = parsePattern(pattern, placeholders, &placeholders_found);
+    QString result = parseScheme(scheme, placeholders, &placeholders_found);
 
     if (placeholders_found.contains(VAR_COVER_FILE)) {
         Parameters cover_parameters = placeholders_found.value(VAR_COVER_FILE, Parameters());
@@ -412,10 +412,10 @@ const QString PatternParser::parseCommandPattern(const QString &pattern,
             placeholders.insert(VAR_COVER_FILE, cover_filepath);
     }
 
-    return parsePattern(pattern, placeholders);
+    return parseScheme(scheme, placeholders);
 }
 
-const QString PatternParser::parseSimplePattern(const QString &text,
+const QString SchemeParser::parseSimpleScheme(const QString &text,
                                                 const int cdno,
                                                 const int nooftracks,
                                                 const QString &artist,
@@ -437,10 +437,10 @@ const QString PatternParser::parseSimplePattern(const QString &text,
     placeholders.insert(VAR_CD_NO, cdno);
     placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
 
-    return parsePattern(text, placeholders);
+    return parseScheme(text, placeholders);
 }
 
-void PatternParser::parseInfoTextPattern(QStringList &text,
+void SchemeParser::parseInfoTextScheme(QStringList &text,
                                          const QString &artist,
                                          const QString &title,
                                          const QString &date,
@@ -466,10 +466,10 @@ void PatternParser::parseInfoTextPattern(QStringList &text,
     placeholders.insert(VAR_NOW, QDateTime::currentDateTime());
     placeholders.insert(VAR_LINEBREAK, QString("\n"));
 
-    text = parsePattern(text.join('\n'), placeholders).split('\n');
+    text = parseScheme(text.join('\n'), placeholders).split('\n');
 }
 
-const QString PatternParser::make_compatible(const QString &string)
+const QString SchemeParser::make_compatible(const QString &string)
 {
     QString s = string;
     for (int i = 0; i < s.size(); i++) {
@@ -490,7 +490,7 @@ const QString PatternParser::make_compatible(const QString &string)
     return s;
 }
 
-const QString PatternParser::make_compatible_2(const QString &string)
+const QString SchemeParser::make_compatible_2(const QString &string)
 {
     QString s = string;
     s = s.replace('"', "\"");
@@ -498,7 +498,7 @@ const QString PatternParser::make_compatible_2(const QString &string)
 }
 
 // remove \ / : * ? " < > |
-const QString PatternParser::make_fat32_compatible(const QString &string)
+const QString SchemeParser::make_fat32_compatible(const QString &string)
 {
     QString s = string;
     for (int i = 0; i < s.size(); i++) {
@@ -522,14 +522,14 @@ const QString PatternParser::make_fat32_compatible(const QString &string)
     return s;
 }
 
-const QString PatternParser::replace_spaces_with_underscores(const QString &string)
+const QString SchemeParser::replace_spaces_with_underscores(const QString &string)
 {
     QString s = string;
     s.replace(' ', '_');
     return s;
 }
 
-const QString PatternParser::replace_char_list(const QString &from, const QString &to, const QString &string)
+const QString SchemeParser::replace_char_list(const QString &from, const QString &to, const QString &string)
 {
     qDebug() << "starting replacement for:" << string;
 

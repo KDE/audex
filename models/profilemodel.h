@@ -29,7 +29,7 @@
 
 #define DEFAULT_ENCODER_PARAMETERS ""
 
-#define DEFAULT_PATTERN "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_TRACK_NO " - $" VAR_TRACK_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_SCHEME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_TRACK_NO " - $" VAR_TRACK_TITLE ".$" VAR_SUFFIX
 
 #define DEFAULT_FAT32 false
 #define DEFAULT_UNDERSCORE false
@@ -70,7 +70,7 @@ enum ProfileColumns {
 
     PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX,
 
-    PROFILE_MODEL_COLUMN_PATTERN_INDEX,
+    PROFILE_MODEL_COLUMN_SCHEME_INDEX,
 
     PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX,
     PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX,
@@ -120,7 +120,7 @@ enum ProfileColumns {
 #define PROFILE_MODEL_ICON_KEY "icon"
 #define PROFILE_MODEL_ENCODER_SELECTED_KEY "current_encoder"
 
-#define PROFILE_MODEL_PATTERN_KEY "pattern"
+#define PROFILE_MODEL_SCHEME_KEY "scheme"
 
 #define PROFILE_MODEL_FAT32COMPATIBLE_KEY "fat32_compatible"
 #define PROFILE_MODEL_UNDERSCORE_KEY "underscore"
@@ -193,7 +193,7 @@ public:
     void autoCreate(); // scans the system for encoders and create standard profiles
     EncoderAssistant::Encoder getSelectedEncoderFromCurrentIndex();
     const Parameters getSelectedEncoderParametersFromCurrentIndex();
-    const QString getSelectedEncoderPatternFromCurrentIndex();
+    const QString getSelectedEncoderSchemeFromCurrentIndex();
     const QString getSelectedEncoderSuffixFromCurrentIndex();
     const QString getSelectedEncoderNameAndVersion();
     /**END: EncoderAssistant related */

@@ -53,17 +53,17 @@
 typedef QMap<QString, QVariant> Placeholders;
 typedef QMap<QString, Parameters> PlaceholdersParameters;
 
-class PatternParser : public QObject
+class SchemeParser : public QObject
 {
     Q_OBJECT
 public:
-    explicit PatternParser(QObject *parent = nullptr);
-    ~PatternParser() override;
+    explicit SchemeParser(QObject *parent = nullptr);
+    ~SchemeParser() override;
 
     // placeholders_parameters: return the actually found placeholders with their parameters as QMap
-    const QString parsePattern(const QString &pattern, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters = nullptr);
+    const QString parseScheme(const QString &scheme, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters = nullptr);
 
-    const QString parseFilenamePattern(const QString &pattern,
+    const QString parseFilenameScheme(const QString &scheme,
                                        const int trackno,
                                        const int cdno,
                                        const int trackoffset,
@@ -79,7 +79,7 @@ public:
                                        const bool replacespaceswithunderscores,
                                        const bool twodigitstracknum);
 
-    const QString parseCommandPattern(const QString &pattern,
+    const QString parseCommandScheme(const QString &scheme,
                                       const QString &input,
                                       const QString &output,
                                       const int trackno,
@@ -98,7 +98,7 @@ public:
                                       const QString &encoder,
                                       const bool demomode = false);
 
-    const QString parseSimplePattern(const QString &pattern,
+    const QString parseSimpleScheme(const QString &scheme,
                                      const int cdno,
                                      const int nooftracks,
                                      const QString &artist,
@@ -108,7 +108,7 @@ public:
                                      const QString &suffix,
                                      const bool fat32compatible);
 
-    void parseInfoTextPattern(QStringList &text,
+    void parseInfoTextScheme(QStringList &text,
                               const QString &artist,
                               const QString &title,
                               const QString &date,

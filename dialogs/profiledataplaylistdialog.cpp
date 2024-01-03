@@ -10,13 +10,13 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString &format, const QString &pattern, const bool absFilePath, const bool utf8, QWidget *parent)
+ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString &format, const QString &scheme, const bool absFilePath, const bool utf8, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
     this->format = format;
-    this->pattern = pattern;
+    this->scheme = scheme;
     this->absFilePath = absFilePath;
     this->utf8 = utf8;
 
@@ -39,8 +39,8 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString &format, cons
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
-    ui.kpushbutton_pattern->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.kcombobox_format->addItem("M3U (Textbased Winamp Playlist)", "M3U");
     ui.kcombobox_format->addItem("PLS (Textbased Playlist)", "PLS");
@@ -53,8 +53,8 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString &format, cons
     enable_utf8(!(format == "XSPF"));
     connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-    ui.qlineedit_pattern->setText(pattern);
-    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    ui.qlineedit_scheme->setText(scheme);
+    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
     ui.checkBox_abs_file_path->setChecked(absFilePath);
     connect(ui.checkBox_abs_file_path, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -80,18 +80,18 @@ void ProfileDataPlaylistDialog::slotApplied()
     save();
 }
 
-void ProfileDataPlaylistDialog::pattern_wizard()
+void ProfileDataPlaylistDialog::scheme_wizard()
 {
     QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-    SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.qlineedit_pattern->text(), suffix, this);
+    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    ui.qlineedit_pattern->setText(dialog->pattern);
+    ui.qlineedit_scheme->setText(dialog->scheme);
 
     delete dialog;
 
@@ -114,7 +114,7 @@ void ProfileDataPlaylistDialog::trigger_changed()
         applyButton->setEnabled(true);
         return;
     }
-    if (ui.qlineedit_pattern->text() != pattern) {
+    if (ui.qlineedit_scheme->text() != scheme) {
         applyButton->setEnabled(true);
         return;
     }
@@ -134,7 +134,7 @@ void ProfileDataPlaylistDialog::enable_utf8(bool enabled)
 bool ProfileDataPlaylistDialog::save()
 {
     format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-    pattern = ui.qlineedit_pattern->text();
+    scheme = ui.qlineedit_scheme->text();
     absFilePath = ui.checkBox_abs_file_path->isChecked();
     utf8 = ui.checkBox_utf8->isChecked();
     applyButton->setEnabled(false);

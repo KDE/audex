@@ -5,17 +5,17 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "simplepatternwizarddialog.h"
+#include "simpleschemewizarddialog.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-SimplePatternWizardDialog::SimplePatternWizardDialog(const QString &pattern, const QString &suffix, QWidget *parent)
+SimpleSchemeWizardDialog::SimpleSchemeWizardDialog(const QString &scheme, const QString &suffix, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
-    setWindowTitle(i18n("Pattern Wizard"));
+    setWindowTitle(i18n("Scheme Wizard"));
 
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -25,19 +25,19 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString &pattern, con
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     applyButton = buttonBox->button(QDialogButtonBox::Apply);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &SimplePatternWizardDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &SimplePatternWizardDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &SimplePatternWizardDialog::slotApplied);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &SimpleSchemeWizardDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &SimpleSchemeWizardDialog::reject);
+    connect(applyButton, &QPushButton::clicked, this, &SimpleSchemeWizardDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    ui.qlineedit_pattern->setText(pattern);
-    connect(ui.qlineedit_pattern, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    connect(ui.qlineedit_pattern, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
-    ui.qlineedit_pattern->setCursorPosition(0);
+    ui.qlineedit_scheme->setText(scheme);
+    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(ui.qlineedit_scheme, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
+    ui.qlineedit_scheme->setCursorPosition(0);
 
     connect(ui.kurllabel_aboutschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_schemes()));
     connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
@@ -50,38 +50,38 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString &pattern, con
     connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
     connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
 
-    this->pattern = pattern;
+    this->scheme = scheme;
     this->suffix = suffix;
 
     applyButton->setEnabled(false);
     update_example();
 }
 
-SimplePatternWizardDialog::~SimplePatternWizardDialog()
+SimpleSchemeWizardDialog::~SimpleSchemeWizardDialog()
 {
 }
 
-void SimplePatternWizardDialog::slotAccepted()
+void SimpleSchemeWizardDialog::slotAccepted()
 {
     save();
     accept();
 }
 
-void SimplePatternWizardDialog::slotApplied()
+void SimpleSchemeWizardDialog::slotApplied()
 {
     save();
 }
 
-void SimplePatternWizardDialog::trigger_changed()
+void SimpleSchemeWizardDialog::trigger_changed()
 {
-    if (ui.qlineedit_pattern->text() != pattern) {
+    if (ui.qlineedit_scheme->text() != scheme) {
         applyButton->setEnabled(true);
         return;
     }
     applyButton->setEnabled(false);
 }
 
-void SimplePatternWizardDialog::about_schemes()
+void SimpleSchemeWizardDialog::about_schemes()
 {
     QWhatsThis::showText(
         ui.kurllabel_aboutschemes->mapToGlobal(ui.kurllabel_aboutschemes->geometry().topLeft()),
@@ -102,7 +102,7 @@ void SimplePatternWizardDialog::about_schemes()
         ui.kurllabel_aboutschemes);
 }
 
-void SimplePatternWizardDialog::about_parameters()
+void SimpleSchemeWizardDialog::about_parameters()
 {
     QWhatsThis::showText(ui.kurllabel_aboutparameters->mapToGlobal(ui.kurllabel_aboutparameters->geometry().topLeft()),
                          i18n("<p>Variables in Audex can have parameters. E.g.</p>"
@@ -118,73 +118,73 @@ void SimplePatternWizardDialog::about_parameters()
                          ui.kurllabel_aboutparameters);
 }
 
-void SimplePatternWizardDialog::insAlbumArtist()
+void SimpleSchemeWizardDialog::insAlbumArtist()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_ARTIST));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_ALBUM_ARTIST));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-void SimplePatternWizardDialog::insAlbumTitle()
+void SimpleSchemeWizardDialog::insAlbumTitle()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_ALBUM_TITLE));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_ALBUM_TITLE));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-void SimplePatternWizardDialog::insCDNo()
+void SimpleSchemeWizardDialog::insCDNo()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_CD_NO));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_CD_NO));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-void SimplePatternWizardDialog::insDate()
+void SimpleSchemeWizardDialog::insDate()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_DATE));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_DATE));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-void SimplePatternWizardDialog::insGenre()
+void SimpleSchemeWizardDialog::insGenre()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_GENRE));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_GENRE));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-void SimplePatternWizardDialog::insSuffix()
+void SimpleSchemeWizardDialog::insSuffix()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_SUFFIX));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_SUFFIX));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-void SimplePatternWizardDialog::insNoOfTracks()
+void SimpleSchemeWizardDialog::insNoOfTracks()
 {
-    QString text = ui.qlineedit_pattern->text();
-    text.insert(ui.qlineedit_pattern->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
-    ui.qlineedit_pattern->setText(text);
+    QString text = ui.qlineedit_scheme->text();
+    text.insert(ui.qlineedit_scheme->cursorPosition(), QString("$" VAR_NO_OF_TRACKS));
+    ui.qlineedit_scheme->setText(text);
     update_example();
 }
 
-bool SimplePatternWizardDialog::save()
+bool SimpleSchemeWizardDialog::save()
 {
-    pattern = ui.qlineedit_pattern->text();
+    scheme = ui.qlineedit_scheme->text();
     applyButton->setEnabled(false);
     return true;
 }
 
-void SimplePatternWizardDialog::update_example()
+void SimpleSchemeWizardDialog::update_example()
 {
-    PatternParser patternparser;
-    QString filename = patternparser.parseSimplePattern(ui.qlineedit_pattern->text(), 1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, false);
+    SchemeParser schemeparser;
+    QString filename = schemeparser.parseSimpleScheme(ui.qlineedit_scheme->text(), 1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, false);
     ui.qlineedit_example->setText(filename);
     ui.qlineedit_example->setCursorPosition(0);
 }

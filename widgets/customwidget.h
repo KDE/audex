@@ -45,7 +45,7 @@ public:
     }
 public Q_SLOTS:
     bool save();
-    void pattern_wizard();
+    void scheme_wizard();
 Q_SIGNALS:
     void triggerChanged();
 private Q_SLOTS:

@@ -58,8 +58,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
         case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_ENCODER_SELECTED_KEY];
 
-        case PROFILE_MODEL_COLUMN_PATTERN_INDEX:
-            return p_cache.at(index.row())[PROFILE_MODEL_PATTERN_KEY];
+        case PROFILE_MODEL_COLUMN_SCHEME_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_SCHEME_KEY];
         case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_FAT32COMPATIBLE_KEY];
         case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX:
@@ -175,10 +175,10 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
                 return false;
             }
             break;
-        case PROFILE_MODEL_COLUMN_PATTERN_INDEX:
+        case PROFILE_MODEL_COLUMN_SCHEME_INDEX:
             if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Profile filename pattern is not defined."),
-                                i18n("You have given no filename pattern for the profile. Please set one."),
+                p_error = Error(i18n("Profile filename scheme is not defined."),
+                                i18n("You have given no filename scheme for the profile. Please set one."),
                                 Error::ERROR,
                                 this);
                 return false;
@@ -369,8 +369,8 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
             p_cache[index.row()][PROFILE_MODEL_ENCODER_SELECTED_KEY] = value;
             break;
 
-        case PROFILE_MODEL_COLUMN_PATTERN_INDEX:
-            p_cache[index.row()][PROFILE_MODEL_PATTERN_KEY] = value;
+        case PROFILE_MODEL_COLUMN_SCHEME_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_SCHEME_KEY] = value;
             break;
         case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX:
             p_cache[index.row()][PROFILE_MODEL_FAT32COMPATIBLE_KEY] = value;
@@ -763,12 +763,12 @@ const Parameters ProfileModel::getSelectedEncoderParametersFromCurrentIndex()
     return parameters;
 }
 
-const QString ProfileModel::getSelectedEncoderPatternFromCurrentIndex()
+const QString ProfileModel::getSelectedEncoderSchemeFromCurrentIndex()
 {
     EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
     Parameters parameters(getSelectedEncoderParametersFromCurrentIndex());
 
-    return EncoderAssistant::pattern(encoder, parameters);
+    return EncoderAssistant::scheme(encoder, parameters);
 }
 
 const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex()
@@ -825,7 +825,7 @@ const Profile ProfileModel::p_new_profile()
 
     p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = DEFAULT_ENCODER_SELECTED;
 
-    p[PROFILE_MODEL_PATTERN_KEY] = DEFAULT_PATTERN;
+    p[PROFILE_MODEL_SCHEME_KEY] = DEFAULT_SCHEME;
 
     p[PROFILE_MODEL_FAT32COMPATIBLE_KEY] = DEFAULT_FAT32;
     p[PROFILE_MODEL_UNDERSCORE_KEY] = DEFAULT_UNDERSCORE;
@@ -936,7 +936,7 @@ void ProfileModel::p_save(KConfig *config)
 
         subGroup.writeEntry(PROFILE_MODEL_ENCODER_SELECTED_KEY, p_cache[i][PROFILE_MODEL_ENCODER_SELECTED_KEY]);
 
-        subGroup.writeEntry(PROFILE_MODEL_PATTERN_KEY, p_cache[i][PROFILE_MODEL_PATTERN_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_SCHEME_KEY, p_cache[i][PROFILE_MODEL_SCHEME_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, p_cache[i][PROFILE_MODEL_FAT32COMPATIBLE_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_UNDERSCORE_KEY, p_cache[i][PROFILE_MODEL_UNDERSCORE_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_2DIGITSTRACKNUM_KEY, p_cache[i][PROFILE_MODEL_2DIGITSTRACKNUM_KEY]);
@@ -993,7 +993,7 @@ void ProfileModel::p_load(KConfig *config)
 
         p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = subGroup.readEntry(PROFILE_MODEL_ENCODER_SELECTED_KEY, DEFAULT_ENCODER_SELECTED);
 
-        p[PROFILE_MODEL_PATTERN_KEY] = subGroup.readEntry(PROFILE_MODEL_PATTERN_KEY, DEFAULT_PATTERN);
+        p[PROFILE_MODEL_SCHEME_KEY] = subGroup.readEntry(PROFILE_MODEL_SCHEME_KEY, DEFAULT_SCHEME);
         p[PROFILE_MODEL_FAT32COMPATIBLE_KEY] = subGroup.readEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, DEFAULT_FAT32);
         p[PROFILE_MODEL_UNDERSCORE_KEY] = subGroup.readEntry(PROFILE_MODEL_UNDERSCORE_KEY, DEFAULT_UNDERSCORE);
         p[PROFILE_MODEL_2DIGITSTRACKNUM_KEY] = subGroup.readEntry(PROFILE_MODEL_2DIGITSTRACKNUM_KEY, DEFAULT_2DIGITSTRACKNUM);

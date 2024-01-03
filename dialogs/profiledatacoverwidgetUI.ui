@@ -80,7 +80,7 @@
     <widget class="KComboBox" name="kcombobox_format"/>
    </item>
    <item row="2" column="0">
-    <widget class="QLabel" name="label_pattern">
+    <widget class="QLabel" name="label_scheme">
      <property name="minimumSize">
       <size>
        <width>80</width>
@@ -88,15 +88,15 @@
       </size>
      </property>
      <property name="text">
-      <string>Cover pattern:</string>
+      <string>Cover scheme:</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1" colspan="4">
-    <widget class="QLineEdit" name="qlineedit_pattern"/>
+    <widget class="QLineEdit" name="qlineedit_scheme"/>
    </item>
    <item row="2" column="5">
-    <widget class="QPushButton" name="kpushbutton_pattern"/>
+    <widget class="QPushButton" name="kpushbutton_scheme"/>
    </item>
    <item row="3" column="2">
     <spacer name="verticalSpacer">
