@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-30 01:37+0000\n"
+"POT-Creation-Date: 2024-01-03 01:35+0000\n"
 "PO-Revision-Date: 2023-12-30 05:50+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -144,138 +144,138 @@ msgstr "პროფილი არჩეუი არაა. ოპერა�
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "რიპინგის და კოდირების \"%1\" პროფილით დაწყება..."
 
-#: core/audex.cpp:622 core/audex.cpp:682
+#: core/audex.cpp:617 core/audex.cpp:677
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "ბილიკი ვერ ვიპოვე \"%1\"."
 
-#: core/audex.cpp:622 core/audex.cpp:682 core/audex.cpp:691 core/audex.cpp:1091
+#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "შეამოწმეთ თქვენი ბილიკი (ჩაწერის უფლებები?)"
 
-#: core/audex.cpp:635
+#: core/audex.cpp:630
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 200 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:641 core/audex.cpp:710
+#: core/audex.cpp:636 core/audex.cpp:705
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. თავზე გადავაწერ."
 
-#: core/audex.cpp:643 core/audex.cpp:712 core/audex.cpp:1071
+#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. გამოვტოვე."
 
-#: core/audex.cpp:691 core/audex.cpp:1091
+#: core/audex.cpp:686 core/audex.cpp:1086
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "საქაღალდის შექმნის შეცდომა: %1."
 
-#: core/audex.cpp:694 core/audex.cpp:1094
+#: core/audex.cpp:689 core/audex.cpp:1089
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "საქაღალდე წარმატებით შეიქმნა: \"%1\"."
 
-#: core/audex.cpp:697
+#: core/audex.cpp:692
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "საქაღალდე უკვე არსბეობს: \"%1\"."
 
-#: core/audex.cpp:704
+#: core/audex.cpp:699
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:727
+#: core/audex.cpp:722
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "დროებითი საქაღალდის \"%1\" შეცდომა (%2)."
 
-#: core/audex.cpp:727
+#: core/audex.cpp:722
 #, kde-format
 msgid "Please check."
 msgstr "გთხოვთ, გადაამოწმოთ."
 
-#: core/audex.cpp:735
+#: core/audex.cpp:730
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "დროებით საქაღალდეში '%1' თავისუფალი ადგილი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:737
+#: core/audex.cpp:732
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "დროებით საქაღალდეს '%1' სულ ცოტა 200 მიბ ადგილი სჭირდება."
 
-#: core/audex.cpp:737
+#: core/audex.cpp:732
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "გაათავისუფლეთ ადგილი ან სხვა ბილიკი მიუთითეთ."
 
-#: core/audex.cpp:766
+#: core/audex.cpp:761
 #, kde-format
 msgid "Eject CD tray"
 msgstr "დისკის ჩასადების გამოყენება"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:809
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "ყდა \"%1\" წარმატებით შეინახა."
 
-#: core/audex.cpp:817
+#: core/audex.cpp:812
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "ყდის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:817 core/audex.cpp:891 core/audex.cpp:930 core/audex.cpp:975
-#: core/audex.cpp:1012 core/audex.cpp:1059 core/audex.cpp:1086
+#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
+#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "შეამოწმეთ ბილიკი და თქვენი წვდომები"
 
-#: core/audex.cpp:887
+#: core/audex.cpp:882
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "დასაკრავი სია %1 წარმატებით შეიქმნა."
 
-#: core/audex.cpp:891
+#: core/audex.cpp:886
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "დასაკრავი სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:927
+#: core/audex.cpp:922
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "ინფორმაციის ფაილი \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:930
+#: core/audex.cpp:925
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "ფაილში \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:972
+#: core/audex.cpp:967
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "ჰეშების სია '%1' წარმატებით შეიქმნა."
 
-#: core/audex.cpp:975
+#: core/audex.cpp:970
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "ჰეშების სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:1009
+#: core/audex.cpp:1004
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue sheet \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:1012
+#: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue sheet \"%1\" -ის შენახვის შეცდომა."
 
-#: core/audex.cpp:1059 core/audex.cpp:1086
+#: core/audex.cpp:1054 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "საქაღალდის \"%1\" გახსნის შეცდომა."
@@ -2095,70 +2095,70 @@ msgstr "WAVE (დაუმუშავებელი, შეუკუმშა�
 msgid "Custom"
 msgstr "ხელით მითითებული"
 
-#: utils/encoderwrapper.cpp:61
+#: utils/encoderwrapper.cpp:60
 #, kde-format
 msgid "Command pattern is empty."
 msgstr "ბრძანების ნიმუში ცარიელია."
 
-#: utils/encoderwrapper.cpp:75
+#: utils/encoderwrapper.cpp:90
 #, kde-format
 msgid "Encoding track %1..."
 msgstr "აუდიობილიკის კოდირება %1..."
 
-#: utils/encoderwrapper.cpp:93
+#: utils/encoderwrapper.cpp:108
 #, kde-format
 msgid "Deleted partial file \"%1\"."
 msgstr "ნაწილობრივი ფაილი \"%1\" წაშლილია."
 
-#: utils/encoderwrapper.cpp:98
+#: utils/encoderwrapper.cpp:113
 #, kde-format
 msgid "User canceled encoding."
 msgstr "კოდირება გაუქმებულია მომხმარებლის მიერ."
 
-#: utils/encoderwrapper.cpp:157
+#: utils/encoderwrapper.cpp:172
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "კოდირება OK (\"%1\")."
 
-#: utils/encoderwrapper.cpp:159
+#: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "შეცდომა ფაილის (\"%1\") კოდირებისას."
 
-#: utils/encoderwrapper.cpp:159 utils/encoderwrapper.cpp:174
-#: utils/encoderwrapper.cpp:177 utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:174 utils/encoderwrapper.cpp:189
+#: utils/encoderwrapper.cpp:192 utils/encoderwrapper.cpp:202
 #, kde-format
 msgid "Please check your profile."
 msgstr "შეამოწმეთ თქვენი პროფილ."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:186
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1-ის გაშვების შეცდომა."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:186
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr "ის ან არ არსებობს, ან პროგრამის გასაშვებად წვდომები არ გაგაჩნიათ."
 
-#: utils/encoderwrapper.cpp:174
+#: utils/encoderwrapper.cpp:189
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "წარმატებულად გაშვებიდან ცოტა ხნის შემდეგ %1 ავარიულად დასრულდა."
 
-#: utils/encoderwrapper.cpp:177
+#: utils/encoderwrapper.cpp:192
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1-ის მოლოდინის დრო გავიდა. ეს არ უნდა მომხდარიყო."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:195
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "შეცდომა %1-ში ჩაწერისას."
 
-#: utils/encoderwrapper.cpp:180
+#: utils/encoderwrapper.cpp:196
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2166,20 +2166,53 @@ msgid ""
 msgstr ""
 "მაგალითად, შეიძლება პროცესი არაა გაშვებული, ან მისი შეყვანის არხი დახურულია."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:199
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "შეცდომა %1-დან წაკითხვის მცდელობისას."
 
-#: utils/encoderwrapper.cpp:183
+#: utils/encoderwrapper.cpp:199
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "მაგალითად, შეიძლება პროცესი გაშვებული არაა."
 
-#: utils/encoderwrapper.cpp:186
+#: utils/encoderwrapper.cpp:202
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "%1-ის უცნობი შეცდომა. ეს არ უნდა მომხდარიყო."
+
+#: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
+#: utils/parameters.cpp:110
+#, kde-format
+msgid "Illegal character found at index %1: '%2'"
+msgstr ""
+
+#: utils/parameters.cpp:121
+#, kde-format
+msgid "Unclosed quote found"
+msgstr ""
+
+#: utils/patternparser.cpp:76
+#, kde-format
+msgid "Illegal character found at index %1: %2"
+msgstr ""
+
+#: utils/patternparser.cpp:126
+#, kde-format
+msgid ""
+"replace_char_list parameter needs two more parameters replace_char_list_from "
+"and replace_char_list_to with equal size."
+msgstr ""
+
+#: utils/patternparser.cpp:238
+#, kde-format
+msgid "Unclosed brace."
+msgstr ""
+
+#: utils/patternparser.cpp:386
+#, kde-format
+msgid "Could not create temporary cover file: %1"
+msgstr ""
 
 #: utils/upload.cpp:54
 #, kde-format
