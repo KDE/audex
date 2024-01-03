@@ -158,6 +158,7 @@ const QString PatternParser::parsePattern(const QString &pattern, const Placehol
                                 else if (iec == 'g')
                                     value = QString("%1").arg(value.toLongLong() / (1024.0f * 1024.0f * 1024.0f), 0, 'f', p);
                             }
+
                             if (key == "format_datetime" && IS_DATETIME(value)) {
                                 QString format;
                                 if (!parameters.value("format_datetime").toString().isEmpty())
@@ -167,6 +168,24 @@ const QString PatternParser::parsePattern(const QString &pattern, const Placehol
                                 } else {
                                     value = QString("%1").arg(value.toDateTime().toString(format));
                                 }
+                            }
+
+                            if (key == "pre" || key == "preparam") {
+                                QString pre;
+                                if (key == "preparam")
+                                    pre = parameters.value("preparam").toString();
+                                else
+                                    pre = parameters.value("pre").toString();
+                                value = QString("%1%2").arg(pre).arg(value.toString());
+                            }
+
+                            if (key == "post" || key == "postparam") {
+                                QString post;
+                                if (key == "postparam")
+                                    post = parameters.value("postparam").toString();
+                                else
+                                    post = parameters.value("post").toString();
+                                value = QString("%1%2").arg(value.toString()).arg(post);
                             }
                         }
 
