@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-30 02:37+0000\n"
+"POT-Creation-Date: 2024-01-03 02:31+0000\n"
 "PO-Revision-Date: 2020-01-23 20:01+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -145,139 +145,139 @@ msgstr "Profiili pole valitud. Toiming katkestatakse."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Rippimise ja kodeerimise alustamine profiiliga \"%1\"..."
 
-#: core/audex.cpp:622 core/audex.cpp:682
+#: core/audex.cpp:617 core/audex.cpp:677
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Asukohta \"%1\" ei leitud."
 
-#: core/audex.cpp:622 core/audex.cpp:682 core/audex.cpp:691 core/audex.cpp:1091
+#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Palun kontrolli asukohta (kirjutamisõigus puudub?)"
 
-#: core/audex.cpp:635
+#: core/audex.cpp:630
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\" sisaldab vaba ruumi alla 200 MiB."
 
-#: core/audex.cpp:641 core/audex.cpp:710
+#: core/audex.cpp:636 core/audex.cpp:705
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Hoiatus! Fail \"%1\" on juba olemas. See kirjutatakse üle."
 
-#: core/audex.cpp:643 core/audex.cpp:712 core/audex.cpp:1071
+#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Hoiatus! Fail \"%1\" on juba olemas. Jäetakse vahele."
 
-#: core/audex.cpp:691 core/audex.cpp:1091
+#: core/audex.cpp:686 core/audex.cpp:1086
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Kataloogi \"%1\" loomine nurjus."
 
-#: core/audex.cpp:694 core/audex.cpp:1094
+#: core/audex.cpp:689 core/audex.cpp:1089
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Kataloog \"%1\" loodi edukalt."
 
-#: core/audex.cpp:697
+#: core/audex.cpp:692
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Kataloog \"%1\" on juba olemas."
 
-#: core/audex.cpp:704
+#: core/audex.cpp:699
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\" sisaldab vaba ruumi alla 800 MiB."
 
-#: core/audex.cpp:727
+#: core/audex.cpp:722
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Ajutise kataloogi \"%1\" viga."
 
-#: core/audex.cpp:727
+#: core/audex.cpp:722
 #, kde-format
 msgid "Please check."
 msgstr "Palun kontrolli."
 
-#: core/audex.cpp:735
+#: core/audex.cpp:730
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Ajutine kataloog \"%1\" sisaldab vaba ruumi alla 800 MiB."
 
-#: core/audex.cpp:737
+#: core/audex.cpp:732
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Ajutine kataloog \"%1\" vajab vähemalt 200 MiB vaba ruumi."
 
-#: core/audex.cpp:737
+#: core/audex.cpp:732
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Palun vabasta ruumi või määra mõni muu asukoht."
 
-#: core/audex.cpp:766
+#: core/audex.cpp:761
 #, kde-format
 msgid "Eject CD tray"
 msgstr "CD väljastamine"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:809
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Kaanepilt \"%1\" on edukalt salvestatud."
 
-#: core/audex.cpp:817
+#: core/audex.cpp:812
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Kaanepildi \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:817 core/audex.cpp:891 core/audex.cpp:930 core/audex.cpp:975
-#: core/audex.cpp:1012 core/audex.cpp:1059 core/audex.cpp:1086
+#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
+#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Palun kontrolli oma asukohta ja õigusi."
 
-#: core/audex.cpp:887
+#: core/audex.cpp:882
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Esitusnimekiri \"%1\" on edukalt loodud."
 
-#: core/audex.cpp:891
+#: core/audex.cpp:886
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Esitusnimekirja \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:927
+#: core/audex.cpp:922
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Teabefail \"%1\" on edukalt loodud."
 
-#: core/audex.cpp:930
+#: core/audex.cpp:925
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Teabefaili \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:972
+#: core/audex.cpp:967
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Räsiloend \"%1\" on edukalt loodud."
 
-#: core/audex.cpp:975
+#: core/audex.cpp:970
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Räsiloendi \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:1009
+#: core/audex.cpp:1004
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Asukohatabel \"%1\" on edukalt loodud."
 
-#: core/audex.cpp:1012
+#: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Asukohatabeli \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:1059 core/audex.cpp:1086
+#: core/audex.cpp:1054 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Kataloogi \"%1\" avamine nurjus."
@@ -2189,48 +2189,48 @@ msgstr "WAVE (toores, tihendamata)"
 msgid "Custom"
 msgstr "Kohandatud"
 
-#: utils/encoderwrapper.cpp:61
+#: utils/encoderwrapper.cpp:60
 #, kde-format
 msgid "Command pattern is empty."
 msgstr "Käsu muster on tühi."
 
-#: utils/encoderwrapper.cpp:75
+#: utils/encoderwrapper.cpp:90
 #, kde-format
 msgid "Encoding track %1..."
 msgstr "Raja %1 kodeerimine..."
 
-#: utils/encoderwrapper.cpp:93
+#: utils/encoderwrapper.cpp:108
 #, kde-format
 msgid "Deleted partial file \"%1\"."
 msgstr "Osaline fail \"%1\" on kustutatud."
 
-#: utils/encoderwrapper.cpp:98
+#: utils/encoderwrapper.cpp:113
 #, kde-format
 msgid "User canceled encoding."
 msgstr "Kasutaja katkestas kodeerimise."
 
-#: utils/encoderwrapper.cpp:156
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Kodeerimisega on kõik korras (\"%1\")."
 
-#: utils/encoderwrapper.cpp:158
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "Faili \"%1\" kodeerimisel tekkis tõrge."
 
-#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
-#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:173 utils/encoderwrapper.cpp:188
+#: utils/encoderwrapper.cpp:191 utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "Please check your profile."
 msgstr "Palun kontrolli oma profiili."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 käivitamine nurjus."
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
@@ -2238,22 +2238,22 @@ msgid ""
 msgstr ""
 "See kas puudub või ei ole sul piisavaid õigusi programmi käivitamiseks."
 
-#: utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:188
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 käivitus edukalt, aga varsti tabas seda krahh."
 
-#: utils/encoderwrapper.cpp:176
+#: utils/encoderwrapper.cpp:191
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1 aegus. Seda ei tohiks juhtuda."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:194
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "%1 kirjutamise katsel tekkis tõrge."
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:195
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -2261,20 +2261,53 @@ msgid ""
 msgstr ""
 "Protsess ei pruugi näiteks töötada või on see sulgenud oma sisendkanali."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:198
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "%1 lugemise katsel tekkis tõrge."
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:198
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Protsess ei pruugi näiteks töötada."
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "%1 tabas tundmatu tõrge. Seda ei tohiks juhtuda."
+
+#: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
+#: utils/parameters.cpp:110
+#, kde-format
+msgid "Illegal character found at index %1: '%2'"
+msgstr ""
+
+#: utils/parameters.cpp:121
+#, kde-format
+msgid "Unclosed quote found"
+msgstr ""
+
+#: utils/patternparser.cpp:76
+#, kde-format
+msgid "Illegal character found at index %1: %2"
+msgstr ""
+
+#: utils/patternparser.cpp:126
+#, kde-format
+msgid ""
+"replace_char_list parameter needs two more parameters replace_char_list_from "
+"and replace_char_list_to with equal size."
+msgstr ""
+
+#: utils/patternparser.cpp:238
+#, kde-format
+msgid "Unclosed brace."
+msgstr ""
+
+#: utils/patternparser.cpp:386
+#, kde-format
+msgid "Could not create temporary cover file: %1"
+msgstr ""
 
 #: utils/upload.cpp:54
 #, kde-format

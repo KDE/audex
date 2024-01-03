@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-30 02:37+0000\n"
+"POT-Creation-Date: 2024-01-03 02:31+0000\n"
 "PO-Revision-Date: 2023-12-30 13:45\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -143,138 +143,138 @@ msgstr "没有选中配置文件。操作中止。"
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
 
-#: core/audex.cpp:622 core/audex.cpp:682
+#: core/audex.cpp:617 core/audex.cpp:677
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "找不到路径“%1”。"
 
-#: core/audex.cpp:622 core/audex.cpp:682 core/audex.cpp:691 core/audex.cpp:1091
+#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "请检查您的路径 (写入访问权限？)"
 
-#: core/audex.cpp:635
+#: core/audex.cpp:630
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "“%1”中的空闲空间少于 200 MiB。"
 
-#: core/audex.cpp:641 core/audex.cpp:710
+#: core/audex.cpp:636 core/audex.cpp:705
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "警告！文件“%1”已经存在。覆盖。"
 
-#: core/audex.cpp:643 core/audex.cpp:712 core/audex.cpp:1071
+#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "警告！文件“%1”已经存在。跳过。"
 
-#: core/audex.cpp:691 core/audex.cpp:1091
+#: core/audex.cpp:686 core/audex.cpp:1086
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "无法创建文件夹 \"%1\"."
 
-#: core/audex.cpp:694 core/audex.cpp:1094
+#: core/audex.cpp:689 core/audex.cpp:1089
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "文件夹 \"%1\" 已成功创建。"
 
-#: core/audex.cpp:697
+#: core/audex.cpp:692
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "文件夹 \"%1\" 已存在。"
 
-#: core/audex.cpp:704
+#: core/audex.cpp:699
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "“%1”中的空闲空间少于 800 MiB。"
 
-#: core/audex.cpp:727
+#: core/audex.cpp:722
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr ""
 
-#: core/audex.cpp:727
+#: core/audex.cpp:722
 #, kde-format
 msgid "Please check."
 msgstr "请检查。"
 
-#: core/audex.cpp:735
+#: core/audex.cpp:730
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "临时文件夹“%1”中的空闲空间少于 800 MiB。"
 
-#: core/audex.cpp:737
+#: core/audex.cpp:732
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "临时文件夹“%1”需要至少 200 MiB 的空闲空间。"
 
-#: core/audex.cpp:737
+#: core/audex.cpp:732
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "请释放空间或选择另一条路径。"
 
-#: core/audex.cpp:766
+#: core/audex.cpp:761
 #, kde-format
 msgid "Eject CD tray"
 msgstr "弹出 CD 托盘"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:809
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "封面 \"%1\" 保存成功。"
 
-#: core/audex.cpp:817
+#: core/audex.cpp:812
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "无法保存封面 “%1”。"
 
-#: core/audex.cpp:817 core/audex.cpp:891 core/audex.cpp:930 core/audex.cpp:975
-#: core/audex.cpp:1012 core/audex.cpp:1059 core/audex.cpp:1086
+#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
+#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "请检查您的路径和权限"
 
-#: core/audex.cpp:887
+#: core/audex.cpp:882
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "播放列表“%1”创建成功"
 
-#: core/audex.cpp:891
+#: core/audex.cpp:886
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "无法保存播放列表“%1”。"
 
-#: core/audex.cpp:927
+#: core/audex.cpp:922
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "信息文件“%1”创建成功。"
 
-#: core/audex.cpp:930
+#: core/audex.cpp:925
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "无法保存信息文件“%1”。"
 
-#: core/audex.cpp:972
+#: core/audex.cpp:967
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "哈希列表“%1”创建成功。"
 
-#: core/audex.cpp:975
+#: core/audex.cpp:970
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "无法保存哈希列表“%1”。"
 
-#: core/audex.cpp:1009
+#: core/audex.cpp:1004
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "CUE 文件“%1”成功创建。"
 
-#: core/audex.cpp:1012
+#: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "无法保存 CUE 文件“%1”。"
 
-#: core/audex.cpp:1059 core/audex.cpp:1086
+#: core/audex.cpp:1054 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "无法打开文件夹“%1”。"
@@ -1865,90 +1865,123 @@ msgstr "WAVE (原始未压缩)"
 msgid "Custom"
 msgstr "定制"
 
-#: utils/encoderwrapper.cpp:61
+#: utils/encoderwrapper.cpp:60
 #, kde-format
 msgid "Command pattern is empty."
 msgstr "命令模式为空。"
 
-#: utils/encoderwrapper.cpp:75
+#: utils/encoderwrapper.cpp:90
 #, kde-format
 msgid "Encoding track %1..."
 msgstr "编码音轨 %1..."
 
-#: utils/encoderwrapper.cpp:93
+#: utils/encoderwrapper.cpp:108
 #, kde-format
 msgid "Deleted partial file \"%1\"."
 msgstr "已删除部分文件 \"%1\"。"
 
-#: utils/encoderwrapper.cpp:98
+#: utils/encoderwrapper.cpp:113
 #, kde-format
 msgid "User canceled encoding."
 msgstr "用户取消了编码。"
 
-#: utils/encoderwrapper.cpp:156
+#: utils/encoderwrapper.cpp:171
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "编码完成 (\"%1\")。"
 
-#: utils/encoderwrapper.cpp:158
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "编码文件 \"%1\" 时发生错误。"
 
-#: utils/encoderwrapper.cpp:158 utils/encoderwrapper.cpp:173
-#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:173 utils/encoderwrapper.cpp:188
+#: utils/encoderwrapper.cpp:191 utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "Please check your profile."
 msgstr "请检查您的配置文件。"
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 启动失败。"
 
-#: utils/encoderwrapper.cpp:170
+#: utils/encoderwrapper.cpp:185
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr "可能是文件丢失，或者是您可能没有足够的权限来调用程序。"
 
-#: utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:188
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 在成功启动后崩溃了一些时间。"
 
-#: utils/encoderwrapper.cpp:176
+#: utils/encoderwrapper.cpp:191
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1 超时。这不应发生。"
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:194
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "试图写入 %1 时出错。"
 
-#: utils/encoderwrapper.cpp:179
+#: utils/encoderwrapper.cpp:195
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
 msgstr "例如，该进程可能未运行，或者它可能已关闭其输入频道。"
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:198
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "尝试从 %1 读取时出错。"
 
-#: utils/encoderwrapper.cpp:182
+#: utils/encoderwrapper.cpp:198
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "例如，进程可能未在运行。"
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "%1发生未知错误。这不应发生。"
+
+#: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
+#: utils/parameters.cpp:110
+#, kde-format
+msgid "Illegal character found at index %1: '%2'"
+msgstr ""
+
+#: utils/parameters.cpp:121
+#, kde-format
+msgid "Unclosed quote found"
+msgstr ""
+
+#: utils/patternparser.cpp:76
+#, kde-format
+msgid "Illegal character found at index %1: %2"
+msgstr ""
+
+#: utils/patternparser.cpp:126
+#, kde-format
+msgid ""
+"replace_char_list parameter needs two more parameters replace_char_list_from "
+"and replace_char_list_to with equal size."
+msgstr ""
+
+#: utils/patternparser.cpp:238
+#, kde-format
+msgid "Unclosed brace."
+msgstr ""
+
+#: utils/patternparser.cpp:386
+#, kde-format
+msgid "Could not create temporary cover file: %1"
+msgstr ""
 
 #: utils/upload.cpp:54
 #, kde-format
