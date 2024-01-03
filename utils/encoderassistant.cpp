@@ -116,11 +116,11 @@ bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize)
         if (maxCoverSize)
             *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE;
         return true;
-    case EncoderAssistant::OGGENC:
     case EncoderAssistant::OPUSENC:
     case EncoderAssistant::FLAC:
-        return true;
     case EncoderAssistant::FAAC:
+        return true;
+    case EncoderAssistant::OGGENC:
     case EncoderAssistant::WAVE:
     case EncoderAssistant::CUSTOM:
     default:
@@ -326,8 +326,12 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
 
     case EncoderAssistant::OPUSENC: {
         qreal bitrate = parameters.value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toReal();
+        bool embed_cover = parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY).toBool();
         QString cmd = ENCODER_OPUSENC_BIN;
         cmd += QString(" --bitrate %1").arg(bitrate, 0, 'f', 2);
+
+        if (embed_cover)
+            cmd += QString::fromUtf8(" --picture \"3||||${" VAR_COVER_FILE "}\"");
 
         cmd += QString::fromUtf8(" --artist \"$" VAR_TRACK_ARTIST "\" --title \"$" VAR_TRACK_TITLE "\" --album \"$" VAR_ALBUM_TITLE "\" --date \"$" VAR_DATE
                                  "\" --tracknumber \"$" VAR_TRACK_NO "\" --genre \"$" VAR_GENRE
@@ -344,10 +348,10 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
 
         if (embed_cover) {
             long versionNumber = EncoderAssistant::versionNumber(EncoderAssistant::FLAC);
-
             if (versionNumber >= makeVersionNumber(1, 1, 3))
                 cmd += QString::fromUtf8(" --picture=\"\\|\\|\\|\\|$" VAR_COVER_FILE "\"");
         }
+
         cmd += QString(" -%1").arg(compression);
         cmd += QString::fromUtf8(" -T Artist=\"$" VAR_TRACK_ARTIST "\" -T Title=\"$" VAR_TRACK_TITLE "\" -T Album=\"$" VAR_ALBUM_TITLE "\" -T Date=\"$" VAR_DATE
                                  "\" -T Tracknumber=\"$" VAR_TRACK_NO "\" -T Genre=\"$" VAR_GENRE "\" -o \"$" VAR_OUTPUT_FILE "\" $" VAR_INPUT_FILE);
@@ -356,8 +360,13 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
 
     case EncoderAssistant::FAAC: {
         int quality = parameters.value(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY).toInt();
+        bool embed_cover = parameters.value(ENCODER_FAAC_EMBED_COVER_KEY).toBool();
         QString cmd = ENCODER_FAAC_BIN;
         cmd += QString(" -q %1").arg(quality);
+
+        if (embed_cover)
+            cmd += QString::fromUtf8(" --cover-art \"${" VAR_COVER_FILE "}\"");
+
         cmd += QString::fromUtf8(" --title \"$" VAR_TRACK_TITLE "\" --artist \"$" VAR_TRACK_ARTIST "\" --album \"$" VAR_ALBUM_TITLE "\" --year \"$" VAR_DATE
                                  "\" --track $" VAR_TRACK_NO " --disc $" VAR_CD_NO " --genre \"$" VAR_GENRE "\" -o \"$" VAR_OUTPUT_FILE "\" $" VAR_INPUT_FILE);
 
@@ -386,7 +395,6 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
     case EncoderAssistant::LAME:
 
         parameters.setValue(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET);
-        parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER);
         parameters.setValue(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE);
         parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER);
 
@@ -405,6 +413,7 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
     case EncoderAssistant::OPUSENC:
 
         parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE);
+        parameters.setValue(ENCODER_OPUSENC_EMBED_COVER_KEY, ENCODER_OPUSENC_EMBED_COVER);
         break;
 
     case EncoderAssistant::FLAC:
@@ -417,6 +426,7 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
     case EncoderAssistant::FAAC:
 
         parameters.setValue(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
+        parameters.setValue(ENCODER_FAAC_EMBED_COVER_KEY, ENCODER_FAAC_EMBED_COVER);
         break;
 
     case EncoderAssistant::WAVE:

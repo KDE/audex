@@ -38,6 +38,7 @@
 
 #define ENCODER_OPUSENC_SUFFIX_KEY "suffix"
 #define ENCODER_OPUSENC_BITRATE_KEY "bitrate"
+#define ENCODER_OPUSENC_EMBED_COVER_KEY "embed_cover"
 
 #define ENCODER_FLAC_SUFFIX_KEY "suffix"
 #define ENCODER_FLAC_COMPRESSION_KEY "compression"
@@ -45,6 +46,7 @@
 
 #define ENCODER_FAAC_SUFFIX_KEY "suffix"
 #define ENCODER_FAAC_QUALITY_KEY "quality"
+#define ENCODER_FAAC_EMBED_COVER_KEY "embed_cover"
 
 #define ENCODER_WAVE_SUFFIX_KEY "suffix"
 
@@ -61,12 +63,12 @@
 #define ENCODER_LAME_VERSION_PARA "--version"
 #define ENCODER_LAME_SUFFIX "mp3"
 #define ENCODER_LAME_MAX_EMBED_COVER_SIZE 128 * 1024
+#define ENCODER_LAME_EMBED_COVER true
 
 /* preset quality */
 #define ENCODER_LAME_PRESET 2
 #define ENCODER_LAME_CBR false
 #define ENCODER_LAME_BITRATE 224
-#define ENCODER_LAME_EMBED_COVER false
 
 #define ENCODER_OGGENC_NAME i18n("Ogg Vorbis")
 #define ENCODER_OGGENC_ENCODER_NAME "OGGENC"
@@ -88,8 +90,9 @@
 #define ENCODER_OPUSENC_BIN "opusenc"
 #define ENCODER_OPUSENC_VERSION_PARA "--version"
 #define ENCODER_OPUSENC_SUFFIX "opus"
+#define ENCODER_OPUSENC_EMBED_COVER true
 
-/* preset normal quality */
+/* preset quality */
 #define ENCODER_OPUSENC_BITRATE 128
 
 #define ENCODER_FLAC_NAME i18n("FLAC (Lossless)")
@@ -108,6 +111,7 @@
 #define ENCODER_FAAC_BIN "faac"
 #define ENCODER_FAAC_VERSION_PARA "--help"
 #define ENCODER_FAAC_SUFFIX "mp4"
+#define ENCODER_FAAC_EMBED_COVER true
 
 /* preset quality */
 #define ENCODER_FAAC_QUALITY 160

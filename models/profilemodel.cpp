@@ -198,9 +198,9 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
             break;
         case PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX:
             if ((value.toString() != "JPEG") && (value.toString() != "JPG") && (value.toString() != "PNG") && (value.toString() != "TIFF")
-                && (value.toString() != "BMP")) {
+                && (value.toString() != "TIF") && (value.toString() != "BMP")) {
                 p_error = Error(i18n("The image file format is unknown."),
-                                i18n("Your given image file format is unknown. Please choose on of these formats: JPG/JPEG, PNG or BMP."),
+                                i18n("Your given image file format is unknown. Please choose on of these formats: JPEG, PNG, TIFF or BMP."),
                                 Error::ERROR,
                                 this);
                 return false;
@@ -689,6 +689,7 @@ void ProfileModel::autoCreate()
         p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FLAC);
         p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FLAC);
         p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FLAC;
+        p[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FLAC).toString();
         p_cache.append(p);
         flag = true;
     }
