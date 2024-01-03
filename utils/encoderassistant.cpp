@@ -407,8 +407,6 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
         parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE);
         break;
 
-        break;
-
     case EncoderAssistant::FLAC:
 
         parameters.setValue(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION);
@@ -419,8 +417,6 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
     case EncoderAssistant::FAAC:
 
         parameters.setValue(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
-        break;
-
         break;
 
     case EncoderAssistant::WAVE:
