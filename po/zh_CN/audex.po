@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:35+0000\n"
+"POT-Creation-Date: 2024-01-04 01:34+0000\n"
 "PO-Revision-Date: 2023-12-30 13:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -355,8 +355,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, kde-format
-msgid "Command Pattern Wizard"
+#, fuzzy, kde-format
+#| msgid "Command Pattern Wizard"
+msgid "Command Scheme Wizard"
 msgstr "命令模式向导"
 
 #: dialogs/commandwizarddialog.cpp:93
@@ -403,13 +404,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "专辑示例："
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr "采样器示例："
@@ -421,68 +422,68 @@ msgid "About commandline schemes"
 msgstr "关于命令行方案"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
-#: dialogs/simplepatternwizardwidgetUI.ui:162
+#: dialogs/commandwizardwidgetUI.ui:276 dialogs/schemewizardwidgetUI.ui:273
+#: dialogs/simpleschemewizardwidgetUI.ui:162
 #, kde-format
 msgid "About parameters"
 msgstr "关于参数"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
-#: dialogs/simplepatternwizardwidgetUI.ui:189
+#: dialogs/commandwizardwidgetUI.ui:300 dialogs/schemewizardwidgetUI.ui:300
+#: dialogs/simpleschemewizardwidgetUI.ui:189
 #, kde-format
 msgid "Album Artist"
 msgstr "专辑艺人"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
-#: dialogs/simplepatternwizardwidgetUI.ui:211
+#: dialogs/commandwizardwidgetUI.ui:322 dialogs/schemewizardwidgetUI.ui:322
+#: dialogs/simpleschemewizardwidgetUI.ui:211
 #, kde-format
 msgid "Album Title"
 msgstr "专辑标题"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+#: dialogs/commandwizardwidgetUI.ui:344 dialogs/schemewizardwidgetUI.ui:344
 #, kde-format
 msgid "Track Artist"
 msgstr "曲目艺人"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:366 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track Title"
 msgstr "曲目标题"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+#: dialogs/commandwizardwidgetUI.ui:376 dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "Track #"
 msgstr "Track #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
-#: dialogs/simplepatternwizardwidgetUI.ui:231
+#: dialogs/commandwizardwidgetUI.ui:386 dialogs/schemewizardwidgetUI.ui:386
+#: dialogs/simpleschemewizardwidgetUI.ui:231
 #, kde-format
 msgid "CD #"
 msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
-#: dialogs/simplepatternwizardwidgetUI.ui:255
+#: dialogs/commandwizardwidgetUI.ui:393 dialogs/schemewizardwidgetUI.ui:436
+#: dialogs/simpleschemewizardwidgetUI.ui:255
 #, kde-format
 msgid "# of Tracks"
 msgstr "曲目数"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
-#: dialogs/simplepatternwizardwidgetUI.ui:241
+#: dialogs/commandwizardwidgetUI.ui:403 dialogs/schemewizardwidgetUI.ui:396
+#: dialogs/simpleschemewizardwidgetUI.ui:241
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
-#: dialogs/simplepatternwizardwidgetUI.ui:221
+#: dialogs/commandwizardwidgetUI.ui:413 dialogs/schemewizardwidgetUI.ui:406
+#: dialogs/simpleschemewizardwidgetUI.ui:221
 #, kde-format
 msgid "Genre"
 msgstr "风格"
@@ -690,63 +691,6 @@ msgstr ""
 msgid "Encoding Track 8 of 12"
 msgstr "正在编码轨道 8，共 12"
 
-#: dialogs/patternwizarddialog.cpp:18
-#, kde-format
-msgid "Filename Pattern Wizard"
-msgstr "文件名模式向导"
-
-#: dialogs/patternwizarddialog.cpp:91
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
-"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
-"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
-"tr></table></p>"
-msgstr ""
-
-#: dialogs/patternwizarddialog.cpp:112
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: dialogs/patternwizardwidgetUI.ui:263
-#, kde-format
-msgid "About filename schemes"
-msgstr "关于文件名方案"
-
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416
-#: dialogs/simplepatternwizardwidgetUI.ui:248
-#, kde-format
-msgid "Suffix"
-msgstr "后缀"
-
 #: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
 msgid "Cover Settings"
@@ -787,25 +731,26 @@ msgstr "x"
 msgid "Format:"
 msgstr "格式："
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, kde-format
-msgid "Cover pattern:"
-msgstr "封面模式："
+#, fuzzy, kde-format
+#| msgid "About schemes"
+msgid "Cover scheme:"
+msgstr "关于模式"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "CUE 文件设置"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
-msgid "Name/Pattern:"
-msgstr "名称/模式："
+msgid "Name/Scheme:"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -915,18 +860,18 @@ msgstr "关于变量"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
-#: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
+#: widgets/faacwidgetUI.ui:125 widgets/flacwidgetUI.ui:115
 #: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "后缀："
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
-msgid "Pattern:"
-msgstr "图案："
+msgid "Scheme:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -971,9 +916,11 @@ msgstr "用下划线替换空格"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting overrides any parameterized variable settings in the pattern"
 msgid ""
-"This setting overrides any parameterized variable settings in the pattern"
+"This setting overrides any parameterized variable settings in the scheme"
 msgstr "此设置覆盖模式中任何参数化的变量设置"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
@@ -1042,12 +989,70 @@ msgstr "写出单个文件"
 msgid "Save %1"
 msgstr "保存 %1"
 
-#: dialogs/simplepatternwizarddialog.cpp:18
-#, kde-format
-msgid "Pattern Wizard"
-msgstr "模式向导"
+#: dialogs/schemewizarddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Filename Pattern Wizard"
+msgid "Filename Scheme Wizard"
+msgstr "文件名模式向导"
 
-#: dialogs/simplepatternwizarddialog.cpp:88
+#: dialogs/schemewizarddialog.cpp:91
+#, kde-format
+msgid ""
+"<p>The following variables will be replaced with their particular meaning in "
+"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
+"the CD. If your CD is a compilation, then this tag represents the title in "
+"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
+"is a compilation, then this tag represents the subtitle in most cases.</td></"
+"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
+"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be just empty.</td></"
+"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
+"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
+"td><td>The track title. Normally each track on a CD has its own title, which "
+"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
+"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
+"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
+"tr></table></p>"
+msgstr ""
+
+#: dialogs/schemewizarddialog.cpp:112
+#, kde-format
+msgid ""
+"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
+"that the tracknumber will be forced to a length of 2 digits. If the number "
+"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
+"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
+"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
+"lowercased. This works with the other variables, too.</p><pre>${artist left="
+"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
+"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
+"overview of parameters go to the Audex webpage.</i></b></p>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
+#: dialogs/schemewizardwidgetUI.ui:263
+#, kde-format
+msgid "About filename schemes"
+msgstr "关于文件名方案"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/schemewizardwidgetUI.ui:416
+#: dialogs/simpleschemewizardwidgetUI.ui:248
+#, kde-format
+msgid "Suffix"
+msgstr "后缀"
+
+#: dialogs/simpleschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr ""
+
+#: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
 msgid ""
 "<p>Filename schemes without an absolute path will be relative to the ripped "
@@ -1069,7 +1074,7 @@ msgid ""
 "$audex</td><td>Audex name and version.</td></tr></table></p>"
 msgstr ""
 
-#: dialogs/simplepatternwizarddialog.cpp:108
+#: dialogs/simpleschemewizarddialog.cpp:108
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
@@ -1084,13 +1089,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/simplepatternwizardwidgetUI.ui:26
+#: dialogs/simpleschemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Example:"
 msgstr "示例："
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: dialogs/simplepatternwizardwidgetUI.ui:152
+#: dialogs/simpleschemewizardwidgetUI.ui:152
 #, kde-format
 msgid "About schemes"
 msgstr "关于模式"
@@ -1511,13 +1516,15 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "未为配置文件设置编码器，请设置一个。"
 
 #: models/profilemodel.cpp:180
-#, kde-format
-msgid "Profile filename pattern is not defined."
+#, fuzzy, kde-format
+#| msgid "Profile filename pattern is not defined."
+msgid "Profile filename scheme is not defined."
 msgstr "配置文件文件名格式未定义。"
 
 #: models/profilemodel.cpp:181
-#, kde-format
-msgid "You have given no filename pattern for the profile. Please set one."
+#, fuzzy, kde-format
+#| msgid "You have given no filename pattern for the profile. Please set one."
+msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "未指定配置文件的文件名格式，请设置一个。"
 
 #: models/profilemodel.cpp:202
@@ -1526,10 +1533,13 @@ msgid "The image file format is unknown."
 msgstr "图像文件格式未知。"
 
 #: models/profilemodel.cpp:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given image file format is unknown. Please choose on of these "
+#| "formats: JPG/JPEG, PNG or BMP."
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
-"JPG/JPEG, PNG or BMP."
+"JPEG, PNG, TIFF or BMP."
 msgstr "您给定的图像文件格式未知，请选择下列格式之一：JPG/JPEG、PNG 或 BMP。"
 
 #: models/profilemodel.cpp:211
@@ -1661,25 +1671,10 @@ msgid "This is an internal error. Please report."
 msgstr "这是一个内部错误。请报告。"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "复制"
-
-#: models/profilemodel.h:164
-#, kde-format
-msgid " (Mobile Quality)"
-msgstr " (手机品质)"
-
-#: models/profilemodel.h:165
-#, kde-format
-msgid " (Normal Quality)"
-msgstr " (一般品质)"
-
-#: models/profilemodel.h:166
-#, kde-format
-msgid " (Extreme Quality)"
-msgstr " (顶级品质)"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -1828,46 +1823,47 @@ msgid ""
 msgstr ""
 "检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
 
-#: utils/encoderassistant.h:57
+#: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:83
+#: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:111
+#: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
 msgstr ""
 
-#: utils/encoderassistant.h:127
+#: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (无损)"
 
-#: utils/encoderassistant.h:137
+#: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:153
+#: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (原始未压缩)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
+#: utils/encoderassistant.h:126 utils/encoderassistant.h:127
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
 msgstr "定制"
 
 #: utils/encoderwrapper.cpp:60
-#, kde-format
-msgid "Command pattern is empty."
+#, fuzzy, kde-format
+#| msgid "Command pattern is empty."
+msgid "Command scheme is empty."
 msgstr "命令模式为空。"
 
 #: utils/encoderwrapper.cpp:90
@@ -1961,24 +1957,24 @@ msgstr ""
 msgid "Unclosed quote found"
 msgstr ""
 
-#: utils/patternparser.cpp:76
+#: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr ""
 
-#: utils/patternparser.cpp:126
+#: utils/schemeparser.cpp:126
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
 
-#: utils/patternparser.cpp:238
+#: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
 msgstr ""
 
-#: utils/patternparser.cpp:386
+#: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr ""
@@ -2035,8 +2031,9 @@ msgstr "删除封面"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, kde-format
-msgid "Command Pattern:"
+#, fuzzy, kde-format
+#| msgid "Command Pattern:"
+msgid "Command Scheme:"
 msgstr "命令模式："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -2060,7 +2057,7 @@ msgstr "质量"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
-#: widgets/opusencwidgetUI.ui:135
+#: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
 msgstr "最低"
@@ -2068,22 +2065,23 @@ msgstr "最低"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
-#: widgets/opusencwidgetUI.ui:149
+#: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
 msgstr "最高"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
+#: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
+#, kde-format
+msgid "Embed cover in music file"
+msgstr "在音乐文件中嵌入封面"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
 msgstr "压缩"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
-#, kde-format
-msgid "Embed cover in music file"
-msgstr "在音乐文件中嵌入封面"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
@@ -2110,7 +2108,7 @@ msgid "Perform cover lookup automatically"
 msgstr "自动进行查找封面"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:92
+#: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
 msgstr "要获取的封面个数："
@@ -2188,13 +2186,13 @@ msgstr "固定码率"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
-#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
 msgstr ""
@@ -2302,3 +2300,24 @@ msgstr "保存..."
 #, kde-format
 msgid "URL:"
 msgstr "网址："
+
+#~ msgid "Cover pattern:"
+#~ msgstr "封面模式："
+
+#~ msgid "Name/Pattern:"
+#~ msgstr "名称/模式："
+
+#~ msgid "Pattern:"
+#~ msgstr "图案："
+
+#~ msgid "Pattern Wizard"
+#~ msgstr "模式向导"
+
+#~ msgid " (Mobile Quality)"
+#~ msgstr " (手机品质)"
+
+#~ msgid " (Normal Quality)"
+#~ msgstr " (一般品质)"
+
+#~ msgid " (Extreme Quality)"
+#~ msgstr " (顶级品质)"

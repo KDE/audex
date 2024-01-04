@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:35+0000\n"
+"POT-Creation-Date: 2024-01-04 01:34+0000\n"
 "PO-Revision-Date: 2023-04-29 12:27+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -362,8 +362,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, kde-format
-msgid "Command Pattern Wizard"
+#, fuzzy, kde-format
+#| msgid "Command Pattern Wizard"
+msgid "Command Scheme Wizard"
 msgstr "Assistent für Befehlseingaben"
 
 #: dialogs/commandwizarddialog.cpp:93
@@ -466,13 +467,13 @@ msgstr ""
 "Parameter finden Sie auf der Audex-Webseite.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "Album-Beispiel:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr "Aufnahmen-Beispiel:"
@@ -484,68 +485,68 @@ msgid "About commandline schemes"
 msgstr "Über Schemata für die Befehlszeile"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
-#: dialogs/simplepatternwizardwidgetUI.ui:162
+#: dialogs/commandwizardwidgetUI.ui:276 dialogs/schemewizardwidgetUI.ui:273
+#: dialogs/simpleschemewizardwidgetUI.ui:162
 #, kde-format
 msgid "About parameters"
 msgstr "Über Parameter"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
-#: dialogs/simplepatternwizardwidgetUI.ui:189
+#: dialogs/commandwizardwidgetUI.ui:300 dialogs/schemewizardwidgetUI.ui:300
+#: dialogs/simpleschemewizardwidgetUI.ui:189
 #, kde-format
 msgid "Album Artist"
 msgstr "Interpret des Albums"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
-#: dialogs/simplepatternwizardwidgetUI.ui:211
+#: dialogs/commandwizardwidgetUI.ui:322 dialogs/schemewizardwidgetUI.ui:322
+#: dialogs/simpleschemewizardwidgetUI.ui:211
 #, kde-format
 msgid "Album Title"
 msgstr "Albumtitel"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+#: dialogs/commandwizardwidgetUI.ui:344 dialogs/schemewizardwidgetUI.ui:344
 #, kde-format
 msgid "Track Artist"
 msgstr "Interpret des Stückes"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:366 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track Title"
 msgstr "Stücktitel"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+#: dialogs/commandwizardwidgetUI.ui:376 dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "Track #"
 msgstr "Stück #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
-#: dialogs/simplepatternwizardwidgetUI.ui:231
+#: dialogs/commandwizardwidgetUI.ui:386 dialogs/schemewizardwidgetUI.ui:386
+#: dialogs/simpleschemewizardwidgetUI.ui:231
 #, kde-format
 msgid "CD #"
 msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
-#: dialogs/simplepatternwizardwidgetUI.ui:255
+#: dialogs/commandwizardwidgetUI.ui:393 dialogs/schemewizardwidgetUI.ui:436
+#: dialogs/simpleschemewizardwidgetUI.ui:255
 #, kde-format
 msgid "# of Tracks"
 msgstr "# der Stücke"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
-#: dialogs/simplepatternwizardwidgetUI.ui:241
+#: dialogs/commandwizardwidgetUI.ui:403 dialogs/schemewizardwidgetUI.ui:396
+#: dialogs/simpleschemewizardwidgetUI.ui:241
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
-#: dialogs/simplepatternwizardwidgetUI.ui:221
+#: dialogs/commandwizardwidgetUI.ui:413 dialogs/schemewizardwidgetUI.ui:406
+#: dialogs/simpleschemewizardwidgetUI.ui:221
 #, kde-format
 msgid "Genre"
 msgstr "Genre"
@@ -761,95 +762,6 @@ msgstr ""
 msgid "Encoding Track 8 of 12"
 msgstr "Stück 8 von 12 wird kodiert"
 
-#: dialogs/patternwizarddialog.cpp:18
-#, kde-format
-msgid "Filename Pattern Wizard"
-msgstr "Assistent für Dateinamen"
-
-#: dialogs/patternwizarddialog.cpp:91
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
-"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
-"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
-"tr></table></p>"
-msgstr ""
-"<p>Die folgenden Variablen werden durch die entsprechenden Werte im Namen "
-"jedes Stücks ersetzt.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Beschreibung</em></th></tr><tr><td>$artist</td><td>Der Interpret "
-"der CD. Handelt es sich bei Ihrer CD um eine Zusammenstellung, dann "
-"repräsentiert diese Markierung in den meisten Fällen den Titel.</td></"
-"tr><tr><td>$title</td><td>Der Titel der CD. Handelt es sich bei Ihrer CD um "
-"eine Zusammenstellung, dann repräsentiert diese Markierung in den meisten "
-"Fällen den Untertitel.</td></tr><tr><td>$date</td><td>Das "
-"Veröffentlichungsdatum der CD. In fast allen Fällen ist dies das Jahr.</td></"
-"tr><tr><td>$genre</td><td>Das Genre der CD.</td></tr><tr><td>$cdno</"
-"td><td>Die CD-Nummer eines Albums aus mehreren CDs. Zusammenstellungen "
-"bestehen oft aus mehreren CDs. <i>Hinweis:</i> Ist die Markierung für eine "
-"Mehrfach-CD <b>nicht</b> für die aktuelle CD gesetzt, dann ist dieser Wert "
-"leer.</td></tr><tr><td>$tartist</td><td>Dies ist der Interpret jedes "
-"einzelnen Stücks. Die ist besonders nützlich auf CD-Zusammenstellungen.</"
-"td></tr><tr><td>$ttitle</td><td>Der Titel des Stücks. Normalerweise hat "
-"jedes Stück auf einer CD einen eigenen Titel, das ist der Name des Lieds.</"
-"td></tr><tr><td>$trackno</td><td>Die Nummer das Stücks. Das erste Stück hat "
-"die Nummer 1.</td></tr><tr><td>$nooftracks</td><td>Die gesamte Anzahl der "
-"Audiostücke auf der CD.</td></tr><tr><td>$suffix</td><td>Die "
-"Dateierweiterung.</td></tr><tr><td>$audex</td><td>Name und Version von Audex."
-"</td></tr></table></p>"
-
-#: dialogs/patternwizarddialog.cpp:112
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>Variablen in Audex können Parameter haben. Z. B. </p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>Die Nummer "
-"der CD wird mit zwei Ziffern angezeigt. Ist die Nummer kleiner als 10, dann "
-"wird eine „0“ vorangestellt.</p><pre>$artist/${title lowercase=\"true\"}/"
-"$trackno - $ttile.$suffix<br />$artist/${title uppercase=\"true\"}/$trackno "
-"- $ttile.$suffix</pre><p>Der Titel wird groß oder klein geschrieben. Dies "
-"funktioniert auch mit anderen Variablen.</p><pre>${artist left=\"1\"}/"
-"$artist/$title/$trackno - $ttile.$suffix</pre><p>Gibt das erste Zeichen von "
-"links zurück.</p><hr /><p><b><i>Eine vollständige Übersicht der Parameter "
-"finden Sie auf der Audex-Webseite.</i></b></p>"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: dialogs/patternwizardwidgetUI.ui:263
-#, kde-format
-msgid "About filename schemes"
-msgstr "Über Schemata für Dateinamen"
-
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416
-#: dialogs/simplepatternwizardwidgetUI.ui:248
-#, kde-format
-msgid "Suffix"
-msgstr "Erweiterung"
-
 #: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
 msgid "Cover Settings"
@@ -890,25 +802,26 @@ msgstr "x"
 msgid "Format:"
 msgstr "Format:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, kde-format
-msgid "Cover pattern:"
-msgstr "Cover-Muster:"
+#, fuzzy, kde-format
+#| msgid "About schemes"
+msgid "Cover scheme:"
+msgstr "Über Schemata"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Einstellungen der Cue-Datei"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
-msgid "Name/Pattern:"
-msgstr "Name/Muster:"
+msgid "Name/Scheme:"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -1170,18 +1083,18 @@ msgstr "Über Variablen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
-#: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
+#: widgets/faacwidgetUI.ui:125 widgets/flacwidgetUI.ui:115
 #: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "Erweiterung:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
-msgid "Pattern:"
-msgstr "Muster:"
+msgid "Scheme:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1226,9 +1139,11 @@ msgstr "Leerzeichen durch Unterstriche ersetzen"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting overrides any parameterized variable settings in the pattern"
 msgid ""
-"This setting overrides any parameterized variable settings in the pattern"
+"This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 "Diese Einstellung überschreibt jede Variablen-Einstellung durch Parameter im "
 "Muster"
@@ -1299,12 +1214,102 @@ msgstr "Einzelne Datei schreiben"
 msgid "Save %1"
 msgstr "%1 speichern "
 
-#: dialogs/simplepatternwizarddialog.cpp:18
-#, kde-format
-msgid "Pattern Wizard"
-msgstr "Assistent für Muster"
+#: dialogs/schemewizarddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Filename Pattern Wizard"
+msgid "Filename Scheme Wizard"
+msgstr "Assistent für Dateinamen"
 
-#: dialogs/simplepatternwizarddialog.cpp:88
+#: dialogs/schemewizarddialog.cpp:91
+#, kde-format
+msgid ""
+"<p>The following variables will be replaced with their particular meaning in "
+"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
+"the CD. If your CD is a compilation, then this tag represents the title in "
+"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
+"is a compilation, then this tag represents the subtitle in most cases.</td></"
+"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
+"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be just empty.</td></"
+"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
+"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
+"td><td>The track title. Normally each track on a CD has its own title, which "
+"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
+"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
+"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
+"tr></table></p>"
+msgstr ""
+"<p>Die folgenden Variablen werden durch die entsprechenden Werte im Namen "
+"jedes Stücks ersetzt.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Beschreibung</em></th></tr><tr><td>$artist</td><td>Der Interpret "
+"der CD. Handelt es sich bei Ihrer CD um eine Zusammenstellung, dann "
+"repräsentiert diese Markierung in den meisten Fällen den Titel.</td></"
+"tr><tr><td>$title</td><td>Der Titel der CD. Handelt es sich bei Ihrer CD um "
+"eine Zusammenstellung, dann repräsentiert diese Markierung in den meisten "
+"Fällen den Untertitel.</td></tr><tr><td>$date</td><td>Das "
+"Veröffentlichungsdatum der CD. In fast allen Fällen ist dies das Jahr.</td></"
+"tr><tr><td>$genre</td><td>Das Genre der CD.</td></tr><tr><td>$cdno</"
+"td><td>Die CD-Nummer eines Albums aus mehreren CDs. Zusammenstellungen "
+"bestehen oft aus mehreren CDs. <i>Hinweis:</i> Ist die Markierung für eine "
+"Mehrfach-CD <b>nicht</b> für die aktuelle CD gesetzt, dann ist dieser Wert "
+"leer.</td></tr><tr><td>$tartist</td><td>Dies ist der Interpret jedes "
+"einzelnen Stücks. Die ist besonders nützlich auf CD-Zusammenstellungen.</"
+"td></tr><tr><td>$ttitle</td><td>Der Titel des Stücks. Normalerweise hat "
+"jedes Stück auf einer CD einen eigenen Titel, das ist der Name des Lieds.</"
+"td></tr><tr><td>$trackno</td><td>Die Nummer das Stücks. Das erste Stück hat "
+"die Nummer 1.</td></tr><tr><td>$nooftracks</td><td>Die gesamte Anzahl der "
+"Audiostücke auf der CD.</td></tr><tr><td>$suffix</td><td>Die "
+"Dateierweiterung.</td></tr><tr><td>$audex</td><td>Name und Version von Audex."
+"</td></tr></table></p>"
+
+#: dialogs/schemewizarddialog.cpp:112
+#, kde-format
+msgid ""
+"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
+"that the tracknumber will be forced to a length of 2 digits. If the number "
+"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
+"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
+"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
+"lowercased. This works with the other variables, too.</p><pre>${artist left="
+"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
+"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
+"overview of parameters go to the Audex webpage.</i></b></p>"
+msgstr ""
+"<p>Variablen in Audex können Parameter haben. Z. B. </p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>Die Nummer "
+"der CD wird mit zwei Ziffern angezeigt. Ist die Nummer kleiner als 10, dann "
+"wird eine „0“ vorangestellt.</p><pre>$artist/${title lowercase=\"true\"}/"
+"$trackno - $ttile.$suffix<br />$artist/${title uppercase=\"true\"}/$trackno "
+"- $ttile.$suffix</pre><p>Der Titel wird groß oder klein geschrieben. Dies "
+"funktioniert auch mit anderen Variablen.</p><pre>${artist left=\"1\"}/"
+"$artist/$title/$trackno - $ttile.$suffix</pre><p>Gibt das erste Zeichen von "
+"links zurück.</p><hr /><p><b><i>Eine vollständige Übersicht der Parameter "
+"finden Sie auf der Audex-Webseite.</i></b></p>"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
+#: dialogs/schemewizardwidgetUI.ui:263
+#, kde-format
+msgid "About filename schemes"
+msgstr "Über Schemata für Dateinamen"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/schemewizardwidgetUI.ui:416
+#: dialogs/simpleschemewizardwidgetUI.ui:248
+#, kde-format
+msgid "Suffix"
+msgstr "Erweiterung"
+
+#: dialogs/simpleschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr ""
+
+#: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
 msgid ""
 "<p>Filename schemes without an absolute path will be relative to the ripped "
@@ -1345,7 +1350,7 @@ msgstr ""
 "tr><tr><td>$encoder</td><td>Name und Version des Kodierers.</td></tr><tr><td>"
 "$audex</td><td>Name und Version von Audex.</td></tr></table></p>"
 
-#: dialogs/simplepatternwizarddialog.cpp:108
+#: dialogs/simpleschemewizarddialog.cpp:108
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
@@ -1369,13 +1374,13 @@ msgstr ""
 "der Audex-Webseite.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/simplepatternwizardwidgetUI.ui:26
+#: dialogs/simpleschemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Example:"
 msgstr "Beispiel:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: dialogs/simplepatternwizardwidgetUI.ui:152
+#: dialogs/simpleschemewizardwidgetUI.ui:152
 #, kde-format
 msgid "About schemes"
 msgstr "Über Schemata"
@@ -1826,13 +1831,15 @@ msgstr ""
 "fest."
 
 #: models/profilemodel.cpp:180
-#, kde-format
-msgid "Profile filename pattern is not defined."
+#, fuzzy, kde-format
+#| msgid "Profile filename pattern is not defined."
+msgid "Profile filename scheme is not defined."
 msgstr "Dateinamensmuster für das Profil ist nicht angegeben."
 
 #: models/profilemodel.cpp:181
-#, kde-format
-msgid "You have given no filename pattern for the profile. Please set one."
+#, fuzzy, kde-format
+#| msgid "You have given no filename pattern for the profile. Please set one."
+msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
 "Sie haben kein Datennamensmuster für das Profil angegeben. Bitte geben Sie "
 "eins an."
@@ -1843,10 +1850,13 @@ msgid "The image file format is unknown."
 msgstr "Das Bildformat ist unbekannt."
 
 #: models/profilemodel.cpp:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given image file format is unknown. Please choose on of these "
+#| "formats: JPG/JPEG, PNG or BMP."
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
-"JPG/JPEG, PNG or BMP."
+"JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Ihr gewähltes Bildformat ist unbekannt. Bitte wählen Sie eins von den "
 "Formaten: JPG/JPEG, PNG oder BMP."
@@ -2000,25 +2010,10 @@ msgid "This is an internal error. Please report."
 msgstr "Dies ist ein interner Fehler. Bitte melden Sie diesen."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopieren"
-
-#: models/profilemodel.h:164
-#, kde-format
-msgid " (Mobile Quality)"
-msgstr " (Niedrige Qualität (Für mobile Player))"
-
-#: models/profilemodel.h:165
-#, kde-format
-msgid " (Normal Quality)"
-msgstr " (Normale Qualität)"
-
-#: models/profilemodel.h:166
-#, kde-format
-msgid " (Extreme Quality)"
-msgstr " (Sehr hohe Qualität)"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -2194,46 +2189,47 @@ msgstr ""
 "Überprüfen Sie Ihr Laufwerk. Ist es wirklich „%1“? Wenn ja, überprüfen Sie "
 "Ihre Zugriffsrechte auf „%1“."
 
-#: utils/encoderassistant.h:57
+#: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:83
+#: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:111
+#: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
 msgstr ""
 
-#: utils/encoderassistant.h:127
+#: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (Verlustfrei)"
 
-#: utils/encoderassistant.h:137
+#: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:153
+#: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (Unkomprimiert)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
+#: utils/encoderassistant.h:126 utils/encoderassistant.h:127
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
 #: utils/encoderwrapper.cpp:60
-#, kde-format
-msgid "Command pattern is empty."
+#, fuzzy, kde-format
+#| msgid "Command pattern is empty."
+msgid "Command scheme is empty."
 msgstr "Das Befehlsmuster ist leer."
 
 #: utils/encoderwrapper.cpp:90
@@ -2329,24 +2325,24 @@ msgstr ""
 msgid "Unclosed quote found"
 msgstr ""
 
-#: utils/patternparser.cpp:76
+#: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr ""
 
-#: utils/patternparser.cpp:126
+#: utils/schemeparser.cpp:126
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
 
-#: utils/patternparser.cpp:238
+#: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
 msgstr ""
 
-#: utils/patternparser.cpp:386
+#: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr ""
@@ -2403,8 +2399,9 @@ msgstr "Cover entfernen"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, kde-format
-msgid "Command Pattern:"
+#, fuzzy, kde-format
+#| msgid "Command Pattern:"
+msgid "Command Scheme:"
 msgstr "Befehlsmuster:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -2428,7 +2425,7 @@ msgstr "Qualität"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
-#: widgets/opusencwidgetUI.ui:135
+#: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
 msgstr "Niedrigste"
@@ -2436,22 +2433,23 @@ msgstr "Niedrigste"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
-#: widgets/opusencwidgetUI.ui:149
+#: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
 msgstr "Höchste"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
+#: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
+#, kde-format
+msgid "Embed cover in music file"
+msgstr "Cover in Musikdatei einbetten"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
 msgstr "Kompression"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
-#, kde-format
-msgid "Embed cover in music file"
-msgstr "Cover in Musikdatei einbetten"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
@@ -2478,7 +2476,7 @@ msgid "Perform cover lookup automatically"
 msgstr "CD-Cover-Abfrage automatisch durchführen"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:92
+#: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
 msgstr "Anzahl abzufragender Cover:"
@@ -2559,14 +2557,14 @@ msgstr "Konstante Bitrate"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, fuzzy, kde-format
 #| msgid "Target Bitrate (kbit/s)"
 msgid "Target bitrate (kbit/s)"
 msgstr "Ziel-Bitrate (Kb/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
-#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, fuzzy, kde-format
 #| msgid "kbit/s"
 msgid " kbit/s"
@@ -2684,6 +2682,27 @@ msgstr "Speichern ..."
 #, kde-format
 msgid "URL:"
 msgstr "Adresse:"
+
+#~ msgid "Cover pattern:"
+#~ msgstr "Cover-Muster:"
+
+#~ msgid "Name/Pattern:"
+#~ msgstr "Name/Muster:"
+
+#~ msgid "Pattern:"
+#~ msgstr "Muster:"
+
+#~ msgid "Pattern Wizard"
+#~ msgstr "Assistent für Muster"
+
+#~ msgid " (Mobile Quality)"
+#~ msgstr " (Niedrige Qualität (Für mobile Player))"
+
+#~ msgid " (Normal Quality)"
+#~ msgstr " (Normale Qualität)"
+
+#~ msgid " (Extreme Quality)"
+#~ msgstr " (Sehr hohe Qualität)"
 
 #~ msgid "File does not exist."
 #~ msgstr "Die Datei existiert nicht."

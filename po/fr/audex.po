@@ -4,7 +4,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # bruno <bruno@victoria.frmug.org>, 2009.
 # Joëlle Cornavin <jcorn@free.fr>, 2009, 2010, 2011, 2012, 2013.
-# SPDX-FileCopyrightText: 2013, 2020, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2013, 2020, 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Vincent PINON <vincent.pinon@st.com>, 2013, 2015.
 # Sophie ABBAD <abbadsophie@gmail.com>, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2018.
@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 01:35+0000\n"
-"PO-Revision-Date: 2023-12-30 09:34+0100\n"
+"POT-Creation-Date: 2024-01-04 01:34+0000\n"
+"PO-Revision-Date: 2024-01-02 11:45+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -368,8 +368,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, kde-format
-msgid "Command Pattern Wizard"
+#, fuzzy, kde-format
+#| msgid "Command Pattern Wizard"
+msgid "Command Scheme Wizard"
 msgstr "Assistant de création de motifs de commandes"
 
 #: dialogs/commandwizarddialog.cpp:93
@@ -456,13 +457,13 @@ msgstr ""
 "comportement fonctionne avec toutes les variables en ligne de commandes.</p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "Exemple d'album :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr "Exemple d'échantillonneur :"
@@ -474,68 +475,68 @@ msgid "About commandline schemes"
 msgstr "À propos des schémas de ligne de commandes"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
-#: dialogs/simplepatternwizardwidgetUI.ui:162
+#: dialogs/commandwizardwidgetUI.ui:276 dialogs/schemewizardwidgetUI.ui:273
+#: dialogs/simpleschemewizardwidgetUI.ui:162
 #, kde-format
 msgid "About parameters"
 msgstr "À propos des paramètres"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
-#: dialogs/simplepatternwizardwidgetUI.ui:189
+#: dialogs/commandwizardwidgetUI.ui:300 dialogs/schemewizardwidgetUI.ui:300
+#: dialogs/simpleschemewizardwidgetUI.ui:189
 #, kde-format
 msgid "Album Artist"
 msgstr "Artiste de l'album"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
-#: dialogs/simplepatternwizardwidgetUI.ui:211
+#: dialogs/commandwizardwidgetUI.ui:322 dialogs/schemewizardwidgetUI.ui:322
+#: dialogs/simpleschemewizardwidgetUI.ui:211
 #, kde-format
 msgid "Album Title"
 msgstr "Titre de l'album"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+#: dialogs/commandwizardwidgetUI.ui:344 dialogs/schemewizardwidgetUI.ui:344
 #, kde-format
 msgid "Track Artist"
 msgstr "Artiste de la piste"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:366 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track Title"
 msgstr "Titre de la piste"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+#: dialogs/commandwizardwidgetUI.ui:376 dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "Track #"
 msgstr "N° de piste"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
-#: dialogs/simplepatternwizardwidgetUI.ui:231
+#: dialogs/commandwizardwidgetUI.ui:386 dialogs/schemewizardwidgetUI.ui:386
+#: dialogs/simpleschemewizardwidgetUI.ui:231
 #, kde-format
 msgid "CD #"
 msgstr "N° de CD"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
-#: dialogs/simplepatternwizardwidgetUI.ui:255
+#: dialogs/commandwizardwidgetUI.ui:393 dialogs/schemewizardwidgetUI.ui:436
+#: dialogs/simpleschemewizardwidgetUI.ui:255
 #, kde-format
 msgid "# of Tracks"
 msgstr "N° des pistes"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
-#: dialogs/simplepatternwizardwidgetUI.ui:241
+#: dialogs/commandwizardwidgetUI.ui:403 dialogs/schemewizardwidgetUI.ui:396
+#: dialogs/simpleschemewizardwidgetUI.ui:241
 #, kde-format
 msgid "Date"
 msgstr "Date"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
-#: dialogs/simplepatternwizardwidgetUI.ui:221
+#: dialogs/commandwizardwidgetUI.ui:413 dialogs/schemewizardwidgetUI.ui:406
+#: dialogs/simpleschemewizardwidgetUI.ui:221
 #, kde-format
 msgid "Genre"
 msgstr "Genre"
@@ -745,102 +746,13 @@ msgstr "Vitesse : 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p %"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "Encodage de la piste 8 sur 12"
-
-#: dialogs/patternwizarddialog.cpp:18
-#, kde-format
-msgid "Filename Pattern Wizard"
-msgstr "Assistant de motifs de noms de fichiers"
-
-#: dialogs/patternwizarddialog.cpp:91
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
-"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
-"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
-"tr></table></p>"
-msgstr ""
-"<p>Les variables suivantes seront remplacées par leur signification "
-"particulière dans chaque nom de piste.</p><p><table border="
-"\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-"tr><tr><td>$artist</td><td>L'artiste du CD. Si votre CD est une compilation, "
-"cette étiquette représente le titre dans la plupart des cas.</td></"
-"tr><tr><td>$title</td><td>Le titre du CD. Si votre CD est une compilation, "
-"cette étiquette représente le sous-titre le plus souvent.</td></tr><tr><td>"
-"$date</td><td>La date de sortie du CD. En général, il s'agit de l'année.</"
-"td></tr><tr><td>$genre</td><td>Le genre du CD.</td></tr><tr><td>$cdno</"
-"td><td>Le numéro de CD d'un album multi CD. Souvent, les compilations se "
-"composent de plusieurs CD. <i>Remarque :</i> si le drapeau multi-CD n'est "
-"<b>pas</b> positionné pour le CD actuel, cette valeur sera simplement vide.</"
-"td></tr><tr><td>$tartist</td><td>Il s'agit de l'artiste de chaque piste "
-"individuelle. Cette fonction est particulièrement utile sur des CD de "
-"compilation.</td></tr><tr><td>$ttitle</td><td>Le titre d'une piste. "
-"Normalement, chaque piste d'un CD est associée à son propre titre, qui est "
-"le nom du morceau.</td></tr><tr><td>$trackno</td><td>Le numéro d'une piste. "
-"La première piste porte le numéro 1.</td></tr><tr><td>$suffix</"
-"td><td>L'extension du nom de fichier.</td></tr><tr><td>$audex</td><td>Le nom "
-"et la version de Audex.</td></tr></table></p>"
-
-#: dialogs/patternwizarddialog.cpp:112
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>Dans Audex, les variables peuvent posséder des paramètres. Ex.</p><pre>"
-"$artist/$title/${trackno length = « 2 » fillchar = « 0 » } - $ttile.$suffix</"
-"pre><p>Cela signifie que le numéro de la piste aura une contrainte de "
-"longueur de 2 chiffres. Si ce nombre est inférieur à 10, il sera complété "
-"par « 0 ».</p><pre>$artist/${title lowercase = « true » }/$trackno - $ttile."
-"$suffix<br />$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</"
-"pre><p>Le titre sera en majuscules ou en minuscules. Ce comportement "
-"fonctionne avec les autres variables aussi.</p><pre>${artist left = « 1 »}/"
-"$artist/$title/$trackno - $ttile.$suffix</pre><p>Ce paramètre prend un "
-"caractère en partant de la gauche, ce qui correspond au premier caractère.</"
-"p><hr /><p><b><i>Pour avoir une vue d'ensemble exhaustive des paramètres, "
-"veuillez consulter la page Web du projet Audex.</i></b></p>"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: dialogs/patternwizardwidgetUI.ui:263
-#, kde-format
-msgid "About filename schemes"
-msgstr "À propos des schémas de noms de fichiers"
-
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416
-#: dialogs/simplepatternwizardwidgetUI.ui:248
-#, kde-format
-msgid "Suffix"
-msgstr "Suffixe"
 
 #: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
@@ -882,25 +794,26 @@ msgstr "x"
 msgid "Format:"
 msgstr "Format :"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, kde-format
-msgid "Cover pattern:"
-msgstr "Motif de couverture :"
+#, fuzzy, kde-format
+#| msgid "About schemes"
+msgid "Cover scheme:"
+msgstr "À propos des schémas"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Paramètres des feuilles de montage"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
-msgid "Name/Pattern:"
-msgstr "Nom / Motif :"
+msgid "Name/Scheme:"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -939,85 +852,7 @@ msgid "Info Settings"
 msgstr "Paramètres des informations"
 
 #: dialogs/profiledatainfodialog.cpp:117
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#| "by a special value and can even contain parameters.<br />For example the "
-#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#| "div>will be replaced by the relevant artist of the cd. Variables may also "
-#| "have attribute, for example:<div style=\"font-family:monospace; "
-#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#| "pre></div>This would print the current date. Setting the format will "
-#| "control how this is done. The example (above)would result int the date "
-#| "being printed as 2010-10-07 (if this was the current date). See below for "
-#| "more details.<br /><br />You can make use of the following variables:<br /"
-#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#| "td><td></td><td>Prints the relevant date (usually release year) of the "
-#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#| "(compressed) music files (incl. the cover). The attribute iec can be one "
-#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#| "attribute precision gives the number of decimal places. Default "
-#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#| "relevant overall length of all extracted tracks. The format is min:sec.</"
-#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints encoder name "
-#| "and version.</td></tr><tr><td>$audex</td><td></td><td>Prints Audex name "
-#| "and version.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -1071,78 +906,44 @@ msgstr ""
 "#b3c1d6; color: black\"><pre>$artist</pre></div>ou l'équivalent<div style="
 "\"font-family:monospace; background: #b3c1d6; color: black\"><pre>${artist}</"
 "pre></div>seront remplacées par l'artiste correspondant du CD. Les variables "
-"peuvent également comporter un attribut, par exemple :<div style=\"font-"
+"peuvent également posséder un attribut, par exemple :<div style=\"font-"
 "family:monospace; background: #b3c1d6; color: black\"><pre>${today format = "
-"« yyyy-MM-dd » }</pre></div>Cette fonction affichera la date actuelle. La "
+"« aaaa-MM-jj » }</pre></div>Cette fonction affichera la date actuelle. La "
 "définition du format permet de contrôler l'affichage de la date. L'exemple "
-"(ci-dessus) aurait pour résultat l'affichage de la date sous la forme "
-"2010-10-07 (s'il s'agit de la date actuelle). Veuillez regarder ci-dessous "
-"pour obtenir plus de détails.<br /><br />Vous pouvez employer les variables "
-"suivantes :<br /><table border=1><thead><tr><th>Variable</th><th>Paramètre</"
+"ci-dessus fournirait un affichage de la date sous la forme 2010-10-07 (S'il "
+"s'agit de la date actuelle). Veuillez regarder ci-dessous pour obtenir plus "
+"de détails.<br /><br />Vous pouvez employer les variables suivantes :<br /"
+"><table border=1><thead><tr><th>Variable</th><th>Paramètre</"
 "th><th>Description</th><th>Exemple</th></tr></thead><tbody><tr><td>$artist</"
 "td><td></td><td>Affiche l'artiste correspondant du CD extrait.</td><td>"
 "${artist }</td></tr><tr><td>$title</td><td></td><td>Affiche le titre "
 "correspondant du CD extrait.</td><td></td></tr><tr><td>$date</td><td></"
-"td><td>Affiche la date pertinente (habituellement, l'année de sortie) du CD "
+"td><td>Affiche la date pertinente (Habituellement, l'année de sortie) du CD "
 "extrait.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Affiche le genre "
 "correspondant du CD extrait.</td><td></td></tr><tr><td>$size</td><td>iec, "
-"precision</td><td>Affiche la taille totale de tous les fichiers musicaux "
-"extraits (comprimés), y compris la couverture. L'attribut « iec » peut être "
-"l'un de ceux-ci : « b », « k », « m », « g ». « b » signifie octet, « k » "
-"Kio, « m » Mio et « g » Gio. La précision des attributs indique le nombre de "
-"décimales. Les attributs par défaut sont iec = « m » et precision = « 2 » </"
-"td><td>${size iec = « k » precision = « 2 »}</td></tr><tr><td>$length</"
-"td><td></td><td>Affiche la longueur totale pertinente de toutes les pistes "
-"extraites. Le format est « min:sec »</td><td></td></tr><tr><td>$nooftracks</"
-"td><td></td><td>Affiche le nombre total de pistes extraites.</td><td></td></"
+"précision</td><td>Affiche la taille totale de tous les fichiers musicaux "
+"extraits (comprimés), y compris la couverture. L'attribut « iec » est à "
+"choisir parmi : « b », « k », « m », « g ». « b », associés respectivement à "
+"octet, Kio, Mo et Go. Cet attribut détermine le nombre de décimales. Les "
+"attributs par défaut sont iec = « m » et precision = « 2 » </td><td>${size "
+"iec = « k » precision = « 2 »}</td></tr><tr><td>$length</td><td></"
+"td><td>Affiche la longueur totale pertinente de toutes les pistes extraites. "
+"Le format est « min:sec »</td><td></td></tr><tr><td>$nooftracks</td><td></"
+"td><td>Affiche le nombre total de pistes extraites.</td><td></td></"
 "tr><tr><td>$discid</td><td>base</td><td>Affiche l'identifiant de disque du "
 "CD actuel. L'attribut « base » spécifie la base du nombre. Le nombre par "
-"défaut est 16 (hexadécimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>"
-"$today</td><td>format</td><td>Affiche la date actuelle. Le format d'attribut "
-"spécifie la sortie (*).</td><td>${today format = « yyyy-MM-dddd » }</td></"
-"tr><tr><td>$now</td><td>format</td><td>Affiche la date actuelle. Le format "
-"d'attribut spécifie la sortie (*).</td><td>${now format = « yyyy-MM-dddd hh:"
-"mm:ss »}</td></tr><tr><td>$encoder</td><td></td><td>Affiche le nom et la "
-"version de l'encodeur.</td></tr><tr><td>$audex</td><td></td><td>Affiche le "
-"nom et la version de Audex.</td></tr><tr><td>$br</td><td></td><td>Affiche un "
-"saut de ligne.</td><td></td></tr></tbody></table><br /><br />(* expressions "
-"de formats pour la date et l'heure)<table cellpadding=\"2\" cellspacing="
-"\"1\" border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Sortie</"
-"th></tr></thead><tr valign=\"top\"><td>d</td><td>Le jour sous la forme d'un "
-"nombre, sans zéro de début (1 à 31).</td></tr><tr valign=\"top\"><td>dd</"
-"td><td>Le jour sous la forme d'un nombre, avec un zéro de début (01 à 31).</"
-"td></tr><tr valign=\"top\"><td>ddd</td><td>Le nom du jour localisé abrégé "
-"(ex. &#x2e; « lun » à « dim »).</td></tr><tr valign=\"top\"><td>dddd</"
-"td><td>Le nom du jour localisé dans sa forme longue (ex. &#x2e; « lundi » à "
-"« dimanche »)</td></tr><tr valign=\"top\"><td>M</td><td>Le mois sous la "
-"forme d'un nombre, sans zéro de début (01 à 12).</td></tr><tr valign=\"top"
-"\"><td>MM</td><td>Le mois sous la forme d'un nombre, avec un zéro de début "
-"(01 à 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>Le nom de mois "
-"localisé abrégé (ex. &#x2e; « jan » à « déc »).</td></tr><tr valign=\"top"
-"\"><td>MMMM</td><td>Le nom de mois localisé dans sa forme longue (ex. &#x2e; "
-"« janvier » à « décembre »).</td></tr><tr valign=\"top\"><td>yy</"
-"td><td>L'année sous la forme d'un nombre à deux chiffres (00 à 99).</td></"
-"tr><tr valign=\"top\"><td>yyyy</td><td>L'année sous la forme d'un nombre à "
-"quatre chiffres.</td></tr></table><br /><table cellpadding=\"2\" cellspacing="
-"\"1\" border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Sortie</"
-"th></tr></thead><tr valign=\"top\"><td>h</td><td>L'heure sans zéro de début "
-"(0 à 23 ou 1 à 12 en cas d'affichage au format AM / PM).</td></tr><tr valign="
-"\"top\"><td>hh</td><td>L'heure avec un zéro de début (00 à 23 ou 01 à 12 en "
-"cas d'affichage au format AM / PM).</td></tr><tr valign=\"top\"><td>H</"
-"td><td>L'heure sans zéro de début (0 à 23, même en cas d'affichage au "
-"format AM / PM).</td></tr><tr valign=\"top\"><td>HH</td><td>'heure avec un "
-"zéro de début (00 à 23, même en cas d'affichage au format AM / PM).</td></"
-"tr><tr valign=\"top\"><td>m</td><td>La minute sans zéro de début (0 à 59).</"
-"td></tr><tr valign=\"top\"><td>mm</td><td>La minute avec un zéro de début "
-"(00 à 59).</td></tr><tr valign=\"top\"><td>s</td><td>La seconde sans zéro de "
-"début (0 à 59).</td></tr><tr valign=\"top\"><td>ss</td><td>La seconde avec "
-"un zéro de début (00 à 59).</td></tr><tr valign=\"top\"><td>z</td><td>Les "
-"millisecondes sans zéro de début (0 à 999).</td></tr><tr valign=\"top"
-"\"><td>zz</td><td>Les millisecondes avec des zéros de début (000 à 999).</"
-"td></tr><tr valign=\"top\"><td>AP ou A</td><td>S'interprète comme heure "
-"AM / PM. « A » doit être soit « AM », soit « PM ».</td></tr><tr valign=\"top"
-"\"><td>ap or a</td><td>S'interprète comme heure AM / PM. « a » doit être "
-"soit « am » soit « pm »..</td></tr></table></body></html>"
+"défaut est 16 (En hexadécimal).</td><td>${discid base=« 16 »}</td></"
+"tr><tr><td>$today</td><td>format</td><td>Affiche la date courante. Le format "
+"d'attribut spécifie la sortie. <i>Veuillez consulter la documentation "
+"officielle de Qt concernant les variables de format.</i></td><td>${today "
+"format = « aaaa-MM-jjjj » }</td></tr><tr><td>$now</td><td>format</"
+"td><td>Affiche la date courante. Le format d'attribut spécifie la sortie. "
+"<i>Veuillez consulter la documentation officielle de Qt concernant les "
+"variables de format.</i></td><td>${now format = « yyyy-MM-dddd hh:mm:ss »}</"
+"td></tr><tr><td>$encoder</td><td></td><td>Affiche le nom et la version de "
+"l'encodeur.</td></tr><tr><td>$audex</td><td></td><td>Affiche le nom et la "
+"version de Audex.</td></tr><tr><td>$br</td><td></td><td>Affiche un saut de "
+"ligne.</td><td></td></tr></tbody></table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:197
 #, kde-format
@@ -1168,18 +969,18 @@ msgstr "À propos des variables"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
-#: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
+#: widgets/faacwidgetUI.ui:125 widgets/flacwidgetUI.ui:115
 #: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "Suffixe :"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
-msgid "Pattern:"
-msgstr "Motif :"
+msgid "Scheme:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1224,9 +1025,11 @@ msgstr "Remplacer les espaces par des caractères de soulignement"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting overrides any parameterized variable settings in the pattern"
 msgid ""
-"This setting overrides any parameterized variable settings in the pattern"
+"This setting overrides any parameterized variable settings in the scheme"
 msgstr "Ce réglage annule tout réglage de variable paramétré dans le motif"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
@@ -1295,12 +1098,102 @@ msgstr "Écrire un fichier unique"
 msgid "Save %1"
 msgstr "Enregistrer %1"
 
-#: dialogs/simplepatternwizarddialog.cpp:18
-#, kde-format
-msgid "Pattern Wizard"
-msgstr "Assistant de motifs"
+#: dialogs/schemewizarddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Filename Pattern Wizard"
+msgid "Filename Scheme Wizard"
+msgstr "Assistant de motifs de noms de fichiers"
 
-#: dialogs/simplepatternwizarddialog.cpp:88
+#: dialogs/schemewizarddialog.cpp:91
+#, kde-format
+msgid ""
+"<p>The following variables will be replaced with their particular meaning in "
+"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
+"the CD. If your CD is a compilation, then this tag represents the title in "
+"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
+"is a compilation, then this tag represents the subtitle in most cases.</td></"
+"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
+"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be just empty.</td></"
+"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
+"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
+"td><td>The track title. Normally each track on a CD has its own title, which "
+"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
+"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
+"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
+"tr></table></p>"
+msgstr ""
+"<p>Les variables suivantes seront remplacées par leur signification "
+"particulière dans chaque nom de piste.</p><p><table border="
+"\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
+"tr><tr><td>$artist</td><td>L'artiste du CD. Si votre CD est une compilation, "
+"cette étiquette représente le titre dans la plupart des cas.</td></"
+"tr><tr><td>$title</td><td>Le titre du CD. Si votre CD est une compilation, "
+"cette étiquette représente le sous-titre le plus souvent.</td></tr><tr><td>"
+"$date</td><td>La date de sortie du CD. En général, il s'agit de l'année.</"
+"td></tr><tr><td>$genre</td><td>Le genre du CD.</td></tr><tr><td>$cdno</"
+"td><td>Le numéro de CD d'un album multi CD. Souvent, les compilations se "
+"composent de plusieurs CD. <i>Remarque :</i> si le drapeau multi-CD n'est "
+"<b>pas</b> positionné pour le CD actuel, cette valeur sera simplement vide.</"
+"td></tr><tr><td>$tartist</td><td>Il s'agit de l'artiste de chaque piste "
+"individuelle. Cette fonction est particulièrement utile sur des CD de "
+"compilation.</td></tr><tr><td>$ttitle</td><td>Le titre d'une piste. "
+"Normalement, chaque piste d'un CD est associée à son propre titre, qui est "
+"le nom du morceau.</td></tr><tr><td>$trackno</td><td>Le numéro d'une piste. "
+"La première piste porte le numéro 1.</td></tr><tr><td>$suffix</"
+"td><td>L'extension du nom de fichier.</td></tr><tr><td>$audex</td><td>Le nom "
+"et la version de Audex.</td></tr></table></p>"
+
+#: dialogs/schemewizarddialog.cpp:112
+#, kde-format
+msgid ""
+"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
+"that the tracknumber will be forced to a length of 2 digits. If the number "
+"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
+"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
+"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
+"lowercased. This works with the other variables, too.</p><pre>${artist left="
+"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
+"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
+"overview of parameters go to the Audex webpage.</i></b></p>"
+msgstr ""
+"<p>Dans Audex, les variables peuvent posséder des paramètres. Ex.</p><pre>"
+"$artist/$title/${trackno length = « 2 » fillchar = « 0 » } - $ttile.$suffix</"
+"pre><p>Cela signifie que le numéro de la piste aura une contrainte de "
+"longueur de 2 chiffres. Si ce nombre est inférieur à 10, il sera complété "
+"par « 0 ».</p><pre>$artist/${title lowercase = « true » }/$trackno - $ttile."
+"$suffix<br />$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</"
+"pre><p>Le titre sera en majuscules ou en minuscules. Ce comportement "
+"fonctionne avec les autres variables aussi.</p><pre>${artist left = « 1 »}/"
+"$artist/$title/$trackno - $ttile.$suffix</pre><p>Ce paramètre prend un "
+"caractère en partant de la gauche, ce qui correspond au premier caractère.</"
+"p><hr /><p><b><i>Pour avoir une vue d'ensemble exhaustive des paramètres, "
+"veuillez consulter la page Web du projet Audex.</i></b></p>"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
+#: dialogs/schemewizardwidgetUI.ui:263
+#, kde-format
+msgid "About filename schemes"
+msgstr "À propos des schémas de noms de fichiers"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/schemewizardwidgetUI.ui:416
+#: dialogs/simpleschemewizardwidgetUI.ui:248
+#, kde-format
+msgid "Suffix"
+msgstr "Suffixe"
+
+#: dialogs/simpleschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr ""
+
+#: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
 msgid ""
 "<p>Filename schemes without an absolute path will be relative to the ripped "
@@ -1340,7 +1233,7 @@ msgstr ""
 "$encoder</td><td>Nom et version de l'encodeur.</td></tr><tr><td>$audex</"
 "td><td>Nom et version de Audex.</td></tr></table></p>"
 
-#: dialogs/simplepatternwizarddialog.cpp:108
+#: dialogs/simpleschemewizarddialog.cpp:108
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
@@ -1366,13 +1259,13 @@ msgstr ""
 "du projet Audex.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/simplepatternwizardwidgetUI.ui:26
+#: dialogs/simpleschemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Example:"
 msgstr "Exemple :"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: dialogs/simplepatternwizardwidgetUI.ui:152
+#: dialogs/simpleschemewizardwidgetUI.ui:152
 #, kde-format
 msgid "About schemes"
 msgstr "À propos des schémas"
@@ -1821,13 +1714,15 @@ msgstr ""
 "Vous n'avez pas indiqué d'encodeur pour le profil. Veuillez en saisir un."
 
 #: models/profilemodel.cpp:180
-#, kde-format
-msgid "Profile filename pattern is not defined."
+#, fuzzy, kde-format
+#| msgid "Profile filename pattern is not defined."
+msgid "Profile filename scheme is not defined."
 msgstr "Le motif de nom de fichier pour les profils n'est pas défini."
 
 #: models/profilemodel.cpp:181
-#, kde-format
-msgid "You have given no filename pattern for the profile. Please set one."
+#, fuzzy, kde-format
+#| msgid "You have given no filename pattern for the profile. Please set one."
+msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
 "Vous n'avez pas indiqué de motif de nom de fichier pour le profil. Veuillez "
 "en saisir un."
@@ -1838,10 +1733,13 @@ msgid "The image file format is unknown."
 msgstr "Le format de fichier d'image est inconnu."
 
 #: models/profilemodel.cpp:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given image file format is unknown. Please choose on of these "
+#| "formats: JPG/JPEG, PNG or BMP."
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
-"JPG/JPEG, PNG or BMP."
+"JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Le format de fichier d'image que vous avez indiqué est inconnu. Veuillez "
 "choisir un de ces formats : « JPG » / « JPEG », « PNG » ou « BMP »."
@@ -1997,25 +1895,10 @@ msgid "This is an internal error. Please report."
 msgstr "Il s'agit d'une erreur interne. Veuillez la signaler."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Copier"
-
-#: models/profilemodel.h:164
-#, kde-format
-msgid " (Mobile Quality)"
-msgstr " (Qualité mobile)"
-
-#: models/profilemodel.h:165
-#, kde-format
-msgid " (Normal Quality)"
-msgstr " (Qualité normale)"
-
-#: models/profilemodel.h:166
-#, kde-format
-msgid " (Extreme Quality)"
-msgstr " (Qualité extrême)"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -2191,46 +2074,47 @@ msgstr ""
 "Vérifiez votre périphérique. S'agit-il réellement de « %1 » ? Si tel est le "
 "cas, veuillez vérifier vos droits d'accès sur « %1 »."
 
-#: utils/encoderassistant.h:57
+#: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:83
+#: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:111
+#: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
 msgstr "Opus"
 
-#: utils/encoderassistant.h:127
+#: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (Sans perte)"
 
-#: utils/encoderassistant.h:137
+#: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:153
+#: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (Brut non comprimé)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
+#: utils/encoderassistant.h:126 utils/encoderassistant.h:127
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
 msgstr "Personnalisé"
 
 #: utils/encoderwrapper.cpp:60
-#, kde-format
-msgid "Command pattern is empty."
+#, fuzzy, kde-format
+#| msgid "Command pattern is empty."
+msgid "Command scheme is empty."
 msgstr "Le motif de commandes est vide."
 
 #: utils/encoderwrapper.cpp:90
@@ -2332,24 +2216,24 @@ msgstr ""
 msgid "Unclosed quote found"
 msgstr ""
 
-#: utils/patternparser.cpp:76
+#: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr ""
 
-#: utils/patternparser.cpp:126
+#: utils/schemeparser.cpp:126
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
 
-#: utils/patternparser.cpp:238
+#: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
 msgstr ""
 
-#: utils/patternparser.cpp:386
+#: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr ""
@@ -2406,8 +2290,9 @@ msgstr "Supprimer une couverture"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, kde-format
-msgid "Command Pattern:"
+#, fuzzy, kde-format
+#| msgid "Command Pattern:"
+msgid "Command Scheme:"
 msgstr "Motif de commandes :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -2431,7 +2316,7 @@ msgstr "Qualité"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
-#: widgets/opusencwidgetUI.ui:135
+#: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
 msgstr "La plus basse"
@@ -2439,22 +2324,23 @@ msgstr "La plus basse"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
-#: widgets/opusencwidgetUI.ui:149
+#: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
 msgstr "La plus élevée"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
+#: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
+#, kde-format
+msgid "Embed cover in music file"
+msgstr "Intégrer la couverture dans le fichier musical"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
 msgstr "Compression"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
-#, kde-format
-msgid "Embed cover in music file"
-msgstr "Intégrer la couverture dans le fichier musical"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
@@ -2481,7 +2367,7 @@ msgid "Perform cover lookup automatically"
 msgstr "Effectuer une recherche de couverture automatiquement"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:92
+#: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
 msgstr "Nombre de couvertures à extraire :"
@@ -2568,13 +2454,13 @@ msgstr "Débit binaire constant"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Débit binaire cible (Kbit / s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
-#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
 msgstr " kbit / s"
@@ -2687,6 +2573,27 @@ msgstr "Enregistrer..."
 #, kde-format
 msgid "URL:"
 msgstr "URL :"
+
+#~ msgid "Cover pattern:"
+#~ msgstr "Motif de couverture :"
+
+#~ msgid "Name/Pattern:"
+#~ msgstr "Nom / Motif :"
+
+#~ msgid "Pattern:"
+#~ msgstr "Motif :"
+
+#~ msgid "Pattern Wizard"
+#~ msgstr "Assistant de motifs"
+
+#~ msgid " (Mobile Quality)"
+#~ msgstr " (Qualité mobile)"
+
+#~ msgid " (Normal Quality)"
+#~ msgstr " (Qualité normale)"
+
+#~ msgid " (Extreme Quality)"
+#~ msgstr " (Qualité extrême)"
 
 #~ msgid "File does not exist."
 #~ msgstr "Le fichier n'existe pas."
