@@ -1,16 +1,16 @@
 # Translation for audex.po to Euskara/Basque (eu).
-# Copyright (C) 2021-2023 This file is copyright:
+# Copyright (C) 2021-2024 This file is copyright:
 # This file is distributed under the same license as the audex package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2021, 2022, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-03 02:31+0000\n"
-"PO-Revision-Date: 2023-12-30 18:35+0100\n"
+"POT-Creation-Date: 2024-01-04 02:34+0000\n"
+"PO-Revision-Date: 2024-01-03 21:21+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -360,8 +360,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, kde-format
-msgid "Command Pattern Wizard"
+#, fuzzy, kde-format
+#| msgid "Command Pattern Wizard"
+msgid "Command Scheme Wizard"
 msgstr "Komando-ereduen morroia"
 
 #: dialogs/commandwizarddialog.cpp:93
@@ -444,13 +445,13 @@ msgstr ""
 "ezarri bada. Komando-lerroko aldagai guztiekin dabil."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "Album adibidea:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr "Lagingailu adibidea:"
@@ -462,68 +463,68 @@ msgid "About commandline schemes"
 msgstr "Komando-lerroko antolaerei buruz"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
-#: dialogs/simplepatternwizardwidgetUI.ui:162
+#: dialogs/commandwizardwidgetUI.ui:276 dialogs/schemewizardwidgetUI.ui:273
+#: dialogs/simpleschemewizardwidgetUI.ui:162
 #, kde-format
 msgid "About parameters"
 msgstr "Parametroei buruz"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
-#: dialogs/simplepatternwizardwidgetUI.ui:189
+#: dialogs/commandwizardwidgetUI.ui:300 dialogs/schemewizardwidgetUI.ui:300
+#: dialogs/simpleschemewizardwidgetUI.ui:189
 #, kde-format
 msgid "Album Artist"
 msgstr "Albumeko artista"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
-#: dialogs/simplepatternwizardwidgetUI.ui:211
+#: dialogs/commandwizardwidgetUI.ui:322 dialogs/schemewizardwidgetUI.ui:322
+#: dialogs/simpleschemewizardwidgetUI.ui:211
 #, kde-format
 msgid "Album Title"
 msgstr "Albumaren titulua"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+#: dialogs/commandwizardwidgetUI.ui:344 dialogs/schemewizardwidgetUI.ui:344
 #, kde-format
 msgid "Track Artist"
 msgstr "Pistako artista"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:366 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track Title"
 msgstr "Pistaren titulua"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+#: dialogs/commandwizardwidgetUI.ui:376 dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "Track #"
 msgstr "Pista zk."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
-#: dialogs/simplepatternwizardwidgetUI.ui:231
+#: dialogs/commandwizardwidgetUI.ui:386 dialogs/schemewizardwidgetUI.ui:386
+#: dialogs/simpleschemewizardwidgetUI.ui:231
 #, kde-format
 msgid "CD #"
 msgstr "CD zk."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
-#: dialogs/simplepatternwizardwidgetUI.ui:255
+#: dialogs/commandwizardwidgetUI.ui:393 dialogs/schemewizardwidgetUI.ui:436
+#: dialogs/simpleschemewizardwidgetUI.ui:255
 #, kde-format
 msgid "# of Tracks"
 msgstr "Pista kopurua"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
-#: dialogs/simplepatternwizardwidgetUI.ui:241
+#: dialogs/commandwizardwidgetUI.ui:403 dialogs/schemewizardwidgetUI.ui:396
+#: dialogs/simpleschemewizardwidgetUI.ui:241
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
-#: dialogs/simplepatternwizardwidgetUI.ui:221
+#: dialogs/commandwizardwidgetUI.ui:413 dialogs/schemewizardwidgetUI.ui:406
+#: dialogs/simpleschemewizardwidgetUI.ui:221
 #, kde-format
 msgid "Genre"
 msgstr "Generoa"
@@ -739,92 +740,6 @@ msgstr "%%P"
 msgid "Encoding Track 8 of 12"
 msgstr "8 / 12 pista kodetzen"
 
-#: dialogs/patternwizarddialog.cpp:18
-#, kde-format
-msgid "Filename Pattern Wizard"
-msgstr "Fitxategi-izen ereduen morroia"
-
-#: dialogs/patternwizarddialog.cpp:91
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
-"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
-"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
-"tr></table></p>"
-msgstr ""
-"<p>Ondoko aldagaiak haien esanahi zehatzekin ordezkatuko dira pista-izen "
-"bakoitzeko.</p><p><table border=\"1\"><tr><th><em>Aldagaia</em></"
-"th><th><em>Azalpena</em></th></tr><tr><td>$artist</td><td>CDko artista. "
-"Zurea bilduma CD bat bada, etiketa honek titulua adierazi ohi du.</td></"
-"tr><tr><td>$title</td><td>Zurea bilduma CD bat bada, etiketa honek "
-"azpititulua adierazi ohi du.</td></tr><tr><td>$date</td><td>CDaren "
-"merkaturatze-data. Ia kasu guztietan urtea izan ohi da.</td></tr><tr><td>"
-"$genre</td><td>CDaren generoa.</td></tr><tr><td>$cdno</td><td> CD anitzeko "
-"album batean CDaren zenbakia. Bildumek, maiz, hainbat CD izaten dituzte. "
-"<i>Oharra:</i> CD honen multi-CD bandera ezarrita <b>ez</b> badago, balio "
-"hau hutsik egongo da.</td></tr><tr><td>$tartist</td><td>Hau da pista "
-"bakoitzeko artista. Erabilgarria izan ohi da, bereziki, bilduma CDetan.</"
-"td></tr><tr><td>$ttitle</td><td>Pistaren titulua. Normalean, CD bateko pista "
-"bakoitzak bere titulua izan ohi du, abestiaren izena.</td></tr><tr><td>"
-"$trackno</td><td>Pistaren zenbakia. Aurreneko pista 1 da.</td></tr><tr><td>"
-"$nooftracks</td><td>CDaren pista-kopuru osoa.</td></tr><tr><td>$suffix</"
-"td><td>Fitxategi-izenaren luzapena.</td></tr><tr><td>$audex</td><td>Audex-en "
-"izena eta bertsioa.</td></tr></table></p>"
-
-#: dialogs/patternwizarddialog.cpp:112
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>Audex-eko aldagaiek parametroak izan ditzakete. Adib.</p><pre>$artist/"
-"$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</"
-"pre><p>Horrek adierazten du, pista-zenbakia 2 digituko luzera izatera "
-"behartuko dela. Zenbakia 10 baino txikiagoa bada, «0»ekin beteko da.</p><pre>"
-"$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/"
-"${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>Titulua "
-"maiuskulatan edo minuskulatan ipiniko da. Hori beste aldagaiekin ere badabil."
-"</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - $ttile.$suffix</"
-"pre><p>Hartu ezkerreko karaktere bat, lehenengoa alegia.</p><hr /"
-"><p><b><i>Parametroen ikuspegi orokor bat izateko joan Audex-en web-orrira.</"
-"i></b></p>"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: dialogs/patternwizardwidgetUI.ui:263
-#, kde-format
-msgid "About filename schemes"
-msgstr "Fitxategi-izen antolaerei buruz"
-
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416
-#: dialogs/simplepatternwizardwidgetUI.ui:248
-#, kde-format
-msgid "Suffix"
-msgstr "Atzizkia"
-
 #: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
 msgid "Cover Settings"
@@ -865,25 +780,26 @@ msgstr "x"
 msgid "Format:"
 msgstr "Formatua:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, kde-format
-msgid "Cover pattern:"
-msgstr "Disko-azalaren eredua:"
+#, fuzzy, kde-format
+#| msgid "About schemes"
+msgid "Cover scheme:"
+msgstr "Antolaerei buru"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "«Cue» orriaren ezarpenak"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
-msgid "Name/Pattern:"
-msgstr "Izena/Eredua:"
+msgid "Name/Scheme:"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -1038,18 +954,18 @@ msgstr "Aldagaiei buruz"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
-#: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
+#: widgets/faacwidgetUI.ui:125 widgets/flacwidgetUI.ui:115
 #: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
 msgstr "Atzizkia:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
-msgid "Pattern:"
-msgstr "Eredua:"
+msgid "Scheme:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1094,9 +1010,11 @@ msgstr "Ordeztu zuriuneak azpimarrekin"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting overrides any parameterized variable settings in the pattern"
 msgid ""
-"This setting overrides any parameterized variable settings in the pattern"
+"This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 "Ezarpen honek ereduan parametrizatutako edozein aldagai ezarpen "
 "baliogabetzen du"
@@ -1167,12 +1085,99 @@ msgstr "Gorde fitxategi bakarra"
 msgid "Save %1"
 msgstr "Gorde %1"
 
-#: dialogs/simplepatternwizarddialog.cpp:18
-#, kde-format
-msgid "Pattern Wizard"
-msgstr "Komando-ereduetarako morroia"
+#: dialogs/schemewizarddialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Filename Pattern Wizard"
+msgid "Filename Scheme Wizard"
+msgstr "Fitxategi-izen ereduen morroia"
 
-#: dialogs/simplepatternwizarddialog.cpp:88
+#: dialogs/schemewizarddialog.cpp:91
+#, kde-format
+msgid ""
+"<p>The following variables will be replaced with their particular meaning in "
+"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
+"the CD. If your CD is a compilation, then this tag represents the title in "
+"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
+"is a compilation, then this tag represents the subtitle in most cases.</td></"
+"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
+"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be just empty.</td></"
+"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
+"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
+"td><td>The track title. Normally each track on a CD has its own title, which "
+"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
+"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
+"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
+"tr></table></p>"
+msgstr ""
+"<p>Ondoko aldagaiak haien esanahi zehatzekin ordezkatuko dira pista-izen "
+"bakoitzeko.</p><p><table border=\"1\"><tr><th><em>Aldagaia</em></"
+"th><th><em>Azalpena</em></th></tr><tr><td>$artist</td><td>CDko artista. "
+"Zurea bilduma CD bat bada, etiketa honek titulua adierazi ohi du.</td></"
+"tr><tr><td>$title</td><td>Zurea bilduma CD bat bada, etiketa honek "
+"azpititulua adierazi ohi du.</td></tr><tr><td>$date</td><td>CDaren "
+"merkaturatze-data. Ia kasu guztietan urtea izan ohi da.</td></tr><tr><td>"
+"$genre</td><td>CDaren generoa.</td></tr><tr><td>$cdno</td><td> CD anitzeko "
+"album batean CDaren zenbakia. Bildumek, maiz, hainbat CD izaten dituzte. "
+"<i>Oharra:</i> CD honen multi-CD bandera ezarrita <b>ez</b> badago, balio "
+"hau hutsik egongo da.</td></tr><tr><td>$tartist</td><td>Hau da pista "
+"bakoitzeko artista. Erabilgarria izan ohi da, bereziki, bilduma CDetan.</"
+"td></tr><tr><td>$ttitle</td><td>Pistaren titulua. Normalean, CD bateko pista "
+"bakoitzak bere titulua izan ohi du, abestiaren izena.</td></tr><tr><td>"
+"$trackno</td><td>Pistaren zenbakia. Aurreneko pista 1 da.</td></tr><tr><td>"
+"$nooftracks</td><td>CDaren pista-kopuru osoa.</td></tr><tr><td>$suffix</"
+"td><td>Fitxategi-izenaren luzapena.</td></tr><tr><td>$audex</td><td>Audex-en "
+"izena eta bertsioa.</td></tr></table></p>"
+
+#: dialogs/schemewizarddialog.cpp:112
+#, kde-format
+msgid ""
+"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
+"that the tracknumber will be forced to a length of 2 digits. If the number "
+"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
+"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
+"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
+"lowercased. This works with the other variables, too.</p><pre>${artist left="
+"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
+"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
+"overview of parameters go to the Audex webpage.</i></b></p>"
+msgstr ""
+"<p>Audex-eko aldagaiek parametroak izan ditzakete. Adib.</p><pre>$artist/"
+"$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</"
+"pre><p>Horrek adierazten du, pista-zenbakia 2 digituko luzera izatera "
+"behartuko dela. Zenbakia 10 baino txikiagoa bada, «0»ekin beteko da.</p><pre>"
+"$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/"
+"${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>Titulua "
+"maiuskulatan edo minuskulatan ipiniko da. Hori beste aldagaiekin ere badabil."
+"</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - $ttile.$suffix</"
+"pre><p>Hartu ezkerreko karaktere bat, lehenengoa alegia.</p><hr /"
+"><p><b><i>Parametroen ikuspegi orokor bat izateko joan Audex-en web-orrira.</"
+"i></b></p>"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
+#: dialogs/schemewizardwidgetUI.ui:263
+#, kde-format
+msgid "About filename schemes"
+msgstr "Fitxategi-izen antolaerei buruz"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/schemewizardwidgetUI.ui:416
+#: dialogs/simpleschemewizardwidgetUI.ui:248
+#, kde-format
+msgid "Suffix"
+msgstr "Atzizkia"
+
+#: dialogs/simpleschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr ""
+
+#: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
 msgid ""
 "<p>Filename schemes without an absolute path will be relative to the ripped "
@@ -1210,7 +1215,7 @@ msgstr ""
 "td><td>Kodetzailearen izena eta bertsioa.</td></tr><tr><td>$audex</"
 "td><td>Audex-en izena eta bertsioa.</td></tr></table></p>"
 
-#: dialogs/simplepatternwizarddialog.cpp:108
+#: dialogs/simpleschemewizarddialog.cpp:108
 #, kde-format
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
@@ -1234,13 +1239,13 @@ msgstr ""
 "orokor bat izateko joan Audex-en web-orrira.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/simplepatternwizardwidgetUI.ui:26
+#: dialogs/simpleschemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Example:"
 msgstr "Adibidea:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: dialogs/simplepatternwizardwidgetUI.ui:152
+#: dialogs/simpleschemewizardwidgetUI.ui:152
 #, kde-format
 msgid "About schemes"
 msgstr "Antolaerei buru"
@@ -1679,13 +1684,15 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Ez duzu profilerako kodetzailerik eman. Mesedez, ezarri bat."
 
 #: models/profilemodel.cpp:180
-#, kde-format
-msgid "Profile filename pattern is not defined."
+#, fuzzy, kde-format
+#| msgid "Profile filename pattern is not defined."
+msgid "Profile filename scheme is not defined."
 msgstr "Profilaren fitxategi-izen eredua ez da definitu."
 
 #: models/profilemodel.cpp:181
-#, kde-format
-msgid "You have given no filename pattern for the profile. Please set one."
+#, fuzzy, kde-format
+#| msgid "You have given no filename pattern for the profile. Please set one."
+msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Ez duzu profilerako fitxategi-izen eredurik eman. Mesedez, ezarri bat."
 
 #: models/profilemodel.cpp:202
@@ -1694,10 +1701,13 @@ msgid "The image file format is unknown."
 msgstr "Irudiaren fitxategi formatua ezezaguna da."
 
 #: models/profilemodel.cpp:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given image file format is unknown. Please choose on of these "
+#| "formats: JPG/JPEG, PNG or BMP."
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
-"JPG/JPEG, PNG or BMP."
+"JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Zuk emandako irudiaren fitxategi-formatua ezezaguna da. Mesedez, hautatu "
 "ondoko formatuetako bat: JPG/JPEG, PNG edo BMP."
@@ -1843,25 +1853,10 @@ msgid "This is an internal error. Please report."
 msgstr "Hau barneko errorea da. Mesedez, jakinarazi."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:965 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopiatu"
-
-#: models/profilemodel.h:164
-#, kde-format
-msgid " (Mobile Quality)"
-msgstr " (Mugikorrerako kalitatea)"
-
-#: models/profilemodel.h:165
-#, kde-format
-msgid " (Normal Quality)"
-msgstr " (Kalitate arrunta)"
-
-#: models/profilemodel.h:166
-#, kde-format
-msgid " (Extreme Quality)"
-msgstr " (Muturreko kalitatea)"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -2037,46 +2032,47 @@ msgstr ""
 "Egiaztatu zure gailua. Benetan da «%1»? Hala bada, egiaztatu «%1» gainean "
 "dituzun baimenak."
 
-#: utils/encoderassistant.h:57
+#: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
 msgstr "MP3"
 
-#: utils/encoderassistant.h:83
+#: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
 msgstr "Ogg Vorbis"
 
-#: utils/encoderassistant.h:111
+#: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
 msgstr "Opus"
 
-#: utils/encoderassistant.h:127
+#: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
 msgstr "FLAC (Galerarik gabe)"
 
-#: utils/encoderassistant.h:137
+#: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
-#: utils/encoderassistant.h:153
+#: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
 msgstr "WAVE (Gordena konprimatu gbea)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:160 utils/encoderassistant.h:161
+#: utils/encoderassistant.h:126 utils/encoderassistant.h:127
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
 msgstr "Norberak finkatua"
 
 #: utils/encoderwrapper.cpp:60
-#, kde-format
-msgid "Command pattern is empty."
+#, fuzzy, kde-format
+#| msgid "Command pattern is empty."
+msgid "Command scheme is empty."
 msgstr "Komando eredua hutsik dago."
 
 #: utils/encoderwrapper.cpp:90
@@ -2167,34 +2163,36 @@ msgstr ""
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Legez kanpoko karaktere bat aurkitu da %1 indizean: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Itxi gabeko aipua aurkitu da"
 
-#: utils/patternparser.cpp:76
+#: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Legez kanpoko karaktere bat aurkitu da %1 indizean: %2"
 
-#: utils/patternparser.cpp:126
+#: utils/schemeparser.cpp:126
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"«replace_char_list» parametroak bi parametro gehiago behar ditu, "
+"«replace_char_list_from» eta «replace_char_list_to», neurri berekoak."
 
-#: utils/patternparser.cpp:238
+#: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Itxi gabeko giltza."
 
-#: utils/patternparser.cpp:386
+#: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Ezin izan du aldi baterako azal-fitxategia sortu: %1"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2248,8 +2246,9 @@ msgstr "Kendu disko-azala"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, kde-format
-msgid "Command Pattern:"
+#, fuzzy, kde-format
+#| msgid "Command Pattern:"
+msgid "Command Scheme:"
 msgstr "Komando eredua:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
@@ -2273,7 +2272,7 @@ msgstr "Kalitatea"
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
-#: widgets/opusencwidgetUI.ui:135
+#: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
 msgstr "Txikiena"
@@ -2281,22 +2280,23 @@ msgstr "Txikiena"
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
-#: widgets/opusencwidgetUI.ui:149
+#: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
 msgstr "Handiena"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
+#: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
+#, kde-format
+msgid "Embed cover in music file"
+msgstr "Txertatu disko-azala musika-fitxategian"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
 msgstr "Konpresioa"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: widgets/flacwidgetUI.ui:166 widgets/lamewidgetUI.ui:251
-#, kde-format
-msgid "Embed cover in music file"
-msgstr "Txertatu disko-azala musika-fitxategian"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
@@ -2323,7 +2323,7 @@ msgid "Perform cover lookup automatically"
 msgstr "Bilatu disko-azalak automatikoki"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/generalsettingswidgetUI.ui:92
+#: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
 msgstr "Eskuratu beharreko disko-azal kopurua:"
@@ -2407,13 +2407,13 @@ msgstr "Bit-emari konstantea"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:88
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Helburuko bit-emaria (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
-#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:109
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
 msgstr "kbit/s"
@@ -2525,6 +2525,27 @@ msgstr "Gorde..."
 #, kde-format
 msgid "URL:"
 msgstr "URLa:"
+
+#~ msgid "Cover pattern:"
+#~ msgstr "Disko-azalaren eredua:"
+
+#~ msgid "Name/Pattern:"
+#~ msgstr "Izena/Eredua:"
+
+#~ msgid "Pattern:"
+#~ msgstr "Eredua:"
+
+#~ msgid "Pattern Wizard"
+#~ msgstr "Komando-ereduetarako morroia"
+
+#~ msgid " (Mobile Quality)"
+#~ msgstr " (Mugikorrerako kalitatea)"
+
+#~ msgid " (Normal Quality)"
+#~ msgstr " (Kalitate arrunta)"
+
+#~ msgid " (Extreme Quality)"
+#~ msgstr " (Muturreko kalitatea)"
 
 #~ msgid "File does not exist."
 #~ msgstr "Fitxategi ez da existitzen."
