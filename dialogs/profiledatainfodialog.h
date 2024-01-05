@@ -15,7 +15,8 @@
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
-#include "simpleschemewizarddialog.h"
+#include "dialogs/textviewdialog.h"
+#include "filenameschemewizarddialog.h"
 
 #include "ui_profiledatainfowidgetUI.h"
 
@@ -37,7 +38,7 @@ protected Q_SLOTS:
 private Q_SLOTS:
     void trigger_changed();
 
-    void about_variables();
+    void help();
 
     void load_text();
     void save_text();
@@ -51,6 +52,8 @@ private:
     QPushButton *applyButton;
 
     bool save();
+
+    TextViewDialog *help_dialog;
 };
 
 #endif

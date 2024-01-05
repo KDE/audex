@@ -6,6 +6,8 @@
  */
 
 #include "commandwizarddialog.h"
+#include "dialogs/textviewdialog.h"
+#include "utils/schemeparser.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -34,13 +36,14 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
+    help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(2), i18n("Command scheme help"), this);
+
     ui.qlineedit_command->setText(command);
     connect(ui.qlineedit_command, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
     connect(ui.qlineedit_command, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
     ui.qlineedit_command->setCursorPosition(0);
 
-    connect(ui.kurllabel_aboutcommandlineschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_commandline_schemes()));
-    connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
+    connect(ui.kurllabel_help, SIGNAL(leftClickedUrl()), this, SLOT(help()));
 
     connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
     connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
@@ -64,6 +67,11 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
 
 CommandWizardDialog::~CommandWizardDialog()
 {
+    if (help_dialog != nullptr) {
+        help_dialog->close();
+        delete help_dialog;
+        help_dialog = nullptr;
+    }
 }
 
 void CommandWizardDialog::slotAccepted()
@@ -86,49 +94,9 @@ void CommandWizardDialog::trigger_changed()
     applyButton->setEnabled(false);
 }
 
-void CommandWizardDialog::about_commandline_schemes()
+void CommandWizardDialog::help()
 {
-    QWhatsThis::showText(
-        ui.kurllabel_aboutcommandlineschemes->mapToGlobal(ui.kurllabel_aboutcommandlineschemes->geometry().topLeft()),
-        i18n("<p>The following variables will be replaced with their particular meaning in every track name.</p>"
-             "<p><table border=\"1\">"
-             "<tr><th><em>Variable</em></th><th><em>Description</em></th></tr>"
-             "<tr><td>$artist</td><td>The artist of the CD. If your CD is a compilation, then this tag represents the title in most cases.</td></tr>"
-             "<tr><td>$title</td><td>The title of the CD. If your CD is a compilation, then this tag represents the subtitle in most cases.</td></tr>"
-             "<tr><td>$date</td><td>The release date of the CD. In almost all cases this is the year.</td></tr>"
-             "<tr><td>$genre</td><td>The genre of the CD.</td></tr>"
-             "<tr><td>$cdno</td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-             "<b>not</b> set for the current CD, than this value will be just empty.</td></tr>"
-             "<tr><td>$tartist</td><td>This is the artist of every individual track. It is especially useful on compilation CDs.</td></tr>"
-             "<tr><td>$ttitle</td><td>The track title. Normally each track on a CD has its own title, which is the name of the song.</td></tr>"
-             "<tr><td>$trackno</td><td>The track number. First track is 1.</td></tr>"
-             "<tr><td>$cover</td><td>The cover file.</td></tr>"
-             "<tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</td></tr>"
-             "<tr><td>$i</td><td>The temporary WAV file (input file) created by Audex from CD audio track. You can use it as a normal input file for your "
-             "command line encoder.</td></tr>"
-             "<tr><td>$o</td><td>The full output filename and path (output file). Use it as the output for your command line encoder.</td></tr>"
-             "<tr><td>$encoder</td><td>Encoder name and version.</td></tr>"
-             "<tr><td>$audex</td><td>Audex name and version.</td></tr>"
-             "</table></p>"),
-        ui.kurllabel_aboutcommandlineschemes);
-}
-
-void CommandWizardDialog::about_parameters()
-{
-    QWhatsThis::showText(ui.kurllabel_aboutparameters->mapToGlobal(ui.kurllabel_aboutparameters->geometry().topLeft()),
-                         i18n("<p>Variables in Audex can have parameters. E.g.</p>"
-                              "<pre>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre>"
-                              "<p>In this example a temporary filename of a copy in jpeg format and size"
-                              "of 300x300 pixels of the cover will be inserted."
-                              "If no size is set, the size of the original cover image file will be taken."
-                              "If no cover is set, this variable will be omitted."
-                              "Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-                              "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></p>"
-                              "<hr />"
-                              "<p>\"preparam\" and \"postparam\" define parameters inserted before "
-                              "(pre) or behind (post) the variable. These values are <b>only</b>"
-                              "shown if a value is set. Works with all commandline variables."),
-                         ui.kurllabel_aboutparameters);
+    help_dialog->showNormal();
 }
 
 void CommandWizardDialog::insAlbumArtist()
@@ -237,45 +205,45 @@ bool CommandWizardDialog::save()
 void CommandWizardDialog::update_example()
 {
     SchemeParser schemeparser;
-    QString filename = schemeparser.parseCommandScheme(ui.qlineedit_command->text(),
-                                                         "/tmp/tmp.wav",
-                                                         QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
-                                                         2,
-                                                         1,
-                                                         1,
-                                                         12,
-                                                         "Meat Loaf",
-                                                         "Bat Out Of Hell III",
-                                                         "Meat Loaf",
-                                                         "Blind As A Bat",
-                                                         "2006",
-                                                         "Rock",
-                                                         "ogg",
-                                                         QImage(),
-                                                         QDir::tempPath(),
-                                                         "LAME 3.100",
-                                                         true);
+    QString filename = schemeparser.parsePerTrackCommandScheme(ui.qlineedit_command->text(),
+                                                               "/tmp/tmp.wav",
+                                                               QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
+                                                               2,
+                                                               1,
+                                                               1,
+                                                               12,
+                                                               "Meat Loaf",
+                                                               "Bat Out Of Hell III",
+                                                               "Meat Loaf",
+                                                               "Blind As A Bat",
+                                                               "2006",
+                                                               "Rock",
+                                                               "ogg",
+                                                               QImage(),
+                                                               QDir::tempPath(),
+                                                               "LAME 3.100",
+                                                               true);
     ui.qlineedit_album_example->setText(filename);
     ui.qlineedit_album_example->setCursorPosition(0);
     filename =
-        schemeparser.parseCommandScheme(ui.qlineedit_command->text(),
-                                          "/tmp/tmp.wav",
-                                          QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
-                                          4,
-                                          2,
-                                          1,
-                                          18,
-                                          "Alternative Hits",
-                                          "Volume 4",
-                                          "Wolfsheim",
-                                          "Approaching Lightspeed",
-                                          "2003",
-                                          "Darkwave",
-                                          "ogg",
-                                          QImage(),
-                                          QDir::tempPath(),
-                                          "LAME 3.100",
-                                          true);
+        schemeparser.parsePerTrackCommandScheme(ui.qlineedit_command->text(),
+                                                "/tmp/tmp.wav",
+                                                QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
+                                                4,
+                                                2,
+                                                1,
+                                                18,
+                                                "Alternative Hits",
+                                                "Volume 4",
+                                                "Wolfsheim",
+                                                "Approaching Lightspeed",
+                                                "2003",
+                                                "Darkwave",
+                                                "ogg",
+                                                QImage(),
+                                                QDir::tempPath(),
+                                                "LAME 3.100",
+                                                true);
     ui.qlineedit_sampler_example->setText(filename);
     ui.qlineedit_sampler_example->setCursorPosition(0);
 }

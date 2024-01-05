@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "protocoldialog.h"
+#include "protocolviewdialog.h"
 
 #include <QFileDialog>
 #include <QTextStream>
@@ -16,7 +16,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-ProtocolDialog::ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent)
+ProtocolViewDialog::ProtocolViewDialog(const QStringList &protocol, const QString &title, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
@@ -27,8 +27,8 @@ ProtocolDialog::ProtocolDialog(const QStringList &protocol, const QString &title
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Close);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolDialog::slotSaveProtocol);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolDialog::slotClosed);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolViewDialog::slotSaveProtocol);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolViewDialog::slotClosed);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
@@ -41,21 +41,21 @@ ProtocolDialog::ProtocolDialog(const QStringList &protocol, const QString &title
     this->title = title;
 }
 
-ProtocolDialog::~ProtocolDialog()
+ProtocolViewDialog::~ProtocolViewDialog()
 {
 }
 
-void ProtocolDialog::slotClosed()
+void ProtocolViewDialog::slotClosed()
 {
     close();
 }
 
-void ProtocolDialog::slotSaveProtocol()
+void ProtocolViewDialog::slotSaveProtocol()
 {
     save();
 }
 
-void ProtocolDialog::save()
+void ProtocolViewDialog::save()
 {
     QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.pro");
     if (!fileName.isEmpty()) {

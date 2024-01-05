@@ -13,7 +13,7 @@
 #include <QDialog>
 #include <QPushButton>
 
-#include "simpleschemewizarddialog.h"
+#include "filenameschemewizarddialog.h"
 
 #include "ui_profiledataplaylistwidgetUI.h"
 

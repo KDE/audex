@@ -62,23 +62,23 @@ bool EncoderWrapper::encode(int n,
     }
 
     SchemeParser schemeparser;
-    QString command = schemeparser.parseCommandScheme(command_scheme,
-                                                        input,
-                                                        output,
-                                                        n,
-                                                        cdno,
-                                                        trackoffset,
-                                                        nooftracks,
-                                                        artist,
-                                                        album,
-                                                        tartist,
-                                                        ttitle,
-                                                        date,
-                                                        genre,
-                                                        suffix,
-                                                        cover,
-                                                        tmppath,
-                                                        encoder_name);
+    QString command = schemeparser.parsePerTrackCommandScheme(command_scheme,
+                                                              input,
+                                                              output,
+                                                              n,
+                                                              cdno,
+                                                              trackoffset,
+                                                              nooftracks,
+                                                              artist,
+                                                              album,
+                                                              tartist,
+                                                              ttitle,
+                                                              date,
+                                                              genre,
+                                                              suffix,
+                                                              cover,
+                                                              tmppath,
+                                                              encoder_name);
 
     qDebug() << "executing command " << command;
     proc.setShellCommand(command);

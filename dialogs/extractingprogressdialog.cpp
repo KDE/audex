@@ -53,7 +53,10 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
     connect(audex, SIGNAL(progressExtractOverall(int)), this, SLOT(show_progress_extract_overall(int)));
     connect(audex, SIGNAL(progressEncodeTrack(int)), this, SLOT(show_progress_encode_track(int)));
     connect(audex, SIGNAL(progressEncodeOverall(int)), this, SLOT(show_progress_encode_overall(int)));
-    connect(audex, SIGNAL(changedExtractTrack(int, int, const QString &, const QString &)), this, SLOT(show_changed_extract_track(int, int, const QString &, const QString &)));
+    connect(audex,
+            SIGNAL(changedExtractTrack(int, int, const QString &, const QString &)),
+            this,
+            SLOT(show_changed_extract_track(int, int, const QString &, const QString &)));
     connect(audex, SIGNAL(changedEncodeTrack(int, int, const QString &)), this, SLOT(show_changed_encode_track(int, int, const QString &)));
     connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
     connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
@@ -134,12 +137,12 @@ void ExtractingProgressDialog::slotClose()
 
 void ExtractingProgressDialog::slotEncoderProtocol()
 {
-    open_encoder_protocol_dialog();
+    open_encoder_protocol_view_dialog();
 }
 
 void ExtractingProgressDialog::slotExtractProtocol()
 {
-    open_extract_protocol_dialog();
+    open_extract_protocol_view_dialog();
 }
 
 void ExtractingProgressDialog::cancel()
@@ -148,12 +151,11 @@ void ExtractingProgressDialog::cancel()
         close();
 
     } else {
-        if (KMessageBox::warningTwoActions(
-                this,
-                i18n("Do you really want to cancel extraction?"),
-                i18n("Cancel"),
-                KStandardGuiItem::cancel(),
-                KStandardGuiItem::cont())
+        if (KMessageBox::warningTwoActions(this,
+                                           i18n("Do you really want to cancel extraction?"),
+                                           i18n("Cancel"),
+                                           KStandardGuiItem::cancel(),
+                                           KStandardGuiItem::cont())
             == KMessageBox::PrimaryAction) {
             cancelButton->setEnabled(false);
             audex->cancel();
@@ -329,7 +331,8 @@ void ExtractingProgressDialog::ask_timeout()
     if (KMessageBox::questionTwoActions(
             this,
             i18n("Ripping speed was extremely slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
-                 "If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data from this disc. Maybe try another one.\n\n"
+                 "If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data "
+                 "from this disc. Maybe try another one.\n\n"
                  "However, do you want to continue extraction?"),
             i18n("Cancel extraction"),
             KStandardGuiItem::cont(),
@@ -339,18 +342,16 @@ void ExtractingProgressDialog::ask_timeout()
     }
 }
 
-void ExtractingProgressDialog::open_encoder_protocol_dialog()
+void ExtractingProgressDialog::open_encoder_protocol_view_dialog()
 {
-    ProtocolDialog *protocolDialog = new ProtocolDialog(audex->encoderProtocol(), i18n("Encoding protocol"), this);
-    protocolDialog->exec();
-    delete protocolDialog;
+    ProtocolViewDialog protocolViewDialog(audex->encoderProtocol(), i18n("Encoding protocol"), this);
+    protocolViewDialog.exec();
 }
 
-void ExtractingProgressDialog::open_extract_protocol_dialog()
+void ExtractingProgressDialog::open_extract_protocol_view_dialog()
 {
-    ProtocolDialog *protocolDialog = new ProtocolDialog(audex->extractProtocol(), i18n("Ripping protocol"), this);
-    protocolDialog->exec();
-    delete protocolDialog;
+    ProtocolViewDialog protocolViewDialog(audex->extractProtocol(), i18n("Ripping protocol"), this);
+    protocolViewDialog.exec();
 }
 
 void ExtractingProgressDialog::update_unity()

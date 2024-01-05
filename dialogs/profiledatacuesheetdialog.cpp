@@ -62,7 +62,7 @@ void ProfileDataCueSheetDialog::slotApplied()
 
 void ProfileDataCueSheetDialog::scheme_wizard()
 {
-    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), "cue", this);
+    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), "cue", this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;

@@ -62,7 +62,7 @@ void ProfileDataSingleFileDialog::slotApplied()
 
 void ProfileDataSingleFileDialog::scheme_wizard()
 {
-    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), "wav", this);
+    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), "wav", this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;

@@ -97,9 +97,10 @@ set(audex_SRCS
     dialogs/profiledatasinglefiledialog.cpp
     dialogs/schemewizarddialog.cpp
     dialogs/commandwizarddialog.cpp
-    dialogs/simpleschemewizarddialog.cpp
+    dialogs/filenameschemewizarddialog.cpp
     dialogs/extractingprogressdialog.cpp
-    dialogs/protocoldialog.cpp
+    dialogs/protocolviewdialog.cpp
+    dialogs/textviewdialog.cpp
     dialogs/errordialog.cpp
     core/audex.cpp)
 
@@ -126,9 +127,10 @@ ki18n_wrap_ui(
   dialogs/profiledatasinglefilewidgetUI.ui
   dialogs/schemewizardwidgetUI.ui
   dialogs/commandwizardwidgetUI.ui
-  dialogs/simpleschemewizardwidgetUI.ui
+  dialogs/filenameschemewizardwidgetUI.ui
   dialogs/extractingprogresswidgetUI.ui
-  dialogs/protocolwidgetUI.ui)
+  dialogs/protocolviewwidgetUI.ui
+  dialogs/textviewwidgetUI.ui)
 
 kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
 qt5_add_resources(audex_SRCS audex.qrc)

@@ -1,7 +1,8 @@
-<ui version="4.0" >
- <class>ProtocolWidgetUI</class>
- <widget class="QWidget" name="ProtocolWidgetUI" >
-  <property name="geometry" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TextViewWidgetUI</class>
+ <widget class="QWidget" name="TextViewWidgetUI">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,15 +10,19 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="minimumSize" >
+  <property name="minimumSize">
    <size>
     <width>500</width>
     <height>300</height>
    </size>
   </property>
-  <layout class="QGridLayout" >
-   <item row="0" column="0" >
-    <widget class="KTextEdit" name="ktextedit" />
+  <layout class="QGridLayout">
+   <item row="0" column="0">
+    <widget class="KTextEdit" name="ktextedit">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

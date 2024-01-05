@@ -6,6 +6,7 @@
  */
 
 #include "profiledatainfodialog.h"
+#include "utils/schemeparser.h"
 
 #include <KConfigGroup>
 #include <QDialogButtonBox>
@@ -39,6 +40,8 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QStr
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
+    help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(4), i18n("Text info scheme help"), this);
+
     connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
@@ -54,7 +57,7 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QStr
     ui.kpushbutton_load->setIcon(QIcon::fromTheme("document-open"));
     ui.kpushbutton_save->setIcon(QIcon::fromTheme("document-save"));
 
-    connect(ui.kurllabel_aboutvariables, SIGNAL(leftClickedUrl()), this, SLOT(about_variables()));
+    connect(ui.kurllabel_help, SIGNAL(leftClickedUrl()), this, SLOT(help()));
 
     connect(ui.kpushbutton_load, SIGNAL(clicked()), this, SLOT(load_text()));
     connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_text()));
@@ -64,6 +67,11 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList &text, const QStr
 
 ProfileDataInfoDialog::~ProfileDataInfoDialog()
 {
+    if (help_dialog != nullptr) {
+        help_dialog->close();
+        delete help_dialog;
+        help_dialog = nullptr;
+    }
 }
 
 void ProfileDataInfoDialog::slotAccepted()
@@ -79,7 +87,7 @@ void ProfileDataInfoDialog::slotApplied()
 
 void ProfileDataInfoDialog::scheme_wizard()
 {
-    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
+    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -110,86 +118,9 @@ void ProfileDataInfoDialog::trigger_changed()
     applyButton->setEnabled(false);
 }
 
-void ProfileDataInfoDialog::about_variables()
+void ProfileDataInfoDialog::help()
 {
-    QWhatsThis::showText(
-        ui.kurllabel_aboutvariables->mapToGlobal(ui.kurllabel_aboutvariables->geometry().topLeft()),
-        i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
-             "<html>"
-             "<head>"
-             "<style type=\"text/css\">"
-             "p, li { white-space: pre-wrap; }"
-             "</style>"
-             "</head>"
-             "<body>"
-             "Variables will be replaced by a special value and can even contain parameters.<br />"
-             "For example the variable "
-             "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-             "$artist"
-             "</pre></div>"
-             "or the equivalent"
-             "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-             "${artist}"
-             "</pre></div>"
-             "will be replaced by the relevant artist of the cd. Variables may also have attribute, for example:"
-             "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-             "${today format=\"yyyy-MM-dd\"}"
-             "</pre></div>"
-             "This would print the current date. Setting the format will control how this is done. The example (above)"
-             "would result int the date being printed as 2010-10-07 (if this was the current date). See below for more details.<br /><br />"
-             "You can make use of the following variables:<br />"
-             "<table border=1>"
-             "<thead>"
-             "<tr>"
-             "<th>Variable</th><th>Parameter</th><th>Description</th><th>Example</th>"
-             "</tr>"
-             "</thead>"
-             "<tbody>"
-             "<tr>"
-             "<td>$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</td><td>${artist }</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$title</td><td></td><td>Prints the relevant title of the extracted cd.</td><td></td>"
-             "</tr>"
-             "<tr>"
-             "<td>$date</td><td></td><td>Prints the relevant date (usually release year) of the extracted cd.</td><td></td>"
-             "</tr>"
-             "<tr>"
-             "<td>$genre;</td><td></td><td>Prints the relevant genre of the extracted cd.</td><td></td>"
-             "</tr>"
-             "<tr>"
-             "<td>$size</td><td>iec,precision</td><td>Prints the overall size of all extracted (compressed) music files (incl. the cover). The attribute iec can be one of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. "
-             "The attribute precision gives the number of decimal places. Default attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$length</td><td></td><td>Prints the relevant overall length of all extracted tracks. The format is min:sec.</td><td></td>"
-             "</tr>"
-             "<tr>"
-             "<td>$nooftracks</td><td></td><td>Prints the total number of extracted tracks.</td><td></td>"
-             "</tr>"
-             "<tr>"
-             "<td>$discid</td><td>base</td><td>Prints the discid of the current cd. The attribute base is the base of the number. The default is 16 (hexadecimal).</td><td>${discid base=\"16\"}</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$today</td><td>format</td><td>Prints the current date. The attribute format specifies the output. <i>Please have a look at the official qt documentation for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$now</td><td>format</td><td>Prints the current date and/or time. The attribute format specifies the output. <i>Please have a look at the official qt documentation for the format variables.</i></td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$encoder</td><td></td><td>Prints encoder name and version.</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$audex</td><td></td><td>Prints Audex name and version.</td>"
-             "</tr>"
-             "<tr>"
-             "<td>$br</td><td></td><td>Prints a linebreak.</td><td></td>"
-             "</tr>"
-             "</tbody>"
-             "</table>"
-             "</body>"
-             "</html>"),
-        ui.kurllabel_aboutvariables);
+    help_dialog->show();
 }
 
 void ProfileDataInfoDialog::load_text()

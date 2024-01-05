@@ -595,7 +595,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
 
     SchemeParser schemeparser;
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/")
-        + schemeparser.parseFilenameScheme(
+        + schemeparser.parsePerTrackFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString(),
             trackno,
             cdno,
@@ -661,7 +661,7 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
 {
     SchemeParser schemeparser;
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/")
-        + schemeparser.parseSimpleScheme(
+        + schemeparser.parseFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString(),
             cdno,
             nooftracks,
@@ -793,7 +793,7 @@ void Audex::execute_finish()
             QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
 
             SchemeParser schemeparser;
-            QString filename = schemeparser.parseSimpleScheme(
+            QString filename = schemeparser.parseFilenameScheme(
                 scheme,
                 cdda_model->cdNum(),
                 cdda_model->numOfAudioTracks(),
@@ -828,7 +828,7 @@ void Audex::execute_finish()
         bool is_utf8 = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool();
 
         SchemeParser schemeparser;
-        QString filename = schemeparser.parseSimpleScheme(
+        QString filename = schemeparser.parseFilenameScheme(
             scheme,
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
@@ -891,7 +891,7 @@ void Audex::execute_finish()
     QString in;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_INDEX)).toBool())) {
         SchemeParser schemeparser;
-        QString filename = schemeparser.parseSimpleScheme(
+        QString filename = schemeparser.parseFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
@@ -934,7 +934,7 @@ void Audex::execute_finish()
         QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
 
         SchemeParser schemeparser;
-        QString filename = schemeparser.parseSimpleScheme(
+        QString filename = schemeparser.parseFilenameScheme(
             scheme,
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),
@@ -978,7 +978,7 @@ void Audex::execute_finish()
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
 
         SchemeParser schemeparser;
-        QString filename = schemeparser.parseSimpleScheme(
+        QString filename = schemeparser.parseFilenameScheme(
             scheme,
             cdda_model->cdNum(),
             cdda_model->numOfAudioTracks(),

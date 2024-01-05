@@ -5,23 +5,23 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROTOCOLDIALOG_H
-#define PROTOCOLDIALOG_H
+#ifndef PROTOCOLVIEWDIALOG_H
+#define PROTOCOLVIEWDIALOG_H
 
 #include <QDateTime>
 #include <QWidget>
 
 #include <QDialog>
 
-#include "ui_protocolwidgetUI.h"
+#include "ui_protocolviewwidgetUI.h"
 
-class ProtocolDialog : public QDialog
+class ProtocolViewDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    ProtocolDialog(const QStringList &protocol, const QString &title, QWidget *parent = nullptr);
-    ~ProtocolDialog() override;
+    ProtocolViewDialog(const QStringList &protocol, const QString &title, QWidget *parent = nullptr);
+    ~ProtocolViewDialog() override;
 
 private Q_SLOTS:
     void slotSaveProtocol();
@@ -29,7 +29,7 @@ private Q_SLOTS:
     void save();
 
 private:
-    Ui::ProtocolWidgetUI ui;
+    Ui::ProtocolViewWidgetUI ui;
 
     QStringList protocol;
     QString title;

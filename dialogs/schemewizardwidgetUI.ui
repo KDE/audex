@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>436</width>
-    <height>259</height>
+    <width>395</width>
+    <height>322</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -258,19 +258,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="KUrlLabel" name="kurllabel_aboutfilenameschemes">
+      <widget class="KUrlLabel" name="kurllabel_help">
        <property name="text">
-        <string>About filename schemes</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="KUrlLabel" name="kurllabel_aboutparameters">
-       <property name="text">
-        <string>About parameters</string>
+        <string>Help</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -440,11 +430,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KUrlLabel</class>
    <extends>QLabel</extends>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>455</width>
-    <height>259</height>
+    <width>456</width>
+    <height>322</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -264,16 +264,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="KUrlLabel" name="kurllabel_aboutcommandlineschemes">
+      <widget class="KUrlLabel" name="kurllabel_help">
        <property name="text">
-        <string>About commandline schemes</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="KUrlLabel" name="kurllabel_aboutparameters">
-       <property name="text">
-        <string>About parameters</string>
+        <string>Help</string>
        </property>
       </widget>
      </item>
@@ -460,11 +453,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KUrlLabel</class>
    <extends>QLabel</extends>

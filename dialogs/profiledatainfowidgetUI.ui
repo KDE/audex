@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>263</width>
-    <height>199</height>
+    <height>251</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -53,9 +53,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="KUrlLabel" name="kurllabel_aboutvariables">
+      <widget class="KUrlLabel" name="kurllabel_help">
        <property name="text">
-        <string>About variables</string>
+        <string>Help</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -119,19 +119,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
+   <class>KTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>ktextedit.h</header>
   </customwidget>
   <customwidget>
    <class>KUrlLabel</class>
    <extends>QLabel</extends>
    <header>kurllabel.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTextEdit</class>
-   <extends>QTextEdit</extends>
-   <header>ktextedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

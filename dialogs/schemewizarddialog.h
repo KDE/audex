@@ -8,12 +8,12 @@
 #ifndef SCHEMEWIZARDDIALOG_H
 #define SCHEMEWIZARDDIALOG_H
 
-#include <QWhatsThis>
 #include <QWidget>
 
 #include <QDialog>
 #include <QPushButton>
 
+#include "dialogs/textviewdialog.h"
 #include "utils/schemeparser.h"
 
 #include "ui_schemewizardwidgetUI.h"
@@ -31,8 +31,7 @@ public:
 private Q_SLOTS:
     void trigger_changed();
 
-    void about_filename_schemes();
-    void about_parameters();
+    void help();
 
     void insAlbumArtist();
     void insAlbumTitle();
@@ -56,6 +55,8 @@ private:
     bool save();
 
     QPushButton *applyButton;
+
+    TextViewDialog *help_dialog;
 };
 
 #endif
