@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2024-01-03 09:37+0200\n"
+"PO-Revision-Date: 2024-01-04 09:21+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -361,10 +361,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Майстер шаблонів команд"
+msgstr "Майстер схем команд"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -789,10 +788,9 @@ msgstr "Формат:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Про схеми побудови назв файлів"
+msgstr "Схема обкладинки:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -806,7 +804,7 @@ msgstr "Параметри списку композицій"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Назва/Схема:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -970,7 +968,7 @@ msgstr "Суфікс:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Схема:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1015,14 +1013,12 @@ msgstr "Замінити пробіли на «_»"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 "Значення цього параметра є пріоритетнішим за будь-які значення параметрів у "
-"шаблоні"
+"схемі"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1091,10 +1087,9 @@ msgid "Save %1"
 msgstr "Зберегти %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Майстер шаблонів назв файлів"
+msgstr "Майстер схем назв файлів"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1183,7 +1178,7 @@ msgstr "Суфікс"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Майстер схем"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1699,16 +1694,14 @@ msgstr ""
 "назву."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Не вказано шаблону назв файлів профілю."
+msgstr "Не вказано схеми назв файлів профілю."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "Ви не вказали шаблону назв файлів профілю. Будь ласка, вкажіть шаблон."
+msgstr "Ви не вказали схему назв файлів профілю. Будь ласка, вкажіть її."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1716,16 +1709,13 @@ msgid "The image file format is unknown."
 msgstr "Невідомий формат файла зображення."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Вказаний вами формат зображення невідомий програмі. Будь ласка, оберіть один "
-"з таких форматів: JPG/JPEG, PNG або BMP."
+"з таких форматів: JPEG, PNG, TIFF або BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2088,10 +2078,9 @@ msgid "Custom"
 msgstr "Нетипова"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Шаблон команди не вказано."
+msgstr "Схему команди не вказано."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2264,10 +2253,9 @@ msgstr "Вилучити обкладинку"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Шаблон команди:"
+msgstr "Схема команди:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

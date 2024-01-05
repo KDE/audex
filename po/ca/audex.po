@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2024-01-03 09:50+0200\n"
+"PO-Revision-Date: 2024-01-04 08:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -358,10 +358,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Assistent del patró de l'ordre"
+msgstr "Assistent d'esquema d'ordres"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -786,10 +785,9 @@ msgstr "Format:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Quant als esquemes"
+msgstr "Esquema de caràtules:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -803,7 +801,7 @@ msgstr "Configuració del full de muntatge"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nom/Esquema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -969,7 +967,7 @@ msgstr "Sufix:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Esquema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1015,12 +1013,11 @@ msgstr "Substitueix els espais per guions baixos"
 # skip-rule: common-settings
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr "Aquesta opció substituirà qualsevol variable amb paràmetre en el patró"
+msgstr ""
+"Aquesta opció substituirà qualsevol variable amb paràmetre en l'esquema"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1089,10 +1086,9 @@ msgid "Save %1"
 msgstr "Desa %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Assistent del patró del nom de fitxer"
+msgstr "Assistent d'esquema de noms de fitxer"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1180,7 +1176,7 @@ msgstr "Sufix"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Assistent d'esquemes"
 
 # skip-rule: barb-igual_a
 #: dialogs/simpleschemewizarddialog.cpp:88
@@ -1699,18 +1695,15 @@ msgstr ""
 "No heu indicat cap codificador per al perfil. Si us plau, establiu-ne un."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "No s'ha definit el patró del nom de fitxer del perfil."
+msgstr "No s'ha definit l'esquema del nom de fitxer del perfil."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
-"No heu indicat cap patró del nom de fitxer per al perfil. Si us plau, "
-"establiu-ne un."
+"No heu indicat cap esquema de nom de fitxer per al perfil. Establiu-ne un."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1718,16 +1711,13 @@ msgid "The image file format is unknown."
 msgstr "El format del fitxer d'imatge és desconegut."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"El format d'imatge que heu indicat és desconegut. Si us plau, escolliu un "
-"dels formats següents: JPG/JPEG, PNG o BMP."
+"El format d'imatge que heu indicat és desconegut. Escolliu un dels formats "
+"següents: JPEG, PNG, TIFF o BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -1872,7 +1862,7 @@ msgstr "Error desconegut. No s'ha trobat un índex en el model del perfil."
 #: models/profilemodel.cpp:478
 #, kde-format
 msgid "This is an internal error. Please report."
-msgstr "Això és un error intern. Si us plau, informeu-ne."
+msgstr "Això és un error intern. Si us plau, informeu-ho."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
@@ -2091,10 +2081,9 @@ msgid "Custom"
 msgstr "Personalitzada"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "El patró de l'ordre està buit."
+msgstr "L'esquema de l'ordre està buit."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2201,7 +2190,7 @@ msgid ""
 "and replace_char_list_to with equal size."
 msgstr ""
 "El paràmetre «replace_char_list» necessita dos paràmetres més "
-"«replace_char_list_from» i «and replace_char_list_to» de mida igual."
+"«replace_char_list_from» i «and replace_char_list_to» de la mateixa mida."
 
 #: utils/schemeparser.cpp:257
 #, kde-format
@@ -2265,10 +2254,9 @@ msgstr "Elimina la caràtula"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Patró de l'ordre:"
+msgstr "Esquema de l'ordre:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

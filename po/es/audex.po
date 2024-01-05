@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Rocio Gallego <traducciones@rociogallego.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2023-12-30 05:03+0100\n"
+"PO-Revision-Date: 2024-01-05 01:14+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -358,10 +358,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Asistente de patrones de órdenes"
+msgstr "Asistente de esquemas de órdenes"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -784,10 +783,9 @@ msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Sobre esquemas"
+msgstr "Esquema de carátulas:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -801,7 +799,7 @@ msgstr "Preferencias de la hoja de datos de pistas"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nombre/esquema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -967,7 +965,7 @@ msgstr "Sufijo:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Esquema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1012,14 +1010,12 @@ msgstr "Sustituir espacios por guiones bajos"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 "Este ajuste tiene prioridad sobre las preferencias de parámetros de "
-"variables del patrón"
+"variables del esquema"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1088,10 +1084,9 @@ msgid "Save %1"
 msgstr "Guardar %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Asistente de patrón de nombre de archivo"
+msgstr "Asistente de esquema de nombre de archivo"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1179,7 +1174,7 @@ msgstr "Sufijo"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Asistente de esquemas"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1694,17 +1689,15 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "No ha indicado ningún codificador para el perfil. Indique uno."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "No se ha definido el patrón de nombre de archivo del perfil."
+msgstr "No se ha definido el esquema de nombre de archivo del perfil."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
-"No ha indicado ningún patrón de nombre de archivo para el perfil. Indique "
+"No ha indicado ningún esquema de nombre de archivo para el perfil. Indique "
 "uno."
 
 #: models/profilemodel.cpp:202
@@ -1713,16 +1706,13 @@ msgid "The image file format is unknown."
 msgstr "Formato de archivo de imagen desconocido."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "El formato de imagen proporcionado es desconocido. Seleccione uno de los "
-"siguientes formatos: JPG/JPEG, PNG o BMP."
+"siguientes formatos: JPEG, PNG, TIFF o BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2085,10 +2075,9 @@ msgid "Custom"
 msgstr "Personalizado"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "El patrón de la orden está vacío."
+msgstr "El esquema de la orden está vacío."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2177,17 +2166,17 @@ msgstr "%1 ha sufrido un error desconocido. Esto no debería haber ocurrido."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Se ha encontrado un carácter no válido en el índice %1: «%2»"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Se ha encontrado una comilla sin cerrar"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Se ha encontrado un carácter no válido en el índice %1: %2"
 
 #: utils/schemeparser.cpp:126
 #, kde-format
@@ -2195,16 +2184,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"El parámetro «replace_char_list» necesita dos parámetros más, "
+"«replace_char_list_from» y «replace_char_list_to», con el mismo tamaño."
 
 #: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Llave sin cerrar."
 
 #: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "No se ha podido crear el archivo temporal de carátula: %1"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2258,10 +2249,9 @@ msgstr "Eliminar carátula"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Patrón de orden:"
+msgstr "Esquema de orden:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

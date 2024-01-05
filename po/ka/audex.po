@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2024-01-03 03:14+0100\n"
+"PO-Revision-Date: 2024-01-04 04:00+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -354,10 +354,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "ბრძანების ნიმუშის ოსტატი"
+msgstr "ბრძანების სქემის ოსტატი"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -777,10 +776,9 @@ msgstr "ფორმატი:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "სქემების შესახებ"
+msgstr "ყდის სქემა:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -794,7 +792,7 @@ msgstr "Cue Sheet -ის მორგება"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "სახელი/სქემა:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -992,7 +990,7 @@ msgstr "სუფიქსი:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "სქემა:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1037,13 +1035,11 @@ msgstr "გამოტოვებების ქვედახაზებ�
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
-"ეს პარამეტრი სისტემაში ნებისმიერ პარამეტრიზებულ ცვლადის მორგებას გადაფარავს"
+"ეს პარამეტრი სქემაში ნებისმიერ პარამეტრიზებულ ცვლადის მორგებას გადაფარავს"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1112,10 +1108,9 @@ msgid "Save %1"
 msgstr "%1-ის შენახვა"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "ფაილის სახელის ნიმუშის ოსტატი"
+msgstr "ფაილის სახელის სქემის ოსტატი"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1201,7 +1196,7 @@ msgstr "სუფიქსი"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "სქემის ოსტატი"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1708,17 +1703,15 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "პროფილისთვის ენკოდერი არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "პროფილის ფაილის სახელი აღწერილი არაა."
+msgstr "პროფილის ფაილის სახელის სქემა აღწერილი არაა."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
-"პროფილისთვის ფაილის სახელის ნიმუში არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
+"პროფილისთვის ფაილის სახელის სქემა არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1726,15 +1719,12 @@ msgid "The image file format is unknown."
 msgstr "გამოსახულების ფაილის ფორმატი უცნობია."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"მითითებული სურათის ფორმატი უცნობია. სწორი ფორმატებია JPG/JPEG, PNG და BMP."
+"მითითებული სურათის ფორმატი უცნობია. სწორი ფორმატებია JPEG, PNG TIFF ან BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2091,10 +2081,9 @@ msgid "Custom"
 msgstr "ხელით მითითებული"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "ბრძანების ნიმუში ცარიელია."
+msgstr "ბრძანების სქემა ცარიელია."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2264,10 +2253,9 @@ msgstr "ყდის წაშლა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "ბრძანების შაბლონი:"
+msgstr "ბრძანების სქემა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

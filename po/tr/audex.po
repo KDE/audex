@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2024-01-03 15:54+0300\n"
+"PO-Revision-Date: 2024-01-04 16:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -358,10 +358,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Komut Dizgisi Sihirbazı"
+msgstr "Komut Şeması Sihirbazı"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -777,10 +776,9 @@ msgstr "Biçim:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Şemalar hakkında"
+msgstr "Kapak şeması:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -794,7 +792,7 @@ msgstr "Ses Çizelgesi Ayarları"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Ad/Şema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -957,7 +955,7 @@ msgstr "Sonek:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Şema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1002,13 +1000,11 @@ msgstr "Boşlukları alt çizgilere dönüştür"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
-"Bu ayar, dizgideki parametrelendirilmiş değişkenlerin herhangi birisinin "
+"Bu ayar, şemada parametrelendirilmiş değişkenlerin herhangi birisinin "
 "üzerine yazar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
@@ -1078,10 +1074,9 @@ msgid "Save %1"
 msgstr "Kaydet %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Dosya Adı Dizgisi Sihirbazı"
+msgstr "Dosya Adı Şeması Sihirbazı"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1165,7 +1160,7 @@ msgstr "Sonek"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Şema Sihirbazı"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1677,16 +1672,14 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Profil için bir kodlayıcı yok. Lütfen bir tane ayarlayın."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Profil dosya adı dizgisi tanımlı değil."
+msgstr "Profil dosya adı şeması tanımlı değil."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "Profil için bir dosya adı dizgisi yok. Lütfen bir tane ayarlayın."
+msgstr "Profil için bir dosya adı şeması yok. Lütfen bir tane ayarlayın."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1694,16 +1687,13 @@ msgid "The image file format is unknown."
 msgstr "Görsel dosyası biçimi bilinmiyor."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"Verdiğiniz dosya biçimi geçersiz. Lütfen şu biçimlerden birini seçin: JPG/"
-"JPEG, PNG veya BMP."
+"Verdiğiniz görsel dosyası biçimi geçersiz. Lütfen şu biçimlerden birini "
+"seçin: JPEG, PNG, TIFF veya BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2041,10 +2031,9 @@ msgid "Custom"
 msgstr "Özel"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Komut dizgisi boş."
+msgstr "Komut şeması boş."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2213,10 +2202,9 @@ msgstr "Kapağı Kaldır"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Komut şablonu:"
+msgstr "Komut şeması:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

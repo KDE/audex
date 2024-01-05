@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2024-01-03 10:01+0100\n"
+"PO-Revision-Date: 2024-01-04 07:11+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -357,10 +357,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Čarovnik za nabor ukazov"
+msgstr "Čarovnik sheme ukazov"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -778,10 +777,9 @@ msgstr "Format:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "O shemah"
+msgstr "Krovna shema:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -795,7 +793,7 @@ msgstr "Nastavitve seznama cue"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Ime/Shema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -958,7 +956,7 @@ msgstr "Predpona:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Shema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1003,12 +1001,11 @@ msgstr "Zamenjaj presledke s podčrtaji"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr "Ta nastavitev povozi vse spremenljivke (in parametre) v vzorcu"
+msgstr ""
+"Ta nastavitev prekrije nastavitve vseh parametriziranih spremenljivk v shemi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1077,10 +1074,9 @@ msgid "Save %1"
 msgstr "Shrani %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Čarovnik za vzorčenje imen datotek"
+msgstr "Čarovnik shem imen datotek"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1164,7 +1160,7 @@ msgstr "Pripona"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Čarovnik shem"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1669,16 +1665,14 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Za ta profil ni določen noben kodirnik. Določite ga."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Vzorčenje poimenovanja v profilu ni določeno."
+msgstr "Shema imen datotek profila ni določena."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "Vzorčenje poimenovanja v profilu ni določeno. Določite ga."
+msgstr "Za profil niste navedli sheme imen datotek. Nastavite eno."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1686,16 +1680,13 @@ msgid "The image file format is unknown."
 msgstr "Neznana vrsta datoteke."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"Vrsta datoteke je neznana. Izbirate lahko med sledečimi vrstami datotek:JPG/"
-"JPEG, PNG ali BMP."
+"Vaš podani format slikovne datoteke ni znan. Prosimo izberite enega od teh "
+"formatov: JPEG, PNG, TIFF ali BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2030,10 +2021,9 @@ msgid "Custom"
 msgstr "Po meri"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Ni ukaznega vzorca."
+msgstr "Shema ukazov je prazna."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2204,10 +2194,9 @@ msgstr "Odstrani naslovnico"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Ukazni vzorec:"
+msgstr "Shema ukazov:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2023-12-30 07:09+0100\n"
+"PO-Revision-Date: 2024-01-04 09:36+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -353,10 +353,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Sorĉisto pri Komando-Ŝablono"
+msgstr "Sorĉisto pri Komando-Skemo"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -775,10 +774,9 @@ msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Pri skemoj"
+msgstr "Kovrila skemo:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -792,7 +790,7 @@ msgstr "Agordoj de Cue Sheet"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nomo/Skemo:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -956,7 +954,7 @@ msgstr "Sufikso:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Skemo:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1001,13 +999,11 @@ msgstr "Anstataŭigi spacojn per substrekoj"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
-"Ĉi tiu agordo superregas iujn ajn parametrajn variajn agordojn en la ŝablono"
+"Ĉi tiu agordo superregas ajn agordojn de parametritaj variabloj en la skemo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1076,10 +1072,9 @@ msgid "Save %1"
 msgstr "Konservi %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Sorĉisto pri dosiernomo"
+msgstr "Sorĉisto pri Dosiernoma Skemo"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1165,7 +1160,7 @@ msgstr "Sufikso"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Skema Sorĉisto"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1671,16 +1666,14 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Vi donis neniun kodilon por la profilo. Bonvolu agordi unu."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Profila dosiernomo ŝablono ne estas difinita."
+msgstr "Profildosiernoma skemo ne estas difinita."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "Vi ne donis dosiernoman ŝablonon por la profilo. Bonvolu agordi unu."
+msgstr "Vi ne donis dosiernoman skemon por la profilo. Bonvolu agordi unu."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1688,16 +1681,13 @@ msgid "The image file format is unknown."
 msgstr "La bilddosierformato estas nekonata."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Via donita bilddosierformato estas nekonata. Bonvolu elekti unu el ĉi tiuj "
-"formatoj: JPG/JPEG, PNG aŭ BMP."
+"formatoj: JPEG, PNG aŭ BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2045,10 +2035,9 @@ msgid "Custom"
 msgstr "Propra"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Komandŝablono estas malplena."
+msgstr "Komandskemo estas malplena."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2136,17 +2125,17 @@ msgstr "Nekonata eraro okazis al %1. Ĉi tio ne devus okazi."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Trovis nevalidan signon ĉe indekso %1: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Trovis nefermitan citilon"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Trovis nevalidan signon ĉe indekso %1: %2"
 
 #: utils/schemeparser.cpp:126
 #, kde-format
@@ -2154,16 +2143,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"parametro replace_char_list bezonas du aŭ pliajn parametrojn "
+"replace_char_list_from kaj replace_char_list_to de egala grandeco."
 
 #: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Nefermita kuniga krampo"
 
 #: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Ne eblis krei provizoran kovrildosieron: %1"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2217,10 +2208,9 @@ msgstr "Forigi Kovron"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Komando-Ŝablono:"
+msgstr "Komandoskemo:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2496,24 +2486,3 @@ msgstr "Konservi..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Cover pattern:"
-#~ msgstr "Kovrilo ŝablono:"
-
-#~ msgid "Name/Pattern:"
-#~ msgstr "Nomo/Ŝablono:"
-
-#~ msgid "Pattern:"
-#~ msgstr "Ŝablono:"
-
-#~ msgid "Pattern Wizard"
-#~ msgstr "Ŝablona Sorĉisto"
-
-#~ msgid " (Mobile Quality)"
-#~ msgstr "(Movebla Kvalito)"
-
-#~ msgid " (Normal Quality)"
-#~ msgstr "(Normala Kvalito)"
-
-#~ msgid " (Extreme Quality)"
-#~ msgstr "(Ekstrema Kvalito)"
