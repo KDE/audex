@@ -8,12 +8,15 @@
 #ifndef COMMANDWIZARDDIALOG_H
 #define COMMANDWIZARDDIALOG_H
 
-#include <QWhatsThis>
 #include <QWidget>
 
 #include <QDialog>
-#include <QPushButton>
+#include <QDialogButtonBox>
+#include <QMessageBox>
+#include <QSizePolicy>
+#include <QTextBrowser>
 
+#include "dialogs/textviewdialog.h"
 #include "utils/schemeparser.h"
 
 #include "ui_commandwizardwidgetUI.h"
@@ -31,8 +34,7 @@ public:
 private Q_SLOTS:
     void trigger_changed();
 
-    void about_commandline_schemes();
-    void about_parameters();
+    void help();
 
     void insAlbumArtist();
     void insAlbumTitle();
@@ -59,6 +61,8 @@ private:
 
     QPushButton *okButton;
     QPushButton *applyButton;
+
+    TextViewDialog *help_dialog;
 };
 
 #endif

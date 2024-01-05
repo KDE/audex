@@ -5,33 +5,32 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef SIMPLESCHEMEWIZARDDIALOG_H
-#define SIMPLESCHEMEWIZARDDIALOG_H
+#ifndef FILENAMESCHEMEWIZARDDIALOG_H
+#define FILENAMESCHEMEWIZARDDIALOG_H
 
-#include <QWhatsThis>
 #include <QWidget>
 
 #include <QDialog>
 
+#include "dialogs/textviewdialog.h"
 #include "utils/schemeparser.h"
 
-#include "ui_simpleschemewizardwidgetUI.h"
+#include "ui_filenameschemewizardwidgetUI.h"
 
-class SimpleSchemeWizardDialog : public QDialog
+class FilenameSchemeWizardDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    SimpleSchemeWizardDialog(const QString &scheme, const QString &suffix, QWidget *parent = nullptr);
-    ~SimpleSchemeWizardDialog() override;
+    FilenameSchemeWizardDialog(const QString &scheme, const QString &suffix, QWidget *parent = nullptr);
+    ~FilenameSchemeWizardDialog() override;
 
     QString scheme;
 
 private Q_SLOTS:
     void trigger_changed();
 
-    void about_schemes();
-    void about_parameters();
+    void help();
 
     void insAlbumArtist();
     void insAlbumTitle();
@@ -47,11 +46,13 @@ private Q_SLOTS:
     void slotApplied();
 
 private:
-    Ui::SimpleSchemeWizardWidgetUI ui;
+    Ui::FilenameSchemeWizardWidgetUI ui;
     QString suffix;
     QPushButton *applyButton;
 
     bool save();
+
+    TextViewDialog *help_dialog;
 };
 
 #endif

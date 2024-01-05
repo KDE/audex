@@ -25,7 +25,7 @@
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
 
-#include "protocoldialog.h"
+#include "protocolviewdialog.h"
 
 #include "ui_extractingprogresswidgetUI.h"
 
@@ -74,8 +74,8 @@ private:
     QPushButton *cancelButton;
 
     void calc_overall_progress();
-    void open_encoder_protocol_dialog();
-    void open_extract_protocol_dialog();
+    void open_encoder_protocol_view_dialog();
+    void open_extract_protocol_view_dialog();
     void update_unity();
 
 private:

@@ -87,7 +87,7 @@ void ProfileDataCoverDialog::scheme_wizard()
 {
     QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-    SimpleSchemeWizardDialog *dialog = new SimpleSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
+    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;

@@ -114,7 +114,8 @@ const QString SchemeParser::parseScheme(const QString &scheme, const Placeholder
                             if (key == "fat32compatible" && IS_TRUE(parameters.value("fat32compatible")))
                                 value = make_fat32_compatible(value.toString());
 
-                            if (key == "replace_char_list" && IS_TRUE(parameters.value("replace_char_list"))) {
+                            if ((key == "replace_char_list" && IS_TRUE(parameters.value("replace_char_list")))
+                                || (key == "replace_chars" && IS_TRUE(parameters.value("replace_chars")))) {
                                 if (parameters.contains("replace_char_list_from") && parameters.contains("replace_char_list_to")
                                     && parameters.value("replace_char_list_from").toString().length()
                                         == parameters.value("replace_char_list_to").toString().length())
@@ -160,13 +161,28 @@ const QString SchemeParser::parseScheme(const QString &scheme, const Placeholder
                             }
 
                             if (key == "format_datetime" && IS_DATETIME(value)) {
+                                QString locale_name;
+                                if (!parameters.value("locale").toString().isEmpty())
+                                    locale_name = parameters.value("locale").toString();
                                 QString format;
                                 if (!parameters.value("format_datetime").toString().isEmpty())
                                     format = parameters.value("format_datetime").toString();
+                                if (!parameters.value("format").toString().isEmpty())
+                                    format = parameters.value("format").toString();
                                 if (format.isEmpty()) {
-                                    value = QString("%1").arg(value.toDateTime().toString());
+                                    if (!locale_name.isEmpty()) {
+                                        QLocale locale(locale_name);
+                                        value = locale.toString(value.toDateTime());
+                                    } else {
+                                        value = value.toDateTime().toString();
+                                    }
                                 } else {
-                                    value = QString("%1").arg(value.toDateTime().toString(format));
+                                    if (!locale_name.isEmpty()) {
+                                        QLocale locale(locale_name);
+                                        value = locale.toString(value.toDateTime(), format);
+                                    } else {
+                                        value = value.toDateTime().toString(format);
+                                    }
                                 }
                             }
 
@@ -261,21 +277,21 @@ const QString SchemeParser::parseScheme(const QString &scheme, const Placeholder
     return result;
 }
 
-const QString SchemeParser::parseFilenameScheme(const QString &scheme,
-                                                  const int trackno,
-                                                  const int cdno,
-                                                  const int trackoffset,
-                                                  const int nooftracks,
-                                                  const QString &artist,
-                                                  const QString &title,
-                                                  const QString &tartist,
-                                                  const QString &ttitle,
-                                                  const QString &date,
-                                                  const QString &genre,
-                                                  const QString &suffix,
-                                                  const bool fat32compatible,
-                                                  const bool replacespaceswithunderscores,
-                                                  const bool twodigitstracknum)
+const QString SchemeParser::parsePerTrackFilenameScheme(const QString &scheme,
+                                                        const int trackno,
+                                                        const int cdno,
+                                                        const int trackoffset,
+                                                        const int nooftracks,
+                                                        const QString &artist,
+                                                        const QString &title,
+                                                        const QString &tartist,
+                                                        const QString &ttitle,
+                                                        const QString &date,
+                                                        const QString &genre,
+                                                        const QString &suffix,
+                                                        const bool fat32compatible,
+                                                        const bool replacespaceswithunderscores,
+                                                        const bool twodigitstracknum)
 {
     Placeholders placeholders;
 
@@ -303,24 +319,24 @@ const QString SchemeParser::parseFilenameScheme(const QString &scheme,
     return parseScheme(scheme, placeholders);
 }
 
-const QString SchemeParser::parseCommandScheme(const QString &scheme,
-                                                 const QString &input,
-                                                 const QString &output,
-                                                 const int trackno,
-                                                 const int cdno,
-                                                 const int trackoffset,
-                                                 const int nooftracks,
-                                                 const QString &artist,
-                                                 const QString &title,
-                                                 const QString &tartist,
-                                                 const QString &ttitle,
-                                                 const QString &date,
-                                                 const QString &genre,
-                                                 const QString &suffix,
-                                                 const QImage &cover,
-                                                 const QString &tmppath,
-                                                 const QString &encoder,
-                                                 const bool demomode)
+const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
+                                                       const QString &input,
+                                                       const QString &output,
+                                                       const int trackno,
+                                                       const int cdno,
+                                                       const int trackoffset,
+                                                       const int nooftracks,
+                                                       const QString &artist,
+                                                       const QString &title,
+                                                       const QString &tartist,
+                                                       const QString &ttitle,
+                                                       const QString &date,
+                                                       const QString &genre,
+                                                       const QString &suffix,
+                                                       const QImage &cover,
+                                                       const QString &tmppath,
+                                                       const QString &encoder,
+                                                       const bool demomode)
 {
     Placeholders placeholders;
 
@@ -356,6 +372,8 @@ const QString SchemeParser::parseCommandScheme(const QString &scheme,
         Parameters cover_parameters = placeholders_found.value(VAR_COVER_FILE, Parameters());
 
         QString format = STANDARD_EMBED_COVER_FORMAT;
+        if (cover_parameters.contains("formatimage") && !cover_parameters.value("formatimage").toString().isEmpty())
+            format = cover_parameters.value("formatimage").toString();
         if (cover_parameters.contains("format") && !cover_parameters.value("format").toString().isEmpty())
             format = cover_parameters.value("format").toString();
 
@@ -415,7 +433,7 @@ const QString SchemeParser::parseCommandScheme(const QString &scheme,
     return parseScheme(scheme, placeholders);
 }
 
-const QString SchemeParser::parseSimpleScheme(const QString &text,
+const QString SchemeParser::parseFilenameScheme(const QString &text,
                                                 const int cdno,
                                                 const int nooftracks,
                                                 const QString &artist,
@@ -441,14 +459,14 @@ const QString SchemeParser::parseSimpleScheme(const QString &text,
 }
 
 void SchemeParser::parseInfoTextScheme(QStringList &text,
-                                         const QString &artist,
-                                         const QString &title,
-                                         const QString &date,
-                                         const QString &genre,
-                                         const quint32 discid,
-                                         const qreal size,
-                                         const int length,
-                                         const int nooftracks)
+                                       const QString &artist,
+                                       const QString &title,
+                                       const QString &date,
+                                       const QString &genre,
+                                       const quint32 discid,
+                                       const qreal size,
+                                       const int length,
+                                       const int nooftracks)
 {
     Placeholders placeholders;
 
@@ -462,7 +480,7 @@ void SchemeParser::parseInfoTextScheme(QStringList &text,
     placeholders.insert(VAR_CD_LENGTH, QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0')));
     placeholders.insert(VAR_CD_SIZE, size);
     placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);
-    placeholders.insert(VAR_TODAY, QDate::currentDate());
+    placeholders.insert(VAR_TODAY, QDateTime::currentDateTime());
     placeholders.insert(VAR_NOW, QDateTime::currentDateTime());
     placeholders.insert(VAR_LINEBREAK, QString("\n"));
 
