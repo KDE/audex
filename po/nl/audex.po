@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 02:34+0000\n"
-"PO-Revision-Date: 2024-01-03 12:22+0100\n"
+"PO-Revision-Date: 2024-01-04 10:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -358,10 +358,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Commando Patroon Wizard"
+msgstr "Assistent voor commandoschema"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -782,10 +781,9 @@ msgstr "Formaat:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Over schema's"
+msgstr "Hoesschema:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -799,7 +797,7 @@ msgstr "Instellingen voor instructielijst (cue sheet)"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Naam/schema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -966,7 +964,7 @@ msgstr "Achtervoegsel:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Schema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1011,14 +1009,12 @@ msgstr "Vervang spaties door underscores"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
-"Deze instellingen overschrijven elke geparameteriseerde variabele instelling "
-"in het patroon"
+"Deze instelling overschrijft elke geparameteriseerde variabele instelling in "
+"het schema"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1087,10 +1083,9 @@ msgid "Save %1"
 msgstr "%1 opslaan"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Bestandsnaam Patroon Wizard"
+msgstr "Bestandsnaam van assistent voor schema"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1178,7 +1173,7 @@ msgstr "Achtervoegsel"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Assistent voor schema"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1693,17 +1688,15 @@ msgstr ""
 "U hebt geen codering opgegeven voor het profiel. Geef er één op a.u.b. "
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Profiel bestandsnaampatroon is niet gedefiniëerd."
+msgstr "Profiel bestandsnaamschema is niet gedefinieerd."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
-"U hebt geen bestandsnaampatroon opgegeven voor het profiel. Geef er één op a."
+"U hebt geen bestandsnaamschema opgegeven voor het profiel. Geef er één op a."
 "u.b."
 
 #: models/profilemodel.cpp:202
@@ -1712,16 +1705,13 @@ msgid "The image file format is unknown."
 msgstr "Het image bestandsformaat is onbekend."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Uw opgegeven afbeeldingsbestandsformaat is onbekend. Kies a.u.b. één van "
-"deze formaten: JPG/JPEG, PNG of BMP."
+"deze formaten: JPEG, PNG, TIFF of BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2078,10 +2068,9 @@ msgid "Custom"
 msgstr "Aangepast"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Commando patroon is leeg."
+msgstr "Commandoschema is leeg."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2254,10 +2243,9 @@ msgstr "Album-hoes Verwijderen"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Commando patroon:"
+msgstr "Commandoschema:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

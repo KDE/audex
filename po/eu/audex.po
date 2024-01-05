@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 02:34+0000\n"
-"PO-Revision-Date: 2024-01-03 21:21+0100\n"
+"PO-Revision-Date: 2024-01-04 10:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -360,10 +360,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Komando-ereduen morroia"
+msgstr "Komando-antolaera morroia"
 
 #: dialogs/commandwizarddialog.cpp:93
 #, kde-format
@@ -782,10 +781,9 @@ msgstr "Formatua:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Antolaerei buru"
+msgstr "Azal-antolaera:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -799,7 +797,7 @@ msgstr "«Cue» orriaren ezarpenak"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Izena/Antolaera:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -965,7 +963,7 @@ msgstr "Atzizkia:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Antolaera:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1010,14 +1008,12 @@ msgstr "Ordeztu zuriuneak azpimarrekin"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
-"Ezarpen honek ereduan parametrizatutako edozein aldagai ezarpen "
-"baliogabetzen du"
+"Ezarpen honek, antolaeran, parametrizatutako edozein aldagai ezarpen "
+"gainidazten du"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1086,10 +1082,9 @@ msgid "Save %1"
 msgstr "Gorde %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Fitxategi-izen ereduen morroia"
+msgstr "Fitxategi-izen antolaera morroia"
 
 #: dialogs/schemewizarddialog.cpp:91
 #, kde-format
@@ -1175,7 +1170,7 @@ msgstr "Atzizkia"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Antolaera morroia"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1684,16 +1679,15 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Ez duzu profilerako kodetzailerik eman. Mesedez, ezarri bat."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Profilaren fitxategi-izen eredua ez da definitu."
+msgstr "Profilaren fitxategi-izen antolaera ez da definitu."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "Ez duzu profilerako fitxategi-izen eredurik eman. Mesedez, ezarri bat."
+msgstr ""
+"Ez duzu profilerako fitxategi-izen antolaerarik eman. Mesedez, ezarri bat."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1701,16 +1695,13 @@ msgid "The image file format is unknown."
 msgstr "Irudiaren fitxategi formatua ezezaguna da."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Zuk emandako irudiaren fitxategi-formatua ezezaguna da. Mesedez, hautatu "
-"ondoko formatuetako bat: JPG/JPEG, PNG edo BMP."
+"ondoko formatuetako bat: JPEG, PNG, TIFF edo BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2070,10 +2061,9 @@ msgid "Custom"
 msgstr "Norberak finkatua"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Komando eredua hutsik dago."
+msgstr "Komando-antolaera hutsik dago."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2246,10 +2236,9 @@ msgstr "Kendu disko-azala"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Komando eredua:"
+msgstr "Komando-antolaera:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17

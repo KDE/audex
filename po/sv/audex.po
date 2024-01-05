@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 02:34+0000\n"
-"PO-Revision-Date: 2024-01-01 11:20+0100\n"
+"PO-Revision-Date: 2024-01-04 20:48+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -356,8 +356,7 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
 msgstr "Kommandomönsterguide"
 
@@ -777,10 +776,9 @@ msgstr "Format:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Om mönster"
+msgstr "Omslagsmönster:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -794,7 +792,7 @@ msgstr "Inställningar av indexblad"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Namn/mönster:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -955,7 +953,7 @@ msgstr "Suffix:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Mönster:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1000,9 +998,7 @@ msgstr "Ersätt mellanslag med understreck"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
@@ -1076,8 +1072,7 @@ msgid "Save %1"
 msgstr "Spara %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
 msgstr "Filnamnsmönsterguide"
 
@@ -1164,7 +1159,7 @@ msgstr "Suffix"
 #: dialogs/simpleschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Mönsterguide"
 
 #: dialogs/simpleschemewizarddialog.cpp:88
 #, kde-format
@@ -1669,14 +1664,12 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Du har inte angivit någon kodare för profilen. Ange en."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "Profilens filnamnsmönster är inte definierat."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Du har inte angivit något filnamnsmönster för profilen. Ange ett."
 
@@ -1686,16 +1679,13 @@ msgid "The image file format is unknown."
 msgstr "Bildfilformatet är okänt."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"Det angivna bildfilformatet är okänt. Välj ett av följande format: JPG/JPEG, "
-"PNG eller BMP."
+"Det angivna bildfilformatet är okänt. Välj ett av följande format: JPEG, "
+"PNG, TIFF eller BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -2043,8 +2033,7 @@ msgid "Custom"
 msgstr "Egen"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
 msgstr "Kommandomönster är tomt."
 
@@ -2135,17 +2124,17 @@ msgstr "Ett okänt fel uppstod med %1. Det ska inte kunna inträffa."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Illegalt tecken hittades på index %1: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Oavslutat citat hittades"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Illegalt tecken hittades på index %1: %2"
 
 #: utils/schemeparser.cpp:126
 #, kde-format
@@ -2153,16 +2142,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"Parametern replace_char_list kräver ytterligare två parametrar "
+"replace_char_list_from och replace_char_list_to med lika storlek."
 
 #: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Oavslutad klammerparentes."
 
 #: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Kunde inte skapa tillfällig omslagsfil: %1"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2216,8 +2207,7 @@ msgstr "Ta bort omslag"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
 msgstr "Kommandomönster:"
 

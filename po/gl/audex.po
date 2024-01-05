@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2017.
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-04 02:34+0000\n"
-"PO-Revision-Date: 2023-12-31 20:26+0100\n"
+"PO-Revision-Date: 2024-01-04 08:41+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2167,17 +2167,17 @@ msgstr "Produciuse un erro descoñecido con %1. Isto non debería ocorrer."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Atopouse un carácter non permitido no índice %1: «%2»."
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Atopáronse comiñas sen pechar."
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Atopouse un carácter non permitido no índice %1: %2."
 
 #: utils/schemeparser.cpp:126
 #, kde-format
@@ -2185,16 +2185,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"O parámetro «replace_char_list» necesita outros dous parámetros, "
+"«replace_char_list_from» e «replace_char_list_to», co mesmo tamaño."
 
 #: utils/schemeparser.cpp:257
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Chave sen pechar."
 
 #: utils/schemeparser.cpp:405
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Non foi posíbel crear o ficheiro de portada temporal: %1."
 
 #: utils/upload.cpp:54
 #, kde-format
