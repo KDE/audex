@@ -65,3 +65,32 @@ const QStringList Hashlist::getMD5(const QStringList &filenames)
 
     return list;
 }
+
+const QStringList Hashlist::getSHA256(const QStringList &filenames)
+{
+    QStringList list;
+
+    for (int i = 0; i < filenames.count(); ++i) {
+        QFile file(filenames.at(i));
+        if (!file.exists())
+            continue;
+        if (!file.open(QFile::ReadOnly))
+            continue;
+
+        QCryptographicHash sha256sum(QCryptographicHash::Sha256);
+
+        QByteArray buf;
+
+        while (!file.atEnd()) {
+            buf = file.read(16 * 1024);
+            sha256sum.addData(buf);
+        }
+
+        QFileInfo info(filenames.at(i));
+        list << QString("%1").arg(QString(sha256sum.result().toHex())) + "  " + info.fileName();
+
+        file.close();
+    }
+
+    return list;
+}

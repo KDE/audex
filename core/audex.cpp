@@ -962,6 +962,8 @@ void Audex::execute_finish()
                     out << hashlist.getSFV(target_filename_list).join("\n");
                 } else if (format == "MD5") {
                     out << hashlist.getMD5(target_filename_list).join("\n");
+                } else if (format == "SHA-256") {
+                    out << hashlist.getSHA256(target_filename_list).join("\n");
                 }
                 file.close();
                 Q_EMIT info(i18n("Hashlist \"%1\" successfully created.", QFileInfo(filename).fileName()));

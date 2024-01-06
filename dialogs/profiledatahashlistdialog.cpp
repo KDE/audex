@@ -41,7 +41,8 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &scheme, cons
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.kcombobox_format->addItem(i18n("SFV (Simple File Verification)"), "SFV");
-    ui.kcombobox_format->addItem(i18n("MD5 (Message-Digest algorithm 5)"), "MD5");
+    ui.kcombobox_format->addItem(i18n("MD5 (Message-Digest Algorithm 5)"), "MD5");
+    ui.kcombobox_format->addItem(i18n("SHA-256 (Secure Hash Algorithm)"), "SHA-256");
     {
         int i = ui.kcombobox_format->findData(format);
         ui.kcombobox_format->setCurrentIndex(i);
