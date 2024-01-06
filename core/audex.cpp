@@ -62,7 +62,6 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     connect(cdda_extract_thread, SIGNAL(progress(int, int, int)), this, SLOT(progress_extract(int, int, int)));
     connect(cdda_extract_thread, SIGNAL(output(const QByteArray &)), this, SLOT(write_to_wave(const QByteArray &)));
     connect(cdda_extract_thread, SIGNAL(finished()), this, SLOT(finish_extract()));
-    connect(cdda_extract_thread, SIGNAL(terminated()), this, SLOT(finish_extract()));
     connect(cdda_extract_thread, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
     connect(cdda_extract_thread, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
     connect(cdda_extract_thread, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
