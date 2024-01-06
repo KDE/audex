@@ -423,6 +423,8 @@ const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
                     p_error_string = i18n("Could not create temporary cover file: %1").arg(cover_filepath);
                     qDebug() << "WARNING! Could not create temporary cover file" << cover_filepath;
                 }
+            } else {
+                success = true;
             }
         }
 
