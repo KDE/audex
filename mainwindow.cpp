@@ -142,6 +142,19 @@ void MainWindow::rip()
             return;
     }
 
+    if ((profile_model->isSelectedEncoderWithEmbedCover()
+         || (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool()))
+        && cdda_model->isCoverEmpty()) {
+        if (KMessageBox::warningTwoActions(this,
+                                           i18n("No cover was set. Do you really want to continue?"),
+                                           i18n("Cover is empty"),
+                                           KStandardGuiItem::cont(),
+                                           KStandardGuiItem::cancel(),
+                                           "empty_cover_warn")
+            == KMessageBox::SecondaryAction)
+            return;
+    }
+
     auto *dialog = new ExtractingProgressDialog(profile_model, cdda_model, this);
 
     dialog->setWindowModality(Qt::ApplicationModal);

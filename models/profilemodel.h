@@ -196,6 +196,7 @@ public:
     const QString getSelectedEncoderSchemeFromCurrentIndex();
     const QString getSelectedEncoderSuffixFromCurrentIndex();
     const QString getSelectedEncoderNameAndVersion();
+    bool isSelectedEncoderWithEmbedCover();
     /**END: EncoderAssistant related */
 
     Error lastError() const;
