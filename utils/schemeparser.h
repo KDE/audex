@@ -198,7 +198,7 @@ public:
             result.append(
                 i18n("<table>"
                      "<tr><th>Placeholder</th><th>Specific parameter</th><th>Description</th></tr>"
-                     "<tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. This is the input"
+                     "<tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. This is the "
                      "input file for your command line encoder.</td></tr>"
                      "<tr><td><tt>$o</tt></td><td></td><td>The full output filename and path. Use it as the output for your command line encoder.</td></tr>"
                      "<tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename of the cover file. If no cover is set, this will be empty. Mostly "
@@ -213,7 +213,7 @@ public:
                 "<table>"
                 "<tr><th>Placeholder</th><th>Specific parameter</th><th>Description</th></tr>"
                 "<tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the overall size of all extracted (encoded) music files (incl. the cover image "
-                "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional parameter <tt>precise</tt> can define the number "
+                "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional parameter <tt>precision</tt> can define the number "
                 "of decimal places.</td></tr>"
                 "<tr><td>$length</td><td></td><td>Prints the relevant overall length of all extracted tracks. The format is min:sec.</td></tr>"
                 "<tr><td>$nooftracks</td><td></td><td>Prints the total number of extracted tracks.</td></tr>"
