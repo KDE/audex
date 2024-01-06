@@ -28,6 +28,7 @@ public:
 
     const QStringList getSFV(const QStringList &filenames);
     const QStringList getMD5(const QStringList &filenames);
+    const QStringList getSHA256(const QStringList &filenames);
 };
 
 #endif

@@ -259,9 +259,9 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_HL_INDEX:
             break;
         case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX:
-            if ((value.toString() != "SFV") && (value.toString() != "MD5")) {
+            if ((value.toString() != "SFV") && (value.toString() != "MD5") && (value.toString() != "SHA-256")) {
                 p_error = Error(i18n("The hashlist file format is unknown."),
-                                i18n("Your given hashlist file format is unknown. Please choose on of these formats: SFV, MD5."),
+                                i18n("Your given hashlist file format is unknown. Please choose on of these formats: SFV, MD5, SHA-256."),
                                 Error::ERROR,
                                 this);
                 return false;
