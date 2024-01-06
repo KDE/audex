@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 01:34+0000\n"
+"POT-Creation-Date: 2024-01-06 01:32+0000\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -378,123 +378,17 @@ msgstr "លេខ​សម្គាល់​ថាស ៖"
 msgid "0x00000000"
 msgstr "0x00000000"
 
-#: dialogs/commandwizarddialog.cpp:18
+#: dialogs/commandwizarddialog.cpp:20
 #, fuzzy, kde-format
 #| msgid "Command Pattern Wizard"
 msgid "Command Scheme Wizard"
 msgstr "អ្នក​ជំនួយ​ការលំនាំ​ពាក្យ​បញ្ជា"
 
-#: dialogs/commandwizarddialog.cpp:93
+#: dialogs/commandwizarddialog.cpp:39
 #, fuzzy, kde-format
-#| msgid ""
-#| "<p>The following variables will be replaced with their particular meaning "
-#| "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-#| "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
-#| "of the CD. If your CD is a compilation, then this tag represents the "
-#| "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
-#| "If your CD is a compilation, then this tag represents the subtitle in "
-#| "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
-#| "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
-#| "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
-#| "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-#| "multi-CD flag is <b>not</b> set for the current CD, than this value will "
-#| "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
-#| "every individual track. It is especially useful on compilation CDs.</td></"
-#| "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
-#| "has its own title, which is the name of the song.</td></tr><tr><td>"
-#| "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
-#| "$cover</td><td>The cover file.</td></tr><tr><td>$nooftracks</td><td>The "
-#| "total number of audio tracks of the CD.</td></tr><tr><td>$i</td><td>The "
-#| "temporary WAV file (input file) created by Audex from CD audio track. You "
-#| "can use it as a normal input file for your command line encoder.</td></"
-#| "tr><tr><td>$o</td><td>The full output filename and path (output file). "
-#| "Use it as the output for your command line encoder.</td></tr><tr><td>"
-#| "$audex</td><td>Audex name and version.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr></table></p>"
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$cover</td><td>The cover file.</td></"
-"tr><tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</"
-"td></tr><tr><td>$i</td><td>The temporary WAV file (input file) created by "
-"Audex from CD audio track. You can use it as a normal input file for your "
-"command line encoder.</td></tr><tr><td>$o</td><td>The full output filename "
-"and path (output file). Use it as the output for your command line encoder.</"
-"td></tr><tr><td>$encoder</td><td>Encoder name and version.</td></tr><tr><td>"
-"$audex</td><td>Audex name and version.</td></tr></table></p>"
-msgstr ""
-"<p>អថេរ​ខាងក្រោម​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​អត្ថន័យ​ពិសេស​របស់​វា​នៅ​ក្នុង​គ្រប់​ឈ្មោះ​បទ​ទាំងអស់ ។</p><p><table "
-"border=\"1\"><tr><th><em>អថេរ</em></th><th><em>សេចក្ដី​ពណ៌នា</em></th></"
-"tr><tr><td>$artist</td><td>សិល្បករ​​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​"
-"ចំណងជើង​ក្នុង​ករណី​ភាគច្រើន ។ </td></tr><tr><td>$title</td><td>ចំណងជើង​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​"
-"អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​រង​ក្នុង​ករណី​ភាគច្រើន ។</td></tr><tr><td>$date</"
-"td><td>កាលបរិច្ឆេទ​ចេញ​ផ្សាយ​ស៊ីឌី ។ ​ភាគច្រើន​វា​គឺជា​ឆ្នាំ ។ </td></tr><tr><td>$genre</"
-"td><td>ចង្វាក់​ស៊ីឌី ។</td></tr><tr><td>$cdno</td><td>ចំនួន​ស៊ីឌី​របស់​អាល់ប៊ុម​ស៊ីឌី​ចម្រុះ ។ ការ​"
-"ចងក្រង​ញឹកញាប់​ដែល​មាន​ស៊ីឌី​ច្រើន ។ <i>ចំណាំ ៖</i> ប្រសិនបើ​ទង់​ស៊ីឌី​ចម្រុះ​ <b>មិន</b> ត្រូវ​បាន​កំណត់​សម្រាប់​"
-"ស៊ីឌី​បច្ចុប្បន្ន តម្លៃ​នេះ​នឹង​​ទទេ ។</td></tr><tr><td>$tartist</td><td>នេះ​គឺជា​សិល្បករ​សម្រាប់​"
-"គ្រប់​បទ​ដោយឡែក​ៗ​ពី​គ្នា ។ វា​មាន​ប្រយោជន៍​យ៉ាង​ពិសេស​សម្រាប់​ការ​ចងក្រង​ស៊ីឌី ។</td></tr><tr><td>"
-"$ttitle</td><td>ចំណងជើង​បទ​។ ជាទូទៅ​បទ​​នីមួយៗ​នៅ​លើ​ស៊ីឌី​តែង​មាន​ចំណងជើង​របស់​វា ដែល​​វា​ត្រូវ​បាន​គេ​"
-"ហៅថា​ចំណងជើង​បទ​ចម្រៀង ។</td></tr><tr><td>$trackno</td><td>លេខ​បទ ។ បទ​ទី​មួយ​គឺ​លេខ ១ ។</"
-"td></tr><tr><td>$cover</td><td>ឯកសារ​គម្រប ។</td></tr><tr><td>$nooftracks</"
-"td><td>ចំនួន​សរុប​នៃ​បទ​អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>$i</td><td>ឯកសារ WAV (ឯកសារ​"
-"បញ្ចូល) បណ្ដោះអាសន្ន ដែល​ត្រូវ​បាន​បង្កើត​ដោយបទ​អូឌីយ៉ូ​ស៊ីឌី ។ អ្នក​អាច​ប្រើ​វា​ជា​ឯកសារ​បញ្ចូល​ធម្មតា​សម្រាប់​"
-"អ៊ិនកូឌ័រ​បន្ទាត់​បញ្ជារ ។</td></tr><tr><td>$o</td><td>ឈ្មោះ​ឯកសារ​បង្ហាញ​ពេញលេញ និង​ផ្លូវ "
-"(ឯកសារ​បង្ហាញ) ។ ប្រើ​វា​ជា​ការ​បង្ហាញ​សម្រាប់​អ៊ិនកូឌ័រ​បន្ទាត់​បញ្ជា​របស់​អ្នក ។</td></tr><tr><td>"
-"$audex</td><td>ឈ្មោះ និង​កំណែ​របស់ Audex ។</td></tr><tr><td>$encoder</td><td>ឈ្មោះ "
-"និង​កំណែ​របស់​អ៊ិនកូឌ័រ ។</td></tr></table></p>"
-
-#: dialogs/commandwizarddialog.cpp:119
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#| "the size of the original cover file will be taken. If no cover is set, "
-#| "this variable will be replaced by nothing, otherwise something like <i>/"
-#| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#| "\"preparam\" and \"postparam\" define parameters inserted before (pre) or "
-#| "behind (post) the variable. These values are <b>only</b> shown if a value "
-#| "is set.Works with all commandline variables.</p><hr /><p><b><i>To have a "
-#| "complete overview of parameters go to the Audex webpage.</i></b></p>"
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
-"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
-"temporary filename of a copy in jpeg format and sizeof 300x300 pixels of the "
-"cover will be inserted.If no size is set, the size of the original cover "
-"image file will be taken.If no cover is set, this variable will be omitted."
-"Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
-"p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted before "
-"(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
-"value is set. Works with all commandline variables."
-msgstr ""
-"<p>អថេរ​នៅ​ក្នុង​ Audex អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។ ឧ.</p><pre>${cover format=\"JPG\" x="
-"\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>ឈ្មោះ​ឯកសារ​របស់​រូបភាព JPG ដែល​មាន​ទំហំ "
-"300x300 នឹង​ត្រូវ​បាន​ដាក់​បញ្ចូល ។ ប្រសិនបើ​មិន​បាន​កំណត់​ទំហំ​ទេ ទំហំ​របស់​គម្រប​ដើម​នឹង​ត្រូវ​បាន​ប្រើ ។ ប្រសិនបើ​"
-"មិន​បាន​កំណត់​គម្រប​ទេ អថេរ​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​ទទេ បើ​មិន​ដូច្នោះ​ទេ វា​នឹង​បញ្ចូល​វត្ថុ​មួយ​ចំនួន​ដូចជា <i>/"
-"tmp/cover.123.jpg</i> ។ ទ្រង់ទ្រាយ​ដែល​អាច​ប្រើ​បាន​មាន​ \"JPG\", \"PNG\" and \"GIF"
-"\" (លំនាំដើម ៖ \"JPG\").</p>\n"
-"<p><i><b>ចំណាំ ៖</b> LAME បោះបង់​គម្រប​ឯកសារ​ដែល​មាន​ទំហំ​ធំ​ជាង ១២៨ គីឡូបៃ ។ សូម​ចងចាំ​ផង ​ប្រសិន​បើ​"
-"អ្នក​កំណត់​ទម្រង់ និង​ទំហំ ។</i></p><hr /><p>\"preparam\" and \"postparam\" កំណត់​ប៉ារ៉ាម៉ែត្រ​"
-"ដែល​ត្រូវ​ដាក់​បញ្ចូល​ខាងមុខ (មុន) ឬ​ខាង​ក្រោយ (ក្រោយ)​អថេរ ។ តម្លៃ​ទាំងនេះ​​នឹង​ត្រូវ​បាន <b>បង្ហាញ</"
-"b> ប្រសិនបើ​​តម្លៃ​ត្រូវ​បាន​កំណត់​តែប៉ុណ្នោះ ។ វា​ប្រើ​បាន​ជាមួយ​គ្រប់​អថេរ​បន្ទាត់​បញ្ជា​ទាំងអស់ ។</p><hr /"
-"><p><b><i>ដើម្បី​មើល​ទិដ្ឋភាព​ទូទៅ​ទាំងស្រុង សូម​ចូល​ទៅ​កាន់​តំបន់​បណ្ដាញ​របស់ Audex ។</i></b></p>"
+#| msgid "Command pattern is empty."
+msgid "Command scheme help"
+msgstr "លំនាំ​ពាក្យ​បញ្ជា​គឺ​ទទេ ។"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -508,93 +402,94 @@ msgstr "គំរូ​អាល់ប៊ុម ៖"
 msgid "Sampler Example:"
 msgstr "គំរូ​របស់​កម្មវិធី​ធ្វើ​គំរូ ៖"
 
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:269
+#: dialogs/filenameschemewizardwidgetUI.ui:54
+#: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
-msgid "About commandline schemes"
-msgstr "អំពី​គ្រោងការណ៍​បន្ទាត់​ពាក្យ​បញ្ជា​"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: dialogs/commandwizardwidgetUI.ui:276 dialogs/schemewizardwidgetUI.ui:273
-#: dialogs/simpleschemewizardwidgetUI.ui:162
-#, kde-format
-msgid "About parameters"
-msgstr "អំពី​ប៉ារ៉ាម៉ែត្រ"
+msgid "Help"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:300 dialogs/schemewizardwidgetUI.ui:300
-#: dialogs/simpleschemewizardwidgetUI.ui:189
+#: dialogs/commandwizardwidgetUI.ui:293
+#: dialogs/filenameschemewizardwidgetUI.ui:32
+#: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
 msgid "Album Artist"
 msgstr "សិល្បករ​អាល់ប៊ុម"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:322 dialogs/schemewizardwidgetUI.ui:322
-#: dialogs/simpleschemewizardwidgetUI.ui:211
+#: dialogs/commandwizardwidgetUI.ui:315
+#: dialogs/filenameschemewizardwidgetUI.ui:182
+#: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
 msgid "Album Title"
 msgstr "ចំណង​ជើង​អាល់ប៊ុម"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:344 dialogs/schemewizardwidgetUI.ui:344
+#: dialogs/commandwizardwidgetUI.ui:337 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
 msgstr "សិល្បករ​បទ"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:366 dialogs/schemewizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:359 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
 msgstr "ចំណង​ជើង​បទ"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:376 dialogs/schemewizardwidgetUI.ui:376
+#: dialogs/commandwizardwidgetUI.ui:369 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
 msgstr "លេខ​បទ"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:386 dialogs/schemewizardwidgetUI.ui:386
-#: dialogs/simpleschemewizardwidgetUI.ui:231
+#: dialogs/commandwizardwidgetUI.ui:379
+#: dialogs/filenameschemewizardwidgetUI.ui:199
+#: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "CD #"
 msgstr "លេខ​ស៊ីឌី"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:393 dialogs/schemewizardwidgetUI.ui:436
-#: dialogs/simpleschemewizardwidgetUI.ui:255
+#: dialogs/commandwizardwidgetUI.ui:386
+#: dialogs/filenameschemewizardwidgetUI.ui:245
+#: dialogs/schemewizardwidgetUI.ui:426
 #, kde-format
 msgid "# of Tracks"
 msgstr "# របស់​បទ"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:403 dialogs/schemewizardwidgetUI.ui:396
-#: dialogs/simpleschemewizardwidgetUI.ui:241
+#: dialogs/commandwizardwidgetUI.ui:396
+#: dialogs/filenameschemewizardwidgetUI.ui:238
+#: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
 msgstr "កាល​បរិច្ឆេទ"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:413 dialogs/schemewizardwidgetUI.ui:406
-#: dialogs/simpleschemewizardwidgetUI.ui:221
+#: dialogs/commandwizardwidgetUI.ui:406
+#: dialogs/filenameschemewizardwidgetUI.ui:225
+#: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
 msgid "Genre"
 msgstr "ចង្វាក់"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
-#: dialogs/commandwizardwidgetUI.ui:423
+#: dialogs/commandwizardwidgetUI.ui:416
 #, kde-format
 msgid "Cover File"
 msgstr "ឯកសារ​គម្រប"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
-#: dialogs/commandwizardwidgetUI.ui:433
+#: dialogs/commandwizardwidgetUI.ui:426
 #, kde-format
 msgid "Input File"
 msgstr "ឯកសារ​បញ្ចូល"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
-#: dialogs/commandwizardwidgetUI.ui:443
+#: dialogs/commandwizardwidgetUI.ui:436
 #, kde-format
 msgid "Output File"
 msgstr "ឯកសារ​លទ្ធផល"
@@ -605,7 +500,7 @@ msgid "Rip And Encode"
 msgstr "បម្លែង ​និង​​អ៊ិន​កូដ"
 
 #: dialogs/extractingprogressdialog.cpp:36
-#: dialogs/extractingprogressdialog.cpp:176
+#: dialogs/extractingprogressdialog.cpp:178
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr "ការ​បម្លែង​ស៊ីឌី​ទាំងមូល​ជា​បទ​ទោល"
@@ -625,96 +520,96 @@ msgstr "​បម្លែង​បទ​​ ០ នៃ %1"
 msgid "Encoding Track 0 of %1"
 msgstr "​ការ​អ៊ិនកូដ​បទ​ ០ នៃ %1"
 
-#: dialogs/extractingprogressdialog.cpp:153
+#: dialogs/extractingprogressdialog.cpp:155
 #, fuzzy, kde-format
 #| msgid "Do you really want to cancel?"
 msgid "Do you really want to cancel extraction?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​បោះបង់​មែនឬ ?"
 
-#: dialogs/extractingprogressdialog.cpp:154
+#: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
 msgid "Cancel"
 msgstr "បោះបង់"
 
-#: dialogs/extractingprogressdialog.cpp:170
+#: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track"
 msgstr "ការ​បម្លែង​បទ"
 
-#: dialogs/extractingprogressdialog.cpp:170
+#: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track %1 of %2"
 msgstr "ការ​បម្លែង​បទ %1 នៃ %2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:171
-#: dialogs/extractingprogressdialog.cpp:177
+#: dialogs/extractingprogressdialog.cpp:173
+#: dialogs/extractingprogressdialog.cpp:179
 #: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "វឌ្ឍនភាព​សរុប"
 
-#: dialogs/extractingprogressdialog.cpp:171
+#: dialogs/extractingprogressdialog.cpp:173
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr "វឌ្ឍនភាព​សរុប (ការ​បម្លែង​បទ %1 នៃ %2)"
 
-#: dialogs/extractingprogressdialog.cpp:186
+#: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
 msgstr "កំពុង​រង់ចាំ​ការងារ​​អ៊ិនកូដ..."
 
-#: dialogs/extractingprogressdialog.cpp:190
+#: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track"
 msgstr "ការ​អ៊ិនកូដ​បទ"
 
-#: dialogs/extractingprogressdialog.cpp:190
+#: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track %1 of %2"
 msgstr "ការ​អ៊ិនកូដ​បទ %1 នៃ %2"
 
-#: dialogs/extractingprogressdialog.cpp:232
-#: dialogs/extractingprogressdialog.cpp:238
+#: dialogs/extractingprogressdialog.cpp:234
+#: dialogs/extractingprogressdialog.cpp:240
 #, kde-format
 msgid "Speed: %1x"
 msgstr "ល្បឿន ៖ %1x"
 
-#: dialogs/extractingprogressdialog.cpp:256
+#: dialogs/extractingprogressdialog.cpp:258
 #, kde-format
 msgid "All jobs successfully done."
 msgstr "បាន​បញ្ចប់​ការងារ​ទាំង​អស់​ដោយ​ជោគ​ជ័យ ។"
 
-#: dialogs/extractingprogressdialog.cpp:260
-#: dialogs/extractingprogressdialog.cpp:261
 #: dialogs/extractingprogressdialog.cpp:262
+#: dialogs/extractingprogressdialog.cpp:263
+#: dialogs/extractingprogressdialog.cpp:264
 #, kde-format
 msgid "Finished!"
 msgstr "បាន​បញ្ចប់ !"
 
-#: dialogs/extractingprogressdialog.cpp:267
+#: dialogs/extractingprogressdialog.cpp:269
 #, kde-format
 msgid "At least one job failed."
 msgstr "យ៉ាង​ហោច​ណាស់​មាន​ការ​ងារ​មួយ​បាន​បរាជ័យ ។"
 
-#: dialogs/extractingprogressdialog.cpp:271
-#: dialogs/extractingprogressdialog.cpp:272
 #: dialogs/extractingprogressdialog.cpp:273
+#: dialogs/extractingprogressdialog.cpp:274
+#: dialogs/extractingprogressdialog.cpp:275
 #, kde-format
 msgid "Failed!"
 msgstr "បាន​បរាជ័យ !"
 
-#: dialogs/extractingprogressdialog.cpp:276
+#: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
 msgstr "បង្ហាញ​កំណត់ហេតុ​អ៊ិនកូដ..."
 
-#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
 msgstr "បង្ហាញ​កំណត់ហេតុ​បម្លែង..."
 
-#: dialogs/extractingprogressdialog.cpp:331
+#: dialogs/extractingprogressdialog.cpp:333
 #, fuzzy, kde-format
 #| msgid ""
 #| "Ripping speed was extremly slow for the last 5 minutes.\n"
@@ -741,17 +636,17 @@ msgstr ""
 "\n"
 "តើ​អ្នក​ចង់​បន្ត​ការ​ស្រង់​ចេញ​ដែរ ឬទេ ?​"
 
-#: dialogs/extractingprogressdialog.cpp:334
+#: dialogs/extractingprogressdialog.cpp:337
 #, kde-format
 msgid "Cancel extraction"
 msgstr "បោះបង់​ការ​ស្រង់​"
 
-#: dialogs/extractingprogressdialog.cpp:344
+#: dialogs/extractingprogressdialog.cpp:347
 #, kde-format
 msgid "Encoding protocol"
 msgstr "ពិធីការ​អ៊ិនកូដ"
 
-#: dialogs/extractingprogressdialog.cpp:351
+#: dialogs/extractingprogressdialog.cpp:353
 #, kde-format
 msgid "Ripping protocol"
 msgstr "ពិធីការ​បម្លែង"
@@ -799,6 +694,30 @@ msgstr ""
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "អ៊ិនកូដ ៨ បទ​ក្នុង ១២ បទ"
+
+#: dialogs/filenameschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr ""
+
+#: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Filename Pattern Wizard"
+msgid "Filename scheme help"
+msgstr "អ្នក​ជំនួយការ​លំនាំ​ឈ្មោះ​ឯកសារ"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/filenameschemewizardwidgetUI.ui:189
+#: dialogs/schemewizardwidgetUI.ui:406
+#, kde-format
+msgid "Suffix"
+msgstr "បច្ច័យ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/filenameschemewizardwidgetUI.ui:212
+#, kde-format
+msgid "Example:"
+msgstr "ឧទាហរណ៍ ៖"
 
 #: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
@@ -892,206 +811,22 @@ msgstr "SFV (Simple File Verification)"
 msgid "MD5 (Message-Digest algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
 
-#: dialogs/profiledatainfodialog.cpp:23
+#: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
 msgid "Info Settings"
 msgstr "ការ​កំណត់​ព័ត៌មាន​"
 
-#: dialogs/profiledatainfodialog.cpp:117
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#| "by a special value and can even contain parameters.<br />For example the "
-#| "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#| "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#| "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#| "div>will be replaced by the relevant artist of the cd. Variables may also "
-#| "have attribute, for example:<div style=\"font-family:monospace; "
-#| "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#| "pre></div>This would print the current date. Setting the format will "
-#| "control how this is done. The example (above)would result int the date "
-#| "being printed as 2010-10-07 (if this was the current date). See below for "
-#| "more details.<br /><br />You can make use of the following variables:<br /"
-#| "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#| "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#| "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#| "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#| "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#| "td><td></td><td>Prints the relevant date (usually release year) of the "
-#| "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#| "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#| "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#| "(compressed) music files (incl. the cover). The attribute iec can be one "
-#| "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#| "attribute precision gives the number of decimal places. Default "
-#| "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#| "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#| "relevant overall length of all extracted tracks. The format is min:sec.</"
-#| "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#| "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#| "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#| "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#| "td><td>Prints the current date. The attribute format specifies the output "
-#| "(*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
-#| "td><td>format</td><td>Prints the current date and/or time. The attribute "
-#| "format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:"
-#| "mm:ss\"}</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
-#| "td><td></td></tr></tbody></table><br /><br />(* date/time format "
-#| "expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-#| "\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
-#| "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a "
-#| "leading zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The "
-#| "day as a number with a leading zero (01 to 31).</td></tr><tr valign=\"top"
-#| "\"><td>ddd</td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to "
-#| "'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>The long localized "
-#| "day name (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-#| "\"><td>M</td><td>The month as a number without a leading zero (1 to 12).</"
-#| "td></tr><tr valign=\"top\"><td>MM</td><td>The month as a number with a "
-#| "leading zero (01 to 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The "
-#| "abbreviated localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr "
-#| "valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 "
-#| "if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour "
-#| "with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
-"space: pre-wrap; }</style></head><body>Variables will be replaced by a "
-"special value and can even contain parameters.<br />For example the variable "
-"<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-"$artist</pre></div>or the equivalent<div style=\"font-family:monospace; "
-"background: #b3c1d6; color: black\"><pre>${artist}</pre></div>will be "
-"replaced by the relevant artist of the cd. Variables may also have "
-"attribute, for example:<div style=\"font-family:monospace; background: "
-"#b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>This "
-"would print the current date. Setting the format will control how this is "
-"done. The example (above)would result int the date being printed as "
-"2010-10-07 (if this was the current date). See below for more details.<br /"
-"><br />You can make use of the following variables:<br /><table "
-"border=1><thead><tr><th>Variable</th><th>Parameter</th><th>Description</"
-"th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
-"td><td>Prints the relevant artist of the extracted cd.</td><td>${artist }</"
-"td></tr><tr><td>$title</td><td></td><td>Prints the relevant title of the "
-"extracted cd.</td><td></td></tr><tr><td>$date</td><td></td><td>Prints the "
-"relevant date (usually release year) of the extracted cd.</td><td></td></"
-"tr><tr><td>$genre;</td><td></td><td>Prints the relevant genre of the "
-"extracted cd.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
-"td><td>Prints the overall size of all extracted (compressed) music files "
-"(incl. the cover). The attribute iec can be one of the following: b, k, m, "
-"g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the "
-"number of decimal places. Default attributes are iec=\"m\" and precision="
-"\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
-"td><td></td><td>Prints the relevant overall length of all extracted tracks. "
-"The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></"
-"td><td>Prints the total number of extracted tracks.</td><td></td></"
-"tr><tr><td>$discid</td><td>base</td><td>Prints the discid of the current cd. "
-"The attribute base is the base of the number. The default is 16 "
-"(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
-"td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the official qt documentation "
-"for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
-"tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
-"The attribute format specifies the output. <i>Please have a look at the "
-"official qt documentation for the format variables.</i></td><td>${now format="
-"\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
-"encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
-"Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
-"linebreak.</td><td></td></tr></tbody></table></body></html>"
+#: dialogs/profiledatainfodialog.cpp:43
+#, kde-format
+msgid "Text info scheme help"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
-"space: pre-wrap; }</style></head><body>អថេរ នឹង​ត្រូវ​បាន​ជំនួស​ដោយតម្លៃ​ពិសេស និង​អាច​មាន​"
-"ប៉ារ៉ាម៉ែត្រ ។<br />ឧទាហរណ៍ អថេរ <div style=\"font-family:monospace; background: "
-"#b3c1d6; color: black\"><pre>$artist</pre></div>ឬ​ភាព​សមមូល<div style=\"font-"
-"family:monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-"div>នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​សិល្បករ​របស់​ស៊ីឌី ។ អថេរ​អាច​មាន​គុណ​លក្ខណៈ ដូចជា ៖<div style=\"font-"
-"family:monospace; background: #b3c1d6; color: black\"><pre>${today format="
-"\"yyyy-MM-dd\"}</pre></div>នេះ​នឹង​បោះពុម្ពកាលបរិច្ឆេទ​បច្ចុប្បន្ន ។ ការ​កំណត់​ទ្រង់ទ្រាយ​នឹង​"
-"គ្រប់គ្រង​ពី​របៀប​ដែល​វា​ត្រូវ​ធ្វើ ។ ឧទាហរណ៍​ខាង​លើ​ចង់​បង្ហាញ​អំពី​លទ្ធផល​ចំនួន​គត់​កាលបរិច្ឆេទ​ដែល​នឹង​ត្រូវ​បាន​"
-"បោះពុម្ពថា ២០១០-១០-០៧ (ប្រសិនបើ​វា​ជា​កាលបរិច្ឆេទ​បច្ចុប្បន្ន) ។ សូម​មើល​នៅ​ខាង​ក្រោម​សម្រាប់​ព័ត៌មាន​"
-"លម្អិត ។<br /><br />អ្នក​អាច​ប្រើ​នូវ​អថេរ​ដូច​ខាង​ក្រោម ៖<br /><table "
-"border=1><thead><tr><th>អថេរ</th><th>ប៉ារ៉ាម៉ែត្រ</th><th>សេចក្ដី​ពណ៌នា</"
-"th><th>ឧទាហរណ៏</th></tr></thead><tbody><tr><td>$artist</td><td></td><td>បោះពុម្ព​"
-"សិល្បករ​​ពាក់ព័ន្ធ​របស់​ស៊ីឌី​ដែល​បាន​ស្រង់​ចេញ ។</td><td>${artist }</td></tr><tr><td>$title</"
-"td><td></td><td>បោះពុម្ព​ចំណងជើង​ពាក់ព័ន្ធ​របស់​ស៊ីឌី​ដែល​បាន​ស្រង់​ចេញ ។</td><td></td></"
-"tr><tr><td>$date</td><td></td><td>បោះពុម្ព​កាលបរិច្ឆេទ​​ពាក់ព័ន្ធ​ (ឆ្នាំ​ចេញ​ផ្សាយ) របស់​ស៊ីឌី​ដែល​"
-"បាន​ស្រង់​ចេញ ។</td><td></td></tr><tr><td>$genre;</td><td></td><td>បោះពុម្ព​ចង្វាក់​​"
-"ពាក់ព័ន្ធ​របស់​ស៊ីឌី​ដែល​បាន​ស្រង់​ចេញ ។</td><td></td></tr><tr><td>$size</td><td>iec,"
-"precision</td><td>បោះពុម្ព​ទំហំ​ទាំងមូល​របស់​ឯកសារ​តន្ត្រី​ដែល​បាន​ស្រង់​ចេញ (បាន​បង្ហាប់) (រួម​ទាំង​"
-"គម្រប) ។ គុណលក្ខណៈ​របស់ iec អាច​ជា​មួយ​ក្នុង​ចំណោម ៖ b, k, m, g ។ ដែល​ b មាន​ន័យថា បៃ k "
-"មានន័យថា គីឡូបៃ m មានន័យថា មេកាបៃ និង g មានន័យថា ជីកាបៃ ។ ចំនួន​ខ្ទង់​គុណលក្ខណៈ​ឲ្យ​ជា​ចំនួន​ខ្ទង់​"
-"ទសភាគ ។ គុណលក្ខណៈ​លំនាំដើម​គឺ iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k"
-"\" precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>បោះពុម្ព​ប្រវែង​"
-"ពាក់ព័ន្ធ​ទាំងមូល​របស់​បទ​ដែល​បាន​ស្រង់​ចេញ​ទាំងអស់ ។ ទ្រង់ទ្រាយ​គឺ min:sec.</td><td></td></"
-"tr><tr><td>$nooftracks</td><td></td><td>បោះពុម្ព​ចំនួន​សរុប​របស់​បទ​ដែល​បាន​ស្រង់​ចេញ ។</"
-"td><td></td></tr><tr><td>$discid</td><td>គោល</td><td>បោះពុម្ព​លេខ​សម្គាល់​ថាស​របស់​ស៊ីឌី​"
-"បច្ចុប្បន្ន ។ គុណលក្ខណៈ​គោល​គឺជា​គោល​របស់​ចំនួន ។ លំនាំដើម​គឺ ១៦ (គោល​ដប់​ប្រាំមួយ) ។</td><td>"
-"${discid base=\"16\"}</td></tr><tr><td>$today</td><td>ទ្រង់ទ្រាយ</td><td>បោះពុម្ព​"
-"កាលបរិច្ឆេទ​បច្ចុប្បន្ន ។ ទ្រង់ទ្រាយ​គុណលក្ខណៈ​បញ្ជាក់​អំពី​ការ​បង្ហាញ (*) ។</td><td>${today "
-"format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</td><td>ទ្រង់ទ្រយ</td><td>បោះពុម្ព​"
-"កាលបរិច្ឆេទ និង/ឬ​ពេលវេលា​​បច្ចុប្បន្ន ។ ទ្រង់ទ្រាយ​គុណលក្ខណៈ​បញ្ជាក់​អំពី​ការ​បង្ហាញ (*) ។</td><td>"
-"${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</td><td></"
-"td><td>បោះពុម្ព​ចុះ​បន្ទាត់ ។</td><td></td></tr></tbody></table><br /><br />(* date/"
-"time format expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
-"\"1\"><thead><tr valign=\"top\"><th>កន្សោម</th><th>បង្ហាញ</th></tr></thead><tr "
-"valign=\"top\"><td>d</td><td>ថ្ងៃ​ជា​លេខ​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (១ ទៅ ៣១) ។</td></"
-"tr><tr valign=\"top\"><td>dd</td><td>ថ្ងៃ​ជា​លេខ​ដែល​​នាំមុខ​ដោយ​លេខ​សូន្យ (០១ ទៅ ៣១) ។</"
-"td></tr><tr valign=\"top\"><td>ddd</td><td>ឈ្មោះ​ថ្ងៃ​ដែល​សរសេរ​ជា​អក្សរ​កាត់ (e."
-"g&#x2e; 'Mon' to 'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>ឈ្មោះ​ថ្ងៃ​"
-"ដែល​សរសេរ​ពេញ (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top"
-"\"><td>M</td><td>ខែ​ជា​លេខ​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (១ ទៅ ១២) ។</td></tr><tr valign="
-"\"top\"><td>MM</td><td>ខែ​ជា​លេខ​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០១ ទៅ ១២) ។</td></tr><tr "
-"valign=\"top\"><td>MMM</td><td>ឈ្មោះ​ខែ​សរសេរ​ជា​អក្សរ​កាត់ (e.g&#x2e; 'Jan' to "
-"'Dec').</td></tr><tr valign=\"top\"><td>MMMM</td><td>ឈ្មោះ​ខែ​ដែល​សរសេរ​ពេញ (e."
-"g&#x2e; 'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</"
-"td><td>ឆ្នាំ​ដែល​សរសេរ​ជា​ពីរ​តួ​លេខ (០០ ទៅ ៩៩) ។</td></tr><tr valign=\"top"
-"\"><td>yyyy</td><td>ឆ្នាំ​ដែល​សរសេរ​ជា​បួន​តួ​លេខ ។</td></tr></table><br /><table "
-"cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
-"\"><th>កន្សោម</th><th>បង្ហាញ</th></tr></thead><tr valign=\"top\"><td>h</"
-"td><td>ម៉ោង​​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ២៣ ឬ ១ ទៅ ១២ ព្រឹក/ល្ងាច ប្រសិនបើ​បង្ហាញ ) ។</"
-"td></tr><tr valign=\"top\"><td>hh</td><td>ម៉ោង​​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០០ ទៅ ២៣ ឬ ០១ "
-"ទៅ ១២ ព្រឹក/ល្ងាច ប្រសិនបើ​បង្ហាញ ) ។</td></tr><tr valign=\"top\"><td>H</td><td>ម៉ោង​​"
-"ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ២៣  ទោះបីជា​បង្ហាញ​ពាក្យ ព្រឹក/ល្ងាច ក៏ដោយ ) ។</td></tr><tr "
-"valign=\"top\"><td>HH</td><td>ម៉ោង​​ដែល​​នាំមុខ​ដោយ​លេខ​សូន្យ (០០ ទៅ ២៣  ទោះបីជា​បង្ហាញ​ពាក្យ "
-"ព្រឹក/ល្ងាច ក៏ដោយ ) ។</td></tr><tr valign=\"top\"><td>m</td><td>នាទី​ដែល​មិន​នាំមុខ​ដោយ​"
-"លេខ​សូន្យ (០ ទៅ ៥៩) ។</td></tr><tr valign=\"top\"><td>mm</td><td>នាទី​ដែល​នាំមុខ​ដោយ​"
-"លេខ​សូន្យ (០០ ទៅ ៥៩) ។</td></tr><tr valign=\"top\"><td>s</td><td>វិនាទី​ដែល​មិន​នាំមុខ​"
-"ដោយ​លេខ​សូន្យ (០ ទៅ ៥៩) ។</td></tr><tr valign=\"top\"><td>ss</td><td>វិនាទី​ដែល​នាំមុខ​"
-"ដោយ​លេខ​សូន្យ (០០ ទៅ ៥៩) ។</td></tr><tr valign=\"top\"><td>z</td><td>មិល្លីវិនាទី​ដែល​មិន​"
-"នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ៩៩៩) ។</td></tr><tr valign=\"top\"><td>zz</td><td>មិល្លីវិនាទី​"
-"ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០០០ ទៅ ៩៩៩) ។</td></tr><tr valign=\"top\"><td>AP or A</"
-"td><td>បកប្រែ​ថា​ពេល​ព្រឹក/ល្ងាច ។ AP អាច​ជា​ 'ព្រឹក' ឬ 'ល្ងាច' ។</td></tr><tr valign="
-"\"top\"><td>ap or a</td><td>បកប្រែ​ថា​ពេល​ព្រឹក/ល្ងាច ។ អាច​ជា​ 'ព្រឹក' ឬ 'ល្ងាច' ។</"
-"td></tr></table></body></html>"
 
-#: dialogs/profiledatainfodialog.cpp:197
+#: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
 msgid "Load Text Template"
 msgstr "ផ្ទុក​ពុម្ព​អត្ថ​បទ"
 
-#: dialogs/profiledatainfodialog.cpp:210
+#: dialogs/profiledatainfodialog.cpp:141
 #, kde-format
 msgid "Save Text Template"
 msgstr "រក្សាទុក​ពុម្ព​អត្ថបទ"
@@ -1101,12 +836,6 @@ msgstr "រក្សាទុក​ពុម្ព​អត្ថបទ"
 #, kde-format
 msgid "Information text:"
 msgstr "អត្ថបទ​ព័ត៌មាន​ ៖"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
-#: dialogs/profiledatainfowidgetUI.ui:58
-#, kde-format
-msgid "About variables"
-msgstr "អំពី​អថេរ"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -1238,7 +967,7 @@ msgstr " បង្កើត​បញ្ជី​ចាក់​ក្នុង�
 msgid "Write single file"
 msgstr "សរសេរ​តែ​ឯកសារ"
 
-#: dialogs/protocoldialog.cpp:60
+#: dialogs/protocolviewdialog.cpp:60
 #, kde-format
 msgid "Save %1"
 msgstr "រក្សាទុក %1"
@@ -1248,171 +977,6 @@ msgstr "រក្សាទុក %1"
 #| msgid "Filename Pattern Wizard"
 msgid "Filename Scheme Wizard"
 msgstr "អ្នក​ជំនួយការ​លំនាំ​ឈ្មោះ​ឯកសារ"
-
-#: dialogs/schemewizarddialog.cpp:91
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
-"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
-"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
-"tr></table></p>"
-msgstr ""
-"<p>អថេរ​ខាងក្រោម​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​អត្ថន័យ​ពិសេស​របស់​វា​នៅ​រាល់​ឈ្មោះ​បទ​ទាំងអស់ ។</p><p><table "
-"border=\"1\"><tr><th><em>អថេរ</em></th><th><em>សេចក្ដី​ពណ៌នា</em></th></"
-"tr><tr><td>$artist</td><td>សិល្បករ​​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​"
-"ចំណងជើង​ក្នុង​ករណី​ភាគច្រើន ។</td></tr><tr><td>$title</td><td>ចំណងជើង​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​"
-"អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​រង​ក្នុង​ករណី​ភាគច្រើន ។</td></tr><tr><td>$date</"
-"td><td>កាលបរិច្ឆេទ​ចេញ​ផ្សាយ​ស៊ីឌី ។ ​ភាគច្រើន​វា​គឺជា​ឆ្នាំ ។</td></tr><tr><td>$genre</"
-"td><td>ចង្វាក់​ស៊ីឌី</td></tr><tr><td>$cdno</td><td>ចំនួន​ស៊ីឌី​របស់​អាល់ប៊ុម​ស៊ីឌី​ចម្រុះ ។ ការ​ចងក្រង​"
-"ញឹកញាប់​ដែល​មាន​ស៊ីឌី​ច្រើន ។ <i>ចំណាំ ៖</i> ប្រសិនបើ​ទង់​ស៊ីឌី​ចម្រុះ​ <b>មិន</b> ត្រូវ​បាន​កំណត់​សម្រាប់​ស៊ីឌី​"
-"បច្ចុប្បន្ន តម្លៃ​នេះ​នឹង​​ទទេ ។</td></tr><tr><td>$tartist</td><td>នេះ​គឺជា​សិល្បករ​សម្រាប់​គ្រប់​"
-"បទ​ដោយឡែក​ៗ​ពី​គ្នា ។ វា​មាន​ប្រយោជន៍​យ៉ាង​ពិសេស​សម្រាប់​ការ​ចងក្រង​ស៊ីឌី ។</td></tr><tr><td>"
-"$ttitle</td><td>ចំណងជើង​បទ​។ ជាទូទៅ​បទ​​នីមួយៗ​នៅ​លើ​ស៊ីឌី​តែង​មាន​ចំណងជើង​របស់​វា ដែល​​វា​ត្រូវ​បាន​គេ​"
-"ហៅថា​ចំណងជើង​បទ​ចម្រៀង ។</td></tr><tr><td>$trackno</td><td>លេខ​បទ ។ បទ​ទី​មួយ​គឺ​លេខ ១ ។</"
-"td></tr><tr><td>$nooftracks</td><td>ចំនួន​សរុប​នៃ​បទ​អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>"
-"$suffix</td><td>ផ្នែក​បន្ថែម​របស់​ឈ្មោះ​ឯកសារ ។</td></tr><tr><td>$audex</td><td>ឈ្មោះ "
-"និង​កំណែ​របស់ Audex ។</td></tr></table></p>"
-
-#: dialogs/schemewizarddialog.cpp:112
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>អថេរ​នៅ​ក្នុង​ Audex អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។ ឧ.</p><pre>$artist/$title/${trackno "
-"length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>មាន​ន័យ​ថា ចំនួន​បទ​នឹង​ត្រូវ​បាន​"
-"បង្ខំ​ត្រឹម​ប្រវែង ២ តួលេខ ។ ប្រសិនបើ​ចំនួន​តិច​ជាង ១០ វា​នឹង​ត្រូវ​បាន​បំពេញ​បន្ថែម​ដោយ​លេខ \"0\" ។</"
-"p><pre>$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />"
-"$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>ចំណងជើង​"
-"នឹង​ជា​អក្សរ​ធំ ឬ​អក្សរ​តូច ។ វា​ក៏​ប្រើ​បាន​ជាមួយ​អថេរ​ផ្សេង​ទៀត​ដែរ ។</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>យក​មួយ​តួ​អក្សរ​ពី​ខាងឆ្វេង ដែល​"
-"វា​ជា​តួអក្សរ​ដំបូង ។</p><hr /><p><b><i>ដើម្បី​មើល​ទិដ្ឋភាព​ទូទៅ​​ទាំងស្រុង​របស់​ប៉ារ៉ាម៉ែត្រ​​ សូម​ចូល​ទៅ​កាន់​"
-"តំបន់​បណ្ដាញ Audex ។</i></b></p>"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: dialogs/schemewizardwidgetUI.ui:263
-#, kde-format
-msgid "About filename schemes"
-msgstr "អំពី​គ្រោងការណ៍​ឈ្មោះ​ឯកសារ"
-
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
-#: dialogs/schemewizardwidgetUI.ui:416
-#: dialogs/simpleschemewizardwidgetUI.ui:248
-#, kde-format
-msgid "Suffix"
-msgstr "បច្ច័យ"
-
-#: dialogs/simpleschemewizarddialog.cpp:18
-#, kde-format
-msgid "Scheme Wizard"
-msgstr ""
-
-#: dialogs/simpleschemewizarddialog.cpp:88
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>The following variables will be replaced with their particular meaning "
-#| "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-#| "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
-#| "of the CD. If your CD is a compilation, then this tag represents the "
-#| "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
-#| "If your CD is a compilation, then this tag represents the subtitle in "
-#| "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
-#| "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
-#| "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
-#| "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-#| "multi-CD flag is <b>not</b> set for the current CD, than this value will "
-#| "be just empty.</td></tr><tr><td>$suffix</td><td>The filename extension (e."
-#| "g. \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
-#| "td><td>The total number of audio tracks of the CD.</td></tr><tr><td>"
-#| "$audex</td><td>Audex name and version.</td></tr></table></p>"
-msgid ""
-"<p>Filename schemes without an absolute path will be relative to the ripped "
-"music files.</p><p>The following variables will be replaced with their "
-"particular meaning in every track name.</p><p><table border="
-"\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-"tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-"compilation, then this tag represents the title in most cases.</td></"
-"tr><tr><td>$title</td><td>The title of the CD. If your CD is a compilation, "
-"then this tag represents the subtitle in most cases.</td></tr><tr><td>$date</"
-"td><td>The release date of the CD. In almost all cases this is the year.</"
-"td></tr><tr><td>$genre</td><td>The genre of the CD.</td></tr><tr><td>$cdno</"
-"td><td>The CD number of a multi-CD album. Often compilations consist of "
-"several CDs. <i>Note:</i> If the multi-CD flag is <b>not</b> set for the "
-"current CD, than this value will be just empty.</td></tr><tr><td>$suffix</"
-"td><td>The filename extension (e.g. \".jpg\", \".m3u\", \".md5\" ...).</td></"
-"tr><tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</"
-"td></tr><tr><td>$encoder</td><td>Encoder name and version.</td></tr><tr><td>"
-"$audex</td><td>Audex name and version.</td></tr></table></p>"
-msgstr ""
-"<p>អថេរ​ខាងក្រោម​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​អត្ថន័យ​ពិសេស​របស់​វា​នៅ​ក្នុង​គ្រប់​ឈ្មោះ​បទ​ទាំងអស់ ។</p><p><table "
-"border=\"1\"><tr><th><em>អថេរ</em></th><th><em>សេចក្ដី​ពណ៌នា</em></th></"
-"tr><tr><td>$artist</td><td>សិល្បករ​​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​"
-"ចំណងជើង​ក្នុង​ករណី​ភាគច្រើន ។ </td></tr><tr><td>$title</td><td>ចំណងជើង​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​"
-"អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​រង​ក្នុង​ករណី​ភាគច្រើន ។</td></tr><tr><td>$date</"
-"td><td>កាលបរិច្ឆេទ​ចេញ​ផ្សាយ​ស៊ីឌី ។ ​ភាគច្រើន​វា​គឺជា​ឆ្នាំ ។ </td></tr><tr><td>$genre</"
-"td><td>ចង្វាក់​ស៊ីឌី ។</td></tr><tr><td>$cdno</td><td>ចំនួន​ស៊ីឌី​របស់​អាល់ប៊ុម​ស៊ីឌី​ចម្រុះ ។ ការ​"
-"ចងក្រង​ញឹកញាប់​ដែល​មាន​ស៊ីឌី​ច្រើន ។ <i>ចំណាំ ៖</i> ប្រសិនបើ​ទង់​ស៊ីឌី​ចម្រុះ​ <b>មិន</b> ត្រូវ​បាន​កំណត់​សម្រាប់​"
-"ស៊ីឌី​បច្ចុប្បន្ន តម្លៃ​នេះ​នឹង​​ទទេ ។​</td></tr><tr><td>$suffix</td><td>ផ្នែក​បន្ថែម​របស់​ឈ្មោះ​"
-"ឯកសារ (ឧ. \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
-"td><td>ចំនួន​សរុប​នៃ​បទ​អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>$audex</td><td>ឈ្មោះ និង​កំណែ​របស់ "
-"Audex ។</td></tr></table></p>"
-
-#: dialogs/simpleschemewizarddialog.cpp:108
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
-"length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd number "
-"will be forced to a length of 2 digits. If the number is less than 10, it "
-"will be filled up with \"0\".</p><pre>${title lowercase=\"true\"}."
-"$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>The title will be "
-"uppercased or lowercased. This works with the other variables, too.</p><pre>"
-"${artist left=\"1\"} - $title.$suffix</pre><p>Take one character from the "
-"left, which is the first one.</p><hr /><p><b><i>To have a complete overview "
-"of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>អថេរ​នៅ​ក្នុង​ Audex អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។ ឧ.</p><pre>$title (${cdno length=\"2\" "
-"fillchar=\"0\"}).$suffix</pre><p>វា​មាន​ន័យ​ថា ចំនួន​ស៊ីឌី​នឹង​ត្រូវ​បាន​បង្ខំ​ត្រឹម​ប្រវែង ២ តួលេខ ។ "
-"ប្រសិនបើ​ចំនួន​តិច​ជាង ១០ វា​នឹង​ត្រូវ​បាន​បំពេញ​បន្ថែម​ដោយ​លេខ \"0\" ។</p><pre>${title "
-"lowercase=\"true\"}.$suffix<br />${title uppercase=\"true\"}.$suffix</"
-"pre><p>ចំណងជើង​នឹង​ជា​អក្សរ​ធំ ឬ​អក្សរ​តូច ។ វា​ក៏​ប្រើ​បាន​ជាមួយ​អថេរ​ផ្សេង​ទៀត​ដែរ ។</p><pre>"
-"${artist left=\"1\"} - $title.$suffix</pre><p>យក​មួយ​តួ​អក្សរ​ពី​ខាងឆ្វេង ដែល​វា​ជា​តួអក្សរ​"
-"ដំបូង ។</p><hr /><p><b><i>ដើម្បី​មើល​ទិដ្ឋភាព​ទូទៅ​​ទាំងស្រុង​របស់​ប៉ារ៉ាម៉ែត្រ​​ សូម​ចូល​ទៅ​កាន់​តំបន់​បណ្ដាញ "
-"Audex ។</i></b></p>"
-
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/simpleschemewizardwidgetUI.ui:26
-#, kde-format
-msgid "Example:"
-msgstr "ឧទាហរណ៍ ៖"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: dialogs/simpleschemewizardwidgetUI.ui:152
-#, kde-format
-msgid "About schemes"
-msgstr "អំពី​គ្រោងការណ៍"
 
 #: main.cpp:25
 #, kde-format
@@ -2307,21 +1871,152 @@ msgstr ""
 msgid "Illegal character found at index %1: %2"
 msgstr ""
 
-#: utils/schemeparser.cpp:126
+#: utils/schemeparser.cpp:127
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
 
-#: utils/schemeparser.cpp:257
+#: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
 msgstr ""
 
-#: utils/schemeparser.cpp:405
+#: utils/schemeparser.cpp:423
 #, kde-format
 msgid "Could not create temporary cover file: %1"
+msgstr ""
+
+#: utils/schemeparser.h:151
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>The following variables will be replaced with their particular meaning "
+#| "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+#| "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
+#| "of the CD. If your CD is a compilation, then this tag represents the "
+#| "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
+#| "If your CD is a compilation, then this tag represents the subtitle in "
+#| "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
+#| "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
+#| "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
+#| "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
+#| "multi-CD flag is <b>not</b> set for the current CD, than this value will "
+#| "be just empty.</td></tr><tr><td>$suffix</td><td>The filename extension (e."
+#| "g. \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
+#| "td><td>The total number of audio tracks of the CD.</td></tr><tr><td>"
+#| "$audex</td><td>Audex name and version.</td></tr></table></p>"
+msgid ""
+"<p>The following placeholders will be replaced with their particular meaning:"
+"</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
+"$artist</tt></td><td>The artist of the CD. If your CD is a compilation then "
+"this tag represents the title in most cases.</td></tr><tr><td><tt>$title</"
+"tt></td><td>The title of the CD. If your CD is a compilation then this tag "
+"represents the subtitle in most cases.</td></tr><tr><td><tt>$date</tt></"
+"td><td>The release date of the CD. In almost all cases this is the year.</"
+"td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
+"the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
+"</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
+"table>"
+msgstr ""
+"<p>អថេរ​ខាងក្រោម​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​អត្ថន័យ​ពិសេស​របស់​វា​នៅ​ក្នុង​គ្រប់​ឈ្មោះ​បទ​ទាំងអស់ ។</p><p><table "
+"border=\"1\"><tr><th><em>អថេរ</em></th><th><em>សេចក្ដី​ពណ៌នា</em></th></"
+"tr><tr><td>$artist</td><td>សិល្បករ​​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​"
+"ចំណងជើង​ក្នុង​ករណី​ភាគច្រើន ។ </td></tr><tr><td>$title</td><td>ចំណងជើង​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​"
+"អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​រង​ក្នុង​ករណី​ភាគច្រើន ។</td></tr><tr><td>$date</"
+"td><td>កាលបរិច្ឆេទ​ចេញ​ផ្សាយ​ស៊ីឌី ។ ​ភាគច្រើន​វា​គឺជា​ឆ្នាំ ។ </td></tr><tr><td>$genre</"
+"td><td>ចង្វាក់​ស៊ីឌី ។</td></tr><tr><td>$cdno</td><td>ចំនួន​ស៊ីឌី​របស់​អាល់ប៊ុម​ស៊ីឌី​ចម្រុះ ។ ការ​"
+"ចងក្រង​ញឹកញាប់​ដែល​មាន​ស៊ីឌី​ច្រើន ។ <i>ចំណាំ ៖</i> ប្រសិនបើ​ទង់​ស៊ីឌី​ចម្រុះ​ <b>មិន</b> ត្រូវ​បាន​កំណត់​សម្រាប់​"
+"ស៊ីឌី​បច្ចុប្បន្ន តម្លៃ​នេះ​នឹង​​ទទេ ។​</td></tr><tr><td>$suffix</td><td>ផ្នែក​បន្ថែម​របស់​ឈ្មោះ​"
+"ឯកសារ (ឧ. \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
+"td><td>ចំនួន​សរុប​នៃ​បទ​អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>$audex</td><td>ឈ្មោះ និង​កំណែ​របស់ "
+"Audex ។</td></tr></table></p>"
+
+#: utils/schemeparser.h:168
+#, kde-format
+msgid ""
+"<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
+"${title lowercase=true}</tt>. In this example the title will be lowercased. "
+"The following general parameters can be used with placeholders:</"
+"p><table><tr><th>Key</th><th>Value</th><th>Description</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>The placeholder "
+"value will be lowercased.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
+"false</td><td>The placeholder value will be uppercased.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Replace the "
+"spaces of the placeholder value with underscores.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Replace "
+"illegal filename characters of a FAT32 filesystem with underscores.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Replace "
+"characters. This parameter needs two additional keys of the same value size:"
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. These are "
+"lists of characters. The first character of<tt>replace_char_list_from</tt> "
+"will be replaced by the first character of <tt>replace_char_list_to</tt> and "
+"so on.</td></tr><tr><td><tt>left</tt></td><td>Number</td><td>Take nth "
+"characters from the left of the placeholder value.</td></"
+"tr><tr><td><tt>length</tt></td><td>Number</td><td>If the placeholder value "
+"is a number expand it to the given length. Furthermore you can define a fill "
+"character with the additional key <tt>fillchar</tt>. Default fillchar is '0'."
+"</td></tr><tr><td><tt>pre</tt></td><td>String</td><td>A string which will be "
+"placed <b>before</b> the value. Especially useful for command line "
+"parameters which should not be set at all if the value is empty.</td></"
+"tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
+"placed <b>after</b> the value.</td></tr></table>"
+msgstr ""
+
+#: utils/schemeparser.h:189
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
+"td><td>This is the artist of every track. It is especially useful on "
+"compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. Normally "
+"each track on a CD has its own title, which is the name of the song.</td></"
+"tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
+"table>"
+msgstr ""
+
+#: utils/schemeparser.h:199
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
+"th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
+"WAVE) created by Audex from CD audio track. This is the inputinput file for "
+"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
+"full output filename and path. Use it as the output for your command line "
+"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"td><td>Filename of the cover file. If no cover is set, this will be empty. "
+"Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
+"scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
+"<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
+"LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
+msgstr ""
+
+#: utils/schemeparser.h:213
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
+"th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
+"overall size of all extracted (encoded) music files (incl. the cover image "
+"file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
+"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
+"all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
+"td><td></td><td>Prints the total number of extracted tracks.</td></"
+"tr><tr><td>$discid</td><td>base</td><td>Prints the CDDB discid in "
+"hexadecimal format.</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
+"td><td>Prints the current date and/or time. The parameter format specifies "
+"the output. Please consult official qt documentation (<tt>https://doc.qt.io/"
+"qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
+"html#toString</tt>) for the supported specifiers within the format string. "
+"With the additional key <tt>locale</tt> you can specify a language setting. "
+"By default your system locales are used. The locale has the format "
+"<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+"lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+"uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+"td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
 
 #: utils/upload.cpp:54
@@ -2660,6 +2355,412 @@ msgstr "រក្សា​ទុក​..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>The following variables will be replaced with their particular "
+#~| "meaning in every track name.</p><p><table border="
+#~| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
+#~| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
+#~| "compilation, then this tag represents the title in most cases.</td></"
+#~| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
+#~| "compilation, then this tag represents the subtitle in most cases.</td></"
+#~| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+#~| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
+#~| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+#~| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag "
+#~| "is <b>not</b> set for the current CD, than this value will be just empty."
+#~| "</td></tr><tr><td>$tartist</td><td>This is the artist of every "
+#~| "individual track. It is especially useful on compilation CDs.</td></"
+#~| "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
+#~| "has its own title, which is the name of the song.</td></tr><tr><td>"
+#~| "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
+#~| "$cover</td><td>The cover file.</td></tr><tr><td>$nooftracks</td><td>The "
+#~| "total number of audio tracks of the CD.</td></tr><tr><td>$i</td><td>The "
+#~| "temporary WAV file (input file) created by Audex from CD audio track. "
+#~| "You can use it as a normal input file for your command line encoder.</"
+#~| "td></tr><tr><td>$o</td><td>The full output filename and path (output "
+#~| "file). Use it as the output for your command line encoder.</td></"
+#~| "tr><tr><td>$audex</td><td>Audex name and version.</td></tr><tr><td>"
+#~| "$encoder</td><td>Encoder name and version.</td></tr></table></p>"
+#~ msgid ""
+#~ "<p>The following variables will be replaced with their particular meaning "
+#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
+#~ "of the CD. If your CD is a compilation, then this tag represents the "
+#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
+#~ "If your CD is a compilation, then this tag represents the subtitle in "
+#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
+#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
+#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
+#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
+#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
+#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
+#~ "every individual track. It is especially useful on compilation CDs.</td></"
+#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
+#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
+#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
+#~ "$cover</td><td>The cover file.</td></tr><tr><td>$nooftracks</td><td>The "
+#~ "total number of audio tracks of the CD.</td></tr><tr><td>$i</td><td>The "
+#~ "temporary WAV file (input file) created by Audex from CD audio track. You "
+#~ "can use it as a normal input file for your command line encoder.</td></"
+#~ "tr><tr><td>$o</td><td>The full output filename and path (output file). "
+#~ "Use it as the output for your command line encoder.</td></tr><tr><td>"
+#~ "$encoder</td><td>Encoder name and version.</td></tr><tr><td>$audex</"
+#~ "td><td>Audex name and version.</td></tr></table></p>"
+#~ msgstr ""
+#~ "<p>អថេរ​ខាងក្រោម​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​អត្ថន័យ​ពិសេស​របស់​វា​នៅ​ក្នុង​គ្រប់​ឈ្មោះ​បទ​ទាំងអស់ ។</"
+#~ "p><p><table border=\"1\"><tr><th><em>អថេរ</em></th><th><em>សេចក្ដី​ពណ៌នា</"
+#~ "em></th></tr><tr><td>$artist</td><td>សិល្បករ​​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង "
+#~ "ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​ក្នុង​ករណី​ភាគច្រើន ។ </td></tr><tr><td>$title</"
+#~ "td><td>ចំណងជើង​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​រង​ក្នុង​ករណី​"
+#~ "ភាគច្រើន ។</td></tr><tr><td>$date</td><td>កាលបរិច្ឆេទ​ចេញ​ផ្សាយ​ស៊ីឌី ។ ​ភាគច្រើន​វា​គឺជា​"
+#~ "ឆ្នាំ ។ </td></tr><tr><td>$genre</td><td>ចង្វាក់​ស៊ីឌី ។</td></tr><tr><td>$cdno</"
+#~ "td><td>ចំនួន​ស៊ីឌី​របស់​អាល់ប៊ុម​ស៊ីឌី​ចម្រុះ ។ ការ​ចងក្រង​ញឹកញាប់​ដែល​មាន​ស៊ីឌី​ច្រើន ។ <i>ចំណាំ ៖</i> "
+#~ "ប្រសិនបើ​ទង់​ស៊ីឌី​ចម្រុះ​ <b>មិន</b> ត្រូវ​បាន​កំណត់​សម្រាប់​ស៊ីឌី​បច្ចុប្បន្ន តម្លៃ​នេះ​នឹង​​ទទេ ។</td></"
+#~ "tr><tr><td>$tartist</td><td>នេះ​គឺជា​សិល្បករ​សម្រាប់​គ្រប់​បទ​ដោយឡែក​ៗ​ពី​គ្នា ។ វា​មាន​ប្រយោជន៍​"
+#~ "យ៉ាង​ពិសេស​សម្រាប់​ការ​ចងក្រង​ស៊ីឌី ។</td></tr><tr><td>$ttitle</td><td>ចំណងជើង​បទ​។ ជាទូទៅ​"
+#~ "បទ​​នីមួយៗ​នៅ​លើ​ស៊ីឌី​តែង​មាន​ចំណងជើង​របស់​វា ដែល​​វា​ត្រូវ​បាន​គេ​ហៅថា​ចំណងជើង​បទ​ចម្រៀង ។</td></"
+#~ "tr><tr><td>$trackno</td><td>លេខ​បទ ។ បទ​ទី​មួយ​គឺ​លេខ ១ ។</td></tr><tr><td>"
+#~ "$cover</td><td>ឯកសារ​គម្រប ។</td></tr><tr><td>$nooftracks</td><td>ចំនួន​សរុប​នៃ​បទ​"
+#~ "អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>$i</td><td>ឯកសារ WAV (ឯកសារ​បញ្ចូល) បណ្ដោះអាសន្ន "
+#~ "ដែល​ត្រូវ​បាន​បង្កើត​ដោយបទ​អូឌីយ៉ូ​ស៊ីឌី ។ អ្នក​អាច​ប្រើ​វា​ជា​ឯកសារ​បញ្ចូល​ធម្មតា​សម្រាប់​អ៊ិនកូឌ័រ​បន្ទាត់​"
+#~ "បញ្ជារ ។</td></tr><tr><td>$o</td><td>ឈ្មោះ​ឯកសារ​បង្ហាញ​ពេញលេញ និង​ផ្លូវ (ឯកសារ​"
+#~ "បង្ហាញ) ។ ប្រើ​វា​ជា​ការ​បង្ហាញ​សម្រាប់​អ៊ិនកូឌ័រ​បន្ទាត់​បញ្ជា​របស់​អ្នក ។</td></tr><tr><td>"
+#~ "$audex</td><td>ឈ្មោះ និង​កំណែ​របស់ Audex ។</td></tr><tr><td>$encoder</"
+#~ "td><td>ឈ្មោះ និង​កំណែ​របស់​អ៊ិនកូឌ័រ ។</td></tr></table></p>"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
+#~| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
+#~| "JPG image with the size of 300x300 will be inserted. If no size is set, "
+#~| "the size of the original cover file will be taken. If no cover is set, "
+#~| "this variable will be replaced by nothing, otherwise something like <i>/"
+#~| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
+#~| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+#~| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
+#~| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
+#~| "\"preparam\" and \"postparam\" define parameters inserted before (pre) "
+#~| "or behind (post) the variable. These values are <b>only</b> shown if a "
+#~| "value is set.Works with all commandline variables.</p><hr /><p><b><i>To "
+#~| "have a complete overview of parameters go to the Audex webpage.</i></b></"
+#~| "p>"
+#~ msgid ""
+#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
+#~ "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
+#~ "temporary filename of a copy in jpeg format and sizeof 300x300 pixels of "
+#~ "the cover will be inserted.If no size is set, the size of the original "
+#~ "cover image file will be taken.If no cover is set, this variable will be "
+#~ "omitted.Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG"
+#~ "\").</p>\n"
+#~ "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
+#~ "p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted "
+#~ "before (pre) or behind (post) the variable. These values are <b>only</"
+#~ "b>shown if a value is set. Works with all commandline variables."
+#~ msgstr ""
+#~ "<p>អថេរ​នៅ​ក្នុង​ Audex អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។ ឧ.</p><pre>${cover format=\"JPG\" x="
+#~ "\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>ឈ្មោះ​ឯកសារ​របស់​រូបភាព JPG ដែល​មាន​"
+#~ "ទំហំ 300x300 នឹង​ត្រូវ​បាន​ដាក់​បញ្ចូល ។ ប្រសិនបើ​មិន​បាន​កំណត់​ទំហំ​ទេ ទំហំ​របស់​គម្រប​ដើម​នឹង​ត្រូវ​បាន​ប្រើ ។ "
+#~ "ប្រសិនបើ​មិន​បាន​កំណត់​គម្រប​ទេ អថេរ​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​ទទេ បើ​មិន​ដូច្នោះ​ទេ វា​នឹង​បញ្ចូល​វត្ថុ​មួយ​ចំនួន​"
+#~ "ដូចជា <i>/tmp/cover.123.jpg</i> ។ ទ្រង់ទ្រាយ​ដែល​អាច​ប្រើ​បាន​មាន​ \"JPG\", \"PNG\" "
+#~ "and \"GIF\" (លំនាំដើម ៖ \"JPG\").</p>\n"
+#~ "<p><i><b>ចំណាំ ៖</b> LAME បោះបង់​គម្រប​ឯកសារ​ដែល​មាន​ទំហំ​ធំ​ជាង ១២៨ គីឡូបៃ ។ សូម​ចងចាំ​ផង ​"
+#~ "ប្រសិន​បើ​អ្នក​កំណត់​ទម្រង់ និង​ទំហំ ។</i></p><hr /><p>\"preparam\" and \"postparam\" កំណត់​"
+#~ "ប៉ារ៉ាម៉ែត្រ​ដែល​ត្រូវ​ដាក់​បញ្ចូល​ខាងមុខ (មុន) ឬ​ខាង​ក្រោយ (ក្រោយ)​អថេរ ។ តម្លៃ​ទាំងនេះ​​នឹង​ត្រូវ​បាន "
+#~ "<b>បង្ហាញ</b> ប្រសិនបើ​​តម្លៃ​ត្រូវ​បាន​កំណត់​តែប៉ុណ្នោះ ។ វា​ប្រើ​បាន​ជាមួយ​គ្រប់​អថេរ​បន្ទាត់​បញ្ជា​"
+#~ "ទាំងអស់ ។</p><hr /><p><b><i>ដើម្បី​មើល​ទិដ្ឋភាព​ទូទៅ​ទាំងស្រុង សូម​ចូល​ទៅ​កាន់​តំបន់​បណ្ដាញ​របស់ "
+#~ "Audex ។</i></b></p>"
+
+#~ msgid "About commandline schemes"
+#~ msgstr "អំពី​គ្រោងការណ៍​បន្ទាត់​ពាក្យ​បញ្ជា​"
+
+#~ msgid "About parameters"
+#~ msgstr "អំពី​ប៉ារ៉ាម៉ែត្រ"
+
+#, fuzzy
+#~| msgid ""
+#~| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/"
+#~| "TR/REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#~| "{ white-space: pre-wrap; }</style></head><body>Variables will be "
+#~| "replaced by a special value and can even contain parameters.<br />For "
+#~| "example the variable <div style=\"font-family:monospace; background: "
+#~| "#b3c1d6; color: black\"><pre>$artist</pre></div>or the equivalent<div "
+#~| "style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
+#~| "${artist}</pre></div>will be replaced by the relevant artist of the cd. "
+#~| "Variables may also have attribute, for example:<div style=\"font-family:"
+#~| "monospace; background: #b3c1d6; color: black\"><pre>${today format="
+#~| "\"yyyy-MM-dd\"}</pre></div>This would print the current date. Setting "
+#~| "the format will control how this is done. The example (above)would "
+#~| "result int the date being printed as 2010-10-07 (if this was the current "
+#~| "date). See below for more details.<br /><br />You can make use of the "
+#~| "following variables:<br /><table border=1><thead><tr><th>Variable</"
+#~| "th><th>Parameter</th><th>Description</th><th>Example</th></tr></"
+#~| "thead><tbody><tr><td>$artist</td><td></td><td>Prints the relevant artist "
+#~| "of the extracted cd.</td><td>${artist }</td></tr><tr><td>$title</"
+#~| "td><td></td><td>Prints the relevant title of the extracted cd.</td><td></"
+#~| "td></tr><tr><td>$date</td><td></td><td>Prints the relevant date (usually "
+#~| "release year) of the extracted cd.</td><td></td></tr><tr><td>$genre;</"
+#~| "td><td></td><td>Prints the relevant genre of the extracted cd.</td><td></"
+#~| "td></tr><tr><td>$size</td><td>iec,precision</td><td>Prints the overall "
+#~| "size of all extracted (compressed) music files (incl. the cover). The "
+#~| "attribute iec can be one of the following: b, k, m, g. b means byte, k "
+#~| "KiB, m MiB and g GiB. The attribute precision gives the number of "
+#~| "decimal places. Default attributes are iec=\"m\" and precision=\"2\"</"
+#~| "td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
+#~| "td><td></td><td>Prints the relevant overall length of all extracted "
+#~| "tracks. The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</"
+#~| "td><td></td><td>Prints the total number of extracted tracks.</td><td></"
+#~| "td></tr><tr><td>$discid</td><td>base</td><td>Prints the discid of the "
+#~| "current cd. The attribute base is the base of the number. The default is "
+#~| "16 (hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
+#~| "td><td>format</td><td>Prints the current date. The attribute format "
+#~| "specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+#~| "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
+#~| "time. The attribute format specifies the output (*).</td><td>${now "
+#~| "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</td><td></"
+#~| "td><td>Prints a linebreak.</td><td></td></tr></tbody></table><br /><br /"
+#~| ">(* date/time format expressions)<table cellpadding=\"2\" cellspacing="
+#~| "\"1\" border=\"1\"><thead><tr valign=\"top\"><th>Expression</"
+#~| "th><th>Output</th></tr></thead><tr valign=\"top\"><td>d</td><td>The day "
+#~| "as a number without a leading zero (1 to 31).</td></tr><tr valign=\"top"
+#~| "\"><td>dd</td><td>The day as a number with a leading zero (01 to 31).</"
+#~| "td></tr><tr valign=\"top\"><td>ddd</td><td>The abbreviated localized day "
+#~| "name (e.g&#x2e; 'Mon' to 'Sun').</td></tr><tr valign=\"top\"><td>dddd</"
+#~| "td><td>The long localized day name (e.g&#x2e; 'Monday' to 'Sunday').</"
+#~| "td></tr><tr valign=\"top\"><td>M</td><td>The month as a number without a "
+#~| "leading zero (1 to 12).</td></tr><tr valign=\"top\"><td>MM</td><td>The "
+#~| "month as a number with a leading zero (01 to 12).</td></tr><tr valign="
+#~| "\"top\"><td>MMM</td><td>The abbreviated localized month name (e.g&#x2e; "
+#~| "'Jan' to 'Dec').</td></tr><tr valign=\"top\"><td>MMMM</td><td>The long "
+#~| "localized month name (e.g&#x2e; 'January' to 'December').</td></tr><tr "
+#~| "valign=\"top\"><td>yy</td><td>The year as two digit number (00 to 99).</"
+#~| "td></tr><tr valign=\"top\"><td>yyyy</td><td>The year as four digit "
+#~| "number.</td></tr></table><br /><table cellpadding=\"2\" cellspacing="
+#~| "\"1\" border=\"1\"><thead><tr valign=\"top\"><th>Expression</"
+#~| "th><th>Output</th></tr></thead><tr valign=\"top\"><td>h</td><td>The hour "
+#~| "without a leading zero (0 to 23 or 1 to 12 if AM/PM display).</td></"
+#~| "tr><tr valign=\"top\"><td>hh</td><td>The hour with a leading zero (00 to "
+#~| "23 or 01 to 12 if AM/PM display).</td></tr><tr valign=\"top\"><td>H</"
+#~| "td><td>The hour without a leading zero (0 to 23, even with AM/PM "
+#~| "display).</td></tr><tr valign=\"top\"><td>HH</td><td>The hour with a "
+#~| "leading zero (00 to 23, even with AM/PM display).</td></tr><tr valign="
+#~| "\"top\"><td>m</td><td>The minute without a leading zero (0 to 59).</td></"
+#~| "tr><tr valign=\"top\"><td>mm</td><td>The minute with a leading zero (00 "
+#~| "to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The second without a "
+#~| "leading zero (0 to 59).</td></tr><tr valign=\"top\"><td>ss</td><td>The "
+#~| "second with a leading zero (00 to 59).</td></tr><tr valign=\"top"
+#~| "\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</"
+#~| "td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with leading "
+#~| "zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
+#~| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
+#~| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
+#~| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#~ "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
+#~ "by a special value and can even contain parameters.<br />For example the "
+#~ "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
+#~ "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
+#~ "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
+#~ "div>will be replaced by the relevant artist of the cd. Variables may also "
+#~ "have attribute, for example:<div style=\"font-family:monospace; "
+#~ "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
+#~ "pre></div>This would print the current date. Setting the format will "
+#~ "control how this is done. The example (above)would result int the date "
+#~ "being printed as 2010-10-07 (if this was the current date). See below for "
+#~ "more details.<br /><br />You can make use of the following variables:<br /"
+#~ "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
+#~ "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
+#~ "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
+#~ "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
+#~ "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
+#~ "td><td></td><td>Prints the relevant date (usually release year) of the "
+#~ "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
+#~ "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
+#~ "td><td>iec,precision</td><td>Prints the overall size of all extracted "
+#~ "(compressed) music files (incl. the cover). The attribute iec can be one "
+#~ "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
+#~ "attribute precision gives the number of decimal places. Default "
+#~ "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
+#~ "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
+#~ "relevant overall length of all extracted tracks. The format is min:sec.</"
+#~ "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
+#~ "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
+#~ "td><td>base</td><td>Prints the discid of the current cd. The attribute "
+#~ "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
+#~ "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
+#~ "td><td>Prints the current date. The attribute format specifies the "
+#~ "output. <i>Please have a look at the official qt documentation for the "
+#~ "format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+#~ "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
+#~ "time. The attribute format specifies the output. <i>Please have a look at "
+#~ "the official qt documentation for the format variables.</i></td><td>${now "
+#~ "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
+#~ "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</td><td></"
+#~ "td><td>Prints Audex name and version.</td></tr><tr><td>$br</td><td></"
+#~ "td><td>Prints a linebreak.</td><td></td></tr></tbody></table></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#~ "{ white-space: pre-wrap; }</style></head><body>អថេរ នឹង​ត្រូវ​បាន​ជំនួស​ដោយតម្លៃ​"
+#~ "ពិសេស និង​អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។<br />ឧទាហរណ៍ អថេរ <div style=\"font-family:"
+#~ "monospace; background: #b3c1d6; color: black\"><pre>$artist</pre></div>ឬ​"
+#~ "ភាព​សមមូល<div style=\"font-family:monospace; background: #b3c1d6; color: "
+#~ "black\"><pre>${artist}</pre></div>នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​សិល្បករ​របស់​ស៊ីឌី ។ អថេរ​អាច​មាន​គុណ​"
+#~ "លក្ខណៈ ដូចជា ៖<div style=\"font-family:monospace; background: #b3c1d6; "
+#~ "color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>នេះ​នឹង​"
+#~ "បោះពុម្ពកាលបរិច្ឆេទ​បច្ចុប្បន្ន ។ ការ​កំណត់​ទ្រង់ទ្រាយ​នឹង​គ្រប់គ្រង​ពី​របៀប​ដែល​វា​ត្រូវ​ធ្វើ ។ ឧទាហរណ៍​ខាង​"
+#~ "លើ​ចង់​បង្ហាញ​អំពី​លទ្ធផល​ចំនួន​គត់​កាលបរិច្ឆេទ​ដែល​នឹង​ត្រូវ​បាន​បោះពុម្ពថា ២០១០-១០-០៧ (ប្រសិនបើ​វា​ជា​"
+#~ "កាលបរិច្ឆេទ​បច្ចុប្បន្ន) ។ សូម​មើល​នៅ​ខាង​ក្រោម​សម្រាប់​ព័ត៌មាន​លម្អិត ។<br /><br />អ្នក​អាច​ប្រើ​នូវ​"
+#~ "អថេរ​ដូច​ខាង​ក្រោម ៖<br /><table border=1><thead><tr><th>អថេរ</"
+#~ "th><th>ប៉ារ៉ាម៉ែត្រ</th><th>សេចក្ដី​ពណ៌នា</th><th>ឧទាហរណ៏</th></tr></"
+#~ "thead><tbody><tr><td>$artist</td><td></td><td>បោះពុម្ព​សិល្បករ​​ពាក់ព័ន្ធ​របស់​ស៊ីឌី​ដែល​បាន​"
+#~ "ស្រង់​ចេញ ។</td><td>${artist }</td></tr><tr><td>$title</td><td></"
+#~ "td><td>បោះពុម្ព​ចំណងជើង​ពាក់ព័ន្ធ​របស់​ស៊ីឌី​ដែល​បាន​ស្រង់​ចេញ ។</td><td></td></tr><tr><td>"
+#~ "$date</td><td></td><td>បោះពុម្ព​កាលបរិច្ឆេទ​​ពាក់ព័ន្ធ​ (ឆ្នាំ​ចេញ​ផ្សាយ) របស់​ស៊ីឌី​ដែល​បាន​ស្រង់​"
+#~ "ចេញ ។</td><td></td></tr><tr><td>$genre;</td><td></td><td>បោះពុម្ព​ចង្វាក់​​ពាក់ព័ន្ធ​"
+#~ "របស់​ស៊ីឌី​ដែល​បាន​ស្រង់​ចេញ ។</td><td></td></tr><tr><td>$size</td><td>iec,"
+#~ "precision</td><td>បោះពុម្ព​ទំហំ​ទាំងមូល​របស់​ឯកសារ​តន្ត្រី​ដែល​បាន​ស្រង់​ចេញ (បាន​បង្ហាប់) (រួម​ទាំង​"
+#~ "គម្រប) ។ គុណលក្ខណៈ​របស់ iec អាច​ជា​មួយ​ក្នុង​ចំណោម ៖ b, k, m, g ។ ដែល​ b មាន​ន័យថា បៃ k "
+#~ "មានន័យថា គីឡូបៃ m មានន័យថា មេកាបៃ និង g មានន័យថា ជីកាបៃ ។ ចំនួន​ខ្ទង់​គុណលក្ខណៈ​ឲ្យ​ជា​ចំនួន​ខ្ទង់​"
+#~ "ទសភាគ ។ គុណលក្ខណៈ​លំនាំដើម​គឺ iec=\"m\" and precision=\"2\"</td><td>${size iec="
+#~ "\"k\" precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>បោះពុម្ព​"
+#~ "ប្រវែង​ពាក់ព័ន្ធ​ទាំងមូល​របស់​បទ​ដែល​បាន​ស្រង់​ចេញ​ទាំងអស់ ។ ទ្រង់ទ្រាយ​គឺ min:sec.</td><td></td></"
+#~ "tr><tr><td>$nooftracks</td><td></td><td>បោះពុម្ព​ចំនួន​សរុប​របស់​បទ​ដែល​បាន​ស្រង់​ចេញ ។</"
+#~ "td><td></td></tr><tr><td>$discid</td><td>គោល</td><td>បោះពុម្ព​លេខ​សម្គាល់​ថាស​របស់​"
+#~ "ស៊ីឌី​បច្ចុប្បន្ន ។ គុណលក្ខណៈ​គោល​គឺជា​គោល​របស់​ចំនួន ។ លំនាំដើម​គឺ ១៦ (គោល​ដប់​ប្រាំមួយ) ។</td><td>"
+#~ "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>ទ្រង់ទ្រាយ</"
+#~ "td><td>បោះពុម្ព​កាលបរិច្ឆេទ​បច្ចុប្បន្ន ។ ទ្រង់ទ្រាយ​គុណលក្ខណៈ​បញ្ជាក់​អំពី​ការ​បង្ហាញ (*) ។</"
+#~ "td><td>${today format=\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</"
+#~ "td><td>ទ្រង់ទ្រយ</td><td>បោះពុម្ព​កាលបរិច្ឆេទ និង/ឬ​ពេលវេលា​​បច្ចុប្បន្ន ។ ទ្រង់ទ្រាយ​គុណលក្ខណៈ​"
+#~ "បញ្ជាក់​អំពី​ការ​បង្ហាញ (*) ។</td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</"
+#~ "td></tr><tr><td>$br</td><td></td><td>បោះពុម្ព​ចុះ​បន្ទាត់ ។</td><td></td></tr></"
+#~ "tbody></table><br /><br />(* date/time format expressions)<table "
+#~ "cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
+#~ "\"><th>កន្សោម</th><th>បង្ហាញ</th></tr></thead><tr valign=\"top\"><td>d</"
+#~ "td><td>ថ្ងៃ​ជា​លេខ​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (១ ទៅ ៣១) ។</td></tr><tr valign=\"top"
+#~ "\"><td>dd</td><td>ថ្ងៃ​ជា​លេខ​ដែល​​នាំមុខ​ដោយ​លេខ​សូន្យ (០១ ទៅ ៣១) ។</td></tr><tr "
+#~ "valign=\"top\"><td>ddd</td><td>ឈ្មោះ​ថ្ងៃ​ដែល​សរសេរ​ជា​អក្សរ​កាត់ (e.g&#x2e; 'Mon' "
+#~ "to 'Sun').</td></tr><tr valign=\"top\"><td>dddd</td><td>ឈ្មោះ​ថ្ងៃ​ដែល​សរសេរ​"
+#~ "ពេញ (e.g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</"
+#~ "td><td>ខែ​ជា​លេខ​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (១ ទៅ ១២) ។</td></tr><tr valign=\"top"
+#~ "\"><td>MM</td><td>ខែ​ជា​លេខ​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០១ ទៅ ១២) ។</td></tr><tr "
+#~ "valign=\"top\"><td>MMM</td><td>ឈ្មោះ​ខែ​សរសេរ​ជា​អក្សរ​កាត់ (e.g&#x2e; 'Jan' to "
+#~ "'Dec').</td></tr><tr valign=\"top\"><td>MMMM</td><td>ឈ្មោះ​ខែ​ដែល​សរសេរ​ពេញ (e."
+#~ "g&#x2e; 'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</"
+#~ "td><td>ឆ្នាំ​ដែល​សរសេរ​ជា​ពីរ​តួ​លេខ (០០ ទៅ ៩៩) ។</td></tr><tr valign=\"top"
+#~ "\"><td>yyyy</td><td>ឆ្នាំ​ដែល​សរសេរ​ជា​បួន​តួ​លេខ ។</td></tr></table><br /><table "
+#~ "cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
+#~ "\"><th>កន្សោម</th><th>បង្ហាញ</th></tr></thead><tr valign=\"top\"><td>h</"
+#~ "td><td>ម៉ោង​​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ២៣ ឬ ១ ទៅ ១២ ព្រឹក/ល្ងាច ប្រសិនបើ​បង្ហាញ ) ។</"
+#~ "td></tr><tr valign=\"top\"><td>hh</td><td>ម៉ោង​​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០០ ទៅ ២៣ ឬ "
+#~ "០១ ទៅ ១២ ព្រឹក/ល្ងាច ប្រសិនបើ​បង្ហាញ ) ។</td></tr><tr valign=\"top\"><td>H</"
+#~ "td><td>ម៉ោង​​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ២៣  ទោះបីជា​បង្ហាញ​ពាក្យ ព្រឹក/ល្ងាច ក៏ដោយ ) ។</"
+#~ "td></tr><tr valign=\"top\"><td>HH</td><td>ម៉ោង​​ដែល​​នាំមុខ​ដោយ​លេខ​សូន្យ (០០ ទៅ ២៣  "
+#~ "ទោះបីជា​បង្ហាញ​ពាក្យ ព្រឹក/ល្ងាច ក៏ដោយ ) ។</td></tr><tr valign=\"top\"><td>m</"
+#~ "td><td>នាទី​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ៥៩) ។</td></tr><tr valign=\"top"
+#~ "\"><td>mm</td><td>នាទី​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០០ ទៅ ៥៩) ។</td></tr><tr valign="
+#~ "\"top\"><td>s</td><td>វិនាទី​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ៥៩) ។</td></tr><tr "
+#~ "valign=\"top\"><td>ss</td><td>វិនាទី​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០០ ទៅ ៥៩) ។</td></"
+#~ "tr><tr valign=\"top\"><td>z</td><td>មិល្លីវិនាទី​ដែល​មិន​នាំមុខ​ដោយ​លេខ​សូន្យ (០ ទៅ ៩៩៩) ។"
+#~ "</td></tr><tr valign=\"top\"><td>zz</td><td>មិល្លីវិនាទី​ដែល​នាំមុខ​ដោយ​លេខ​សូន្យ (០០០ "
+#~ "ទៅ ៩៩៩) ។</td></tr><tr valign=\"top\"><td>AP or A</td><td>បកប្រែ​ថា​ពេល​ព្រឹក/"
+#~ "ល្ងាច ។ AP អាច​ជា​ 'ព្រឹក' ឬ 'ល្ងាច' ។</td></tr><tr valign=\"top\"><td>ap or a</"
+#~ "td><td>បកប្រែ​ថា​ពេល​ព្រឹក/ល្ងាច ។ អាច​ជា​ 'ព្រឹក' ឬ 'ល្ងាច' ។</td></tr></table></"
+#~ "body></html>"
+
+#~ msgid "About variables"
+#~ msgstr "អំពី​អថេរ"
+
+#~ msgid ""
+#~ "<p>The following variables will be replaced with their particular meaning "
+#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
+#~ "of the CD. If your CD is a compilation, then this tag represents the "
+#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
+#~ "If your CD is a compilation, then this tag represents the subtitle in "
+#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
+#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
+#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
+#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
+#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
+#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
+#~ "every individual track. It is especially useful on compilation CDs.</td></"
+#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
+#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
+#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
+#~ "$nooftracks</td><td>The total number of audio tracks of the CD.</td></"
+#~ "tr><tr><td>$suffix</td><td>The filename extension.</td></tr><tr><td>"
+#~ "$audex</td><td>Audex name and version.</td></tr></table></p>"
+#~ msgstr ""
+#~ "<p>អថេរ​ខាងក្រោម​នឹង​ត្រូវ​បាន​ជំនួស​ដោយ​អត្ថន័យ​ពិសេស​របស់​វា​នៅ​រាល់​ឈ្មោះ​បទ​ទាំងអស់ ។</p><p><table "
+#~ "border=\"1\"><tr><th><em>អថេរ</em></th><th><em>សេចក្ដី​ពណ៌នា</em></th></"
+#~ "tr><tr><td>$artist</td><td>សិល្បករ​​ស៊ីឌី ។ ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​"
+#~ "បង្ហាញ​ចំណងជើង​ក្នុង​ករណី​ភាគច្រើន ។</td></tr><tr><td>$title</td><td>ចំណងជើង​ស៊ីឌី ។ "
+#~ "ប្រសិនបើ​ស៊ីឌី​របស់​អ្នក​ជា​ការ​ចងក្រង ស្លាក​នេះ​នឹង​បង្ហាញ​ចំណងជើង​រង​ក្នុង​ករណី​ភាគច្រើន ។</td></"
+#~ "tr><tr><td>$date</td><td>កាលបរិច្ឆេទ​ចេញ​ផ្សាយ​ស៊ីឌី ។ ​ភាគច្រើន​វា​គឺជា​ឆ្នាំ ។</td></"
+#~ "tr><tr><td>$genre</td><td>ចង្វាក់​ស៊ីឌី</td></tr><tr><td>$cdno</td><td>ចំនួន​ស៊ីឌី​របស់​"
+#~ "អាល់ប៊ុម​ស៊ីឌី​ចម្រុះ ។ ការ​ចងក្រង​ញឹកញាប់​ដែល​មាន​ស៊ីឌី​ច្រើន ។ <i>ចំណាំ ៖</i> ប្រសិនបើ​ទង់​ស៊ីឌី​ចម្រុះ​ "
+#~ "<b>មិន</b> ត្រូវ​បាន​កំណត់​សម្រាប់​ស៊ីឌី​បច្ចុប្បន្ន តម្លៃ​នេះ​នឹង​​ទទេ ។</td></tr><tr><td>"
+#~ "$tartist</td><td>នេះ​គឺជា​សិល្បករ​សម្រាប់​គ្រប់​បទ​ដោយឡែក​ៗ​ពី​គ្នា ។ វា​មាន​ប្រយោជន៍​យ៉ាង​ពិសេស​"
+#~ "សម្រាប់​ការ​ចងក្រង​ស៊ីឌី ។</td></tr><tr><td>$ttitle</td><td>ចំណងជើង​បទ​។ ជាទូទៅ​បទ​​នីមួយៗ​នៅ​"
+#~ "លើ​ស៊ីឌី​តែង​មាន​ចំណងជើង​របស់​វា ដែល​​វា​ត្រូវ​បាន​គេ​ហៅថា​ចំណងជើង​បទ​ចម្រៀង ។</td></tr><tr><td>"
+#~ "$trackno</td><td>លេខ​បទ ។ បទ​ទី​មួយ​គឺ​លេខ ១ ។</td></tr><tr><td>$nooftracks</"
+#~ "td><td>ចំនួន​សរុប​នៃ​បទ​អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>$suffix</td><td>ផ្នែក​បន្ថែម​របស់​"
+#~ "ឈ្មោះ​ឯកសារ ។</td></tr><tr><td>$audex</td><td>ឈ្មោះ និង​កំណែ​របស់ Audex ។</td></"
+#~ "tr></table></p>"
+
+#~ msgid ""
+#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+#~ "${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This "
+#~ "means, that the tracknumber will be forced to a length of 2 digits. If "
+#~ "the number is less than 10, it will be filled up with \"0\".</p><pre>"
+#~ "$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />"
+#~ "$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>The "
+#~ "title will be uppercased or lowercased. This works with the other "
+#~ "variables, too.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - "
+#~ "$ttile.$suffix</pre><p>Take one character from the left, which is the "
+#~ "first one.</p><hr /><p><b><i>To have a complete overview of parameters go "
+#~ "to the Audex webpage.</i></b></p>"
+#~ msgstr ""
+#~ "<p>អថេរ​នៅ​ក្នុង​ Audex អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។ ឧ.</p><pre>$artist/$title/${trackno "
+#~ "length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>មាន​ន័យ​ថា ចំនួន​បទ​នឹង​ត្រូវ​"
+#~ "បាន​បង្ខំ​ត្រឹម​ប្រវែង ២ តួលេខ ។ ប្រសិនបើ​ចំនួន​តិច​ជាង ១០ វា​នឹង​ត្រូវ​បាន​បំពេញ​បន្ថែម​ដោយ​លេខ \"0\" "
+#~ "។</p><pre>$artist/${title lowercase=\"true\"}/$trackno - $ttile."
+#~ "$suffix<br />$artist/${title uppercase=\"true\"}/$trackno - $ttile."
+#~ "$suffix</pre><p>ចំណងជើង​នឹង​ជា​អក្សរ​ធំ ឬ​អក្សរ​តូច ។ វា​ក៏​ប្រើ​បាន​ជាមួយ​អថេរ​ផ្សេង​ទៀត​ដែរ ។</"
+#~ "p><pre>${artist left=\"1\"}/$artist/$title/$trackno - $ttile.$suffix</"
+#~ "pre><p>យក​មួយ​តួ​អក្សរ​ពី​ខាងឆ្វេង ដែល​វា​ជា​តួអក្សរ​ដំបូង ។</p><hr /><p><b><i>ដើម្បី​មើល​ទិដ្ឋភាព​"
+#~ "ទូទៅ​​ទាំងស្រុង​របស់​ប៉ារ៉ាម៉ែត្រ​​ សូម​ចូល​ទៅ​កាន់​តំបន់​បណ្ដាញ Audex ។</i></b></p>"
+
+#~ msgid "About filename schemes"
+#~ msgstr "អំពី​គ្រោងការណ៍​ឈ្មោះ​ឯកសារ"
+
+#~ msgid ""
+#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
+#~ "length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd "
+#~ "number will be forced to a length of 2 digits. If the number is less than "
+#~ "10, it will be filled up with \"0\".</p><pre>${title lowercase=\"true\"}."
+#~ "$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>The title will "
+#~ "be uppercased or lowercased. This works with the other variables, too.</"
+#~ "p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Take one character "
+#~ "from the left, which is the first one.</p><hr /><p><b><i>To have a "
+#~ "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#~ msgstr ""
+#~ "<p>អថេរ​នៅ​ក្នុង​ Audex អាច​មាន​ប៉ារ៉ាម៉ែត្រ ។ ឧ.</p><pre>$title (${cdno length="
+#~ "\"2\" fillchar=\"0\"}).$suffix</pre><p>វា​មាន​ន័យ​ថា ចំនួន​ស៊ីឌី​នឹង​ត្រូវ​បាន​បង្ខំ​ត្រឹម​ប្រវែង "
+#~ "២ តួលេខ ។ ប្រសិនបើ​ចំនួន​តិច​ជាង ១០ វា​នឹង​ត្រូវ​បាន​បំពេញ​បន្ថែម​ដោយ​លេខ \"0\" ។</p><pre>"
+#~ "${title lowercase=\"true\"}.$suffix<br />${title uppercase=\"true\"}."
+#~ "$suffix</pre><p>ចំណងជើង​នឹង​ជា​អក្សរ​ធំ ឬ​អក្សរ​តូច ។ វា​ក៏​ប្រើ​បាន​ជាមួយ​អថេរ​ផ្សេង​ទៀត​ដែរ ។</"
+#~ "p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>យក​មួយ​តួ​អក្សរ​ពី​ខាងឆ្វេង ដែល​"
+#~ "វា​ជា​តួអក្សរ​ដំបូង ។</p><hr /><p><b><i>ដើម្បី​មើល​ទិដ្ឋភាព​ទូទៅ​​ទាំងស្រុង​របស់​ប៉ារ៉ាម៉ែត្រ​​ សូម​ចូល​ទៅ​"
+#~ "កាន់​តំបន់​បណ្ដាញ Audex ។</i></b></p>"
+
+#~ msgid "About schemes"
+#~ msgstr "អំពី​គ្រោងការណ៍"
 
 #~ msgid "Cover pattern:"
 #~ msgstr "លំនាំ​គម្រប ៖"

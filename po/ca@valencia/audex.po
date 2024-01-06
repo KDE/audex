@@ -1,16 +1,16 @@
 # Translation of audex.po to Catalan (Valencian)
-# Copyright (C) 2017-2023 This_file_is_part_of_KDE
+# Copyright (C) 2017-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-04 01:34+0000\n"
-"PO-Revision-Date: 2023-12-30 08:22+0200\n"
+"POT-Creation-Date: 2024-01-06 01:32+0000\n"
+"PO-Revision-Date: 2024-01-04 08:24+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -357,92 +357,16 @@ msgstr "ID del disc en la CDDB:"
 msgid "0x00000000"
 msgstr "0x00000000"
 
-#: dialogs/commandwizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#: dialogs/commandwizarddialog.cpp:20
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Assistent del patró de l'ordre"
+msgstr "Assistent d'esquema d'ordres"
 
-#: dialogs/commandwizarddialog.cpp:93
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$cover</td><td>The cover file.</td></"
-"tr><tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</"
-"td></tr><tr><td>$i</td><td>The temporary WAV file (input file) created by "
-"Audex from CD audio track. You can use it as a normal input file for your "
-"command line encoder.</td></tr><tr><td>$o</td><td>The full output filename "
-"and path (output file). Use it as the output for your command line encoder.</"
-"td></tr><tr><td>$encoder</td><td>Encoder name and version.</td></tr><tr><td>"
-"$audex</td><td>Audex name and version.</td></tr></table></p>"
-msgstr ""
-"<p>Les variables següents seran substituïdes amb el seu significat "
-"particular en cada nom de la pista.</p><p><table border="
-"\"1\"><tr><th><em>Variable</em></th><th><em>Descripció</em></th></tr><tr><td>"
-"$artist</td><td>L'artista del CD. Si el CD és un arreplega, després esta "
-"etiqueta representarà el títol en la majoria dels casos.</td></tr><tr><td>"
-"$title</td><td>El títol del CD. Si el CD és un arreplega, després esta "
-"etiqueta representarà el subtítol en la majoria dels casos.</td></tr><tr><td>"
-"$date</td><td>La data de llançament del CD. En quasi tots els casos, este és "
-"l'any.</td></tr><tr><td>$genre</td><td>El gènere del CD.</td></tr><tr><td>"
-"$cdno</td><td>El número del CD d'un àlbum. Sovint els arreplegues "
-"consistixen en diversos CD. <i>Nota:</i> Si l'etiqueta de CD múltiple <b>no</"
-"b> està establida per al CD actual, després este valor restarà buit.</td></"
-"tr><tr><td>$tartist</td><td>Este és l'artista de cada pista individual. És "
-"especialment útil en els CD d'arreplega.</td></tr><tr><td>$ttitle</td><td>El "
-"títol de la pista. Normalment, cada pista en un CD té el seu propi títol, el "
-"qual és el nom de la cançó.</td></tr><tr><td>$trackno</td><td>El nombre de "
-"la pista. La primera pista és l'1.</td></tr><tr><td>$cover</td><td>El fitxer "
-"de la caràtula.</td></tr><tr><td>$nooftracks</td><td>El nombre total de "
-"pistes d'àudio del CD.</td></tr><tr><td>$i</td><td>El fitxer WAV temporal "
-"(fitxer d'entrada) creat per Audex a partir de la pista d'àudio del CD. Es "
-"pot utilitzar com un fitxer d'entrada normal per a la codificació des de la "
-"línia d'ordres.</td></tr><tr><td>$o</td><td>El nom del fitxer d'eixida i tot "
-"el camí (fitxer d'eixida). Utilitzar-lo com a eixida per a la codificació "
-"des de la línia d'ordres.</td></tr><tr><td>$encoder</td><td>Nom i versió del "
-"codificador.</td></tr><tr><td>$audex</td><td>Nom i versió d'Audex.</td></"
-"tr></table></p>"
-
-#: dialogs/commandwizarddialog.cpp:119
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
-"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
-"temporary filename of a copy in jpeg format and sizeof 300x300 pixels of the "
-"cover will be inserted.If no size is set, the size of the original cover "
-"image file will be taken.If no cover is set, this variable will be omitted."
-"Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
-"p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted before "
-"(pre) or behind (post) the variable. These values are <b>only</b>shown if a "
-"value is set. Works with all commandline variables."
-msgstr ""
-"<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En este "
-"exemple, s´inserirà un nom de fitxer temporal d'una imatge en format JPEG i "
-"una de 300x300 píxels. Si no hi ha cap mida establida, es prendrà la mida "
-"del fitxer d'imatge de la coberta original. Si no s'establix cap coberta, "
-"esta variable s'ometrà. Els formats possibles són «JPG», «PNG» i "
-"«GIF» (predeterminat: «JPG»).</p>\n"
-"<p><i><b>Nota:</b> LAME descarta els fitxers de caràtula més grans que 128 "
-"KiB.</i></p><hr /><p>«preparam» i «postparam» definixen els paràmetres "
-"inserits abans (pre) o darrere (post) de la variable. Estos valors <b>només</"
-"b> es mostraran si s'ha establit un valor. Funciona amb totes les variables "
-"de la línia d'ordres."
+#: dialogs/commandwizarddialog.cpp:39
+#, fuzzy, kde-format
+#| msgid "Command scheme is empty."
+msgid "Command scheme help"
+msgstr "L'esquema de l'ordre està buit."
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -456,95 +380,96 @@ msgstr "Àlbum d'exemple:"
 msgid "Sampler Example:"
 msgstr "Mostra d'exemple:"
 
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:269
+#: dialogs/filenameschemewizardwidgetUI.ui:54
+#: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
-msgid "About commandline schemes"
-msgstr "Quant als esquemes de la línia d'ordres"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: dialogs/commandwizardwidgetUI.ui:276 dialogs/schemewizardwidgetUI.ui:273
-#: dialogs/simpleschemewizardwidgetUI.ui:162
-#, kde-format
-msgid "About parameters"
-msgstr "Quant als paràmetres"
+msgid "Help"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:300 dialogs/schemewizardwidgetUI.ui:300
-#: dialogs/simpleschemewizardwidgetUI.ui:189
+#: dialogs/commandwizardwidgetUI.ui:293
+#: dialogs/filenameschemewizardwidgetUI.ui:32
+#: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
 msgid "Album Artist"
 msgstr "Artista de l'àlbum"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:322 dialogs/schemewizardwidgetUI.ui:322
-#: dialogs/simpleschemewizardwidgetUI.ui:211
+#: dialogs/commandwizardwidgetUI.ui:315
+#: dialogs/filenameschemewizardwidgetUI.ui:182
+#: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
 msgid "Album Title"
 msgstr "Títol de l'àlbum"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:344 dialogs/schemewizardwidgetUI.ui:344
+#: dialogs/commandwizardwidgetUI.ui:337 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
 msgstr "Artista de la pista"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:366 dialogs/schemewizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:359 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
 msgstr "Títol de la pista"
 
 # skip-rule: punctuation-period-no
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:376 dialogs/schemewizardwidgetUI.ui:376
+#: dialogs/commandwizardwidgetUI.ui:369 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
 msgstr "Pista núm."
 
 # skip-rule: punctuation-period-no
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:386 dialogs/schemewizardwidgetUI.ui:386
-#: dialogs/simpleschemewizardwidgetUI.ui:231
+#: dialogs/commandwizardwidgetUI.ui:379
+#: dialogs/filenameschemewizardwidgetUI.ui:199
+#: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "CD #"
 msgstr "CD núm."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:393 dialogs/schemewizardwidgetUI.ui:436
-#: dialogs/simpleschemewizardwidgetUI.ui:255
+#: dialogs/commandwizardwidgetUI.ui:386
+#: dialogs/filenameschemewizardwidgetUI.ui:245
+#: dialogs/schemewizardwidgetUI.ui:426
 #, kde-format
 msgid "# of Tracks"
 msgstr "Nombre de pistes"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:403 dialogs/schemewizardwidgetUI.ui:396
-#: dialogs/simpleschemewizardwidgetUI.ui:241
+#: dialogs/commandwizardwidgetUI.ui:396
+#: dialogs/filenameschemewizardwidgetUI.ui:238
+#: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
 msgstr "Data"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:413 dialogs/schemewizardwidgetUI.ui:406
-#: dialogs/simpleschemewizardwidgetUI.ui:221
+#: dialogs/commandwizardwidgetUI.ui:406
+#: dialogs/filenameschemewizardwidgetUI.ui:225
+#: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
 msgid "Genre"
 msgstr "Gènere"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
-#: dialogs/commandwizardwidgetUI.ui:423
+#: dialogs/commandwizardwidgetUI.ui:416
 #, kde-format
 msgid "Cover File"
 msgstr "Fitxer de la caràtula"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
-#: dialogs/commandwizardwidgetUI.ui:433
+#: dialogs/commandwizardwidgetUI.ui:426
 #, kde-format
 msgid "Input File"
 msgstr "Fitxer d'entrada"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
-#: dialogs/commandwizardwidgetUI.ui:443
+#: dialogs/commandwizardwidgetUI.ui:436
 #, kde-format
 msgid "Output File"
 msgstr "Fitxer d'eixida"
@@ -555,7 +480,7 @@ msgid "Rip And Encode"
 msgstr "Extrau i codifica"
 
 #: dialogs/extractingprogressdialog.cpp:36
-#: dialogs/extractingprogressdialog.cpp:176
+#: dialogs/extractingprogressdialog.cpp:178
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr "S'extrau tot el CD com una sola pista"
@@ -575,95 +500,95 @@ msgstr "S'extrau la pista 0 de %1"
 msgid "Encoding Track 0 of %1"
 msgstr "S'està codificant la pista 0 de %1"
 
-#: dialogs/extractingprogressdialog.cpp:153
+#: dialogs/extractingprogressdialog.cpp:155
 #, kde-format
 msgid "Do you really want to cancel extraction?"
 msgstr "Segur que voleu cancel·lar l'extracció?"
 
-#: dialogs/extractingprogressdialog.cpp:154
+#: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: dialogs/extractingprogressdialog.cpp:170
+#: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track"
 msgstr "Extrau la pista"
 
-#: dialogs/extractingprogressdialog.cpp:170
+#: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track %1 of %2"
 msgstr "S'extrau la pista %1 de %2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:171
-#: dialogs/extractingprogressdialog.cpp:177
+#: dialogs/extractingprogressdialog.cpp:173
+#: dialogs/extractingprogressdialog.cpp:179
 #: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
 msgstr "Progrés global"
 
-#: dialogs/extractingprogressdialog.cpp:171
+#: dialogs/extractingprogressdialog.cpp:173
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr "Progrés global (s'extrau la pista %1 de %2)"
 
-#: dialogs/extractingprogressdialog.cpp:186
+#: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
 msgstr "S'està esperant per a un treball de codificació..."
 
-#: dialogs/extractingprogressdialog.cpp:190
+#: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track"
 msgstr "S'està codificant la pista"
 
-#: dialogs/extractingprogressdialog.cpp:190
+#: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track %1 of %2"
 msgstr "S'està codificant la pista %1 de %2"
 
-#: dialogs/extractingprogressdialog.cpp:232
-#: dialogs/extractingprogressdialog.cpp:238
+#: dialogs/extractingprogressdialog.cpp:234
+#: dialogs/extractingprogressdialog.cpp:240
 #, kde-format
 msgid "Speed: %1x"
 msgstr "Velocitat: %1x"
 
-#: dialogs/extractingprogressdialog.cpp:256
+#: dialogs/extractingprogressdialog.cpp:258
 #, kde-format
 msgid "All jobs successfully done."
 msgstr "Tots els treballs s'han fet correctament."
 
-#: dialogs/extractingprogressdialog.cpp:260
-#: dialogs/extractingprogressdialog.cpp:261
 #: dialogs/extractingprogressdialog.cpp:262
+#: dialogs/extractingprogressdialog.cpp:263
+#: dialogs/extractingprogressdialog.cpp:264
 #, kde-format
 msgid "Finished!"
 msgstr "Finalitzada!"
 
-#: dialogs/extractingprogressdialog.cpp:267
+#: dialogs/extractingprogressdialog.cpp:269
 #, kde-format
 msgid "At least one job failed."
 msgstr "Com a mínim ha fallat un treball."
 
-#: dialogs/extractingprogressdialog.cpp:271
-#: dialogs/extractingprogressdialog.cpp:272
 #: dialogs/extractingprogressdialog.cpp:273
+#: dialogs/extractingprogressdialog.cpp:274
+#: dialogs/extractingprogressdialog.cpp:275
 #, kde-format
 msgid "Failed!"
 msgstr "No s'ha pogut."
 
-#: dialogs/extractingprogressdialog.cpp:276
+#: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
 msgstr "Mostra el registre de la codificació..."
 
-#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
 msgstr "Mostra el registre de l'extracció..."
 
-#: dialogs/extractingprogressdialog.cpp:331
+#: dialogs/extractingprogressdialog.cpp:333
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
@@ -684,17 +609,17 @@ msgstr ""
 "\n"
 "No obstant açò, voleu continuar amb l'extracció?"
 
-#: dialogs/extractingprogressdialog.cpp:334
+#: dialogs/extractingprogressdialog.cpp:337
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Cancel·la l'extracció"
 
-#: dialogs/extractingprogressdialog.cpp:344
+#: dialogs/extractingprogressdialog.cpp:347
 #, kde-format
 msgid "Encoding protocol"
 msgstr "Protocol de codificació"
 
-#: dialogs/extractingprogressdialog.cpp:351
+#: dialogs/extractingprogressdialog.cpp:353
 #, kde-format
 msgid "Ripping protocol"
 msgstr "Protocol d'extracció"
@@ -743,6 +668,30 @@ msgstr "%p%"
 msgid "Encoding Track 8 of 12"
 msgstr "S'està codificant la pista 8 de 12"
 
+#: dialogs/filenameschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr "Assistent d'esquemes"
+
+#: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
+#, fuzzy, kde-format
+#| msgid "Filename Scheme Wizard"
+msgid "Filename scheme help"
+msgstr "Assistent d'esquema de noms de fitxer"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/filenameschemewizardwidgetUI.ui:189
+#: dialogs/schemewizardwidgetUI.ui:406
+#, kde-format
+msgid "Suffix"
+msgstr "Sufix"
+
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/filenameschemewizardwidgetUI.ui:212
+#, kde-format
+msgid "Example:"
+msgstr "Exemple:"
+
 #: dialogs/profiledatacoverdialog.cpp:23
 #, kde-format
 msgid "Cover Settings"
@@ -785,10 +734,9 @@ msgstr "Format:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Quant als esquemes"
+msgstr "Esquema de caràtules:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -802,7 +750,7 @@ msgstr "Configureu el full de muntatge"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nom i esquema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -835,109 +783,22 @@ msgstr "SFV (Simple File Verification)"
 msgid "MD5 (Message-Digest algorithm 5)"
 msgstr "MD5 (Message-Digest algorisme 5)"
 
-#: dialogs/profiledatainfodialog.cpp:23
+#: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
 msgid "Info Settings"
 msgstr "Configureu la informació"
 
-#: dialogs/profiledatainfodialog.cpp:117
+#: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
-"space: pre-wrap; }</style></head><body>Variables will be replaced by a "
-"special value and can even contain parameters.<br />For example the variable "
-"<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-"$artist</pre></div>or the equivalent<div style=\"font-family:monospace; "
-"background: #b3c1d6; color: black\"><pre>${artist}</pre></div>will be "
-"replaced by the relevant artist of the cd. Variables may also have "
-"attribute, for example:<div style=\"font-family:monospace; background: "
-"#b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>This "
-"would print the current date. Setting the format will control how this is "
-"done. The example (above)would result int the date being printed as "
-"2010-10-07 (if this was the current date). See below for more details.<br /"
-"><br />You can make use of the following variables:<br /><table "
-"border=1><thead><tr><th>Variable</th><th>Parameter</th><th>Description</"
-"th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
-"td><td>Prints the relevant artist of the extracted cd.</td><td>${artist }</"
-"td></tr><tr><td>$title</td><td></td><td>Prints the relevant title of the "
-"extracted cd.</td><td></td></tr><tr><td>$date</td><td></td><td>Prints the "
-"relevant date (usually release year) of the extracted cd.</td><td></td></"
-"tr><tr><td>$genre;</td><td></td><td>Prints the relevant genre of the "
-"extracted cd.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
-"td><td>Prints the overall size of all extracted (compressed) music files "
-"(incl. the cover). The attribute iec can be one of the following: b, k, m, "
-"g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the "
-"number of decimal places. Default attributes are iec=\"m\" and precision="
-"\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
-"td><td></td><td>Prints the relevant overall length of all extracted tracks. "
-"The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></"
-"td><td>Prints the total number of extracted tracks.</td><td></td></"
-"tr><tr><td>$discid</td><td>base</td><td>Prints the discid of the current cd. "
-"The attribute base is the base of the number. The default is 16 "
-"(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
-"td><td>format</td><td>Prints the current date. The attribute format "
-"specifies the output. <i>Please have a look at the official qt documentation "
-"for the format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
-"tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
-"The attribute format specifies the output. <i>Please have a look at the "
-"official qt documentation for the format variables.</i></td><td>${now format="
-"\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></td><td>Prints "
-"encoder name and version.</td></tr><tr><td>$audex</td><td></td><td>Prints "
-"Audex name and version.</td></tr><tr><td>$br</td><td></td><td>Prints a "
-"linebreak.</td><td></td></tr></tbody></table></body></html>"
+msgid "Text info scheme help"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
-"space: pre-wrap; }</style></head><body>Les variables se substituiran per un "
-"valor especial, fins i tot poden contindre paràmetres.<br />Per exemple, la "
-"variable<div style=\"font-family:monospace; background: #b3c1d6; color: black"
-"\">$artist</pre></div>o l'equivalent<div style=\"font-family:monospace; "
-"background: #b3c1d6; color: black\">${artist}</pre></div>serà substituïda "
-"per l'artista corresponent del CD. Les variables també poden tindre "
-"atributs, per exemple:<div style=\"font-family:monospace; background: "
-"#b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>Açò "
-"imprimirà la data actual. La definició del format controlarà com es farà. "
-"L'exemple (anterior) resultaria en el fet que la data s'imprimiria com "
-"2010-10-07 (si esta era la data actual). Per a més detalls, vegeu més avall."
-"<br /><br />Podeu utilitzar les variables següents:<br /><table "
-"border=1><thead><tr><th>Variable</th><th>Paràmetre</th><th>Descripció</"
-"th><th>Exemple</th></tr></thead><tbody><tr><td>$artist</td><td></"
-"td><td>Imprimix l'artista corresponent del CD extret.</td><td>${artist }</"
-"td></tr><tr><td>$title</td><td></td><td>Imprimix el títol corresponent del "
-"CD extret.</td><td></td></tr><tr><td>$date</td><td></td><td> Imprimix la "
-"data en qüestió (en general l'any de llançament) del CD extret.</td><td></"
-"td></tr><tr><td>$genre;</td><td></td><td>Imprimix el gènere corresponent del "
-"CD extret.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
-"td><td>Imprimix la mida total de tots els fitxers de música (comprimits) "
-"extrets (inclosa la caràtula). L'atribut «iec» pot ser un dels següents: b, "
-"k, m, g. «b» vol dir byte, k KiB, m MiB i g GiB. La precisió de l'atribut "
-"s'indica amb el nombre de decimals. Els atributs predeterminats són «iec=\"m"
-"\"» i «precision=\"2\"»</td><td>${size iec=\"k\" precision=\"2\"}</td></"
-"tr><tr><td>$length</td><td></td><td>Imprimix la llargària total corresponent "
-"de totes les pistes extretes. El format és min:seg.</td><td></td></"
-"tr><tr><td>$nooftracks</td><td></td><td>Imprimix el nombre total de pistes "
-"extretes.</td><td></td></tr><tr><td>$discid</td><td>base</td><td>Imprimix "
-"l'ID del disc del CD actual. L'atribut base és la base del número. De manera "
-"predeterminada és 16 (en hexadecimal).</td><td>${discid base=\"16\"}</td></"
-"tr><tr><td>$today</td><td>format</td><td>Imprimix la data actual. El format "
-"de l'atribut especificarà l'eixida. <i>Doneu un colp d'ull a la documentació "
-"oficial de les Qt quant al format de les variables.</i></td><td>${today "
-"format=\"aaaa-MM-dddd\"}</td></tr><tr><td>$now</td><td>format</"
-"td><td>Imprimix la data i/o hora actual. El format de l'atribut especificarà "
-"l'eixida. <i>Doneu un colp d'ull a la documentació oficial de les Qt quant "
-"al format de les variables.</i></td><td>${now format=\"aaaa-MM-dddd hh:mm:ss"
-"\"}</td></tr><tr><td>$encoder</td><td></td><td>Imprimix el nom i la versió "
-"del codificador.</td></tr><tr><td>$audex</td><td></td><td>Imprimix el nom i "
-"la versió d'Audex.</td></tr><tr><td>$br</td><td></td><td>Imprimix un salt de "
-"línia.</td><td></td></tr></tbody></table></body></html>"
 
-#: dialogs/profiledatainfodialog.cpp:197
+#: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
 msgid "Load Text Template"
 msgstr "Carrega una plantilla de text"
 
-#: dialogs/profiledatainfodialog.cpp:210
+#: dialogs/profiledatainfodialog.cpp:141
 #, kde-format
 msgid "Save Text Template"
 msgstr "Guarda la plantilla de text"
@@ -947,12 +808,6 @@ msgstr "Guarda la plantilla de text"
 #, kde-format
 msgid "Information text:"
 msgstr "Text informatiu:"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
-#: dialogs/profiledatainfowidgetUI.ui:58
-#, kde-format
-msgid "About variables"
-msgstr "Quant a les variables"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -967,7 +822,7 @@ msgstr "Sufix:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Esquema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -1013,12 +868,10 @@ msgstr "Substituïx els espais per guions baixos"
 # skip-rule: common-settings
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr "Esta opció substituirà qualsevol variable amb paràmetre en el patró"
+msgstr "Esta opció substituirà qualsevol variable amb paràmetre en l'esquema"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -1081,181 +934,15 @@ msgstr "Crea una llista de reproducció"
 msgid "Write single file"
 msgstr "Escriu en un sol fitxer"
 
-#: dialogs/protocoldialog.cpp:60
+#: dialogs/protocolviewdialog.cpp:60
 #, kde-format
 msgid "Save %1"
 msgstr "Guarda %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Assistent del patró del nom de fitxer"
-
-#: dialogs/schemewizarddialog.cpp:91
-#, kde-format
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
-"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
-"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
-"tr></table></p>"
-msgstr ""
-"<p>Les variables següents seran substituïdes amb el seu significat "
-"particular en cada nom de la pista.</p><p><table border="
-"\"1\"><tr><th><em>Variable</em></th><th><em>Descripció</em></th></tr><tr><td>"
-"$artist</td><td>L'artista del CD. Si el CD és un arreplega, després esta "
-"etiqueta representarà el títol en la majoria dels casos.</td></tr><tr><td>"
-"$title</td><td>El títol del CD. Si el CD és un arreplega, després esta "
-"etiqueta representarà el subtítol en la majoria dels casos.</td></tr><tr><td>"
-"$date</td><td>La data de llançament del CD. En quasi tots els casos, este és "
-"l'any.</td></tr><tr><td>$genre</td><td>El gènere del CD.</td></tr><tr><td>"
-"$cdno</td><td>El número del CD d'un àlbum. Sovint els arreplegues "
-"consistixen en diversos CD. <i>Nota:</i> Si l'etiqueta de CD múltiple <b>no</"
-"b> està establida per al CD actual, després este valor restarà buit.</td></"
-"tr><tr><td>$tartist</td><td>Este és l'artista de cada pista individual. És "
-"especialment útil en els CD d'arreplega.</td></tr><tr><td>$ttitle</td><td>El "
-"títol de la pista. Normalment, cada pista en un CD té el seu propi títol, el "
-"qual és el nom de la cançó.</td></tr><tr><td>$trackno</td><td>El nombre de "
-"la pista. La primera pista és l'1.</td></tr><tr><td>$nooftracks</td><td>El "
-"nombre total de pistes d'àudio del CD.</td></tr><tr><td>$suffix</"
-"td><td>L'extensió del nom de fitxer.</td></tr><tr><td>$audex</td><td>Nom i "
-"versió d'Audex.</td></tr></table></p>"
-
-#: dialogs/schemewizarddialog.cpp:112
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>$artist/"
-"$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>Açò "
-"vol dir, que el número de pista serà forçat a una llargària de 2 dígits. Si "
-"el número és inferior a 10, s'emplenarà amb un «0».</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>El títol serà passat a "
-"majúscules o minúscules. Açò també funciona amb les altres variables.</"
-"p><pre>${artist left=\"1\"}/$artist/$title/$trackno - $ttile.$suffix</"
-"pre><p>Pren un caràcter de l'esquerra, el qual és el primer.</p><hr /"
-"><p><b><i>Per a tindre una visió completa dels paràmetres, aneu fins a la "
-"pàgina web d'Audex.</i></b></p>"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: dialogs/schemewizardwidgetUI.ui:263
-#, kde-format
-msgid "About filename schemes"
-msgstr "Quant als esquemes del nom de fitxer"
-
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
-#: dialogs/schemewizardwidgetUI.ui:416
-#: dialogs/simpleschemewizardwidgetUI.ui:248
-#, kde-format
-msgid "Suffix"
-msgstr "Sufix"
-
-#: dialogs/simpleschemewizarddialog.cpp:18
-#, kde-format
-msgid "Scheme Wizard"
-msgstr ""
-
-# skip-rule: barb-igual_a
-#: dialogs/simpleschemewizarddialog.cpp:88
-#, kde-format
-msgid ""
-"<p>Filename schemes without an absolute path will be relative to the ripped "
-"music files.</p><p>The following variables will be replaced with their "
-"particular meaning in every track name.</p><p><table border="
-"\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-"tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-"compilation, then this tag represents the title in most cases.</td></"
-"tr><tr><td>$title</td><td>The title of the CD. If your CD is a compilation, "
-"then this tag represents the subtitle in most cases.</td></tr><tr><td>$date</"
-"td><td>The release date of the CD. In almost all cases this is the year.</"
-"td></tr><tr><td>$genre</td><td>The genre of the CD.</td></tr><tr><td>$cdno</"
-"td><td>The CD number of a multi-CD album. Often compilations consist of "
-"several CDs. <i>Note:</i> If the multi-CD flag is <b>not</b> set for the "
-"current CD, than this value will be just empty.</td></tr><tr><td>$suffix</"
-"td><td>The filename extension (e.g. \".jpg\", \".m3u\", \".md5\" ...).</td></"
-"tr><tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</"
-"td></tr><tr><td>$encoder</td><td>Encoder name and version.</td></tr><tr><td>"
-"$audex</td><td>Audex name and version.</td></tr></table></p>"
-msgstr ""
-"<p>Els esquemes dels noms de fitxer sense un camí absolut seran relatius als "
-"fitxers de música extrets.</p><p>Les variables següents seran substituïdes "
-"amb el seu significat particular en cada nom de la pista.</p><p><table "
-"border=\"1\"><tr><th><em>Variable</em></th><th><em>Descripció</em></th></"
-"tr><tr><td>$artist</td><td>L'artista del CD. Si el CD és un arreplega, "
-"després, esta etiqueta representarà el títol en la majoria dels casos.</td></"
-"tr><tr><td>$title</td><td>El títol del CD. Si el CD és un arreplega, "
-"després, esta etiqueta representarà el subtítol en la majoria dels casos.</"
-"td></tr><tr><td>$date</td><td>La data de llançament del CD. En quasi tots "
-"els casos, esta serà l'any.</td></tr><tr><td>$genre</td><td>El gènere del CD."
-"</td></tr><tr><td>$cdno</td><td>El número del CD d'un àlbum amb múltiples "
-"CD. Sovint, els arreplegues consistixen en diversos CD. <i>Nota:</i> Si "
-"l'etiqueta de CD múltiple <b>no</b> ha sigut establida per al CD actual, "
-"llavors este valor serà igual a buit.</td></tr><tr><td>$suffix</"
-"td><td>L'extensió del nom de fitxer (p. ex., «.jpg», «.m3u», «.md5», etc.)</"
-"td></tr><tr><td>$nooftracks</td><td>El nombre total de pistes d'àudio del CD."
-"</td></tr><tr><td>$encoder</td><td>El nom i la versió del codificador.</td></"
-"tr><tr><td>$audex</td><td>El nom i la versió d'Audex.</td></tr></table></p>"
-
-#: dialogs/simpleschemewizarddialog.cpp:108
-#, kde-format
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
-"length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd number "
-"will be forced to a length of 2 digits. If the number is less than 10, it "
-"will be filled up with \"0\".</p><pre>${title lowercase=\"true\"}."
-"$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>The title will be "
-"uppercased or lowercased. This works with the other variables, too.</p><pre>"
-"${artist left=\"1\"} - $title.$suffix</pre><p>Take one character from the "
-"left, which is the first one.</p><hr /><p><b><i>To have a complete overview "
-"of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>$title "
-"(${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre><p>Açò vol dir, que el "
-"número del CD serà forçat a una llargària de 2 dígits. Si el número és "
-"inferior a 10, s'emplenarà amb un «0».</p><pre>${title lowercase=\"true\"}."
-"$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>El títol serà "
-"passat a majúscules o minúscules. Açò també funciona amb les altres "
-"variables.</p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Pren un "
-"caràcter de l'esquerra, el qual és el primer.</p><hr /><p><b><i>Per a tindre "
-"una visió completa dels paràmetres, aneu fins a la pàgina web d'Audex.</i></"
-"b></p>"
-
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/simpleschemewizardwidgetUI.ui:26
-#, kde-format
-msgid "Example:"
-msgstr "Exemple:"
-
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: dialogs/simpleschemewizardwidgetUI.ui:152
-#, kde-format
-msgid "About schemes"
-msgstr "Quant als esquemes"
+msgstr "Assistent d'esquema de noms de fitxer"
 
 #: main.cpp:25
 #, kde-format
@@ -1692,17 +1379,15 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "No heu indicat cap codificador per al perfil. Establiu-ne un."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "No s'ha definit el patró del nom de fitxer del perfil."
+msgstr "No s'ha definit l'esquema del nom de fitxer del perfil."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
-"No heu indicat cap patró del nom de fitxer per al perfil. Establiu-ne un."
+"No heu indicat cap esquema de nom de fitxer per al perfil. Establiu-ne un."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1710,16 +1395,13 @@ msgid "The image file format is unknown."
 msgstr "El format del fitxer d'imatge és desconegut."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"El format d'imatge que heu indicat és desconegut. Escolliu un dels formats "
-"següents: JPG/JPEG, PNG o BMP."
+"El format d'imatge que heu indicat és desconegut. Escolliu-ne un dels "
+"següents: JPEG, PNG, TIFF o BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -1742,8 +1424,8 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"El format del fitxer de la llista de reproducció és desconegut. Escolliu un "
-"dels formats següents: M3U, PLS o XSPF."
+"El format del fitxer de la llista de reproducció és desconegut. Escolliu-ne "
+"un dels següents: M3U, PLS o XSPF."
 
 #: models/profilemodel.cpp:228
 #, kde-format
@@ -1790,7 +1472,7 @@ msgid ""
 "formats: SFV, MD5."
 msgstr ""
 "El format de fitxer de la llista de resum que heu indicat és desconegut. "
-"Escolliu un dels formats següents: SFV, MD5."
+"Escolliu-ne un dels següents: SFV, MD5."
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -2079,10 +1761,9 @@ msgid "Custom"
 msgstr "Personalitzada"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "El patró de l'ordre està buit."
+msgstr "L'esquema de l'ordre està buit."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2170,33 +1851,176 @@ msgstr "S'ha produït un error desconegut a %1. Açò no hauria de passar."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "S'ha trobat un caràcter il·legal a l'índex %1: «%2»"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "S'ha trobat una cometa sense tancar"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "S'ha trobat un caràcter il·legal a l'índex %1: %2"
 
-#: utils/schemeparser.cpp:126
+#: utils/schemeparser.cpp:127
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"El paràmetre «replace_char_list» necessita dos paràmetres més "
+"«replace_char_list_from» i «and replace_char_list_to» de la mateixa mida."
 
-#: utils/schemeparser.cpp:257
+#: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Parèntesi sense tancar."
 
-#: utils/schemeparser.cpp:405
+#: utils/schemeparser.cpp:423
 #, kde-format
 msgid "Could not create temporary cover file: %1"
+msgstr "No s'ha pogut crear un fitxer temporal de caràtula: %1"
+
+# skip-rule: barb-igual_a
+#: utils/schemeparser.h:151
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Filename schemes without an absolute path will be relative to the "
+#| "ripped music files.</p><p>The following variables will be replaced with "
+#| "their particular meaning in every track name.</p><p><table border="
+#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
+#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
+#| "compilation, then this tag represents the title in most cases.</td></"
+#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
+#| "compilation, then this tag represents the subtitle in most cases.</td></"
+#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
+#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+#| "<b>not</b> set for the current CD, than this value will be just empty.</"
+#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
+#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
+#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
+#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
+#| "name and version.</td></tr></table></p>"
+msgid ""
+"<p>The following placeholders will be replaced with their particular meaning:"
+"</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
+"$artist</tt></td><td>The artist of the CD. If your CD is a compilation then "
+"this tag represents the title in most cases.</td></tr><tr><td><tt>$title</"
+"tt></td><td>The title of the CD. If your CD is a compilation then this tag "
+"represents the subtitle in most cases.</td></tr><tr><td><tt>$date</tt></"
+"td><td>The release date of the CD. In almost all cases this is the year.</"
+"td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
+"the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
+"</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
+"table>"
+msgstr ""
+"<p>Els esquemes dels noms de fitxer sense un camí absolut seran relatius als "
+"fitxers de música extrets.</p><p>Les variables següents seran substituïdes "
+"amb el seu significat particular en cada nom de la pista.</p><p><table "
+"border=\"1\"><tr><th><em>Variable</em></th><th><em>Descripció</em></th></"
+"tr><tr><td>$artist</td><td>L'artista del CD. Si el CD és un arreplega, "
+"després, esta etiqueta representarà el títol en la majoria dels casos.</td></"
+"tr><tr><td>$title</td><td>El títol del CD. Si el CD és un arreplega, "
+"després, esta etiqueta representarà el subtítol en la majoria dels casos.</"
+"td></tr><tr><td>$date</td><td>La data de llançament del CD. En quasi tots "
+"els casos, esta serà l'any.</td></tr><tr><td>$genre</td><td>El gènere del CD."
+"</td></tr><tr><td>$cdno</td><td>El número del CD d'un àlbum amb múltiples "
+"CD. Sovint, els arreplegues consistixen en diversos CD. <i>Nota:</i> Si "
+"l'etiqueta de CD múltiple <b>no</b> ha sigut establida per al CD actual, "
+"llavors este valor serà igual a buit.</td></tr><tr><td>$suffix</"
+"td><td>L'extensió del nom de fitxer (p. ex., «.jpg», «.m3u», «.md5», etc.)</"
+"td></tr><tr><td>$nooftracks</td><td>El nombre total de pistes d'àudio del CD."
+"</td></tr><tr><td>$encoder</td><td>El nom i la versió del codificador.</td></"
+"tr><tr><td>$audex</td><td>El nom i la versió d'Audex.</td></tr></table></p>"
+
+#: utils/schemeparser.h:168
+#, kde-format
+msgid ""
+"<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
+"${title lowercase=true}</tt>. In this example the title will be lowercased. "
+"The following general parameters can be used with placeholders:</"
+"p><table><tr><th>Key</th><th>Value</th><th>Description</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>The placeholder "
+"value will be lowercased.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
+"false</td><td>The placeholder value will be uppercased.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Replace the "
+"spaces of the placeholder value with underscores.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Replace "
+"illegal filename characters of a FAT32 filesystem with underscores.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Replace "
+"characters. This parameter needs two additional keys of the same value size:"
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. These are "
+"lists of characters. The first character of<tt>replace_char_list_from</tt> "
+"will be replaced by the first character of <tt>replace_char_list_to</tt> and "
+"so on.</td></tr><tr><td><tt>left</tt></td><td>Number</td><td>Take nth "
+"characters from the left of the placeholder value.</td></"
+"tr><tr><td><tt>length</tt></td><td>Number</td><td>If the placeholder value "
+"is a number expand it to the given length. Furthermore you can define a fill "
+"character with the additional key <tt>fillchar</tt>. Default fillchar is '0'."
+"</td></tr><tr><td><tt>pre</tt></td><td>String</td><td>A string which will be "
+"placed <b>before</b> the value. Especially useful for command line "
+"parameters which should not be set at all if the value is empty.</td></"
+"tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
+"placed <b>after</b> the value.</td></tr></table>"
+msgstr ""
+
+#: utils/schemeparser.h:189
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
+"td><td>This is the artist of every track. It is especially useful on "
+"compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. Normally "
+"each track on a CD has its own title, which is the name of the song.</td></"
+"tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
+"table>"
+msgstr ""
+
+#: utils/schemeparser.h:199
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
+"th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
+"WAVE) created by Audex from CD audio track. This is the inputinput file for "
+"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
+"full output filename and path. Use it as the output for your command line "
+"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"td><td>Filename of the cover file. If no cover is set, this will be empty. "
+"Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
+"scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
+"<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
+"LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
+msgstr ""
+
+#: utils/schemeparser.h:213
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
+"th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
+"overall size of all extracted (encoded) music files (incl. the cover image "
+"file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
+"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
+"all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
+"td><td></td><td>Prints the total number of extracted tracks.</td></"
+"tr><tr><td>$discid</td><td>base</td><td>Prints the CDDB discid in "
+"hexadecimal format.</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
+"td><td>Prints the current date and/or time. The parameter format specifies "
+"the output. Please consult official qt documentation (<tt>https://doc.qt.io/"
+"qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
+"html#toString</tt>) for the supported specifiers within the format string. "
+"With the additional key <tt>locale</tt> you can specify a language setting. "
+"By default your system locales are used. The locale has the format "
+"<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+"lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+"uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+"td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
 
 #: utils/upload.cpp:54
@@ -2251,10 +2075,9 @@ msgstr "Elimina la caràtula"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Patró de l'ordre:"
+msgstr "Esquema de l'ordre:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2532,23 +2355,281 @@ msgstr "Guarda..."
 msgid "URL:"
 msgstr "URL:"
 
-#~ msgid "Cover pattern:"
-#~ msgstr "Patró de la caràtula:"
+#~ msgid ""
+#~ "<p>The following variables will be replaced with their particular meaning "
+#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
+#~ "of the CD. If your CD is a compilation, then this tag represents the "
+#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
+#~ "If your CD is a compilation, then this tag represents the subtitle in "
+#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
+#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
+#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
+#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
+#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
+#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
+#~ "every individual track. It is especially useful on compilation CDs.</td></"
+#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
+#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
+#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
+#~ "$cover</td><td>The cover file.</td></tr><tr><td>$nooftracks</td><td>The "
+#~ "total number of audio tracks of the CD.</td></tr><tr><td>$i</td><td>The "
+#~ "temporary WAV file (input file) created by Audex from CD audio track. You "
+#~ "can use it as a normal input file for your command line encoder.</td></"
+#~ "tr><tr><td>$o</td><td>The full output filename and path (output file). "
+#~ "Use it as the output for your command line encoder.</td></tr><tr><td>"
+#~ "$encoder</td><td>Encoder name and version.</td></tr><tr><td>$audex</"
+#~ "td><td>Audex name and version.</td></tr></table></p>"
+#~ msgstr ""
+#~ "<p>Les variables següents seran substituïdes amb el seu significat "
+#~ "particular en cada nom de la pista.</p><p><table border="
+#~ "\"1\"><tr><th><em>Variable</em></th><th><em>Descripció</em></th></"
+#~ "tr><tr><td>$artist</td><td>L'artista del CD. Si el CD és un arreplega, "
+#~ "després esta etiqueta representarà el títol en la majoria dels casos.</"
+#~ "td></tr><tr><td>$title</td><td>El títol del CD. Si el CD és un arreplega, "
+#~ "després esta etiqueta representarà el subtítol en la majoria dels casos.</"
+#~ "td></tr><tr><td>$date</td><td>La data de llançament del CD. En quasi tots "
+#~ "els casos, este és l'any.</td></tr><tr><td>$genre</td><td>El gènere del "
+#~ "CD.</td></tr><tr><td>$cdno</td><td>El número del CD d'un àlbum. Sovint "
+#~ "els arreplegues consistixen en diversos CD. <i>Nota:</i> Si l'etiqueta de "
+#~ "CD múltiple <b>no</b> està establida per al CD actual, després este valor "
+#~ "restarà buit.</td></tr><tr><td>$tartist</td><td>Este és l'artista de cada "
+#~ "pista individual. És especialment útil en els CD d'arreplega.</td></"
+#~ "tr><tr><td>$ttitle</td><td>El títol de la pista. Normalment, cada pista "
+#~ "en un CD té el seu propi títol, el qual és el nom de la cançó.</td></"
+#~ "tr><tr><td>$trackno</td><td>El nombre de la pista. La primera pista és "
+#~ "l'1.</td></tr><tr><td>$cover</td><td>El fitxer de la caràtula.</td></"
+#~ "tr><tr><td>$nooftracks</td><td>El nombre total de pistes d'àudio del CD.</"
+#~ "td></tr><tr><td>$i</td><td>El fitxer WAV temporal (fitxer d'entrada) "
+#~ "creat per Audex a partir de la pista d'àudio del CD. Es pot utilitzar com "
+#~ "un fitxer d'entrada normal per a la codificació des de la línia d'ordres."
+#~ "</td></tr><tr><td>$o</td><td>El nom del fitxer d'eixida i tot el camí "
+#~ "(fitxer d'eixida). Utilitzar-lo com a eixida per a la codificació des de "
+#~ "la línia d'ordres.</td></tr><tr><td>$encoder</td><td>Nom i versió del "
+#~ "codificador.</td></tr><tr><td>$audex</td><td>Nom i versió d'Audex.</td></"
+#~ "tr></table></p>"
 
-#~ msgid "Name/Pattern:"
-#~ msgstr "Nom/Patró:"
+#~ msgid ""
+#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
+#~ "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
+#~ "temporary filename of a copy in jpeg format and sizeof 300x300 pixels of "
+#~ "the cover will be inserted.If no size is set, the size of the original "
+#~ "cover image file will be taken.If no cover is set, this variable will be "
+#~ "omitted.Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG"
+#~ "\").</p>\n"
+#~ "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
+#~ "p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted "
+#~ "before (pre) or behind (post) the variable. These values are <b>only</"
+#~ "b>shown if a value is set. Works with all commandline variables."
+#~ msgstr ""
+#~ "<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>${cover "
+#~ "format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En este "
+#~ "exemple, s´inserirà un nom de fitxer temporal d'una imatge en format JPEG "
+#~ "i una de 300x300 píxels. Si no hi ha cap mida establida, es prendrà la "
+#~ "mida del fitxer d'imatge de la coberta original. Si no s'establix cap "
+#~ "coberta, esta variable s'ometrà. Els formats possibles són «JPG», «PNG» i "
+#~ "«GIF» (predeterminat: «JPG»).</p>\n"
+#~ "<p><i><b>Nota:</b> LAME descarta els fitxers de caràtula més grans que "
+#~ "128 KiB.</i></p><hr /><p>«preparam» i «postparam» definixen els "
+#~ "paràmetres inserits abans (pre) o darrere (post) de la variable. Estos "
+#~ "valors <b>només</b> es mostraran si s'ha establit un valor. Funciona amb "
+#~ "totes les variables de la línia d'ordres."
 
-#~ msgid "Pattern:"
-#~ msgstr "Patró:"
+#~ msgid "About commandline schemes"
+#~ msgstr "Quant als esquemes de la línia d'ordres"
 
-#~ msgid "Pattern Wizard"
-#~ msgstr "Assistent del patró"
+#~ msgid "About parameters"
+#~ msgstr "Quant als paràmetres"
 
-#~ msgid " (Mobile Quality)"
-#~ msgstr " (Qualitat de mòbil)"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#~ "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
+#~ "by a special value and can even contain parameters.<br />For example the "
+#~ "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
+#~ "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
+#~ "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
+#~ "div>will be replaced by the relevant artist of the cd. Variables may also "
+#~ "have attribute, for example:<div style=\"font-family:monospace; "
+#~ "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
+#~ "pre></div>This would print the current date. Setting the format will "
+#~ "control how this is done. The example (above)would result int the date "
+#~ "being printed as 2010-10-07 (if this was the current date). See below for "
+#~ "more details.<br /><br />You can make use of the following variables:<br /"
+#~ "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
+#~ "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
+#~ "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
+#~ "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
+#~ "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
+#~ "td><td></td><td>Prints the relevant date (usually release year) of the "
+#~ "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
+#~ "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
+#~ "td><td>iec,precision</td><td>Prints the overall size of all extracted "
+#~ "(compressed) music files (incl. the cover). The attribute iec can be one "
+#~ "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
+#~ "attribute precision gives the number of decimal places. Default "
+#~ "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
+#~ "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
+#~ "relevant overall length of all extracted tracks. The format is min:sec.</"
+#~ "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
+#~ "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
+#~ "td><td>base</td><td>Prints the discid of the current cd. The attribute "
+#~ "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
+#~ "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
+#~ "td><td>Prints the current date. The attribute format specifies the "
+#~ "output. <i>Please have a look at the official qt documentation for the "
+#~ "format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+#~ "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
+#~ "time. The attribute format specifies the output. <i>Please have a look at "
+#~ "the official qt documentation for the format variables.</i></td><td>${now "
+#~ "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
+#~ "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</td><td></"
+#~ "td><td>Prints Audex name and version.</td></tr><tr><td>$br</td><td></"
+#~ "td><td>Prints a linebreak.</td><td></td></tr></tbody></table></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
+#~ "{ white-space: pre-wrap; }</style></head><body>Les variables se "
+#~ "substituiran per un valor especial, fins i tot poden contindre paràmetres."
+#~ "<br />Per exemple, la variable<div style=\"font-family:monospace; "
+#~ "background: #b3c1d6; color: black\">$artist</pre></div>o l'equivalent<div "
+#~ "style=\"font-family:monospace; background: #b3c1d6; color: black\">"
+#~ "${artist}</pre></div>serà substituïda per l'artista corresponent del CD. "
+#~ "Les variables també poden tindre atributs, per exemple:<div style=\"font-"
+#~ "family:monospace; background: #b3c1d6; color: black\"><pre>${today format="
+#~ "\"yyyy-MM-dd\"}</pre></div>Açò imprimirà la data actual. La definició del "
+#~ "format controlarà com es farà. L'exemple (anterior) resultaria en el fet "
+#~ "que la data s'imprimiria com 2010-10-07 (si esta era la data actual). Per "
+#~ "a més detalls, vegeu més avall.<br /><br />Podeu utilitzar les variables "
+#~ "següents:<br /><table border=1><thead><tr><th>Variable</th><th>Paràmetre</"
+#~ "th><th>Descripció</th><th>Exemple</th></tr></thead><tbody><tr><td>"
+#~ "$artist</td><td></td><td>Imprimix l'artista corresponent del CD extret.</"
+#~ "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Imprimix el "
+#~ "títol corresponent del CD extret.</td><td></td></tr><tr><td>$date</"
+#~ "td><td></td><td> Imprimix la data en qüestió (en general l'any de "
+#~ "llançament) del CD extret.</td><td></td></tr><tr><td>$genre;</td><td></"
+#~ "td><td>Imprimix el gènere corresponent del CD extret.</td><td></td></"
+#~ "tr><tr><td>$size</td><td>iec,precision</td><td>Imprimix la mida total de "
+#~ "tots els fitxers de música (comprimits) extrets (inclosa la caràtula). "
+#~ "L'atribut «iec» pot ser un dels següents: b, k, m, g. «b» vol dir byte, k "
+#~ "KiB, m MiB i g GiB. La precisió de l'atribut s'indica amb el nombre de "
+#~ "decimals. Els atributs predeterminats són «iec=\"m\"» i «precision="
+#~ "\"2\"»</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>"
+#~ "$length</td><td></td><td>Imprimix la llargària total corresponent de "
+#~ "totes les pistes extretes. El format és min:seg.</td><td></td></"
+#~ "tr><tr><td>$nooftracks</td><td></td><td>Imprimix el nombre total de "
+#~ "pistes extretes.</td><td></td></tr><tr><td>$discid</td><td>base</"
+#~ "td><td>Imprimix l'ID del disc del CD actual. L'atribut base és la base "
+#~ "del número. De manera predeterminada és 16 (en hexadecimal).</td><td>"
+#~ "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
+#~ "td><td>Imprimix la data actual. El format de l'atribut especificarà "
+#~ "l'eixida. <i>Doneu un colp d'ull a la documentació oficial de les Qt "
+#~ "quant al format de les variables.</i></td><td>${today format=\"aaaa-MM-"
+#~ "dddd\"}</td></tr><tr><td>$now</td><td>format</td><td>Imprimix la data i/o "
+#~ "hora actual. El format de l'atribut especificarà l'eixida. <i>Doneu un "
+#~ "colp d'ull a la documentació oficial de les Qt quant al format de les "
+#~ "variables.</i></td><td>${now format=\"aaaa-MM-dddd hh:mm:ss\"}</td></"
+#~ "tr><tr><td>$encoder</td><td></td><td>Imprimix el nom i la versió del "
+#~ "codificador.</td></tr><tr><td>$audex</td><td></td><td>Imprimix el nom i "
+#~ "la versió d'Audex.</td></tr><tr><td>$br</td><td></td><td>Imprimix un salt "
+#~ "de línia.</td><td></td></tr></tbody></table></body></html>"
 
-#~ msgid " (Normal Quality)"
-#~ msgstr " (Qualitat normal)"
+#~ msgid "About variables"
+#~ msgstr "Quant a les variables"
 
-#~ msgid " (Extreme Quality)"
-#~ msgstr " (Qualitat extrema)"
+#~ msgid ""
+#~ "<p>The following variables will be replaced with their particular meaning "
+#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
+#~ "of the CD. If your CD is a compilation, then this tag represents the "
+#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
+#~ "If your CD is a compilation, then this tag represents the subtitle in "
+#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
+#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
+#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
+#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
+#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
+#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
+#~ "every individual track. It is especially useful on compilation CDs.</td></"
+#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
+#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
+#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
+#~ "$nooftracks</td><td>The total number of audio tracks of the CD.</td></"
+#~ "tr><tr><td>$suffix</td><td>The filename extension.</td></tr><tr><td>"
+#~ "$audex</td><td>Audex name and version.</td></tr></table></p>"
+#~ msgstr ""
+#~ "<p>Les variables següents seran substituïdes amb el seu significat "
+#~ "particular en cada nom de la pista.</p><p><table border="
+#~ "\"1\"><tr><th><em>Variable</em></th><th><em>Descripció</em></th></"
+#~ "tr><tr><td>$artist</td><td>L'artista del CD. Si el CD és un arreplega, "
+#~ "després esta etiqueta representarà el títol en la majoria dels casos.</"
+#~ "td></tr><tr><td>$title</td><td>El títol del CD. Si el CD és un arreplega, "
+#~ "després esta etiqueta representarà el subtítol en la majoria dels casos.</"
+#~ "td></tr><tr><td>$date</td><td>La data de llançament del CD. En quasi tots "
+#~ "els casos, este és l'any.</td></tr><tr><td>$genre</td><td>El gènere del "
+#~ "CD.</td></tr><tr><td>$cdno</td><td>El número del CD d'un àlbum. Sovint "
+#~ "els arreplegues consistixen en diversos CD. <i>Nota:</i> Si l'etiqueta de "
+#~ "CD múltiple <b>no</b> està establida per al CD actual, després este valor "
+#~ "restarà buit.</td></tr><tr><td>$tartist</td><td>Este és l'artista de cada "
+#~ "pista individual. És especialment útil en els CD d'arreplega.</td></"
+#~ "tr><tr><td>$ttitle</td><td>El títol de la pista. Normalment, cada pista "
+#~ "en un CD té el seu propi títol, el qual és el nom de la cançó.</td></"
+#~ "tr><tr><td>$trackno</td><td>El nombre de la pista. La primera pista és "
+#~ "l'1.</td></tr><tr><td>$nooftracks</td><td>El nombre total de pistes "
+#~ "d'àudio del CD.</td></tr><tr><td>$suffix</td><td>L'extensió del nom de "
+#~ "fitxer.</td></tr><tr><td>$audex</td><td>Nom i versió d'Audex.</td></tr></"
+#~ "table></p>"
+
+#~ msgid ""
+#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+#~ "${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This "
+#~ "means, that the tracknumber will be forced to a length of 2 digits. If "
+#~ "the number is less than 10, it will be filled up with \"0\".</p><pre>"
+#~ "$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />"
+#~ "$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>The "
+#~ "title will be uppercased or lowercased. This works with the other "
+#~ "variables, too.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - "
+#~ "$ttile.$suffix</pre><p>Take one character from the left, which is the "
+#~ "first one.</p><hr /><p><b><i>To have a complete overview of parameters go "
+#~ "to the Audex webpage.</i></b></p>"
+#~ msgstr ""
+#~ "<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>$artist/"
+#~ "$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</"
+#~ "pre><p>Açò vol dir, que el número de pista serà forçat a una llargària de "
+#~ "2 dígits. Si el número és inferior a 10, s'emplenarà amb un «0».</p><pre>"
+#~ "$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />"
+#~ "$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>El "
+#~ "títol serà passat a majúscules o minúscules. Açò també funciona amb les "
+#~ "altres variables.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - "
+#~ "$ttile.$suffix</pre><p>Pren un caràcter de l'esquerra, el qual és el "
+#~ "primer.</p><hr /><p><b><i>Per a tindre una visió completa dels "
+#~ "paràmetres, aneu fins a la pàgina web d'Audex.</i></b></p>"
+
+#~ msgid "About filename schemes"
+#~ msgstr "Quant als esquemes del nom de fitxer"
+
+#~ msgid ""
+#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
+#~ "length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd "
+#~ "number will be forced to a length of 2 digits. If the number is less than "
+#~ "10, it will be filled up with \"0\".</p><pre>${title lowercase=\"true\"}."
+#~ "$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>The title will "
+#~ "be uppercased or lowercased. This works with the other variables, too.</"
+#~ "p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Take one character "
+#~ "from the left, which is the first one.</p><hr /><p><b><i>To have a "
+#~ "complete overview of parameters go to the Audex webpage.</i></b></p>"
+#~ msgstr ""
+#~ "<p>Les variables en Audex poden tindre paràmetres. P. ex.</p><pre>$title "
+#~ "(${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre><p>Açò vol dir, que el "
+#~ "número del CD serà forçat a una llargària de 2 dígits. Si el número és "
+#~ "inferior a 10, s'emplenarà amb un «0».</p><pre>${title lowercase=\"true"
+#~ "\"}.$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>El títol "
+#~ "serà passat a majúscules o minúscules. Açò també funciona amb les altres "
+#~ "variables.</p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Pren un "
+#~ "caràcter de l'esquerra, el qual és el primer.</p><hr /><p><b><i>Per a "
+#~ "tindre una visió completa dels paràmetres, aneu fins a la pàgina web "
+#~ "d'Audex.</i></b></p>"
+
+#~ msgid "About schemes"
+#~ msgstr "Quant als esquemes"
