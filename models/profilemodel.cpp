@@ -805,6 +805,33 @@ const QString ProfileModel::getSelectedEncoderNameAndVersion()
     return QString("%1 %2").arg(EncoderAssistant::encoderName(encoder), EncoderAssistant::version(encoder));
 }
 
+bool ProfileModel::isSelectedEncoderWithEmbedCover()
+{
+    EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
+    Parameters parameters(getSelectedEncoderParametersFromCurrentIndex());
+
+    switch (encoder) {
+    case EncoderAssistant::LAME:
+        return parameters.value(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER).toBool();
+    case EncoderAssistant::OGGENC:
+        return false;
+    case EncoderAssistant::OPUSENC:
+        return parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY, ENCODER_OPUSENC_EMBED_COVER).toBool();
+    case EncoderAssistant::FLAC:
+        return parameters.value(ENCODER_FLAC_EMBED_COVER_KEY, ENCODER_FLAC_EMBED_COVER).toBool();
+    case EncoderAssistant::FAAC:
+        return parameters.value(ENCODER_FAAC_EMBED_COVER_KEY, ENCODER_FAAC_EMBED_COVER).toBool();
+    case EncoderAssistant::WAVE:
+        return false;
+    case EncoderAssistant::CUSTOM:
+        return true;
+    case EncoderAssistant::NUM:
+        return false;
+    }
+
+    return false;
+}
+
 Error ProfileModel::lastError() const
 {
     return p_error;
