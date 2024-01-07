@@ -158,7 +158,7 @@ public:
                  "<tr><td><tt>$date</tt></td><td>The release date of the CD. In almost all cases this is the year.</td></tr>"
                  "<tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></tr>"
                  "<tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-                 "multi-CD flag is <b>not</b> set for the current CD, than this value will be empty.</td></tr>"
+                 "multi-CD flag is <b>not</b> set for the current CD then this value will be empty.</td></tr>"
                  "<tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of the CD.</td></tr>"
                  "<tr><td><tt>$encoder</tt></td><td>Encoder name and version.</td></tr>"
                  "<tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr>"
