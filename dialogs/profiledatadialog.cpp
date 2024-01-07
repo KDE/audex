@@ -151,7 +151,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
         connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
-        disable_playlist(ui.checkBox_singlefile->isChecked());
+        if (ui.checkBox_singlefile->isChecked())
+            disable_playlist(true);
 
         // profile data cover data
         pdcd_scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
