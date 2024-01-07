@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:32+0000\n"
-"PO-Revision-Date: 2024-01-04 04:00+0100\n"
+"POT-Creation-Date: 2024-01-07 01:54+0000\n"
+"PO-Revision-Date: 2024-01-06 07:45+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -134,148 +134,148 @@ msgstr "სათაური ჩასწორების ხელსაწ�
 msgid "&Settings"
 msgstr "&მორგება"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "პროფილი არჩეუი არაა. ოპერაცია გაუქმდა."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "რიპინგის და კოდირების \"%1\" პროფილით დაწყება..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "ბილიკი ვერ ვიპოვე \"%1\"."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "შეამოწმეთ თქვენი ბილიკი (ჩაწერის უფლებები?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 200 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. თავზე გადავაწერ."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. გამოვტოვე."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "საქაღალდის შექმნის შეცდომა: %1."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "საქაღალდე წარმატებით შეიქმნა: \"%1\"."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "საქაღალდე უკვე არსბეობს: \"%1\"."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "დროებითი საქაღალდის \"%1\" შეცდომა (%2)."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "გთხოვთ, გადაამოწმოთ."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "დროებით საქაღალდეში '%1' თავისუფალი ადგილი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "დროებით საქაღალდეს '%1' სულ ცოტა 200 მიბ ადგილი სჭირდება."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "გაათავისუფლეთ ადგილი ან სხვა ბილიკი მიუთითეთ."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "დისკის ჩასადების გამოყენება"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "ყდა \"%1\" წარმატებით შეინახა."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "ყდის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "შეამოწმეთ ბილიკი და თქვენი წვდომები"
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "დასაკრავი სია %1 წარმატებით შეიქმნა."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "დასაკრავი სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "ინფორმაციის ფაილი \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "ფაილში \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "ჰეშების სია '%1' წარმატებით შეიქმნა."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "ჰეშების სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue sheet \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue sheet \"%1\" -ის შენახვის შეცდომა."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "საქაღალდის \"%1\" გახსნის შეცდომა."
@@ -359,10 +359,9 @@ msgid "Command Scheme Wizard"
 msgstr "ბრძანების სქემის ოსტატი"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "ბრძანების სქემა ცარიელია."
+msgstr "ბრძანების სქემის დახმარება"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -382,7 +381,7 @@ msgstr "სემპლერის მაგალითი:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "დახმარება"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -667,10 +666,9 @@ msgid "Scheme Wizard"
 msgstr "სქემის ოსტატი"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "ფაილის სახელის სქემის ოსტატი"
+msgstr "ფაილის სახელის სქემის დახმარება"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -772,9 +770,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (ფაილის მარტივი შემოწმება)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (შეტყობინების დაიჯესტის ალგორითმი 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -784,7 +788,7 @@ msgstr "Info Settings"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "ტექსტური ინფორმაციის სქემის დახმარება"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1058,32 +1062,44 @@ msgstr ""
 msgid "Not all audio tracks selected for single file rip"
 msgstr "ერთ-ფაილიანი დარიპვისთვის ყველა ტრეკი მონიშნული არაა"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "დისკის ინფორმაცია დაყენებული არაა. მართლა გნებავთ, გააგრძელოთ?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "ყდის ფაილი"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "ზოგადი პარამეტრები"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "მოწყობილობის მორგება"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "პროფილები"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB-ის მორგება"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "დაშორებული სერვერი"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1092,17 +1108,17 @@ msgstr ""
 "CDDB-ის ძებნის შეცდომა:\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD მოძებნის შეცდომა"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "სათაურების დაყოფა"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1113,108 +1129,108 @@ msgstr ""
 "\n"
 "გამყოფი:"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "მართლა გნებავთ ყველა შემსრულებლისა და სათაურისთვის ადგილის შეცვლა?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "შემსრულებლებისა და სათაურების ადგილის შეცვლა"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "მართლა გნებავთ ყველა შემსრულებლისა და სათაურის ზედა რეგისტრში გადაყვანა?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "შემსრულებლებისა და სათაურების ზედა რეგისტრში გადაყვანა"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "გნებავთ ტრეკის შემსრულებლების ავტომატური შევსება?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "ხელოვანის ავტომატური ჩაწერა"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "მოხსნა"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "პროფილი:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&პროფილი:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "პროფილი"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, kde-format
 msgid "Fetch"
 msgstr "გამოთხოვა"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Submit"
 msgstr "გაგზავნა"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "რიპი..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "სათაურების დაყოფა..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "შემსრულებლებისა და სათაურების ადგილის შეცვლა"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "დიდი ასოთი აღნიშვნა"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "შემსრულებლის ველის ავტომატური შევსება"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "ყველა აუდიობილიკის მონიშვნა"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "ყველა მონიშვნის მოხსნა"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "მონიშვნის ინვერსია"
@@ -1452,10 +1468,13 @@ msgid "The hashlist file format is unknown."
 msgstr "ჰეშლისტის ფაილის ფორმატი უცნობია."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 "მითითებული ჰეშლისტის ფაილის ფორმატი უცნობია. აირჩიეთ ერთ-ერთი შემდეგიდან: "
 "SFV, MD5."
@@ -1529,7 +1548,7 @@ msgid "This is an internal error. Please report."
 msgstr "შიდა შეცდომა. შეგვატყობინეთ, გეთაყვა."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "კოპირება"
@@ -1867,26 +1886,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "ვერ შევქმენი დროებითი ყდის ფაილი: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1904,23 +1904,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>ფაილის სახელის სქემები აბსოლუტური გზის გარეშე იქნება მოჭრილ მუსიკალურ "
-"ფაილებთან შედარებით.</p><p>შემდეგი ცვლადები შეიცვლება მათი განსაკუთრებული "
-"მნიშვნელობით ყველა ტრეკის სახელით.</p><p><table border="
-"\"1\"><tr><th><em>ცვლადი</em></th><th><em>აღწერა</em></th></tr><tr><td>"
-"$artist</td><td>CD- ის მხატვარი. თუ თქვენი CD არის კომპილაცია, მაშინ ეს ტეგი "
-"წარმოადგენს სათაურს უმეტეს შემთხვევაში.</td></tr><tr><td>$title</td><td>CD- "
-"ს სათაური. თუ თქვენი CD არის კომპილაცია, მაშინ ეს ტეგი წარმოადგენს სუბტიტრს "
-"უმეტეს შემთხვევაში.</td></tr><tr><td>$date</td><td>CD-ის გამოშვების თარიღი. "
-"თითქმის ყველა შემთხვევაში ეს წელია.</td></tr><tr><td>$genre</td><td>CD- ის "
-"ჟანრი.</td></tr><tr><td>$cdno</td><td>CD-ის მულტი-CD ალბომის CD ნომერი. "
-"ხშირად კომპილაციები შედგება რამდენიმე CD. <i>შენიშვნა:</i> თუ მრავალ CD "
-"დროშა <b>არ</b> არის მითითებული მიმდინარე CD, ვიდრე ეს ღირებულება მხოლოდ "
-"ცარიელი იქნება.</td></tr><tr><td>$suffix</td><td>ფაილის სახელის გაფართოება "
-"(მაგ., \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
-"td><td>CD- ის აუდიო ტრეკების საერთო რაოდენობა.</td></tr><tr><td>$encoder</"
-"td><td>კოდირის სახელი და ვერსია.</td></tr><tr><td>$audex</td><td>Audex "
-"სახელი და ვერსია.</td></tr></table></p>"
+"<p>შემდეგი ადგილმჭერები ცანაცვლდება მათი მნიშვნელობებით:</"
+"p><table><tr><th>ადგილმჭერი</th><th>აღწერა</th></tr><tr><td><tt>$artist</"
+"tt></td><td>CD-ის ხელოვანი CD. თუ თქვენი CD ნაკრებია, მაშინ ეს ჭდე უმრავლეს "
+"შემთხვვაში სათაურს წარმოადგენს.</td></tr><tr><td><tt>$title</tt></td><td>CD-"
+"ის სათაური. თუ თქვენი CD ნაკრებია, ეს ჭდე უმრავლე შემთხვევაში ქვესათაურია.</"
+"td></tr><tr><td><tt>$date</tt></td><td>CD-ის გამოცემის თარიღი. უმეტეს "
+"შემთხევაში ეს წელიწადია.</td></tr><tr><td><tt>$genre</tt></td><td>CD-ის "
+"ჟანრი.</td></tr><tr><td><tt>$cdno</tt></td><td>CD-ის ნომერი მრავალდისკიან "
+"ალბომში. ხშირად ნაკრებები ერთზე მეტი დისკისგან შედგება. <i>შენიშვნა:</i> თუ "
+"მრავალდისკიანობის ალამი მიმდინარე CD-სთვის დაყენებული <b>არაა</b>, "
+"მნიშვნელობა ცარიელი იქნება.</td></tr><tr><td><tt>$nooftracks</tt></td><td>CD-"
+"ის აუდიობილიკების ჯამური რაოდენობა.</td></tr><tr><td><tt>$encoder</tt></"
+"td><td>ენკოდერის სახელი და ვერსია.</td></tr><tr><td><tt>$audex</tt></"
+"td><td>Audex-ის სახელი და ვერსია.</td></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1952,6 +1949,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Audex-ში ადგილმჭერებს შეიძლება პარამეტრები გასაღები=მნიშვნელობა სახით "
+"ჰქონდეთ. მაგ: <tt>${title lowercase=true}</tt>. ამ მაგალითში, სათაური დაბალ "
+"რეგისტრში გადავა. ადგილმჭერებთან ერთად შეგიძლიათ, შემდეგი ზოგადი პარამეტრები "
+"გამოიყენოთ:</p><table><tr><th>გასაღები</th><th>მნიშვნელობა</th><th>აღწერა</"
+"th></tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>ადგილმჭერის "
+"მნიშვნელობა ქვედა რეგისტრში გადავა.</td></tr><tr><td><tt>uppercase</tt></"
+"td><td>true/false</td><td>ადგილმჭერის მნიშვნელობა ზედა რეგისტრში გადავა.</"
+"td></tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>ადგილმჭერში "
+"გამოტოვებების ქვედატირეებით ჩანაცვლება.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>FAT32 ფაილური "
+"სისტემისთვის შეუთავსებელი სიმბოლოების ქვედატირეთი ჩანაცვლება.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>სიმბოლოების "
+"ჩანაცვლება. ამ პარამეტრს 2 დამატებითი გასაღების სჭირდება, იგივე მნისვნელობიზ "
+"ზომით:<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. ესენი "
+"სიმბოლოების სიებია. <tt>replace_char_list_from</tt>-ის პირველი სიმბოლო "
+"<tt>replace_char_list_to</tt>-ის პირველი სიმბოლოთი ჩანაცვლდება და ა.შ.</td></"
+"tr><tr><td><tt>left</tt></td><td>რიცხვი</td><td>ადგილმჭერში მარცხნიდან "
+"მითითებული ნომრის მქონე სიმბოლოს მნიშვნელობა.</td></tr><tr><td><tt>length</"
+"tt></td><td>რიცხვი</td><td>თუ ადგილმჭერის მნიშვნელობა რიცხვია, ის მითითებულ "
+"სიგრძემდე გადიდდება. ასე რომ, შეგიძლიათ ასევე აღწეროთ სიმბოლოც, რომლითაც "
+"შევსება მოხდება პარამეტრით <tt>fillchar</tt>. ნაგულისხმევი fillchar არის '0'."
+"</td></tr><tr><td><tt>pre</tt></td><td>სტრიქონი</td><td>სტრიქონი, რომელიც "
+"<b>მნიშვნელობამდე</b> მოთავსდება. განსაკუთრებით სასარგებლოა ბრძანებების "
+"სტრიქონის პარამეტრებისთვის, რომელსაც ვერ დააყენებთ, თუ მნიშვნელობა ცარიელია."
+"</td></tr><tr><td><tt>post</tt></td><td>სტრიქონი</td><td>სტრიქონი, რომელიც "
+"მნიშვნელობის <b>შემდეგ</b> მოთავსდება.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -1963,31 +1986,84 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>ადგილმჭერი</th><th>აღწერა</th></tr><tr><td>$tartist</"
+"td><td>ეს თითოეული ტრეკის ხელოვანია. განსაკუთრებით სასარგებლოა ნაკრები CD-"
+"ებისთვის.</td></tr><tr><td>$ttitle</td><td>ტრეკის სათაური. ჩვეულებრივ, CD-ზე "
+"არსებულ თითოეულ ტრეკს თავისი სათაური აქვს, რომელიც ჩვეულებრივ სიმღერის "
+"სახელია.</td></tr><tr><td>$trackno</td><td>ტრეკის ნომერი. პირველი ტრეკის "
+"ნომერია 1</td></tr></table>"
 
 #: utils/schemeparser.h:199
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
+#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
+#| "This is the inputinput file for your command line encoder.</td></"
+#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
+#| "path. Use it as the output for your command line encoder.</td></"
+#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
+#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
+#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
+#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
+#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
+#| "cover files larger than 128 KiB.</i></td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>ადგილმჭერი</th><th>სპეციფიკური პარამეტრი</th><th>აღწერა</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>დროებითი WAVE ფაილი, (RIFF WAVE) "
+"რომელიც Audex-მა CD აუდიობილიკიდან შექმნა. ეს შეყვანის ფაილია თქვენი "
+"ბრძანების სტრიქონის ენკოდერისთვის.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>სრული გამოტანის ფაილის სახელი და ბილიკი. გამოიყენეთ ის, როგორც "
+"გამოტანის ფაილი თქვენი ბრძანების სტრიქონის ეკოდერიდან.</td></tr><tr><td><tt>"
+"$cover</tt></td><td><tt>ფორმატი,x,y</tt></td><td>ყდის ფაილის სახელი. თუ ყდა "
+"დაყენებული არაა, ეს ცარიელი იქნება. ძირითადად, გამოიყენება <tt>pre</tt> "
+"პარამეტრთან ერთად. მოხდება გამოსახულების მასშტაბში გადაყვანა <tt>x</tt> და "
+"<tt>y</tt> პარამეტრებით. შესაძლო გამოსახულების <tt>ფორმატებია</tt> JPEG, "
+"PNG, GIF ან BMP (ნაგულისხმევი: JPEG). <i><b>შენიშვნა:</b> LAME ვერ აღიქვამს "
+"128 კიბ-ზე დიდ ყდის ფაილებს.</i></td></tr></table>"
 
 #: utils/schemeparser.h:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
+#| "td><td>Prints the overall size of all extracted (encoded) music files "
+#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
+#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
+#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
+#| "td><td>Prints the relevant overall length of all extracted tracks. The "
+#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
+#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
+#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
+#| "date and/or time. The parameter format specifies the output. Please "
+#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+#| "for the supported specifiers within the format string. With the "
+#| "additional key <tt>locale</tt> you can specify a language setting. By "
+#| "default your system locales are used. The locale has the format "
+#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
@@ -2004,6 +2080,27 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>ადგილმჭერი</th><th>სპეციფიკური პარამეტრი</th><th>აღწერა</th></"
+"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>გამოიტანს ყველა "
+"გაშლილი (კოდირებული) მუსიკის ფაილის ჯამურ ზომას (ყდის გამოსახულების ფაილის "
+"ჩათვლით). <tt>iec</tt>-ით გამოთვლა (k)იბებში, (m)ებებში ან (g)იბებში. "
+"დამატებითი პარამეტრით <tt>precise</tt> (სიზუსტე) შეგიძლიათ ათობითის სიზუსტის "
+"რაოდენობა მიუთითოთ.</td></tr><tr><td>$length</td><td></td><td>გამოიტანს "
+"ყველა გაშლილი ტრეკის ჯამურ ხანგრძლივობას. ფორმატია წუთი:წამი.</td></"
+"tr><tr><td>$nooftracks</td><td></td><td>გამოიტანს გაშლილი ტრეკების ჯამურ "
+"რაოდენობას.</td></tr><tr><td>$discid</td><td>base</td><td>გამოიტანს CDDB "
+"discid-ს თექვსმეტობით ფორმატში.</td></tr><tr><td>$now</td><td><tt>ფორმატი,"
+"ენა</tt></td><td>გამოიტანს მიმდინარე თარიღს ან/და დროს. პარამეტრი "
+"ფორმატგანსაზღვრავს გამოტანის ფორმატს. იხილეთ qt-ის ოფიციალური დოკუმენტაცია "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>) მხარდაჭერილი ფორმატის სტრიქონის შესადგენად. "
+"დამატებითი პარამეტრით <tt>ენა</tt> შეგიძლიათ, გამოტანის ენა შეცვალოთ. "
+"ნაგულისხმევად გამოიყენება თქვენი სისტემის ენა. ენის ფორმატია "
+"<tt>ენა_ტერიტორია</tt>(ტერიტორია მაღალი რეგისტრის სიმბოლოებით), მაგ: "
+"<tt>ka_GE</tt>. <tt>ენა</tt> დაბალ რეგისტრში, ორასოიანი, ISO 639 ენის კოდია. "
+"<tt>ტერიტორია</tt> მაღალი რეგისტრის სიმბოლოებით შედგენილი ორასოიანი ISO 3166 "
+"ტერიტორიის კოდია.</td></tr><tr><td>$br</td><td></td><td>ხაზის გადატანას "
+"გამოიწვევს.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format

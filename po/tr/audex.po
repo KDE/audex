@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:32+0000\n"
-"PO-Revision-Date: 2024-01-04 16:15+0300\n"
+"POT-Creation-Date: 2024-01-07 01:54+0000\n"
+"PO-Revision-Date: 2024-01-06 23:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -136,148 +136,148 @@ msgstr "Başlık Düzeltme Aracı"
 msgid "&Settings"
 msgstr "Ayar&lar"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Seçili profil yok. İşlem durduruldu."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "\"%1\" profiliyle dönüştürmeyi ve kodlamayı başlat..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "\"%1\" yolu bulunamadı."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Lütfen dizini gözden geçirin (yazma hakkınız var mı?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\" üzerindeki boş alan 200 MiB'tan daha az."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Dikkat! \"%1\" dosyası halihazırda var. Üzerine yazılıyor."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Dikkat! \"%1\" dosyası halihazırda var. Atlanıyor."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "\"%1\" klasörü oluşturulamadı."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "\"%1\" klasörü başarıyla oluşturuldu."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "\"%1\" klasörü halihazırda var."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\" üzerindeki boş alan 800 MiB'tan daha az."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Geçici klasör \"%1\" hatası (%2)."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Lütfen denetleyin."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "\"%1\" geçici klasöründeki boş alan 800 MiB'tan daha az."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "\"%1\" geçici klasörü, en az 200 MiB boş alana gereksinim duyuyor."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Lütfen yer açın veya başka bir yol ayarlayın."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "CD'yi çıkar"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "\"%1\" kapağı başarılı bir şekilde kaydedildi."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "\"%1\" kapağı kaydedilemedi."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Lütfen yolunuzu ve yetkilerinizi denetleyin"
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Çalma listesi \"%1\" başarıyla oluşturuldu."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Çalma listesi \"%1\" kaydedilemedi."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Bilgi dosyası \"%1\" başarıyla oluşturuldu."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Bilgi dosyası \"%1\" kaydedilemedi."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Sağlama listesi \"%1\" başarıyla oluşturuldu."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Sağlama listesi \"%1\" kaydedilemedi."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Ses çizelgesi \"%1\" başarıyla oluşturuldu."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Ses çizelgesi \"%1\" kaydedilemedi."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "\"%1\" klasörü açılamadı."
@@ -363,10 +363,9 @@ msgid "Command Scheme Wizard"
 msgstr "Komut Şeması Sihirbazı"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Komut şeması boş."
+msgstr "Komut Şeması Yardımı"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -386,7 +385,7 @@ msgstr "Örnekleyici Kipi:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Yardım"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -544,7 +543,7 @@ msgstr "Parça Kodlanıyor"
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track %1 of %2"
-msgstr "Parça Kodlama %1/%2"
+msgstr "%1/%2 Parça Kodlanıyor"
 
 #: dialogs/extractingprogressdialog.cpp:234
 #: dialogs/extractingprogressdialog.cpp:240
@@ -662,7 +661,7 @@ msgstr "%​%p"
 #: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
-msgstr "Parça Kodlama 8/12"
+msgstr "8/12 Parça Kodlanıyor"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -670,10 +669,9 @@ msgid "Scheme Wizard"
 msgstr "Şema Sihirbazı"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Dosya Adı Şeması Sihirbazı"
+msgstr "Dosya adı şeması yardımı"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -775,9 +773,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Basit Dosya Doğrulaması)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (İleti özeti algoritması 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -787,7 +791,7 @@ msgstr "Bilgi Ayarları"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Metin bilgisi şeması yardımı"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1061,32 +1065,44 @@ msgstr ""
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Tek dosya dönüştürme için tüm ses parçaları seçili değil"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Disk bilgisi ayarlanmamış. Sürdürmeyi gerçekten istiyor musunuz?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "Kapak Dosyası"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Genel ayarlar"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Aygıt ayarları"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profiller"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB ayarları"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Uzak Sunucu"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1095,17 +1111,17 @@ msgstr ""
 "CDDB arama başarız oldu, hata:\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD Arama Başarısız Oldu"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "Başlıkları ayır"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1116,111 +1132,111 @@ msgstr ""
 "\n"
 "Bölücü:"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 "Tüm sanatçıları ve başlıkları gerçekten birbiriyle değiştirmek istiyor "
 "musunuz?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Sanatçıları ve başlıkları birbirleriyle değiştir"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Tüm sanatçıları ve başlıkları gerçekten büyük harf yapmak istiyor musunuz?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Sanatçıları ve başlıkları büyük harf yap"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr ""
 "Parça sanatçılarını otomatik olarak doldurulmasını gerçekten istiyor musunuz?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "Sanatçıları otomatik doldur"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Çıkar"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, kde-format
 msgid "Fetch"
 msgstr "Getir"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Submit"
 msgstr "Gönder"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Edit"
 msgstr "Düzen"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Dönüştür..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "Başlıkları Ayır..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Sanatçıları Ve Başlıkları Yer Değiştir"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Karakterleri Büyüt"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Sanatçıyı Otomatik Olarak Doldur"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Tüm Parçaları Seç"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Seçili Parçaları Kaldır"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Seçimi Tersine Çevir"
@@ -1461,10 +1477,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Sağlama listesi dosya biçimi geçersiz."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 "Verdiğiniz sağlama listesi dosya biçimi geçersiz. Lütfen şu biçimlerden "
 "biriniseçin: SFV, MD5."
@@ -1534,7 +1553,7 @@ msgid "This is an internal error. Please report."
 msgstr "Bu bir iç hata. Lütfen raporlayın."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopyala"
@@ -1857,26 +1876,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Geçici kapak dosyası oluşturulamadı: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1894,22 +1894,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Mutlak yolu olmayan dosya adı şablonları, dönüştürülmüş müzik dosyaları "
-"için ilişkili olacaktır.</p><p>Aşağıdaki değişkenler her parça adında kendi "
-"özel anlamlarıyla değiştirilir.</p><p><table border="
-"\"1\"><tr><th><em>Değişken</em></th><th><em>Açıklama</em></th></tr><tr><td>"
-"$artist</td><td>CD'nin sanatçısı. CD'niz derleme ise bu etiket çoğu durumda "
-"başlığı temsil eder.</td></tr><tr><td>$title</td><td>CD'nin başlığı. CD'niz "
-"derleme ise bu etiket çoğu durumda altyazı olarak gösterir.</td></tr><tr><td>"
-"$date</td><td>CD'nin çıkış tarihi. Hemen hemen her durumda bu yıldır.</td></"
-"tr><tr><td>$genre</td><td>CD'nin türü.</td></tr><tr><td>$cdno</td><td>Çok "
-"CD'li albümlerdeki CD numarası. Genellikle derlemeler birden çok CD'den "
-"oluşurlar. <i>Not:</i> Mevcut CD için çoklu-CD bayrağı <b>değil</b> ise bu "
-"değer boş kalacaktır.</td></tr><tr><td>$suffix</td><td>Dosya adı uzantıları "
-"(örn. \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
-"td><td>CD'deki ses parçalarının toplam sayısı.</td></tr><tr><td>$encoder</"
-"td><td>Kodlayıcı adı ve sürümü.</td></tr><tr><td>$audex</td><td>Audeks adı "
-"ve sürümü.</td></tr></table></p>"
+"<p>Aşağıdaki yer tutucular kendi özel anlamlarıyla değiştirilirler</"
+"p><table><tr><th>Yer Tutucu</th><th>Açıklama</th></tr><tr><td><tt>$artist</"
+"tt></td><td>CD sanatçısı. CD'niz bir derleme ise bu etiket birçok durumda "
+"başlığı temsil eder.</td></tr><tr><td><tt>$title</tt></td><td>CD'nin "
+"başlığı. CD'niz bir derleme ise bu etiket birçok durumda alt başlığı temsil "
+"eder.</td></tr><tr><td><tt>$date</tt></td><td>CD'nin piyasaya çıkış tarihi. "
+"Neredeyse tüm durumlarda bu bir yılı gösterir.</td></tr><tr><td><tt>$genre</"
+"tt></td><td>CD'nin türü.</td></tr><tr><td><tt>$cdno</tt></td><td>Birden çok "
+"CD'li bir albümün CD numarası. Derlemeler genelde birden çok CD'den "
+"oluşurlar. <i>Not:</i> Geçerli CD için çoklu CD bayrağı <b>ayarlanmamışsa</"
+"b> bu değer boş olacaktır.</td></tr><tr><td><tt>$nooftracks</tt></"
+"td><td>CD'deki ses izlerinin toplam sayısı.</td></tr><tr><td><tt>$encoder</"
+"tt></td><td>Kodlayıcı adı ve sürümü.</td></tr><tr><td><tt>$audex</tt></"
+"td><td>Audeks adı ve sürümü.</td></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1941,6 +1939,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Audeks'teki yer tutucular anahtar=değer biçiminde parametrelere sahip "
+"olabilirler. Örneğin, <tt>${title lowercase=true}</tt>. Bu örnekte, başlık "
+"küçük harfe dönüştürülür. Aşağıdaki genel parametreler yer tutucularla "
+"birlikte kullanılabilir:</p><table><tr><th>Anahtar</th><th>Değer</"
+"th><th>Açıklama</th></tr><tr><td><tt>lowercase</tt></td><td>true/false</"
+"td><td>Yer tutucu değeri küçük harfe dönüştürülür.</td></"
+"tr><tr><td><tt>uppercase</tt></td><td>true/false</td><td>Yer tutucu değeri "
+"BÜYÜK harfe dönüştürülür.</td></tr><tr><td><tt>underscores</tt></td><td>true/"
+"false</td><td>Yer tutucudaki boşluklar, alt çizgi ile değiştirilir.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Bir FAT32 "
+"dosya sistemindeki izin verilmeyen karakterler, alt çizgi ile değiştirilir.</"
+"td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</"
+"td><td>Karakterleri değiştirin. Bu parametre, aynı değer boyutlu iki ek "
+"anahtara gereksinim duyar:<tt>replace_char_list_from</tt>, "
+"<tt>replace_char_list_to</tt>. Bunlar karakter listeleridir. "
+"<tt>replace_char_list_from</tt>'un ilk karakteri, <tt>replace_char_list_to</"
+"tt>'in ilk karakteriyle değiştirilir.</td></tr><tr><td><tt>left</tt></"
+"td><td>sayı</td><td>Yer tutucu değerinin soldan n. karakterini alın.</td></"
+"tr><tr><td><tt>length</tt></td><td>sayı</td><td>Yer tutucu değeri bir "
+"sayıysa onu verilen uzunluğa genişletin. Dahası, ek <tt>fillchar</tt> "
+"anahtarıyla bir dolgu karakteri de tanımlayabilirsiniz. Öntanımlı fillchar "
+"'0'dır.</td></tr><tr><td><tt>pre</tt></td><td>dizi</td><td>Değerden <b>önce</"
+"b> yerleştirilecek bir dizi. Özellikle değer boşsa hiçbir zaman "
+"ayarlanmaması gereken komut satırı parametreleri için yararlıdır.</td></"
+"tr><tr><td><tt>post</tt></td><td>dizi</td><td>Değerden <b>sonra</b> "
+"yerleştirilecek bir dizi.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -1952,31 +1976,84 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Yer Tutucu</th><th>Açıklama</th></tr><tr><td>$tartist</"
+"td><td>Bu, her izin sanatçısıdır. Özellikle derleme CD'lerde pek "
+"kullanışlıdır.</td></tr><tr><td>$ttitle</td><td>İz başlığı. Normalde, bir "
+"CD'deki her bir izin kendi başlığı vardır, bu da genelde şarkının adıdır.</"
+"td></tr><tr><td>$trackno</td><td>İz numarası. Birinci iz 1'dir.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:199
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
+#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
+#| "This is the inputinput file for your command line encoder.</td></"
+#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
+#| "path. Use it as the output for your command line encoder.</td></"
+#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
+#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
+#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
+#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
+#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
+#| "cover files larger than 128 KiB.</i></td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Yer Tutucu</th><th>Belirli Parametre</th><th>Açıklama</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>CD ses izinden Audeks tarafından "
+"oluşturulan geçici WAVE (RIFF WAVE) dosyası. Bu, komut satırı kodlayıcınız "
+"için olan girdi dosyasıdır.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>Tam çıktı dosyası adı ve yolu. Komut satırı kodlayıcınız için çıktı "
+"olarak kullanın.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</"
+"tt></td><td>Kapak dosyasının dosya adı. Bir kapak ayarlanmamışsa bu boş "
+"olur. Genelde <tt>pre</tt> parametresiyle birlikte kullanıldığında "
+"yararlıdır. Görsel, <tt>x</tt> ve <tt>y</tt> parametreleriyle "
+"ölçeklendirilebilir. Olası görsel <tt>biçimleri</tt> JPEG, PNG, GIF veya "
+"BMP'dir (Öntanımlı: JPEG). <i><b>Not:</b> LAME, 128 KiB'den büyük kapak "
+"dosyalarını atar.</i></td></tr></table>"
 
 #: utils/schemeparser.h:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
+#| "td><td>Prints the overall size of all extracted (encoded) music files "
+#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
+#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
+#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
+#| "td><td>Prints the relevant overall length of all extracted tracks. The "
+#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
+#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
+#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
+#| "date and/or time. The parameter format specifies the output. Please "
+#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+#| "for the supported specifiers within the format string. With the "
+#| "additional key <tt>locale</tt> you can specify a language setting. By "
+#| "default your system locales are used. The locale has the format "
+#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
@@ -1993,11 +2070,31 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Yer Tutucu</th><th>Belirli Parametre</th><th>Açıklama</th></"
+"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Çıkarılan (kodlanan) "
+"tüm müzik dosyalarının ortalama boyutunu yazdırır (kapak görseli dosyası "
+"içerilir). <tt>iec</tt> ile (k)ibi, (m)ebi veya (g)ibi hesaplanır. Ek "
+"<tt>precise</tt> parametresi, ondalık sayısını tanımlayabilir.</td></"
+"tr><tr><td>$length</td><td></td><td>Çıkarılan tüm izlerin ilgili ortalama "
+"uzunluğunu yazdırır. Biçim, dak:san'dir.</td></tr><tr><td>$nooftracks</"
+"td><td></td><td>Çıkarılan toplam iz sayısını yazdırır.</td></tr><tr><td>"
+"$discid</td><td>base</td><td>CDDB disk kimliğini onaltılık biçimde yazdırır."
+"</td></tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Şu anki tarihi "
+"ve zamanı yazdırır. Parametre biçimi, çıktıyı belirtir. Biçim dizisinde "
+"desteklenen belirteçler için resmi Qt belgelendirmesine başvurun "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>). Ek <tt>locale</tt> anahtarı ile bir dil "
+"ayarı belirtebilirsiniz. Öntanımlı olarak sistem yerel ayarlarınız "
+"kullanılır. Yerel ayar, <tt>dil_BÖLGE</tt> biçimini kullanır; örneğin, "
+"<tt>tr_CY</tt>. <tt>dil</tt>, küçük harfli, iki harften oluşan bir ISO 639 "
+"dil kodu olup <tt>BÖLGE</tt>, BÜYÜK harfli, iki harften oluşan bir ISO 3166 "
+"bölge kodudur.</td></tr><tr><td>$br</td><td></td><td>Bir satır sonu yazdırır."
+"</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr "%1 dosyası, sunucuya yükleniyor. Lütfen bekleyin..."
+msgstr "%1 dosyası sunucuya yükleniyor. Lütfen bekleyin..."
 
 #: utils/upload.cpp:61
 #, kde-format

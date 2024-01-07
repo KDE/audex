@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:32+0000\n"
-"PO-Revision-Date: 2024-01-04 07:11+0100\n"
+"POT-Creation-Date: 2024-01-07 01:54+0000\n"
+"PO-Revision-Date: 2024-01-06 05:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -135,148 +135,148 @@ msgstr "Orodja za popravilo naslovov"
 msgid "&Settings"
 msgstr "Nastavitve"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Noben profil ni izbran. Preklicujem opravilo."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Začni zajemati in kodirati s profilom \"%1\"..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ne najdem poti \"%1\"."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Prosim preverite ciljno pot (uporabniška dovoljenja?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Prostora na \"%1\" je manj kot 200 MiB."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Prepisujem."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Preskakovanje."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Ni bilo mogoče ustvariti mape \"%1\"."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Mapa \"%1\" uspešno ustvarjena."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Mapa \"%1\" že obstaja."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Prostora na \"%1\" je manj kot 800 MiB."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Začasna mapa \"%1\" napaka (%2)."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Preverite."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Prostora v začasni mapi \"%1\" je manj kot 800 MiB."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Začasna mapa \"%1\" rabi najmanj 200 MiB prostora."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Napravite prostor, ali določite drug cilj."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Izvrzi/vstavi medij"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Naslovnica \"%1\" uspešno shranjena."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Naslovnice \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Preverite ciljno pot in dovoljenja"
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Uspešno ustvarjen seznam predvajanja \"%1\"."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Seznama predvajanja \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Podatkovna datoteka \"%1\" je bila uspešno ustvarjena."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Podatkovne datoteke \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Zgoščevalna datoteka \"%1\" uspešno ustvarjena."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Zgoščevalne datoteke (hashlist) \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue seznam \"%1\" uspešno ustvarjen."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue seznama \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Mape \"%1\" ni mogoče odpreti."
@@ -362,10 +362,9 @@ msgid "Command Scheme Wizard"
 msgstr "Čarovnik sheme ukazov"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Shema ukazov je prazna."
+msgstr "Pomoč za shemo ukazov"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -385,7 +384,7 @@ msgstr "Primer vzorčenja:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Pomoč"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -670,10 +669,9 @@ msgid "Scheme Wizard"
 msgstr "Čarovnik shem"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Čarovnik shem imen datotek"
+msgstr "Pomoč za shemo imen datotek"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -775,9 +773,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (preprosto preverjanje zapisa)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (izvleček sporočil, algoritem 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -787,7 +791,7 @@ msgstr "Nastavitve informacij"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Pomoč za shemo informacij"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1059,32 +1063,44 @@ msgstr ""
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Za način \"zapiši v eno datoteko\" niso izbrane vse skladbe"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Podatki o disku niso nastavljeni. Ali res želite nadaljevati?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "Naslovnica"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Splošne nastavitve"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Nastavitve naprav"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profili"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "Nastavitve CDDB"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Oddaljeni strežnik"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1093,17 +1109,17 @@ msgstr ""
 "Poizvedba na CDDB-ju neuspešna, javljena je bila napaka:\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Napaka med poizvedbo na CDDB-ju"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "Loči naslove"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1114,108 +1130,108 @@ msgstr ""
 "\n"
 "Razdelilnik:"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Ali res želite zamenjati vse izvajalce in naslove?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Zamenjaj izvajalce in naslove"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Ali res želite uporabiti velike začetnice v imenih vseh izvajalcev in skladb?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Uporabi velike začetnice v imenih izvajalcev in skladb"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Ali res želite, da se imena izvajalcev samodejno izpolnijo?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "Samodejno izpolni izvajalce"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Izvrzi"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profile:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, kde-format
 msgid "Fetch"
 msgstr "Pridobi"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Submit"
 msgstr "Pošlji"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Zajemi..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "Loči naslove..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Zamenjaj imena izvajalcev in skladb"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Uporabi velike začetnice"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Samodejno izpolni izvajalce"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Izberi vse zvočne sledi"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Odstrani izbiro vseh zvočnih sledi"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Obrni izbiro"
@@ -1453,10 +1469,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Vrsta razpršenega seznama ni znana."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr "Vrsta razpršenega seznama ni znana. Na voljo sta: SFV in MD5."
 
 #: models/profilemodel.cpp:273
@@ -1524,7 +1543,7 @@ msgid "This is an internal error. Please report."
 msgstr "Notranja napaka. Oddajte poročilo."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopiraj"
@@ -1848,26 +1867,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Ni bilo mogoče ustvariti datoteke začasne naslovnice: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1885,22 +1885,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Sheme poimenovanj brez absolutnih poti bodo osnovane na poteh zvočnih "
-"datotek.</p><p>Sledeče spremenljivke bodo nadomeščene z dotičnimi pomeni v "
-"imenih zvočnih sledi.</p><p><table border=\"1\"><tr><th><em>Spremenljivka</"
-"em></th><th><em>Opis</em></th></tr><tr><td>$artist</td><td>Izvajalec CD-ja. "
-"Če je CD kompilacija, potem ta oznaka v večini primerov predstavlja naslov.</"
-"td></tr><tr><td>$title</td><td>Naslov CD-ja. Če je vaš CD kompilacija, potem "
-"ta oznaka v večini primerov predstavlja podnaslov.</td></tr><tr><td>$date</"
-"td><td>Datum izida CD-ja. V skoraj vseh primerih je to leto.</td></"
-"tr><tr><td>$genre</td><td>Žanr CD-ja.</td></tr><tr><td>$cdno</td><td>Št. CD-"
-"ja v zbirki CD-jev. Kompilacije so pogosto sestavljene iz več CD-jev. "
-"<i>Opomba:</i>Če zastavica zbirke CD-jev <b>ni</b> nastavljena za trenutni "
-"CD, bo to polje ostalo prazno.</td></tr><tr><td>$suffix</td><td>Pripona "
-"datoteke (npr. \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>"
-"$nooftracks</td><td>Skupno število skladb na CD-ju.</td></tr><tr><td>"
-"$encoder</td><td>Ime in različica kodirnika.</td></tr><tr><td>$audex</"
-"td><td>Ime in verzija Audex-a.</td></tr></table></p>"
+"<p>Naslednji nadomestni znaki bodo zamenjani z njihovim posebnim pomenom:</"
+"p><table><tr><th>Nadomestni znak</th><th>Opis</th></tr><tr><td> <tt>$artist</"
+"tt></td><td>Izvajalec CD-ja. Če je vaš CD kompilacija, ta oznaka v večini "
+"primerov predstavlja naslov.</td></tr><tr><td><tt>$title</tt></td><td>Naslov "
+"CD. Če je vaš CD kompilacija, potem ta oznaka v večini primerov predstavlja "
+"podnapis.</td></tr><tr><td><tt>$date</tt></td><td>Datum izdaje CD. V skoraj "
+"vseh primerih je to leto.</td></tr><tr><td><tt>$genre</tt></td><td>Zvrst CD-"
+"ja.</td>< /tr><tr><td><tt>$cdno</tt></td><td>Številka CD-ja albuma z več CD-"
+"ji. Pogosto so kompilacije sestavljene iz več CD-jev. <i>Opomba:</i> Če "
+"zastavica za več CD-jev <b>ni</b> nastavljena za trenutni CD, bo ta vrednost "
+"prazna.</td></tr><tr><td ><tt>$nooftracks</tt></td><td>Skupno število "
+"zvočnih posnetkov na CD-ju.</td></tr><tr><td><tt>$encoder</tt> </td><td>Ime "
+"in različica kodirnika.</td></tr><tr><td><tt>$audex</tt></td><td>Ime in "
+"različica Audex.</td ></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1932,6 +1930,31 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Nadomestni znaki v Audexu imajo lahko parametre v obliki ključ=vrednost. "
+"Npr. <tt>${title lowercase=true}</tt>. V tem primeru bo naslov napisan z "
+"malimi črkami. Z nadomestnimi znaki je mogoče uporabiti naslednje splošne "
+"parametre:</p><table><tr><th>Ključ</th><th>Vrednost</th><th>Opis</th></"
+"tr><tr ><td><tt>male črke</tt></td><td>true/false</td><td>Nadomestna "
+"vrednost bo napisana z malimi črkami.</td></tr><tr><td> <tt>uppercase</tt></"
+"td><td>true/false</td><td>Nadomestna vrednost bo napisana z velikimi črkami."
+"</td></tr><tr><td><tt>podčrtaji </tt></td><td>true/false</td><td>Zamenjajte "
+"presledke v nadomestni vrednosti s podčrtaji.</td></"
+"tr><tr><td><tt>fat32compatible< /tt></td><td>true/false</td><td>Zamenjaj "
+"nedovoljene znake v imenu datoteke datotečnega sistema FAT32 s podčrtaji.</"
+"td></tr><tr><td><tt>replace_chars< /tt></td><td>true/false</td><td>Zamenjaj "
+"znake. Ta parameter potrebuje dva dodatna ključa enake velikosti vrednosti: "
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. To so "
+"seznami znakov. Prvi znak <tt>replace_char_list_from</tt> bo nadomeščen s "
+"prvim znakom <tt>replace_char_list_to</tt> in tako naprej.</td></"
+"tr><tr><td><tt>left </tt></td><td>Številka</td><td>Vzemite n-te znake z leve "
+"strani nadomestne vrednosti.</td></tr><tr><td><tt>dolžina</ tt></"
+"td><td>Številka</td><td>Če je nadomestna vrednost številka, jo razširite na "
+"dano dolžino. Poleg tega lahko določite polnilni znak z dodatnim ključem "
+"<tt>fillchar</tt>. Privzeti fillchar je '0'.</td></tr><tr><td><tt>pre</tt></"
+"td><td>Niz</td><td>Niz, ki bo postavljen <b>pred</b> vrednostjo. Še posebej "
+"uporabno za parametre ukazne vrstice, ki jih sploh ne bi smeli nastaviti, če "
+"je vrednost prazna.</td></tr><tr><td><tt>post</tt></td><td>String< /"
+"td><td>Niz, ki bo postavljen <b>za</b> vrednostjo.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -1943,31 +1966,83 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Placeholder</th><th>Opis</th></tr><tr><td>$tartist</td><td>To "
+"je izvajalec vsake skladbe. Še posebej je uporaben na CD-jih kompilacije.</"
+"td></tr><tr><td>$ttitle</td><td>Naslov skladbe. Običajno ima vsaka skladba "
+"na CD-ju svoj naslov, ki je ime pesmi.</td></tr><tr><td>$trackno</"
+"td><td>Številka skladbe. Prva skladba je 1.</td></tr></table>"
 
 #: utils/schemeparser.h:199
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
+#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
+#| "This is the inputinput file for your command line encoder.</td></"
+#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
+#| "path. Use it as the output for your command line encoder.</td></"
+#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
+#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
+#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
+#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
+#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
+#| "cover files larger than 128 KiB.</i></td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Nadomestni znak</th><th>Določen parameter</th><th>Opis</th></"
+"tr><tr><td><tt>$i</tt> </td><td></td><td>Začasna datoteka WAVE (RIFF WAVE), "
+"ki jo je ustvaril Audex iz zvočnega posnetka CD-ja. To je vhodna datoteka za "
+"vaš kodirnik ukazne vrstice.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>Celoten izhodno ime datoteke in pot. Uporabite ga kot izhod za vaš "
+"kodirnik ukazne vrstice.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,"
+"x,y< /tt></td><td>Ime datoteke naslovnice. Če naslovnica ni nastavljena, bo "
+"prazna. Večinoma uporabno v povezavi s parametrom <tt>pre</tt>. Sliko je "
+"mogoče spreminjati s parametroma <tt>x</tt> in <tt>y</tt>. Možni "
+"<tt>formati</tt> slik so JPEG, PNG, GIF ali BMP (privzeto: JPEG). "
+"<i><b>Opomba:</b>  LAME zavrže naslovne datoteke, večje od 128 KiB.</i></"
+"td></tr></table>"
 
 #: utils/schemeparser.h:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
+#| "td><td>Prints the overall size of all extracted (encoded) music files "
+#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
+#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
+#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
+#| "td><td>Prints the relevant overall length of all extracted tracks. The "
+#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
+#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
+#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
+#| "date and/or time. The parameter format specifies the output. Please "
+#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+#| "for the supported specifiers within the format string. With the "
+#| "additional key <tt>locale</tt> you can specify a language setting. By "
+#| "default your system locales are used. The locale has the format "
+#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
@@ -1984,6 +2059,26 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Nadomestni znak</th><th>Določen parameter</th><th>Opis</th></"
+"tr><tr><td>$size</td><td> <tt>iec,precision</tt></td><td>Natisne celotno "
+"velikost vseh ekstrahiranih (kodiranih) glasbenih datotek (vključno s "
+"slikovno datoteko naslovnice). Z <tt>iec</tt> izračunaj (k)ibi, (m)ebi ali "
+"(g)ibi. Dodatni parameter <tt>precise</tt> lahko določi število decimalnih "
+"mest.</td></tr><tr><td>$length</td><td></td><td>Izpiši ustrezno skupno "
+"dolžina vseh izvlečenih sledi. Format je min:sec.</td></tr><tr><td>"
+"$nooftracks</td><td></td><td>Natisne skupno število ekstrahiranih skladb.</"
+"td>< /tr><tr><td>$discid</td><td>base</td><td>Natisne CDDB discid v "
+"šestnajstiški obliki.</td></tr><tr><td>$now </td><td><tt>format,locale</tt></"
+"td><td>Natisne trenutni datum in/ali uro. Format parametra določa izhod. "
+"Oglejte si uradno dokumentacijo qt (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/ qdate.html#toString</tt>) za "
+"podprte določilnike znotraj formatnega niza. Z dodatnim ključem <tt>locale</"
+"tt> lahko določite jezikovno nastavitev. Privzeto se uporabljajo področne "
+"nastavitve vašega sistema. Področne nastavitve imajo obliko "
+"<tt>language_TERRITORY</tt>, npr. <tt>en_EN</tt>. <tt>jezik</tt> je "
+"dvočrkovna koda jezika ISO 639, <tt>TERRITORY</tt> pa dvočrkovna koda "
+"območja ISO 3166 z velikimi črkami.</td></tr>< tr><td>$br</td><td></"
+"td><td>Natisne prelom vrstice.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
