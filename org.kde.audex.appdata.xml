@@ -49,6 +49,7 @@
   <summary xml:lang="fi">Helppokäyttöinen CD:n purkusovellus</summary>
   <summary xml:lang="fr">Une application d'extraction de CD audio facile à utiliser</summary>
   <summary xml:lang="gl">Unha aplicación de copia de CD de son fácil de usar.</summary>
+  <summary xml:lang="ia">Un application per rippar CD audio facile a usar</summary>
   <summary xml:lang="id">Sebuah kemudahan untuk menggunakan aplikasi perabitan CD audio</summary>
   <summary xml:lang="it">Un'applicazione per l'estrazione dei CD audio semplice da usare</summary>
   <summary xml:lang="ka">აუდიო დისკიდან სიმღერების გადმოსაწერი აპლიკაცია</summary>
@@ -84,6 +85,7 @@
     <p xml:lang="fi">Audexin yleisen käytön tulisi olla itsestäänselvää. Ensikäynnistyksellä Audex etsii järjestelmästä koodausohjelmia ja luo automaattisesti yleisen profiilijoukon.</p>
     <p xml:lang="fr">L'utilisation de base de Audex est extrêmement intuitive. Lors de son premier démarrage, Audex scanne votre système à la recherche des encodeurs les plus utilisés et crée automatiquement une liste de profils génériques.</p>
     <p xml:lang="gl">O uso xeral de Audex é moi intuitivo. No primeiro inicio Audex examina o sistema en busca de codificadores comúns e crea automaticamente un conxunto común de perfís.</p>
+    <p xml:lang="ia">Le uso general de Audex es auto-explicatori. Con le prime initio Aude scande tu systema per codificatores commun e crea automaticamente per te un insimul de profilos</p>
     <p xml:lang="id">Penggunaan umum Audex adalah cukup jelas. Dengan pemulaian pertama, Audex memindai sistemmu untuk pengenkode pada umumnya dan menciptakan set profil pada umumnya secara otomatis untukmu.</p>
     <p xml:lang="it">L'uso generale di Audex è autoesplicativo. Al primo avvio Audex ricerca nel sistema i codificatori più comuni, e crea automaticamente un insieme comune di profili.</p>
     <p xml:lang="ka">Audex-ის ჩვეული გამოყენების არე თვით-ახსნადია. პირველი გაშვებისას Audex-ი თქვენს სისტემას ენკოდერებზე დაასკანერებს და შესაბამის პროფილებს ავტომატურად შეგიქმნით.</p>
