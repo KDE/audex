@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 02:27+0000\n"
-"PO-Revision-Date: 2024-01-04 09:17+0100\n"
+"POT-Creation-Date: 2024-01-07 03:07+0000\n"
+"PO-Revision-Date: 2024-01-05 11:27+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -144,150 +144,150 @@ msgstr "Outils de correction de titres"
 msgid "&Settings"
 msgstr "&Configuration"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Aucun profil sélectionné. Opération interrompue."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Début d'extraction audio et d'encodage avec le profil « %1 »..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Impossible de trouver l'emplacement « %1 »."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Veuillez vérifier votre emplacement (accès en écriture ?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "L'espace disponible sur « %1 » est inférieur à 200 Mio."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Avertissement ! « %1 » existe déjà. Écrasement."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Avertissement ! Le fichier « %1 » existe déjà. Ignorer."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Impossible de créer le dossier « %1 »."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Dossier « %1 » créé avec succès."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Le dossier « %1 » existe déjà."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "L'espace disponible sur « %1 » est inférieur à 800 Mio."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Erreur concernant le dossier temporaire « %1 » (%2)."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Veuillez vérifier."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "L'espace libre sur le dossier temporaire « %1 » est inférieur à 800 Mio."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "Le dossier temporaire « %1 » nécessite au moins 200 Mio d'espace libre."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Veuillez libérer de l'espace ou définir un autre emplacement."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Éjecter le tiroir du CD"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Couverture « %1 » enregistrée avec succès."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Impossible d'enregistrer la couverture « %1 »."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Veuillez vérifier votre emplacement et vos droits d'accès"
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Liste de lecture « %1 » créée avec succès."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Impossible d'enregistrer la liste de lecture « %1 »."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Fichier d'informations « %1 » créé avec succès."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Impossible d'enregistrer le fichier d'informations « %1 »."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Liste de hachage « %1 » créée avec succès."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Impossible d'enregistrer la liste de hachage « %1 »."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Feuille de montage « %1 » créée avec succès."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Impossible d'enregistrer la feuille de montage « %1 »."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Impossible d'ouvrir le dossier « %1 »."
@@ -368,10 +368,9 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Assistant de création de motifs de commandes"
+msgstr "Assistant de thèmes de commandes"
 
 #: dialogs/commandwizarddialog.cpp:39
 #, fuzzy, kde-format
@@ -681,7 +680,7 @@ msgstr "Encodage de la piste 8 sur 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Assistant de thèmes"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
 #, fuzzy, kde-format
@@ -744,10 +743,9 @@ msgstr "Format :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "À propos des schémas"
+msgstr "Thème de couverture :"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -761,7 +759,7 @@ msgstr "Paramètres des feuilles de montage"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nom / Thème :"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -790,9 +788,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -833,7 +837,7 @@ msgstr "Suffixe :"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Thème :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -878,12 +882,12 @@ msgstr "Remplacer les espaces par des caractères de soulignement"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr "Ce réglage annule tout réglage de variable paramétré dans le motif"
+msgstr ""
+"Cette configuration écrase toute configuration de variable paramétré dans le "
+"thème."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -952,10 +956,9 @@ msgid "Save %1"
 msgstr "Enregistrer %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Assistant de motifs de noms de fichiers"
+msgstr "Assistant de thèmes de noms de fichiers"
 
 #: main.cpp:32
 #, kde-format
@@ -1082,32 +1085,44 @@ msgstr ""
 "Toutes les pistes audio n'ont pas été sélectionnées pour l'extraction audio "
 "d'un seul fichier"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Aucune information de disque définie. Voulez-vous vraiment continuer ?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "Fichier de couverture"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Paramètres généraux"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Paramètres du périphérique"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profils"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "Paramètres CDDB"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Serveur distant"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1116,17 +1131,17 @@ msgstr ""
 "La recherche « CDDB » a échoué avec l'erreur suivante :\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Échec de la recherche « CDDB »"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "Scinder les titres"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1137,109 +1152,109 @@ msgstr ""
 "\n"
 "Séparateur :"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Voulez-vous vraiment permuter l'ensemble des artistes et des titres ?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Permuter les artistes et les titres"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Voulez-vous vraiment mettre en majuscule, l'ensemble des artistes et des "
 "titres ?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Mettre en majuscule, les artistes et les titres"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Voulez-vous vraiment saisir automatiquement les artistes des pistes ?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "Saisir automatiquement les artistes"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Éjecter"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profil :"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil :"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, kde-format
 msgid "Fetch"
 msgstr "Rechercher"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Submit"
 msgstr "Soumettre"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Edit"
 msgstr "Modifier"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Extraire..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "Scinder les titres..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Permuter les artistes et les titres"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Mettre en majuscule"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Saisir automatiquement les noms des artistes"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Sélectionner toutes les pistes"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Dé-sélectionner toutes les pistes"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Inverser la sélection"
@@ -1401,17 +1416,15 @@ msgstr ""
 "Vous n'avez pas indiqué d'encodeur pour le profil. Veuillez en saisir un."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Le motif de nom de fichier pour les profils n'est pas défini."
+msgstr "Le thème de nom de fichier pour les profils est indéfini."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
-"Vous n'avez pas indiqué de motif de nom de fichier pour le profil. Veuillez "
+"Vous n'avez indiqué aucun thème de nom de fichier pour le profil. Veuillez "
 "en saisir un."
 
 #: models/profilemodel.cpp:202
@@ -1420,16 +1433,13 @@ msgid "The image file format is unknown."
 msgstr "Le format de fichier d'image est inconnu."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"Le format de fichier d'image que vous avez indiqué est inconnu. Veuillez "
-"choisir un de ces formats : « JPG » / « JPEG », « PNG » ou « BMP »."
+"Le format de fichier d'images que vous avez fourni est inconnu. Veuillez "
+"choisir l'un de ces formats : « JPG », « PNG », « TIFF  »ou « BMP »."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -1499,10 +1509,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Le format de fichier de la liste de hachage est inconnu."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 "Le format de fichier de la liste de hachage que vous avez indiqué est "
 "inconnu. Veuillez choisir un de ces formats : « SFV », « MD5 »."
@@ -1582,7 +1595,7 @@ msgid "This is an internal error. Please report."
 msgstr "Il s'agit d'une erreur interne. Veuillez la signaler."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Copier"
@@ -1799,10 +1812,9 @@ msgid "Custom"
 msgstr "Personnalisé"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Le motif de commandes est vide."
+msgstr "Le thème de commandes est vide."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -2032,10 +2044,10 @@ msgstr ""
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
@@ -2050,7 +2062,7 @@ msgid ""
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
@@ -2120,10 +2132,9 @@ msgstr "Supprimer une couverture"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Motif de commandes :"
+msgstr "Thème de commandes :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2287,7 +2298,7 @@ msgstr "Débit binaire constant"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Débit binaire cible (Kbit / s)"
+msgstr "Débit binaire cible (Kbits / s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116

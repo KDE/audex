@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 02:27+0000\n"
+"POT-Creation-Date: 2024-01-07 03:07+0000\n"
 "PO-Revision-Date: 2017-08-06 20:17+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -132,156 +132,156 @@ msgstr "Definícia vločkových nástrojov"
 msgid "&Settings"
 msgstr "&Nastavenia"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, fuzzy, kde-format
 msgid "No profile selected. Operation abort."
 msgstr ""
 "Expander: nie je špecifikovaný žiadny profil pre %_Profile(profile)%; "
 "končím..."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr ""
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, fuzzy, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Cesta k programu"
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, fuzzy, kde-format
 msgid "Please check your path (write access?)"
 msgstr ""
 "Nedá sa pristúpiť k súboru %1. Prosím, skontrolujte či je cesta správna."
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr ""
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, fuzzy, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Starší súbor s menom '%1' už existuje.\n"
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, fuzzy, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Starší súbor s menom '%1' už existuje.\n"
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, fuzzy, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Projekt \"%1\" úspešne vytvorený."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Priečinok \"%1\" už existuje."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr ""
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, fuzzy, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Chyba pri odstraňovaní priečinku."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Prosím skontrolujte."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr ""
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Vysunúť CD"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, fuzzy, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Obal bol úspešne stiahnutý"
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cover \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, fuzzy, kde-format
 msgid "Please check your path and permissions"
 msgstr "Nie je možné vytvoriť adresár. Skontrolujte svoje práva."
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, fuzzy, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Projekt \"%1\" úspešne vytvorený."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save playlist \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, fuzzy, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Projekt \"%1\" úspešne vytvorený."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save info file \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, fuzzy, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Projekt \"%1\" úspešne vytvorený."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, fuzzy, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue/Bin súbory boli úspešne vytvorené."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -771,9 +771,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, fuzzy, kde-format
@@ -1051,49 +1057,60 @@ msgstr ""
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "Do you really want to cancel?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Naozaj chcete zrušiť?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+msgid "Cover is empty"
+msgstr "Získať obal zo &súboru..."
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Všeobecné nastavenie"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Nastavenie zariadenia"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profily"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "Nastavenie CDDB"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Vzdialený server"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, fuzzy, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr "Čítanie archívu zlyhalo s nasledujúcou chybou: <message>%1</message>"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, fuzzy, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Nepodarilo sa nájsť informáciu"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, fuzzy, kde-format
 msgid "Split titles"
 msgstr "Titulky kariet"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1101,109 +1118,109 @@ msgid ""
 "Divider:"
 msgstr ""
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, fuzzy, kde-format
 msgid "Swap artists and titles"
 msgstr "História pamäti a swapu"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, fuzzy, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Nastavenie vzhľadu titulkov okien"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr ""
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, fuzzy, kde-format
 msgid "Autofill artists"
 msgstr "Viacerý u&melci"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Vysunúť"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, fuzzy, kde-format
 #| msgid "Fetch Info"
 msgid "Fetch"
 msgstr "Natiahnuť info"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, fuzzy, kde-format
 msgid "Submit"
 msgstr "Kig Info"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, fuzzy, kde-format
 #| msgid "Edit Data"
 msgid "Edit"
 msgstr "Upraviť dáta"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Ripovať..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, fuzzy, kde-format
 msgid "Split Titles..."
 msgstr "Titulky kariet"
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, fuzzy, kde-format
 msgid "Swap Artists And Titles"
 msgstr "História pamäti a swapu"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Veľké prvé písmená"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, fuzzy, kde-format
 msgid "Auto Fill Artists"
 msgstr "Interpreti podobní  %1"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Vybrať všetky stopy"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Zrušiť výber všetkých stôp"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Invertovať výber"
@@ -1431,7 +1448,7 @@ msgstr "Súbor '%1' nie je v binárnom formáte."
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 
 #: models/profilemodel.cpp:273
@@ -1501,7 +1518,7 @@ msgid "This is an internal error. Please report."
 msgstr "Nastala neznáma chyba (%1), prosím oznáte to"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopírovať"
@@ -1879,10 +1896,10 @@ msgstr ""
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
@@ -1897,7 +1914,7 @@ msgid ""
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"

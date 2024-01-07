@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 02:27+0000\n"
-"PO-Revision-Date: 2024-01-04 10:24+0100\n"
+"POT-Creation-Date: 2024-01-07 03:07+0000\n"
+"PO-Revision-Date: 2024-01-06 17:16+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -136,150 +136,150 @@ msgstr "Tituluak zuzentzeko tresnak"
 msgid "&Settings"
 msgstr "E&zarpenak"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Ez da profilik hautatu. Eragiketa bertan behera utzi."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Hasi erauzten eta kodetzen «%1» profilarekin..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ezin du «%1» bide-izena aurkitu."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Mesedez, egiaztatu zure bide-izena (idazteko sarrera?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "«%1»ean gelditzen den leku hutsa 200 MiB baino txikiagoa da."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Abisua! «%1» fitxategia lehendik dago. Gainidazten."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Erne! «%1» fitxategia dagoeneko existitzen da. Baztertzen."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Ezin da «%1» karpeta sortu."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "«%1» karpeta ondo sortu da."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "«%1» karpeta dagoeneko existitzen da."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "«%1»ean gelditzen den leku hutsa 800 MiB baino txikiagoa da."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Aldi baterako \"%1\" karpetaren errorea (%2)."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Egiaztatu mesedez."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Aldi baterako «%1» karpetan geratzen den leku hutsa 800 MiB baino txikiagoa "
 "da."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Aldi baterako «%1» karpetak gutxienez 200 MiB-eko leku hutsa behar du."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Mesedez, lekua hustu edo ezarri beste bide-izen bat."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Egotzi CD erretilua"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "«%1» disko-azala ondo gorde da."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Ezin du «%1» disko-azala gorde."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Mesedez, egiaztatu zure bide-izena eta baimenak"
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "«%1» jotze-zerrenda ondo sortu da."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Ezin du «%1» jotze-zerrenda gorde."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "«%1» informazio fitxategia ondo sortu da."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Ezin du «%1» fitxategian gorde."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "«%1» hash-zerrenda ondo sortu da."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Ezin du «%1» hash-zerrenda gorde."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "«%1» «cue» orria ondo sortu da."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Ezin du «%1» «cue» orria gorde."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Ezin du «%1» karpeta ireki."
@@ -365,10 +365,9 @@ msgid "Command Scheme Wizard"
 msgstr "Komando-antolaera morroia"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Komando-antolaera hutsik dago."
+msgstr "Komando-antolaeraren laguntza"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -388,7 +387,7 @@ msgstr "Lagingailu adibidea:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Laguntza"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -673,10 +672,9 @@ msgid "Scheme Wizard"
 msgstr "Antolaera morroia"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Fitxategi-izen antolaera morroia"
+msgstr "Fitxategi-izen antolaeraren laguntza"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -778,19 +776,25 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
 msgid "Info Settings"
-msgstr "Informazio ezarpenak"
+msgstr "Informazio-ezarpenak"
 
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Testu-informazio antolaeraren laguntza"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1064,32 +1068,44 @@ msgstr ""
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Audio-pista guztiak ez dira hautatu fitxategi bakarrean erauzteko"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Ez da disko informaziorik ezarri. Benetan jarraitu nahi duzu?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "Disko-azal fitxategia"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Ezarpen orokorrak"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Gailu-ezarpenak"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profilak"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB ezarpenak"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Urrutiko zerbitzaria"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1098,17 +1114,17 @@ msgstr ""
 "CDDB bilaketak huts egin du ondoko errorearekin:\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD bilaketak huts egin du"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "Zatitu tituluak"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1119,107 +1135,107 @@ msgstr ""
 "\n"
 "Zatitzailea:"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Benetan trukatu nahi dituzu artista eta titulu guztiak?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Trukatu artistak eta tituluak"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "Artista eta titulu guztien lehenengo letra letra-larriz ipini?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Artisten eta tituluen lehenengo letra letra-larriz ipintzea"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Pistako artistak automatikoki bete nahi dituzu?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "Artistak automatikoki betetzea"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Egotzi"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profila:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profila:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profila"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, kde-format
 msgid "Fetch"
 msgstr "Ekarri"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Submit"
 msgstr "Bidali"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Erauzi..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "Zatitu tituluak..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Trukatu artistak eta tituluak"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Letra larria ipini"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Artistak automatikoki bete"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Hautatu pista guztiak"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Desautatu pista guztiak"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Alderantzikatu hautapena"
@@ -1465,10 +1481,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Hash-zerrendaren fitxategi formatua ezezaguna da."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 "Zuk emandako hash-zerrenda fitxategi-formatua ezezaguna da. Mesedez, hautatu "
 "formatu hauetako bat: SFV, MD5."
@@ -1543,7 +1562,7 @@ msgid "This is an internal error. Please report."
 msgstr "Hau barneko errorea da. Mesedez, jakinarazi."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopiatu"
@@ -1884,26 +1903,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Ezin izan du aldi baterako azal-fitxategia sortu: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1921,22 +1921,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Bide-izen absoluturik gabeko fitxategi-izen antolaerak erauzitako musika "
-"fitxategiekiko erlatiboak izango dira.</p><p>Ondoko aldagaiak haien esanahi "
-"zehatzekin ordezkatuko dira pista-izen bakoitzeko.</p><p><table border="
-"\"1\"><tr><th><em>Aldagaia</em></th><th><em>Azalpena</em></th></tr><tr><td>"
-"$artist</td><td>CDko artista. Zurea bilduma CD bat bada, etiketa honek "
-"titulua adierazi ohi du.</td></tr><tr><td>$title</td><td>Zurea bilduma CD "
-"bat bada, etiketa honek azpititulua adierazi ohi du.</td></tr><tr><td>$date</"
-"td><td>CDaren merkaturatze-data. Ia kasu guztietan urtea izan ohi da.</td></"
-"tr><tr><td>$genre</td><td>CDaren generoa.</td></tr><tr><td>$cdno</td><td> CD "
-"anitzeko album batean CDaren zenbakia. Bildumek, maiz, hainbat CD izaten "
-"dituzte. <i>Oharra:</i> CD honen multi-CD bandera ezarrita <b>ez</b> badago, "
-"balio hau hutsik egongo da.</td></tr><tr><td>$suffix</td><td>Fitxategi-"
-"izenaren luzapena (adib. «.jpg», «.m3u», «.md5» ...).</td></tr><tr><td>"
-"$nooftracks</td><td>CDaren pista-kopuru osoa.</td></tr><tr><td>$encoder</"
-"td><td>Kodetzailearen izena eta bertsioa.</td></tr><tr><td>$audex</"
-"td><td>Audex-en izena eta bertsioa.</td></tr></table></p>"
+"<p>Ondoko leku-markak dagokien esanahi zehatzarekin ordeztuko dira: </"
+"p><table><tr><th>Leku-marka</th><th>Deskribapena</th></tr><tr><td><tt>"
+"$artist</tt></td><td>CDko artista. Zurea bilduma CD bat bada, etiketa honek "
+"titulua adierazi ohi du.</td></tr><tr><td><tt>$title</tt></td><td>Zurea "
+"bilduma CD bat bada, etiketa honek azpititulua adierazi ohi du.</td></"
+"tr><tr><td><tt>$date</tt></td><td>CDaren merkaturatze-data. Ia kasu "
+"guztietan urtea izan ohi da.</td></tr><tr><td><tt>$genre</tt></td><td>CDaren "
+"generoa.</td></tr><tr><td><tt>$cdno</tt></td><td> CD anitzeko album batean, "
+"CDaren zenbakia. Bildumek, maiz, hainbat CD izaten dituzte. <i>Oharra:</i> "
+"CD honen multi-CD bandera ezarrita <b>ez</b> badago, balio hori hutsik "
+"egongo da.</td></tr><tr><td><tt>$nooftracks</tt></td><td>CDaren audio-pista "
+"kopuru osoa.</td></tr><tr><td><tt>$encoder</tt></td><td>Kodetzailearen izena "
+"eta bertsioa.</td></tr><tr><td><tt>$audex</tt></td><td>Audex-en izena eta "
+"bertsioa.</td></tr> </table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1968,6 +1966,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Leku-markek, «Audex»en, gakoa=balioa erako parametroak izan ditzakete. "
+"Adib. <tt>${title lowercase=true}</tt>. Adibide horretan titulua letra "
+"xehetan ipiniko da. Leku-markekin ondoko parametro orokorrak erabil daitezke:"
+"</p><table><tr><th>Gakoa</th><th>Balioa</th><th>Deskribapena</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>Leku-markaren "
+"balioa letra xehez ipiniko da.</td></tr><tr><td><tt>uppercase</tt></"
+"td><td>true/false</td><td>Laster-markaren balioa letra larriz ipiniko da.</"
+"td></tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Ordeztu leku-"
+"markaren zuriuneak azpi-marraz. </td></tr><tr><td><tt>fat32compatible</tt></"
+"td><td>true/false</td><td>Ordeztu FAT32 fitxategi-sistemako legez kanpoko "
+"karaktereak azpimarrarekin.</td></tr><tr><td><tt>replace_chars</tt></"
+"td><td>true/false</td><td>Ordeztu karaktereak. Parametro horrek neurri "
+"bereko bi gako osagarri behar ditu:<tt>replace_char_list_from</tt>, "
+"<tt>replace_char_list_to</tt>. Horiek karaktere-zerrendak dira. "
+"<tt>replace_char_list_from</tt>eko lehenengo karakterea "
+"<tt>replace_char_list_to</tt>eko lehenengo karakterearekin ordeztuko da eta "
+"abar.</td></tr><tr><td><tt>left</tt></td><td>Zenbakia</td><td>Hartu leku-"
+"marka balioaren ezkerreko n-garren karaktereak.</td></tr><tr><td><tt>length</"
+"tt></td><td>Zenbakia</td><td>Leku-markaren balioa zenbaki bat bada, hedatu "
+"adierazitako luzerara. Gainera <tt>fillchar</tt> gakoarekin betetzeko "
+"karaktere bat zehaztu dezakezu. Betetzeko karaktere lehenetsia '0' da.</td></"
+"tr><tr><td><tt>pre</tt></td><td>Katea</td><td>Balioaren <b>aurretik</b> "
+"ipiniko den kate bat. Bereziki erabilgarria, balio hutsa izanez gero ezarri "
+"behar ez diren komando-lerroko parametroetarako. </td></tr><tr><td><tt>post</"
+"tt></td><td>Katea</td><td>Balioaren <b>ondoren</b> ipiniko den kate bat.</"
+"td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -1979,31 +2003,85 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Leku-marka</th><th>Deskribapena</th></tr><tr><td>$tartist</"
+"td><td>Hori pista guztietako artista da. Bereziki erabilgarria bilduma "
+"CDetan.</td></tr><tr><td>$title</td><td>Pistaren titulua. CD bateko pista "
+"bakoitzak titulu bat izan ohi du, abestiaren izena hain zuzen.</td></"
+"tr><tr><td>$trackno</td><td>Pista-zenbakia. Lehenengo pistarena 1 da.</td></"
+"tr></table>"
 
 #: utils/schemeparser.h:199
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
+#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
+#| "This is the inputinput file for your command line encoder.</td></"
+#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
+#| "path. Use it as the output for your command line encoder.</td></"
+#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
+#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
+#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
+#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
+#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
+#| "cover files larger than 128 KiB.</i></td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Leku-marka</th><th>Berariazko parametroa</"
+"th><th>Deskribapena</th></tr><tr><td><tt>$i</tt></td><td></td><td>«Audex»ek "
+"audio CD pistatik sortutako aldi baterako WAVE fitxategia (RIFF WAVE). Hori "
+"da zure komando-lerroko kodetzailerako sarrera-fitxategia.</td></"
+"tr><tr><td><tt>$o</tt></td><td></td><td>Fitxategi-izen eta bide-izen irteera "
+"osoa. Erabil ezazu zure komando-lerroko kodetzailearen irteera gisa.</td></"
+"tr><tr><td><tt>$cover</tt></td><td><tt>formatua,x,y</tt></td><td>Azal-"
+"fitxategiaren fitxategi-izena. Azalik ezartzen ez bada, hori hutsik egongo "
+"da. Batez ere, <tt>pre</tt> parametroarekin erabilgarria. Irudia <tt>x</tt> "
+"eta <tt>y</tt> parametroekin eskala daiteke. Irudi <tt>formatuak</tt> JPEG, "
+"PNG, GIF edo BMP (Lehenetsia: JPEG) izan daitezke. <i><b>Oharra:</b> «LAME»k "
+"128 KiB baino gehiagoko azal- fitxategiak baztertzen ditu.</i></td></tr></"
+"table>"
 
 #: utils/schemeparser.h:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
+#| "td><td>Prints the overall size of all extracted (encoded) music files "
+#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
+#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
+#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
+#| "td><td>Prints the relevant overall length of all extracted tracks. The "
+#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
+#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
+#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
+#| "date and/or time. The parameter format specifies the output. Please "
+#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+#| "for the supported specifiers within the format string. With the "
+#| "additional key <tt>locale</tt> you can specify a language setting. By "
+#| "default your system locales are used. The locale has the format "
+#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
@@ -2020,6 +2098,28 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Leku-marka</th><th>Berariazko parametroa</"
+"th><th>Deskribapena</th></tr><tr><td>$size</td><td><tt>iec,doitasuna</tt></"
+"td><td> Erauzitako (kodetutako) musika-fitxategi guztien neurri osoa "
+"inprimatzen du (azaleko irudi-fitxategia barne). <tt>iec</tt>ekin, kalkulatu "
+"(k)ibi, (m)ebi edo (g)ibi. <tt>doitasuna</tt> parametro osagarriak "
+"hamartarretarako leku kopurua definitu dezake.</td></tr><tr><td>$length</"
+"td><td></td><td>Erauzitako pista guztien luzera esanguratsua inprimatzen du. "
+"Formatua min:seg da.</td></tr><tr><td>$nooftracks</td><td></"
+"td><td>Erauzitako pista kopuru osoa inprimatzen du.</td></tr><tr><td>"
+"$discid</td><td>oinarria</td><td>CDDB discid formatu hamaseitarrean "
+"inprimatzen du.</td></tr><tr><td>$now</td><td><tt>formatua,tokikoa</tt></"
+"td><td>Uneko data eta/edo ordua inprimatzen du. Parametro formatuak irteera "
+"zehazten du. Mesedez, kontsultatu «Qt»ren dokumentazio ofiziala (<tt>https://"
+"doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
+"html#toString</tt>) formatu kate barnean onartutako zehatzaileetarako. "
+"<tt>Tokikoa</tt> gako osagarriarekin hizkuntza ezarpen bat zehaztu dezakezu. "
+"Era lehenetsian zure sistemako tokiko ezarpenak erabiltzen dira. Tokikoak "
+"<tt>hizkuntza_LURRALDEA</tt> formatua du, adib. <tt>eu_ES</tt>. "
+"<tt>hizkuntza</tt> bi letra xeheko ISO 639 hizkuntza kode bat da eta "
+"<tt>Lurraldea</tt> bi letra larriko ISO 3166 lurralde kode bat da.</td></"
+"tr><tr><td>$br</td><td></td><td>Lerro jauzi bat inprimatzen du. </td></tr></"
+"table>"
 
 #: utils/upload.cpp:54
 #, kde-format

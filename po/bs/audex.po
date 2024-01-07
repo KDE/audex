@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 02:27+0000\n"
+"POT-Creation-Date: 2024-01-07 03:07+0000\n"
 "PO-Revision-Date: 2015-02-24 23:20+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian\n"
@@ -138,149 +138,149 @@ msgstr "Alati za korekciju naslova"
 msgid "&Settings"
 msgstr "&Postavke"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Nijedan profil nije odabran. Prekid operacije."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Počni snimati i kodirati sa profilom \"%1\"..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ne mogu naći putanju \"%1\"."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Molimo provjeri svoju putanju ( pristup pisanju?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Slobodan prostor na \"%1\" je manji od 200 MiB."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Upozorenje! Datoteka \"%1\" već postoji. Pisanje preko."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Upozorenje! Datoteka \"%1\" već postoji. Preskakanje,."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nije moguće stvoriti folder \"%1\"."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Folder \"%1\" je uspješno stvoren."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Folder \"%1\" već postoji."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Slobodan prostor na \"%1\" je manji od 800 MiB."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Privremena folder \"%1\" greška."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Molimo provjerite."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Slobodan prostor na privemenom folderu \"%1\" je manji od 800 MiB."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Privremeni folder \"%1\" treba barem 200 MiB slobodnog prostora."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Molimo oslobodite prostor ili postavite drugi put."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Izbacivanje CD ladice"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Omot \"%1\" je uspješno spašen."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Nije moguće spasiti omot \"%1\"."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Molimo provjerite vašu putanju i odobrenja."
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Playlista  \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Nije moguće spasiti playlistu  \"%1\"."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Info datoteka \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Nije moguće spasiti info datoteku \"%1\"."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Heš lista \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nije moguće spasiti heš listu \"%1\"."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Stranica redova \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nije moguće spasiti stranicu redova \"%1\"."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Nije moguće otvoriti folder \"%1\"."
@@ -791,9 +791,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -1081,32 +1087,44 @@ msgstr ""
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Nisu sve audio numere selektovane za snimanje jedan po jedan"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Nisu postavljene informacije o disku. Da li stvarno želite nastaviti?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "Omot datoteka"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Opšte postavke"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Postavke uređaja"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profili"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB postavke"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Daljinski poslužitelj"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1115,17 +1133,17 @@ msgstr ""
 "CDDB pregled nije uspio, sa slijedećom greškom:\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD neuspjeh pregleda"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "Razdvoji naslove"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1136,110 +1154,110 @@ msgstr ""
 "\n"
 "Razdvajač:"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Da li stvarno želite da zamjenite sve umjetnike i naslove?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Zamjeni izvođačee i naslove"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "Da li stvarno želite pisati velikim slovima sve umjetnike i naslove?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Kapitaliziraj umjetnike i naslove"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Da li stvarno želite automatski popuniti numere umjetnika?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "Automatski popuni umjetnike"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Izbaci"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, fuzzy, kde-format
 #| msgid "Fetch Info"
 msgid "Fetch"
 msgstr "Dobavi informacije"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, fuzzy, kde-format
 #| msgid "Submit Info"
 msgid "Submit"
 msgstr "Potvrdi informacije"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, fuzzy, kde-format
 #| msgid "Edit Data"
 msgid "Edit"
 msgstr "Izmijeni podatke"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Snimi..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "Razdvoji naslove..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Zamjeni izvođače i naslove"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Veliko prvo slovo"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Automatski popuni umjetnike"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Odaberi sve numere"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Deselektuj sve numere"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Obrni izbor"
@@ -1483,10 +1501,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Format datoteke heš liste je nepoznat."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 "Format datoteke heš liste je nepoznat. Molimo odaberite jedan od formata: "
 "SFV, MD5."
@@ -1560,7 +1581,7 @@ msgid "This is an internal error. Please report."
 msgstr "Ovo je unutrašnja greška. Molimo prijavite."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopiraj"
@@ -1995,10 +2016,10 @@ msgstr ""
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
@@ -2013,7 +2034,7 @@ msgid ""
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"

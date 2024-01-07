@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 02:27+0000\n"
-"PO-Revision-Date: 2024-01-04 10:17+0100\n"
+"POT-Creation-Date: 2024-01-07 03:07+0000\n"
+"PO-Revision-Date: 2024-01-06 14:23+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -135,149 +135,149 @@ msgstr "Hulpmiddelen voor titelcorrectie"
 msgid "&Settings"
 msgstr "&Instellingen"
 
-#: core/audex.cpp:99
+#: core/audex.cpp:98
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Geen profiel geselecteerd. Bewerking wordt afgebroken."
 
-#: core/audex.cpp:111
+#: core/audex.cpp:110
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Start rippen en encoderen met profiel \"%1\"..."
 
-#: core/audex.cpp:617 core/audex.cpp:677
+#: core/audex.cpp:616 core/audex.cpp:676
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Kan het pad \"%1\" niet vinden."
 
-#: core/audex.cpp:617 core/audex.cpp:677 core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Controleer uw pad (schrijftoegang?)"
 
-#: core/audex.cpp:630
+#: core/audex.cpp:629
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Vrije ruimte op \"%1\" is minder dan 200 MiB."
 
-#: core/audex.cpp:636 core/audex.cpp:705
+#: core/audex.cpp:635 core/audex.cpp:704
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Waarschuwing! Bestand \"%1\" bestaat reeds. Overschrijven."
 
-#: core/audex.cpp:638 core/audex.cpp:707 core/audex.cpp:1066
+#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Waarschuwing! Bestand \"%1\" bestaat reeds. Overslaan."
 
-#: core/audex.cpp:686 core/audex.cpp:1086
+#: core/audex.cpp:685 core/audex.cpp:1087
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Kan map \"%1\" niet aanmaken."
 
-#: core/audex.cpp:689 core/audex.cpp:1089
+#: core/audex.cpp:688 core/audex.cpp:1090
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Map \"%1\" met succes aangemaakt."
 
-#: core/audex.cpp:692
+#: core/audex.cpp:691
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Map \"%1\" bestaat reeds."
 
-#: core/audex.cpp:699
+#: core/audex.cpp:698
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Vrije ruimte op \"%1\" is minder dan 800 MiB."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Fout met tijdelijke map \"%1\" (%2)."
 
-#: core/audex.cpp:722
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please check."
 msgstr "Controleer a.u.b."
 
-#: core/audex.cpp:730
+#: core/audex.cpp:729
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Vrije ruimte in de tijdelijke map \"%1\" is minder dan 800 MiB."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "Tijdelijke map \"%1\" heeft op zijn minst 200 Mib aan vrije ruimte nodig."
 
-#: core/audex.cpp:732
+#: core/audex.cpp:731
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Maak a.u.b. ruimte vrij of geef een andere locatie op."
 
-#: core/audex.cpp:761
+#: core/audex.cpp:760
 #, kde-format
 msgid "Eject CD tray"
 msgstr "CD-lade uitwerpen"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:808
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Albumhoes \"%1\" met succes opgeslagen."
 
-#: core/audex.cpp:812
+#: core/audex.cpp:811
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Kan hoes \"%1\" niet opslaan."
 
-#: core/audex.cpp:812 core/audex.cpp:886 core/audex.cpp:925 core/audex.cpp:970
-#: core/audex.cpp:1007 core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
+#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Controleer uw pad en rechten"
 
-#: core/audex.cpp:882
+#: core/audex.cpp:881
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Afspeellijst \"%1\" met succes aangemaakt."
 
-#: core/audex.cpp:886
+#: core/audex.cpp:885
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Kan afspeellijst \"%1\" niet opslaan."
 
-#: core/audex.cpp:922
+#: core/audex.cpp:921
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Infobestand \"%1\" met succes aangemaakt."
 
-#: core/audex.cpp:925
+#: core/audex.cpp:924
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Kan informatiebestand \"%1\" niet opslaan."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:968
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Hashlijst \"%1\" met succes aangemaakt."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:971
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Kan hashlijst \"%1\" niet opslaan."
 
-#: core/audex.cpp:1004
+#: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Instructielijst \"%1\" met succes aangemaakt."
 
-#: core/audex.cpp:1007
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Kan cue-sheet \"%1\" niet opslaan."
 
-#: core/audex.cpp:1054 core/audex.cpp:1081
+#: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Kan map \"%1\" niet openen."
@@ -363,10 +363,9 @@ msgid "Command Scheme Wizard"
 msgstr "Assistent voor commandoschema"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Commandoschema is leeg."
+msgstr "Commandoschema voor help"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -386,7 +385,7 @@ msgstr "Sampler Voorbeeld:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Help"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -671,10 +670,9 @@ msgid "Scheme Wizard"
 msgstr "Assistent voor schema"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Bestandsnaam van assistent voor schema"
+msgstr "Bestandsnaamschema voor help"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -776,9 +774,15 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification; Eenvoudige bestandsverificatie)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, kde-format
-msgid "MD5 (Message-Digest algorithm 5)"
+#, fuzzy, kde-format
+#| msgid "MD5 (Message-Digest algorithm 5)"
+msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest algoritme 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:45
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -788,7 +792,7 @@ msgstr "Info Instellingen"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Tekstinformatieschema voor help"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1065,32 +1069,44 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 "Niet alle geluidstracks geselecteerd voor een rip naar een enkel bestand"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:149
+#, fuzzy, kde-format
+#| msgid "No disc information set. Do you really want to continue?"
+msgid "No cover was set. Do you really want to continue?"
+msgstr "Geen schijfinformatie ingesteld. Bent u zeker dat u wilt verdergaan?"
+
+#: mainwindow.cpp:150
+#, fuzzy, kde-format
+#| msgid "Cover File"
+msgid "Cover is empty"
+msgstr "Albumhoesbestand"
+
+#: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
 msgstr "Algemene instellingen"
 
-#: mainwindow.cpp:164
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Device settings"
 msgstr "Apparaatinstellingen"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:180
 #, kde-format
 msgid "Profiles"
 msgstr "Profielen"
 
-#: mainwindow.cpp:176
+#: mainwindow.cpp:189
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB-instellingen"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:192
 #, kde-format
 msgid "Remote Server"
 msgstr "Remote Server"
 
-#: mainwindow.cpp:219
+#: mainwindow.cpp:232
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1099,17 +1115,17 @@ msgstr ""
 "Opzoeken in CDDB is mislukt met de volgende fout:\n"
 "%1"
 
-#: mainwindow.cpp:221
+#: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Zoeken in CDD is mislukt"
 
-#: mainwindow.cpp:326
+#: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
 msgstr "Split titels"
 
-#: mainwindow.cpp:327
+#: mainwindow.cpp:340
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1120,108 +1136,108 @@ msgstr ""
 "\n"
 "Splitsingskarakter:"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Bent u zeker dat u alle artiesten en titels wilt wisselen?"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Wissel artiesten en titels"
 
-#: mainwindow.cpp:354
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Bent u zeker dat u alle artiesten en titels wilt met hoofdletters schrijven?"
 
-#: mainwindow.cpp:355
+#: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Artiesten en titels met hoofdletters schrijven"
 
-#: mainwindow.cpp:369
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Bent u zeker dat u track artiesten wilt auto-invullen?"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
 msgstr "Artiesten Auto-invullen"
 
-#: mainwindow.cpp:397
+#: mainwindow.cpp:410
 #, kde-format
 msgid "Eject"
 msgstr "Uitwerpen"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Profile:"
 msgstr "Profiel:"
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profiel:"
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile"
 msgstr "Profiel"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:443
 #, kde-format
 msgid "Fetch"
 msgstr "Ophalen"
 
-#: mainwindow.cpp:437
+#: mainwindow.cpp:450
 #, kde-format
 msgid "Submit"
 msgstr "Indienen"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:456
 #, kde-format
 msgid "Edit"
 msgstr "Bewerken"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:463
 #, kde-format
 msgid "Rip..."
 msgstr "Rippen..."
 
-#: mainwindow.cpp:459
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
 msgstr "Titels splitsen..."
 
-#: mainwindow.cpp:464
+#: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Wissel artiesten en titels om"
 
-#: mainwindow.cpp:469
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Capitalize"
 msgstr "Kapitaliseren"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Artiesten automatisch invullen"
 
-#: mainwindow.cpp:479
+#: mainwindow.cpp:492
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Selecteer alle tracks"
 
-#: mainwindow.cpp:484
+#: mainwindow.cpp:497
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Deselecteer alle tracks"
 
-#: mainwindow.cpp:489
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Invert Selection"
 msgstr "Selectie omkeren"
@@ -1467,10 +1483,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Het hashlijst bestandsformaat is onbekend."
 
 #: models/profilemodel.cpp:264
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your given hashlist file format is unknown. Please choose on of these "
+#| "formats: SFV, MD5."
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
+"formats: SFV, MD5, SHA-256."
 msgstr ""
 "Het bestandsformaat van uw opgegeven hashlijst is onbekend. Kies a.u.b. één "
 "van deze formaten: SFV, MD5."
@@ -1547,7 +1566,7 @@ msgid "This is an internal error. Please report."
 msgstr "Dit is een interne fout. Rapporteer a.u.b."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:871 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopiëren"
@@ -1882,26 +1901,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Kon geen tijdelijk hoesbestand aanmaken: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1919,25 +1919,22 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Schema's van bestandsnamen zonder een absoluut pad zullen relatief zijn "
-"ten opzichte van de geripte muziekbestanden.</p><p>De volgende variabelen "
-"zullen worden vervangen door hun specifieke waarde in elke tracknaam.</"
-"p><p><table border=\"1\"><tr><th><em>Variabele</em></"
-"th><th><em>Beschrijving</em></th></tr><tr><td>$artist</td><td>De artiest van "
-"de cd. Als uw cd een compilatie is, dan representeert deze tag in de meeste "
-"gevallen de titel.</td></tr><tr><td>$title</td><td>De titel van de cd. Als "
-"uw cd een compilatie is, dan representeert deze tag in de meeste gevallen de "
-"ondertitel.</td></tr><tr><td>$date</td><td>De uitgavedatum van de cd. In "
-"bijna alle gevallen is dit het jaar.</td></tr><tr><td>$genre</td><td>Het "
-"genre van de cd.</td></tr><tr><td>$cdno</td><td>Het nummer van de cd in een "
-"multi-cd-album. Compilaties bestaan vaak uit verschillende cd's. "
-"<i>Opmerking:</i> Als de multi-cd-vlag <b>niet</b> is gezet voor de huidige "
-"cd, dan zal deze waarde gewoon leeg zijn.</td></tr><tr><td>$suffix</"
-"td><td>De extensie van de bestandsnaam (bijv. \".jpg\", \".m3u\", \"."
-"md5\" ...).</td></tr><tr><td>$nooftracks</td><td>Het totale aantal "
-"geluidstracks van de cd.</td></tr><tr><td>$encoder</td><td>Naam en versie "
-"van de encoder.</td></tr><tr><td>$audex</td><td>Audex-naam en versie.</td></"
-"tr></table></p>"
+"<p>De volgende plaatshouders zullen worden vervangen door hun specifieke "
+"betekenis.</p><table><tr><th>Plaatshouder</th><th>Beschrijving</th></"
+"tr><tr><td><tt>$artist</tt></td><td>De artiest van de cd. Als uw cd een "
+"compilatie is, dan representeert deze tag in de meeste gevallen de titel.</"
+"td></tr><tr><td><tt>$title</tt></td><td>De titel van de cd. Als uw cd een "
+"compilatie is, dan representeert deze tag in de meeste gevallen de "
+"ondertitel.</td></tr><tr><td><tt>$date</tt></td><td>De uitgavedatum van de "
+"cd. In bijna alle gevallen is dit het jaar.</td></tr><tr><td><tt>$genre</"
+"tt></td><td>Het genre van de cd.</td></tr><tr><td><tt>$cdno</tt></td><td>Het "
+"nummer van de cd in een multi-cd-album. Compilaties bestaan vaak uit "
+"verschillende cd's. <i>Opmerking:</i> Als de multi-cd-vlag <b>niet</b> is "
+"gezet voor de huidige cd, dan zal deze waarde leeg zijn.</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>Het totale aantal geluidstracks van "
+"de cd.</td></tr><tr><td><tt>$encoder</tt></td><td>Naam en versie van de "
+"codeerder.</td></tr><tr><td><tt>$audex</tt></td><td>Audex-naam en versie.</"
+"td></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1969,6 +1966,34 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Plaatshouders in Audex kunnen parameters hebben in de vorm van "
+"sleutel=waarde. Bijv. <tt>${title lowercase=true}</tt>. In dit voorbeeld zal "
+"de titel kleine letters krijgen. De volgende algemene parameters kunnen met "
+"plaatshouders gebruikt worden:</p><table><tr><th>Sleutel</th><th>Waarde</"
+"th><th>Beschrijving</th></tr><tr><td><tt>lowercase</tt></td><td>true/false</"
+"td><td>De plaatshouderwaarde zal kleine letters worden.</td></"
+"tr><tr><td><tt>uppercase</tt></td><td>true/false</td><td>De "
+"plaatshouderwaarde zal hoofdletters worden.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Vervang de "
+"spaties van de plaatshouderwaarde door underscores.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Vervang "
+"onjuiste bestandsnaamtekens van een FAT32-bestandssysteem door underscores.</"
+"td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Vervang "
+"tekens. Deze parameter heeft twee extra sleutels met dezelfde grootte van de "
+"waarde nodig:<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. "
+"Dit zijn lijsten met tekens. Het eerste teken van<tt>replace_char_list_from</"
+"tt> zal vervangen worden door het eerste teken van <tt>replace_char_list_to</"
+"tt> enzovoort.</td></tr><tr><td><tt>left</tt></td><td>getal</td><td>Neem n "
+"tekens uit de linkerkant van de plaatshouderwaarde.</td></"
+"tr><tr><td><tt>length</tt></td><td>getal</td><td>Als de plaatshouderwaarde "
+"een getal is breidt het uit tot de gegeven lengte. Verder kunt u een "
+"vulteken definiëren met de extra sleutel <tt>fillchar</tt>. Standaard "
+"vulteken is '0'.</td></tr><tr><td><tt>pre</tt></td><td>tekenreeks</"
+"td><td>Een tekenreeks die geplaatst zal worden <b>voor</b> de waarde. "
+"Speciaal nuttig voor opdrachtregelparameters die helemaal niet ingesteld "
+"zouden moeten worden als de waarde leeg is.</td></tr><tr><td><tt>post</tt></"
+"td><td>tekenreeks</td><td>Een tekenreeks die geplaatst zal worden <b>na</b> "
+"de waarde.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -1980,31 +2005,85 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Plaatshouder</th><th>Beschrijving</th></tr><tr><td>$tartist</"
+"td><td>Dit is de artiest van elke track. Het is speciaal nuttig bij cd's met "
+"compilaties.</td></tr><tr><td>$ttitle</td><td>De titel van de track. Normaal "
+"heeft iedere track op een cd zijn eigen titel, wat de naam van de song is.</"
+"td></tr><tr><td>$trackno</td><td>Het nummer van de track. Eerste track is 1."
+"</td></tr></table>"
 
 #: utils/schemeparser.h:199
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
+#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
+#| "This is the inputinput file for your command line encoder.</td></"
+#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
+#| "path. Use it as the output for your command line encoder.</td></"
+#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
+#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
+#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
+#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
+#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
+#| "cover files larger than 128 KiB.</i></td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
-"WAVE) created by Audex from CD audio track. This is the inputinput file for "
-"your command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The "
-"full output filename and path. Use it as the output for your command line "
-"encoder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
 "td><td>Filename of the cover file. If no cover is set, this will be empty. "
 "Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
 "scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Plaatshouder</th><th>Specifieke parameter</"
+"th><th>Beschrijving</th></tr><tr><td><tt>$i</tt></td><td></td><td>Het "
+"tijdelijke WAVE-bestand (RIFF WAVE) aangemaakt door Audex uit de "
+"geluidstrack van de cd. Dit is het invoerbestand voor uw "
+"opdrachtregelcodeerder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>De "
+"volledige uitvoerbestandsnaam en pad. Gebruik het als de uitvoer voor uw "
+"opdrachtregelcodeerder.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,"
+"x,y</tt></td><td>Bestandsnaam van het hoesbestand. Als geen hoes is "
+"ingesteld, zal dit leeg zijn. Meestal nuttig samen met de parameter <tt>pre</"
+"tt>. Afbeelding kan geschaald worden met de parameters <tt>x</tt> en <tt>y</"
+"tt>. Mogelijke afbeeldings<tt>formaten</tt> zijn JPEG, PNG, GIF of BMP "
+"(Standaard: JPEG). <i><b>Opmerking:</b> LAME bant hoesbestanden groter dan "
+"128 KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
+#| "td><td>Prints the overall size of all extracted (encoded) music files "
+#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
+#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
+#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
+#| "td><td>Prints the relevant overall length of all extracted tracks. The "
+#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
+#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
+#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
+#| "date and/or time. The parameter format specifies the output. Please "
+#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+#| "for the supported specifiers within the format string. With the "
+#| "additional key <tt>locale</tt> you can specify a language setting. By "
+#| "default your system locales are used. The locale has the format "
+#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
 "overall size of all extracted (encoded) music files (incl. the cover image "
 "file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
-"parameter <tt>precise</tt> can define the number of decimal places.</td></"
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
 "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
@@ -2021,6 +2100,27 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Plaatshouder</th><th>Specifieke parameter</"
+"th><th>Beschrijving</th></tr><tr><td>$size</td><td><tt>iec,precisie</tt></"
+"td><td>Toont de overall grootte van alle uitgepakte (gecodeerde) "
+"muziekbestanden (incl. het hoesafbeeldingsbestand). Met <tt>iec</tt> bereken "
+"(k)ibi, (m)ibi of (g)ibi. De extra parameter <tt>precisie</tt> kan het "
+"aantal decimale plaatsen definiëren.</td></tr><tr><td>$length</td><td></"
+"td><td>Toont de relevante overall lengte van alle uitgepakte tracks. Het "
+"formaat is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Toont het "
+"totale aantal uitgepakte tracks.</td></tr><tr><td>$discid</td><td>base</"
+"td><td>Toont de CDDB-discid in hexadecimaal formaat.</td></tr><tr><td>$now</"
+"td><td><tt>formaat,taalcode</tt></td><td>Toont de huidige datum en/of tijd. "
+"Het parameterformaat specificeert de uitvoer. Bekijk de officiële qt "
+"documentatie (<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, "
+"<tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) voor de ondersteunde "
+"specifiers in de tekenreeks van het formaat. Met de extra sleutel "
+"<tt>taalcode</tt> kunt u een taalinstelling specificeren. Standaard worden "
+"de taalcodes van uw systeem gebruikt. De taalcode heeft het formaat "
+"<tt>taal_GEBIED</tt>, bijv. <tt>nl_NL</tt>. <tt>taal</tt> is een ISO 639 "
+"taalcode in kleine letters, met twee letters, en <tt>GEBIED</tt> een ISO "
+"3166 gebiedscode in hoofdletters, met twee letters.</td></tr><tr><td>$br</"
+"td><td></td><td>Toont een nieuwe regel.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
