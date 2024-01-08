@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-07 01:54+0000\n"
-"PO-Revision-Date: 2024-01-06 23:11+0300\n"
+"POT-Creation-Date: 2024-01-08 01:35+0000\n"
+"PO-Revision-Date: 2024-01-07 13:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -751,12 +751,12 @@ msgstr "Ad/Şema:"
 msgid "Modify Profile"
 msgstr "Profili Düzenle"
 
-#: dialogs/profiledatadialog.cpp:186
+#: dialogs/profiledatadialog.cpp:187
 #, kde-format
 msgid "Create Profile"
 msgstr "Profil Oluştur"
 
-#: dialogs/profiledatadialog.cpp:196
+#: dialogs/profiledatadialog.cpp:197
 #, kde-format
 msgid "New Profile"
 msgstr "Yeni Profil"
@@ -773,15 +773,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Basit Dosya Doğrulaması)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (İleti özeti algoritması 5)"
+msgstr "MD5 (İleti Özeti Algoritması 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Güvenli Sağlama Algoritması)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -1066,16 +1065,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "Tek dosya dönüştürme için tüm ses parçaları seçili değil"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Disk bilgisi ayarlanmamış. Sürdürmeyi gerçekten istiyor musunuz?"
+msgstr "Ayarlanan kapak yok. Sürdürmeyi gerçekten istiyor musunuz?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Kapak Dosyası"
+msgstr "Kapak boş"
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1136,7 +1133,7 @@ msgstr ""
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr ""
-"Tüm sanatçıları ve başlıkları gerçekten birbiriyle değiştirmek istiyor "
+"Tüm sanatçıları ve başlıkları birbiriyle değiştirmeyi gerçekten istiyor "
 "musunuz?"
 
 #: mainwindow.cpp:353
@@ -1148,7 +1145,7 @@ msgstr "Sanatçıları ve başlıkları birbirleriyle değiştir"
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
-"Tüm sanatçıları ve başlıkları gerçekten büyük harf yapmak istiyor musunuz?"
+"Tüm sanatçıları ve başlıkları gerçekten BÜYÜK harf yapmak istiyor musunuz?"
 
 #: mainwindow.cpp:368
 #, kde-format
@@ -1480,13 +1477,13 @@ msgstr "Sağlama listesi dosya biçimi geçersiz."
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#| "formats: SFV, MD5, SHA-256."
 msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
+"Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "Verdiğiniz sağlama listesi dosya biçimi geçersiz. Lütfen şu biçimlerden "
-"biriniseçin: SFV, MD5."
+"birini seçin: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -1876,7 +1873,23 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Geçici kapak dosyası oluşturulamadı: %1"
 
 #: utils/schemeparser.h:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>The following placeholders will be replaced with their particular "
+#| "meaning:</p><table><tr><th>Placeholder</th><th>Description</th></"
+#| "tr><tr><td><tt>$artist</tt></td><td>The artist of the CD. If your CD is a "
+#| "compilation then this tag represents the title in most cases.</td></"
+#| "tr><tr><td><tt>$title</tt></td><td>The title of the CD. If your CD is a "
+#| "compilation then this tag represents the subtitle in most cases.</td></"
+#| "tr><tr><td><tt>$date</tt></td><td>The release date of the CD. In almost "
+#| "all cases this is the year.</td></tr><tr><td><tt>$genre</tt></td><td>The "
+#| "genre of the CD.</td></tr><tr><td><tt>$cdno</tt></td><td>The CD number of "
+#| "a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> "
+#| "If the multi-CD flag is <b>not</b> set for the current CD, than this "
+#| "value will be empty.</td></tr><tr><td><tt>$nooftracks</tt></td><td>The "
+#| "total number of audio tracks of the CD.</td></tr><tr><td><tt>$encoder</"
+#| "tt></td><td>Encoder name and version.</td></tr><tr><td><tt>$audex</tt></"
+#| "td><td>Audex name and version.</td></tr></table>"
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1888,7 +1901,7 @@ msgid ""
 "td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
 "tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"<b>not</b> set for the current CD then this value will be empty.</td></"
 "tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
 "the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
@@ -1984,20 +1997,7 @@ msgstr ""
 "table>"
 
 #: utils/schemeparser.h:199
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
-#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
-#| "This is the inputinput file for your command line encoder.</td></"
-#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
-#| "path. Use it as the output for your command line encoder.</td></"
-#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
-#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
-#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
-#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
-#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
-#| "cover files larger than 128 KiB.</i></td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
@@ -2025,29 +2025,7 @@ msgstr ""
 "dosyalarını atar.</i></td></tr></table>"
 
 #: utils/schemeparser.h:213
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2074,7 +2052,7 @@ msgstr ""
 "tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Çıkarılan (kodlanan) "
 "tüm müzik dosyalarının ortalama boyutunu yazdırır (kapak görseli dosyası "
 "içerilir). <tt>iec</tt> ile (k)ibi, (m)ebi veya (g)ibi hesaplanır. Ek "
-"<tt>precise</tt> parametresi, ondalık sayısını tanımlayabilir.</td></"
+"<tt>precision</tt> parametresi, ondalık sayısını tanımlayabilir.</td></"
 "tr><tr><td>$length</td><td></td><td>Çıkarılan tüm izlerin ilgili ortalama "
 "uzunluğunu yazdırır. Biçim, dak:san'dir.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Çıkarılan toplam iz sayısını yazdırır.</td></tr><tr><td>"
@@ -2109,7 +2087,7 @@ msgstr "CD numarası: "
 #: widgets/cddaheaderwidget.cpp:147
 #, kde-format
 msgid "No audio CD detected"
-msgstr "Ses diski bulunamadı"
+msgstr "Algılanan ses CD'si yok"
 
 #: widgets/cddaheaderwidget.cpp:260
 #, kde-format
@@ -2283,7 +2261,7 @@ msgid ""
 "but if you must have the absolute highest quality with no regard to "
 "filesize, this is the way to go."
 msgstr ""
-"Bu ön ayar genellikle çoğu kişi ve durum için gereğinden fazla olacaktır; "
+"Bu önayar genellikle çoğu kişi ve durum için gereğinden fazla olacaktır; "
 "ancak dosya boyutuna bakılmaksızın mutlak en yüksek kaliteye sahip olmanız "
 "gerekiyorsa gidilecek yol budur."
 
@@ -2376,7 +2354,7 @@ msgstr "Kod Çözücü Tarama"
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
-msgstr "Yeni kod çözücüler bulunmadı"
+msgstr "Bulunan yeni kod çözücü yok"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format

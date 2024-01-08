@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-07 01:54+0000\n"
-"PO-Revision-Date: 2024-01-06 17:16+0100\n"
+"POT-Creation-Date: 2024-01-08 01:35+0000\n"
+"PO-Revision-Date: 2024-01-07 13:04+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -754,12 +754,12 @@ msgstr "Izena/Antolaera:"
 msgid "Modify Profile"
 msgstr "Aldatu profila"
 
-#: dialogs/profiledatadialog.cpp:186
+#: dialogs/profiledatadialog.cpp:187
 #, kde-format
 msgid "Create Profile"
 msgstr "Sortu profila"
 
-#: dialogs/profiledatadialog.cpp:196
+#: dialogs/profiledatadialog.cpp:197
 #, kde-format
 msgid "New Profile"
 msgstr "Profil berria"
@@ -776,15 +776,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (Message-Digest algorithm 5)"
+msgstr "MD5 (Message-Digest Algorithm 5 / Mezu-Sintesi algoritmoa 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Secure Hash Algorithm / Hash algoritmo segurua)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -1069,16 +1068,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "Audio-pista guztiak ez dira hautatu fitxategi bakarrean erauzteko"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Ez da disko informaziorik ezarri. Benetan jarraitu nahi duzu?"
+msgstr "Ez da azalik ezarri. Benetan jarraitu nahi duzu?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Disko-azal fitxategia"
+msgstr "Azala hutsik dago"
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1484,13 +1481,13 @@ msgstr "Hash-zerrendaren fitxategi formatua ezezaguna da."
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#| "formats: SFV, MD5, SHA-256."
 msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
+"Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "Zuk emandako hash-zerrenda fitxategi-formatua ezezaguna da. Mesedez, hautatu "
-"formatu hauetako bat: SFV, MD5."
+"formatu hauetako bat: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -1903,7 +1900,23 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Ezin izan du aldi baterako azal-fitxategia sortu: %1"
 
 #: utils/schemeparser.h:151
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>The following placeholders will be replaced with their particular "
+#| "meaning:</p><table><tr><th>Placeholder</th><th>Description</th></"
+#| "tr><tr><td><tt>$artist</tt></td><td>The artist of the CD. If your CD is a "
+#| "compilation then this tag represents the title in most cases.</td></"
+#| "tr><tr><td><tt>$title</tt></td><td>The title of the CD. If your CD is a "
+#| "compilation then this tag represents the subtitle in most cases.</td></"
+#| "tr><tr><td><tt>$date</tt></td><td>The release date of the CD. In almost "
+#| "all cases this is the year.</td></tr><tr><td><tt>$genre</tt></td><td>The "
+#| "genre of the CD.</td></tr><tr><td><tt>$cdno</tt></td><td>The CD number of "
+#| "a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> "
+#| "If the multi-CD flag is <b>not</b> set for the current CD, than this "
+#| "value will be empty.</td></tr><tr><td><tt>$nooftracks</tt></td><td>The "
+#| "total number of audio tracks of the CD.</td></tr><tr><td><tt>$encoder</"
+#| "tt></td><td>Encoder name and version.</td></tr><tr><td><tt>$audex</tt></"
+#| "td><td>Audex name and version.</td></tr></table>"
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1915,7 +1928,7 @@ msgid ""
 "td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
 "tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"<b>not</b> set for the current CD then this value will be empty.</td></"
 "tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
 "the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
@@ -2011,20 +2024,7 @@ msgstr ""
 "tr></table>"
 
 #: utils/schemeparser.h:199
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>The "
-#| "temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. "
-#| "This is the inputinput file for your command line encoder.</td></"
-#| "tr><tr><td><tt>$o</tt></td><td></td><td>The full output filename and "
-#| "path. Use it as the output for your command line encoder.</td></"
-#| "tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename "
-#| "of the cover file. If no cover is set, this will be empty. Mostly useful "
-#| "in conjunction with the <tt>pre</tt> parameter. Image can be scaled with "
-#| "the <tt>x</tt> and <tt>y</tt> parameters. Possible image <tt>formats</tt> "
-#| "are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> LAME discards "
-#| "cover files larger than 128 KiB.</i></td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
@@ -2040,42 +2040,20 @@ msgid ""
 msgstr ""
 "<table><tr><th>Leku-marka</th><th>Berariazko parametroa</"
 "th><th>Deskribapena</th></tr><tr><td><tt>$i</tt></td><td></td><td>«Audex»ek "
-"audio CD pistatik sortutako aldi baterako WAVE fitxategia (RIFF WAVE). Hori "
+"CD audio pistatik sortutako aldi baterako WAVE fitxategia (RIFF WAVE). Hori "
 "da zure komando-lerroko kodetzailerako sarrera-fitxategia.</td></"
-"tr><tr><td><tt>$o</tt></td><td></td><td>Fitxategi-izen eta bide-izen irteera "
-"osoa. Erabil ezazu zure komando-lerroko kodetzailearen irteera gisa.</td></"
-"tr><tr><td><tt>$cover</tt></td><td><tt>formatua,x,y</tt></td><td>Azal-"
+"tr><tr><td><tt>$o</tt> </td><td></td><td>Fitxategi-izen eta bide-izen "
+"irteera osoa. Erabil ezazu zure komando-lerroko kodetzailearen irteera gisa."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>formatua,x,y</tt></td><td>Azal-"
 "fitxategiaren fitxategi-izena. Azalik ezartzen ez bada, hori hutsik egongo "
-"da. Batez ere, <tt>pre</tt> parametroarekin erabilgarria. Irudia <tt>x</tt> "
+"da. Batez ere, <tt>pre</tt>parametroarekin erabilgarria. Irudia <tt>x</tt> "
 "eta <tt>y</tt> parametroekin eskala daiteke. Irudi <tt>formatuak</tt> JPEG, "
 "PNG, GIF edo BMP (Lehenetsia: JPEG) izan daitezke. <i><b>Oharra:</b> «LAME»k "
-"128 KiB baino gehiagoko azal- fitxategiak baztertzen ditu.</i></td></tr></"
+"128 KiB baino azal-fitxategi handiagoak baztertzen ditu.</i></td></tr></"
 "table>"
 
 #: utils/schemeparser.h:213
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precise</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2100,7 +2078,7 @@ msgid ""
 msgstr ""
 "<table><tr><th>Leku-marka</th><th>Berariazko parametroa</"
 "th><th>Deskribapena</th></tr><tr><td>$size</td><td><tt>iec,doitasuna</tt></"
-"td><td> Erauzitako (kodetutako) musika-fitxategi guztien neurri osoa "
+"td><td>Erauzitako (kodetutako) musika-fitxategi guztien neurri osoa "
 "inprimatzen du (azaleko irudi-fitxategia barne). <tt>iec</tt>ekin, kalkulatu "
 "(k)ibi, (m)ebi edo (g)ibi. <tt>doitasuna</tt> parametro osagarriak "
 "hamartarretarako leku kopurua definitu dezake.</td></tr><tr><td>$length</"

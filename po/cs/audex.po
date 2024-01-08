@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-07 01:54+0000\n"
+"POT-Creation-Date: 2024-01-08 01:35+0000\n"
 "PO-Revision-Date: 2023-06-23 11:45+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -763,12 +763,12 @@ msgstr ""
 msgid "Modify Profile"
 msgstr "Pozměnit profil"
 
-#: dialogs/profiledatadialog.cpp:186
+#: dialogs/profiledatadialog.cpp:187
 #, kde-format
 msgid "Create Profile"
 msgstr "Vytvořit profil"
 
-#: dialogs/profiledatadialog.cpp:196
+#: dialogs/profiledatadialog.cpp:197
 #, kde-format
 msgid "New Profile"
 msgstr "Nový profil"
@@ -1508,7 +1508,7 @@ msgstr "Formát souboru hašového seznamu je neznámý."
 #| "Your given hashlist file format is unknown. Please choose on of these "
 #| "formats: SFV, MD5."
 msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
+"Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "Formát souboru hašového seznamu, který jste poskytl, je neznámý. Prosím, "
@@ -1948,7 +1948,7 @@ msgid ""
 "td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
 "tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"<b>not</b> set for the current CD then this value will be empty.</td></"
 "tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
 "the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
