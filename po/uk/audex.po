@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-07 03:07+0000\n"
-"PO-Revision-Date: 2024-01-04 09:21+0200\n"
+"POT-Creation-Date: 2024-01-08 02:30+0000\n"
+"PO-Revision-Date: 2024-01-07 15:04+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -366,10 +366,9 @@ msgid "Command Scheme Wizard"
 msgstr "Майстер схем команд"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Схему команди не вказано."
+msgstr "Довідка зі схеми команд"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -389,7 +388,7 @@ msgstr "Контрольний приклад:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Довідка"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -674,10 +673,9 @@ msgid "Scheme Wizard"
 msgstr "Майстер схем"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Майстер схем назв файлів"
+msgstr "Довідка зі схеми назв файлів"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -757,12 +755,12 @@ msgstr "Назва/Схема:"
 msgid "Modify Profile"
 msgstr "Змінити профіль"
 
-#: dialogs/profiledatadialog.cpp:186
+#: dialogs/profiledatadialog.cpp:187
 #, kde-format
 msgid "Create Profile"
 msgstr "Створити профіль"
 
-#: dialogs/profiledatadialog.cpp:196
+#: dialogs/profiledatadialog.cpp:197
 #, kde-format
 msgid "New Profile"
 msgstr "Новий профіль"
@@ -779,15 +777,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (алгоритм Message-Digest 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (алгоритм безпечного хешування)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -797,7 +794,7 @@ msgstr "Параметри інформації"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Довідка зі схеми текстових відомостей"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -1073,16 +1070,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "Не всі звукові доріжки було позначено для видобування до єдиного файла"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Не вказано відомостей про диск. Ви справді бажаєте продовжувати?"
+msgstr "Не встановлено зображення обкладинки. Ви справді бажаєте продовжувати?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Файл обкладинки"
+msgstr "Порожня обкладинка"
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1490,13 +1485,13 @@ msgstr "Невідомий формат файла списку хешів."
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#| "formats: SFV, MD5, SHA-256."
 msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
+"Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "Вказаний вами формат файла списку хешів невідомий програмі. Будь ласка, "
-"виберіть один з таких форматів: SFV, MD5."
+"виберіть один з таких форматів: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -1913,24 +1908,21 @@ msgstr "Не вдалося створити тимчасовий файл об�
 #: utils/schemeparser.h:151
 #, fuzzy, kde-format
 #| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#| "<p>The following placeholders will be replaced with their particular "
+#| "meaning:</p><table><tr><th>Placeholder</th><th>Description</th></"
+#| "tr><tr><td><tt>$artist</tt></td><td>The artist of the CD. If your CD is a "
+#| "compilation then this tag represents the title in most cases.</td></"
+#| "tr><tr><td><tt>$title</tt></td><td>The title of the CD. If your CD is a "
+#| "compilation then this tag represents the subtitle in most cases.</td></"
+#| "tr><tr><td><tt>$date</tt></td><td>The release date of the CD. In almost "
+#| "all cases this is the year.</td></tr><tr><td><tt>$genre</tt></td><td>The "
+#| "genre of the CD.</td></tr><tr><td><tt>$cdno</tt></td><td>The CD number of "
+#| "a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> "
+#| "If the multi-CD flag is <b>not</b> set for the current CD, than this "
+#| "value will be empty.</td></tr><tr><td><tt>$nooftracks</tt></td><td>The "
+#| "total number of audio tracks of the CD.</td></tr><tr><td><tt>$encoder</"
+#| "tt></td><td>Encoder name and version.</td></tr><tr><td><tt>$audex</tt></"
+#| "td><td>Audex name and version.</td></tr></table>"
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1942,31 +1934,28 @@ msgid ""
 "td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
 "tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"<b>not</b> set for the current CD then this value will be empty.</td></"
 "tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
 "the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Назви файлів без повного шляху до них вважатимуться адресами відносно "
-"каталогу видобування файлів музичних даних.</p><p>Наведені нижче змінні буде "
-"замінено на їх значення у всіх назвах файлів композицій.</p><p><table border="
-"\"1\"><tr><th><em>Змінна</em></th><th><em>Опис</em></th></tr><tr><td>"
-"$artist</td><td>Виконавець композицій компакт-диска. Якщо компакт-диск є "
-"збірником творів різних виконавців, здебільшого значенням цієї змінної є "
-"назва компакт-диска.</td></tr><tr><td>$title</td><td>Назва компакт-диска. "
-"Якщо компакт-диска є збірником творів різних виконавців, значенням цієї "
-"змінної є підзаголовок.</td></tr><tr><td>$date</td><td>Дата випуску компакт-"
-"диска. Здебільшого використовують рік випуску компакт-диска.</td></"
-"tr><tr><td>$genre</td><td>Жанр компакт-диска.</td></tr><tr><td>$cdno</"
-"td><td>Номер компакт-диска у альбомі з декількох компакт-дисків. Збірники "
-"часто складаються з декількох компакт-дисків. <i>Зауваження:</i> якщо для "
-"поточного компакт-диска прапорець збірника <b>не</b> встановлено, значення "
-"цього параметра буде порожнім рядком.</td></tr><tr><td>$suffix</"
-"td><td>Суфікс назви файла.</td></tr><tr><td>$nooftracks</td><td>Загальна "
-"кількість звукових доріжок на компакт-диску.</td></tr><tr><td>$encoder</"
-"td><td>Назва і версія засобу кодування.</td></tr><tr><td>$audex</"
-"td><td>Назва Audex і версія програми.</td></tr></table></p>"
+"<p>Наведені нижче замінники буде замінено на відповідні значення:</"
+"p><table><tr><th>Замінник</th><th>Опис</th></tr><tr><td><tt>$artist</tt></"
+"td><td>Виконавець композицій на компакт-диску. Якщо компакт-диск є "
+"компіляцією, у більшості випадків цій мітці відповідає заголовок компакт-"
+"диска.</td></tr><tr><td><tt>$title</tt></td><td>Заголовок компакт-диска. "
+"Якщо компакт-диск є компіляцією, ця мітка у більшості випадків відповідає "
+"підзаголовку.</td></tr><tr><td><tt>$date</tt></td><td>Дата випуску компакт-"
+"диска. У більшості випадків це рік.</td></tr><tr><td><tt>$genre</tt></"
+"td><td>Жанр компакт-диска.</td></tr><tr><td><tt>$cdno</tt></td><td>Номер "
+"компакт-диска у альбомі з декількох компакт-дисків. Компіляції часто "
+"складаються з декількох компакт-дисків. <i>Зауваження:</i> якщо для "
+"поточного компакт-диска <b>не</b> встановлено прапорець наявності декількох "
+"дисків, це значення буде порожнім.</td></tr><tr><td><tt>$nooftracks</tt></"
+"td><td>Загальна кількість звукових доріжок компакт-диска.</td></"
+"tr><tr><td><tt>$encoder</tt></td><td>Назва і версія засобу кодування.</td></"
+"tr><tr><td><tt>$audex</tt></td><td>Назва і версія Audex.</td></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1998,6 +1987,34 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Замінники в Audex можуть мати параметри у формі ключ=значення. Приклад: "
+"<tt>${title lowercase=true}</tt>. У цьому прикладі заголовок буде записано "
+"малими літерами. У замінниках можна використовувати такі загальні параметри:"
+"</p><table><tr><th>Ключ</th><th>Значення</th><th>Опис</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>Чи має бути "
+"записано значення замінника малими літерами.</td></tr><tr><td><tt>uppercase</"
+"tt></td><td>true/false</td><td>Чи має бути записано значення замінника "
+"великими літерами.</td></tr><tr><td><tt>underscores</tt></td><td>true/false</"
+"td><td>Чи має бути замінено пробіли у значенні замінника малими символами "
+"підкреслення.</td></tr><tr><td><tt>fat32compatible</tt></td><td>true/false</"
+"td><td>Чи має бути замінено у назві файла символи, які не можна "
+"використовувати у файловій системі FAT32, символами підкреслення.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Чи має бути "
+"замінено символи. Цей параметр потребує двох додаткових ключів зі значеннями "
+"однакового розміру:<tt>replace_char_list_from</tt>, "
+"<tt>replace_char_list_to</tt>. Це списки символів. Перший символ "
+"<tt>replace_char_list_from</tt> буде замінено на перший символ "
+"<tt>replace_char_list_to</tt> тощо.</td></tr><tr><td><tt>left</tt></"
+"td><td>Число</td><td>Взяти вказану кількість символів з лівої частини "
+"значення замінника.</td></tr><tr><td><tt>length</tt></td><td>Число</"
+"td><td>Якщо значенням замінника є число, доповнити його до заданої довжини. "
+"Далі ви можете визначити символ доповнення за допомогою додаткового ключа "
+"<tt>fillchar</tt>. Типовим символом доповнення є «0».</td></"
+"tr><tr><td><tt>pre</tt></td><td>Рядок</td><td>Рядок, який буде дописано "
+"<b>перед</b> значенням. Особливо корисно для параметрів командного рядка, "
+"які не має бути взагалі встановлено, якщо значення є порожнім.</td></"
+"tr><tr><td><tt>post</tt></td><td>Рядок</td><td>Рядок, який має бути дописано "
+"<b>після</b> значення.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -2009,6 +2026,12 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Замінник</th><th>Опис</th></tr><tr><td>$tartist</"
+"td><td>Виконавець усіх доріжок. Особливо корисно для компакт-дисків з "
+"компіляціями.</td></tr><tr><td>$ttitle</td><td>Заголовок доріжки. Зазвичай, "
+"кожна доріжка на компакт-диску має свій заголовок, яким є назва композиції.</"
+"td></tr><tr><td>$trackno</td><td>Номер доріжки. Перша доріжка має номер 1.</"
+"td></tr></table>"
 
 #: utils/schemeparser.h:199
 #, kde-format
@@ -2025,6 +2048,20 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Замінник</th><th>Специфічний параметр</th><th>Опис</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>Тимчасовий файл WAVE (RIFF WAVE), "
+"який створено Audex зі звукової доріжки компакт-диска. Це назва файла "
+"вхідних даних для вашого кодувальника з командного рядка.</td></"
+"tr><tr><td><tt>$o</tt></td><td></td><td>Повна назва і шлях до файла "
+"результатів. Скористайтеся для визначення результату для вашого кодувальника "
+"з командного рядка.</td></tr><tr><td><tt>$cover</tt></td><td><tt>формат,x,y</"
+"tt></td><td>Назва файла зображення обкладинки. Якщо зображення обкладинки не "
+"встановлено, буде порожнім. Здебільшого, корисний у поєднанні із <tt>pre</"
+"tt> параметром. Зображення може бути масштабовано на основі параметрів "
+"<tt>x</tt> і <tt>y</tt>. Можливими значеннями параметра <tt>формат</tt> є "
+"JPEG, PNG, GIF або BMP (типове значення — JPEG). <i><b>Зауваження:</b> LAME "
+"відкидає файли зображень обкладинок, розмір яких перевищує 128 КіБ.</i></"
+"td></tr></table>"
 
 #: utils/schemeparser.h:213
 #, kde-format
@@ -2050,6 +2087,27 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Замінник</th><th>Специфічний параметр</th><th>Опис</th></"
+"tr><tr><td>$size</td><td><tt>iec,точність</tt></td><td>Виводить загальний "
+"розмір усіх видобутих (закодованих) файлів музики (разом із файлом "
+"зображення обкладинки). З <tt>iec</tt> обчислює розмір у (k)ibi, (m)ebi або "
+"(g)ibi. Додатковий параметр <tt>точність</tt> може визначити кількість "
+"десяткових позицій.</td></tr><tr><td>$length</td><td></td><td>Виводить "
+"відповідну загальну тривалість усіх видобутих доріжок. Формат — хвилини:"
+"секунди.</td></tr><tr><td>$nooftracks</td><td></td><td>Виводить загальну "
+"кількість видобутих доріжок.</td></tr><tr><td>$discid</td><td>основа</"
+"td><td>Виводить ідентифікатор диска CDDB у шістнадцятковому форматі.</td></"
+"tr><tr><td>$now</td><td><tt>формат,локаль</tt></td><td>Виводить поточну дату "
+"і/або час. Параметр «формат» визначає формат результату. Будь ласка, "
+"скористайтеся офіційною документацією qt (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>), "
+"щоб ознайомитися із підтримуваними специфікаторами у рядку форматування. З "
+"додатковим ключем <tt>локаль</tt> ви можете визначити параметр мови. Типово "
+"буде використано локаль вашої системи. Локаль слід вказувати у форматі "
+"<tt>мова_КРАЇНА</tt>, приклад: <tt>en_EN</tt>. Параметр <tt>мова</tt> слід "
+"вказувати малими літерами, дві літери, код мови ISO 639, а <tt>КРАЇНА</tt> — "
+"великими літерами, дві літери, код країни ISO 3166.</td></tr><tr><td>$br</"
+"td><td></td><td>Виводить розрив рядка.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
