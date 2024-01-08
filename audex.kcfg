@@ -30,10 +30,6 @@
       <label>Perform cover lookup (amazon) automatically</label>
       <default>true</default>
     </entry>
-    <entry name="wikipediaLocale" type="Int">
-      <label>Wikipedia localization</label>
-      <default>0</default>
-    </entry>
     <entry name="fetchCount" type="Int">
       <label>Number of covers to fetch</label>
       <default>8</default>
