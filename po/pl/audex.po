@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2011, 2014, 2015, 2017, 2019, 2020, 2022, 2023 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2011, 2014, 2015, 2017, 2019, 2020, 2022, 2023, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-07 03:07+0000\n"
-"PO-Revision-Date: 2023-12-30 11:06+0100\n"
+"POT-Creation-Date: 2024-01-08 02:30+0000\n"
+"PO-Revision-Date: 2024-01-07 12:00+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -361,16 +361,14 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Pomocnik wzorca polecenia"
+msgstr "Pomocnik do zapisu poleceń"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Wzorzec polecenia jest pusty."
+msgstr "Pomoc do zapisu poleceń"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -390,7 +388,7 @@ msgstr "Przykład próbkowania:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Pomoc"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -672,13 +670,12 @@ msgstr "Kodowanie ścieżki 8 z 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Pomocnik wzorca"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Asystent wzorca nazwy pliku"
+msgstr "Pomoc wzorca nazw plików"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -735,10 +732,9 @@ msgstr "Format:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "O schematach"
+msgstr "Wzorzec nazw okładek:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -752,19 +748,19 @@ msgstr "Ustawienia arkusza cue"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nazwa/wzorzec:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
 msgid "Modify Profile"
 msgstr "Modyfikuj profil"
 
-#: dialogs/profiledatadialog.cpp:186
+#: dialogs/profiledatadialog.cpp:187
 #, kde-format
 msgid "Create Profile"
 msgstr "Utwórz profil"
 
-#: dialogs/profiledatadialog.cpp:196
+#: dialogs/profiledatadialog.cpp:197
 #, kde-format
 msgid "New Profile"
 msgstr "Nowy profil"
@@ -781,15 +777,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (Message-Digest algorithm 5)"
+msgstr "MD5 (Message-Digest Algorithm 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Secure Hash Algorithm)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -799,7 +794,7 @@ msgstr "Ustawienia informacji"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Pomoc do wzorca tekstu informacyjnego"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -830,7 +825,7 @@ msgstr "Przyrostek:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Schemat:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -875,9 +870,7 @@ msgstr "Zastąp spacje podkreślnikami"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
@@ -951,10 +944,9 @@ msgid "Save %1"
 msgstr "Zapisz %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Asystent wzorca nazwy pliku"
+msgstr "Pomocnik zapisu nazw plików"
 
 #: main.cpp:32
 #, kde-format
@@ -1079,16 +1071,14 @@ msgstr ""
 "Nie wybrano wszystkich ścieżek dźwiękowych do zgrywania do pojedynczego pliku"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Nie ustawiono informacji o dysku. Czy na pewno chcesz kontynuować?"
+msgstr "Nie ustawiono żadnej okładki. Czy na pewno chcesz kontynuować?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Plik okładki"
+msgstr "Okładka jest pusta"
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1403,14 +1393,12 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Nie podano programu kodującego dla profilu. Proszę ustawić jakiś."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "Nie określono wzorca nazwy pliku profilu."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Nie podano wzorca nazwy pliku dla profilu. Proszę ustawić jakiś."
 
@@ -1420,16 +1408,13 @@ msgid "The image file format is unknown."
 msgstr "Format pliku obrazu jest nieznany."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Twój podany format pliku jest nieznany. Proszę wybrać jeden z tych formatów: "
-"JPG/JPEG, PNG lub BMP."
+"JPEG, PNG, TIFF lub BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -1495,13 +1480,13 @@ msgstr "Format pliku listy haszu jest nieznany."
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#| "formats: SFV, MD5, SHA-256."
 msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
+"Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "Twój podany format listy haszu jest nieznany. Proszę wybrać jeden z tych "
-"formatów: SFV, MD5."
+"formatów: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -1790,8 +1775,7 @@ msgid "Custom"
 msgstr "Własny"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
 msgstr "Wzorzec polecenia jest pusty."
 
@@ -1881,17 +1865,17 @@ msgstr "Wystąpił nieznany błąd w %1. To nie powinno się wydarzyć."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Napotkano na niedozwolony znak w miejscu %1: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Napotkano na niezamknięty cudzysłów"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Napotkano na niedozwolony znak w miejscu %1: %2"
 
 #: utils/schemeparser.cpp:127
 #, kde-format
@@ -1899,38 +1883,37 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"replace_char_list wymaga dwóch parametrów więcej, tj. replace_char_list_from "
+"oraz replace_char_list_to o równych rozmiarach."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Niezamknięta klamra."
 
 #: utils/schemeparser.cpp:423
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Nie można utworzyć pliku tymczasowego okładki: %1"
 
 #: utils/schemeparser.h:151
 #, fuzzy, kde-format
 #| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#| "<p>The following placeholders will be replaced with their particular "
+#| "meaning:</p><table><tr><th>Placeholder</th><th>Description</th></"
+#| "tr><tr><td><tt>$artist</tt></td><td>The artist of the CD. If your CD is a "
+#| "compilation then this tag represents the title in most cases.</td></"
+#| "tr><tr><td><tt>$title</tt></td><td>The title of the CD. If your CD is a "
+#| "compilation then this tag represents the subtitle in most cases.</td></"
+#| "tr><tr><td><tt>$date</tt></td><td>The release date of the CD. In almost "
+#| "all cases this is the year.</td></tr><tr><td><tt>$genre</tt></td><td>The "
+#| "genre of the CD.</td></tr><tr><td><tt>$cdno</tt></td><td>The CD number of "
+#| "a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> "
+#| "If the multi-CD flag is <b>not</b> set for the current CD, than this "
+#| "value will be empty.</td></tr><tr><td><tt>$nooftracks</tt></td><td>The "
+#| "total number of audio tracks of the CD.</td></tr><tr><td><tt>$encoder</"
+#| "tt></td><td>Encoder name and version.</td></tr><tr><td><tt>$audex</tt></"
+#| "td><td>Audex name and version.</td></tr></table>"
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1942,30 +1925,28 @@ msgid ""
 "td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
 "tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be empty.</td></"
+"<b>not</b> set for the current CD then this value will be empty.</td></"
 "tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
 "the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
 "<p>Następujące zmienne zostaną zastąpione ich poszczególnymi znaczeniami w "
-"każdej nazwie ścieżki.</p><p><table border=\"1\"><tr><th><em>Zmienna</em></"
-"th><th><em>Opis</em></th></tr><tr><td>$artist</td><td>Wykonawca tej płyty "
-"CD. Jeżeli twoja płyta CD jest kompilacją, to ten znacznik reprezentuje "
-"tytuł w większości przypadków.</td></tr><tr><td>$title</td><td>Tytuł płyty "
-"CD. Jeżeli twoja płyta CD jest kompilacją, to ten znacznik reprezentuje "
-"podtytuł w większości przypadków.</td></tr><tr><td>$date</td><td>Data "
-"wydania płyty CD. W prawie wszystkich przypadkach jest to rok.</td></"
-"tr><tr><td>$genre</td><td>Typ muzyki płyty CD.</td></tr><tr><td>$cdno</"
-"td><td>Numer płyty CD wielopłytowego albumu. Często kompilacje składają się "
-"z kilku płyt CD. <i>Zauważ:</i> Jeżeli flaga wielopłytowa <b>nie</b> jest "
-"ustawiona dla obecnej płyty CD, to wartość ta będzie pusta.</td></tr><tr><td>"
+"każdej nazwie ścieżki.</p><table><tr><th>Zmienna</em></th><th><em>Opis</em></"
+"th></tr><tr><td>$artist</td><td>Wykonawca tej płyty CD. Jeżeli twoja płyta "
+"CD jest kompilacją, to ten znacznik reprezentuje tytuł w większości "
+"przypadków.</td></tr><tr><td>$title</td><td>Tytuł płyty CD. Jeżeli twoja "
+"płyta CD jest kompilacją, to ten znacznik reprezentuje podtytuł w większości "
+"przypadków.</td></tr><tr><td>$date</td><td>Data wydania płyty CD. W prawie "
+"wszystkich przypadkach jest to rok.</td></tr><tr><td>$genre</td><td>Typ "
+"muzyki płyty CD.</td></tr><tr><td>$cdno</td><td>Numer płyty CD "
+"wielopłytowego albumu. Często kompilacje składają się z kilku płyt CD. "
+"<i>Zauważ:</i> Jeżeli flaga wielopłytowa <b>nie</b> jest ustawiona dla "
+"obecnej płyty CD, to wartość ta będzie pusta.</td></tr><tr><td>$nooftracks</"
+"td><td>Całkowita liczba ścieżek dźwiękowych płyty CD.</td></tr><tr><td>"
 "$nooftracks</td><td>Całkowita liczba ścieżek dźwiękowych płyty CD.</td></"
-"tr><tr><td>$suffix</td><td>Rozszerzenie nazwy  pliku. (np. \".jpg\", \".m3u"
-"\", \".md5\" ...)</td></tr><tr><td>$nooftracks</td><td>Całkowita liczba "
-"ścieżek dźwiękowych płyty CD.</td></tr><tr><td>$encoder</td><td>Nazwa i "
-"wersja enkodera.</td></tr><tr><td>$audex</td><td>Nazwa i wersja Audex.</td></"
-"tr></table></p>"
+"tr><tr><td>$encoder</td><td>Nazwa i wersja enkodera.</td></tr><tr><td>"
+"$audex</td><td>Nazwa i wersja Audex.</td></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1997,6 +1978,34 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Pola zastępcze w Audex mogą mieć parametry w postaci klucz=wartość, np. "
+"<tt>${title lowercase=true}</tt>. W tym przypadku tytuł (ang. title) "
+"zostanie zapisany małymi literami (z ang. lowercase). W polach zastępczych "
+"można użyć następujących ogólnych parametrów:</p><table><tr><th>Klucz</"
+"th><th>Wartość</th><th>Opis</th></tr><tr><td><tt>lowercase</tt></td><td>true/"
+"false</td><td>Wartość pola zastępczego zostanie zapisana małymi literami.</"
+"td></tr><tr><td><tt>uppercase</tt></td><td>true/false</td><td>Wartość pola "
+"zastępczego zostanie zapisana wielkimi literami.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Zastąpi odstępy "
+"wartości pola zastępczego znakami podkreślenia.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Zastąpi "
+"znaki, których nie da się zapisać w systemie plików FAT32, znakami "
+"podkreślenia.</td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</"
+"td><td>Zastąpi znaki. Ten parametr wymaga dwóch dodatkowych kluczy o "
+"wartościach o równym rozmiarze:<tt>replace_char_list_from</tt>, "
+"<tt>replace_char_list_to</tt>. To są listy znaków. Pierwszy znak "
+"<tt>replace_char_list_from</tt> zostanie zastąpiony pierwszym znakiem "
+"<tt>replace_char_list_to</tt> i tak dalej.</td></tr><tr><td><tt>left</tt></"
+"td><td>Liczba</td><td>Pobierz n znaków od lewej z wartości pola zastępczego."
+"</td></tr><tr><td><tt>length</tt></td><td>Liczba</td><td>Jeśli wartość pola "
+"zastępczego jest liczbą, to zostanie rozwinięta na daną długość. Dodatkowo "
+"możesz określić znak wypełnienia przy użyciu dodatkowego klucza "
+"<tt>fillchar</tt>. Jego domyślna wartość to '0'.</td></tr><tr><td><tt>pre</"
+"tt></td><td>Łańcuch znaków</td><td>Łańcuch znaków do umieszczenia <b>przed</"
+"b> wartością. Szczególnie użyteczne dla parametrów wiersza poleceń, które "
+"nie powinny być w ogóle ustawiane, gdy wartość jest pusta.</td></"
+"tr><tr><td><tt>post</tt></td><td>Łańcuch znaków</td><td>Łańcuch znaków do "
+"umieszczenia <b>po</b> wartości.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -2008,6 +2017,12 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Pola zastępcze</th><th>Opis</th></tr><tr><td>$tartist</"
+"td><td>Oto wykonawca każdego utworu. Jest to szczególnie użyteczne na "
+"płytach CD, będących składankami.</td></tr><tr><td>$ttitle</td><td>Tytuł "
+"utworu. Zazwyczaj każdy utwór na płycie CD ma swój własny tytuł, który jest "
+"nazwą piosenki.</td></tr><tr><td>$trackno</td><td>Numer utworu. Pierwszy "
+"utwór to 1.</td></tr></table>"
 
 #: utils/schemeparser.h:199
 #, kde-format
@@ -2024,6 +2039,18 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Pola zastępcze</th><th>Dany parametr</th><th>Opis</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>Tymczasowy plik WAVE (RIFF WAVE) "
+"utworzony przez Audex ze ścieżki dźwiękowej CD. Jest to plik wejściowy dla "
+"twojego enkodera z wiersza poleceń.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>Pełna ścieżka do pliku wyjściowego. Użyj jej jako pliku wyjściowego "
+"dla twojego enkodera z wiersza poleceń.</td></tr><tr><td><tt>$cover</tt></"
+"td><td><tt>format,x,y</tt></td><td>Ścieżka do pliku okładki. Jeśli nie "
+"ustawiono okładki, to będzie ona pusta. Najbardziej użyteczne w połączeniu z "
+"parametrem <tt>pre</tt>. Obrazy można przeskalować przy użyciu parametrów "
+"<tt>x</tt> oraz <tt>y</tt> . Możliwe<tt>rodzaje</tt> plików to JPEG, PNG, "
+"GIF lub BMP (Domyślnie: JPEG). <i><b>Pamiętaj:</b> LAME usuwa pliki okładek "
+"większe niż 128 KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:213
 #, kde-format
@@ -2049,6 +2076,27 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Pola zastępcze</th><th>Dany parametr</th><th>Opis</th></"
+"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Wyświetla łączny "
+"rozmiar wszystkich wydobytych (zakodowanych) plików muzycznych "
+"(uwzględniając w tym pliki okładek). Wraz z <tt>iec</tt> oblicz (k)ibi, "
+"(m)ebi lub (g)ibi. Dodatkowy parametr  <tt>precision</tt> może określić "
+"liczbę miejsc dziesiętnych.</td></tr><tr><td>$length</td><td></"
+"td><td>>Wyświetla odpowiednią całkowitą długość wszystkich wydobytych "
+"utworów. Zapis to min:s.</td></tr><tr><td>$nooftracks</td><td></"
+"td><td>Wyświetla odpowiednią całkowitą liczbę wszystkich wydobytych utworów."
+"</td></tr><tr><td>$discid</td><td>base</td><td>Wyświetla discid z CDDB w "
+"zapisie szesnastkowym.</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
+"td><td>Wyświetla bieżącą datę i/lub czas. Parametr format określa wygląd "
+"wyjścia. Zajrzyj do dokumentacji Qt (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) aby "
+"dowiedzieć się jak określić ten wygląd. Dzięki dodatkowemu kluczowi "
+"<tt>locale</tt> możesz określić język. Domyślnie używany jest język twojego "
+"systemu. Język zapisywany jest następująco <tt>język_TERYTORIUM</tt>, np. "
+"<tt>en_EN</tt>. <tt>język</tt> to pisany małymi literami dwuliterowy kod "
+"języka z ISO 639 a <tt>TERYTORIUM</tt> to pisany wielkimiliterami "
+"dwuliterowy kod terytorium z ISO 3166.</td></tr><tr><td>$br</td><td></"
+"td><td>Łamie wiersz.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2102,8 +2150,7 @@ msgstr "Usuń okładkę"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
 msgstr "Wzorzec polecenia:"
 
