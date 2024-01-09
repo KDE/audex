@@ -1,14 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the audex package.
 # Michele Ganz <lilarcor89@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023 Valter Mura <valtermura@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023, 2024 Valter Mura <valtermura@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 02:30+0000\n"
-"PO-Revision-Date: 2023-12-29 19:54+0100\n"
+"POT-Creation-Date: 2024-01-09 02:25+0000\n"
+"PO-Revision-Date: 2024-01-06 23:35+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -51,53 +51,47 @@ msgstr "Esegui automaticamente una ricerca dati su CDDB"
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Esegui automaticamente una ricerca per la copertina (Amazon)"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "Localizzazione di Wikipedia"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Numero di copertine da recuperare"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "Modalità paranoia completa (migliore qualità)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "Non saltare mai gli errori di lettura"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr "Compensazione campione"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Indirizzo di base per il salvataggio dei file musicali"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Invia file al server"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "URL del server"
@@ -358,16 +352,14 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
 msgstr "Creazione guidata schema comandi"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Lo schema del comando è vuoto."
+msgstr "Aiuto per lo schema dei comandi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -387,7 +379,7 @@ msgstr "Esempio per raccolta:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -658,7 +650,7 @@ msgstr "Velocità: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -669,13 +661,12 @@ msgstr "Codifica traccia 8 di 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Creazione guidata schema"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Creazione guidata dello schema dei nomi dei file"
+msgstr "Aiuto per lo schema dei nomi dei file"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -732,10 +723,9 @@ msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Informazioni sugli schemi"
+msgstr "Schema per la copertina:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -749,7 +739,7 @@ msgstr "Impostazioni file cue"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nome/Schema:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -796,7 +786,7 @@ msgstr "Impostazioni delle informazioni"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Aiuto per lo schema delle informazioni di testo"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -827,7 +817,7 @@ msgstr "Estensione:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Schema:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -872,14 +862,12 @@ msgstr "Sostituisci gli spazi con trattini bassi"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 "Questa impostazione sovrascrive tutte le impostazioni delle variabili con "
-"parametri nel modello"
+"parametri nello schema"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -948,8 +936,7 @@ msgid "Save %1"
 msgstr "Salva %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
 msgstr "Creazione guidata dello schema dei nomi dei file"
 
@@ -1032,7 +1019,7 @@ msgstr "Valter Mura,Michele Ganz"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "valtermura@gmail.com,lilarcor89@gmail.com"
+msgstr "valtermura@gmail.com,,"
 
 #: mainwindow.cpp:38
 #, kde-format
@@ -1406,14 +1393,12 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Non hai dato un nome al codificatore. Impostane uno."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "Lo schema dei nomi dei file per questo profilo non è stato definito."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
 "Non hai fornito lo schema per i nomi dei file riguardanti questo profilo. "
@@ -1425,16 +1410,13 @@ msgid "The image file format is unknown."
 msgstr "Il file immagine è in un formato sconosciuto."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Il formato del file immagine che hai inserito non è riconosciuto. Scegline "
-"uno tra, JPG/JPEG, PNG o BMP."
+"uno tra JPEG, PNG, TIFF o BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -1795,10 +1777,9 @@ msgid "Custom"
 msgstr "Personalizzato"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Lo schema del comando è vuoto."
+msgstr "Lo schema dei comandi è vuoto."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -1889,17 +1870,17 @@ msgstr ""
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Trovato carattere non consentito all'indice %1: «%2»"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Trovate virgolette non chiuse"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Trovato carattere non consentito all'indice %1: %2"
 
 #: utils/schemeparser.cpp:127
 #, kde-format
@@ -1907,16 +1888,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"Il parametro replace_char_list richiede due parametri aggiuntivi di "
+"dimensione uguale: replace_char_list_from e replace_char_list_to."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Parentesi graffa non chiusa."
 
 #: utils/schemeparser.cpp:423
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Impossibile creare il file temporaneo per la copertina: %1"
 
 #: utils/schemeparser.h:151
 #, fuzzy, kde-format
@@ -2005,6 +1988,34 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>I segnaposto in Audex possono contenere parametri in forma di "
+"chiave=valore. Per es., <tt>${title lowercase=true}</tt>. In questo esempio "
+"il titolo sarà in minuscolo. È possibile utilizzare con segnaposto i "
+"seguenti parametri generali:</p><table><tr><th>Chiave</th><th>Valore</"
+"th><th>Descrizione</th></tr><tr><td><tt>lowercase</tt></td><td>true/false</"
+"td><td>Il valore del segnaposto sarà il minuscolo.</td></"
+"tr><tr><td><tt>uppercase</tt></td><td>true/false</td><td>Il valore del "
+"segnaposto sarà il maiuscolo.</td></tr><tr><td><tt>underscores</tt></"
+"td><td>true/false</td><td>Sostituisce gli spazi del valore del segnaposto "
+"con trattini bassi.</td></tr><tr><td><tt>fat32compatible</tt></td><td>true/"
+"false</td><td>Sostituisce i caratteri non consentiti dei nomi file di un "
+"filesystem FAT32 con trattini bassi.</td></tr><tr><td><tt>replace_chars</"
+"tt></td><td>true/false</td><td>Sostituisce i caratteri. Questo parametro "
+"richiede due chiavi aggiuntive col valore della stessa dimensione:"
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. Questi sono "
+"elenchi di caratteri. Il primo carattere di <tt>replace_char_list_from</tt> "
+"verrà sostituito dal primo carattere di <tt>replace_char_list_to</tt>, e via "
+"discorrendo.</td></tr><tr><td><tt>left</tt></td><td>Numero</td><td>Prende n "
+"caratteri dalla sinistra del valore del segnaposto.</td></"
+"tr><tr><td><tt>length</tt></td><td>Numero</td><td>Se il valore del "
+"segnaposto è un numero, lo espande fino alla lunghezza specificata. Inoltre, "
+"è possibile definire un carattere di riempimento con la chiave aggiuntiva "
+"<tt>fillchar</tt>. La fillchar predefinita '0'.</td></tr><tr><td><tt>pre</"
+"tt></td><td>Stringa</td><td>Una stringa che verrà posizionata <b>prima</b> "
+"del valore. Molto utile per i parametri della riga di comando che non devono "
+"essere impostati se il valore è vuoto.</td></tr><tr><td><tt>post</tt></"
+"td><td>Stringa</td><td>Una stringa che verrà posizionata <b>dopo</b> il "
+"valore.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -2016,6 +2027,12 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Segnaposto</th><th>Descrizione</th></tr><tr><td>$tartist</"
+"td><td>È l'artista di ciascuna traccia. Particolarmente utile nei CD di "
+"raccolte.</td></tr><tr><td>$ttitle</td><td>Il titolo della traccia. "
+"Normalmente, ogni traccia su un CD possiede un titolo, che è il nome del "
+"brano.</td></tr><tr><td>$trackno</td><td>Il numero della traccia. La prima "
+"traccia è 1.</td></tr></table>"
 
 #: utils/schemeparser.h:199
 #, kde-format
@@ -2110,10 +2127,9 @@ msgstr "Rimuovi copertina"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Schema del comando"
+msgstr "Schema dei comandi:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2394,6 +2410,9 @@ msgstr "Salva..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "Localizzazione di Wikipedia"
 
 #~ msgid ""
 #~ "<p>The following variables will be replaced with their particular meaning "

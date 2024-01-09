@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 02:30+0000\n"
+"POT-Creation-Date: 2024-01-09 02:25+0000\n"
 "PO-Revision-Date: 2024-01-05 05:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -51,53 +51,47 @@ msgstr "CDDB ძებნის ავტომატურად ჩატა�
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "ყდის ავტომატური ძებნა (Amazon-ზე)"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "ვიკიპედიის თარგმანი"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "გადმოსაწერი ყდების რაოდენობა"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "სრული პარანოიდალური რეჟიმი (საუკეთესო ხარისხი)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "არასდროს გამოტოვო კითხვის შეცდომა"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr "სემპლის წანაცვლება"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "ბილიკი მუსიკის ფაილების შესანახად"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "ფაილების სერვერზე ატვირთვა"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "სერვერის URL"
@@ -2354,6 +2348,9 @@ msgstr "შენახვა..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "ვიკიპედიის თარგმანი"
 
 #~ msgid ""
 #~ "<p>The following variables will be replaced with their particular meaning "

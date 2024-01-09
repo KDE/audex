@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 02:30+0000\n"
+"POT-Creation-Date: 2024-01-09 02:25+0000\n"
 "PO-Revision-Date: 2024-01-04 20:48+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -51,53 +51,47 @@ msgstr "Utför CDDB-uppslagning automatiskt"
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Utför automatisk uppslagning av omslag (Amazon)"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "Lokalisering av Wikipedia"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Antal omslag att hämta"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "Fullständigt paranoia-läge (bäst kvalitet)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "Hoppa aldrig över vid läsfel"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr "Samplingsposition"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Grundsökväg för att lagra musikfiler"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Ladda upp filer till server"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "Serverns webbadress"
@@ -2352,6 +2346,9 @@ msgstr "Spara..."
 #, kde-format
 msgid "URL:"
 msgstr "Webbadress:"
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "Lokalisering av Wikipedia"
 
 #~ msgid ""
 #~ "<p>The following variables will be replaced with their particular meaning "

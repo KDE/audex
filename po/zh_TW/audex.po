@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 02:30+0000\n"
+"POT-Creation-Date: 2024-01-09 02:25+0000\n"
 "PO-Revision-Date: 2019-12-12 19:16+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -50,53 +50,47 @@ msgstr "自動執行 CDDB 查詢"
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "自動執行專輯封面查詢 (Amazon)"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "維基百科本地化"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "要取得的專輯封面數"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "完整強迫症模式 (品質最佳)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "永不在讀取錯誤時跳過"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr "範例偏移"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "儲存音樂檔案的基礎路徑"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "上傳檔案至伺服器"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "伺服器網址"
@@ -2229,3 +2223,6 @@ msgstr ""
 #, kde-format
 msgid "URL:"
 msgstr ""
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "維基百科本地化"
