@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 01:35+0000\n"
-"PO-Revision-Date: 2024-01-07 22:19+0100\n"
+"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"PO-Revision-Date: 2024-01-08 09:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -52,53 +52,47 @@ msgstr "Samodejno preveri podatke o albumu na CDDB"
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Samodejno preveri naslovnico (amazon)"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "Krajevno prilagajanje (Wikipedia)"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Št. naslovnic za pridobitev"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "Skrajno previden način (največja kakovost)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "Nikoli ne preskoči bralne napake"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr "Zamik vzorčenja"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Nadrejena mapa za shranjevanje glasbenih datotek"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Prenesi na strežnik"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "URL do strežnika"
@@ -1466,10 +1460,7 @@ msgid "The hashlist file format is unknown."
 msgstr "Vrsta razpršenega seznama ni znana."
 
 #: models/profilemodel.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5, SHA-256."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
@@ -1852,7 +1843,7 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
-"Parameter replace_char_list potrebuje še dva parametra "
+"replace_char_list parameter potrebuje še dva parametra "
 "replace_char_list_from in replace_char_list_to enake velikosti."
 
 #: utils/schemeparser.cpp:273
@@ -1866,23 +1857,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "Ni bilo mogoče ustvariti datoteke začasne naslovnice: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>The following placeholders will be replaced with their particular "
-#| "meaning:</p><table><tr><th>Placeholder</th><th>Description</th></"
-#| "tr><tr><td><tt>$artist</tt></td><td>The artist of the CD. If your CD is a "
-#| "compilation then this tag represents the title in most cases.</td></"
-#| "tr><tr><td><tt>$title</tt></td><td>The title of the CD. If your CD is a "
-#| "compilation then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td><tt>$date</tt></td><td>The release date of the CD. In almost "
-#| "all cases this is the year.</td></tr><tr><td><tt>$genre</tt></td><td>The "
-#| "genre of the CD.</td></tr><tr><td><tt>$cdno</tt></td><td>The CD number of "
-#| "a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> "
-#| "If the multi-CD flag is <b>not</b> set for the current CD, than this "
-#| "value will be empty.</td></tr><tr><td><tt>$nooftracks</tt></td><td>The "
-#| "total number of audio tracks of the CD.</td></tr><tr><td><tt>$encoder</"
-#| "tt></td><td>Encoder name and version.</td></tr><tr><td><tt>$audex</tt></"
-#| "td><td>Audex name and version.</td></tr></table>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1912,8 +1887,8 @@ msgstr ""
 "zastavica za več CD-jev <b>ni</b> nastavljena za trenutni CD, bo ta vrednost "
 "prazna.</td></tr><tr><td ><tt>$nooftracks</tt></td><td>Skupno število "
 "zvočnih posnetkov na CD-ju.</td></tr><tr><td><tt>$encoder</tt> </td><td>Ime "
-"in različica kodirnika.</td></tr><tr><td><tt>$audex</tt></td><td>Ime in "
-"različica Audex.</td ></tr></table>"
+"in različica kodirnika.</td></tr><tr><td><tt>$audex</tt></td><td>Audex ime "
+"in  različica.</td ></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -2392,6 +2367,9 @@ msgstr "Shrani..."
 #, kde-format
 msgid "URL:"
 msgstr "URL naslov:"
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "Krajevno prilagajanje (Wikipedia)"
 
 #~ msgid ""
 #~ "<p>The following variables will be replaced with their particular meaning "

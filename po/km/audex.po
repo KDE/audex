@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 01:35+0000\n"
+"POT-Creation-Date: 2024-01-09 01:32+0000\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -53,53 +53,47 @@ msgstr "អនុវត្ត​ការ​រក​មើល​ CDDB ដោយ
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "អនុវត្ត​ការ​រក​មើល​គម្រប​ (amazon) ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "ការ​ធ្វើ​មូលដ្ឋានីយកម្ម​វីគីភីឌៀ"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "លេខ​គម្រប​ដែល​ត្រូវ​ទៅ​ប្រមូល​យក"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "របៀប paranoia ពេញលេញ (គុណ​ភាព​ល្អ​បំផុត​)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "កុំ​រំលង​ នៅ​ពេល​អាន​កំហុស"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr ""
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "ផ្លូវ​គោល​សម្រាប់​រក្សាទុក​ឯកសារ​តន្ត្រី "
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "ផ្ទុក​ឯកសារ​ឡើង​ទៅ​កាន់​ម៉ាស៊ីន​បម្រើ"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "URL របស់​ម៉ាស៊ីន​បម្រើ"
@@ -2376,6 +2370,9 @@ msgstr "រក្សា​ទុក​..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "ការ​ធ្វើ​មូលដ្ឋានីយកម្ម​វីគីភីឌៀ"
 
 #, fuzzy
 #~| msgid ""

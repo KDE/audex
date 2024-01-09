@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-08 01:35+0000\n"
-"PO-Revision-Date: 2024-01-05 17:39+0100\n"
+"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"PO-Revision-Date: 2024-01-08 12:12+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -50,53 +50,47 @@ msgstr "Exeque recerca de CDDB automaticamente"
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Exeque recerca de copertura (amazon) automaticamente"
 
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: audex.kcfg:34
-#, kde-format
-msgid "Wikipedia localization"
-msgstr "Localisation de Wikipedia"
-
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:38
+#: audex.kcfg:34
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Numero de coperturas a trovar"
 
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:23
+#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Full paranoia mode (best quality)"
 msgstr "Modo de paranoia complete (melior qualitate)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:48 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
 #, kde-format
 msgid "Never skip on read error"
 msgstr "Jammais salta  su error de lettura"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:52
+#: audex.kcfg:48
 #, kde-format
 msgid "Sample offset"
 msgstr "Displaciamento de Exemplo"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:58
+#: audex.kcfg:54
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Percurso basic per immagazinar files de musica"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:62 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Incarga files a servitor"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:66
+#: audex.kcfg:62
 #, kde-format
 msgid "URL of server"
 msgstr "URL de servitor"
@@ -267,12 +261,12 @@ msgstr "Incapace a salveguardar ista de hash \"%1\"."
 #: core/audex.cpp:1005
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr "Folio bastone (cue) \"%1\" create con successo."
+msgstr "Folio de parola indice (cue) \"%1\" create con successo."
 
 #: core/audex.cpp:1008
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
-msgstr "Incapace de salveguardar file bastone (cue) \"%1\"."
+msgstr "Incapace de salveguardar file parola indice (cue) \"%1\"."
 
 #: core/audex.cpp:1055 core/audex.cpp:1082
 #, kde-format
@@ -360,10 +354,9 @@ msgid "Command Scheme Wizard"
 msgstr "Assistente de schema de commando"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command Scheme Wizard"
+#, kde-format
 msgid "Command scheme help"
-msgstr "Assistente de schema de commando"
+msgstr "Adjuta de schema de commando"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -383,7 +376,7 @@ msgstr "Exemplo de specimen:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Adjuta"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -657,13 +650,12 @@ msgstr "Codificante Tracia  8 de 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Assistente de Schema"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filenames"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Nomines de file"
+msgstr "Adjuta de schema de nomine de file"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -727,7 +719,7 @@ msgstr "Schema de copertura:"
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
 msgid "Cue Sheet Settings"
-msgstr "Preferentias de Folio Bastone (Cue)"
+msgstr "Preferentias de Folio De Parola Indice (Cue)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
@@ -765,15 +757,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (Message-Digest algorithm 5)"
+msgstr "MD5 (Message-Digest Algorithm 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Algorithmo de Hash Secur)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -783,7 +774,7 @@ msgstr "Preferentia de Information"
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Adjuta de schema de info de texto"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -863,12 +854,14 @@ msgstr "Remplacia spatios con un tracto basse"
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
+"Iste preferentia ultrapassa ulle preferentias de variabile parametrisate in "
+"le schema"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr ""
+msgstr "Fixa numero de tracia de 2 digitos (ex. 01, 02, 03...)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
@@ -893,19 +886,19 @@ msgstr "Preferentias.."
 #: dialogs/profiledatawidgetUI.ui:221
 #, kde-format
 msgid "Create info file"
-msgstr ""
+msgstr "Crea file de info"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:254
 #, kde-format
 msgid "Create hashlist"
-msgstr ""
+msgstr "crea lista hash"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:274
 #, kde-format
 msgid "Create cue sheet"
-msgstr ""
+msgstr "Crea folio de parola indice (cue)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:287
@@ -1051,16 +1044,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel extraction?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Tu vermente vole cancellar extraction?"
+msgstr "Nullecopertura essera fixate. Tu vermente vole continuar?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "File de copertura"
+msgstr "Copertura es vacue"
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1102,7 +1093,7 @@ msgstr ""
 #: mainwindow.cpp:339
 #, kde-format
 msgid "Split titles"
-msgstr ""
+msgstr "Divide titulos"
 
 #: mainwindow.cpp:340
 #, kde-format
@@ -1120,7 +1111,7 @@ msgstr ""
 #: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
-msgstr ""
+msgstr "Commuta Artistas e Titulos"
 
 #: mainwindow.cpp:367
 #, kde-format
@@ -1140,7 +1131,7 @@ msgstr ""
 #: mainwindow.cpp:383
 #, kde-format
 msgid "Autofill artists"
-msgstr ""
+msgstr "Auto reimple artistas"
 
 #: mainwindow.cpp:410
 #, kde-format
@@ -1185,12 +1176,12 @@ msgstr "Rip..."
 #: mainwindow.cpp:472
 #, kde-format
 msgid "Split Titles..."
-msgstr ""
+msgstr "Divide titulos"
 
 #: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
-msgstr ""
+msgstr "Commuta Artistas e Titulos"
 
 #: mainwindow.cpp:482
 #, kde-format
@@ -1200,7 +1191,7 @@ msgstr "Capitalisa (Il pone in majuscule)"
 #: mainwindow.cpp:487
 #, kde-format
 msgid "Auto Fill Artists"
-msgstr ""
+msgstr "Auto Reimple Artistas"
 
 #: mainwindow.cpp:492
 #, kde-format
@@ -2235,6 +2226,9 @@ msgstr "Salveguarda..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Wikipedia localization"
+#~ msgstr "Localisation de Wikipedia"
 
 #~ msgid "About commandline schemes"
 #~ msgstr "Re schemas de linea de commando"
