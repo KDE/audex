@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-09 01:32+0000\n"
-"PO-Revision-Date: 2024-01-07 08:31+0100\n"
+"PO-Revision-Date: 2024-01-08 09:59+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1473,10 +1473,7 @@ msgid "The hashlist file format is unknown."
 msgstr "El format del fitxer de la llista de resum és desconegut."
 
 #: models/profilemodel.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5, SHA-256."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
@@ -1894,23 +1891,7 @@ msgstr "No s'ha pogut crear un fitxer temporal de caràtula: %1"
 
 # skip-rule: barb-igual_a
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>The following placeholders will be replaced with their particular "
-#| "meaning:</p><table><tr><th>Placeholder</th><th>Description</th></"
-#| "tr><tr><td><tt>$artist</tt></td><td>The artist of the CD. If your CD is a "
-#| "compilation then this tag represents the title in most cases.</td></"
-#| "tr><tr><td><tt>$title</tt></td><td>The title of the CD. If your CD is a "
-#| "compilation then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td><tt>$date</tt></td><td>The release date of the CD. In almost "
-#| "all cases this is the year.</td></tr><tr><td><tt>$genre</tt></td><td>The "
-#| "genre of the CD.</td></tr><tr><td><tt>$cdno</tt></td><td>The CD number of "
-#| "a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> "
-#| "If the multi-CD flag is <b>not</b> set for the current CD, than this "
-#| "value will be empty.</td></tr><tr><td><tt>$nooftracks</tt></td><td>The "
-#| "total number of audio tracks of the CD.</td></tr><tr><td><tt>$encoder</"
-#| "tt></td><td>Encoder name and version.</td></tr><tr><td><tt>$audex</tt></"
-#| "td><td>Audex name and version.</td></tr></table>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
