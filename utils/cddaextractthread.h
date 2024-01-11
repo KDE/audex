@@ -25,15 +25,15 @@ public:
 public Q_SLOTS:
     void start();
     void cancel();
-    void setParanoiaMode(int mode)
+    void setFullParanoiaMode(const bool mode)
     {
-        paranoia_mode = mode;
+        full_paranoia_mode = mode;
     }
-    void setMaxRetries(int r)
+    void setMaxRetries(const int r)
     {
         paranoia_retries = r;
     }
-    void setNeverSkip(bool b)
+    void setNeverSkip(const bool b)
     {
         never_skip = b;
     }
@@ -41,11 +41,11 @@ public Q_SLOTS:
     {
         sample_offset = offset;
     }
-    void setTrackToRip(unsigned int t)
+    void setTrackToRip(const unsigned int t)
     {
         track = t;
     } // if t==0 rip whole cd
-    void skipTrack(unsigned int t)
+    void skipTrack(const unsigned int t)
     {
         overall_sectors_read += paranoia->numOfFramesOfTrack(t);
     }
@@ -85,7 +85,7 @@ private:
     unsigned long overall_sectors_read;
     unsigned long sectors_all;
 
-    int paranoia_mode;
+    bool full_paranoia_mode;
     int paranoia_retries;
     bool never_skip;
     int sample_offset;
@@ -98,18 +98,17 @@ private:
 
     QStringList extract_protocol;
 
-    void createStatus(long, int);
+    void createStatus(long, paranoia_cb_mode_t);
 
     // status variables
-    long last_read_sector;
     long overlap;
     long read_sectors;
 
     bool read_error;
     bool scratch_detected;
 
-    // this friend function will call createStatus(long, int)
-    friend void paranoiaCallback(long, int);
+    // this friend function will call createStatus(long, paranoia_cb_mode_t)
+    friend void paranoiaCallback(long, paranoia_cb_mode_t);
 };
 
 #endif

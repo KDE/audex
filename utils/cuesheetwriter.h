@@ -14,10 +14,8 @@
 
 #include <KLocalizedString>
 
-#include "../models/cddamodel.h"
 #include "config.h"
-
-#define FRAMES2SEC(frames) ((frames) / 75)
+#include "models/cddamodel.h"
 
 class CueSheetWriter : public QObject
 {

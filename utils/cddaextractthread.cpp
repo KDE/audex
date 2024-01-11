@@ -11,7 +11,7 @@
 
 static CDDAExtractThread *aet = nullptr;
 
-void paranoiaCallback(long sector, int status)
+void paranoiaCallback(long sector, paranoia_cb_mode_t status)
 {
     aet->createStatus(sector, status);
 }
@@ -28,7 +28,7 @@ CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDAParanoia *_paranoia)
     connect(paranoia, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
 
     overall_sectors_read = 0;
-    paranoia_mode = 3;
+    full_paranoia_mode = true;
     paranoia_retries = 20;
     never_skip = true;
     sample_offset = 0;
@@ -81,7 +81,6 @@ void CDDAExtractThread::run()
     qDebug() << "Sectors to read: " << QString("%1").arg(last_sector - first_sector);
 
     // status variable
-    last_read_sector = 0;
     overlap = 0;
     read_sectors = 0;
 
@@ -89,16 +88,16 @@ void CDDAExtractThread::run()
     sectors_all = last_sector - first_sector;
     sectors_read = 0;
 
-    paranoia->setParanoiaMode(paranoia_mode);
-    paranoia->setNeverSkip(never_skip);
+    paranoia->enableFullParanoiaMode(full_paranoia_mode);
+    paranoia->enableNeverSkip(never_skip);
     paranoia->setMaxRetries(paranoia_retries);
 
     paranoia->paranoiaSeek(first_sector, SEEK_SET);
     current_sector = first_sector;
 
     if (track > 0) {
-        QString min = QString("%1").arg((sectors_all / 75) / 60, 2, 10, QChar('0'));
-        QString sec = QString("%1").arg((sectors_all / 75) % 60, 2, 10, QChar('0'));
+        QString min = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
+        QString sec = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
         Q_EMIT info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
     } else {
         Q_EMIT info(i18n("Ripping whole CD as single track."));
@@ -175,20 +174,15 @@ void CDDAExtractThread::slot_error(const QString &message, const QString &detail
     Q_EMIT error(message, details);
 }
 
-void CDDAExtractThread::createStatus(long sector, int status)
+void CDDAExtractThread::createStatus(long sector, paranoia_cb_mode_t status)
 {
     sector /= CD_FRAMESIZE_RAW / 2;
-    QString tp_min = QString("%1").arg((current_sector / 75) / 60, 2, 10, QChar('0'));
-    QString tp_sec = QString("%1").arg((current_sector / 75) % 60, 2, 10, QChar('0'));
+    QString tp_min = QString("%1").arg((current_sector / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
+    QString tp_sec = QString("%1").arg((current_sector / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
 
     switch (status) {
-    case -1:
-        break;
-    case -2:
-        break;
     case PARANOIA_CB_READ:
         // no problem
-        last_read_sector = sector; // this seems to be rather useless
         read_sectors++;
         read_error = false;
         scratch_detected = false;
@@ -198,11 +192,13 @@ void CDDAExtractThread::createStatus(long sector, int status)
         break;
     case PARANOIA_CB_FIXUP_EDGE:
         qDebug() << "Fixed edge jitter";
-        extract_protocol.append(i18n("Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+        extract_protocol.append(
+            i18n("Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         break;
     case PARANOIA_CB_FIXUP_ATOM:
         qDebug() << "Fixed atom jitter";
-        extract_protocol.append(i18n("Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+        extract_protocol.append(
+            i18n("Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         break;
     case PARANOIA_CB_SCRATCH:
         // scratch detected
@@ -211,7 +207,8 @@ void CDDAExtractThread::createStatus(long sector, int status)
             scratch_detected = true;
             Q_EMIT warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         }
-        extract_protocol.append(i18n("SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+        extract_protocol.append(
+            i18n("SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         break;
     case PARANOIA_CB_REPAIR:
         qDebug() << "Repair";
@@ -252,6 +249,13 @@ void CDDAExtractThread::createStatus(long sector, int status)
             Q_EMIT warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
         }
         extract_protocol.append(i18n("READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+        break;
+    case PARANOIA_CB_CACHEERR:
+        qDebug() << "Bad cache management";
+        break;
+    case PARANOIA_CB_WROTE:
+        break;
+    case PARANOIA_CB_FINISHED:
         break;
     }
 }

@@ -40,10 +40,10 @@ QStringList CueSheetWriter::cueSheet(const QString &binFilename) const
         result << QString("    TITLE \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
         if ((i == 0) && (dsig.at(i) > 0))
             leadin = dsig.at(i);
-        float l = (float)(dsig.at(i) - leadin) / 75.0f;
+        float l = (float)(dsig.at(i) - leadin) / (float)FRAMES_PER_SECOND;
         int min = (int)l / 60;
         int sec = (int)l % 60;
-        int frames = (dsig.at(i) - leadin) - (((min * 60) + sec) * 75);
+        int frames = (dsig.at(i) - leadin) - (((min * 60) + sec) * FRAMES_PER_SECOND);
         result << QString("    INDEX 01 %1:%2:%3").arg(min, 2, 10, QChar('0')).arg(sec, 2, 10, QChar('0')).arg(frames, 2, 10, QChar('0'));
     }
 
