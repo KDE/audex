@@ -120,6 +120,8 @@ private:
 
     int current_profile_index;
     void set_profile(int profile_index);
+
+    deviceWidget *device_widget;
 };
 
 #endif

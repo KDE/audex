@@ -30,21 +30,73 @@ CDDAParanoia::~CDDAParanoia()
 
 bool CDDAParanoia::setDevice(const QString &device)
 {
-    if ((device.isEmpty() && (_device.isEmpty())))
-        _device = "/dev/cdrom";
+    if ((device.isEmpty() && (device.isEmpty())))
+        this->device = "/dev/cdrom";
     if (!device.isEmpty())
-        _device = device;
+        this->device = device;
     if (!_paranoia_init()) {
         qDebug() << "Internal device error.";
-        Q_EMIT error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", _device));
+        Q_EMIT error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", device));
         return false;
     }
+    detectHardware();
     return true;
 }
 
-QString CDDAParanoia::device() const
+QString CDDAParanoia::getDevice() const
 {
-    return _device;
+    return device;
+}
+
+bool CDDAParanoia::detectHardware()
+{
+    char buf[36] = {
+        0,
+    };
+    mmc_cdb_t cdb = {{
+        0,
+    }};
+
+    CdIo_t *p_cdio = cdio_open(device.toLatin1().constData(), DRIVER_UNKNOWN);
+
+    CDIO_MMC_SET_COMMAND(cdb.field, CDIO_MMC_GPCMD_INQUIRY);
+    cdb.field[4] = sizeof(buf);
+
+    int i_status = mmc_run_cmd(p_cdio, 100000, &cdb, SCSI_MMC_DATA_READ, sizeof(buf), &buf);
+    if (i_status == 0) {
+        char psz_vendor[CDIO_MMC_HW_VENDOR_LEN + 1];
+        char psz_model[CDIO_MMC_HW_MODEL_LEN + 1];
+        char psz_rev[CDIO_MMC_HW_REVISION_LEN + 1];
+
+        vendor = QByteArray(buf + 8, sizeof(psz_vendor) - 1).trimmed();
+        model = QByteArray(buf + 8 + CDIO_MMC_HW_VENDOR_LEN, sizeof(psz_model) - 1).trimmed();
+        revision = QByteArray(buf + 8 + CDIO_MMC_HW_VENDOR_LEN + CDIO_MMC_HW_MODEL_LEN, sizeof(psz_rev) - 1).trimmed();
+
+        qDebug() << "Vendor:" << vendor << ", Model:" << model << ", Revision:" << revision;
+
+        return true;
+
+    } else {
+        Q_EMIT error(i18n("Could not get device hardware information (vendor, model and firmware revision)."),
+                     i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", device));
+    }
+
+    return false;
+}
+
+const QString CDDAParanoia::getVendor() const
+{
+    return vendor;
+}
+
+const QString CDDAParanoia::getModel() const
+{
+    return model;
+}
+
+const QString CDDAParanoia::getRevision() const
+{
+    return revision;
 }
 
 void CDDAParanoia::enableFullParanoiaMode(const bool enabled)
@@ -311,7 +363,7 @@ bool CDDAParanoia::_paranoia_init()
 
     _paranoia_free();
 
-    drive = cdda_identify(_device.toLatin1().data(), 0, nullptr);
+    drive = cdda_identify(device.toLatin1().data(), 0, nullptr);
     if (drive == nullptr) {
         mutex.unlock();
         qDebug() << "Failed to find device.";

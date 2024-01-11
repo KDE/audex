@@ -16,6 +16,7 @@
 
 extern "C" {
 #include <cdio/cdio.h>
+#include <cdio/mmc.h>
 #include <cdio/paranoia/paranoia.h>
 }
 
@@ -33,7 +34,12 @@ public:
     ~CDDAParanoia() override;
 
     bool setDevice(const QString &device = "/dev/cdrom");
-    QString device() const;
+    QString getDevice() const;
+
+    bool detectHardware();
+    const QString getVendor() const;
+    const QString getModel() const;
+    const QString getRevision() const;
 
     void enableFullParanoiaMode(const bool enabled = true);
     void enableNeverSkip(const bool never_skip = true);
@@ -80,7 +86,10 @@ Q_SIGNALS:
 private:
     QMutex mutex;
 
-    QString _device;
+    QString device;
+    QString vendor;
+    QString model;
+    QString revision;
 
     cdrom_drive_t *drive;
     cdrom_paranoia_t *paranoia;

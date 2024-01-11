@@ -12,6 +12,8 @@
 
 #include <QLineEdit>
 
+#include "utils/cddaparanoia.h"
+
 #include "preferences.h"
 
 #include "ui_devicewidgetUI.h"
@@ -32,6 +34,9 @@ class deviceWidget : public deviceWidgetUI
 public:
     explicit deviceWidget(QWidget *parent = nullptr);
     ~deviceWidget() override;
+public Q_SLOTS:
+    void setDeviceInfo(const QString &vendor, const QString &model, const QString &revision);
+    void clearDeviceInfo();
 };
 
 #endif
