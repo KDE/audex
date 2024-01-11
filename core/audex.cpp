@@ -174,11 +174,7 @@ void Audex::start_extract()
             ex_track_source_filename = sourceFilename;
             wave_file_writer->open(sourceFilename);
 
-            if (Preferences::paranoiaMode()) {
-                cdda_extract_thread->setParanoiaMode(3);
-            } else {
-                cdda_extract_thread->setParanoiaMode(0);
-            }
+            cdda_extract_thread->setFullParanoiaMode(Preferences::fullParanoiaMode());
             cdda_extract_thread->setNeverSkip(Preferences::neverSkip());
             cdda_extract_thread->setTrackToRip(0);
             cdda_extract_thread->start();
@@ -285,11 +281,7 @@ void Audex::start_extract()
                 ex_track_source_filename = sourceFilename;
                 wave_file_writer->open(sourceFilename);
 
-                if (Preferences::paranoiaMode()) {
-                    cdda_extract_thread->setParanoiaMode(3);
-                } else {
-                    cdda_extract_thread->setParanoiaMode(0);
-                }
+                cdda_extract_thread->setFullParanoiaMode(Preferences::fullParanoiaMode());
                 cdda_extract_thread->setNeverSkip(Preferences::neverSkip());
                 cdda_extract_thread->setTrackToRip(ex_track_index);
                 cdda_extract_thread->start();
@@ -476,7 +468,7 @@ void Audex::finish_encode()
 void Audex::calculate_speed_extract()
 {
     if ((last_measuring_point_sector > -1) && (cdda_extract_thread->isProcessing())) {
-        double new_value = (double)(current_sector - last_measuring_point_sector) / (2.0f * 75.0f);
+        double new_value = (double)(current_sector - last_measuring_point_sector) / (2.0f * (double)SECTORS_PER_SECOND);
         if (new_value < 0.0f)
             new_value = 0.0f;
         if ((new_value < 0.2f) && (!timeout_done)) {
@@ -908,14 +900,14 @@ void Audex::execute_finish()
                 QStringList text =
                     profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
                 schemeparser.parseInfoTextScheme(text,
-                                                   cdda_model->artist(),
-                                                   cdda_model->title(),
-                                                   QString("%1").arg(cdda_model->year()),
-                                                   cdda_model->genre(),
-                                                   DiscIDCalculator::CDDBId(cdda_model->discSignature()),
-                                                   p_size_of_all_files(target_filename_list),
-                                                   cdda_model->lengthOfAudioTracksInSelection(),
-                                                   cdda_model->numOfAudioTracksInSelection());
+                                                 cdda_model->artist(),
+                                                 cdda_model->title(),
+                                                 QString("%1").arg(cdda_model->year()),
+                                                 cdda_model->genre(),
+                                                 DiscIDCalculator::CDDBId(cdda_model->discSignature()),
+                                                 p_size_of_all_files(target_filename_list),
+                                                 cdda_model->lengthOfAudioTracksInSelection(),
+                                                 cdda_model->numOfAudioTracksInSelection());
                 out << text.join("\n");
                 file.close();
                 Q_EMIT info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));

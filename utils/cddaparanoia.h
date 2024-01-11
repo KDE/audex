@@ -15,29 +15,14 @@
 #include <KLocalizedString>
 
 extern "C" {
-#include <cdda_interface.h>
-#include <cdda_paranoia.h>
+#include <cdio/cdio.h>
+#include <cdio/paranoia/paranoia.h>
 }
 
-// from cdda_interface.h
-#define CD_FRAMESIZE_RAW 2352
-#define CDROM_FRAMESIZE_RAW 2048
 #define PREGAP 150
 
-// from cdda_paranoia.h
-#define PARANOIA_CB_READ 0
-#define PARANOIA_CB_VERIFY 1
-#define PARANOIA_CB_FIXUP_EDGE 2
-#define PARANOIA_CB_FIXUP_ATOM 3
-#define PARANOIA_CB_SCRATCH 4
-#define PARANOIA_CB_REPAIR 5
-#define PARANOIA_CB_SKIP 6
-#define PARANOIA_CB_DRIFT 7
-#define PARANOIA_CB_BACKOFF 8
-#define PARANOIA_CB_OVERLAP 9
-#define PARANOIA_CB_FIXUP_DROPPED 10
-#define PARANOIA_CB_FIXUP_DUPED 11
-#define PARANOIA_CB_READERR 12
+#define SECTORS_PER_SECOND 75
+#define FRAMES_PER_SECOND 75
 
 class CDDAParanoia : public QObject
 {
@@ -50,37 +35,38 @@ public:
     bool setDevice(const QString &device = "/dev/cdrom");
     QString device() const;
 
-    void setParanoiaMode(int mode); /* default: 3 */
-    void setNeverSkip(bool b);
+    void enableFullParanoiaMode(const bool enabled = true);
+    void enableNeverSkip(const bool never_skip = true);
     void setMaxRetries(int m); /* default: 20 */
 
-    qint16 *paranoiaRead(void (*callback)(long, int));
-    int paranoiaSeek(long sector, int mode);
+    qint16 *paranoiaRead(void (*callback)(long, paranoia_cb_mode_t));
+    int paranoiaSeek(long sector, qint32 mode);
 
-    int firstSectorOfTrack(int track);
-    int lastSectorOfTrack(int track);
+    int firstSectorOfTrack(track_t track);
+    int lastSectorOfTrack(track_t track);
 
     int firstSectorOfDisc();
     int lastSectorOfDisc();
 
     void sampleOffset(const int offset);
 
-    int numOfTracks();
-    int numOfAudioTracks();
+    track_t numOfTracks() const;
+    track_t numOfAudioTracks() const;
 
-    int length();
-    int numOfFrames();         // whole disc
-    int lengthOfAudioTracks(); // length of all audio tracks
-    int numOfFramesOfAudioTracks();
-    /*sum skipped (because it is an audio track) frames
-      usually used to calculate overall percent*/
-    int numOfSkippedFrames(int n = 100);
+    int length() const;
+    int numOfFrames() const; // whole disc
+    int lengthOfAudioTracks() const; // length of all audio tracks in seconds
+    int numOfFramesOfAudioTracks() const;
 
-    int lengthOfTrack(int n);
-    int numOfFramesOfTrack(int n);
-    double sizeOfTrack(int n); // in MiB
-    int frameOffsetOfTrack(int n);
-    bool isAudioTrack(int n);
+    // sum of skipped frames of non-audio tracks
+    // (usually used to calculate overall percent)
+    int numOfSkippedFrames(int n = 100) const;
+
+    int lengthOfTrack(track_t track) const; // in seconds
+    int numOfFramesOfTrack(track_t track) const;
+    double sizeOfTrack(track_t track) const; // in MiB
+    int frameOffsetOfTrack(track_t track) const;
+    bool isAudioTrack(track_t track) const;
 
     // First element is first track after lead-in, list of offsets, last element offset of lead-out
     // PREGAP is 150 frames = 2 seconds
@@ -96,8 +82,8 @@ private:
 
     QString _device;
 
-    cdrom_drive *paranoia_drive;
-    cdrom_paranoia *paranoia;
+    cdrom_drive_t *drive;
+    cdrom_paranoia_t *paranoia;
     int paranoia_mode;
     bool paranoia_never_skip;
     int paranoia_max_retries;
