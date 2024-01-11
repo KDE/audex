@@ -19,7 +19,7 @@
 #include <QFileInfo>
 #include <QStringList>
 
-#include "3rdparty/crc32.h"
+#include "utils/crc32hash.h"
 
 class Hashlist
 {
