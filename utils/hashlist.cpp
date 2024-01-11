@@ -16,22 +16,25 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
     QStringList list;
 
     for (int i = 0; i < filenames.count(); ++i) {
-        // uses mmap for performance
-        int fd = open(filenames.at(i).toUtf8().constData(), O_RDONLY);
-        if (fd == -1)
+        QFile file(filenames.at(i));
+        if (!file.exists())
+            continue;
+        if (!file.open(QFile::ReadOnly))
             continue;
 
-        quint64 size = lseek(fd, 0, SEEK_END);
+        CRC32Hash checksum;
 
-        char *t_data = (char *)mmap(nullptr, size, PROT_READ, MAP_SHARED, fd, 0);
+        QByteArray buf;
 
-        CRC32 crc32;
-        crc32.update((const unsigned char *)t_data, (int)lseek(fd, 0, SEEK_END));
+        while (!file.atEnd()) {
+            buf = file.read(16 * 1024);
+            checksum.addData(buf);
+        }
 
         QFileInfo info(filenames.at(i));
-        list << info.fileName() + ' ' + QString("%1").arg(crc32.result(), 0, 16);
+        list << info.fileName() + ' ' + QString("%1").arg(checksum.result(), 8, 16, QLatin1Char('g')).toUpper();
 
-        close(fd);
+        file.close();
     }
 
     return list;
@@ -58,7 +61,7 @@ const QStringList Hashlist::getMD5(const QStringList &filenames)
         }
 
         QFileInfo info(filenames.at(i));
-        list << QString("%1").arg(QString(md5sum.result().toHex())) + "  " + info.fileName();
+        list << QString("%1").arg(QString(md5sum.result().toHex().toUpper())) + "  " + info.fileName();
 
         file.close();
     }
@@ -87,7 +90,7 @@ const QStringList Hashlist::getSHA256(const QStringList &filenames)
         }
 
         QFileInfo info(filenames.at(i));
-        list << QString("%1").arg(QString(sha256sum.result().toHex())) + "  " + info.fileName();
+        list << QString("%1").arg(QString(sha256sum.result().toHex().toUpper())) + "  " + info.fileName();
 
         file.close();
     }

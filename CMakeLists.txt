@@ -71,7 +71,7 @@ set(audex_SRCS
     utils/upload.cpp
     utils/encoderassistant.cpp
     utils/hashlist.cpp
-    utils/3rdparty/crc32.cpp
+    utils/crc32hash.cpp
     utils/parameters.cpp
     utils/cuesheetwriter.cpp
     utils/discidcalculator.cpp
