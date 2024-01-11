@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-09 01:32+0000\n"
-"PO-Revision-Date: 2024-01-08 12:12+0100\n"
+"PO-Revision-Date: 2024-01-10 11:08+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -519,7 +519,7 @@ msgstr "Progresso Global"
 #: dialogs/extractingprogressdialog.cpp:173
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr "Progresso Global(Rippante Tracia %1 de %2)"
+msgstr "Progresso Global (Rippante Tracia %1 de %2)"
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
@@ -904,19 +904,19 @@ msgstr "Crea folio de parola indice (cue)"
 #: dialogs/profiledatawidgetUI.ui:287
 #, kde-format
 msgid "Store cover file"
-msgstr ""
+msgstr "Immagazina file de copertura"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:313
 #, kde-format
 msgid "Create playlist"
-msgstr ""
+msgstr "Crea lista de reproduction"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:338
 #, kde-format
 msgid "Write single file"
-msgstr ""
+msgstr "Scribe file singule"
 
 #: dialogs/protocolviewdialog.cpp:60
 #, kde-format
@@ -926,7 +926,7 @@ msgstr "Salveguarda %1"
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
 msgid "Filename Scheme Wizard"
-msgstr ""
+msgstr "Assistente de Schema de Nomine  de File"
 
 #: main.cpp:25
 #, kde-format
@@ -951,7 +951,7 @@ msgstr "Marco Nelles"
 #: main.cpp:31
 #, kde-format
 msgid "Current maintainer, main developer"
-msgstr ""
+msgstr "Mantenitor currente, disveloppator principal"
 
 #: main.cpp:32
 #, kde-format
@@ -961,7 +961,7 @@ msgstr "Craig Drummond"
 #: main.cpp:32
 #, kde-format
 msgid "GUI improvements, development"
-msgstr ""
+msgstr "Melioramentos de GUI, disveloppamento"
 
 #: main.cpp:33
 #, kde-format
@@ -981,17 +981,18 @@ msgstr "credativ GmbH"
 #: main.cpp:34
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "Gratias special a previe credativ GmbH (Germany) per supporto"
 
 #: main.cpp:35
 #, kde-format
 msgid "Xiph.Org Foundation"
-msgstr ""
+msgstr "Xiph.Org Foundation"
 
 #: main.cpp:36
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
+"Gratias special a Xiph.Org Foundation per fornir rippator de compact disc"
 
 #: main.cpp:39
 #, kde-format
@@ -1008,28 +1009,30 @@ msgstr "g.sora@tiscali.it"
 #: mainwindow.cpp:38
 #, kde-format
 msgid "Unable to create ProfileModel object."
-msgstr ""
+msgstr "Incapace a crear objecto de ProfileModel."
 
 #: mainwindow.cpp:39 mainwindow.cpp:52
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
+"Error interne Verifica tu hardware. Si toto es ok pro favor tu face un "
+"reporto de bug."
 
 #: mainwindow.cpp:52
 #, kde-format
 msgid "Unable to create CDDAModel object."
-msgstr ""
+msgstr "Incapace a crear objecto de CDDAModel."
 
 #: mainwindow.cpp:124
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
-msgstr ""
+msgstr "Nulle information de disco assignate. Tu vermente vole continuar?"
 
 #: mainwindow.cpp:125
 #, kde-format
 msgid "Disc information not found"
-msgstr ""
+msgstr "Information de disco non trovate"
 
 #: mainwindow.cpp:136
 #, kde-format
@@ -1037,16 +1040,18 @@ msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
+"Seligite un singule file de rip ma non tote le tracias audio a rippar "
+"seligite. Tu vermente vole continuar?"
 
 #: mainwindow.cpp:137
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr ""
+msgstr "Non tote tracia audio selegite per singule file a rippar"
 
 #: mainwindow.cpp:149
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Nullecopertura essera fixate. Tu vermente vole continuar?"
+msgstr "Nulle copertura essera fixate. Tu vermente vole continuar?"
 
 #: mainwindow.cpp:150
 #, kde-format
@@ -1084,11 +1089,13 @@ msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
+"Cerca de CDDB falleva, con le sequente error:\n"
+"%1"
 
 #: mainwindow.cpp:234
 #, kde-format
 msgid "CDD Lookup Failure"
-msgstr ""
+msgstr "Fallimento de cerca de CDD"
 
 #: mainwindow.cpp:339
 #, kde-format
@@ -1102,31 +1109,34 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
+"Pro favor assigna in catena de division. Attention a spatios vacue.\n"
+"\n"
+"Division:"
 
 #: mainwindow.cpp:352
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
-msgstr ""
+msgstr "Tu vermente vole excambiar omne artistas e titulos?"
 
 #: mainwindow.cpp:353
 #, kde-format
 msgid "Swap artists and titles"
-msgstr "Commuta Artistas e Titulos"
+msgstr "Excambia Artistas e Titulos"
 
 #: mainwindow.cpp:367
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
-msgstr ""
+msgstr "Tu vermente vole poner in majuscula omne artistas e titulos?"
 
 #: mainwindow.cpp:368
 #, kde-format
 msgid "Capitalize artists and titles"
-msgstr ""
+msgstr "Pone in Majuscula Artistas e Titulos"
 
 #: mainwindow.cpp:382
 #, kde-format
 msgid "Do you really want to autofill track artists?"
-msgstr ""
+msgstr "Tu vermente vole reimpler automaticamente artistas de tracia?"
 
 #: mainwindow.cpp:383
 #, kde-format
@@ -1181,7 +1191,7 @@ msgstr "Divide titulos"
 #: mainwindow.cpp:477
 #, kde-format
 msgid "Swap Artists And Titles"
-msgstr "Commuta Artistas e Titulos"
+msgstr "Excambia Artistas e Titulos"
 
 #: mainwindow.cpp:482
 #, kde-format
@@ -1211,7 +1221,7 @@ msgstr "Inverte selection"
 #: models/cddamodel.cpp:21
 #, kde-format
 msgid "Unable to create devices object."
-msgstr ""
+msgstr "Incapace a crear objecto de dispositivos."
 
 #: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
 #, kde-format
@@ -1219,11 +1229,13 @@ msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
+"Isto es un Error interne. Verifica tu hardware. Si toto es ok pro favor tu "
+"face un reporto de bug."
 
 #: models/cddamodel.cpp:33
 #, kde-format
 msgid "Unable to create KCDDB object."
-msgstr ""
+msgstr "Incapace a crear objecto de KCDDB."
 
 #: models/cddamodel.cpp:126
 #, kde-format
@@ -1233,12 +1245,12 @@ msgstr "Tracia %1"
 #: models/cddamodel.cpp:533
 #, kde-format
 msgid "Common image formats"
-msgstr ""
+msgstr "Formatos de Image commun"
 
 #: models/cddamodel.cpp:830
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr ""
+msgstr "Transaction currente de CDDN ja in curso."
 
 #: models/cddamodel.cpp:831
 #, kde-format
@@ -1246,6 +1258,8 @@ msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
+"Un transaction de CDDB es ja in curso. Pro favoir tu attende usque il ha "
+"terminate e essaya novemente."
 
 #: models/cddamodel.cpp:850 models/cddamodel.cpp:964
 #, kde-format
@@ -1253,6 +1267,8 @@ msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
+"Il ha un error conle servitor de CDDB.Pro favor tu attende o continge le "
+"administrator del servitor de CDDB."
 
 #: models/cddamodel.cpp:856 models/cddamodel.cpp:970
 #, kde-format
@@ -1260,6 +1276,8 @@ msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
+"Non pote trovar le servitor d CDDB. Verifica tu rete. Forsan le servitor de "
+"CDDB es foras de linea."
 
 #: models/cddamodel.cpp:862 models/cddamodel.cpp:976
 #, kde-format
@@ -1267,21 +1285,25 @@ msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
+"Pro favor tu attende, forsan le servitor es occupate, o continge le "
+"administrator de servitor de CDDB."
 
 #: models/cddamodel.cpp:867
 #, kde-format
 msgid "Please contact the CDDB server administrator."
-msgstr ""
+msgstr "Pro favor, tu continge administrator de servitor de CDDB"
 
 #: models/cddamodel.cpp:870 models/cddamodel.cpp:981
 #, kde-format
 msgid "This should not happen. Please make a bug report."
-msgstr ""
+msgstr "Isto non deberea occurrer. Pro favor tu face un reporto de bug."
 
 #: models/cddamodel.cpp:877 models/cddamodel.cpp:984
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
+"Pro favor tu face un reporto de bug e continge le administrator de servitor "
+"de CDDB."
 
 #: models/cddamodel.cpp:910
 #, kde-format
@@ -1292,6 +1314,7 @@ msgstr ""
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr ""
+"Isto significa que nulle datos ha essite trovate in le base de datos de CDDB."
 
 #: models/cddamodel.cpp:1011
 #, kde-format
@@ -1331,12 +1354,12 @@ msgstr "Longitude"
 #: models/profilemodel.cpp:167
 #, kde-format
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "Nomine de profilo non pote esser vacue."
 
 #: models/profilemodel.cpp:167
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
-msgstr ""
+msgstr "Tu non ha date alcun nomine al profilo. Pro favor tu assigna un."
 
 #: models/profilemodel.cpp:174
 #, kde-format
@@ -1373,17 +1396,17 @@ msgstr ""
 #: models/profilemodel.cpp:211
 #, kde-format
 msgid "Cover name must not be empty."
-msgstr ""
+msgstr "Nomine de copertura nonpote esser vacue."
 
 #: models/profilemodel.cpp:211
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
-msgstr ""
+msgstr "Tu non ha date alcun nomine al copertura. Pro favor tu assigna un."
 
 #: models/profilemodel.cpp:219
 #, kde-format
 msgid "The playlist file format is unknown."
-msgstr ""
+msgstr "Le formato le lista de reproduction es incognite."
 
 #: models/profilemodel.cpp:220
 #, kde-format
