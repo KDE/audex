@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-09 02:25+0000\n"
-"PO-Revision-Date: 2024-01-06 18:38+0100\n"
+"PO-Revision-Date: 2024-01-07 22:59+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -771,15 +771,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Verificación de archivo sencilla)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Algoritmo de resumen de mensajes 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Algoritmo de hash seguro)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
@@ -1066,16 +1065,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "No ha seleccionado todas las pistas para extraer en archivo único"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "No hay ninguna información del disco. ¿Seguro que desea continuar?"
+msgstr "No se ha definido ninguna carátula. ¿Seguro que desea continuar?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Archivo de carátula"
+msgstr "La carátula está vacía"
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1479,16 +1476,13 @@ msgid "The hashlist file format is unknown."
 msgstr "El formato del archivo de lista de hashs es desconocido."
 
 #: models/profilemodel.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "El formato de archivo de lista de hashs proporcionado es desconocido. "
-"Seleccione uno de los siguientes: SFV, MD5."
+"Seleccione uno de los siguientes: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:273
 #, kde-format
