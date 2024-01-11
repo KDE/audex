@@ -1,0 +1,44 @@
+# Find cdio
+#
+# Defines the following variables:
+#
+# * CDIO_CDDA_FOUND
+# * CDIO_CDDA_INCLUDE_DIRS
+# * CDIO_CDDA_LIBRARIES
+# * CDIO_CDDA_VERSION
+
+if(CDIO_CDDA_INCLUDE_DIR AND CDIO_CDDA_LIBRARY)
+  set(CDIO_CDDA_FIND_QUIETLY TRUE)
+endif()
+
+find_package(PkgConfig QUIET)
+
+if(PkgConfig_FOUND)
+
+  pkg_check_modules(PC_CDIO_CDDA QUIET cdio_cdda)
+
+  set(CDIO_CDDA_VERSION ${PC_CDIO_CDDA_VERSION})
+endif(PkgConfig_FOUND)
+
+find_path(
+  CDIO_CDDA_INCLUDE_DIR
+  NAMES cdio/paranoia/cdda.h
+  HINTS ${PC_CDIO_CDDA_INCLUDEDIR} ${PC_CDIO_CDDA_INCLUDE_DIRS})
+
+find_library(
+  CDIO_CDDA_LIBRARY
+  NAMES cdio_cdda
+  HINTS ${PC_CDIO_CDDA_LIBDIR} ${PC_CDIO_CDDA_LIBRARY_DIRS})
+
+include(FindPackageHandleStandardArgs)
+
+find_package_handle_standard_args(
+  cdio_cdda
+  REQUIRED_VARS CDIO_CDDA_INCLUDE_DIR CDIO_CDDA_LIBRARY
+  VERSION_VAR CDIO_CDDA_VERSION
+  FAIL_MESSAGE DEFAULT_MSG)
+
+set(CDIO_CDDA_LIBRARIES ${CDIO_CDDA_LIBRARY})
+set(CDIO_CDDA_INCLUDE_DIRS ${CDIO_CDDA_INCLUDE_DIR})
+
+mark_as_advanced(CDIO_CDDA_INCLUDE_DIR CDIO_CDDA_LIBRARY)

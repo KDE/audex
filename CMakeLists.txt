@@ -43,10 +43,13 @@ set_package_properties(
   URL "https://commits.kde.org/libkcddb"
   TYPE REQUIRED
   PURPOSE "libkcddb is used to retrieve audio CD meta data from the internet.")
-find_package(Cdparanoia REQUIRED)
+find_package(cdio REQUIRED)
+find_package(cdio_cdda REQUIRED)
+find_package(cdio_paranoia REQUIRED)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_BINARY_DIR}
-                    ${CDPARANOIA_INCLUDE_DIR})
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${CDIO_INCLUDE_DIRS}
+  ${CDIO_CDDA_INCLUDE_DIRS} ${CDIO_PARANOIA_INCLUDE_DIRS})
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
 
@@ -153,7 +156,9 @@ target_link_libraries(
   KF5::WidgetsAddons
   KF5::XmlGui
   KF5::Cddb
-  ${CDPARANOIA_LIBRARIES})
+  ${CDIO_LIBRARIES}
+  ${CDIO_CDDA_LIBRARIES}
+  ${CDIO_PARANOIA_LIBRARIES})
 
 install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
