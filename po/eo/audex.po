@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-09 02:25+0000\n"
-"PO-Revision-Date: 2023-12-23 07:10+0100\n"
+"PO-Revision-Date: 2024-01-09 19:31+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -183,10 +183,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Libera spaco sur \"%1\" estas malpli ol 800 MiB."
 
 #: core/audex.cpp:721
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Provizora dosierujo \"%1\" eraro."
+msgstr "Eraro (%2) pri provizora dosierujo \"%1\"."
 
 #: core/audex.cpp:721
 #, kde-format
@@ -348,16 +347,14 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Sorĉisto pri Komando-Ŝablono"
+msgstr "Sorĉisto pri Komando-Skemo"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Komandŝablono estas malplena."
+msgstr "Helpo pri komandskemo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
@@ -377,7 +374,7 @@ msgstr "Sampler Ekzemplo:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Helpo"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:293
@@ -648,7 +645,7 @@ msgstr "Rapido: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -659,13 +656,12 @@ msgstr "Kodigado de Trako 8 el 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Skema Sorĉisto"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Sorĉisto pri dosiernomo"
+msgstr "Helpo pri dosiernoma skemo"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -722,10 +718,9 @@ msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Pri skemoj"
+msgstr "Kovrila skemo:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:20
 #, kde-format
@@ -739,7 +734,7 @@ msgstr "Agordoj de Cue Sheet"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nomo/Skemo:"
 
 #: dialogs/profiledatadialog.cpp:95
 #, kde-format
@@ -768,25 +763,24 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simpla Dosiera Konfirmo)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (Message-Digest-algoritmo 5)"
+msgstr "MD5 (Message-Digest Algoritmo 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Sekura Haketkoda Algoritmo)"
 
 #: dialogs/profiledatainfodialog.cpp:24
 #, kde-format
 msgid "Info Settings"
-msgstr "Info Agordoj"
+msgstr "Agordo de Informoj"
 
 #: dialogs/profiledatainfodialog.cpp:43
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Helpo pri tekstinformskemo"
 
 #: dialogs/profiledatainfodialog.cpp:128
 #, kde-format
@@ -817,7 +811,7 @@ msgstr "Sufikso:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Skemo:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:52
@@ -862,13 +856,11 @@ msgstr "Anstataŭigi spacojn per substrekoj"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
-"Ĉi tiu agordo superregas iujn ajn parametrajn variajn agordojn en la ŝablono"
+"Ĉi tiu agordo superregas ajn agordojn de parametritaj variabloj en la skemo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -937,10 +929,9 @@ msgid "Save %1"
 msgstr "Konservi %1"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Sorĉisto pri dosiernomo"
+msgstr "Sorĉisto pri Dosiernoma Skemo"
 
 #: main.cpp:32
 #, kde-format
@@ -1061,21 +1052,19 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "Ne ĉiuj sonspuroj elektitaj por unudosiera rip"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Neniu disko informo aro. Ĉu vi vere volas daŭrigi?"
+msgstr "Neniu kovrilo estis metita. Ĉu vi vere volas daŭrigi?"
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Kovrilo Dosiero"
+msgstr "Kovrilo estas malplena"
 
 #: mainwindow.cpp:174
 #, kde-format
 msgid "General settings"
-msgstr "Ĝeneralaj Agordoj"
+msgstr "Ĝenerala agordo"
 
 #: mainwindow.cpp:177
 #, kde-format
@@ -1384,16 +1373,14 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Vi donis neniun kodilon por la profilo. Bonvolu agordi unu."
 
 #: models/profilemodel.cpp:180
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Profila dosiernomo ŝablono ne estas difinita."
+msgstr "Profildosiernoma skemo ne estas difinita."
 
 #: models/profilemodel.cpp:181
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "Vi ne donis dosiernoman ŝablonon por la profilo. Bonvolu agordi unu."
+msgstr "Vi ne donis dosiernoman skemon por la profilo. Bonvolu agordi unu."
 
 #: models/profilemodel.cpp:202
 #, kde-format
@@ -1401,16 +1388,13 @@ msgid "The image file format is unknown."
 msgstr "La bilddosierformato estas nekonata."
 
 #: models/profilemodel.cpp:203
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Via donita bilddosierformato estas nekonata. Bonvolu elekti unu el ĉi tiuj "
-"formatoj: JPG/JPEG, PNG aŭ BMP."
+"formatoj: JPEG, PNG aŭ BMP."
 
 #: models/profilemodel.cpp:211
 #, kde-format
@@ -1472,16 +1456,13 @@ msgid "The hashlist file format is unknown."
 msgstr "La hashlist dosierformato estas nekonata."
 
 #: models/profilemodel.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
-"Via donita hashlist dosierformato estas nekonata. Bonvolu elekti unu el ĉi "
-"tiuj formatoj: SFV, MD5."
+"Via donita hashlist-dosierformato estas nekonata. Bonvolu elekti unu el ĉi "
+"tiuj formatoj: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -1761,10 +1742,9 @@ msgid "Custom"
 msgstr "Propra"
 
 #: utils/encoderwrapper.cpp:60
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Komandŝablono estas malplena."
+msgstr "Komandskemo estas malplena."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -1852,17 +1832,17 @@ msgstr "Nekonata eraro okazis al %1. Ĉi tio ne devus okazi."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Trovis nevalidan signon ĉe indekso %1: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Trovis nefermitan citilon"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Trovis nevalidan signon ĉe indekso %1: %2"
 
 #: utils/schemeparser.cpp:127
 #, kde-format
@@ -1870,38 +1850,21 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"parametro replace_char_list bezonas du aŭ pliajn parametrojn "
+"replace_char_list_from kaj replace_char_list_to de egala grandeco."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Nefermita kuniga krampo"
 
 #: utils/schemeparser.cpp:423
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Ne eblis krei provizoran kovrildosieron: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1919,23 +1882,21 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Dosiernomaj skemoj sen absoluta vojo estos relativaj al la ekstraktitaj "
-"muzikdosieroj.</p><p>La sekvaj variabloj estos anstataŭigitaj per sia aparta "
-"signifo en ĉiu trakonomo.</p><p><table border=\"1\"><tr><th><em>Variablo</"
-"em></th><th><em>Priskribo</em></th></tr><tr><td>$artisto</td><td>La artisto "
-"de la KD. Se via KD estas kompilaĵo, tiam ĉi tiu etikedo reprezentas la "
-"titolon plejofte.</td></tr><tr><td>$title</td><td>La titolo de la KD. Se via "
-"KD estas kompilaĵo, tiam ĉi tiu etikedo reprezentas la subtitolon plejofte.</"
-"td></tr><tr><td>$date</td><td>La eldondato de la KD. En preskaŭ ĉiuj kazoj "
-"ĉi tio estas la jaro.</td></tr><tr><td>$ĝenro</td><td>La ĝenro de la KD.</"
-"td></tr><tr><td>$cdno</td><td>La KD-numero de plurdiska albumo. Ofte "
-"kompilaĵoj konsistas el pluraj KD-oj. <i>Noto:</i> Se la multi-KD-marko "
-"<b>ne</b> estas agordita por la nuna KD, tiu ĉi valoro estos nur malplena.</"
-"td></tr><tr><td>$sufikso</td><td>La dosiernomo finaĵo (ekz. \".jpg\", \".m3u"
-"\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>La totala nombro de "
-"sonspuroj de la KD.</td></tr><tr><td>$encoder</td><td>Kodilonomo kaj versio."
-"</td></tr><tr><td>$audex</td><td>Nomo kaj versio de Aŭdex.</td></tr></"
-"table></p>"
+"<p>La sekvaj lokokupiloj estos anstataŭigitaj per sia aparta signifo:</"
+"p><table><tr><th>Lokokupilo</th><th>Priskribo</th></tr><tr><td><tt>$artisto</"
+"tt></td><td>La artisto de la KD. Se via KD estas kompilaĵo tiam ĉi tiu "
+"etikedo reprezentas la titolon plejofte.</td></tr><tr><td><tt>$title</tt></"
+"td><td>La titolo de la KD. Se via KD estas kompilaĵo tiam ĉi tiu etikedo "
+"reprezentas la subtitolon plejofte.</td></tr><tr><td><tt>$date</tt></"
+"td><td>La eldondato de la KD. Preskaŭ ĉiuj okazoj ĉi tio estas la jaro.</"
+"td></tr><tr><td><tt>$genre</tt></td><td>La ĝenro de la KD.</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>La KD-numero de plurdiska albumo. Ofte "
+"kompilaĵoj konsistas el pluraj KD-oj. <i>Noto:</i> Se la plur-KD-flago "
+"<b>ne</b> estas agordita por la nuna KD, tiam ĉi tiu valoro estos malplena.</"
+"td></tr><tr><td><tt>$nooftracks</tt></td><td> La suma nombro da sonspuroj de "
+"la KD.</td></tr><tr><td><tt>$encoder</tt></td><td>Nomo kaj versio de kodilo."
+"</td></tr><tr><td><tt>$audex</tt></td><td>Nomo kaj versio de Audex.</td></"
+"tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1967,6 +1928,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Lokokupiloj en Audex povas havi parametrojn en la formo ŝlosilo=valoro. "
+"Ekz. <tt>${title lowercase=true}</tt>. En ĉi tiu ekzemplo la titolo estos "
+"minuskligita. La jenaj ĝeneralaj parametroj estas uzeblaj kun lokokupiloj:</"
+"p><table><tr><th>Ŝlosilo</th><th>Valoro</th><th>Priskribo</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>La lokokupila "
+"valoro estos minuskligita.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
+"false</td><td>La lokokupila valoro estos majuskligita.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Anstataŭigi la "
+"spacetojn de la lokokupil-valoro per substrekoj.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Anstataŭigi "
+"malpermesitajn dosiernomsignojn de FAT32-dosiersistemo per substrekoj.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Anstataŭigi "
+"signojn. Ĉi tiu parametro bezonas du kromajn ŝlosilojn de la sama "
+"valorgrandeco: <tt>replace_char_list_from</tt>, <tt>replace_char_list_to</"
+"tt>. Ĉi tiuj estas listoj de signoj. La unua signo "
+"de<tt>replace_char_list_from</tt> estos anstataŭigita per la unua signo de "
+"<tt>replace_char_list_to</tt> kaj tiel plu.</td></tr><tr><td><tt>left</tt></"
+"td><td>Nombro</td><td>Preni n-ajn signojn de maldekstre de la lokokupil-"
+"valoro.</td></tr><tr><td><tt>length</tt></td><td>Nombro</td><td>Se la "
+"lokokupila valoro estas nombro, vastigi ĝin al la donita longo. Krome vi "
+"povas difini plenigan signon per la aldona klavo <tt>fillchar</tt>. Defaŭlta "
+"fillchar estas '0'.</td></tr><tr><td><tt>pre</tt></td><td>Ĉeno</td><td> Ĉeno "
+"kiu estos metata <b>antaŭ</b> la valoro. Precipe utila por komandliniaj "
+"parametroj, kiujn oni tute ne agordu se la valoro estas malplena.</td></"
+"tr><tr><td><tt>post</tt></td><td>Ĉeno</td><td>Ĉeno kiu estos metata <b>post</"
+"b> la valoro.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -1978,6 +1965,12 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Lokokupilo</th><th>Priskribo</th></tr><tr><td>$tartist</"
+"td><td>Ĉi tiu estas la artisto de ĉiu aŭtoveturejo. Ĝi estas precipe utila "
+"je kompilaĵaj KD-oj.</td></tr><tr><td>$ttitle</td><td>La traktitolo. Normale "
+"ĉiu kanto sur KD havas sian propran titolon, kiu estas la nomo de la kanto.</"
+"td></tr><tr><td>$trackno</td><td>La kantonumero. Unua trako estas 1.</td></"
+"tr></table>"
 
 #: utils/schemeparser.h:199
 #, kde-format
@@ -1994,6 +1987,18 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Lokokupilo</th><th>Specifa parametro</th><th>Priskribo</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>La provizora WAVE-dosiero (RIFF "
+"WAVE) kreita de Audex el KD-sontrako. Ĉi tiu estas la eniga dosiero por via "
+"komandlinia kodilo.</td></tr><tr><td><tt>$o</tt></td><td></td><td>La plena "
+"eligdosiera nomo kaj vojo. Uzu ĝin kiel eligo por via komandlinia kodilo.</"
+"td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"td><td>Dosiernomo de la kovrildosiero. Se neniu kovrilo estas fiksita, ĉi "
+"tio estos malplena. Plejparte utila lige kun la parametro <tt>pre</tt>. "
+"Bildo povas esti skalita per la parametroj <tt>x</tt> kaj <tt>y</tt>. Eblaj "
+"bildaj <tt>formatoj</tt> estas JPEG, PNG, GIF aŭ BMP (Defaŭlte: JPEG). "
+"<i><b>Noto:</b>LAME forĵetas kovrildosierojn pli grandajn ol 128 KiB.</i></"
+"td></tr></table>"
 
 #: utils/schemeparser.h:213
 #, kde-format
@@ -2019,6 +2024,26 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Lokokupilo</th><th>Specifa parametro</th><th>Priskribo</th></"
+"tr><tr><td>$size</td><td> <tt>iec,precision</tt></td><td> Presas la "
+"ĝeneralan grandecon de ĉiuj ĉerpitaj (kodigitaj) muzikdosieroj (inkluzive de "
+"la kovrila bilddosiero). Per <tt>iec</tt> kalkulu (k)ibi, (m)ebi aŭ (g)ibi. "
+"La aldona parametro <tt>precision</tt> povas difini la nombron da decimalaj "
+"lokoj.</td></tr><tr><td>$length</td><td></td><td> Presas la koncernan "
+"entutan longon de ĉiuj ĉerpitaj trakoj. La formato estas min:sek.</td></"
+"tr><tr><td>$nooftracks</td><td></td><td>Presas la entutan nombron de "
+"ĉerpitaj trakoj.</td></tr><tr><td>$discid</td><td>base</td><td>Presas la "
+"CDDB-discid en deksesuma formato.</td></tr><tr><td>$now</td><td><tt>format, "
+"locale</tt></td><td>Presas la aktualan daton kaj/aŭ horon. La parametra "
+"formato specifas la eligon. Bonvolu konsulti oficialan qt-dokumentadon "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>) pri la subtenataj specifiloj ene de la "
+"formatĉeno. Per la aldona ŝlosilo <tt>locale</tt> vi povas specifi lingvan "
+"agordon. Defaŭlte viaj sistemlokaĵaroj estas uzata. La lokaĵaro havas la "
+"formaton <tt>lingvo_TERITORIO</tt>, ekz. <tt>eo_EO</tt>. <tt>lingvo</tt> "
+"estas minuskla, dulitera, ISO-639 lingvokodo kaj <tt>TERITORIO</tt> "
+"majuskla, dulitera, ISO 3166-teritoria kodo.</td></tr><tr><td>$br</td><td></"
+"td><td>Presas linirompon.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2072,10 +2097,9 @@ msgstr "Forigi Kovron"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Komando-Ŝablono:"
+msgstr "Komandoskemo:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:17
@@ -2351,583 +2375,3 @@ msgstr "Konservi..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Wikipedia localization"
-#~ msgstr "Vikipedia lokalizo"
-
-#~ msgid ""
-#~ "<p>The following variables will be replaced with their particular meaning "
-#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
-#~ "of the CD. If your CD is a compilation, then this tag represents the "
-#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
-#~ "If your CD is a compilation, then this tag represents the subtitle in "
-#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
-#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
-#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
-#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
-#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
-#~ "every individual track. It is especially useful on compilation CDs.</td></"
-#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
-#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
-#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
-#~ "$cover</td><td>The cover file.</td></tr><tr><td>$nooftracks</td><td>The "
-#~ "total number of audio tracks of the CD.</td></tr><tr><td>$i</td><td>The "
-#~ "temporary WAV file (input file) created by Audex from CD audio track. You "
-#~ "can use it as a normal input file for your command line encoder.</td></"
-#~ "tr><tr><td>$o</td><td>The full output filename and path (output file). "
-#~ "Use it as the output for your command line encoder.</td></tr><tr><td>"
-#~ "$encoder</td><td>Encoder name and version.</td></tr><tr><td>$audex</"
-#~ "td><td>Audex name and version.</td></tr></table></p>"
-#~ msgstr ""
-#~ "<p>La sekvaj variabloj estos anstataŭigitaj per sia aparta signifo en ĉiu "
-#~ "trakonomo.</p><p><table border=\"1\"><tr><th><em>Variablo</em></"
-#~ "th><th><em>Priskribo</em></th></tr><tr><td>$artisto</td><td>La artisto de "
-#~ "la KD. Se via KD estas kompilaĵo, tiam ĉi tiu etikedo reprezentas la "
-#~ "titolon plejofte.</td></tr><tr><td>$title</td><td>La titolo de la KD. Se "
-#~ "via KD estas kompilaĵo, tiam ĉi tiu etikedo reprezentas la subtitolon "
-#~ "plejofte.</td></tr><tr><td>$date</td><td>La eldondato de la KD. En "
-#~ "preskaŭ ĉiuj kazoj ĉi tio estas la jaro.</td></tr><tr><td>$genro</"
-#~ "td><td>La ĝenro de la KD.</td></tr><tr><td>$cdno</td><td>La KD-numero de "
-#~ "plurdiska albumo. Ofte kompilaĵoj konsistas el pluraj KD-oj. <i>Noto:</i> "
-#~ "Se la multi-KD-marko <b>ne</b> estas agordita por la nuna KD, tiu ĉi "
-#~ "valoro estos nur malplena.</td></tr><tr><td>$tartist</td><td>Ĉi tiu estas "
-#~ "la artisto de ĉiu individua trako. Ĝi estas precipe utila ĉe kompilaĵoj.</"
-#~ "td></tr><tr><td>$ttitle</td><td>La trakotitolo. Normale ĉiu kanto sur KD "
-#~ "havas sian propran titolon, kiu estas la nomo de la kanto.</td></"
-#~ "tr><tr><td>$trackno</td><td>La trako-numero. La unua trako estas 1.</td></"
-#~ "tr><tr><td>$cover</td><td>La kovrildosiero.</td></tr><tr><td>$nooftracks</"
-#~ "td><td>La totala nombro de sonspuroj de la KD.</td></tr><tr><td>$i</"
-#~ "td><td>La provizora WAV-dosiero (eniga dosiero) kreita de Audex el KD "
-#~ "aŭdotrako. Vi povas uzi ĝin kiel normalan enigdosieron por via "
-#~ "komandlinia kodilo.</td></tr><tr><td>$o</td><td>La plena eligodosiernomo "
-#~ "kaj vojo (eligdosiero). Uzu ĝin kiel eligo por via komandlinia kodilo.</"
-#~ "td></tr><tr><td>$encoder</td><td>Kodilonomo kaj versio.</td></tr><tr><td>"
-#~ "$audex</td><td>Nomo kaj versio de Audex.</td></tr></table></p>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#~| "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a "
-#~| "JPG image with the size of 300x300 will be inserted. If no size is set, "
-#~| "the size of the original cover file will be taken. If no cover is set, "
-#~| "this variable will be replaced by nothing, otherwise something like <i>/"
-#~| "tmp/cover.123.jpg</i> will be inserted. Possible formats are \"JPG\", "
-#~| "\"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
-#~| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#~| "bear this in mind, if you set the format and size.</i></p><hr /><p>"
-#~| "\"preparam\" and \"postparam\" define parameters inserted before (pre) "
-#~| "or behind (post) the variable. These values are <b>only</b> shown if a "
-#~| "value is set.Works with all commandline variables.</p><hr /><p><b><i>To "
-#~| "have a complete overview of parameters go to the Audex webpage.</i></b></"
-#~| "p>"
-#~ msgid ""
-#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#~ "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
-#~ "temporary filename of a copy in jpeg format and sizeof 300x300 pixels of "
-#~ "the cover will be inserted.If no size is set, the size of the original "
-#~ "cover image file will be taken.If no cover is set, this variable will be "
-#~ "omitted.Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG"
-#~ "\").</p>\n"
-#~ "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
-#~ "p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted "
-#~ "before (pre) or behind (post) the variable. These values are <b>only</"
-#~ "b>shown if a value is set. Works with all commandline variables."
-#~ msgstr ""
-#~ "<p>Variabloj en Aŭdex povas havi parametrojn. Ekz.</p><pre>${cover format="
-#~ "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Dosiernomo de JPG-"
-#~ "bildo kun la grandeco de 300x300 estos enmetita. Se neniu grandeco estas "
-#~ "agordita, la grandeco de la originala kovrildosiero estos prenita. Se "
-#~ "neniu kovrilo estas agordita, ĉi tiu variablo estos anstataŭigita per "
-#~ "nenio, alie io kiel <i>/tmp/cover.123.jpg</i> estos enmetita. Eblaj "
-#~ "formatoj estas \"JPG\", \"PNG\" kaj \"GIF\" (Defaŭlte: \"JPG\").</p>\n"
-#~ "<p><i><b>Noto:</b> LAME-forĵetoj kovras dosierojn pli grandajn ol 128 "
-#~ "KiB. Bonvolu memori tion, se vi agordas la formaton kaj grandecon.</i></"
-#~ "p><hr /><p>\"preparam\" kaj \"postparam\" difinas parametrojn enmetitajn "
-#~ "antaŭ (pre) aŭ malantaŭ (post) la variablo. Ĉi tiuj valoroj estas <b>nur</"
-#~ "b> montritaj se valoro estas agordita. Funkcias kun ĉiuj komandliniaj "
-#~ "variabloj.</p><hr/><p><b><i>Por havi kompletan superrigardon de "
-#~ "parametroj iru al la retpaĝo de Audex.</i></b></p>"
-
-#~ msgid "About commandline schemes"
-#~ msgstr "Pri komandliniaj skemoj"
-
-#~ msgid "About parameters"
-#~ msgstr "Pri parametroj"
-
-#, fuzzy
-#~| msgid ""
-#~| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/"
-#~| "TR/REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#~| "{ white-space: pre-wrap; }</style></head><body>Variables will be "
-#~| "replaced by a special value and can even contain parameters.<br />For "
-#~| "example the variable <div style=\"font-family:monospace; background: "
-#~| "#b3c1d6; color: black\"><pre>$artist</pre></div>or the equivalent<div "
-#~| "style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-#~| "${artist}</pre></div>will be replaced by the relevant artist of the cd. "
-#~| "Variables may also have attribute, for example:<div style=\"font-family:"
-#~| "monospace; background: #b3c1d6; color: black\"><pre>${today format="
-#~| "\"yyyy-MM-dd\"}</pre></div>This would print the current date. Setting "
-#~| "the format will control how this is done. The example (above)would "
-#~| "result int the date being printed as 2010-10-07 (if this was the current "
-#~| "date). See below for more details.<br /><br />You can make use of the "
-#~| "following variables:<br /><table border=1><thead><tr><th>Variable</"
-#~| "th><th>Parameter</th><th>Description</th><th>Example</th></tr></"
-#~| "thead><tbody><tr><td>$artist</td><td></td><td>Prints the relevant artist "
-#~| "of the extracted cd.</td><td>${artist }</td></tr><tr><td>$title</"
-#~| "td><td></td><td>Prints the relevant title of the extracted cd.</td><td></"
-#~| "td></tr><tr><td>$date</td><td></td><td>Prints the relevant date (usually "
-#~| "release year) of the extracted cd.</td><td></td></tr><tr><td>$genre;</"
-#~| "td><td></td><td>Prints the relevant genre of the extracted cd.</td><td></"
-#~| "td></tr><tr><td>$size</td><td>iec,precision</td><td>Prints the overall "
-#~| "size of all extracted (compressed) music files (incl. the cover). The "
-#~| "attribute iec can be one of the following: b, k, m, g. b means byte, k "
-#~| "KiB, m MiB and g GiB. The attribute precision gives the number of "
-#~| "decimal places. Default attributes are iec=\"m\" and precision=\"2\"</"
-#~| "td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
-#~| "td><td></td><td>Prints the relevant overall length of all extracted "
-#~| "tracks. The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</"
-#~| "td><td></td><td>Prints the total number of extracted tracks.</td><td></"
-#~| "td></tr><tr><td>$discid</td><td>base</td><td>Prints the discid of the "
-#~| "current cd. The attribute base is the base of the number. The default is "
-#~| "16 (hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
-#~| "td><td>format</td><td>Prints the current date. The attribute format "
-#~| "specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
-#~| "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
-#~| "time. The attribute format specifies the output (*).</td><td>${now "
-#~| "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
-#~| "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</"
-#~| "td><td></td><td>Prints Audex name and version.</td></tr><tr><td>$br</"
-#~| "td><td></td><td>Prints a linebreak.</td><td></td></tr></tbody></"
-#~| "table><br /><br />(* date/time format expressions)<table cellpadding="
-#~| "\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
-#~| "\"><th>Expression</th><th>Output</th></tr></thead><tr valign=\"top"
-#~| "\"><td>d</td><td>The day as a number without a leading zero (1 to 31).</"
-#~| "td></tr><tr valign=\"top\"><td>dd</td><td>The day as a number with a "
-#~| "leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</td><td>The "
-#~| "abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></tr><tr "
-#~| "valign=\"top\"><td>dddd</td><td>The long localized day name (e.g&#x2e; "
-#~| "'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</td><td>The "
-#~| "month as a number without a leading zero (1 to 12).</td></tr><tr valign="
-#~| "\"top\"><td>MM</td><td>The month as a number with a leading zero (01 to "
-#~| "12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The abbreviated "
-#~| "localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign="
-#~| "\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; "
-#~| "'January' to 'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The "
-#~| "year as two digit number (00 to 99).</td></tr><tr valign=\"top"
-#~| "\"><td>yyyy</td><td>The year as four digit number.</td></tr></table><br /"
-#~| "><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#~| "valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr valign="
-#~| "\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to "
-#~| "12 if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The "
-#~| "hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></"
-#~| "tr><tr valign=\"top\"><td>H</td><td>The hour without a leading zero (0 "
-#~| "to 23, even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</"
-#~| "td><td>The hour with a leading zero (00 to 23, even with AM/PM display)."
-#~| "</td></tr><tr valign=\"top\"><td>m</td><td>The minute without a leading "
-#~| "zero (0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute "
-#~| "with a leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</"
-#~| "td><td>The second without a leading zero (0 to 59).</td></tr><tr valign="
-#~| "\"top\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></"
-#~| "tr><tr valign=\"top\"><td>z</td><td>The milliseconds without leading "
-#~| "zeroes (0 to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The "
-#~| "milliseconds with leading zeroes (000 to 999).</td></tr><tr valign=\"top"
-#~| "\"><td>AP or A</td><td>Interpret as an AM/PM time. AP must be either "
-#~| "'AM' or 'PM'.</td></tr><tr valign=\"top\"><td>ap or a</td><td>Interpret "
-#~| "as an AM/PM time. ap must be either 'am' or 'pm'.</td></tr></table></"
-#~| "body></html>"
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#~ "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#~ "by a special value and can even contain parameters.<br />For example the "
-#~ "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#~ "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#~ "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#~ "div>will be replaced by the relevant artist of the cd. Variables may also "
-#~ "have attribute, for example:<div style=\"font-family:monospace; "
-#~ "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#~ "pre></div>This would print the current date. Setting the format will "
-#~ "control how this is done. The example (above)would result int the date "
-#~ "being printed as 2010-10-07 (if this was the current date). See below for "
-#~ "more details.<br /><br />You can make use of the following variables:<br /"
-#~ "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#~ "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#~ "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#~ "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#~ "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#~ "td><td></td><td>Prints the relevant date (usually release year) of the "
-#~ "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#~ "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#~ "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#~ "(compressed) music files (incl. the cover). The attribute iec can be one "
-#~ "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#~ "attribute precision gives the number of decimal places. Default "
-#~ "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#~ "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#~ "relevant overall length of all extracted tracks. The format is min:sec.</"
-#~ "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#~ "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#~ "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#~ "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#~ "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#~ "td><td>Prints the current date. The attribute format specifies the "
-#~ "output. <i>Please have a look at the official qt documentation for the "
-#~ "format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
-#~ "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
-#~ "time. The attribute format specifies the output. <i>Please have a look at "
-#~ "the official qt documentation for the format variables.</i></td><td>${now "
-#~ "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
-#~ "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</td><td></"
-#~ "td><td>Prints Audex name and version.</td></tr><tr><td>$br</td><td></"
-#~ "td><td>Prints a linebreak.</td><td></td></tr></tbody></table></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#~ "{ white-space: pre-wrap; }</style></head><body>Varibeloj estos "
-#~ "anstataŭigitaj per speciala valoro kaj eĉ povas enhavi parametrojn.<br /"
-#~ ">Ekzemple la variablo <div style=\"font-family:monospace; background: "
-#~ "#b3c1d6 ; color: black\"><pre>$artisto</pre></div>aŭ la ekvivalento<div "
-#~ "style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>$ "
-#~ "{artist}</pre></div> estos anstataŭigita per la koncerna artisto de la "
-#~ "kd. Variabloj ankaŭ povas havi atributon, ekzemple:<div style=\"font-"
-#~ "family:monospace; background: #b3c1d6; color: black\"><pre>${hodiaŭ "
-#~ "format=\"yyyy-MM-dd\"} </pre></div>Ĉi tio presas la aktualan daton. "
-#~ "Agordi la formaton kontrolos kiel tio estas farita. La ekzemplo (supre) "
-#~ "rezultus in la dato estanta presita kiel 2010-10-07 (se ĉi tiu estis la "
-#~ "aktuala dato). Vidu sube por pliaj detaloj.<br /><br />Vi povas uzi la "
-#~ "jenajn variablojn:<br /><table border=1><thead><tr><th>Variebla</th><th> "
-#~ "Parametro</th><th>Priskribo</th><th>Ekzemplo</th></tr></"
-#~ "thead><tbody><tr><td>$artisto</td><td></td><td>Presas la koncernan "
-#~ "artiston de la ĉerpita disko.</td><td>${artist}</td></tr><tr><td>$titolo</"
-#~ "td><td></td><td>Presas la koncernan titolon de la ĉerpita disko.</"
-#~ "td><td></td></tr><tr><td>$dato</td><td></td><td>Presas la koncernan daton "
-#~ "(kutime eldonjaro) de la ĉerpita disko.</td><td></td></tr><tr><td>$ĝenro;"
-#~ "</td><td></td><td>Presas la koncernan ĝenron de la ĉerpita disko.</"
-#~ "td><td></td></tr><tr><td>$size</td><td>iec, precize</td><td>Presas la "
-#~ "ĝeneralan grandecon de ĉiuj ĉerpitaj (kunpremitaj) muzikdosieroj "
-#~ "(inkluzive de la kovrilo). La atributo iec povas esti unu el la jenaj: b, "
-#~ "k, m, g. b signifas bajton, k KiB, m MiB kaj g GiB. La atributa precizeco "
-#~ "donas la nombron da decimalaj lokoj. Defaŭltaj atributoj estas iec=\"m\" "
-#~ "kaj precizeco=\"2\"</td><td>${size iec=\"k\" precizeco=\"2\"}</td></"
-#~ "tr><tr><td>$longo</td><td></td><td>Presas la koncernan totalan longon de "
-#~ "ĉiuj ĉerpitaj trakoj. La formato estas min:sec.</td><td></td></tr><tr><td>"
-#~ "$nooftracks</td><td></td><td>Presas la totalan nombron de ĉerpitaj spuroj."
-#~ "</td><td></td></tr><tr><td>$discid</td><td>bazo</td><td> Presas la diskon "
-#~ "de la nuna disko. La atributbazo estas la bazo de la nombro. La defaŭlta "
-#~ "estas 16 (deksesuma).</td><td>${discid bazo=\"16\"}</td></tr><tr><td>"
-#~ "$hodiaŭ</td><td>formato</td><td>Presas la aktualan daton. La "
-#~ "atributoformato specifas la eligon (*).</td><td>${hodiaŭ format=\"yyyy-MM-"
-#~ "dddd\"}</td></tr><tr><td>$nun</td><td>formato</td><td>Presas la aktualan "
-#~ "daton kaj/aŭ horon. La atributformato specifas la eligon (*).</td><td>"
-#~ "${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</"
-#~ "td><td></td><td>Presas nomon kaj version de kodilo.</td></tr><tr><td>"
-#~ "$audex</td><td></td><td>Presas nomon kaj version de Aŭdex.</td></"
-#~ "tr><tr><td>$br</td><td></td><td>Presas liniorompon.</td><td></td></tr></"
-#~ "tbody></table><br/><br/>(* data/hora formataj esprimoj)<table cellpadding="
-#~ "\"2\" cellspacing=\"1\" border= \"1\"><thead><tr valign=\"top"
-#~ "\"><th>Esprimo</th><th>Eligo</th></tr></thead><tr valign=\"top\"><td>d</"
-#~ "td><td>La tago kiel nombro sen unua nulo (1 ĝis 31).</td></tr><tr valign="
-#~ "\"top\"><td>dd</td><td>La tago kiel nombro kun unua nulo (01 ĝis 31).</"
-#~ "td></tr><tr valign=\"top\"><td>ddd</td><td>La mallongigita lokalizita "
-#~ "tagnomo (ekz. 'Lun' al 'Dim').</td></tr><tr valign=\"top\"><td>dddd</"
-#~ "td><td>La longe lokalizita taga nomo (ekz. 'lundo' ĝis 'dimanĉo').</td></"
-#~ "tr><tr valign=\"top\"><td>M</td><td>La monato kiel nombro sen gvido nulo "
-#~ "(1 ĝis 12).</td></tr><tr valign=\"top\"><td>MM</td><td>La monato kiel "
-#~ "nombro kun unua nulo (01 ĝis 12).</td></tr><tr valign=\"top\"><td>MMM</"
-#~ "td><td>La mallongigita lokalizita monata nomo (ekz. 'Jan' ĝis 'Dec').</"
-#~ "td></tr><tr valign=\"top\"><td>MMMM</td><td>La longa lokalizita monata "
-#~ "nomo (ekz. 'januaro' ĝis 'decembro').</td></tr><tr valign=\"top\"><td>yy</"
-#~ "td><td>La jaro kiel ducifera nombro (00 ĝis 99).</td></tr><tr valign=\"top"
-#~ "\"><td>jjyy</td><td>La jaro kiel kvarcifera nombro.</td></tr></table><br /"
-#~ "><table cellpadding =\"2\" cellspacing=\"1\" border=\"1\"><thead><tr "
-#~ "valign=\"top\"><th>Esprimo</th><th>Eligo</th></tr></thead><tr valign=\"top"
-#~ "\"><td>h</td><td>La horo sen unua nulo (0 ĝis 23 aŭ 1 ĝis 12 se montriĝas "
-#~ "AM/PM).</td></tr><tr valign\"top\"><td>hh</td><td>La horo kun unua nulo "
-#~ "(00 ĝis 23 aŭ 01 ĝis 12 se montriĝas AM/PM).</td></tr><tr valign=\"top"
-#~ "\"><td>H</td><td>La horo sen antaŭa nulo (0 ĝis 23, eĉ kun montrado de AM/"
-#~ "PM).</td></tr><tr valign=\"top\"><td>HH</td><td>La horo kun unua nulo (00 "
-#~ "ĝis 23, eĉ kun montrado de AM/PM).</td></tr><tr valign=\"top\"><td>m</"
-#~ "td><td>La minuto sen unua nulo (0 ĝis 59).</td></tr><tr valign=\"top"
-#~ "\"><td>mm</td><td>La minuto kun unua nulo (00 ĝis 59).</td></tr><tr "
-#~ "valign=\"top\"><td>s</td><td>La sekundo sen unua nulo (0 ĝis 59).</td></"
-#~ "tr><tr valign=\"top\"><td>ss</td><td>La sekundo kun unua nulo (00 ĝis 59)."
-#~ "</td></tr><tr valign=\"top\"><td>z</td><td>La milisekundoj sen antaŭaj "
-#~ "nuloj (0 ĝis 999).</td></tr><tr valign=\"top\"><td>zz</td><td>La "
-#~ "milisekundoj kun antaŭaj nuloj (000 ĝis 999).</td></tr><tr valign=\"top"
-#~ "\"><td>AP aŭ A</td><td>Interpreti kiel AM/PM horo. AP devas esti aŭ 'AM' "
-#~ "aŭ 'PM'.</td></tr><tr valign=\"top\"><td>ap aŭ a</td><td>Interpreti kiel "
-#~ "AM/PM horo. ap devas esti aŭ 'am' aŭ 'pm'.</td></tr></table></body></html>"
-
-#~ msgid "About variables"
-#~ msgstr "Pri variabloj"
-
-#~ msgid ""
-#~ "<p>The following variables will be replaced with their particular meaning "
-#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
-#~ "of the CD. If your CD is a compilation, then this tag represents the "
-#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
-#~ "If your CD is a compilation, then this tag represents the subtitle in "
-#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
-#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
-#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
-#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
-#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
-#~ "every individual track. It is especially useful on compilation CDs.</td></"
-#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
-#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
-#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
-#~ "$nooftracks</td><td>The total number of audio tracks of the CD.</td></"
-#~ "tr><tr><td>$suffix</td><td>The filename extension.</td></tr><tr><td>"
-#~ "$audex</td><td>Audex name and version.</td></tr></table></p>"
-#~ msgstr ""
-#~ "<p>La sekvaj variabloj estos anstataŭigitaj per sia aparta signifo en ĉiu "
-#~ "trakonomo.</p><p><table border=\"1\"><tr><th><em>Variablo</em></"
-#~ "th><th><em>Priskribo</em></th></tr><tr><td>$artisto</td><td>La artisto de "
-#~ "la KD. Se via KD estas kompilaĵo, tiam ĉi tiu etikedo reprezentas la "
-#~ "titolon plejofte.</td></tr><tr><td>$title</td><td>La titolo de la KD. Se "
-#~ "via KD estas kompilaĵo, tiam ĉi tiu etikedo reprezentas la subtitolon "
-#~ "plejofte.</td></tr><tr><td>$date</td><td>La eldondato de la KD. En "
-#~ "preskaŭ ĉiuj kazoj ĉi tio estas la jaro.</td></tr><tr><td>$genro</"
-#~ "td><td>La ĝenro de la KD.</td></tr><tr><td>$cdno</td><td>La KD-numero de "
-#~ "plurdiska albumo. Ofte kompilaĵoj konsistas el pluraj KD-oj. <i>Noto:</i> "
-#~ "Se la multi-KD-marko <b>ne</b> estas agordita por la nuna KD, tiu ĉi "
-#~ "valoro estos nur malplena.</td></tr><tr><td>$tartist</td><td>Ĉi tiu estas "
-#~ "la artisto de ĉiu individua trako. Ĝi estas precipe utila ĉe kompilaĵoj.</"
-#~ "td></tr><tr><td>$ttitle</td><td>La trakotitolo. Normale ĉiu kanto sur KD "
-#~ "havas sian propran titolon, kiu estas la nomo de la kanto.</td></"
-#~ "tr><tr><td>$trackno</td><td>La trako-numero. Unua trako estas 1.</td></"
-#~ "tr><tr><td>$nooftracks</td><td>La tuta nombro de sonspuroj de la KD.</"
-#~ "td></tr><tr><td>$sufikso</td><td>dosiernoma finaĵo.</td></tr><tr><td>"
-#~ "$audex</td><td>Aŭdex nomo kaj versio.</td></tr></table></p>"
-
-#~ msgid ""
-#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-#~ "${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This "
-#~ "means, that the tracknumber will be forced to a length of 2 digits. If "
-#~ "the number is less than 10, it will be filled up with \"0\".</p><pre>"
-#~ "$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />"
-#~ "$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>The "
-#~ "title will be uppercased or lowercased. This works with the other "
-#~ "variables, too.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - "
-#~ "$ttile.$suffix</pre><p>Take one character from the left, which is the "
-#~ "first one.</p><hr /><p><b><i>To have a complete overview of parameters go "
-#~ "to the Audex webpage.</i></b></p>"
-#~ msgstr ""
-#~ "<p>Varibeloj en Aŭdex povas havi parametrojn. Ekz.</p><pre>$artisto/"
-#~ "$titolo/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$sufikso</"
-#~ "pre><p>Ĉi tio signifas, ke la tracknumero estos devigita al longo de 2 "
-#~ "ciferoj. Se la nombro estas malpli ol 10, ĝi estos plenigita per \"0\".</"
-#~ "p><pre>$artisto/${title minuskla=\"vera\"}/$trackno - $ttile.$sufikso "
-#~ "<br />$artisto/${title uppercase=\"true\"}/$trackno - $ttile.$sufikso</"
-#~ "pre><p>La titolo estos majuskla aŭ minuskla. Ĉi tio funkcias ankaŭ kun la "
-#~ "aliaj variabloj.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - "
-#~ "$ttile.$suffix</pre><p>Prenu unu signon de maldekstre, kiu estas la unua."
-#~ "</p><hr /><p><b><i>Por havi kompletan superrigardon de parametroj iru al "
-#~ "la retpaĝo de Audex.</i></b></p>"
-
-#~ msgid "About filename schemes"
-#~ msgstr "Pri dosiernomaj skemoj"
-
-#~ msgid ""
-#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
-#~ "length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd "
-#~ "number will be forced to a length of 2 digits. If the number is less than "
-#~ "10, it will be filled up with \"0\".</p><pre>${title lowercase=\"true\"}."
-#~ "$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>The title will "
-#~ "be uppercased or lowercased. This works with the other variables, too.</"
-#~ "p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Take one character "
-#~ "from the left, which is the first one.</p><hr /><p><b><i>To have a "
-#~ "complete overview of parameters go to the Audex webpage.</i></b></p>"
-#~ msgstr ""
-#~ "<p>Variabloj en Audex povas havi parametrojn. Ekz.</p><pre>$titolo "
-#~ "(${cdno length=\"2\" fillchar=\"0\"}).$sufikso</pre><p>Ĉi tio signifas, "
-#~ "ke la kd-numero estos devigita al longo de 2 ciferoj. Se la nombro estas "
-#~ "malpli ol 10, ĝi estos plenigita per \"0\".</p><pre>${title lowercase="
-#~ "\"true\"}.$sufikso<br/>${title uppercase=\"true\"}.$sufikso</pre><p>La "
-#~ "titolo estos majuskla aŭ minuskla. Ĉi tio funkcias ankaŭ kun la aliaj "
-#~ "variabloj.</p><pre>${artist left=\"1\"} - $title.$sufikso</pre><p>Prenu "
-#~ "unu signon de maldekstre, kiu estas la unua unu.</p><hr /><p><b><i>Por "
-#~ "havi kompletan superrigardon de parametroj iru al la retpaĝo de Aŭdex.</"
-#~ "i></b></p>"
-
-#~ msgid "About schemes"
-#~ msgstr "Pri skemoj"
-
-#~ msgid "Cover pattern:"
-#~ msgstr "Kovrilo ŝablono:"
-
-#~ msgid "Name/Pattern:"
-#~ msgstr "Nomo/Ŝablono:"
-
-#~ msgid "Pattern:"
-#~ msgstr "Ŝablono:"
-
-#~ msgid "Pattern Wizard"
-#~ msgstr "Ŝablona Sorĉisto"
-
-#~ msgid " (Mobile Quality)"
-#~ msgstr "(Movebla Kvalito)"
-
-#~ msgid " (Normal Quality)"
-#~ msgstr "(Normala Kvalito)"
-
-#~ msgid " (Extreme Quality)"
-#~ msgstr "(Ekstrema Kvalito)"
-
-#~ msgid "File does not exist."
-#~ msgstr "Dosiero ne ekzistas."
-
-#~ msgid "Please check if the file really exists."
-#~ msgstr "Bonvolu kontroli ĉu la dosiero vere ekzistas."
-
-#~ msgid "Cannot open file."
-#~ msgstr "Ne povas malfermi dosieron."
-
-#~ msgid "Please check your file. Maybe you do not have proper permissions."
-#~ msgstr "Bonvolu kontroli vian dosieron. Eble vi ne havas taŭgajn permesojn."
-
-#~ msgid "Unsupported image format"
-#~ msgstr "Nesubtenata bildformato"
-
-#~ msgid ""
-#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
-#~ "your cover image with an external program to a common file format like "
-#~ "JPEG."
-#~ msgstr ""
-#~ "Bonvolu kontroli vian dosieron. Eble ĝi estas koruptita. Alie provu "
-#~ "konverti vian kovrilan bildon per ekstera programo al komuna "
-#~ "dosierformato kiel JPEG."
-
-#~ msgid "Cannot open file"
-#~ msgstr "Ne povas malfermi dosieron"
-
-#~ msgid "Please check your permissions."
-#~ msgstr "Bonvolu kontroli viajn permesojn."
-
-#~ msgid "Cannot save file"
-#~ msgstr "Ne povas konservi dosieron"
-
-#~ msgid "Please check your permissions. Do you have enough space?"
-#~ msgstr "Bonvolu kontroli viajn permesojn. Ĉu vi havas sufiĉe da spaco?"
-
-#~ msgid ""
-#~ "Please use common image formats like JPEG or PNG as they are supported on "
-#~ "almost all systems."
-#~ msgstr ""
-#~ "Bonvolu uzi komunajn bildformatojn kiel JPEG aŭ PNG ĉar ili estas "
-#~ "subtenataj en preskaŭ ĉiuj sistemoj."
-
-#~ msgid "Cannot write on device"
-#~ msgstr "Ne povas skribi sur aparato"
-
-#~ msgid ""
-#~ "Please check your permissions. Do you have enough space on your device?"
-#~ msgstr ""
-#~ "Bonvolu kontroli viajn permesojn. Ĉu vi havas sufiĉe da spaco en via "
-#~ "aparato?"
-
-#~ msgid "Searching for covers..."
-#~ msgstr "Serĉante kovrilojn..."
-
-#~ msgid "Fetching Thumbnail %1 / %2..."
-#~ msgstr "Akiro de bildeto %1 / %2..."
-
-#~ msgid "Found 1 Cover"
-#~ msgid_plural "Found %1 Covers"
-#~ msgstr[0] "Trovis 1 kovrilon"
-#~ msgstr[1] "Trovis %1 kovrilojn"
-
-#~ msgid "No Covers Found"
-#~ msgstr "Neniuj Kovriloj Trovitaj"
-
-#~ msgid "Fetch Cover From Google"
-#~ msgstr "Preni Kovrilon De Guglo"
-
-#~ msgid "Usable Variables For Text Template"
-#~ msgstr "Uzeblaj Variabloj Por Teksta Ŝablono"
-
-#~ msgid "freedb.org"
-#~ msgstr "freedb.org"
-
-#~ msgid ""
-#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
-#~ msgstr ""
-#~ "Dankegojn al freedb.org por oferto de libera LDDB-simila LD-datumbazo"
-
-#~ msgid "There was an error communicating with Google."
-#~ msgstr "Okazis eraro dum komunikado kun Google."
-
-#~ msgid "Try again later. Otherwise make a bug report."
-#~ msgstr "Provu denove poste. Alie faru cimraporton."
-
-#~ msgid "Google server: Empty response."
-#~ msgstr "Guglo-servilo: Malplena respondo."
-
-#~ msgid "Try again later. Make a bug report."
-#~ msgstr "Provu denove poste. Faru cimraporton."
-
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgid "Released: "
-#~ msgstr "Eldonita:"
-
-#~ msgid "Genre: "
-#~ msgstr "Ĝenro: "
-
-#~ msgid "Wikipedia"
-#~ msgstr "Vikipedio"
-
-#~ msgid "No cover found."
-#~ msgstr "Neniu kovrilo trovita."
-
-#~ msgid ""
-#~ "Check your artist name and title. Otherwise you can load a custom cover "
-#~ "from an image file."
-#~ msgstr ""
-#~ "Kontrolu vian artistnomon kaj titolon. Alie vi povas ŝargi propran "
-#~ "kovrilon el bilddosiero."
-
-#~ msgid "Fetch cover from Google..."
-#~ msgstr "Preni kovrilon de Guglo..."
-
-#~ msgid "English"
-#~ msgstr "Angla"
-
-#~ msgid "Deutsch"
-#~ msgstr "Deutsch"
-
-#~ msgid "Français"
-#~ msgstr "Français"
-
-#~ msgid "Polski"
-#~ msgstr "Polski"
-
-#~ msgid "日本語"
-#~ msgstr "日本語"
-
-#~ msgid "Italiano"
-#~ msgstr "Italiano"
-
-#~ msgid "Nederlands"
-#~ msgstr "Nederlands"
-
-#~ msgid "Español"
-#~ msgstr "Hispana"
-
-#~ msgid "Português"
-#~ msgstr "Português"
-
-#~ msgid "Svenska"
-#~ msgstr "Svenska"
-
-#~ msgid "Català"
-#~ msgstr "Català"
-
-#~ msgid "Localization:"
-#~ msgstr "Loko:"
