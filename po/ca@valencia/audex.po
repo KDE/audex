@@ -1423,7 +1423,7 @@ msgstr "No heu indicat cap nom per a la caràtula. Establiu-ne un."
 #: models/profilemodel.cpp:219
 #, kde-format
 msgid "The playlist file format is unknown."
-msgstr "El format del fitxer de la llista de reproducció és desconegut."
+msgstr "El format de fitxer de la llista de reproducció és desconegut."
 
 #: models/profilemodel.cpp:220
 #, kde-format
@@ -1431,7 +1431,7 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"El format del fitxer de la llista de reproducció és desconegut. Escolliu-ne "
+"El format de fitxer de la llista de reproducció és desconegut. Escolliu-ne "
 "un dels següents: M3U, PLS o XSPF."
 
 #: models/profilemodel.cpp:228
@@ -1470,7 +1470,7 @@ msgstr ""
 #: models/profilemodel.cpp:263
 #, kde-format
 msgid "The hashlist file format is unknown."
-msgstr "El format del fitxer de la llista de resum és desconegut."
+msgstr "El format de fitxer de la llista de resum és desconegut."
 
 #: models/profilemodel.cpp:264
 #, kde-format
@@ -2409,6 +2409,3 @@ msgstr "Guarda..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Wikipedia localization"
-#~ msgstr "Ubicació de la Viquipèdia"
