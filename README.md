@@ -6,7 +6,8 @@ Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 ### Prerequisites
 
 * KF5Cddb
-* cdparanoia
+* libcdio
+* libcdio-paranoia
 
 ### Prerequisites (optional)
 
@@ -47,7 +48,7 @@ Or remove all files listed in `install_manifest.txt` in your `build/` directory 
 
 ### Further information
 
-These files make Audex cdda paranoia dependent:
+These files make Audex libcdio/libcdio-paranoia dependent:
 
 * utils/cddaparanoia.h
 * utils/cddaparanoia.cpp
