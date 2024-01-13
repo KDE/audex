@@ -13,29 +13,29 @@
 
 #include <KLocalizedString>
 
-#include "cddaparanoia.h"
+#include "cddacdio.h"
 
 class CDDAExtractThread : public QThread
 {
     Q_OBJECT
 public:
-    CDDAExtractThread(QObject *parent, CDDAParanoia *_paranoia);
+    CDDAExtractThread(QObject *parent, CDDACDIO *cdio);
     ~CDDAExtractThread() override;
 
 public Q_SLOTS:
     void start();
     void cancel();
-    void setFullParanoiaMode(const bool mode)
+    void setParanoiaFullMode(const bool mode)
     {
-        full_paranoia_mode = mode;
+        paranoia_full_mode = mode;
     }
-    void setMaxRetries(const int r)
+    void setParanoiaMaxRetries(const int max_retries)
     {
-        paranoia_retries = r;
+        paranoia_retries = max_retries;
     }
-    void setNeverSkip(const bool b)
+    void setParanoiaNeverSkip(const bool never_skip)
     {
-        never_skip = b;
+        paranoia_never_skip = never_skip;
     }
     void setSampleOffset(const int offset)
     {
@@ -47,16 +47,16 @@ public Q_SLOTS:
     } // if t==0 rip whole cd
     void skipTrack(const unsigned int t)
     {
-        overall_sectors_read += paranoia->numOfFramesOfTrack(t);
+        overall_sectors_read += p_cdio->numOfFramesOfTrack(t);
     }
 
     bool isProcessing();
 
     const QStringList &protocol();
 
-    CDDAParanoia *cddaParanoia()
+    CDDACDIO *cdio()
     {
-        return paranoia;
+        return p_cdio;
     }
 
 private Q_SLOTS:
@@ -76,7 +76,7 @@ protected:
     void run() override;
 
 private:
-    CDDAParanoia *paranoia;
+    CDDACDIO *p_cdio;
 
     long first_sector;
     long current_sector;
@@ -85,9 +85,9 @@ private:
     unsigned long overall_sectors_read;
     unsigned long sectors_all;
 
-    bool full_paranoia_mode;
+    bool paranoia_full_mode;
     int paranoia_retries;
-    bool never_skip;
+    bool paranoia_never_skip;
     int sample_offset;
     bool sample_offset_done;
 

@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CDDAPARANOIA_HEADER
-#define CDDAPARANOIA_HEADER
+#ifndef CDDACDIO_HEADER
+#define CDDACDIO_HEADER
 
 #include <QMutex>
 #include <QObject>
@@ -25,13 +25,13 @@ extern "C" {
 #define SECTORS_PER_SECOND 75
 #define FRAMES_PER_SECOND 75
 
-class CDDAParanoia : public QObject
+class CDDACDIO : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit CDDAParanoia(QObject *parent = nullptr);
-    ~CDDAParanoia() override;
+    explicit CDDACDIO(QObject *parent = nullptr);
+    ~CDDACDIO() override;
 
     bool setDevice(const QString &device = "/dev/cdrom");
     QString getDevice() const;
@@ -41,9 +41,9 @@ public:
     const QString getModel() const;
     const QString getRevision() const;
 
-    void enableFullParanoiaMode(const bool enabled = true);
-    void enableNeverSkip(const bool never_skip = true);
-    void setMaxRetries(int m); /* default: 20 */
+    void enableParanoiaFullMode(const bool enabled = true);
+    void enableParanoiaNeverSkip(const bool never_skip = true);
+    void setParanoiaMaxRetries(int max_retries); /* default: 20 */
 
     qint16 *paranoiaRead(void (*callback)(long, paranoia_cb_mode_t));
     int paranoiaSeek(long sector, qint32 mode);

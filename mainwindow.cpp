@@ -181,8 +181,8 @@ void MainWindow::configure()
     KPageWidgetItem *devicePage = dialog->addPage(device_widget, i18n("Device settings"));
     devicePage->setIcon(QIcon::fromTheme("drive-optical"));
 
-    if (cdda_model && cdda_model->paranoia())
-        device_widget->setDeviceInfo(cdda_model->paranoia()->getVendor(), cdda_model->paranoia()->getModel(), cdda_model->paranoia()->getRevision());
+    if (cdda_model && cdda_model->cdio())
+        device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(), cdda_model->cdio()->getModel(), cdda_model->cdio()->getRevision());
 
     KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
     profilePage->setIcon(QIcon::fromTheme("document-multiple"));
@@ -221,8 +221,8 @@ void MainWindow::new_audio_disc_detected()
     update_layout();
 
     if (device_widget) {
-        if (cdda_model && cdda_model->paranoia()) {
-            device_widget->setDeviceInfo(cdda_model->paranoia()->getVendor(), cdda_model->paranoia()->getModel(), cdda_model->paranoia()->getRevision());
+        if (cdda_model && cdda_model->cdio()) {
+            device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(), cdda_model->cdio()->getModel(), cdda_model->cdio()->getRevision());
         } else {
             device_widget->clearDeviceInfo();
         }

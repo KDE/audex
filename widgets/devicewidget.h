@@ -12,8 +12,6 @@
 
 #include <QLineEdit>
 
-#include "utils/cddaparanoia.h"
-
 #include "preferences.h"
 
 #include "ui_devicewidgetUI.h"
