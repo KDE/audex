@@ -52,8 +52,8 @@ Or remove all files listed in `install_manifest.txt` in your `build/` directory 
 
 These files make Audex libcdio/libcdio-paranoia dependent:
 
-* utils/cddaparanoia.h
-* utils/cddaparanoia.cpp
+* utils/cddacdio.h
+* utils/cddacdio.cpp
 
 ### TODO
 * Cover auto search

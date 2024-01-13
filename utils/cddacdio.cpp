@@ -5,30 +5,30 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "cddaparanoia.h"
+#include "cddacdio.h"
 
 #include <QDebug>
 #include <cdio/track.h>
 
 /* some of this code in here is based on k3b 0.8.x sourcecode */
 
-CDDAParanoia::CDDAParanoia(QObject *parent)
+CDDACDIO::CDDACDIO(QObject *parent)
     : QObject(parent)
 {
     Q_UNUSED(parent);
     paranoia = nullptr;
     drive = nullptr;
-    enableNeverSkip();
-    setMaxRetries(20);
-    enableFullParanoiaMode();
+    enableParanoiaNeverSkip();
+    setParanoiaMaxRetries(20);
+    enableParanoiaFullMode();
 }
 
-CDDAParanoia::~CDDAParanoia()
+CDDACDIO::~CDDACDIO()
 {
     _paranoia_free();
 }
 
-bool CDDAParanoia::setDevice(const QString &device)
+bool CDDACDIO::setDevice(const QString &device)
 {
     if ((device.isEmpty() && (device.isEmpty())))
         this->device = "/dev/cdrom";
@@ -43,12 +43,12 @@ bool CDDAParanoia::setDevice(const QString &device)
     return true;
 }
 
-QString CDDAParanoia::getDevice() const
+QString CDDACDIO::getDevice() const
 {
     return device;
 }
 
-bool CDDAParanoia::detectHardware()
+bool CDDACDIO::detectHardware()
 {
     char buf[36] = {
         0,
@@ -84,22 +84,22 @@ bool CDDAParanoia::detectHardware()
     return false;
 }
 
-const QString CDDAParanoia::getVendor() const
+const QString CDDACDIO::getVendor() const
 {
     return vendor;
 }
 
-const QString CDDAParanoia::getModel() const
+const QString CDDACDIO::getModel() const
 {
     return model;
 }
 
-const QString CDDAParanoia::getRevision() const
+const QString CDDACDIO::getRevision() const
 {
     return revision;
 }
 
-void CDDAParanoia::enableFullParanoiaMode(const bool enabled)
+void CDDACDIO::enableParanoiaFullMode(const bool enabled)
 {
     mutex.lock();
 
@@ -119,7 +119,7 @@ void CDDAParanoia::enableFullParanoiaMode(const bool enabled)
     mutex.unlock();
 }
 
-void CDDAParanoia::enableNeverSkip(const bool never_skip)
+void CDDACDIO::enableParanoiaNeverSkip(const bool never_skip)
 {
     paranoia_never_skip = never_skip;
     if (paranoia_never_skip)
@@ -131,12 +131,12 @@ void CDDAParanoia::enableNeverSkip(const bool never_skip)
         paranoia_modeset(paranoia, paranoia_mode);
 }
 
-void CDDAParanoia::setMaxRetries(int m)
+void CDDACDIO::setParanoiaMaxRetries(int max_retries)
 {
-    paranoia_max_retries = m;
+    paranoia_max_retries = max_retries;
 }
 
-qint16 *CDDAParanoia::paranoiaRead(void (*callback)(long, paranoia_cb_mode_t))
+qint16 *CDDACDIO::paranoiaRead(void (*callback)(long, paranoia_cb_mode_t))
 {
     if (paranoia) {
         mutex.lock();
@@ -147,7 +147,7 @@ qint16 *CDDAParanoia::paranoiaRead(void (*callback)(long, paranoia_cb_mode_t))
     return nullptr;
 }
 
-int CDDAParanoia::paranoiaSeek(long sector, qint32 mode)
+int CDDACDIO::paranoiaSeek(long sector, qint32 mode)
 {
     if (paranoia) {
         mutex.lock();
@@ -158,7 +158,7 @@ int CDDAParanoia::paranoiaSeek(long sector, qint32 mode)
     return -1;
 }
 
-int CDDAParanoia::firstSectorOfTrack(track_t track)
+int CDDACDIO::firstSectorOfTrack(track_t track)
 {
     if (drive) {
         mutex.lock();
@@ -169,7 +169,7 @@ int CDDAParanoia::firstSectorOfTrack(track_t track)
     return -1;
 }
 
-int CDDAParanoia::lastSectorOfTrack(track_t track)
+int CDDACDIO::lastSectorOfTrack(track_t track)
 {
     if (drive) {
         mutex.lock();
@@ -180,7 +180,7 @@ int CDDAParanoia::lastSectorOfTrack(track_t track)
     return -1;
 }
 
-int CDDAParanoia::firstSectorOfDisc()
+int CDDACDIO::firstSectorOfDisc()
 {
     if (drive) {
         mutex.lock();
@@ -191,7 +191,7 @@ int CDDAParanoia::firstSectorOfDisc()
     return -1;
 }
 
-int CDDAParanoia::lastSectorOfDisc()
+int CDDACDIO::lastSectorOfDisc()
 {
     if (drive) {
         mutex.lock();
@@ -202,7 +202,7 @@ int CDDAParanoia::lastSectorOfDisc()
     return -1;
 }
 
-void CDDAParanoia::sampleOffset(const int offset)
+void CDDACDIO::sampleOffset(const int offset)
 {
     int sample_offset = offset;
 
@@ -225,14 +225,14 @@ void CDDAParanoia::sampleOffset(const int offset)
     }
 }
 
-track_t CDDAParanoia::numOfTracks() const
+track_t CDDACDIO::numOfTracks() const
 {
     if (drive)
         return cdio_cddap_tracks(drive);
     return 0;
 }
 
-track_t CDDAParanoia::numOfAudioTracks() const
+track_t CDDACDIO::numOfAudioTracks() const
 {
     if (numOfTracks() > 0) {
         int result = 0;
@@ -244,12 +244,12 @@ track_t CDDAParanoia::numOfAudioTracks() const
     return 0;
 }
 
-int CDDAParanoia::length() const
+int CDDACDIO::length() const
 {
     return numOfFrames() / FRAMES_PER_SECOND;
 }
 
-int CDDAParanoia::numOfFrames() const
+int CDDACDIO::numOfFrames() const
 {
     if (numOfTracks() > 0) {
         if (drive)
@@ -258,12 +258,12 @@ int CDDAParanoia::numOfFrames() const
     return 0;
 }
 
-int CDDAParanoia::lengthOfAudioTracks() const
+int CDDACDIO::lengthOfAudioTracks() const
 {
     return numOfFramesOfAudioTracks() / FRAMES_PER_SECOND;
 }
 
-int CDDAParanoia::numOfFramesOfAudioTracks() const
+int CDDACDIO::numOfFramesOfAudioTracks() const
 {
     if (numOfTracks() > 0) {
         int frames = 0;
@@ -276,7 +276,7 @@ int CDDAParanoia::numOfFramesOfAudioTracks() const
     return 0;
 }
 
-int CDDAParanoia::numOfSkippedFrames(int n) const
+int CDDACDIO::numOfSkippedFrames(int n) const
 {
     if (numOfTracks() > 0) {
         if (n < 1)
@@ -293,7 +293,7 @@ int CDDAParanoia::numOfSkippedFrames(int n) const
     return 0;
 }
 
-int CDDAParanoia::lengthOfTrack(track_t track) const
+int CDDACDIO::lengthOfTrack(track_t track) const
 {
     if (numOfTracks() > 0) {
         return numOfFramesOfTrack(track) / FRAMES_PER_SECOND;
@@ -301,7 +301,7 @@ int CDDAParanoia::lengthOfTrack(track_t track) const
     return 0;
 }
 
-int CDDAParanoia::numOfFramesOfTrack(track_t track) const
+int CDDACDIO::numOfFramesOfTrack(track_t track) const
 {
     if (numOfTracks() > 0) {
         if (track < 1)
@@ -315,7 +315,7 @@ int CDDAParanoia::numOfFramesOfTrack(track_t track) const
     return 0;
 }
 
-double CDDAParanoia::sizeOfTrack(track_t track) const
+double CDDACDIO::sizeOfTrack(track_t track) const
 {
     if (numOfTracks() > 0) {
         auto frame_size = (double)(numOfFramesOfTrack(track));
@@ -328,21 +328,21 @@ double CDDAParanoia::sizeOfTrack(track_t track) const
     return 0.0f;
 }
 
-int CDDAParanoia::frameOffsetOfTrack(track_t track) const
+int CDDACDIO::frameOffsetOfTrack(track_t track) const
 {
     if (numOfTracks() > 0 && drive)
         return cdio_cddap_track_firstsector(drive, track);
     return 0;
 }
 
-bool CDDAParanoia::isAudioTrack(track_t track) const
+bool CDDACDIO::isAudioTrack(track_t track) const
 {
     if (drive)
         return cdio_cddap_track_audiop(drive, track) == 1;
     return true;
 }
 
-QList<quint32> CDDAParanoia::discSignature(const qint32 pregap)
+QList<quint32> CDDACDIO::discSignature(const qint32 pregap)
 {
     QList<quint32> result;
 
@@ -352,12 +352,12 @@ QList<quint32> CDDAParanoia::discSignature(const qint32 pregap)
     return result;
 }
 
-void CDDAParanoia::reset()
+void CDDACDIO::reset()
 {
     _paranoia_init();
 }
 
-bool CDDAParanoia::_paranoia_init()
+bool CDDACDIO::_paranoia_init()
 {
     mutex.lock();
 
@@ -385,7 +385,7 @@ bool CDDAParanoia::_paranoia_init()
     return true;
 }
 
-void CDDAParanoia::_paranoia_free()
+void CDDACDIO::_paranoia_free()
 {
     // mutex.lock();
     if (paranoia) {

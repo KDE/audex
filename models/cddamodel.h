@@ -26,8 +26,8 @@
 #include <KCDDB/Client>
 #include <KCDDB/KCDDB>
 
+#include "utils/cddacdio.h"
 #include "utils/cddadevices.h"
-#include "utils/cddaparanoia.h"
 
 #include "utils/error.h"
 
@@ -58,9 +58,9 @@ public:
     explicit CDDAModel(QObject *parent = nullptr);
     ~CDDAModel() override;
 
-    inline CDDAParanoia *paranoia() const
+    inline CDDACDIO *cdio() const
     {
-        return pn;
+        return p_cdio;
     }
     inline const QString &device() const
     {
@@ -192,7 +192,7 @@ private Q_SLOTS:
 private:
     QString _device;
     QString _udi;
-    CDDAParanoia *pn;
+    CDDACDIO *p_cdio;
     CDDADevices *devices;
 
     KCDDB::Client *cddb;

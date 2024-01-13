@@ -16,21 +16,21 @@ void paranoiaCallback(long sector, paranoia_cb_mode_t status)
     aet->createStatus(sector, status);
 }
 
-CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDAParanoia *_paranoia)
+CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDACDIO *cdio)
     : QThread(parent)
 {
-    paranoia = _paranoia;
-    if (!paranoia) {
+    p_cdio = cdio;
+    if (!p_cdio) {
         qDebug() << "Paranoia object not found. low mem?";
         Q_EMIT error(i18n("Internal device error."), i18n("Check your device and make a bug report."));
         return;
     }
-    connect(paranoia, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
+    connect(p_cdio, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
 
     overall_sectors_read = 0;
-    full_paranoia_mode = true;
+    paranoia_full_mode = true;
     paranoia_retries = 20;
-    never_skip = true;
+    paranoia_never_skip = true;
     sample_offset = 0;
     sample_offset_done = false;
     track = 1;
@@ -51,7 +51,7 @@ void CDDAExtractThread::start()
 
 void CDDAExtractThread::run()
 {
-    if (!paranoia)
+    if (!p_cdio)
         return;
 
     if (b_interrupt)
@@ -61,16 +61,16 @@ void CDDAExtractThread::run()
     b_error = false;
 
     if ((sample_offset) && (!sample_offset_done)) {
-        paranoia->sampleOffset(sample_offset);
+        p_cdio->sampleOffset(sample_offset);
         sample_offset_done = true;
     }
 
     if (track == 0) {
-        first_sector = paranoia->firstSectorOfDisc();
-        last_sector = paranoia->lastSectorOfDisc();
+        first_sector = p_cdio->firstSectorOfDisc();
+        last_sector = p_cdio->lastSectorOfDisc();
     } else {
-        first_sector = paranoia->firstSectorOfTrack(track);
-        last_sector = paranoia->lastSectorOfTrack(track);
+        first_sector = p_cdio->firstSectorOfTrack(track);
+        last_sector = p_cdio->lastSectorOfTrack(track);
     }
 
     if (first_sector < 0 || last_sector < 0) {
@@ -88,11 +88,11 @@ void CDDAExtractThread::run()
     sectors_all = last_sector - first_sector;
     sectors_read = 0;
 
-    paranoia->enableFullParanoiaMode(full_paranoia_mode);
-    paranoia->enableNeverSkip(never_skip);
-    paranoia->setMaxRetries(paranoia_retries);
+    p_cdio->enableParanoiaFullMode(paranoia_full_mode);
+    p_cdio->enableParanoiaNeverSkip(paranoia_never_skip);
+    p_cdio->setParanoiaMaxRetries(paranoia_retries);
 
-    paranoia->paranoiaSeek(first_sector, SEEK_SET);
+    p_cdio->paranoiaSeek(first_sector, SEEK_SET);
     current_sector = first_sector;
 
     if (track > 0) {
@@ -114,7 +114,7 @@ void CDDAExtractThread::run()
         // to emit signals
         aet = this;
 
-        int16_t *buf = paranoia->paranoiaRead(paranoiaCallback);
+        int16_t *buf = p_cdio->paranoiaRead(paranoiaCallback);
 
         if (nullptr == buf) {
             qDebug() << "Unrecoverable error in paranoia_read (sector " << current_sector << ")";
