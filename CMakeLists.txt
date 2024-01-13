@@ -67,7 +67,7 @@ set(audex_SRCS
     utils/schemeparser.cpp
     utils/playlist.cpp
     utils/wavefilewriter.cpp
-    utils/cddaparanoia.cpp
+    utils/cddacdio.cpp
     utils/cddadevices.cpp
     utils/encoderwrapper.cpp
     utils/cddaextractthread.cpp

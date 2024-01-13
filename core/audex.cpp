@@ -31,7 +31,7 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
         return;
     }
 
-    cdda_extract_thread = new CDDAExtractThread(this, cdda_model->paranoia());
+    cdda_extract_thread = new CDDAExtractThread(this, cdda_model->cdio());
     if (!cdda_extract_thread) {
         qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
         return;
@@ -174,8 +174,8 @@ void Audex::start_extract()
             ex_track_source_filename = sourceFilename;
             wave_file_writer->open(sourceFilename);
 
-            cdda_extract_thread->setFullParanoiaMode(Preferences::fullParanoiaMode());
-            cdda_extract_thread->setNeverSkip(Preferences::neverSkip());
+            cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
+            cdda_extract_thread->setParanoiaNeverSkip(Preferences::neverSkip());
             cdda_extract_thread->setTrackToRip(0);
             cdda_extract_thread->start();
             process_counter++;
@@ -281,8 +281,8 @@ void Audex::start_extract()
                 ex_track_source_filename = sourceFilename;
                 wave_file_writer->open(sourceFilename);
 
-                cdda_extract_thread->setFullParanoiaMode(Preferences::fullParanoiaMode());
-                cdda_extract_thread->setNeverSkip(Preferences::neverSkip());
+                cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
+                cdda_extract_thread->setParanoiaNeverSkip(Preferences::neverSkip());
                 cdda_extract_thread->setTrackToRip(ex_track_index);
                 cdda_extract_thread->start();
                 process_counter++;
@@ -505,10 +505,10 @@ void Audex::progress_extract(int percent_of_track, int sector, int overall_secto
         QSet<int> sel = cdda_model->selectedTracks();
         QSet<int>::ConstIterator it(sel.begin()), end(sel.end());
         for (; it != end; ++it) {
-            if ((*it < 0) || (*it > cdda_extract_thread->cddaParanoia()->numOfTracks()) || (!cdda_extract_thread->cddaParanoia()->isAudioTrack((*it)))) {
+            if ((*it < 0) || (*it > cdda_extract_thread->cdio()->numOfTracks()) || (!cdda_extract_thread->cdio()->isAudioTrack((*it)))) {
                 continue;
             }
-            overall_frames += cdda_extract_thread->cddaParanoia()->numOfFramesOfTrack((*it));
+            overall_frames += cdda_extract_thread->cdio()->numOfFramesOfTrack((*it));
         }
     }
 
