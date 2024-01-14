@@ -21,6 +21,8 @@
 
 #include "utils/crc32hash.h"
 
+#define HASHCALC_BUFSIZE 4 * 1024 * 1024
+
 class Hashlist
 {
 public:
