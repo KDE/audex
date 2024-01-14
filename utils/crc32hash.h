@@ -5,18 +5,23 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+/* This code is based on the CRC32 calculation class of the Krusader project
+ * (https://invent.kde.org/utilities/krusader)
+ */
+
 #ifndef CRC32HASH_HEADER
 #define CRC32HASH_HEADER
 
 #include <QByteArray>
 #include <QString>
+#include <QVector>
 
 #include <KLocalizedString>
 
 class CRC32Hash
 {
 public:
-    CRC32Hash();
+    CRC32Hash(const quint32 initial_value = -1);
     CRC32Hash(const CRC32Hash &other);
     CRC32Hash &operator=(const CRC32Hash &other);
 
@@ -31,20 +36,18 @@ public:
 
     static quint32 crc32(const QByteArray &data)
     {
-        quint32 crc = 0xFFFFFFFF;
-        for (quint8 byte : data) {
-            crc = (crc ^ byte) & 0xFFFFFFFF;
-            for (int i = 0; i < 8; ++i)
-                if (crc & 1)
-                    crc = (crc >> 1) ^ 0xEDB88320;
-                else
-                    crc >>= 1;
-        }
-        return crc ^ 0xFFFFFFFF;
+        CRC32Hash crc32;
+        crc32.addData(data);
+        return crc32.result();
     }
 
 protected:
-    quint32 p_crc;
+    quint32 p_initial_value;
+
+    quint32 crc32_accum;
+    quint32 crc32_table[256];
+
+    void init(const quint32 initial_value);
 };
 
 #endif

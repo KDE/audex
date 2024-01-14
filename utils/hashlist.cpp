@@ -7,6 +7,9 @@
 
 #include "hashlist.h"
 
+#include <QDebug>
+#include <QTime>
+
 Hashlist::Hashlist()
 {
 }
@@ -15,6 +18,7 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
 {
     QStringList list;
 
+    CRC32Hash checksum;
     for (int i = 0; i < filenames.count(); ++i) {
         QFile file(filenames.at(i));
         if (!file.exists())
@@ -22,17 +26,13 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
         if (!file.open(QFile::ReadOnly))
             continue;
 
-        CRC32Hash checksum;
-
-        QByteArray buf;
-
-        while (!file.atEnd()) {
-            buf = file.read(16 * 1024);
-            checksum.addData(buf);
-        }
+        while (!file.atEnd())
+            checksum.addData(file.read(HASHCALC_BUFSIZE));
 
         QFileInfo info(filenames.at(i));
         list << info.fileName() + ' ' + QString("%1").arg(checksum.result(), 8, 16, QLatin1Char('g')).toUpper();
+
+        checksum.clear();
 
         file.close();
     }
@@ -53,12 +53,8 @@ const QStringList Hashlist::getMD5(const QStringList &filenames)
 
         QCryptographicHash md5sum(QCryptographicHash::Md5);
 
-        QByteArray buf;
-
-        while (!file.atEnd()) {
-            buf = file.read(16 * 1024);
-            md5sum.addData(buf);
-        }
+        while (!file.atEnd())
+            md5sum.addData(file.read(HASHCALC_BUFSIZE));
 
         QFileInfo info(filenames.at(i));
         list << QString("%1").arg(QString(md5sum.result().toHex().toUpper())) + "  " + info.fileName();
@@ -82,12 +78,8 @@ const QStringList Hashlist::getSHA256(const QStringList &filenames)
 
         QCryptographicHash sha256sum(QCryptographicHash::Sha256);
 
-        QByteArray buf;
-
-        while (!file.atEnd()) {
-            buf = file.read(16 * 1024);
-            sha256sum.addData(buf);
-        }
+        while (!file.atEnd())
+            sha256sum.addData(file.read(HASHCALC_BUFSIZE));
 
         QFileInfo info(filenames.at(i));
         list << QString("%1").arg(QString(sha256sum.result().toHex().toUpper())) + "  " + info.fileName();
