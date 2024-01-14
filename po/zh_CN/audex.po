@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-09 02:25+0000\n"
-"PO-Revision-Date: 2024-01-06 03:37\n"
+"PO-Revision-Date: 2024-01-13 06:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -653,10 +653,9 @@ msgid "Scheme Wizard"
 msgstr ""
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "About filename schemes"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "关于文件名方案"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -758,10 +757,9 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification，简单文件验证)"
 
 #: dialogs/profiledatahashlistdialog.cpp:44
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (Message-Digorithm 5，信息摘要算法版本 5)"
+msgstr ""
 
 #: dialogs/profiledatahashlistdialog.cpp:45
 #, kde-format
@@ -1044,16 +1042,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "单文件抓取时没有选择全部音轨。"
 
 #: mainwindow.cpp:149
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "没有设置盘片信息。您确定要继续吗？"
+msgstr ""
 
 #: mainwindow.cpp:150
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "封面文件"
+msgstr ""
 
 #: mainwindow.cpp:174
 #, kde-format
@@ -1435,14 +1431,11 @@ msgid "The hashlist file format is unknown."
 msgstr "哈希列表的文件格式未知。"
 
 #: models/profilemodel.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
-msgstr "您给定的哈希列表文件格式未知，请在下列格式中选择：SFV 和 MD5。"
+msgstr ""
 
 #: models/profilemodel.cpp:273
 #, kde-format
@@ -2239,18 +2232,3 @@ msgstr "保存..."
 #, kde-format
 msgid "URL:"
 msgstr "网址："
-
-#~ msgid "Wikipedia localization"
-#~ msgstr "Wikipedia 本地化"
-
-#~ msgid "About commandline schemes"
-#~ msgstr "关于命令行方案"
-
-#~ msgid "About parameters"
-#~ msgstr "关于参数"
-
-#~ msgid "About variables"
-#~ msgstr "关于变量"
-
-#~ msgid "About schemes"
-#~ msgstr "关于模式"
