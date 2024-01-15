@@ -16,19 +16,22 @@
 
 #include "config.h"
 #include "models/cddamodel.h"
+#include "utils/discidcalculator.h"
 
 class CueSheetWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit CueSheetWriter(CDDAModel *model);
+    explicit CueSheetWriter(CDDAModel *model, const int sampleOffset = 0);
     ~CueSheetWriter() override;
 
-    QStringList cueSheet(const QString &binFilename) const;
+    QStringList cueSheet(const QString &binFilename, const int frameOffset = 0) const;
     QStringList cueSheet(const QStringList &filenames) const;
 
 private:
     CDDAModel *model;
+
+    int sample_offset;
 
     QString p_filetype(const QString &filename) const;
 };
