@@ -5,6 +5,15 @@ Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 
 *Note: There is an active branch "kf5" containing a Qt5/KF5 supported version 0.96.X.*
 
+### Features
+
+* Native encoder binary support for FLAC, LAME (MP3), Opus, Ogg Vorbis and FAAC (MP4/AAC)
+* Custom encoder binary support
+* CDDB and MusicBrainz support
+* Cover integration
+* Offset correction
+* Single file ripping with cue sheet writing
+
 ### Prerequisites
 
 * libkcddb
@@ -56,7 +65,10 @@ These files make Audex libcdio/libcdio-paranoia dependent:
 * utils/cddacdio.cpp
 
 ### TODO
+
 * Cover auto search
-* Add replay gain support
+* Replay Gain
 * Add device selector widget
+* Accurate ripping with auto detecting offset correction
+* CD-Text
 * Check for bugs in KF6 porting effort
