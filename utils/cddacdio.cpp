@@ -25,7 +25,7 @@ CDDACDIO::CDDACDIO(QObject *parent)
 
 CDDACDIO::~CDDACDIO()
 {
-    _paranoia_free();
+    p_paranoia_free();
 }
 
 bool CDDACDIO::setDevice(const QString &device)
@@ -34,7 +34,7 @@ bool CDDACDIO::setDevice(const QString &device)
         this->device = "/dev/cdrom";
     if (!device.isEmpty())
         this->device = device;
-    if (!_paranoia_init()) {
+    if (!p_paranoia_init()) {
         qDebug() << "Internal device error.";
         Q_EMIT error(i18n("Internal device error."), i18n("Check your device. Is it really \"%1\"? If so also check your permissions on \"%1\".", device));
         return false;
@@ -202,29 +202,6 @@ int CDDACDIO::lastSectorOfDisc()
     return -1;
 }
 
-void CDDACDIO::sampleOffset(const int offset)
-{
-    int sample_offset = offset;
-
-    // Hack from cdda paranoia
-    if (drive) {
-        mutex.lock();
-
-        int toc_offset = 0;
-        toc_offset += sample_offset / 588;
-        sample_offset %= 588;
-        if (sample_offset < 0) {
-            sample_offset += 588;
-            toc_offset--;
-        }
-
-        for (int i = 0; i < drive->tracks + 1; ++i)
-            drive->disc_toc[i].dwStartSector += toc_offset;
-
-        mutex.unlock();
-    }
-}
-
 track_t CDDACDIO::numOfTracks() const
 {
     if (drive)
@@ -342,6 +319,13 @@ bool CDDACDIO::isAudioTrack(track_t track) const
     return true;
 }
 
+bool CDDACDIO::isLastTrack(const track_t track) const
+{
+    if (drive)
+        return track == cdio_cddap_tracks(drive);
+    return false;
+}
+
 QList<quint32> CDDACDIO::discSignature(const qint32 pregap)
 {
     QList<quint32> result;
@@ -354,14 +338,14 @@ QList<quint32> CDDACDIO::discSignature(const qint32 pregap)
 
 void CDDACDIO::reset()
 {
-    _paranoia_init();
+    p_paranoia_init();
 }
 
-bool CDDACDIO::_paranoia_init()
+bool CDDACDIO::p_paranoia_init()
 {
     mutex.lock();
 
-    _paranoia_free();
+    p_paranoia_free();
 
     drive = cdda_identify(device.toLatin1().data(), 0, nullptr);
     if (drive == nullptr) {
@@ -375,7 +359,7 @@ bool CDDACDIO::_paranoia_init()
     cdda_open(drive);
     paranoia = paranoia_init(drive);
     if (paranoia == nullptr) {
-        _paranoia_free();
+        p_paranoia_free();
         mutex.unlock();
         qDebug() << "Failed to init device.";
         return false;
@@ -385,7 +369,7 @@ bool CDDACDIO::_paranoia_init()
     return true;
 }
 
-void CDDACDIO::_paranoia_free()
+void CDDACDIO::p_paranoia_free()
 {
     // mutex.lock();
     if (paranoia) {

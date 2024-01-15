@@ -36,6 +36,8 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
         qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
         return;
     }
+    cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
+    cdda_extract_thread->setParanoiaNeverSkip(Preferences::neverSkip());
     cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
 
     jobs = new AudexJobs();
@@ -174,8 +176,6 @@ void Audex::start_extract()
             ex_track_source_filename = sourceFilename;
             wave_file_writer->open(sourceFilename);
 
-            cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
-            cdda_extract_thread->setParanoiaNeverSkip(Preferences::neverSkip());
             cdda_extract_thread->setTrackToRip(0);
             cdda_extract_thread->start();
             process_counter++;
@@ -281,8 +281,6 @@ void Audex::start_extract()
                 ex_track_source_filename = sourceFilename;
                 wave_file_writer->open(sourceFilename);
 
-                cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
-                cdda_extract_thread->setParanoiaNeverSkip(Preferences::neverSkip());
                 cdda_extract_thread->setTrackToRip(ex_track_index);
                 cdda_extract_thread->start();
                 process_counter++;

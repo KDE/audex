@@ -25,6 +25,8 @@ extern "C" {
 #define SECTORS_PER_SECOND 75
 #define FRAMES_PER_SECOND 75
 
+#define CD_FRAMESIZE_SAMPLES 588
+
 class CDDACDIO : public QObject
 {
     Q_OBJECT
@@ -54,8 +56,6 @@ public:
     int firstSectorOfDisc();
     int lastSectorOfDisc();
 
-    void sampleOffset(const int offset);
-
     track_t numOfTracks() const;
     track_t numOfAudioTracks() const;
 
@@ -73,6 +73,7 @@ public:
     double sizeOfTrack(track_t track) const; // in MiB
     int frameOffsetOfTrack(track_t track) const;
     bool isAudioTrack(track_t track) const;
+    bool isLastTrack(const track_t track) const;
 
     // First element is first track after lead-in, list of offsets, last element offset of lead-out
     // PREGAP is 150 frames = 2 seconds
@@ -97,8 +98,8 @@ private:
     bool paranoia_never_skip;
     int paranoia_max_retries;
 
-    bool _paranoia_init();
-    void _paranoia_free();
+    bool p_paranoia_init();
+    void p_paranoia_free();
 };
 
 #endif

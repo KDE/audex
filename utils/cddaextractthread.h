@@ -37,15 +37,31 @@ public Q_SLOTS:
     {
         paranoia_never_skip = never_skip;
     }
-    void setSampleOffset(const int offset)
+    int setSampleOffset(const int offset)
     {
+        if (offset == 0) {
+            sample_offset = 0;
+            sector_offset = 0;
+        }
+
         sample_offset = offset;
+
+        // How many full sectors are sample offset?
+        sector_offset = sample_offset / CD_FRAMESIZE_SAMPLES;
+        sample_offset_fraction = sample_offset % CD_FRAMESIZE_SAMPLES;
+
+        if (sample_offset < 0) {
+            sample_offset_fraction -= CD_FRAMESIZE_SAMPLES;
+            --sector_offset;
+        }
+
+        return 0;
     }
-    void setTrackToRip(const unsigned int t)
+    void setTrackToRip(const track_t t)
     {
         track = t;
     } // if t==0 rip whole cd
-    void skipTrack(const unsigned int t)
+    void skipTrack(const track_t t)
     {
         overall_sectors_read += p_cdio->numOfFramesOfTrack(t);
     }
@@ -58,6 +74,8 @@ public Q_SLOTS:
     {
         return p_cdio;
     }
+
+    void reset();
 
 private Q_SLOTS:
     void slot_error(const QString &message, const QString &details);
@@ -88,11 +106,15 @@ private:
     bool paranoia_full_mode;
     int paranoia_retries;
     bool paranoia_never_skip;
+
     int sample_offset;
-    bool sample_offset_done;
+    int sector_offset;
+    int sample_offset_fraction;
+    QByteArray sample_offset_fraction_buffer;
 
-    unsigned int track;
+    track_t track;
 
+    bool b_first_run;
     bool b_interrupt;
     bool b_error;
 
