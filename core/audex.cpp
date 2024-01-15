@@ -985,7 +985,7 @@ void Audex::execute_finish()
             bool success = file.open(QFile::WriteOnly | QFile::Truncate);
             if (success) {
                 QTextStream out(&file);
-                CueSheetWriter cuesheetwriter(cdda_model);
+                CueSheetWriter cuesheetwriter(cdda_model, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES);
                 if (p_single_file) {
                     out << cuesheetwriter.cueSheet(target_single_filename).join("\n");
                 } else {
