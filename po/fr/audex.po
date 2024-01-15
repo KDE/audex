@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 02:25+0000\n"
+"POT-Creation-Date: 2024-01-15 03:10+0000\n"
 "PO-Revision-Date: 2024-01-09 23:04+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -30,78 +30,78 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "Écraser les fichiers existants"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "Supprimer les fichiers partiels après une annulation"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: audex.kcfg:22
+#: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
 msgstr "Éjecter le tiroir du CD une fois l'extraction terminée"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "Effectuer une recherche « CDDB » automatiquement"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: audex.kcfg:30
+#: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Effectuer une recherche (Amazon) « CDDB » automatiquement"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:34
+#: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Nombre de couvertures à extraire"
 
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
-msgid "Full paranoia mode (best quality)"
-msgstr "Mode paranoïaque total (la meilleure qualité)"
+msgid "Full paranoia mode (reduce chance of read errors)"
+msgstr ""
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
 #, kde-format
 msgid "Never skip on read error"
 msgstr "Ne jamais passer outre lors d'une erreur de lecture"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:48
+#: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
 msgstr "Décalage (« sample offset »)"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:54
+#: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Emplacement de base pour stocker les fichiers musicaux"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Envoyer des fichiers sur le serveur"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:62
+#: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
 msgstr "URL du serveur"
@@ -148,140 +148,140 @@ msgstr "Aucun profil sélectionné. Opération interrompue."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Début d'extraction audio et d'encodage avec le profil « %1 »..."
 
-#: core/audex.cpp:616 core/audex.cpp:676
+#: core/audex.cpp:608 core/audex.cpp:668
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Impossible de trouver l'emplacement « %1 »."
 
-#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Veuillez vérifier votre emplacement (accès en écriture ?)"
 
-#: core/audex.cpp:629
+#: core/audex.cpp:621
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "L'espace disponible sur « %1 » est inférieur à 200 Mio."
 
-#: core/audex.cpp:635 core/audex.cpp:704
+#: core/audex.cpp:627 core/audex.cpp:696
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Avertissement ! « %1 » existe déjà. Écrasement."
 
-#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
+#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Avertissement ! Le fichier « %1 » existe déjà. Ignorer."
 
-#: core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Impossible de créer le dossier « %1 »."
 
-#: core/audex.cpp:688 core/audex.cpp:1090
+#: core/audex.cpp:680 core/audex.cpp:1082
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Dossier « %1 » créé avec succès."
 
-#: core/audex.cpp:691
+#: core/audex.cpp:683
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Le dossier « %1 » existe déjà."
 
-#: core/audex.cpp:698
+#: core/audex.cpp:690
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "L'espace disponible sur « %1 » est inférieur à 800 Mio."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Erreur concernant le dossier temporaire « %1 » (%2)."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Please check."
 msgstr "Veuillez vérifier."
 
-#: core/audex.cpp:729
+#: core/audex.cpp:721
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "L'espace libre sur le dossier temporaire « %1 » est inférieur à 800 Mio."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "Le dossier temporaire « %1 » nécessite au moins 200 Mio d'espace libre."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Veuillez libérer de l'espace ou définir un autre emplacement."
 
-#: core/audex.cpp:760
+#: core/audex.cpp:752
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Éjecter le tiroir du CD"
 
-#: core/audex.cpp:808
+#: core/audex.cpp:800
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Couverture « %1 » enregistrée avec succès."
 
-#: core/audex.cpp:811
+#: core/audex.cpp:803
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Impossible d'enregistrer la couverture « %1 »."
 
-#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
-#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
+#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Veuillez vérifier votre emplacement et vos droits d'accès"
 
-#: core/audex.cpp:881
+#: core/audex.cpp:873
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Liste de lecture « %1 » créée avec succès."
 
-#: core/audex.cpp:885
+#: core/audex.cpp:877
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Impossible d'enregistrer la liste de lecture « %1 »."
 
-#: core/audex.cpp:921
+#: core/audex.cpp:913
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Fichier d'informations « %1 » créé avec succès."
 
-#: core/audex.cpp:924
+#: core/audex.cpp:916
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Impossible d'enregistrer le fichier d'informations « %1 »."
 
-#: core/audex.cpp:968
+#: core/audex.cpp:960
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Liste de hachage « %1 » créée avec succès."
 
-#: core/audex.cpp:971
+#: core/audex.cpp:963
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Impossible d'enregistrer la liste de hachage « %1 »."
 
-#: core/audex.cpp:1005
+#: core/audex.cpp:997
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Feuille de montage « %1 » créée avec succès."
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Impossible d'enregistrer la feuille de montage « %1 »."
 
-#: core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Impossible d'ouvrir le dossier « %1 »."
@@ -292,7 +292,7 @@ msgid "Edit Data"
 msgstr "Modifier des données"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1035
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1028
 #, kde-format
 msgid "Various Artists"
 msgstr "Artistes divers"
@@ -1032,12 +1032,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jcorn@free.fr"
 
-#: mainwindow.cpp:38
+#: mainwindow.cpp:39
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "Impossible de créer l'objet « ProfileModel »."
 
-#: mainwindow.cpp:39 mainwindow.cpp:52
+#: mainwindow.cpp:40 mainwindow.cpp:53
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
@@ -1045,22 +1045,22 @@ msgstr ""
 "Erreur interne. Veuillez vérifier votre matériel. Si tout est correct, "
 "veuillez rédiger un rapport de bogue."
 
-#: mainwindow.cpp:52
+#: mainwindow.cpp:53
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "Impossible de créer l'objet « CDDAModel »."
 
-#: mainwindow.cpp:124
+#: mainwindow.cpp:127
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Aucune information de disque définie. Voulez-vous vraiment continuer ?"
 
-#: mainwindow.cpp:125
+#: mainwindow.cpp:128
 #, kde-format
 msgid "Disc information not found"
 msgstr "Informations de disque introuvables"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1069,49 +1069,49 @@ msgstr ""
 "L'extraction audio d'un seul fichier a été sélectionnée mais toutes les "
 "pistes audio n'ont pas été sélectionnées. Voulez-vous vraiment continuer ?"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 "Toutes les pistes audio n'ont pas été sélectionnées pour l'extraction audio "
 "d'un seul fichier"
 
-#: mainwindow.cpp:149
+#: mainwindow.cpp:152
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "Aucune couverture n'a été définie. Voulez-vous vraiment continuer ?"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:153
 #, kde-format
 msgid "Cover is empty"
 msgstr "La couverture est vide."
 
-#: mainwindow.cpp:174
+#: mainwindow.cpp:177
 #, kde-format
 msgid "General settings"
 msgstr "Paramètres généraux"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "Device settings"
 msgstr "Paramètres du périphérique"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:187
 #, kde-format
 msgid "Profiles"
 msgstr "Profils"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:196
 #, kde-format
 msgid "CDDB settings"
 msgstr "Paramètres CDDB"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:199
 #, kde-format
 msgid "Remote Server"
 msgstr "Serveur distant"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1120,17 +1120,17 @@ msgstr ""
 "La recherche « CDDB » a échoué avec l'erreur suivante :\n"
 "%1"
 
-#: mainwindow.cpp:234
+#: mainwindow.cpp:252
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Échec de la recherche « CDDB »"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:357
 #, kde-format
 msgid "Split titles"
 msgstr "Scinder les titres"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:358
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1141,109 +1141,109 @@ msgstr ""
 "\n"
 "Séparateur :"
 
-#: mainwindow.cpp:352
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Voulez-vous vraiment permuter l'ensemble des artistes et des titres ?"
 
-#: mainwindow.cpp:353
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Permuter les artistes et les titres"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Voulez-vous vraiment mettre en majuscule, l'ensemble des artistes et des "
 "titres ?"
 
-#: mainwindow.cpp:368
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Mettre en majuscule, les artistes et les titres"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Voulez-vous vraiment saisir automatiquement les artistes des pistes ?"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Autofill artists"
 msgstr "Saisir automatiquement les artistes"
 
-#: mainwindow.cpp:410
+#: mainwindow.cpp:428
 #, kde-format
 msgid "Eject"
 msgstr "Éjecter"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile:"
 msgstr "Profil :"
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:447
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil :"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:453
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:461
 #, kde-format
 msgid "Fetch"
 msgstr "Rechercher"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:468
 #, kde-format
 msgid "Submit"
 msgstr "Soumettre"
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:474
 #, kde-format
 msgid "Edit"
 msgstr "Modifier"
 
-#: mainwindow.cpp:463
+#: mainwindow.cpp:481
 #, kde-format
 msgid "Rip..."
 msgstr "Extraire..."
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:490
 #, kde-format
 msgid "Split Titles..."
 msgstr "Scinder les titres..."
 
-#: mainwindow.cpp:477
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Permuter les artistes et les titres"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Capitalize"
 msgstr "Mettre en majuscule"
 
-#: mainwindow.cpp:487
+#: mainwindow.cpp:505
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Saisir automatiquement les noms des artistes"
 
-#: mainwindow.cpp:492
+#: mainwindow.cpp:510
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Sélectionner toutes les pistes"
 
-#: mainwindow.cpp:497
+#: mainwindow.cpp:515
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Dé-sélectionner toutes les pistes"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:520
 #, kde-format
 msgid "Invert Selection"
 msgstr "Inverser la sélection"
@@ -1253,7 +1253,7 @@ msgstr "Inverser la sélection"
 msgid "Unable to create devices object."
 msgstr "Impossible de créer l'objet « périphériques »."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:910
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1267,22 +1267,22 @@ msgstr ""
 msgid "Unable to create KCDDB object."
 msgstr "Impossible de créer l'objet « KCDDB »."
 
-#: models/cddamodel.cpp:125
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "Piste %1"
 
-#: models/cddamodel.cpp:532
+#: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
 msgstr "Formats d'images usuels"
 
-#: models/cddamodel.cpp:829
+#: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "Une transaction CDDB est déjà en cours."
 
-#: models/cddamodel.cpp:830
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1291,7 +1291,7 @@ msgstr ""
 "Une transaction CDDB est déjà en cours. Veuillez attendre qu'elle se "
 "termine, puis réessayer."
 
-#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
+#: models/cddamodel.cpp:842 models/cddamodel.cpp:956
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1300,7 +1300,7 @@ msgstr ""
 "Il s'est produit une erreur avec le serveur « CDDB ». Veuillez patienter ou "
 "contacter l'administrateur du serveur « CDDB »."
 
-#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
+#: models/cddamodel.cpp:848 models/cddamodel.cpp:962
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1309,7 +1309,7 @@ msgstr ""
 "Impossible de trouver le serveur « CDDB ». Vérifiez votre réseau. Il se peut "
 "que le serveur « CDDB » soit déconnecté."
 
-#: models/cddamodel.cpp:861 models/cddamodel.cpp:975
+#: models/cddamodel.cpp:854 models/cddamodel.cpp:968
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1318,42 +1318,43 @@ msgstr ""
 "Veuillez patienter. Il se peut que le serveur soit occupé ou contactez "
 "l'administrateur du serveur « CDDB »."
 
-#: models/cddamodel.cpp:866
+#: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Veuillez contacter l'administrateur du serveur « CDDB »."
 
-#: models/cddamodel.cpp:869 models/cddamodel.cpp:980
+#: models/cddamodel.cpp:862 models/cddamodel.cpp:973
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr ""
 "Ce problème ne devrait pas se produire. Veuillez remplir un rapport de bogue."
 
-#: models/cddamodel.cpp:876 models/cddamodel.cpp:983
+#: models/cddamodel.cpp:869 models/cddamodel.cpp:976
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "Veuillez remplir un rapport de bogue et contacter l'administrateur du "
 "serveur « CDDB »."
 
-#: models/cddamodel.cpp:909
-#, kde-format
-msgid "Unable to create CDDA paranoia object."
-msgstr "Impossible de créer l'objet « CDDA paranoia »."
+#: models/cddamodel.cpp:902
+#, fuzzy, kde-format
+#| msgid "Unable to create KCDDB object."
+msgid "Unable to create CDIO object."
+msgstr "Impossible de créer l'objet « KCDDB »."
 
-#: models/cddamodel.cpp:989
+#: models/cddamodel.cpp:982
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr ""
 "Cela signifie qu'il n'est pas possible de trouver des données dans la base "
 "de données « CDDB »."
 
-#: models/cddamodel.cpp:1010
+#: models/cddamodel.cpp:1003
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Sélectionner un élément « CDDB »"
 
-#: models/cddamodel.cpp:1010
+#: models/cddamodel.cpp:1003
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Sélectionnez une entrée « CDDB » :"
@@ -1586,15 +1587,31 @@ msgstr "Il s'agit d'une erreur interne. Veuillez la signaler."
 msgid "Copy"
 msgstr "Copier"
 
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#, kde-format
+msgid "Internal device error."
+msgstr "Erreur interne du périphérique."
+
+#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"Vérifiez votre périphérique. S'agit-il réellement de « %1 » ? Si tel est le "
+"cas, veuillez vérifier vos droits d'accès sur « %1 »."
+
+#: utils/cddacdio.cpp:80
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr "Disque audio"
-
-#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
-#, kde-format
-msgid "Internal device error."
-msgstr "Erreur interne du périphérique."
 
 #: utils/cddaextractthread.cpp:25
 #, kde-format
@@ -1606,47 +1623,47 @@ msgstr "Vérifiez votre périphérique et rédigez un rapport de bogue."
 msgid "Extracting finished."
 msgstr "Extraction terminée."
 
-#: utils/cddaextractthread.cpp:102
+#: utils/cddaextractthread.cpp:101
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Extraction de la piste %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:104
+#: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr "Extraction de la totalité du CD sous la forme d'une seule piste."
 
-#: utils/cddaextractthread.cpp:106
+#: utils/cddaextractthread.cpp:105
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Commencer à lire la piste %1 avec %2 secteurs"
 
-#: utils/cddaextractthread.cpp:141
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "User canceled extracting."
 msgstr "L'utilisateur a annulé l'extraction."
 
-#: utils/cddaextractthread.cpp:144
+#: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Une erreur est survenue pendant l'extraction de la piste %1."
 
-#: utils/cddaextractthread.cpp:148
+#: utils/cddaextractthread.cpp:147
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Extraction correcte (piste %1)."
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "Ripping OK."
 msgstr "Extraction réussie."
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:154
 #, kde-format
 msgid "Reading finished"
 msgstr "Lecture terminée"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:196
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1655,7 +1672,7 @@ msgstr ""
 "Fluctuation des bords corrigée (secteur absolu %1, secteur relatif %2, "
 "position de durée de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:205
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1664,7 +1681,7 @@ msgstr ""
 "Fluctuation atomique corrigée (secteur absolu %1, secteur relatif %2, "
 "position de durée de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:208
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1673,7 +1690,7 @@ msgstr ""
 "Frottement détecté (secteur absolu %1, secteur relatif %2, position de durée "
 "de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:214
+#: utils/cddaextractthread.cpp:211
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1682,14 +1699,14 @@ msgstr ""
 "Frottement détecté (secteur absolu %1, secteur relatif %2, position de durée "
 "de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:218
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Réparer (secteur absolu %1, secteur relatif %2, position de durée de piste "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:220
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1697,28 +1714,28 @@ msgstr ""
 "Ignorer les secteurs (secteur absolu %1, secteur relatif %2, position de "
 "durée de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:224
+#: utils/cddaextractthread.cpp:221
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Ignorer (secteur absolu %1, secteur relatif %2, position de durée de piste "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:228
+#: utils/cddaextractthread.cpp:225
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Écart (secteur absolu %1, secteur relatif %2, position de durée de piste %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:232
+#: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Recul (secteur absolu %1, secteur relatif %2, position de durée de piste %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1726,7 +1743,7 @@ msgstr ""
 "Correction abandonnée (secteur absolu %1, secteur relatif %2, position de "
 "durée de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1734,7 +1751,7 @@ msgstr ""
 "Correction double (secteur absolu %1, secteur relatif %2, position de durée "
 "de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1743,22 +1760,13 @@ msgstr ""
 "Erreur de lecture détectée (secteur absolu %1, secteur relatif %2, position "
 "de durée de piste %3:%4)"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Erreur de lecture (secteur absolu %1, secteur relatif %2, position de durée "
 "de piste %3:%4)"
-
-#: utils/cddaparanoia.cpp:38
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"Vérifiez votre périphérique. S'agit-il réellement de « %1 » ? Si tel est le "
-"cas, veuillez vérifier vos droits d'accès sur « %1 »."
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2178,17 +2186,53 @@ msgstr "Supprimer une couverture"
 msgid "Command Scheme:"
 msgstr "Thème de commandes :"
 
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
+#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "No audio CD detected"
+msgid "(No disc detected)"
+msgstr "Aucun disque audio"
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:17
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "Périphérique"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:39
+#: widgets/devicewidgetUI.ui:38
 #, kde-format
 msgid "Sample offset:"
 msgstr "Décalage (« sample offset ») :"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:80
+#, fuzzy, kde-format
+#| msgid "Disc information not found"
+msgid "Device information"
+msgstr "Informations de disque introuvables"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:98
+#, kde-format
+msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid "Vendor:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:169
+#, kde-format
+msgid "Revision:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2456,6 +2500,12 @@ msgstr "Enregistrer..."
 #, kde-format
 msgid "URL:"
 msgstr "URL :"
+
+#~ msgid "Full paranoia mode (best quality)"
+#~ msgstr "Mode paranoïaque total (la meilleure qualité)"
+
+#~ msgid "Unable to create CDDA paranoia object."
+#~ msgstr "Impossible de créer l'objet « CDDA paranoia »."
 
 #~ msgid "Wikipedia localization"
 #~ msgstr "Localisation de Wikipédia"

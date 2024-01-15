@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 02:25+0000\n"
+"POT-Creation-Date: 2024-01-15 03:10+0000\n"
 "PO-Revision-Date: 2023-07-18 13:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -19,78 +19,78 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "기존 파일 덮어쓰기"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "취소한 후 부분적으로 완성된 파일 삭제"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: audex.kcfg:22
+#: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
 msgstr "추출한 후 CD 트레이 꺼내기"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "자동으로 CDDB 검색 실행"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: audex.kcfg:30
+#: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "자동으로 앨범 커버 검색(Amazon) 실행"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:34
+#: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "가져올 앨범 커버 개수"
 
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
-msgid "Full paranoia mode (best quality)"
-msgstr "완전 파라노이아 모드(최고 품질)"
+msgid "Full paranoia mode (reduce chance of read errors)"
+msgstr ""
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
 #, kde-format
 msgid "Never skip on read error"
 msgstr "읽기 오류 건너뛰지 않음"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:48
+#: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
 msgstr "샘플 오프셋"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:54
+#: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
 msgstr "음악 파일을 저장할 기본 경로"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "서버에 파일 업로드"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:62
+#: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
 msgstr "서버 URL"
@@ -138,139 +138,139 @@ msgstr "선택한 프로필이 없습니다. 작업을 중지합니다."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "프로필 \"%1\"을(를) 사용하여 추출과 인코딩을 시작합니다..."
 
-#: core/audex.cpp:616 core/audex.cpp:676
+#: core/audex.cpp:608 core/audex.cpp:668
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "경로 \"%1\"을(를) 찾을 수 없습니다."
 
-#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "경로를 확인하십시오(쓰기 권한이 있습니까?)"
 
-#: core/audex.cpp:629
+#: core/audex.cpp:621
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\"의 남은 공간이 200 MiB 이하입니다."
 
-#: core/audex.cpp:635 core/audex.cpp:704
+#: core/audex.cpp:627 core/audex.cpp:696
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "경고! 파일 \"%1\"이(가) 이미 존재합니다. 덮어씁니다."
 
-#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
+#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "경고! 파일 \"%1\"이(가) 이미 존재합니다. 건너뜁니다."
 
-#: core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "폴더 \"%1\"을(를) 만들 수 없습니다."
 
-#: core/audex.cpp:688 core/audex.cpp:1090
+#: core/audex.cpp:680 core/audex.cpp:1082
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "폴더 \"%1\"을(를) 생성했습니다."
 
-#: core/audex.cpp:691
+#: core/audex.cpp:683
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "폴더 \"%1\"이(가) 이미 존재합니다."
 
-#: core/audex.cpp:698
+#: core/audex.cpp:690
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\"의 남은 공간이 800 MiB 이하입니다."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "임시 폴더 \"%1\" 오류입니다."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Please check."
 msgstr "확인하십시오."
 
-#: core/audex.cpp:729
+#: core/audex.cpp:721
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "임시 폴더 \"%1\"의 남은 공간이 800 MiB 이하입니다."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "임시 폴더 \"%1\"에 남은 공간이 최소 200 MiB여야 합니다."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "공간을 비우거나 다른 경로를 설정하십시오."
 
-#: core/audex.cpp:760
+#: core/audex.cpp:752
 #, kde-format
 msgid "Eject CD tray"
 msgstr "CD 트레이 꺼내기"
 
-#: core/audex.cpp:808
+#: core/audex.cpp:800
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "앨범 커버 \"%1\"을(를) 저장했습니다."
 
-#: core/audex.cpp:811
+#: core/audex.cpp:803
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "앨범 커버 \"%1\"을(를) 저장할 수 없습니다."
 
-#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
-#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
+#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "경로와 권한을 확인하십시오"
 
-#: core/audex.cpp:881
+#: core/audex.cpp:873
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "재생 목록 \"%1\"을(를) 생성했습니다."
 
-#: core/audex.cpp:885
+#: core/audex.cpp:877
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "재생 목록 \"%1\"을(를) 저장할 수 없습니다."
 
-#: core/audex.cpp:921
+#: core/audex.cpp:913
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "정보 파일 \"%1\"을(를) 생성했습니다."
 
-#: core/audex.cpp:924
+#: core/audex.cpp:916
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "파일 \"%1\"에 저장할 수 없습니다."
 
-#: core/audex.cpp:968
+#: core/audex.cpp:960
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "해시 목록 \"%1\"을(를) 생성했습니다."
 
-#: core/audex.cpp:971
+#: core/audex.cpp:963
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "해시 목록 \"%1\"을(를) 저장할 수 없습니다."
 
-#: core/audex.cpp:1005
+#: core/audex.cpp:997
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "CUE 시트 \"%1\"을(를) 생성했습니다."
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "CUE 시트 \"%1\"을(를) 저장할 수 없습니다."
 
-#: core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "폴더 \"%1\"을(를) 열 수 없습니다."
@@ -281,7 +281,7 @@ msgid "Edit Data"
 msgstr "데이터 편집"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1035
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1028
 #, kde-format
 msgid "Various Artists"
 msgstr "여러 아티스트"
@@ -1023,12 +1023,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: mainwindow.cpp:38
+#: mainwindow.cpp:39
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "ProfileModel 객체를 만들 수 없습니다."
 
-#: mainwindow.cpp:39 mainwindow.cpp:52
+#: mainwindow.cpp:40 mainwindow.cpp:53
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
@@ -1036,22 +1036,22 @@ msgstr ""
 "내부 오류입니다. 하드웨어를 확인하십시오. 모두 정상이라면 버그를 보고해 주십"
 "시오."
 
-#: mainwindow.cpp:52
+#: mainwindow.cpp:53
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "CDDAModel 객체를 만들 수 없습니다."
 
-#: mainwindow.cpp:124
+#: mainwindow.cpp:127
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "디스크 정보를 설정하지 않았습니다. 그래도 계속 진행하시겠습니까?"
 
-#: mainwindow.cpp:125
+#: mainwindow.cpp:128
 #, kde-format
 msgid "Disc information not found"
 msgstr "디스크 정보를 찾을 수 없음"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1060,49 +1060,49 @@ msgstr ""
 "단일 파일 추출을 선택했지만 모든 오디오 트랙을 추출하도록 선택하지 않았습니"
 "다. 계속 진행하시겠습니까?"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "단일 파일 추출에 모든 트랙을 선택하지 않았음"
 
-#: mainwindow.cpp:149
+#: mainwindow.cpp:152
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid "No cover was set. Do you really want to continue?"
 msgstr "디스크 정보를 설정하지 않았습니다. 그래도 계속 진행하시겠습니까?"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:153
 #, fuzzy, kde-format
 #| msgid "Cover File"
 msgid "Cover is empty"
 msgstr "커버 파일"
 
-#: mainwindow.cpp:174
+#: mainwindow.cpp:177
 #, kde-format
 msgid "General settings"
 msgstr "일반 설정"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "Device settings"
 msgstr "장치 설정"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:187
 #, kde-format
 msgid "Profiles"
 msgstr "프로필"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:196
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB 설정"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:199
 #, kde-format
 msgid "Remote Server"
 msgstr "원격 서버"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1111,17 +1111,17 @@ msgstr ""
 "CDDB 찾아보기에 실패했습니다. 발생한 오류:\n"
 "%1"
 
-#: mainwindow.cpp:234
+#: mainwindow.cpp:252
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDDB 찾아보기 실패"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:357
 #, kde-format
 msgid "Split titles"
 msgstr "제목 분할"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:358
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1132,110 +1132,110 @@ msgstr ""
 "\n"
 "분할 문자열:"
 
-#: mainwindow.cpp:352
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "아티스트와 제목을 바꾸시겠습니까?"
 
-#: mainwindow.cpp:353
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "아티스트와 제목 바꾸기"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "아티스트와 제목을 모두 대문자로 시작하도록 변경하시겠습니까?"
 
-#: mainwindow.cpp:368
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "아티스트와 제목 대문자로 시작"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "트랙 아티스트를 자동으로 완성하시겠습니까?"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Autofill artists"
 msgstr "아티스트 자동 완성"
 
-#: mainwindow.cpp:410
+#: mainwindow.cpp:428
 #, kde-format
 msgid "Eject"
 msgstr "꺼내기"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile:"
 msgstr "프로필:"
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:447
 #, kde-format
 msgid "&Profile:"
 msgstr "프로필(&P):"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:453
 #, kde-format
 msgid "Profile"
 msgstr "프로필"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:461
 #, fuzzy, kde-format
 #| msgid "Fetch Info"
 msgid "Fetch"
 msgstr "정보 가져오기"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:468
 #, fuzzy, kde-format
 #| msgid "Submit Info"
 msgid "Submit"
 msgstr "정보 제출"
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:474
 #, fuzzy, kde-format
 #| msgid "Edit Data"
 msgid "Edit"
 msgstr "데이터 편집"
 
-#: mainwindow.cpp:463
+#: mainwindow.cpp:481
 #, kde-format
 msgid "Rip..."
 msgstr "추출..."
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:490
 #, kde-format
 msgid "Split Titles..."
 msgstr "제목 분할..."
 
-#: mainwindow.cpp:477
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "아티스트와 제목 바꾸기"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Capitalize"
 msgstr "대문자로 시작"
 
-#: mainwindow.cpp:487
+#: mainwindow.cpp:505
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "아티스트 자동 완성"
 
-#: mainwindow.cpp:492
+#: mainwindow.cpp:510
 #, kde-format
 msgid "Select All Tracks"
 msgstr "모든 트랙 선택"
 
-#: mainwindow.cpp:497
+#: mainwindow.cpp:515
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "모든 트랙 선택 해제"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:520
 #, kde-format
 msgid "Invert Selection"
 msgstr "선택 반전"
@@ -1245,7 +1245,7 @@ msgstr "선택 반전"
 msgid "Unable to create devices object."
 msgstr "devices 객체를 만들 수 없습니다."
 
-#: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:910
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1259,22 +1259,22 @@ msgstr ""
 msgid "Unable to create KCDDB object."
 msgstr "KCDDB 객체를 만들 수 없습니다."
 
-#: models/cddamodel.cpp:125
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "트랙 %1"
 
-#: models/cddamodel.cpp:532
+#: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
 msgstr "일반적인 그림 형식"
 
-#: models/cddamodel.cpp:829
+#: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB 트랜잭션이 진행 중입니다."
 
-#: models/cddamodel.cpp:830
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1282,7 +1282,7 @@ msgid ""
 msgstr ""
 "CDDB 트랜잭션이 진행 중입니다. 완료될 때까지 기다린 다음 다시 시도하십시오.."
 
-#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
+#: models/cddamodel.cpp:842 models/cddamodel.cpp:956
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1291,7 +1291,7 @@ msgstr ""
 "CDDB 서버에서 오류가 발생했습니다. 잠시 기다리거나 CDDB 서버 관리자에게 문의"
 "하십시오."
 
-#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
+#: models/cddamodel.cpp:848 models/cddamodel.cpp:962
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1300,7 +1300,7 @@ msgstr ""
 "CDDB 서버를 찾을 수 없습니다. 네트워크 연결을 확인하십시오. CDDB 서버가 오프"
 "라인일 수도 있습니다."
 
-#: models/cddamodel.cpp:861 models/cddamodel.cpp:975
+#: models/cddamodel.cpp:854 models/cddamodel.cpp:968
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1309,37 +1309,38 @@ msgstr ""
 "잠시 기다려 주십시오. 서버가 바쁠 수도 있습니다. 또는 CDDB 관리자에게 연락하"
 "십시오."
 
-#: models/cddamodel.cpp:866
+#: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "CDDB 서버 관리자에게 문의하십시오."
 
-#: models/cddamodel.cpp:869 models/cddamodel.cpp:980
+#: models/cddamodel.cpp:862 models/cddamodel.cpp:973
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "일어나면 안 됩니다. 버그를 보고해 주십시오."
 
-#: models/cddamodel.cpp:876 models/cddamodel.cpp:983
+#: models/cddamodel.cpp:869 models/cddamodel.cpp:976
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "버그를 보고한 후 CDDB 서버 관리자에게 문의하십시오."
 
-#: models/cddamodel.cpp:909
-#, kde-format
-msgid "Unable to create CDDA paranoia object."
-msgstr "CDDA Paranoia 객체를 만들 수 없습니다."
+#: models/cddamodel.cpp:902
+#, fuzzy, kde-format
+#| msgid "Unable to create KCDDB object."
+msgid "Unable to create CDIO object."
+msgstr "KCDDB 객체를 만들 수 없습니다."
 
-#: models/cddamodel.cpp:989
+#: models/cddamodel.cpp:982
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "CDDB 데이터베이스에서 데이터를 찾을 수 없습니다."
 
-#: models/cddamodel.cpp:1010
+#: models/cddamodel.cpp:1003
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "CDDB 항목 선택"
 
-#: models/cddamodel.cpp:1010
+#: models/cddamodel.cpp:1003
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "CDDB 항목 선택:"
@@ -1560,15 +1561,31 @@ msgstr "내부 오류입니다. 보고해 주십시오."
 msgid "Copy"
 msgstr "복사"
 
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#, kde-format
+msgid "Internal device error."
+msgstr "내부 장치 오류입니다."
+
+#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"장치를 확인하십시오. \"%1\"이(가) 맞습니까? 그렇다면 \"%1\" 접근 권한을 확인"
+"하십시오."
+
+#: utils/cddacdio.cpp:80
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr "오디오 디스크"
-
-#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
-#, kde-format
-msgid "Internal device error."
-msgstr "내부 장치 오류입니다."
 
 #: utils/cddaextractthread.cpp:25
 #, kde-format
@@ -1580,133 +1597,124 @@ msgstr "장치를 확인하고 버그를 보고하십시오."
 msgid "Extracting finished."
 msgstr "추출이 완료되었습니다."
 
-#: utils/cddaextractthread.cpp:102
+#: utils/cddaextractthread.cpp:101
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "트랙 %1 추출 중(%2:%3)..."
 
-#: utils/cddaextractthread.cpp:104
+#: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr "전체 CD를 단일 트랙으로 추출합니다."
 
-#: utils/cddaextractthread.cpp:106
+#: utils/cddaextractthread.cpp:105
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "트랙 %1(섹터 %2개) 읽기 시작"
 
-#: utils/cddaextractthread.cpp:141
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "User canceled extracting."
 msgstr "사용자가 추출을 취소했습니다."
 
-#: utils/cddaextractthread.cpp:144
+#: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "트랙 %1을(를) 추출하는 중 오류가 발생했습니다."
 
-#: utils/cddaextractthread.cpp:148
+#: utils/cddaextractthread.cpp:147
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "추출에 성공했습니다(트랙 %1)."
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "Ripping OK."
 msgstr "추출에 성공했습니다."
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:154
 #, kde-format
 msgid "Reading finished"
 msgstr "읽기 완료됨"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:196
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "에지 지터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:205
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "아톰 지터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:208
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "흠집 감지됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:214
+#: utils/cddaextractthread.cpp:211
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "흠집 감지됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:218
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "복구됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:220
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "섹터 건너뜀(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:224
+#: utils/cddaextractthread.cpp:221
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "건너뜀(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:228
+#: utils/cddaextractthread.cpp:225
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "드리프트(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:232
+#: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "백오프(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "빠진 데이터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "중복 데이터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr "읽기 오류 감지됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "읽기 오류(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
-
-#: utils/cddaparanoia.cpp:38
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"장치를 확인하십시오. \"%1\"이(가) 맞습니까? 그렇다면 \"%1\" 접근 권한을 확인"
-"하십시오."
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2058,17 +2066,53 @@ msgstr "앨범 커버 삭제"
 msgid "Command Scheme:"
 msgstr "명령 패턴:"
 
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
+#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "No audio CD detected"
+msgid "(No disc detected)"
+msgstr "감지된 오디오 CD 없음"
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:17
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "장치"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:39
+#: widgets/devicewidgetUI.ui:38
 #, kde-format
 msgid "Sample offset:"
 msgstr "샘플 오프셋:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:80
+#, fuzzy, kde-format
+#| msgid "Disc information not found"
+msgid "Device information"
+msgstr "디스크 정보를 찾을 수 없음"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:98
+#, kde-format
+msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid "Vendor:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:169
+#, kde-format
+msgid "Revision:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2334,6 +2378,12 @@ msgstr "저장..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Full paranoia mode (best quality)"
+#~ msgstr "완전 파라노이아 모드(최고 품질)"
+
+#~ msgid "Unable to create CDDA paranoia object."
+#~ msgstr "CDDA Paranoia 객체를 만들 수 없습니다."
 
 #~ msgid "Wikipedia localization"
 #~ msgstr "위키백과 언어판"
