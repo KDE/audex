@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
 "PO-Revision-Date: 2024-01-13 06:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -19,78 +19,78 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "覆盖已存在的文件"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "在取消后删除部分文件"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: audex.kcfg:22
+#: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
 msgstr "在提取完成后弹出 CD 托盘"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "自动执行 CDDB 查找"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: audex.kcfg:30
+#: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "自动执行 CDDB （亚马逊） 查找"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:34
+#: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "获取的封面个数"
 
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
-msgid "Full paranoia mode (best quality)"
-msgstr "强迫症专用模式 (最高质量)"
+msgid "Full paranoia mode (reduce chance of read errors)"
+msgstr ""
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
 #, kde-format
 msgid "Never skip on read error"
 msgstr "读取错误发生时从不跳过"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:48
+#: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
 msgstr "采样偏移量"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:54
+#: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
 msgstr "存储音乐文件的基准路径"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "上传文件到服务器"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:62
+#: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
 msgstr "服务器地址"
@@ -137,138 +137,138 @@ msgstr "没有选中配置文件。操作中止。"
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
 
-#: core/audex.cpp:616 core/audex.cpp:676
+#: core/audex.cpp:608 core/audex.cpp:668
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "找不到路径“%1”。"
 
-#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "请检查您的路径 (写入访问权限？)"
 
-#: core/audex.cpp:629
+#: core/audex.cpp:621
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "“%1”中的空闲空间少于 200 MiB。"
 
-#: core/audex.cpp:635 core/audex.cpp:704
+#: core/audex.cpp:627 core/audex.cpp:696
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "警告！文件“%1”已经存在。覆盖。"
 
-#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
+#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "警告！文件“%1”已经存在。跳过。"
 
-#: core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "无法创建文件夹 \"%1\"."
 
-#: core/audex.cpp:688 core/audex.cpp:1090
+#: core/audex.cpp:680 core/audex.cpp:1082
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "文件夹 \"%1\" 已成功创建。"
 
-#: core/audex.cpp:691
+#: core/audex.cpp:683
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "文件夹 \"%1\" 已存在。"
 
-#: core/audex.cpp:698
+#: core/audex.cpp:690
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "“%1”中的空闲空间少于 800 MiB。"
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr ""
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Please check."
 msgstr "请检查。"
 
-#: core/audex.cpp:729
+#: core/audex.cpp:721
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "临时文件夹“%1”中的空闲空间少于 800 MiB。"
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "临时文件夹“%1”需要至少 200 MiB 的空闲空间。"
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "请释放空间或选择另一条路径。"
 
-#: core/audex.cpp:760
+#: core/audex.cpp:752
 #, kde-format
 msgid "Eject CD tray"
 msgstr "弹出 CD 托盘"
 
-#: core/audex.cpp:808
+#: core/audex.cpp:800
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "封面 \"%1\" 保存成功。"
 
-#: core/audex.cpp:811
+#: core/audex.cpp:803
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "无法保存封面 “%1”。"
 
-#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
-#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
+#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "请检查您的路径和权限"
 
-#: core/audex.cpp:881
+#: core/audex.cpp:873
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "播放列表“%1”创建成功"
 
-#: core/audex.cpp:885
+#: core/audex.cpp:877
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "无法保存播放列表“%1”。"
 
-#: core/audex.cpp:921
+#: core/audex.cpp:913
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "信息文件“%1”创建成功。"
 
-#: core/audex.cpp:924
+#: core/audex.cpp:916
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "无法保存信息文件“%1”。"
 
-#: core/audex.cpp:968
+#: core/audex.cpp:960
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "哈希列表“%1”创建成功。"
 
-#: core/audex.cpp:971
+#: core/audex.cpp:963
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "无法保存哈希列表“%1”。"
 
-#: core/audex.cpp:1005
+#: core/audex.cpp:997
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "CUE 文件“%1”成功创建。"
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "无法保存 CUE 文件“%1”。"
 
-#: core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "无法打开文件夹“%1”。"
@@ -279,7 +279,7 @@ msgid "Edit Data"
 msgstr "编辑数据"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1036
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
 #, kde-format
 msgid "Various Artists"
 msgstr "群星"
@@ -1003,80 +1003,80 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org"
 
-#: mainwindow.cpp:38
+#: mainwindow.cpp:39
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "无法创建 ProfileModel 对象。"
 
-#: mainwindow.cpp:39 mainwindow.cpp:52
+#: mainwindow.cpp:40 mainwindow.cpp:53
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr "内部错误。请检查您的硬件。如果硬件没问题，请提交错误报告。"
 
-#: mainwindow.cpp:52
+#: mainwindow.cpp:53
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "无法创建 CDDAModel 对象。"
 
-#: mainwindow.cpp:124
+#: mainwindow.cpp:127
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "没有设置盘片信息。您确定要继续吗？"
 
-#: mainwindow.cpp:125
+#: mainwindow.cpp:128
 #, kde-format
 msgid "Disc information not found"
 msgstr "未找到光盘信息"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr "选择了单个文件抓取，但没有选择所有要抓取的音轨。你真的想继续吗？"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "单文件抓取时没有选择全部音轨。"
 
-#: mainwindow.cpp:149
+#: mainwindow.cpp:152
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr ""
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:153
 #, kde-format
 msgid "Cover is empty"
 msgstr ""
 
-#: mainwindow.cpp:174
+#: mainwindow.cpp:177
 #, kde-format
 msgid "General settings"
 msgstr "常规设置"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "Device settings"
 msgstr "设备设置"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:187
 #, kde-format
 msgid "Profiles"
 msgstr "配置文件"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:196
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB 设置"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:199
 #, kde-format
 msgid "Remote Server"
 msgstr "远程服务器"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1085,17 +1085,17 @@ msgstr ""
 "CDDB 检索失败，错误如下：\n"
 "%1"
 
-#: mainwindow.cpp:234
+#: mainwindow.cpp:252
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD 查询失败"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:357
 #, kde-format
 msgid "Split titles"
 msgstr "拆分标题"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:358
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1106,107 +1106,107 @@ msgstr ""
 "\n"
 "分隔符："
 
-#: mainwindow.cpp:352
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "您真的想要交换所有艺术家和标题吗？"
 
-#: mainwindow.cpp:353
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "交换艺术家和标题"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "您真的想要将所有艺术家和标题的首字母大写吗？"
 
-#: mainwindow.cpp:368
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "将艺术家和标题的首字母大写"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "您真的想要自动填充曲目艺术家吗？"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Autofill artists"
 msgstr "自动填充艺术家"
 
-#: mainwindow.cpp:410
+#: mainwindow.cpp:428
 #, kde-format
 msgid "Eject"
 msgstr "弹出"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile:"
 msgstr "配置："
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:447
 #, kde-format
 msgid "&Profile:"
 msgstr "&项目:"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:453
 #, kde-format
 msgid "Profile"
 msgstr "项目"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:461
 #, kde-format
 msgid "Fetch"
 msgstr ""
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:468
 #, kde-format
 msgid "Submit"
 msgstr ""
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:474
 #, kde-format
 msgid "Edit"
 msgstr ""
 
-#: mainwindow.cpp:463
+#: mainwindow.cpp:481
 #, kde-format
 msgid "Rip..."
 msgstr "抓取..."
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:490
 #, kde-format
 msgid "Split Titles..."
 msgstr "分割标题..."
 
-#: mainwindow.cpp:477
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "交换艺术家和标题"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Capitalize"
 msgstr "字首大写"
 
-#: mainwindow.cpp:487
+#: mainwindow.cpp:505
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "自动填充艺术家"
 
-#: mainwindow.cpp:492
+#: mainwindow.cpp:510
 #, kde-format
 msgid "Select All Tracks"
 msgstr "选择所有音轨"
 
-#: mainwindow.cpp:497
+#: mainwindow.cpp:515
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "取消选择所有曲目"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:520
 #, kde-format
 msgid "Invert Selection"
 msgstr "反选"
@@ -1216,7 +1216,7 @@ msgstr "反选"
 msgid "Unable to create devices object."
 msgstr "无法创建设备对象。"
 
-#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1228,80 +1228,81 @@ msgstr "这是一个内部错误。请检查您的硬件。如果硬件没问题
 msgid "Unable to create KCDDB object."
 msgstr "无法创建 KCDDB 对象。"
 
-#: models/cddamodel.cpp:126
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "第 %1 轨"
 
-#: models/cddamodel.cpp:533
+#: models/cddamodel.cpp:526
 #, kde-format
 msgid "Common image formats"
 msgstr "常见图像格式"
 
-#: models/cddamodel.cpp:830
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB 事务已在进行中。"
 
-#: models/cddamodel.cpp:831
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr "一个 CDDB 事务正在进行中。请等待它完成，然后重试。"
 
-#: models/cddamodel.cpp:850 models/cddamodel.cpp:964
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr "CDDB 服务器出错。请等待或联系 CDDB 服务器的管理员。"
 
-#: models/cddamodel.cpp:856 models/cddamodel.cpp:970
+#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr "找不到 CDDB 服务器。请检查您的网络。也许 CDDB 服务器已经离线。"
 
-#: models/cddamodel.cpp:862 models/cddamodel.cpp:976
+#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr "请稍候，或许服务器忙碌，或联系 CDDB 服务器管理员。"
 
-#: models/cddamodel.cpp:867
+#: models/cddamodel.cpp:860
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "请联系 CDDB 服务器管理员。"
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:981
+#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "不应该发生这种情况。请提交错误报告。"
 
-#: models/cddamodel.cpp:877 models/cddamodel.cpp:984
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "请提交错误报告并联系 CDDB 服务器管理员。"
 
-#: models/cddamodel.cpp:910
-#, kde-format
-msgid "Unable to create CDDA paranoia object."
-msgstr "无法创建 CDDA paranoia 对象。"
+#: models/cddamodel.cpp:903
+#, fuzzy, kde-format
+#| msgid "Unable to create KCDDB object."
+msgid "Unable to create CDIO object."
+msgstr "无法创建 KCDDB 对象。"
 
-#: models/cddamodel.cpp:990
+#: models/cddamodel.cpp:983
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "这意味着在 CDDB 数据库中没有找到数据。"
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "选择 CDDB 条目"
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "选择 CDDB 条目："
@@ -1507,15 +1508,30 @@ msgstr "这是一个内部错误。请报告。"
 msgid "Copy"
 msgstr "复制"
 
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#, kde-format
+msgid "Internal device error."
+msgstr "内部设备错误。"
+
+#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
+
+#: utils/cddacdio.cpp:80
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr "音频盘片"
-
-#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
-#, kde-format
-msgid "Internal device error."
-msgstr "内部设备错误。"
 
 #: utils/cddaextractthread.cpp:25
 #, kde-format
@@ -1527,132 +1543,124 @@ msgstr "检查您的设备并提交错误报告。"
 msgid "Extracting finished."
 msgstr "提取完成。"
 
-#: utils/cddaextractthread.cpp:102
+#: utils/cddaextractthread.cpp:101
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "抓取轨道 %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:104
+#: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr "将整个 CD 抓取为单个曲目。"
 
-#: utils/cddaextractthread.cpp:106
+#: utils/cddaextractthread.cpp:105
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "开始读取音轨 %1 的 %2 个扇区"
 
-#: utils/cddaextractthread.cpp:141
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "User canceled extracting."
 msgstr "用户取消了提取"
 
-#: utils/cddaextractthread.cpp:144
+#: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "抓取音轨 %1 时出错。"
 
-#: utils/cddaextractthread.cpp:148
+#: utils/cddaextractthread.cpp:147
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "抓取 OK (音轨 %1)。"
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "Ripping OK."
 msgstr "抓取成功。"
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:154
 #, kde-format
 msgid "Reading finished"
 msgstr "读取完成"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:196
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "已修复边缘扰动 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:205
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "已修复原子扰动 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:208
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "检测到刮花 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:214
+#: utils/cddaextractthread.cpp:211
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "检测到刮花！ (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:218
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "修复 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:220
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "跳过扇区 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:224
+#: utils/cddaextractthread.cpp:221
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "跳过！(绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:228
+#: utils/cddaextractthread.cpp:225
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "漂移 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:232
+#: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "退避 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "修复已丢弃 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "修复已复制 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr "检测到读取错误 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "读取错误！(绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
-
-#: utils/cddaparanoia.cpp:38
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1968,17 +1976,53 @@ msgstr "删除封面"
 msgid "Command Scheme:"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
+#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "No audio CD detected"
+msgid "(No disc detected)"
+msgstr "未检测到音频 CD"
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:17
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "设备"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:39
+#: widgets/devicewidgetUI.ui:38
 #, kde-format
 msgid "Sample offset:"
 msgstr "采样偏移"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:80
+#, fuzzy, kde-format
+#| msgid "Disc information not found"
+msgid "Device information"
+msgstr "未找到光盘信息"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:98
+#, kde-format
+msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid "Vendor:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:169
+#, kde-format
+msgid "Revision:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2232,3 +2276,9 @@ msgstr "保存..."
 #, kde-format
 msgid "URL:"
 msgstr "网址："
+
+#~ msgid "Full paranoia mode (best quality)"
+#~ msgstr "强迫症专用模式 (最高质量)"
+
+#~ msgid "Unable to create CDDA paranoia object."
+#~ msgstr "无法创建 CDDA paranoia 对象。"

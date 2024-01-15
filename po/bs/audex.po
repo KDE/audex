@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
 "PO-Revision-Date: 2015-02-24 23:20+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian\n"
@@ -22,78 +22,78 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "Zamjena postojećih datoteka"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "Obriši parcijalne datoteke  nakon otkazivanja"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: audex.kcfg:22
+#: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
 msgstr "Izbacivanje CD ležišta nakon završetka ekstrakcije"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "Obavite CDDB pronalaženje automatski"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: audex.kcfg:30
+#: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Obavite  pronalaženje (amazon) automatski"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:34
+#: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Broj  zaklona da dohvati"
 
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
-msgid "Full paranoia mode (best quality)"
-msgstr "Potpuni paranoja režim (najbolji kvalitet)"
+msgid "Full paranoia mode (reduce chance of read errors)"
+msgstr ""
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
 #, kde-format
 msgid "Never skip on read error"
 msgstr "Nemoj preskakati  pri grešakama čitanja"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:48
+#: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
 msgstr "Pomak uzorka"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:54
+#: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Bazna putanja za pohranu muzičkih datoteka"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Pošalji datoteke na server"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:62
+#: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
 msgstr "URL servera"
@@ -142,139 +142,139 @@ msgstr "Nijedan profil nije odabran. Prekid operacije."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Počni snimati i kodirati sa profilom \"%1\"..."
 
-#: core/audex.cpp:616 core/audex.cpp:676
+#: core/audex.cpp:608 core/audex.cpp:668
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ne mogu naći putanju \"%1\"."
 
-#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Molimo provjeri svoju putanju ( pristup pisanju?)"
 
-#: core/audex.cpp:629
+#: core/audex.cpp:621
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Slobodan prostor na \"%1\" je manji od 200 MiB."
 
-#: core/audex.cpp:635 core/audex.cpp:704
+#: core/audex.cpp:627 core/audex.cpp:696
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Upozorenje! Datoteka \"%1\" već postoji. Pisanje preko."
 
-#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
+#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Upozorenje! Datoteka \"%1\" već postoji. Preskakanje,."
 
-#: core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nije moguće stvoriti folder \"%1\"."
 
-#: core/audex.cpp:688 core/audex.cpp:1090
+#: core/audex.cpp:680 core/audex.cpp:1082
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Folder \"%1\" je uspješno stvoren."
 
-#: core/audex.cpp:691
+#: core/audex.cpp:683
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Folder \"%1\" već postoji."
 
-#: core/audex.cpp:698
+#: core/audex.cpp:690
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Slobodan prostor na \"%1\" je manji od 800 MiB."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Privremena folder \"%1\" greška."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Please check."
 msgstr "Molimo provjerite."
 
-#: core/audex.cpp:729
+#: core/audex.cpp:721
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Slobodan prostor na privemenom folderu \"%1\" je manji od 800 MiB."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Privremeni folder \"%1\" treba barem 200 MiB slobodnog prostora."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Molimo oslobodite prostor ili postavite drugi put."
 
-#: core/audex.cpp:760
+#: core/audex.cpp:752
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Izbacivanje CD ladice"
 
-#: core/audex.cpp:808
+#: core/audex.cpp:800
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Omot \"%1\" je uspješno spašen."
 
-#: core/audex.cpp:811
+#: core/audex.cpp:803
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Nije moguće spasiti omot \"%1\"."
 
-#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
-#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
+#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Molimo provjerite vašu putanju i odobrenja."
 
-#: core/audex.cpp:881
+#: core/audex.cpp:873
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Playlista  \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:885
+#: core/audex.cpp:877
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Nije moguće spasiti playlistu  \"%1\"."
 
-#: core/audex.cpp:921
+#: core/audex.cpp:913
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Info datoteka \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:924
+#: core/audex.cpp:916
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Nije moguće spasiti info datoteku \"%1\"."
 
-#: core/audex.cpp:968
+#: core/audex.cpp:960
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Heš lista \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:971
+#: core/audex.cpp:963
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nije moguće spasiti heš listu \"%1\"."
 
-#: core/audex.cpp:1005
+#: core/audex.cpp:997
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Stranica redova \"%1\" je uspješno stvorena."
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nije moguće spasiti stranicu redova \"%1\"."
 
-#: core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Nije moguće otvoriti folder \"%1\"."
@@ -285,7 +285,7 @@ msgid "Edit Data"
 msgstr "Izmijeni podatke"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1036
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
 #, kde-format
 msgid "Various Artists"
 msgstr "Razni Izvođači"
@@ -1039,12 +1039,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Samir.ribic@etf.unsa.ba,sbotulja1@etf.unsa.ba,tcerimagic1@etf.unsa.ba"
 
-#: mainwindow.cpp:38
+#: mainwindow.cpp:39
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "Nije moguće stvoriti ProfilModel objekat."
 
-#: mainwindow.cpp:39 mainwindow.cpp:52
+#: mainwindow.cpp:40 mainwindow.cpp:53
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
@@ -1052,22 +1052,22 @@ msgstr ""
 "Unutrašnja greška.Provjeri svoj hardver. Ako je sve uredu molimo napravite "
 "bug prijavu."
 
-#: mainwindow.cpp:52
+#: mainwindow.cpp:53
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "Nije moguće kreirati CDDAModel objekat."
 
-#: mainwindow.cpp:124
+#: mainwindow.cpp:127
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Nisu postavljene informacije o disku. Da li stvarno želite nastaviti?"
 
-#: mainwindow.cpp:125
+#: mainwindow.cpp:128
 #, kde-format
 msgid "Disc information not found"
 msgstr "Informacije o disku nisu pronađene"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1076,49 +1076,49 @@ msgstr ""
 "Jedana datoteka je selektovana za snimanje ali nisu sve audio numere "
 "selektovane za snimanje. Da li stvarno želite nastaviti?"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Nisu sve audio numere selektovane za snimanje jedan po jedan"
 
-#: mainwindow.cpp:149
+#: mainwindow.cpp:152
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid "No cover was set. Do you really want to continue?"
 msgstr "Nisu postavljene informacije o disku. Da li stvarno želite nastaviti?"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:153
 #, fuzzy, kde-format
 #| msgid "Cover File"
 msgid "Cover is empty"
 msgstr "Omot datoteka"
 
-#: mainwindow.cpp:174
+#: mainwindow.cpp:177
 #, kde-format
 msgid "General settings"
 msgstr "Opšte postavke"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "Device settings"
 msgstr "Postavke uređaja"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:187
 #, kde-format
 msgid "Profiles"
 msgstr "Profili"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:196
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB postavke"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:199
 #, kde-format
 msgid "Remote Server"
 msgstr "Daljinski poslužitelj"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1127,17 +1127,17 @@ msgstr ""
 "CDDB pregled nije uspio, sa slijedećom greškom:\n"
 "%1"
 
-#: mainwindow.cpp:234
+#: mainwindow.cpp:252
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD neuspjeh pregleda"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:357
 #, kde-format
 msgid "Split titles"
 msgstr "Razdvoji naslove"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:358
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1148,110 +1148,110 @@ msgstr ""
 "\n"
 "Razdvajač:"
 
-#: mainwindow.cpp:352
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Da li stvarno želite da zamjenite sve umjetnike i naslove?"
 
-#: mainwindow.cpp:353
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Zamjeni izvođačee i naslove"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "Da li stvarno želite pisati velikim slovima sve umjetnike i naslove?"
 
-#: mainwindow.cpp:368
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Kapitaliziraj umjetnike i naslove"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Da li stvarno želite automatski popuniti numere umjetnika?"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Autofill artists"
 msgstr "Automatski popuni umjetnike"
 
-#: mainwindow.cpp:410
+#: mainwindow.cpp:428
 #, kde-format
 msgid "Eject"
 msgstr "Izbaci"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:447
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil:"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:453
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:461
 #, fuzzy, kde-format
 #| msgid "Fetch Info"
 msgid "Fetch"
 msgstr "Dobavi informacije"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:468
 #, fuzzy, kde-format
 #| msgid "Submit Info"
 msgid "Submit"
 msgstr "Potvrdi informacije"
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:474
 #, fuzzy, kde-format
 #| msgid "Edit Data"
 msgid "Edit"
 msgstr "Izmijeni podatke"
 
-#: mainwindow.cpp:463
+#: mainwindow.cpp:481
 #, kde-format
 msgid "Rip..."
 msgstr "Snimi..."
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:490
 #, kde-format
 msgid "Split Titles..."
 msgstr "Razdvoji naslove..."
 
-#: mainwindow.cpp:477
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Zamjeni izvođače i naslove"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Capitalize"
 msgstr "Veliko prvo slovo"
 
-#: mainwindow.cpp:487
+#: mainwindow.cpp:505
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Automatski popuni umjetnike"
 
-#: mainwindow.cpp:492
+#: mainwindow.cpp:510
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Odaberi sve numere"
 
-#: mainwindow.cpp:497
+#: mainwindow.cpp:515
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Deselektuj sve numere"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:520
 #, kde-format
 msgid "Invert Selection"
 msgstr "Obrni izbor"
@@ -1261,7 +1261,7 @@ msgstr "Obrni izbor"
 msgid "Unable to create devices object."
 msgstr "Nije moguće kreirati objekat uređaja."
 
-#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1275,22 +1275,22 @@ msgstr ""
 msgid "Unable to create KCDDB object."
 msgstr "Nije moguce kreirati KCDDB objekat."
 
-#: models/cddamodel.cpp:126
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "Pjesma %1"
 
-#: models/cddamodel.cpp:533
+#: models/cddamodel.cpp:526
 #, kde-format
 msgid "Common image formats"
 msgstr "Zajednički formati slike"
 
-#: models/cddamodel.cpp:830
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB transakcija već u toku."
 
-#: models/cddamodel.cpp:831
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1298,7 +1298,7 @@ msgid ""
 msgstr ""
 "CDDB transakcija već u toku. Molim sačekajte dok se završi i probajte ponovo"
 
-#: models/cddamodel.cpp:850 models/cddamodel.cpp:964
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1307,7 +1307,7 @@ msgstr ""
 "Postoji greška sa CDDB serverom. Molimo sačekajte ili kontaktirajte "
 "administratora CDDB servera."
 
-#: models/cddamodel.cpp:856 models/cddamodel.cpp:970
+#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1316,7 +1316,7 @@ msgstr ""
 "Nije moguće naći CDDB server. Provjeri mrežu. Možda je CDDB server izvan "
 "mreže."
 
-#: models/cddamodel.cpp:862 models/cddamodel.cpp:976
+#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1325,38 +1325,39 @@ msgstr ""
 "Molimo sačekajte, možda je server zauzet, ili kontaktirajte administratora "
 "CDDB  servera."
 
-#: models/cddamodel.cpp:867
+#: models/cddamodel.cpp:860
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Molimo kontaktirajte administratora CDDB  servera."
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:981
+#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "Ovo se nije trebalo desiti. Molimo napravite bug prijavu."
 
-#: models/cddamodel.cpp:877 models/cddamodel.cpp:984
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "Molimo napravite bug prijavu i kontaktirajte administratora CDDB servera."
 
-#: models/cddamodel.cpp:910
-#, kde-format
-msgid "Unable to create CDDA paranoia object."
-msgstr "Nije moguće kreirati CDDA paranoia objekat."
+#: models/cddamodel.cpp:903
+#, fuzzy, kde-format
+#| msgid "Unable to create KCDDB object."
+msgid "Unable to create CDIO object."
+msgstr "Nije moguce kreirati KCDDB objekat."
 
-#: models/cddamodel.cpp:990
+#: models/cddamodel.cpp:983
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Ovo znači da podaci nisu pronađeni u CDDB bazi podataka."
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Izaberite CDDB Unos"
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Izaberite CDDB unos:"
@@ -1580,15 +1581,31 @@ msgstr "Ovo je unutrašnja greška. Molimo prijavite."
 msgid "Copy"
 msgstr "Kopiraj"
 
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#, kde-format
+msgid "Internal device error."
+msgstr "Unutrašnja greška uređaja."
+
+#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"Provjerite vaš uređaj. Je li stvarno \"%1\"? Ako je tako takođe provjerite "
+"Vašu dozvolu na \"%1\"."
+
+#: utils/cddacdio.cpp:80
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr "Audio disk"
-
-#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
-#, kde-format
-msgid "Internal device error."
-msgstr "Unutrašnja greška uređaja."
 
 #: utils/cddaextractthread.cpp:25
 #, kde-format
@@ -1600,47 +1617,47 @@ msgstr "Provjerite Vaš uređaj i napravite bug prijavu."
 msgid "Extracting finished."
 msgstr "Izdvajanje je završeno."
 
-#: utils/cddaextractthread.cpp:102
+#: utils/cddaextractthread.cpp:101
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Snimanje numere %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:104
+#: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr "Snimanje cijelog CD-a kao jedne numere."
 
-#: utils/cddaextractthread.cpp:106
+#: utils/cddaextractthread.cpp:105
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Počni čitanje numere %1 sa %2 sektora"
 
-#: utils/cddaextractthread.cpp:141
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Korisnik je prekinuo izdvajanje."
 
-#: utils/cddaextractthread.cpp:144
+#: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Jedna greška se desila dok se snimala numera %1."
 
-#: utils/cddaextractthread.cpp:148
+#: utils/cddaextractthread.cpp:147
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Ekstrakcija OK(Numera%1)."
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "Ripping OK."
 msgstr "Snimanje OK."
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:154
 #, kde-format
 msgid "Reading finished"
 msgstr "Čitanje gotovo"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:196
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1649,7 +1666,7 @@ msgstr ""
 "Popravljena devijacija ivice (apsolutni sektor %1, relativni sektor %2, "
 "vrijeme numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:205
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1658,7 +1675,7 @@ msgstr ""
 "Popravljen atomska devijacija( apsolutni sektor %1, relativni sektor %2, "
 "vrijeme numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:208
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1667,7 +1684,7 @@ msgstr ""
 "Ogrebotina otkrivena ( apsolutni sektor %1, relativni sektor %2, vrijeme "
 "numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:214
+#: utils/cddaextractthread.cpp:211
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1676,14 +1693,14 @@ msgstr ""
 "OGREBOTINA OTKRIVENA ( apsolutni sektor %1, relativni sektor %2, vrijeme "
 "numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:218
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Popravka ( apsolutni sektor %1, relativni sektor %2, vrijeme numere pos %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:220
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1691,26 +1708,26 @@ msgstr ""
 "Preskoči sektor ( apsolutni sektor %1, relativni sektor %2, vrijeme numere "
 "pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:224
+#: utils/cddaextractthread.cpp:221
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "PRESKOČI (apsolutni sektor %1, relativni sektor %2, vrijeme numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:228
+#: utils/cddaextractthread.cpp:225
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Skretanje (apsolutni sektor %1, relativni sektor %2, vrijeme numere pos %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:232
+#: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Backoff (apsolutni sektor %1, relativni sektor %2, vrijeme numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1718,7 +1735,7 @@ msgstr ""
 "Popravka nije uspjela  (apsolutni sektor %1, relativni sektor %2, vrijeme "
 "numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1726,7 +1743,7 @@ msgstr ""
 "Popravka je nasamarena (apsolutni sektor %1, relativni sektor %2, vrijeme "
 "numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1735,22 +1752,13 @@ msgstr ""
 "Greška pri čitanju je otkrivena (apsolutni sektor %1, relativni sektor %2, "
 "vrijeme numere pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "GREŠKA PRI ČITANJU (apsolutni sektor %1, relativni sektor %2, vrijeme numere "
 "pos %3:%4)"
-
-#: utils/cddaparanoia.cpp:38
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"Provjerite vaš uređaj. Je li stvarno \"%1\"? Ako je tako takođe provjerite "
-"Vašu dozvolu na \"%1\"."
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2103,17 +2111,53 @@ msgstr "Ukloni omot"
 msgid "Command Scheme:"
 msgstr "Komandni obrazac:"
 
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
+#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "No audio CD detected"
+msgid "(No disc detected)"
+msgstr "Nema audio CD prepoznatog"
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:17
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "Uređaj"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:39
+#: widgets/devicewidgetUI.ui:38
 #, kde-format
 msgid "Sample offset:"
 msgstr "Pozicija uzorka:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:80
+#, fuzzy, kde-format
+#| msgid "Disc information not found"
+msgid "Device information"
+msgstr "Informacije o disku nisu pronađene"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:98
+#, kde-format
+msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid "Vendor:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:169
+#, kde-format
+msgid "Revision:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2385,6 +2429,12 @@ msgstr "Snimi..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Full paranoia mode (best quality)"
+#~ msgstr "Potpuni paranoja režim (najbolji kvalitet)"
+
+#~ msgid "Unable to create CDDA paranoia object."
+#~ msgstr "Nije moguće kreirati CDDA paranoia objekat."
 
 #~ msgid "Wikipedia localization"
 #~ msgstr "Lokalizacija Wikipedia-e"

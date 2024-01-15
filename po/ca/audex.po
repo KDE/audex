@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
 "PO-Revision-Date: 2024-01-12 13:17+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -22,78 +22,78 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "Sobreescriu els fitxers existents"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "Suprimeix els fitxers parcials després de cancel·lar"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: audex.kcfg:22
+#: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
 msgstr "Expulsa la safata del CD després de finalitzar l'extracció"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "Realitza la cerca CDDB automàticament"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: audex.kcfg:30
+#: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "Realitza la cerca de les caràtules (Amazon) automàticament"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:34
+#: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "Nombre de caràtules a recuperar"
 
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
-msgid "Full paranoia mode (best quality)"
-msgstr "Mode de tot paranoia (millor qualitat)"
+msgid "Full paranoia mode (reduce chance of read errors)"
+msgstr ""
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
 #, kde-format
 msgid "Never skip on read error"
 msgstr "No saltar mai en els errors de lectura"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:48
+#: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
 msgstr "Desplaçament de la mostra"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:54
+#: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Camí base per a emmagatzemar els fitxers de música"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Puja els fitxers al servidor"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:62
+#: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
 msgstr "URL del servidor"
@@ -140,138 +140,138 @@ msgstr "No s'ha seleccionat el perfil. S'interromp l'operació."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Comença l'extracció i codificació amb el perfil «%1»..."
 
-#: core/audex.cpp:616 core/audex.cpp:676
+#: core/audex.cpp:608 core/audex.cpp:668
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "No s'ha trobat el camí «%1»."
 
-#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Si us plau, comproveu el camí (accés d'escriptura?)"
 
-#: core/audex.cpp:629
+#: core/audex.cpp:621
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "L'espai lliure a «%1» és menys que 200 MiB."
 
-#: core/audex.cpp:635 core/audex.cpp:704
+#: core/audex.cpp:627 core/audex.cpp:696
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Atenció! El fitxer «%1» ja existeix. Se sobreescriurà."
 
-#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
+#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Atenció! El fitxer «%1» ja existeix. Se saltarà."
 
-#: core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "No s'ha pogut crear la carpeta «%1»."
 
-#: core/audex.cpp:688 core/audex.cpp:1090
+#: core/audex.cpp:680 core/audex.cpp:1082
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "La carpeta «%1» s'ha creat correctament."
 
-#: core/audex.cpp:691
+#: core/audex.cpp:683
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "La carpeta «%1» ja existeix."
 
-#: core/audex.cpp:698
+#: core/audex.cpp:690
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "L'espai lliure a «%1» és menys que 800 MiB."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Error amb la carpeta temporal «%1» (%2)."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Please check."
 msgstr "Si us plau, comproveu."
 
-#: core/audex.cpp:729
+#: core/audex.cpp:721
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "L'espai lliure a la carpeta temporal «%1» és menys que 800 MiB."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "La carpeta temporal «%1» almenys necessita 200 MiB d'espai lliure."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Si us plau, feu espai lliure o establiu un altre camí."
 
-#: core/audex.cpp:760
+#: core/audex.cpp:752
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Expulsa la safata del CD"
 
-#: core/audex.cpp:808
+#: core/audex.cpp:800
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "La caràtula «%1» s'ha desat correctament."
 
-#: core/audex.cpp:811
+#: core/audex.cpp:803
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "No s'ha pogut desar la caràtula «%1»."
 
-#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
-#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
+#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Verifiqueu el camí i els permisos"
 
-#: core/audex.cpp:881
+#: core/audex.cpp:873
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "La llista de reproducció «%1» s'ha creat correctament."
 
-#: core/audex.cpp:885
+#: core/audex.cpp:877
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "No s'ha pogut desar la llista de reproducció «%1»."
 
-#: core/audex.cpp:921
+#: core/audex.cpp:913
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "El fitxer d'informació «%1» s'ha creat correctament."
 
-#: core/audex.cpp:924
+#: core/audex.cpp:916
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "No s'ha pogut desar el fitxer d'informació «%1»."
 
-#: core/audex.cpp:968
+#: core/audex.cpp:960
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "La llista de resum «%1» s'ha creat correctament."
 
-#: core/audex.cpp:971
+#: core/audex.cpp:963
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "No s'ha pogut desar la llista de resum «%1»."
 
-#: core/audex.cpp:1005
+#: core/audex.cpp:997
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "El full de muntatge «%1» s'ha creat correctament."
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "No s'ha pogut desar el full de muntatge «%1»."
 
-#: core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:1047 core/audex.cpp:1074
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "No s'ha pogut obrir la carpeta «%1»."
@@ -282,7 +282,7 @@ msgid "Edit Data"
 msgstr "Edita les dades"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1036
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
 #, kde-format
 msgid "Various Artists"
 msgstr "Artistes diversos"
@@ -1022,12 +1022,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: mainwindow.cpp:38
+#: mainwindow.cpp:39
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "No s'ha pogut crear l'objecte «ProfileModel»."
 
-#: mainwindow.cpp:39 mainwindow.cpp:52
+#: mainwindow.cpp:40 mainwindow.cpp:53
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
@@ -1035,23 +1035,23 @@ msgstr ""
 "Error intern. Comproveu el vostre maquinari i, si tot està bé, envieu un "
 "informe d'error."
 
-#: mainwindow.cpp:52
+#: mainwindow.cpp:53
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "No s'ha pogut crear l'objecte «CDDAModel»."
 
-#: mainwindow.cpp:124
+#: mainwindow.cpp:127
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr ""
 "No s'ha establert cap informació sobre el disc. Segur que voleu continuar?"
 
-#: mainwindow.cpp:125
+#: mainwindow.cpp:128
 #, kde-format
 msgid "Disc information not found"
 msgstr "No s'ha trobat cap informació sobre el disc"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1060,47 +1060,47 @@ msgstr ""
 "Heu seleccionat extreure en un únic fitxer, però no heu seleccionat extreure "
 "totes les pistes. Realment voleu continuar?"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "No heu seleccionat extreure totes les pistes en un únic fitxer"
 
-#: mainwindow.cpp:149
+#: mainwindow.cpp:152
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "No s'ha establert cap caràtula. Segur que voleu continuar?"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:153
 #, kde-format
 msgid "Cover is empty"
 msgstr "La caràtula és buida"
 
-#: mainwindow.cpp:174
+#: mainwindow.cpp:177
 #, kde-format
 msgid "General settings"
 msgstr "Configuració general"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "Device settings"
 msgstr "Configuració del dispositiu"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:187
 #, kde-format
 msgid "Profiles"
 msgstr "Perfils"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:196
 #, kde-format
 msgid "CDDB settings"
 msgstr "Configuració de la CDDB"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:199
 #, kde-format
 msgid "Remote Server"
 msgstr "Servidor remot"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1109,17 +1109,17 @@ msgstr ""
 "La cerca a la CDDB ha fallat amb el següent error:\n"
 "%1"
 
-#: mainwindow.cpp:234
+#: mainwindow.cpp:252
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Ha fallat la cerca a la CDDB"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:357
 #, kde-format
 msgid "Split titles"
 msgstr "Divideix els títols"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:358
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1131,109 +1131,109 @@ msgstr ""
 "\n"
 "Divisor:"
 
-#: mainwindow.cpp:352
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "De veres voleu canviar tots els artistes i títols?"
 
-#: mainwindow.cpp:353
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Canvia els artistes i títols"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "De veres voleu posar en majúscula la primera lletra de tots els artistes i "
 "títols?"
 
-#: mainwindow.cpp:368
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Posa en majúscula la primera lletra dels artistes i títols"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "De veres voleu omplir automàticament els artistes de la pista?"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Autofill artists"
 msgstr "Omple automàticament els artistes de la pista"
 
-#: mainwindow.cpp:410
+#: mainwindow.cpp:428
 #, kde-format
 msgid "Eject"
 msgstr "Expulsa"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile:"
 msgstr "Perfil:"
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:447
 #, kde-format
 msgid "&Profile:"
 msgstr "&Perfil:"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:453
 #, kde-format
 msgid "Profile"
 msgstr "Perfil"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:461
 #, kde-format
 msgid "Fetch"
 msgstr "Recupera"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:468
 #, kde-format
 msgid "Submit"
 msgstr "Envia"
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:474
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
 
-#: mainwindow.cpp:463
+#: mainwindow.cpp:481
 #, kde-format
 msgid "Rip..."
 msgstr "Extreu..."
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:490
 #, kde-format
 msgid "Split Titles..."
 msgstr "Divideix els títols..."
 
-#: mainwindow.cpp:477
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Canvia els artistes i títols"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Capitalize"
 msgstr "Posa en majúscula la primera lletra"
 
-#: mainwindow.cpp:487
+#: mainwindow.cpp:505
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Omple automàticament els artistes"
 
-#: mainwindow.cpp:492
+#: mainwindow.cpp:510
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Selecciona totes les pistes"
 
-#: mainwindow.cpp:497
+#: mainwindow.cpp:515
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Desselecciona totes les pistes"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:520
 #, kde-format
 msgid "Invert Selection"
 msgstr "Inverteix la selecció"
@@ -1243,7 +1243,7 @@ msgstr "Inverteix la selecció"
 msgid "Unable to create devices object."
 msgstr "No s'ha pogut crear l'objecte dels dispositius."
 
-#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1257,22 +1257,22 @@ msgstr ""
 msgid "Unable to create KCDDB object."
 msgstr "No s'ha pogut crear l'objecte de la KCDDB."
 
-#: models/cddamodel.cpp:126
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "Pista %1"
 
-#: models/cddamodel.cpp:533
+#: models/cddamodel.cpp:526
 #, kde-format
 msgid "Common image formats"
 msgstr "Formats d'imatge comuns"
 
-#: models/cddamodel.cpp:830
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "La transacció amb la CDDB ja es troba en curs."
 
-#: models/cddamodel.cpp:831
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1281,7 +1281,7 @@ msgstr ""
 "Ja es troba en curs una transacció amb la CDDB. Si us plau, espereu fins que "
 "acabi i torneu-ho a intentar de nou."
 
-#: models/cddamodel.cpp:850 models/cddamodel.cpp:964
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1290,7 +1290,7 @@ msgstr ""
 "Hi ha un error amb el servidor de la CDDB. Espereu o poseu-vos en contacte "
 "amb l'administrador del servidor de la CDDB."
 
-#: models/cddamodel.cpp:856 models/cddamodel.cpp:970
+#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1299,7 +1299,7 @@ msgstr ""
 "No s'ha trobat el servidor de la CDDB. Comproveu la xarxa. És possible que "
 "el servidor de la CDDB estigui fora de línia."
 
-#: models/cddamodel.cpp:862 models/cddamodel.cpp:976
+#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1308,39 +1308,40 @@ msgstr ""
 "Espereu, potser el servidor està ocupat, o contacteu amb l'administrador del "
 "servidor de la CDDB."
 
-#: models/cddamodel.cpp:867
+#: models/cddamodel.cpp:860
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Si us plau, contacteu amb l'administrador de la CDDB."
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:981
+#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "Això no hauria de passar. Si us plau, envieu un informe d'error."
 
-#: models/cddamodel.cpp:877 models/cddamodel.cpp:984
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 "Si us plau, creeu un informe d'error i contacteu amb l'administrador de la "
 "CDDB."
 
-#: models/cddamodel.cpp:910
-#, kde-format
-msgid "Unable to create CDDA paranoia object."
-msgstr "No s'ha pogut crear l'objecte paranoia pel CDDA."
+#: models/cddamodel.cpp:903
+#, fuzzy, kde-format
+#| msgid "Unable to create KCDDB object."
+msgid "Unable to create CDIO object."
+msgstr "No s'ha pogut crear l'objecte de la KCDDB."
 
-#: models/cddamodel.cpp:990
+#: models/cddamodel.cpp:983
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Això vol dir que no s'han trobat dades a la base de dades de la CDDB."
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Seleccioneu l'entrada de la CDDB"
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Seleccioneu una entrada de la CDDB:"
@@ -1567,15 +1568,31 @@ msgstr "Això és un error intern. Si us plau, informeu-ho."
 msgid "Copy"
 msgstr "Copia"
 
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#, kde-format
+msgid "Internal device error."
+msgstr "Error intern del dispositiu."
+
+#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"Comproveu el dispositiu. Segur que és «%1»? Si és així, comproveu també els "
+"permisos de «%1»."
+
+#: utils/cddacdio.cpp:80
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr "Disc d'àudio"
-
-#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
-#, kde-format
-msgid "Internal device error."
-msgstr "Error intern del dispositiu."
 
 #: utils/cddaextractthread.cpp:25
 #, kde-format
@@ -1587,47 +1604,47 @@ msgstr "Comproveu el dispositiu i elaboreu un informe d'error."
 msgid "Extracting finished."
 msgstr "L'extracció ha finalitzat."
 
-#: utils/cddaextractthread.cpp:102
+#: utils/cddaextractthread.cpp:101
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "S'extreu la pista %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:104
+#: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr "S'extreu tot el CD com una sola pista."
 
-#: utils/cddaextractthread.cpp:106
+#: utils/cddaextractthread.cpp:105
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Es comença a llegir la pista %1 amb %2 sectors"
 
-#: utils/cddaextractthread.cpp:141
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "User canceled extracting."
 msgstr "L'usuari ha cancel·lat l'extracció."
 
-#: utils/cddaextractthread.cpp:144
+#: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "S'ha produït un error durant l'extracció de la pista %1."
 
-#: utils/cddaextractthread.cpp:148
+#: utils/cddaextractthread.cpp:147
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Extracció correcta (pista %1)."
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "Ripping OK."
 msgstr "Extracció correcta."
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:154
 #, kde-format
 msgid "Reading finished"
 msgstr "Lectura finalitzada"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:196
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1636,7 +1653,7 @@ msgstr ""
 "S'ha corregit una desviació a la vora (sector absolut %1, sector relatiu %2, "
 "pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:205
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1645,7 +1662,7 @@ msgstr ""
 "S'ha corregit una desviació atòmica (sector absolut %1, sector relatiu %2, "
 "pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:208
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1654,7 +1671,7 @@ msgstr ""
 "S'ha detectat una ratllada (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:214
+#: utils/cddaextractthread.cpp:211
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1663,14 +1680,14 @@ msgstr ""
 "S'ha detectat una ratllada (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:218
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Reparació (sector absolut %1, sector relatiu %2, pos. temporal de la pista "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:220
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1678,27 +1695,27 @@ msgstr ""
 "Salta els sectors (sector absolut %1, sector relatiu %2, pos. temporal de la "
 "pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:224
+#: utils/cddaextractthread.cpp:221
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Salta (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:228
+#: utils/cddaextractthread.cpp:225
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Deriva (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:232
+#: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Retrocés (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1706,7 +1723,7 @@ msgstr ""
 "S'ha descartat la correcció (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1714,7 +1731,7 @@ msgstr ""
 "S'ha duplicat la correcció (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1723,22 +1740,13 @@ msgstr ""
 "S'ha detectat un error de lectura (sector absolut %1, sector relatiu %2, "
 "pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Error de lectura (sector absolut %1, sector relatiu %2, pos. temporal de la "
 "pista %3:%4)"
-
-#: utils/cddaparanoia.cpp:38
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"Comproveu el dispositiu. Segur que és «%1»? Si és així, comproveu també els "
-"permisos de «%1»."
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2145,17 +2153,53 @@ msgstr "Elimina la caràtula"
 msgid "Command Scheme:"
 msgstr "Esquema de l'ordre:"
 
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
+#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "No audio CD detected"
+msgid "(No disc detected)"
+msgstr "No s'ha detectat cap CD d'àudio"
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:17
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "Dispositiu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:39
+#: widgets/devicewidgetUI.ui:38
 #, kde-format
 msgid "Sample offset:"
 msgstr "Desplaçament de la mostra:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:80
+#, fuzzy, kde-format
+#| msgid "Disc information not found"
+msgid "Device information"
+msgstr "No s'ha trobat cap informació sobre el disc"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:98
+#, kde-format
+msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid "Vendor:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:169
+#, kde-format
+msgid "Revision:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2420,6 +2464,12 @@ msgstr "Desa..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Full paranoia mode (best quality)"
+#~ msgstr "Mode de tot paranoia (millor qualitat)"
+
+#~ msgid "Unable to create CDDA paranoia object."
+#~ msgstr "No s'ha pogut crear l'objecte paranoia pel CDDA."
 
 #~ msgid "Wikipedia localization"
 #~ msgstr "Localització de la Viquipèdia"

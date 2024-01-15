@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-09 01:32+0000\n"
+"POT-Creation-Date: 2024-01-15 00:37+0000\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -22,78 +22,78 @@ msgstr ""
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:46
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
 msgstr "សរសេរ​ជាន់​លើ​ឯកសារ​ដែល​មាន​ស្រាប់​"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:53
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
 msgstr "លុប​ឯកសារ​ដោយ​ផ្នែក បន្ទាប់​ពី​ បោះបង់"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: audex.kcfg:22
+#: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
 msgstr "ច្រាន​ដ្រាយ​ស៊ីឌី​ចេញ​ បន្ទាប់​ពី​បាន​បញ្ចប់​ការ​ស្រង់​ចេញ​"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:67
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
 msgstr "អនុវត្ត​ការ​រក​មើល​ CDDB ដោយ​ស្វ័យ​ប្រវត្តិ"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: audex.kcfg:30
+#: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
 msgstr "អនុវត្ត​ការ​រក​មើល​គម្រប​ (amazon) ដោយ​ស្វ័យ​ប្រវត្តិ"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
-#: audex.kcfg:34
+#: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
 msgstr "លេខ​គម្រប​ដែល​ត្រូវ​ទៅ​ប្រមូល​យក"
 
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#: audex.kcfg:40 widgets/devicewidgetUI.ui:23
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
-msgid "Full paranoia mode (best quality)"
-msgstr "របៀប paranoia ពេញលេញ (គុណ​ភាព​ល្អ​បំផុត​)"
+msgid "Full paranoia mode (reduce chance of read errors)"
+msgstr ""
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:44 widgets/devicewidgetUI.ui:30
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
 #, kde-format
 msgid "Never skip on read error"
 msgstr "កុំ​រំលង​ នៅ​ពេល​អាន​កំហុស"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:48
+#: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
 msgstr ""
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:54
+#: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
 msgstr "ផ្លូវ​គោល​សម្រាប់​រក្សាទុក​ឯកសារ​តន្ត្រី "
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "ផ្ទុក​ឯកសារ​ឡើង​ទៅ​កាន់​ម៉ាស៊ីន​បម្រើ"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:62
+#: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
 msgstr "URL របស់​ម៉ាស៊ីន​បម្រើ"
@@ -142,17 +142,17 @@ msgstr "មិន​បាន​ជ្រើស​ទម្រង់ ។ បោ�
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "ចាប់​ផ្ដើម​បម្លែង​ និង​អ៊ិនកូដ​ជាមួយ​ទម្រង់​ \"%1\"..."
 
-#: core/audex.cpp:616 core/audex.cpp:676
+#: core/audex.cpp:608 core/audex.cpp:668
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "មិន​អាច​រក​ឃើញ​ផ្លូវ \"%1\" ។"
 
-#: core/audex.cpp:616 core/audex.cpp:676 core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "សូម​ពិនិត្យ​មើល​ផ្លូវ​របស់​អ្នក​ (ចូល​ដំណើរការ​សរសេរ​ឬ ?)"
 
-#: core/audex.cpp:629
+#: core/audex.cpp:621
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 200 MiB. Problems with low space "
@@ -160,32 +160,32 @@ msgstr "សូម​ពិនិត្យ​មើល​ផ្លូវ​រប
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:635 core/audex.cpp:704
+#: core/audex.cpp:627 core/audex.cpp:696
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "ការ​ព្រមាន​ ! ឯកសារ \"%1\" មាន​​រួច​ហើយ ។ សរសេរ​ជាន់​លើ ។"
 
-#: core/audex.cpp:637 core/audex.cpp:706 core/audex.cpp:1067
+#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "ការ​ព្រមាន​ ! ឯកសារ \"%1\" មាន​រួច​ហើយ​ ។ ​រំលង ។"
 
-#: core/audex.cpp:685 core/audex.cpp:1087
+#: core/audex.cpp:677 core/audex.cpp:1079
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:688 core/audex.cpp:1090
+#: core/audex.cpp:680 core/audex.cpp:1082
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "ថត \"%1\" បាន​បង្កើត​ដោយ​ជោគជ័យ ។"
 
-#: core/audex.cpp:691
+#: core/audex.cpp:683
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "ថត \"%1\" មាន​រួច​ហើយ ។"
 
-#: core/audex.cpp:698
+#: core/audex.cpp:690
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 800 MiB. Problems with low space "
@@ -193,18 +193,18 @@ msgstr "ថត \"%1\" មាន​រួច​ហើយ ។"
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "​ថត​បណ្ដោះ​អាសន្ន​ \"%1\" មាន​កំហុស ។"
 
-#: core/audex.cpp:721
+#: core/audex.cpp:713
 #, kde-format
 msgid "Please check."
 msgstr "សូម​ពិនិត្យ​មើល​ ។"
 
-#: core/audex.cpp:729
+#: core/audex.cpp:721
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 800 MiB. Problems with low space "
@@ -212,85 +212,85 @@ msgstr "សូម​ពិនិត្យ​មើល​ ។"
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "ថត​បណ្ដោះ​អាសន្ន​ \"%1\" ត្រូវ​ការ​ទំហំ​ទំនេរ​យ៉ាងហោចណាស់​ ២​០​០ មេកាបៃ ។"
 
-#: core/audex.cpp:731
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "សូម​ធ្វើ​ឲ្យ​មាន​ទំហំ​ទំនេរ ឬ​កំណត់​ផ្លូវ​ផ្សេង​ទៀត ។"
 
-#: core/audex.cpp:760
+#: core/audex.cpp:752
 #, kde-format
 msgid "Eject CD tray"
 msgstr "ច្រាន​ថាស​ស៊ីឌី​ចេញ"
 
-#: core/audex.cpp:808
+#: core/audex.cpp:800
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "បាន​រក្សា​ទុក​គម្រប​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:811
+#: core/audex.cpp:803
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cover \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:811 core/audex.cpp:885 core/audex.cpp:924 core/audex.cpp:971
-#: core/audex.cpp:1008 core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
+#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
 #, fuzzy, kde-format
 #| msgid "Please check your permissions."
 msgid "Please check your path and permissions"
 msgstr "សូម​ពិនិត្យមើល​សិទ្ធិ​របស់​អ្នក​​ ។"
 
-#: core/audex.cpp:881
+#: core/audex.cpp:873
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "បាន​បង្កើត​បញ្ជី​ចាក់​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:885
+#: core/audex.cpp:877
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save playlist \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:921
+#: core/audex.cpp:913
 #, fuzzy, kde-format
 #| msgid "Infofile \"%1\" successfully created."
 msgid "Info file \"%1\" successfully created."
 msgstr "បាន​បង្កើត​ឯកសារ​ព័ត៌មាន​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:924
+#: core/audex.cpp:916
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save info file \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:968
+#: core/audex.cpp:960
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "បាន​បង្កើត​បញ្ជី​សញ្ញា​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:971
+#: core/audex.cpp:963
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:1005
+#: core/audex.cpp:997
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "បាន​បង្កើត​សន្លឹក Cue \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1000
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:1055 core/audex.cpp:1082
+#: core/audex.cpp:1047 core/audex.cpp:1074
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -302,7 +302,7 @@ msgid "Edit Data"
 msgstr "កែ​សម្រួល​ទិន្នន័យ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1036
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
 #, kde-format
 msgid "Various Artists"
 msgstr "សិល្បករ​ផ្សេង​ៗ"
@@ -1059,33 +1059,33 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: mainwindow.cpp:38
+#: mainwindow.cpp:39
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "មិន​អាច​បង្កើត​វត្ថុ​ ProfileModel បាន​ឡើយ ។"
 
-#: mainwindow.cpp:39 mainwindow.cpp:52
+#: mainwindow.cpp:40 mainwindow.cpp:53
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr "កំហុស​ខាង​ក្នុង ។ ពិនិត្យ​មើល​ផ្នែក​រឹង​របស់​អ្នក ហើយ​បើ​សិន​ជា​គ្មាន​បញ្ហា​ទេ សូម​ធ្វើ​របាយ​ការណ៍​កំហុស ។"
 
-#: mainwindow.cpp:52
+#: mainwindow.cpp:53
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "មិន​អាច​បង្កើត​វត្ថុ​ CDDAModel បាន​ឡើយ ។"
 
-#: mainwindow.cpp:124
+#: mainwindow.cpp:127
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "មិន​មានការ​កំណត់​​ព័ត៌មាន​ថាស​​ ។ តើ​អ្នក​ពិត​ជា​ចង់​បន្តឬ ?"
 
-#: mainwindow.cpp:125
+#: mainwindow.cpp:128
 #, kde-format
 msgid "Disc information not found"
 msgstr "រក​មិន​ឃើញ​ថាស​ព័ត៌មាន​ទេ"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:139
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1094,51 +1094,51 @@ msgstr ""
 "បាន​ជ្រើស​ការ​បម្លែង​ឯកសារ ប៉ុន្តែ​មិន​​​មាន​​បទ​អូឌីយ៉ូ​ទាំងអស់​ត្រូវ​បាន​ជម្រើស​ការ​បម្លែង​ឡើយ ។ តើ​អ្នក​ពិត​ជា​ចង់​"
 "បន្ត​ឬ ?"
 
-#: mainwindow.cpp:137
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "គ្មាន​បទ​អូឌីយ៉ូ​ទាំងអស់​ដែល​បាន​ជ្រើស​សម្រាប់​បម្លែង​​​ឯកសារ​ឡើយ"
 
-#: mainwindow.cpp:149
+#: mainwindow.cpp:152
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid "No cover was set. Do you really want to continue?"
 msgstr "មិន​មានការ​កំណត់​​ព័ត៌មាន​ថាស​​ ។ តើ​អ្នក​ពិត​ជា​ចង់​បន្តឬ ?"
 
-#: mainwindow.cpp:150
+#: mainwindow.cpp:153
 #, fuzzy, kde-format
 #| msgid "Cover File"
 msgid "Cover is empty"
 msgstr "ឯកសារ​គម្រប"
 
-#: mainwindow.cpp:174
+#: mainwindow.cpp:177
 #, kde-format
 msgid "General settings"
 msgstr "ការ​កំណត់​ទូទៅ"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, fuzzy, kde-format
 #| msgid "Cover Settings"
 msgid "Device settings"
 msgstr "ការកំណត់​គម្រប"
 
-#: mainwindow.cpp:180
+#: mainwindow.cpp:187
 #, kde-format
 msgid "Profiles"
 msgstr "ទម្រង់"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:196
 #, fuzzy, kde-format
 #| msgid "Cover Settings"
 msgid "CDDB settings"
 msgstr "ការកំណត់​គម្រប"
 
-#: mainwindow.cpp:192
+#: mainwindow.cpp:199
 #, kde-format
 msgid "Remote Server"
 msgstr "ម៉ាស៊ីន​បម្រើ​ពី​ចម្ងាយ"
 
-#: mainwindow.cpp:232
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1147,17 +1147,17 @@ msgstr ""
 "បាន​បរាជ័យ​ក្នុង​ការ​រក​មើល CDDB  ដោយ​មាន​កំហុស​ដូច​ខាងក្រោម ៖\n"
 "%1"
 
-#: mainwindow.cpp:234
+#: mainwindow.cpp:252
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "ភាព​បរាជ័យ​ក្នុង​ការ​រក​មើល CDD"
 
-#: mainwindow.cpp:339
+#: mainwindow.cpp:357
 #, kde-format
 msgid "Split titles"
 msgstr "ពុះ​ចំណង​ជើង"
 
-#: mainwindow.cpp:340
+#: mainwindow.cpp:358
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1168,110 +1168,110 @@ msgstr ""
 "\n"
 "កម្មវិធី​បែង​ចែក ៖"
 
-#: mainwindow.cpp:352
+#: mainwindow.cpp:370
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​ដូរ​សិល្បករ និង​ចំណង​ជើង​ទាំង​អស់​ឬ ?"
 
-#: mainwindow.cpp:353
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "ដូរ​សិល្បករ​ និង​ចំណង​ជើង​"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​សរសេរ​សិល្បករ និង​ចំណង​ជើង​ទាំង​អស់​ជា​អក្សរ​ពុម្ព​ធំ​ឬ ?"
 
-#: mainwindow.cpp:368
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "សរសេរ​សិល្បករ និង​ចំណង​ជើង​ជា​អក្សរ​ពុម្ព​ធំ"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​បំពេញ​ដោយ​ស្វ័យ​ប្រវត្តិ​នូវ​សិល្បករ​របស់​បទ​ឬ ?"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Autofill artists"
 msgstr "បំពេញ​សិល្បករ​ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: mainwindow.cpp:410
+#: mainwindow.cpp:428
 #, kde-format
 msgid "Eject"
 msgstr "ច្រាន​ចេញ"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:435
 #, kde-format
 msgid "Profile:"
 msgstr "ទម្រង់​ ៖"
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:447
 #, kde-format
 msgid "&Profile:"
 msgstr "ទម្រង់​ ៖"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:453
 #, kde-format
 msgid "Profile"
 msgstr "ទម្រង់​"
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:461
 #, fuzzy, kde-format
 #| msgid "Fetch Info"
 msgid "Fetch"
 msgstr "ទៅ​ប្រមូល​យក​ព័ត៌មាន​"
 
-#: mainwindow.cpp:450
+#: mainwindow.cpp:468
 #, fuzzy, kde-format
 #| msgid "Submit Info"
 msgid "Submit"
 msgstr "ដាក់​ស្នើ​ព័ត៌មាន"
 
-#: mainwindow.cpp:456
+#: mainwindow.cpp:474
 #, fuzzy, kde-format
 #| msgid "Edit Data"
 msgid "Edit"
 msgstr "កែ​សម្រួល​ទិន្នន័យ"
 
-#: mainwindow.cpp:463
+#: mainwindow.cpp:481
 #, kde-format
 msgid "Rip..."
 msgstr "បម្លែង..."
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:490
 #, kde-format
 msgid "Split Titles..."
 msgstr "ពុះ​ចំណង​ជើង..."
 
-#: mainwindow.cpp:477
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "ដូរ​សិល្បករ​ និង​ចំណង​ជើង​"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Capitalize"
 msgstr "សរសេរ​ជា​អក្សរពុម្ព"
 
-#: mainwindow.cpp:487
+#: mainwindow.cpp:505
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "បំពេញ​សិល្ប​ករ​ដោយ​ស្វ័យ​ប្រវត្តិ"
 
-#: mainwindow.cpp:492
+#: mainwindow.cpp:510
 #, kde-format
 msgid "Select All Tracks"
 msgstr "ជ្រើស​បទ​ទាំង​អស់"
 
-#: mainwindow.cpp:497
+#: mainwindow.cpp:515
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "ដោះ​ជម្រើស​បទ​ទាំងអស់"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:520
 #, kde-format
 msgid "Invert Selection"
 msgstr "ដាក់​ជម្រើស​បញ្ច្រាស"
@@ -1282,7 +1282,7 @@ msgstr "ដាក់​ជម្រើស​បញ្ច្រាស"
 msgid "Unable to create devices object."
 msgstr "មិន​អាច​បង្កើត​វត្ថុ​ CDDAModel បាន​ឡើយ ។"
 
-#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:911
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1294,36 +1294,36 @@ msgstr "កំហុស​ខាង​ក្នុង ។ ពិនិត្យ�
 msgid "Unable to create KCDDB object."
 msgstr "មិន​អាច​បង្កើត​វត្ថុ KCDDB បាន​ទេ ។"
 
-#: models/cddamodel.cpp:126
+#: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
 msgstr "បទ %1"
 
-#: models/cddamodel.cpp:533
+#: models/cddamodel.cpp:526
 #, kde-format
 msgid "Common image formats"
 msgstr "ទ្រង់ទ្រាយ​រូបភាព​ទូទៅ"
 
-#: models/cddamodel.cpp:830
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr ""
 
-#: models/cddamodel.cpp:831
+#: models/cddamodel.cpp:824
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
 
-#: models/cddamodel.cpp:850 models/cddamodel.cpp:964
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr "មាន​កំហុស​ជាមួយ​ម៉ាស៊ីន​បម្រើ CDDB ។ សូម​រង់ចាំ​ទាក់ទង ឬ​អ្នក​គ្រប់គ្រង​របស់​ម៉ាស៊ីន​បម្រើ CDDB ។"
 
-#: models/cddamodel.cpp:856 models/cddamodel.cpp:970
+#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1332,7 +1332,7 @@ msgstr ""
 "មិន​អាច​រក​ឃើញ​ម៉ាស៊ីន​បម្រើ CDDB ឡើយ ។ ពិនិត្យ​មើល​បណ្ដាញ​របស់​អ្នក ។ ប្រហែល​ជា​ម៉ាស៊ីន​បម្រើ CDDB របស់​"
 "អ្នក​ស្ថិត​​នៅ​ក្រៅ​បណ្ដាញ ។"
 
-#: models/cddamodel.cpp:862 models/cddamodel.cpp:976
+#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1341,38 +1341,38 @@ msgstr ""
 "សូម​មេត្តា​រង់​ចាំ ប្រហែល​ជា​ ម៉ាស៊ីន​បម្រើ​​កំពុង​តែ​ជាប់​រវល់​ បើ​ពុំ​នោះ​ទេ សូម​ទំនាក់​ទំនង​ទៅ​អ្នក​គ្រប់​គ្រង​ម៉ាស៊ីន​"
 "បម្រើ​ CDDB ។"
 
-#: models/cddamodel.cpp:867
+#: models/cddamodel.cpp:860
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "សូម​ទាក់ទង​អ្នក​គ្រប់គ្រង​ម៉ាស៊ីន​បម្រើ  CDDB"
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:981
+#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "វា​មិន​​គួរ​​​កើត​ឡើង​ទេ​ ។ សូម​ធ្វើ​ការ​រាយការណ៍​កំហុស ។"
 
-#: models/cddamodel.cpp:877 models/cddamodel.cpp:984
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "សូម​ធ្វើ​ការ​រាយការណ៍​កំហុស ​​ហើយ​ទាក់​ទង​អ្នក​គ្រប់​គ្រង​ម៉ាស៊ីន​បម្រើ​ CDDB ។"
 
-#: models/cddamodel.cpp:910
+#: models/cddamodel.cpp:903
 #, fuzzy, kde-format
-#| msgid "Unable to create CDDAModel object."
-msgid "Unable to create CDDA paranoia object."
-msgstr "មិន​អាច​បង្កើត​វត្ថុ​ CDDAModel បាន​ឡើយ ។"
+#| msgid "Unable to create KCDDB object."
+msgid "Unable to create CDIO object."
+msgstr "មិន​អាច​បង្កើត​វត្ថុ KCDDB បាន​ទេ ។"
 
-#: models/cddamodel.cpp:990
+#: models/cddamodel.cpp:983
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "នេះ​មាន​ន័យ​ថា គ្មាន​ទិន្នន័យ​ត្រូវ​បាន​រក​​ឃើញ​នៅ​ក្នុង​មូលដ្ឋាន​ទិន្នន័យ​ CDDB ទេ ។"
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "ជ្រើស​ធាតុ CDDB"
 
-#: models/cddamodel.cpp:1011
+#: models/cddamodel.cpp:1004
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "ជ្រើស​ធាតុ​ CDDB ៖"
@@ -1590,16 +1590,32 @@ msgstr "នេះ​គឺ​ជា​កំហុស​ខាង​ក្នុ
 msgid "Copy"
 msgstr "ចម្លង"
 
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#, kde-format
+msgid "Internal device error."
+msgstr "កំហុស​ឧបករណ៍​​ខាង​ក្នុង ។"
+
+#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"ពិនិត្យ​មើល​ឧបករណ៍​របស់​អ្នក​ ។ តើ​វា​ពិត​ជា​ \"%1\" ឫ ? ប្រសិន​បើ​ដូច្នេះ​ ពិនិត្យ​មើល​សិទ្ធិ​របស់​អ្នក​នៅ​លើ​​ "
+"\"%1\" ។"
+
+#: utils/cddacdio.cpp:80
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+
 #: utils/cddadevices.cpp:86
 #, fuzzy, kde-format
 #| msgid "Audio disc"
 msgid "Audio Disc"
 msgstr "ថាស​អូឌីយ៉ូ"
-
-#: utils/cddaextractthread.cpp:25 utils/cddaparanoia.cpp:38
-#, kde-format
-msgid "Internal device error."
-msgstr "កំហុស​ឧបករណ៍​​ខាង​ក្នុង ។"
 
 #: utils/cddaextractthread.cpp:25
 #, kde-format
@@ -1611,62 +1627,62 @@ msgstr "ពិនិត្យ​មើល​ឧបករណ៍​របស់​
 msgid "Extracting finished."
 msgstr "បាន​បញ្ចប់​ការ​ស្រង់​ចេញ ។"
 
-#: utils/cddaextractthread.cpp:102
+#: utils/cddaextractthread.cpp:101
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "កំពុង​បម្លែង​បទ​ %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:104
+#: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping whole CD as single track."
 msgstr "កំពុង​បម្លែង​ស៊ីឌី​ទាំងមូល​ជា​បទ​ទោល ។"
 
-#: utils/cddaextractthread.cpp:106
+#: utils/cddaextractthread.cpp:105
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
 
-#: utils/cddaextractthread.cpp:141
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "User canceled extracting."
 msgstr "អ្នក​ប្រើ​បាន​បោះ​បង់​ការ​ស្រង់​ចេញ ។​"
 
-#: utils/cddaextractthread.cpp:144
+#: utils/cddaextractthread.cpp:143
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occurred while ripping track %1."
 msgstr "កំហុស​បាន​កើត​ឡើង​ ខណៈ​ពេល​កំពុង​បម្លែង​បទ​ %1 ។"
 
-#: utils/cddaextractthread.cpp:148
+#: utils/cddaextractthread.cpp:147
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង (បទ​ %1) ។"
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "Ripping OK."
 msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង​ ។"
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:154
 #, kde-format
 msgid "Reading finished"
 msgstr "បាន​បញ្ចប់​ការ​អាន"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:196
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "គែម​ថេរ​ញាក់​ៗ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:205
+#: utils/cddaextractthread.cpp:201
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "អាតូម​ថេរ​ញាក់​ៗ​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:212
+#: utils/cddaextractthread.cpp:208
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1674,7 +1690,7 @@ msgid ""
 msgstr ""
 "បាន​រក​ឃើញ​ស្នាម​ឆ្កូត (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:214
+#: utils/cddaextractthread.cpp:211
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1682,47 +1698,47 @@ msgid ""
 msgstr ""
 "បាន​រក​ឃើញ​ស្នាម​ឆ្កូត (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:218
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "ជួស​ជុល​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:220
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "រំលង​ចម្រៀក​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:224
+#: utils/cddaextractthread.cpp:221
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "រំលង​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេលវេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:228
+#: utils/cddaextractthread.cpp:225
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "រសាត់​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2  pos ពេលវេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:232
+#: utils/cddaextractthread.cpp:229
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "ថយ​ក្រោយ​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:239
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "ការ​ជួស​ជុល​អ្វី​ដែល​ថយ​ចុះ​​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2  pos ពេល​វេលា​របស់​បទ​ %3 ៖ %4)"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "ការ​ជួស​ជុល​អ្វី​ដែល​បញ្ឆោត​ (ចម្រៀក​ដាច់ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​ %3 ៖ %4)"
 
-#: utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1730,20 +1746,11 @@ msgid ""
 msgstr ""
 "បាន​រក​ឃើញ​​កំហុស​អាន​ (ចម្រៀក​ដាច​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​​ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "កំហុស​អាន​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​​ %3 ៖ %4)"
-
-#: utils/cddaparanoia.cpp:38
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"ពិនិត្យ​មើល​ឧបករណ៍​របស់​អ្នក​ ។ តើ​វា​ពិត​ជា​ \"%1\" ឫ ? ប្រសិន​បើ​ដូច្នេះ​ ពិនិត្យ​មើល​សិទ្ធិ​របស់​អ្នក​នៅ​លើ​​ "
-"\"%1\" ។"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2092,18 +2099,54 @@ msgstr "យក​គម្រប​ចេញ"
 msgid "Command Scheme:"
 msgstr "លំនាំ​ពាក្យ​បញ្ជា ៖"
 
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
+#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "No audio disc"
+msgid "(No disc detected)"
+msgstr "គ្មាន​ថាស​អូឌីយ៉ូ​ឡើយ"
+
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:17
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "​ឧបករណ៍"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:39
+#: widgets/devicewidgetUI.ui:38
 #, fuzzy, kde-format
 #| msgid "Sampler Example:"
 msgid "Sample offset:"
 msgstr "គំរូ​របស់​កម្មវិធី​ធ្វើ​គំរូ ៖"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:80
+#, fuzzy, kde-format
+#| msgid "Disc information not found"
+msgid "Device information"
+msgstr "រក​មិន​ឃើញ​ថាស​ព័ត៌មាន​ទេ"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:98
+#, kde-format
+msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid "Vendor:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:169
+#, kde-format
+msgid "Revision:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2370,6 +2413,14 @@ msgstr "រក្សា​ទុក​..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Full paranoia mode (best quality)"
+#~ msgstr "របៀប paranoia ពេញលេញ (គុណ​ភាព​ល្អ​បំផុត​)"
+
+#, fuzzy
+#~| msgid "Unable to create CDDAModel object."
+#~ msgid "Unable to create CDDA paranoia object."
+#~ msgstr "មិន​អាច​បង្កើត​វត្ថុ​ CDDAModel បាន​ឡើយ ។"
 
 #~ msgid "Wikipedia localization"
 #~ msgstr "ការ​ធ្វើ​មូលដ្ឋានីយកម្ម​វីគីភីឌៀ"
