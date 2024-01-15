@@ -30,7 +30,7 @@ CDDACDIO::~CDDACDIO()
 
 bool CDDACDIO::setDevice(const QString &device)
 {
-    if ((device.isEmpty() && (device.isEmpty())))
+    if (device.isEmpty())
         this->device = "/dev/cdrom";
     if (!device.isEmpty())
         this->device = device;
