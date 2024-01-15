@@ -8,6 +8,7 @@
 #include "cddaextractthread.h"
 
 #include <QDebug>
+#include <cdio/sector.h>
 
 static CDDAExtractThread *aet = nullptr;
 
@@ -32,8 +33,8 @@ CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDACDIO *cdio)
     paranoia_retries = 20;
     paranoia_never_skip = true;
     sample_offset = 0;
-    sample_offset_done = false;
     track = 1;
+    b_first_run = true;
     b_interrupt = false;
     b_error = false;
     read_error = false;
@@ -60,17 +61,17 @@ void CDDAExtractThread::run()
     b_interrupt = false;
     b_error = false;
 
-    if ((sample_offset) && (!sample_offset_done)) {
-        p_cdio->sampleOffset(sample_offset);
-        sample_offset_done = true;
+    if (b_first_run) {
+        extract_protocol.append(i18n("Drive info, Vendor: %1, Model: %2, Revision: %3", p_cdio->getVendor(), p_cdio->getModel(), p_cdio->getRevision()));
+        b_first_run = false;
     }
 
     if (track == 0) {
         first_sector = p_cdio->firstSectorOfDisc();
         last_sector = p_cdio->lastSectorOfDisc();
     } else {
-        first_sector = p_cdio->firstSectorOfTrack(track);
-        last_sector = p_cdio->lastSectorOfTrack(track);
+        first_sector = p_cdio->firstSectorOfTrack(track) + sector_offset;
+        last_sector = p_cdio->lastSectorOfTrack(track) + sector_offset;
     }
 
     if (first_sector < 0 || last_sector < 0) {
@@ -78,11 +79,18 @@ void CDDAExtractThread::run()
         return;
     }
 
-    qDebug() << "Sectors to read: " << QString("%1").arg(last_sector - first_sector);
+    qDebug() << "Sample offset:" << sample_offset;
+    qDebug() << "Sector offset:" << sector_offset;
+    qDebug() << "Sample offset fraction:" << sample_offset_fraction;
+    qDebug() << "First sector:" << first_sector;
+    qDebug() << "Last sector:" << last_sector;
 
     // status variable
     overlap = 0;
     read_sectors = 0;
+
+    read_error = false;
+    scratch_detected = false;
 
     // track length
     sectors_all = last_sector - first_sector;
@@ -95,14 +103,21 @@ void CDDAExtractThread::run()
     p_cdio->paranoiaSeek(first_sector, SEEK_SET);
     current_sector = first_sector;
 
+    if (sample_offset > 0)
+        extract_protocol.append(i18n("Correction sample offset: %1", sample_offset));
+
+    QString min = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
+    QString sec = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
+
     if (track > 0) {
-        QString min = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
-        QString sec = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
         Q_EMIT info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
+        extract_protocol.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
     } else {
-        Q_EMIT info(i18n("Ripping whole CD as single track."));
+        Q_EMIT info(i18n("Ripping whole CD as single track (%1:%2).", min, sec));
+        extract_protocol.append(i18n("Start reading whole disc with %1 sectors", sectors_all));
     }
-    extract_protocol.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
+
+    extract_protocol.append(i18n("First sector: %1, Last sector: %2", first_sector, last_sector));
 
     while (current_sector <= last_sector) {
         if (b_interrupt) {
@@ -110,30 +125,50 @@ void CDDAExtractThread::run()
             break;
         }
 
-        // let the global paranoia callback have access to this
-        // to emit signals
+        // let the global paranoia callback have access to this to emit signals
         aet = this;
 
         int16_t *buf = p_cdio->paranoiaRead(paranoiaCallback);
 
-        if (nullptr == buf) {
+        if (buf == nullptr) {
             qDebug() << "Unrecoverable error in paranoia_read (sector " << current_sector << ")";
             b_error = true;
             break;
-
-        } else {
-            current_sector++;
-            QByteArray a((char *)buf, CD_FRAMESIZE_RAW);
-            Q_EMIT output(a);
-            a.clear();
-
-            sectors_read++;
-            overall_sectors_read++;
-            float fraction = 0.0f;
-            if (sectors_all > 0)
-                fraction = (float)sectors_read / (float)sectors_all;
-            Q_EMIT progress((int)(100.0f * fraction), current_sector, overall_sectors_read);
         }
+
+        if (sample_offset_fraction > 0 && current_sector == first_sector && track > 0) {
+            Q_EMIT output(QByteArray((const char *)buf + (sample_offset_fraction * 4), CD_FRAMESIZE_RAW - (sample_offset_fraction * 4)));
+        } else if (sample_offset_fraction < 0 && current_sector == first_sector && track > 0) {
+            Q_EMIT output(QByteArray((const char *)buf + (CD_FRAMESIZE_RAW - (-sample_offset_fraction * 4)), (-sample_offset_fraction * 4)));
+        } else if (sample_offset_fraction < 0 && current_sector == last_sector && track > 0) {
+            Q_EMIT output(QByteArray((const char *)buf, CD_FRAMESIZE_RAW - (-sample_offset_fraction * 4)));
+        } else {
+            Q_EMIT output(QByteArray((const char *)buf, CD_FRAMESIZE_RAW));
+        }
+
+        // if we have a positive sample offset we need to overread at the end
+        if (sample_offset > 0 && current_sector == last_sector && track > 0) {
+            if (p_cdio->isLastTrack(track)) // if we read into the leadout at the end of the disc then..
+                p_cdio->paranoiaSeek(current_sector, SEEK_SET); // flush the buffer (paranoia internal)
+            buf = p_cdio->paranoiaRead(paranoiaCallback);
+
+            if (buf == nullptr) {
+                qDebug() << "Unrecoverable error in paranoia_read (sector " << current_sector << ")";
+                b_error = true;
+                break;
+            }
+
+            Q_EMIT output(QByteArray((const char *)buf, sample_offset_fraction * 4));
+        }
+
+        ++current_sector;
+
+        ++sectors_read;
+        ++overall_sectors_read;
+        float fraction = 0.0f;
+        if (sectors_all > 0)
+            fraction = (float)sectors_read / (float)sectors_all;
+        Q_EMIT progress((int)(100.0f * fraction), current_sector, overall_sectors_read);
     }
 
     if (b_interrupt)
@@ -167,6 +202,21 @@ bool CDDAExtractThread::isProcessing()
 const QStringList &CDDAExtractThread::protocol()
 {
     return extract_protocol;
+}
+
+void CDDAExtractThread::reset()
+{
+    overall_sectors_read = 0;
+    paranoia_full_mode = true;
+    paranoia_retries = 20;
+    paranoia_never_skip = true;
+    sample_offset = 0;
+    track = 1;
+    b_first_run = true;
+    b_interrupt = false;
+    b_error = false;
+    read_error = false;
+    scratch_detected = false;
 }
 
 void CDDAExtractThread::slot_error(const QString &message, const QString &details)
