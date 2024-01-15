@@ -768,7 +768,7 @@ void Audex::execute_finish()
         target_single_filename = cdda_model->customData("filename").toString();
     }
 
-    QString co;
+    QString cover_file;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
         // store the cover
         if (!cdda_model->isCoverEmpty()) {
@@ -796,7 +796,7 @@ void Audex::execute_finish()
             if (p_prepare_dir(filename, target_dir, overwrite)) {
                 if (image.save(filename, format.toLatin1().data())) {
                     Q_EMIT info(i18n("Cover \"%1\" successfully saved.", QFileInfo(filename).fileName()));
-                    co = filename;
+                    cover_file = filename;
                 } else {
                     Q_EMIT error(i18n("Unable to save cover \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
                 }
@@ -804,7 +804,7 @@ void Audex::execute_finish()
         }
     }
 
-    QString pl;
+    QString playlist_file;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_INDEX)).toBool())
         && (target_filename_list.count() > 0) && (!p_single_file)) {
         // create the playlist
@@ -869,7 +869,7 @@ void Audex::execute_finish()
                 }
                 file.close();
                 Q_EMIT info(i18n("Playlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
-                pl = filename;
+                playlist_file = filename;
 
             } else {
                 Q_EMIT error(i18n("Unable to save playlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
@@ -877,7 +877,7 @@ void Audex::execute_finish()
         }
     }
 
-    QString in;
+    QString info_file;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_INDEX)).toBool())) {
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
@@ -909,14 +909,14 @@ void Audex::execute_finish()
                 out << text.join("\n");
                 file.close();
                 Q_EMIT info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));
-                in = filename;
+                info_file = filename;
             } else {
                 Q_EMIT error(i18n("Unable to save info file \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }
 
-    QString hl;
+    QString hash_list;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_INDEX)).toBool())
         && (target_filename_list.count() > 0)) {
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString();
@@ -956,14 +956,14 @@ void Audex::execute_finish()
                 }
                 file.close();
                 Q_EMIT info(i18n("Hashlist \"%1\" successfully created.", QFileInfo(filename).fileName()));
-                hl = filename;
+                hash_list = filename;
             } else {
                 Q_EMIT error(i18n("Unable to save hashlist \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }
 
-    QString cs;
+    QString cue_sheet;
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool())
         && (((target_filename_list.count() > 0) && !p_single_file) || p_single_file)) {
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
@@ -993,7 +993,7 @@ void Audex::execute_finish()
                 }
                 file.close();
                 Q_EMIT info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));
-                cs = filename;
+                cue_sheet = filename;
             } else {
                 Q_EMIT error(i18n("Unable to save cue sheet \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
@@ -1004,16 +1004,16 @@ void Audex::execute_finish()
         QString targetpath = QFileInfo(target_filename_list.at(0)).absolutePath().mid(Preferences::basePath().length());
 
         QStringList files_to_transfer = target_filename_list;
-        if (!co.isEmpty())
-            files_to_transfer << co;
-        if (!pl.isEmpty())
-            files_to_transfer << pl;
-        if (!in.isEmpty())
-            files_to_transfer << in;
-        if (!hl.isEmpty())
-            files_to_transfer << hl;
-        if (!cs.isEmpty())
-            files_to_transfer << cs;
+        if (!cover_file.isEmpty())
+            files_to_transfer << cover_file;
+        if (!playlist_file.isEmpty())
+            files_to_transfer << playlist_file;
+        if (!info_file.isEmpty())
+            files_to_transfer << info_file;
+        if (!hash_list.isEmpty())
+            files_to_transfer << hash_list;
+        if (!cue_sheet.isEmpty())
+            files_to_transfer << cue_sheet;
 
         Upload upload(Preferences::url(), this);
         connect(&upload, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
