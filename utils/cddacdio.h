@@ -48,36 +48,52 @@ public:
     void setParanoiaMaxRetries(int max_retries); /* default: 20 */
 
     qint16 *paranoiaRead(void (*callback)(long, paranoia_cb_mode_t));
-    int paranoiaSeek(long sector, qint32 mode);
+    int paranoiaSeek(const int sector, qint32 mode);
 
-    int firstSectorOfTrack(track_t track);
-    int lastSectorOfTrack(track_t track);
+    int firstSectorOfTrack(const int track);
+    int lastSectorOfTrack(const int track);
 
     int firstSectorOfDisc();
     int lastSectorOfDisc();
 
-    track_t numOfTracks() const;
-    track_t numOfAudioTracks() const;
+    int firstTrackNum();
+    int lastTrackNum();
 
-    int length() const;
-    int numOfFrames() const; // whole disc
-    int lengthOfAudioTracks() const; // length of all audio tracks in seconds
-    int numOfFramesOfAudioTracks() const;
+    int numOfTracks();
+    int numOfAudioTracks();
+
+    int length();
+    int numOfFrames(); // whole disc
+    int lengthOfAudioTracks(); // length of all audio tracks in seconds
+    int numOfFramesOfAudioTracks();
 
     // sum of skipped frames of non-audio tracks
     // (usually used to calculate overall percent)
-    int numOfSkippedFrames(int n = 100) const;
+    int numOfSkippedFrames(int n = 100);
 
-    int lengthOfTrack(track_t track) const; // in seconds
-    int numOfFramesOfTrack(track_t track) const;
-    double sizeOfTrack(track_t track) const; // in MiB
-    int frameOffsetOfTrack(track_t track) const;
-    bool isAudioTrack(track_t track) const;
-    bool isLastTrack(const track_t track) const;
+    int lengthOfTrack(const int track); // in seconds
+    int numOfFramesOfTrack(const int track);
+    qreal sizeOfTrack(const int track); // in MiB
+    int frameOffsetOfTrack(const int track);
+    bool isAudioTrack(const int track);
+    bool isLastTrack(const int track);
 
     // First element is first track after lead-in, list of offsets, last element offset of lead-out
-    // PREGAP is 150 frames = 2 seconds
-    QList<quint32> discSignature(const qint32 pregap = PREGAP);
+    QList<quint32> discSignature();
+
+    const QString getMCN();
+    const QString getISRC(const int track);
+
+    const QString msfOfTrack(const int track);
+
+    static const QString LSN2MSF(const int lsn)
+    {
+        qreal length = (qreal)(lsn) / (qreal)FRAMES_PER_SECOND;
+        int min = (int)length / 60;
+        int sec = (int)length % 60;
+        int frames = lsn - (((min * 60) + sec) * FRAMES_PER_SECOND);
+        return QString("%1:%2:%3").arg(min, 2, 10, QChar('0')).arg(sec, 2, 10, QChar('0')).arg(frames, 2, 10, QChar('0'));
+    }
 
     void reset();
 
@@ -94,9 +110,14 @@ private:
 
     cdrom_drive_t *drive;
     cdrom_paranoia_t *paranoia;
+    CdIo_t *cdio;
+
     int paranoia_mode;
     bool paranoia_never_skip;
     int paranoia_max_retries;
+
+    QString p_cache_mcn;
+    QMap<int, QString> p_cache_isrc;
 
     bool p_paranoia_init();
     void p_paranoia_free();
