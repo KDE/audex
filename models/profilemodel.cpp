@@ -104,6 +104,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
             return p_cache.at(index.row())[PROFILE_MODEL_CUE_KEY];
         case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_CUE_NAME_KEY];
+        case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY];
         case PROFILE_MODEL_COLUMN_SF_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_SF_KEY];
         case PROFILE_MODEL_COLUMN_SF_NAME_INDEX:
@@ -284,6 +286,8 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
                 return false;
             }
             break;
+        case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
+            break;
         case PROFILE_MODEL_COLUMN_SF_INDEX:
             break;
         case PROFILE_MODEL_COLUMN_SF_NAME_INDEX:
@@ -437,6 +441,9 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
             break;
         case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
             p_cache[index.row()][PROFILE_MODEL_CUE_NAME_KEY] = value;
+            break;
+        case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = value;
             break;
         case PROFILE_MODEL_COLUMN_SF_INDEX:
             p_cache[index.row()][PROFILE_MODEL_SF_KEY] = value;
@@ -877,6 +884,7 @@ const Profile ProfileModel::p_new_profile()
     p[PROFILE_MODEL_HL_NAME_KEY] = DEFAULT_HL_NAME;
     p[PROFILE_MODEL_CUE_KEY] = DEFAULT_CUE;
     p[PROFILE_MODEL_CUE_NAME_KEY] = DEFAULT_CUE_NAME;
+    p[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
     p[PROFILE_MODEL_SF_KEY] = DEFAULT_SF;
     p[PROFILE_MODEL_SF_NAME_KEY] = DEFAULT_SF_NAME;
 
@@ -987,6 +995,7 @@ void ProfileModel::p_save(KConfig *config)
         subGroup.writeEntry(PROFILE_MODEL_HL_NAME_KEY, p_cache[i][PROFILE_MODEL_HL_NAME_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_CUE_KEY, p_cache[i][PROFILE_MODEL_CUE_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_CUE_NAME_KEY, p_cache[i][PROFILE_MODEL_CUE_NAME_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY, p_cache[i][PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_SF_KEY, p_cache[i][PROFILE_MODEL_SF_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_SF_NAME_KEY, p_cache[i][PROFILE_MODEL_SF_NAME_KEY]);
 
@@ -1044,6 +1053,7 @@ void ProfileModel::p_load(KConfig *config)
         p[PROFILE_MODEL_HL_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_NAME_KEY, DEFAULT_HL_NAME);
         p[PROFILE_MODEL_CUE_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_KEY, DEFAULT_CUE);
         p[PROFILE_MODEL_CUE_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_NAME_KEY, DEFAULT_CUE_NAME);
+        p[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY, DEFAULT_CUE_WRITE_MCN_AND_ISRC);
         p[PROFILE_MODEL_SF_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_KEY, DEFAULT_SF);
         p[PROFILE_MODEL_SF_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_NAME_KEY, DEFAULT_SF_NAME);
 

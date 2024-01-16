@@ -967,6 +967,8 @@ void Audex::execute_finish()
     if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool())
         && (((target_filename_list.count() > 0) && !p_single_file) || p_single_file)) {
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
+        bool writeMCNAndISRC =
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
 
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
@@ -987,9 +989,11 @@ void Audex::execute_finish()
                 QTextStream out(&file);
                 CueSheetWriter cuesheetwriter(cdda_model);
                 if (p_single_file) {
-                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES).join("\n");
+                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES, writeMCNAndISRC, writeMCNAndISRC)
+                               .join("\n");
                 } else {
-                    out << cuesheetwriter.cueSheet(target_filename_list).join("\n");
+                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES, writeMCNAndISRC, writeMCNAndISRC)
+                               .join("\n");
                 }
                 file.close();
                 Q_EMIT info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));

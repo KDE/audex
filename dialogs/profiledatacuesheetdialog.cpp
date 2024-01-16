@@ -10,12 +10,13 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &scheme, QWidget *parent)
+ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &scheme, const bool writeMCNAndISRC, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
     this->scheme = scheme;
+    this->writeMCNAndISRC = writeMCNAndISRC;
 
     setWindowTitle(i18n("Cue Sheet Settings"));
 
@@ -41,6 +42,9 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &scheme, QWid
 
     ui.qlineedit_scheme->setText(scheme);
     connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+
+    ui.checkBox_write_mcn_and_isrc->setChecked(writeMCNAndISRC);
+    connect(ui.checkBox_write_mcn_and_isrc, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
     applyButton->setEnabled(false);
 }
@@ -82,12 +86,17 @@ void ProfileDataCueSheetDialog::trigger_changed()
         applyButton->setEnabled(true);
         return;
     }
+    if (ui.checkBox_write_mcn_and_isrc->isChecked() != writeMCNAndISRC) {
+        applyButton->setEnabled(true);
+        return;
+    }
     applyButton->setEnabled(false);
 }
 
 bool ProfileDataCueSheetDialog::save()
 {
     scheme = ui.qlineedit_scheme->text();
+    writeMCNAndISRC = ui.checkBox_write_mcn_and_isrc->isChecked();
     applyButton->setEnabled(false);
     return true;
 }

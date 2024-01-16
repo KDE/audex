@@ -6,6 +6,7 @@
  */
 
 #include "profiledatadialog.h"
+#include "models/profilemodel.h"
 
 #include <KConfigGroup>
 #include <QDebug>
@@ -177,6 +178,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
         // profile data cue sheet data
         pdud_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
+        pdud_write_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
 
         // profile data single file data
         pdsd_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
@@ -222,6 +224,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         pdhd_format = DEFAULT_HL_FORMAT;
         pdhd_scheme = DEFAULT_HL_NAME;
         pdud_scheme = DEFAULT_CUE_NAME;
+        pdud_write_mcn_and_isrc = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
         pdsd_scheme = DEFAULT_SF_NAME;
 
         enable_settings_cover(ui.checkBox_cover->isChecked());
@@ -310,6 +313,7 @@ void ProfileDataDialog::trigger_changed()
             || pdud_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
             || pdsd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
             || pdud_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
+            || pdud_write_mcn_and_isrc != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toString()
             || pdsd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
             || ui.checkBox_cuesheet->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()
             || ui.checkBox_singlefile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool()
@@ -455,7 +459,7 @@ void ProfileDataDialog::hashlist_settings()
 
 void ProfileDataDialog::cuesheet_settings()
 {
-    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(pdud_scheme, this);
+    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(pdud_scheme, pdud_write_mcn_and_isrc, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -463,6 +467,7 @@ void ProfileDataDialog::cuesheet_settings()
     }
 
     pdud_scheme = dialog->scheme;
+    pdud_write_mcn_and_isrc = dialog->writeMCNAndISRC;
 
     delete dialog;
 
@@ -622,6 +627,8 @@ bool ProfileDataDialog::save()
             success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cuesheet->isChecked());
         if (success)
             success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), pdud_scheme);
+        if (success)
+            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX), pdud_write_mcn_and_isrc);
         if (success)
             success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SF_INDEX), ui.checkBox_singlefile->isChecked());
         if (success)
