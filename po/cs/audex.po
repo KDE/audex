@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 03:10+0000\n"
+"POT-Creation-Date: 2024-01-16 03:12+0000\n"
 "PO-Revision-Date: 2023-06-23 11:45+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -131,151 +131,151 @@ msgstr "Nástroj na opravu názvů"
 msgid "&Settings"
 msgstr "&Nastavení"
 
-#: core/audex.cpp:98
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Nebyl vybrán žádný profil. Operace byla zrušena."
 
-#: core/audex.cpp:110
+#: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Začít získávání a kódování s profilem \"%1\"..."
 
-#: core/audex.cpp:608 core/audex.cpp:668
+#: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Nelze najít cestu \"%1\"."
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Prosím, zkontrolujte svou cestu (práva k zápisu?)"
 
-#: core/audex.cpp:621
+#: core/audex.cpp:619
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Na \"%1\" je méně než 200 MiB volného místa."
 
-#: core/audex.cpp:627 core/audex.cpp:696
+#: core/audex.cpp:625 core/audex.cpp:694
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Varování. Soubor \"%1\" již existuje. Přepisuje se."
 
-#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Varování. Soubor \"%1\" již existuje. Přeskakuje se."
 
-#: core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nelze vytvořit složku \"%1\"."
 
-#: core/audex.cpp:680 core/audex.cpp:1082
+#: core/audex.cpp:678 core/audex.cpp:1080
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Složka \"%1\" byla úspěšně vytvořena."
 
-#: core/audex.cpp:683
+#: core/audex.cpp:681
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Složka \"%1\" již existuje."
 
-#: core/audex.cpp:690
+#: core/audex.cpp:688
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Na \"%1\" je méně než 800 MiB volného místa."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr ""
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Please check."
 msgstr "Zkontrolujte, prosím."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:719
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Ve složce s dočasnými soubory \"%1\" je méně než 800 MiB volného místa."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "Složka s dočasnými soubory \"%1\" potřebuje přinejmenším 200 MB volného "
 "místa."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Prosím, uvolněte místo nebo nastavte jinou cestu."
 
-#: core/audex.cpp:752
+#: core/audex.cpp:750
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Vysunout CD mechaniku"
 
-#: core/audex.cpp:800
+#: core/audex.cpp:798
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Obal \"%1\" byl úspěšně uložen."
 
-#: core/audex.cpp:803
+#: core/audex.cpp:801
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Nelze uložit obal \"%1\"."
 
-#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
-#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
+#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Prosím, ověřte cestu a svá oprávnění."
 
-#: core/audex.cpp:873
+#: core/audex.cpp:871
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Seznam skladeb \"%1\" byl úspěšně vytvořen."
 
-#: core/audex.cpp:877
+#: core/audex.cpp:875
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Nelze uložit seznam skladeb \"%1\"."
 
-#: core/audex.cpp:913
+#: core/audex.cpp:911
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Soubor s informacemi \"%1\" byl úspěšně vytvořen."
 
-#: core/audex.cpp:916
+#: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Nelze uložit soubor s informacemi \"%1\"."
 
-#: core/audex.cpp:960
+#: core/audex.cpp:958
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Hešový seznam \"%1\" byl úspěšně vytvořen."
 
-#: core/audex.cpp:963
+#: core/audex.cpp:961
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nelze uložit seznam hašů \"%1\"."
 
-#: core/audex.cpp:997
+#: core/audex.cpp:995
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "List CUE \"%1\" byl úspěšně vytvořen."
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:998
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nelze uložit cue sheet \"%1\"."
 
-#: core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Nelze otevřít složku \"%1\"."
@@ -1552,7 +1552,7 @@ msgstr "Toto je vnitřní chyba. Prosím, podejte o ní zprávu."
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Vnitřní chyba na zařízení"
@@ -1578,57 +1578,80 @@ msgstr ""
 msgid "Audio Disc"
 msgstr "Audio disk"
 
-#: utils/cddaextractthread.cpp:25
+#: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "Prověřte své zařízení a vytvořte zprávu o programové chybě."
 
-#: utils/cddaextractthread.cpp:77
+#: utils/cddaextractthread.cpp:65
+#, kde-format
+msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
 msgstr "Získávání bylo dokončeno."
 
-#: utils/cddaextractthread.cpp:101
+#: utils/cddaextractthread.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Correction sample offset: %1"
+msgstr "Posun vzorku:"
+
+#: utils/cddaextractthread.cpp:113
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Získává se stopa %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping whole CD as single track."
-msgstr "Celé CD se získává jako jedna skladba."
-
-#: utils/cddaextractthread.cpp:105
+#: utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Začíná se se čtením skladby %1 s %2 sektory"
 
-#: utils/cddaextractthread.cpp:140
+#: utils/cddaextractthread.cpp:116
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track."
+msgid "Ripping whole CD as single track (%1:%2)."
+msgstr "Celé CD se získává jako jedna skladba."
+
+#: utils/cddaextractthread.cpp:117
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "Začíná se se čtením skladby %1 s %2 sektory"
+
+#: utils/cddaextractthread.cpp:120
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:175
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Získávání bylo zrušeno uživatelem."
 
-#: utils/cddaextractthread.cpp:143
+#: utils/cddaextractthread.cpp:178
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Při získávání skladby %1 došlo k chybě."
 
-#: utils/cddaextractthread.cpp:147
+#: utils/cddaextractthread.cpp:182
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Získávání zvukových dat proběhlo v pořádku (stopa %1)."
 
-#: utils/cddaextractthread.cpp:149
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK."
 msgstr "Získávání proběhlo v pořádku."
 
-#: utils/cddaextractthread.cpp:154
+#: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Reading finished"
 msgstr "Čtení bylo skončeno"
 
-#: utils/cddaextractthread.cpp:196
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1637,7 +1660,7 @@ msgstr ""
 "Pevné chvění okraje (absolutní sektor %1, relativní sektor %2, poloha času "
 "stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1646,7 +1669,7 @@ msgstr ""
 "Pevné atomární chvění (absolutní sektor %1, relativní sektor %2, poloha času "
 "stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:208
+#: utils/cddaextractthread.cpp:258
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1655,7 +1678,7 @@ msgstr ""
 "Zjištěno škrábnutí (absolutní sektor %1, relativní sektor %2, poloha času "
 "skladby %3:%4)"
 
-#: utils/cddaextractthread.cpp:211
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1664,13 +1687,13 @@ msgstr ""
 "ZJIŠTĚNO ŠKRÁBNUTÍ (absolutní sektor %1, relativní sektor %2, poloha času "
 "stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:265
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Opravit (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:220
+#: utils/cddaextractthread.cpp:270
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1678,25 +1701,25 @@ msgstr ""
 "Přeskočit sektory (absolutní sektor %1, relativní sektor %2, poloha času "
 "skladby %3:%4)"
 
-#: utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:271
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "PŘESKOČIT (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Přesun (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Ustoupit (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:289
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1704,7 +1727,7 @@ msgstr ""
 "Oprava zahozena (absolutní sektor %1, relativní sektor %2, poloha času stopy "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:293
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1712,7 +1735,7 @@ msgstr ""
 "Oprava zdvojena (absolutní sektor %1, relativní sektor %2, poloha času stopy "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:299
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1721,7 +1744,7 @@ msgstr ""
 "Zjištěna chyba čtení (absolutní sektor %1, relativní sektor %2, poloha času "
 "stopy %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

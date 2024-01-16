@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 03:10+0000\n"
+"POT-Creation-Date: 2024-01-16 03:12+0000\n"
 "PO-Revision-Date: 2019-08-04 21:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -135,73 +135,73 @@ msgstr "Инструмент для исправления заголовков"
 msgid "&Settings"
 msgstr "&Настройка"
 
-#: core/audex.cpp:98
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Профиль не выбран. Операция отменена."
 
-#: core/audex.cpp:110
+#: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Начало копирования и кодирования, используя профиль «%1»..."
 
-#: core/audex.cpp:608 core/audex.cpp:668
+#: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Невозможно найти путь «%1»."
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Проверьте введенный путь или права доступа"
 
-#: core/audex.cpp:621
+#: core/audex.cpp:619
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Свободное место на «%1» менее 200 Мб."
 
-#: core/audex.cpp:627 core/audex.cpp:696
+#: core/audex.cpp:625 core/audex.cpp:694
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Внимание! Файл «%1» уже существует. Перезаписываю."
 
-#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Внимание! Файл «%1» уже существует. Пропущено."
 
-#: core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Невозможно создать папку «%1»."
 
-#: core/audex.cpp:680 core/audex.cpp:1082
+#: core/audex.cpp:678 core/audex.cpp:1080
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Папка «%1» успешно создана."
 
-#: core/audex.cpp:683
+#: core/audex.cpp:681
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Папка «%1» уже существует."
 
-#: core/audex.cpp:690
+#: core/audex.cpp:688
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Свободное место на «%1» менее 800 Мб."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, fuzzy, kde-format
 #| msgid "Temporary directory \"%1\" does not exists."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Временный каталог «%1» не существует."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Please check."
 msgstr "Пожалуйста, проверьте."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:719
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 200 MB. Problems with low space "
@@ -210,89 +210,89 @@ msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Свободное место на «%1» менее 200 Мб. Возможны проблемы с нехваткой места."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, fuzzy, kde-format
 #| msgid "Temporary directory \"%1\" needs at least 200 MiB of free memory."
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Для временного каталога «%1» требуется как минимум 200 Мб."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Освободите место или укажите другой путь."
 
-#: core/audex.cpp:752
+#: core/audex.cpp:750
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Извлечь диск"
 
-#: core/audex.cpp:800
+#: core/audex.cpp:798
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Обложка «%1» успешно сохранена."
 
-#: core/audex.cpp:803
+#: core/audex.cpp:801
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save cover \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
-#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
+#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your path and permissions"
 msgstr "Проверьте профиль."
 
-#: core/audex.cpp:873
+#: core/audex.cpp:871
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Playlist \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:877
+#: core/audex.cpp:875
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save playlist \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:913
+#: core/audex.cpp:911
 #, fuzzy, kde-format
 #| msgid "Infofile \"%1\" successfully stored."
 msgid "Info file \"%1\" successfully created."
 msgstr "Файл информации «%1» успешно сохранен."
 
-#: core/audex.cpp:916
+#: core/audex.cpp:914
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save info file \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:960
+#: core/audex.cpp:958
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:963
+#: core/audex.cpp:961
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:997
+#: core/audex.cpp:995
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:998
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:1045 core/audex.cpp:1072
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -1649,7 +1649,7 @@ msgstr "Произошла внутренняя ошибка программы.
 msgid "Copy"
 msgstr "Копировать"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Ошибка устройства."
@@ -1676,60 +1676,82 @@ msgstr ""
 msgid "Audio Disc"
 msgstr "Аудио диск"
 
-#: utils/cddaextractthread.cpp:25
+#: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "Проверьте устройство и отправьте отчет об ошибке."
 
-#: utils/cddaextractthread.cpp:77
+#: utils/cddaextractthread.cpp:65
+#, kde-format
+msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
 msgstr "Копирование завершено."
 
-#: utils/cddaextractthread.cpp:101
+#: utils/cddaextractthread.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sampler Example:"
+msgid "Correction sample offset: %1"
+msgstr "Образец:"
+
+#: utils/cddaextractthread.cpp:113
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Копирование дорожки %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping whole CD as single track."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:105
+#: utils/cddaextractthread.cpp:114
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Начало чтения дорожки %1 с %2 секторами"
 
-#: utils/cddaextractthread.cpp:140
+#: utils/cddaextractthread.cpp:116
+#, kde-format
+msgid "Ripping whole CD as single track (%1:%2)."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:117
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "Начало чтения дорожки %1 с %2 секторами"
+
+#: utils/cddaextractthread.cpp:120
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:175
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Копирование отменено пользователем."
 
-#: utils/cddaextractthread.cpp:143
+#: utils/cddaextractthread.cpp:178
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occurred while ripping track %1."
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:147
+#: utils/cddaextractthread.cpp:182
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Копирование завершено (Дорожка %1)."
 
-#: utils/cddaextractthread.cpp:149
+#: utils/cddaextractthread.cpp:184
 #, fuzzy, kde-format
 #| msgid "Ripping Track"
 msgid "Ripping OK."
 msgstr "Копирование дорожки"
 
-#: utils/cddaextractthread.cpp:154
+#: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Reading finished"
 msgstr "Чтение завершено"
 
-#: utils/cddaextractthread.cpp:196
+#: utils/cddaextractthread.cpp:246
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1741,7 +1763,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:251
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1753,7 +1775,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:208
+#: utils/cddaextractthread.cpp:258
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1765,7 +1787,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:211
+#: utils/cddaextractthread.cpp:261
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1777,7 +1799,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:265
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1787,7 +1809,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:220
+#: utils/cddaextractthread.cpp:270
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1798,7 +1820,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:271
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1808,7 +1830,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:275
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1818,7 +1840,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:279
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1828,7 +1850,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:289
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1839,7 +1861,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:293
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1850,14 +1872,14 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:299
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

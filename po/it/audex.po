@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 03:10+0000\n"
+"POT-Creation-Date: 2024-01-16 03:12+0000\n"
 "PO-Revision-Date: 2024-01-06 23:35+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -128,150 +128,150 @@ msgstr "Strumenti per la correzione dei titoli"
 msgid "&Settings"
 msgstr "&Impostazioni"
 
-#: core/audex.cpp:98
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Non è stato selezionato alcun profilo. Operazione annullata."
 
-#: core/audex.cpp:110
+#: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Inizio estrazione e codifica utilizzando il profilo «%1»..."
 
-#: core/audex.cpp:608 core/audex.cpp:668
+#: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Impossibile trovare il percorso «%1»."
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Verifica il percorso (disponi del permesso di scrittura?)"
 
-#: core/audex.cpp:621
+#: core/audex.cpp:619
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "In «%1» lo spazio disponibile è inferiore a 200 MiB."
 
-#: core/audex.cpp:627 core/audex.cpp:696
+#: core/audex.cpp:625 core/audex.cpp:694
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Attenzione! Il file «%1» esiste già. Verrà sovrascritto."
 
-#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Attenzione! Il file «%1» esiste già. Verrà saltato."
 
-#: core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Impossibile creare la cartella «%1»."
 
-#: core/audex.cpp:680 core/audex.cpp:1082
+#: core/audex.cpp:678 core/audex.cpp:1080
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Cartella «%1» creata correttamente."
 
-#: core/audex.cpp:683
+#: core/audex.cpp:681
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "La cartella «%1» esiste già."
 
-#: core/audex.cpp:690
+#: core/audex.cpp:688
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "In «%1» lo spazio disponibile è inferiore a 800 MiB."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Errore nella cartella temporanea «%1» (%2)."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Please check."
 msgstr "Verifica."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:719
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Nella cartella temporanea «%1» lo spazio disponibile è inferiore a 800 MiB."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "La cartella temporanea «%1» necessita di almeno 200 MiB di spazio libero."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Libera spazio su disco o imposta un percorso diverso."
 
-#: core/audex.cpp:752
+#: core/audex.cpp:750
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Espelli il cassetto CD"
 
-#: core/audex.cpp:800
+#: core/audex.cpp:798
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "La copertina «%1» è stata salvata correttamente."
 
-#: core/audex.cpp:803
+#: core/audex.cpp:801
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Impossibile salvare la cartella «%1»."
 
-#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
-#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
+#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Controlla i tuoi permessi e il percorso"
 
-#: core/audex.cpp:873
+#: core/audex.cpp:871
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "La scaletta «%1» è stata creata correttamente."
 
-#: core/audex.cpp:877
+#: core/audex.cpp:875
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Impossibile salvare la scaletta «%1»."
 
-#: core/audex.cpp:913
+#: core/audex.cpp:911
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Il file delle informazioni «%1» è stato creato correttamente."
 
-#: core/audex.cpp:916
+#: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Impossibile salvare il file delle informazioni «%1»."
 
-#: core/audex.cpp:960
+#: core/audex.cpp:958
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "La lista hash «%1» è stata creata correttamente."
 
-#: core/audex.cpp:963
+#: core/audex.cpp:961
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Impossibile salvare la lista hash «%1»."
 
-#: core/audex.cpp:997
+#: core/audex.cpp:995
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Il file cue «%1» è stato creato correttamente."
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:998
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Impossibile salvare il file cue «%1»."
 
-#: core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Impossibile aprire la cartella «%1»."
@@ -1566,7 +1566,7 @@ msgstr "Questo è un errore interno. Segnalalo."
 msgid "Copy"
 msgstr "Copia"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Errore interno del dispositivo."
@@ -1592,57 +1592,80 @@ msgstr ""
 msgid "Audio Disc"
 msgstr "Disco audio"
 
-#: utils/cddaextractthread.cpp:25
+#: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "Controlla il tuo dispositivo e segnala l'errore."
 
-#: utils/cddaextractthread.cpp:77
+#: utils/cddaextractthread.cpp:65
+#, kde-format
+msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
 msgstr "Estrazione terminata."
 
-#: utils/cddaextractthread.cpp:101
+#: utils/cddaextractthread.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Correction sample offset: %1"
+msgstr "Compensazione campione:"
+
+#: utils/cddaextractthread.cpp:113
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Estrazione traccia %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping whole CD as single track."
-msgstr "Estrazione dell'intero CD come unica traccia."
-
-#: utils/cddaextractthread.cpp:105
+#: utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Inizio la lettura della traccia %1 con %2 settori"
 
-#: utils/cddaextractthread.cpp:140
+#: utils/cddaextractthread.cpp:116
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track."
+msgid "Ripping whole CD as single track (%1:%2)."
+msgstr "Estrazione dell'intero CD come unica traccia."
+
+#: utils/cddaextractthread.cpp:117
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "Inizio la lettura della traccia %1 con %2 settori"
+
+#: utils/cddaextractthread.cpp:120
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:175
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Estrazione interrotta dall'utente."
 
-#: utils/cddaextractthread.cpp:143
+#: utils/cddaextractthread.cpp:178
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Si è verificato un errore durante l'estrazione della traccia %1."
 
-#: utils/cddaextractthread.cpp:147
+#: utils/cddaextractthread.cpp:182
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Estrazione della traccia %1 completata correttamente."
 
-#: utils/cddaextractthread.cpp:149
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK."
 msgstr "Estrazione completata correttamente."
 
-#: utils/cddaextractthread.cpp:154
+#: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Reading finished"
 msgstr "Lettura terminata"
 
-#: utils/cddaextractthread.cpp:196
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1651,7 +1674,7 @@ msgstr ""
 "Risolto edge jitter (settore assoluto %1, settore relativo %2, posizione "
 "temporale sulla traccia %3: %4)"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1660,7 +1683,7 @@ msgstr ""
 "Risolto atom jitter (settore assoluto %1, settore relativo %2, posizione "
 "temporale sulla traccia %3: %4)"
 
-#: utils/cddaextractthread.cpp:208
+#: utils/cddaextractthread.cpp:258
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1669,7 +1692,7 @@ msgstr ""
 "Rilevato graffio (settore assoluto %1, settore relativo %2, posizione "
 "temporale sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:211
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1678,14 +1701,14 @@ msgstr ""
 "RILEVATO GRAFFIO (settore assoluto %1, settore relativo %2, posizione "
 "temporale sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:265
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Ripara (settore assoluto %1, settore relativo %2, posizione temporale sulla "
 "traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:220
+#: utils/cddaextractthread.cpp:270
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1693,28 +1716,28 @@ msgstr ""
 "Salta settori (settore assoluto %1, settore relativo %2, posizione temporale "
 "sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:271
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "SALTA (settore assoluto %1, settore relativo %2, posizione temporale sulla "
 "traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Deviazione (settore assoluto %1, settore relativo %2, posizione temporale "
 "sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Backoff (settore assoluto %1, settore relativo %2, posizione temporale sulla "
 "traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:289
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1722,7 +1745,7 @@ msgstr ""
 "Sistemazione tralasciata (settore assoluto %1, settore relativo %2, "
 "posizione temporale sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:293
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1730,7 +1753,7 @@ msgstr ""
 "Sistemazione ingannata (settore assoluto %1, settore relativo %2, posizione "
 "temporale sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:299
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1739,7 +1762,7 @@ msgstr ""
 "Rilevato errore di lettura (settore assoluto %1, settore relativo %2, "
 "posizione temporale sulla traccia %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
