@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 00:37+0000\n"
+"POT-Creation-Date: 2024-01-16 00:37+0000\n"
 "PO-Revision-Date: 2023-07-30 10:42+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -130,149 +130,149 @@ msgstr "Verktyg för korrigering av titel"
 msgid "&Settings"
 msgstr "In&ställningar"
 
-#: core/audex.cpp:98
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Ingen profil vald. Åtgärden avbryts."
 
-#: core/audex.cpp:110
+#: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Börja lagra och koda med profilen \"%1\"..."
 
-#: core/audex.cpp:608 core/audex.cpp:668
+#: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Kan inte hitta sökvägen \"%1\"."
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Kontrollera sökvägen (skrivåtkomst?)"
 
-#: core/audex.cpp:621
+#: core/audex.cpp:619
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Ledigt utrymme på \"%1\" är mindre än 200 Mibyte."
 
-#: core/audex.cpp:627 core/audex.cpp:696
+#: core/audex.cpp:625 core/audex.cpp:694
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Varning: Filen \"%1\" finns redan. Skriver över den."
 
-#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Varning: Filen \"%1\" finns redan. Hoppar över den."
 
-#: core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Kunde inte skapa katalogen \"%1\"."
 
-#: core/audex.cpp:680 core/audex.cpp:1082
+#: core/audex.cpp:678 core/audex.cpp:1080
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Katalogen \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:683
+#: core/audex.cpp:681
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Katalogen \"%1\" finns redan."
 
-#: core/audex.cpp:690
+#: core/audex.cpp:688
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Ledigt utrymme på \"%1\" är mindre än 800 Mibyte."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Fel för tillfällig katalog \"%1\"."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Please check."
 msgstr "Kontrollera."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:719
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Ledigt utrymme i tillfällig katalog \"%1\" är mindre än 800 Mibyte."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Tillfällig katalog \"%1\" behöver minst 200 Mibyte ledigt utrymme."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Frigör utrymme eller välj en annan sökväg."
 
-#: core/audex.cpp:752
+#: core/audex.cpp:750
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Mata ut cd"
 
-#: core/audex.cpp:800
+#: core/audex.cpp:798
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Omslaget \"%1\" sparades med lyckat resultat."
 
-#: core/audex.cpp:803
+#: core/audex.cpp:801
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Kunde inte spara omslaget \"%1\"."
 
-#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
-#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
+#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Kontrollera sökvägen och rättigheter"
 
-#: core/audex.cpp:873
+#: core/audex.cpp:871
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Spellistan \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:877
+#: core/audex.cpp:875
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Kunde inte spara spellistan \"%1\"."
 
-#: core/audex.cpp:913
+#: core/audex.cpp:911
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Informationsfilen \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:916
+#: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Kunde inte spara informationsfilen \"%1\"."
 
-#: core/audex.cpp:960
+#: core/audex.cpp:958
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Checksummelistan \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:963
+#: core/audex.cpp:961
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Kunde inte spara checksummelistan \"%1\"."
 
-#: core/audex.cpp:997
+#: core/audex.cpp:995
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Indexbladet \"%1\" skapa med lyckat resultat."
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:998
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Kunde inte spara indexbladet \"%1\"."
 
-#: core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Kunde inte öppna katalogen \"%1\"."
@@ -1567,7 +1567,7 @@ msgstr "Det här är ett internt fel. Rapportera det gärna."
 msgid "Copy"
 msgstr "Kopiera"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Internt enhetsfel."
@@ -1593,57 +1593,80 @@ msgstr ""
 msgid "Audio Disc"
 msgstr "Ljudskiva"
 
-#: utils/cddaextractthread.cpp:25
+#: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "Kontrollera enheten och skapa en felrapport."
 
-#: utils/cddaextractthread.cpp:77
+#: utils/cddaextractthread.cpp:65
+#, kde-format
+msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
 msgstr "Hämtning klar."
 
-#: utils/cddaextractthread.cpp:101
+#: utils/cddaextractthread.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Correction sample offset: %1"
+msgstr "Samplingsposition:"
+
+#: utils/cddaextractthread.cpp:113
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Lagrar spår %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping whole CD as single track."
-msgstr "Lagrar hela skivan som ett enda spår."
-
-#: utils/cddaextractthread.cpp:105
+#: utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Börja läsa spår %2 med %1 sektor"
 
-#: utils/cddaextractthread.cpp:140
+#: utils/cddaextractthread.cpp:116
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track."
+msgid "Ripping whole CD as single track (%1:%2)."
+msgstr "Lagrar hela skivan som ett enda spår."
+
+#: utils/cddaextractthread.cpp:117
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "Börja läsa spår %2 med %1 sektor"
+
+#: utils/cddaextractthread.cpp:120
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:175
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Användaren avbröt hämtning."
 
-#: utils/cddaextractthread.cpp:143
+#: utils/cddaextractthread.cpp:178
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Ett fel uppstod vid lagring av spår %1."
 
-#: utils/cddaextractthread.cpp:147
+#: utils/cddaextractthread.cpp:182
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Lagring ok (spår %1)."
 
-#: utils/cddaextractthread.cpp:149
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK."
 msgstr "Lagring ok."
 
-#: utils/cddaextractthread.cpp:154
+#: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Reading finished"
 msgstr "Läsning klar"
 
-#: utils/cddaextractthread.cpp:196
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1652,7 +1675,7 @@ msgstr ""
 "Fixade kantskakning (absolut sektor %1, relativ sektor %2, spårets "
 "tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1661,7 +1684,7 @@ msgstr ""
 "Fixade atomär skakning (absolut sektor %1, relativ sektor %2, spårets "
 "tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:208
+#: utils/cddaextractthread.cpp:258
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1670,7 +1693,7 @@ msgstr ""
 "Repa detekterad (absolut sektor %1, relativ sektor %2, spårets tidsposition "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:211
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1679,13 +1702,13 @@ msgstr ""
 "REPA DETEKTERAD (absolut sektor %1, relativ sektor %2, spårets tidsposition "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:265
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Reparera (absolut sektor %1, relativ sektor %2, spårets tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:220
+#: utils/cddaextractthread.cpp:270
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1693,25 +1716,25 @@ msgstr ""
 "Hoppa över sektorer (absolut sektor %1, relativ sektor %2, spårets "
 "tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:271
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "HOPPA ÖVER (absolut sektor %1, relativ sektor %2, spårets tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Driv (absolut sektor %1, relativ sektor %2, spårets tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Backa (absolut sektor %1, relativ sektor %2, spårets tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:289
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1719,7 +1742,7 @@ msgstr ""
 "Fixa saknat (absolut sektor %1, relativ sektor %2, spårets tidsposition %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:293
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1727,7 +1750,7 @@ msgstr ""
 "Fixa dubblett (absolut sektor %1, relativ sektor %2, spårets tidsposition %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:299
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1736,7 +1759,7 @@ msgstr ""
 "Läsfel detekterat (absolut sektor %1, relativ sektor %2, spårets "
 "tidsposition %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

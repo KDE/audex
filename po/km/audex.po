@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 00:37+0000\n"
+"POT-Creation-Date: 2024-01-16 00:37+0000\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -132,27 +132,27 @@ msgstr "ឧបករណ៍​កែ​ចំណងជើង"
 msgid "&Settings"
 msgstr "ការ​កំណត់"
 
-#: core/audex.cpp:98
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "មិន​បាន​ជ្រើស​ទម្រង់ ។ បោះបង់​ប្រតិបត្តិការ ។"
 
-#: core/audex.cpp:110
+#: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "ចាប់​ផ្ដើម​បម្លែង​ និង​អ៊ិនកូដ​ជាមួយ​ទម្រង់​ \"%1\"..."
 
-#: core/audex.cpp:608 core/audex.cpp:668
+#: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "មិន​អាច​រក​ឃើញ​ផ្លូវ \"%1\" ។"
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "សូម​ពិនិត្យ​មើល​ផ្លូវ​របស់​អ្នក​ (ចូល​ដំណើរការ​សរសេរ​ឬ ?)"
 
-#: core/audex.cpp:621
+#: core/audex.cpp:619
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 200 MiB. Problems with low space "
@@ -160,32 +160,32 @@ msgstr "សូម​ពិនិត្យ​មើល​ផ្លូវ​រប
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:627 core/audex.cpp:696
+#: core/audex.cpp:625 core/audex.cpp:694
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "ការ​ព្រមាន​ ! ឯកសារ \"%1\" មាន​​រួច​ហើយ ។ សរសេរ​ជាន់​លើ ។"
 
-#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "ការ​ព្រមាន​ ! ឯកសារ \"%1\" មាន​រួច​ហើយ​ ។ ​រំលង ។"
 
-#: core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:680 core/audex.cpp:1082
+#: core/audex.cpp:678 core/audex.cpp:1080
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "ថត \"%1\" បាន​បង្កើត​ដោយ​ជោគជ័យ ។"
 
-#: core/audex.cpp:683
+#: core/audex.cpp:681
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "ថត \"%1\" មាន​រួច​ហើយ ។"
 
-#: core/audex.cpp:690
+#: core/audex.cpp:688
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 800 MiB. Problems with low space "
@@ -193,18 +193,18 @@ msgstr "ថត \"%1\" មាន​រួច​ហើយ ។"
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "​ថត​បណ្ដោះ​អាសន្ន​ \"%1\" មាន​កំហុស ។"
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Please check."
 msgstr "សូម​ពិនិត្យ​មើល​ ។"
 
-#: core/audex.cpp:721
+#: core/audex.cpp:719
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 800 MiB. Problems with low space "
@@ -212,85 +212,85 @@ msgstr "សូម​ពិនិត្យ​មើល​ ។"
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "ថត​បណ្ដោះ​អាសន្ន​ \"%1\" ត្រូវ​ការ​ទំហំ​ទំនេរ​យ៉ាងហោចណាស់​ ២​០​០ មេកាបៃ ។"
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "សូម​ធ្វើ​ឲ្យ​មាន​ទំហំ​ទំនេរ ឬ​កំណត់​ផ្លូវ​ផ្សេង​ទៀត ។"
 
-#: core/audex.cpp:752
+#: core/audex.cpp:750
 #, kde-format
 msgid "Eject CD tray"
 msgstr "ច្រាន​ថាស​ស៊ីឌី​ចេញ"
 
-#: core/audex.cpp:800
+#: core/audex.cpp:798
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "បាន​រក្សា​ទុក​គម្រប​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:803
+#: core/audex.cpp:801
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cover \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
-#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
+#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
 #, fuzzy, kde-format
 #| msgid "Please check your permissions."
 msgid "Please check your path and permissions"
 msgstr "សូម​ពិនិត្យមើល​សិទ្ធិ​របស់​អ្នក​​ ។"
 
-#: core/audex.cpp:873
+#: core/audex.cpp:871
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "បាន​បង្កើត​បញ្ជី​ចាក់​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:877
+#: core/audex.cpp:875
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save playlist \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:913
+#: core/audex.cpp:911
 #, fuzzy, kde-format
 #| msgid "Infofile \"%1\" successfully created."
 msgid "Info file \"%1\" successfully created."
 msgstr "បាន​បង្កើត​ឯកសារ​ព័ត៌មាន​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:916
+#: core/audex.cpp:914
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save info file \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:960
+#: core/audex.cpp:958
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "បាន​បង្កើត​បញ្ជី​សញ្ញា​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:963
+#: core/audex.cpp:961
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:997
+#: core/audex.cpp:995
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "បាន​បង្កើត​សន្លឹក Cue \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:998
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:1045 core/audex.cpp:1072
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -1590,7 +1590,7 @@ msgstr "នេះ​គឺ​ជា​កំហុស​ខាង​ក្នុ
 msgid "Copy"
 msgstr "ចម្លង"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "កំហុស​ឧបករណ៍​​ខាង​ក្នុង ។"
@@ -1617,72 +1617,95 @@ msgstr ""
 msgid "Audio Disc"
 msgstr "ថាស​អូឌីយ៉ូ"
 
-#: utils/cddaextractthread.cpp:25
+#: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "ពិនិត្យ​មើល​ឧបករណ៍​របស់​អ្នក ​ហើយ​​ធ្វើ​របាយការណ៍​កំហុស ។"
 
-#: utils/cddaextractthread.cpp:77
+#: utils/cddaextractthread.cpp:65
+#, kde-format
+msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
 msgstr "បាន​បញ្ចប់​ការ​ស្រង់​ចេញ ។"
 
-#: utils/cddaextractthread.cpp:101
+#: utils/cddaextractthread.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sampler Example:"
+msgid "Correction sample offset: %1"
+msgstr "គំរូ​របស់​កម្មវិធី​ធ្វើ​គំរូ ៖"
+
+#: utils/cddaextractthread.cpp:113
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "កំពុង​បម្លែង​បទ​ %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping whole CD as single track."
-msgstr "កំពុង​បម្លែង​ស៊ីឌី​ទាំងមូល​ជា​បទ​ទោល ។"
-
-#: utils/cddaextractthread.cpp:105
+#: utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
 
-#: utils/cddaextractthread.cpp:140
+#: utils/cddaextractthread.cpp:116
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track."
+msgid "Ripping whole CD as single track (%1:%2)."
+msgstr "កំពុង​បម្លែង​ស៊ីឌី​ទាំងមូល​ជា​បទ​ទោល ។"
+
+#: utils/cddaextractthread.cpp:117
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
+
+#: utils/cddaextractthread.cpp:120
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:175
 #, kde-format
 msgid "User canceled extracting."
 msgstr "អ្នក​ប្រើ​បាន​បោះ​បង់​ការ​ស្រង់​ចេញ ។​"
 
-#: utils/cddaextractthread.cpp:143
+#: utils/cddaextractthread.cpp:178
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occurred while ripping track %1."
 msgstr "កំហុស​បាន​កើត​ឡើង​ ខណៈ​ពេល​កំពុង​បម្លែង​បទ​ %1 ។"
 
-#: utils/cddaextractthread.cpp:147
+#: utils/cddaextractthread.cpp:182
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង (បទ​ %1) ។"
 
-#: utils/cddaextractthread.cpp:149
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK."
 msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង​ ។"
 
-#: utils/cddaextractthread.cpp:154
+#: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Reading finished"
 msgstr "បាន​បញ្ចប់​ការ​អាន"
 
-#: utils/cddaextractthread.cpp:196
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "គែម​ថេរ​ញាក់​ៗ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "អាតូម​ថេរ​ញាក់​ៗ​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:208
+#: utils/cddaextractthread.cpp:258
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1690,7 +1713,7 @@ msgid ""
 msgstr ""
 "បាន​រក​ឃើញ​ស្នាម​ឆ្កូត (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:211
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1698,47 +1721,47 @@ msgid ""
 msgstr ""
 "បាន​រក​ឃើញ​ស្នាម​ឆ្កូត (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:265
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "ជួស​ជុល​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:220
+#: utils/cddaextractthread.cpp:270
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "រំលង​ចម្រៀក​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេល​វេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:271
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "រំលង​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2 pos ពេលវេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "រសាត់​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2  pos ពេលវេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "ថយ​ក្រោយ​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:289
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "ការ​ជួស​ជុល​អ្វី​ដែល​ថយ​ចុះ​​ (ចម្រៀក​ដាច់​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2  pos ពេល​វេលា​របស់​បទ​ %3 ៖ %4)"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:293
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "ការ​ជួស​ជុល​អ្វី​ដែល​បញ្ឆោត​ (ចម្រៀក​ដាច់ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​ %3 ៖ %4)"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:299
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1746,7 +1769,7 @@ msgid ""
 msgstr ""
 "បាន​រក​ឃើញ​​កំហុស​អាន​ (ចម្រៀក​ដាច​ខាត​ %1 ចម្រៀក​ទំនាក់​ទំនង​ %2 pos ពេល​វេលា​របស់​បទ​​ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

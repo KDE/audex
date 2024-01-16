@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-15 00:37+0000\n"
-"PO-Revision-Date: 2024-01-07 22:49+0100\n"
+"POT-Creation-Date: 2024-01-16 00:37+0000\n"
+"PO-Revision-Date: 2024-01-15 03:08+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -64,7 +64,7 @@ msgstr "Número de carátulas a consultar"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:29
 #, kde-format
 msgid "Full paranoia mode (reduce chance of read errors)"
-msgstr ""
+msgstr "Modo de paranoia total (reduce la posibilidad de errores de lectura)"
 
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
@@ -130,148 +130,148 @@ msgstr "Herramientas de corrección de títulos"
 msgid "&Settings"
 msgstr "&Preferencias"
 
-#: core/audex.cpp:98
+#: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Ningún perfil seleccionado. Operación interrumpida."
 
-#: core/audex.cpp:110
+#: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Comenzar a extraer y codificar con el perfil «%1»..."
 
-#: core/audex.cpp:608 core/audex.cpp:668
+#: core/audex.cpp:606 core/audex.cpp:666
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "No se encuentra la ruta «%1»."
 
-#: core/audex.cpp:608 core/audex.cpp:668 core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Compruebe la ruta (¿acceso de escritura?)"
 
-#: core/audex.cpp:621
+#: core/audex.cpp:619
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "«%1» tiene menos de 200 MiB libres."
 
-#: core/audex.cpp:627 core/audex.cpp:696
+#: core/audex.cpp:625 core/audex.cpp:694
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Advertencia: El archivo «%1» ya existe. Sobrescribiendo."
 
-#: core/audex.cpp:629 core/audex.cpp:698 core/audex.cpp:1059
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Advertencia: El archivo «%1» ya existe. Ignorándolo."
 
-#: core/audex.cpp:677 core/audex.cpp:1079
+#: core/audex.cpp:675 core/audex.cpp:1077
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "No se ha podido crear la carpeta «%1»."
 
-#: core/audex.cpp:680 core/audex.cpp:1082
+#: core/audex.cpp:678 core/audex.cpp:1080
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Carpeta «%1» creada con éxito."
 
-#: core/audex.cpp:683
+#: core/audex.cpp:681
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "La carpeta «%1» ya existe."
 
-#: core/audex.cpp:690
+#: core/audex.cpp:688
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "«%1» tiene menos de 800 MiB libres."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Error en la carpeta temporal «%1» (%2)."
 
-#: core/audex.cpp:713
+#: core/audex.cpp:711
 #, kde-format
 msgid "Please check."
 msgstr "Compruébelo."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:719
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "La carpeta temporal «%1» tiene menos de 800 MiB libres."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "La carpeta temporal «%1» necesita al menos 200 MiB de espacio libre."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:721
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Libere espacio o indique otra ruta."
 
-#: core/audex.cpp:752
+#: core/audex.cpp:750
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Expulsar CD"
 
-#: core/audex.cpp:800
+#: core/audex.cpp:798
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Carátula «%1» guardada con éxito."
 
-#: core/audex.cpp:803
+#: core/audex.cpp:801
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "No se ha podido crear la carátula «%1»."
 
-#: core/audex.cpp:803 core/audex.cpp:877 core/audex.cpp:916 core/audex.cpp:963
-#: core/audex.cpp:1000 core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
+#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Compruebe su ruta y sus permisos"
 
-#: core/audex.cpp:873
+#: core/audex.cpp:871
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Lista de reproducción «%1» creada con éxito."
 
-#: core/audex.cpp:877
+#: core/audex.cpp:875
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "No se ha podido crear la lista de reproducción «%1»."
 
-#: core/audex.cpp:913
+#: core/audex.cpp:911
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "El archivo de información «%1» se ha creado correctamente."
 
-#: core/audex.cpp:916
+#: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "No se ha podido crear el archivo de información «%1»."
 
-#: core/audex.cpp:960
+#: core/audex.cpp:958
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Lista de hashs «%1» creada correctamente."
 
-#: core/audex.cpp:963
+#: core/audex.cpp:961
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "No se ha podido guardar la carpeta «%1»."
 
-#: core/audex.cpp:997
+#: core/audex.cpp:995
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Hoja de datos de pistas «%1» creada con éxito."
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:998
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "No se ha podido guardar la hoja de datos de pistas «%1»."
 
-#: core/audex.cpp:1047 core/audex.cpp:1074
+#: core/audex.cpp:1045 core/audex.cpp:1072
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "No se ha podido abrir la carpeta «%1»."
@@ -1321,10 +1321,9 @@ msgstr ""
 "Cree un informe de fallo y contacte con el administrador del servidor CDDB."
 
 #: models/cddamodel.cpp:903
-#, fuzzy, kde-format
-#| msgid "Unable to create KCDDB object."
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "No se puede crear el objeto KCDDB."
+msgstr "No se puede crear el objeto CDIO."
 
 #: models/cddamodel.cpp:983
 #, kde-format
@@ -1476,10 +1475,7 @@ msgid "The hashlist file format is unknown."
 msgstr "El formato del archivo de lista de hashs es desconocido."
 
 #: models/profilemodel.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5, SHA-256."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
@@ -1565,7 +1561,7 @@ msgstr "Esto es un error interno. Informe del mismo."
 msgid "Copy"
 msgstr "Copiar"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:25
+#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Error interno del dispositivo."
@@ -1585,63 +1581,88 @@ msgid ""
 "Could not get device hardware information (vendor, model and firmware "
 "revision)."
 msgstr ""
+"No se ha podido obtener información sobre el dispositivo (fabricante, modelo "
+"y revisión del firmware)."
 
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
 msgstr "Disco de audio"
 
-#: utils/cddaextractthread.cpp:25
+#: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "Compruebe su dispositivo y elabore un informe de fallo."
 
-#: utils/cddaextractthread.cpp:77
+#: utils/cddaextractthread.cpp:65
+#, kde-format
+msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
 msgstr "Extracción terminada."
 
-#: utils/cddaextractthread.cpp:101
+#: utils/cddaextractthread.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Correction sample offset: %1"
+msgstr "Desplazamiento de la muestra:"
+
+#: utils/cddaextractthread.cpp:113
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Convirtiendo pista %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping whole CD as single track."
-msgstr "Extraer todo el CD como una única pista."
-
-#: utils/cddaextractthread.cpp:105
+#: utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Empezar a leer la pista %1 con %2 sectores"
 
-#: utils/cddaextractthread.cpp:140
+#: utils/cddaextractthread.cpp:116
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track."
+msgid "Ripping whole CD as single track (%1:%2)."
+msgstr "Extraer todo el CD como una única pista."
+
+#: utils/cddaextractthread.cpp:117
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "Empezar a leer la pista %1 con %2 sectores"
+
+#: utils/cddaextractthread.cpp:120
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:175
 #, kde-format
 msgid "User canceled extracting."
 msgstr "El usuario canceló la extracción."
 
-#: utils/cddaextractthread.cpp:143
+#: utils/cddaextractthread.cpp:178
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Ha ocurrido un error durante la extracción de la pista %1."
 
-#: utils/cddaextractthread.cpp:147
+#: utils/cddaextractthread.cpp:182
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Extracción correcta (Pista %1)."
 
-#: utils/cddaextractthread.cpp:149
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK."
 msgstr "Extracción correcta."
 
-#: utils/cddaextractthread.cpp:154
+#: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Reading finished"
 msgstr "Lectura terminada"
 
-#: utils/cddaextractthread.cpp:196
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1650,7 +1671,7 @@ msgstr ""
 "Oscilación de borde corregida (sector absoluto %1, sector relativo %2, "
 "posición en el tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:201
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1659,7 +1680,7 @@ msgstr ""
 "Oscilación atómica corregida (sector absoluto %1, sector relativo %2, "
 "posición en el tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:208
+#: utils/cddaextractthread.cpp:258
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1668,7 +1689,7 @@ msgstr ""
 "Detectado arañazo (sector absoluto %1, sector relativo %2, posición en el "
 "tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:211
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1677,14 +1698,14 @@ msgstr ""
 "DETECTADO ARAÑAZO (sector absoluto %1, sector relativo %2, posición en el "
 "tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:265
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Reparar (sector absoluto %1, sector relativo %2, posición en el tiempo de la "
 "pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:220
+#: utils/cddaextractthread.cpp:270
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1692,28 +1713,28 @@ msgstr ""
 "Saltar sectores (sector absoluto %1, sector relativo %2, posición en el "
 "tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:271
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "SALTAR (sector absoluto %1, sector relativo %2, posición en el tiempo de la "
 "pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:225
+#: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Deriva (sector absoluto %1, sector relativo %2, posición en el tiempo de la "
 "pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:229
+#: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Retroceso (sector absoluto %1, sector relativo %2, posición en el tiempo de "
 "la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:289
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1721,7 +1742,7 @@ msgstr ""
 "Corregido descartado (sector absoluto %1, sector relativo %2, posición en el "
 "tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:293
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1729,7 +1750,7 @@ msgstr ""
 "Corregido duplicado (sector absoluto %1, sector relativo %2, posición en el "
 "tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:299
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1738,7 +1759,7 @@ msgstr ""
 "Detectado error de lectura (sector absoluto %1, sector relativo %2, posición "
 "en el tiempo de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1907,26 +1928,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "No se ha podido crear el archivo temporal de carátula: %1"
 
 #: utils/schemeparser.h:151
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -1944,25 +1946,22 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Los esquemas de nombres de archivos sin una ruta absoluta serán relativos "
-"a los archivos de música extraídos.</p><p>Las siguiente variables se "
-"sustituirán por su significado particular en cada nombre de pista.</"
-"p><p><table border=\"1\"><tr><th><em>Variable</em></th><th><em>Descripción</"
-"em></th></tr><tr><td>$artist</td><td>El artista del CD. Si se trata de un CD "
-"recopilatorio, esta etiqueta representa el título en la mayor parte de los "
-"casos.</td></tr><tr><td>$title</td><td>El título del CD. Si se trata de un "
-"CD recopilatorio, esta etiqueta representa el subtítulo del CD en la mayoría "
-"de los casos.</td></tr><tr><td>$date</td><td>La fecha de lanzamiento del CD. "
-"En casi todos los casos se refiere al año.</td></tr><tr><td>$genre</"
-"td><td>El género del CD.</td></tr><tr><td>$cdno</td><td>El número de CD de "
-"un álbum que consta de varios CD. Muchas recopilaciones consisten en varios "
-"CD. <i>Nota:</i> Si <b>no</b> se ha activado el indicador de múltiples CD, "
-"este valor estará vacío.</td></tr><tr><td>$suffix</td><td>La extensión del "
-"nombre de archivo (por ejemplo, «.jpg», «.m3u», «.md5», etc.).</td></"
-"tr><tr><td>$nooftracks</td><td>El número total de pistas de audio del CD.</"
-"td></tr><tr><td>$encoder</td><td>El nombre y la versión del codificador.</"
-"td></tr><tr><td>$audex</td><td>Nombre y versión de Audex.</td></tr></table></"
-"p>"
+"<p>Los siguientes marcadores de posición se sustituirán con su significado "
+"particular:</p><table><tr><th>Parámetro de sustitución</th><th>Descripción</"
+"th></tr><tr><td><tt>$artist</tt></td><td>El artista del CD. Si el CD es una "
+"compilación, esta etiqueta representa el título en la mayoría de los casos.</"
+"td></tr><tr><td><tt>$title</tt></td><td>El título del CD. Si el CD es una "
+"compilación, esta etiqueta representa el subtítulo en la mayoría de los "
+"casos.</td></tr><tr><td><tt>$date</tt></td><td>La fecha de lanzamiento del "
+"CD. En casi todos los casos es el año.</td></tr><tr><td><tt>$genre</tt></"
+"td><td>El género del CD.</td></tr><tr><td><tt>$cdno</tt></td><td>El número "
+"de CD de un álbum compuesto por varios CD. A menudo, las compilaciones "
+"constan de varios CD. <i>Nota:</i> Si el indicador de CD múltiple <b>no</b> "
+"está configurado para el CD actual, este valor estará vacío.</td></"
+"tr><tr><td> <tt>$nooftracks</tt></td><td>El número total de pistas de audio "
+"del CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Nombre y versión del "
+"codificador.</td></tr><tr><td><tt>$audex</tt></td><td>Nombre y versión de "
+"Audex.</td></tr></table>"
 
 #: utils/schemeparser.h:168
 #, kde-format
@@ -1994,6 +1993,35 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Los marcadores de posición de Audex pueden tener parámetros con el "
+"formato clave=valor. Por ejemplo: <tt>${title lowercase=true}</tt>. En este "
+"ejemplo, el título estará en minúsculas. Los siguientes parámetros generales "
+"se pueden usar en los marcadores de posición:</p><table><tr><th>Clave</"
+"th><th>Valor</th><th>Descripción</th></tr><tr><td><tt>lowercase</tt></"
+"td><td>true/false</td><td>El valor del marcador de posición se pondrá en "
+"minúsculas.</td></tr><tr><td><tt>uppercase</tt></td><td>true/false</"
+"td><td>El valor del marcador de posición estará en mayúsculas.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Sustituir los "
+"espacios del valor del marcador de posición con caracteres de subrayado.</"
+"td></tr><tr><td><tt>fat32compatible</tt></td><td>true/false</"
+"td><td>Sustituir caracteres de nombre de archivo ilegales de un sistema de "
+"archivos FAT32 con caracteres de subrayado.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Sustituir "
+"caracteres. Este parámetro necesita dos claves adicionales del mismo tamaño "
+"de valor: <tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. "
+"Estas son listas de caracteres. El primer carácter de "
+"<tt>replace_char_list_from</tt> se sustituirá con el primer carácter de "
+"<tt>replace_char_list_to</tt>, y así sucesivamente.</td></"
+"tr><tr><td><tt>left</tt></td><td>Número</td><td>Toma N caracteres desde la "
+"izquierda del valor del marcador de posición.</td></tr><tr><td><tt>length</"
+"tt></td><td>Número</td><td>Si el valor del marcador de posición es un "
+"número, se expande a la longitud indicada. Además, se puede definir un "
+"carácter de relleno con la clave adicional <tt>fillchar</tt>. El carácter de "
+"relleno predeterminado es «0».</td></tr><tr><td><tt>pre</tt></td><td>Cadena</"
+"td><td>Una cadena que se colocará <b>antes</b> del valor. Especialmente útil "
+"para parámetros de la línea de órdenes que no se deben definir si el valor "
+"está vacío.</td></tr><tr><td><tt>post</tt></td><td>Cadena</td><td>Una cadena "
+"que se colocará <b>después</b> del valor.</td></tr></table>"
 
 #: utils/schemeparser.h:189
 #, kde-format
@@ -2005,6 +2033,12 @@ msgid ""
 "tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Marcador de posición</th><th>Descripción</th></tr><tr><td>"
+"$tartist</td><td>Este es el artista de cada pista. Es especialmente útil en "
+"CD recopilatorios.</td></tr><tr><td>$ttitle</td><td>El título de la pista. "
+"Normalmente, cada pista de un CD tiene su propio título, que es el nombre de "
+"la canción.</td></tr><tr><td>$trackno</td><td>El número de pista. La primera "
+"pista es 1.</td></tr></table>"
 
 #: utils/schemeparser.h:199
 #, kde-format
@@ -2021,6 +2055,19 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Marcador de posición</th><th>Parámetro específico</"
+"th><th>Descripción</th></tr><tr><td><tt>$i</tt></td><td></td><td>El archivo  "
+"WAVE temporal (RIFF WAVE) creado por Audex a partir de una pista de audio de "
+"CD. Este es el archivo de entrada para el codificador de la línea de órdenes."
+"</td></tr><tr><td><tt>$o</tt></td><td></td><td>El nombre completo y la ruta "
+"del archivo de salida. Úselo como salida para el codificador de la línea de "
+"órdenes.</td></tr><tr><td><tt>$cover</tt></td><td><tt>formato,x,y</tt></"
+"td><td>Nombre del archivo de la carátula. Si no se define ninguna carátula, "
+"estará vacía. Resulta útil junto con el parámetro <tt>pre</tt>. La imagen se "
+"puede escalar con los parámetros <tt>x</tt> e <tt>y</tt>. Los <tt>formatos</"
+"tt> de imagen posibles son JPEG, PNG, GIF o BMP (predeterminado: JPEG). "
+"<i><b>Nota:</b> LAME descarta archivos de carátula de más de 128 KiB.</i></"
+"td></tr></table>"
 
 #: utils/schemeparser.h:213
 #, kde-format
@@ -2046,6 +2093,28 @@ msgid ""
 "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
 "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgstr ""
+"<table><tr><th>Marcador de posición</th><th>Parámetro específico</"
+"th><th>Descripción</th></tr><tr><td>$size</td><td><tt>iec,precisión</tt></"
+"td><td>Muestra el tamaño total de todos los archivos de música extraídos "
+"(codificados), incluido el archivo de imagen de la carátula. Con <tt>iec</"
+"tt> calcula (k)ibi, (m)ebi o (g)ibi. El parámetro adicional <tt>precisión</"
+"tt> puede definir el número de decimales.</td></tr><tr><td>$length</td><td></"
+"td><td>Muestra la longitud total relevante de todas las pistas extraídas. El "
+"formato es min:seg.</td></tr><tr><td>$nooftracks</td><td></td><td>Muestra el "
+"número total de pistas extraídas.</td></tr><tr><td>$discid</td><td>base</"
+"td><td>Muestra el identificador CDDB del disco en formato hexadecimal.</td></"
+"tr><tr><td>$now</td><td><tt>formato,locale</tt></td><td>Muestra la fecha y "
+"la hora actual. El formato del parámetro especifica la salida. Consulte la "
+"documentación oficial de Qt (<tt>https://doc.qt.io/qt-5/qtime.html#toString</"
+"tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) para los "
+"especificadores admitidos dentro de la cadena de formato. Con la clave "
+"adicional <tt>locale</tt> puede especificar una configuración de idioma. De "
+"forma predeterminada, se usan las configuraciones regionales del sistema. La "
+"configuración regional tiene el formato <tt>idioma_TERRITORIO</tt> (por "
+"ejemplo, <tt>es_ES</tt>). El <tt>idioma</tt> es un código de idioma ISO 639 "
+"de dos letras en minúscula y el <tt>TERRITORIO</tt> es un código de "
+"territorial ISO 3166 de dos letras en mayúscula.</td></tr><tr><td>$br</"
+"td><td></td><td>Muestra un salto de línea.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2109,10 +2178,9 @@ msgstr "Esquema de orden:"
 #: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
 #: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
 #: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "No audio CD detected"
+#, kde-format
 msgid "(No disc detected)"
-msgstr "No se ha detectado ningún disco de audio"
+msgstr "(No se ha detectado ningún disco)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
@@ -2128,28 +2196,27 @@ msgstr "Desplazamiento de la muestra:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:80
-#, fuzzy, kde-format
-#| msgid "Disc information not found"
+#, kde-format
 msgid "Device information"
-msgstr "Información del disco no encontrada"
+msgstr "Información del dispositivo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:98
 #, kde-format
 msgid "Model:"
-msgstr ""
+msgstr "Modelo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/devicewidgetUI.ui:153
 #, kde-format
 msgid "Vendor:"
-msgstr ""
+msgstr "Fabricante:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:169
 #, kde-format
 msgid "Revision:"
-msgstr ""
+msgstr "Revisión:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
