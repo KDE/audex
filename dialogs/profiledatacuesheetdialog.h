@@ -22,10 +22,11 @@ class ProfileDataCueSheetDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ProfileDataCueSheetDialog(const QString &scheme, QWidget *parent = nullptr);
+    explicit ProfileDataCueSheetDialog(const QString &scheme, const bool writeMCNAndISRC, QWidget *parent = nullptr);
     ~ProfileDataCueSheetDialog() override;
 
     QString scheme;
+    bool writeMCNAndISRC;
 
 protected Q_SLOTS:
     void scheme_wizard();

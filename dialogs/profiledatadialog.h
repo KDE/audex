@@ -114,6 +114,7 @@ private:
     QString pdhd_scheme;
 
     QString pdud_scheme;
+    bool pdud_write_mcn_and_isrc;
 
     QString pdsd_scheme;
 
