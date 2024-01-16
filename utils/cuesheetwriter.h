@@ -22,7 +22,7 @@ class CueSheetWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit CueSheetWriter(CDDAModel *model, const int sampleOffset = 0);
+    explicit CueSheetWriter(CDDAModel *model);
     ~CueSheetWriter() override;
 
     QStringList cueSheet(const QString &binFilename, const int frameOffset = 0) const;
@@ -30,8 +30,6 @@ public:
 
 private:
     CDDAModel *model;
-
-    int sample_offset;
 
     QString p_filetype(const QString &filename) const;
 };

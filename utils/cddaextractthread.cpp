@@ -115,6 +115,8 @@ void CDDAExtractThread::run()
     } else {
         Q_EMIT info(i18n("Ripping whole CD as single track (%1:%2).", min, sec));
         extract_protocol.append(i18n("Start reading whole disc with %1 sectors", sectors_all));
+        extract_protocol.append(
+            i18n("Track %1 with start sector %2", p_cdio->firstTrackNum(), p_cdio->firstSectorOfTrack(p_cdio->firstTrackNum()) + sector_offset));
     }
 
     extract_protocol.append(i18n("First sector: %1, Last sector: %2", first_sector, last_sector));
