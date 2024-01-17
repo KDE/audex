@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 03:12+0000\n"
+"POT-Creation-Date: 2024-01-17 03:11+0000\n"
 "PO-Revision-Date: 2024-01-13 06:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -142,7 +142,7 @@ msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
 msgid "Can't find path \"%1\"."
 msgstr "找不到路径“%1”。"
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "请检查您的路径 (写入访问权限？)"
@@ -157,17 +157,17 @@ msgstr "“%1”中的空闲空间少于 200 MiB。"
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "警告！文件“%1”已经存在。覆盖。"
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "警告！文件“%1”已经存在。跳过。"
 
-#: core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "无法创建文件夹 \"%1\"."
 
-#: core/audex.cpp:678 core/audex.cpp:1080
+#: core/audex.cpp:678 core/audex.cpp:1084
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "文件夹 \"%1\" 已成功创建。"
@@ -223,7 +223,7 @@ msgid "Unable to save cover \"%1\"."
 msgstr "无法保存封面 “%1”。"
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "请检查您的路径和权限"
@@ -258,17 +258,17 @@ msgstr "哈希列表“%1”创建成功。"
 msgid "Unable to save hashlist \"%1\"."
 msgstr "无法保存哈希列表“%1”。"
 
-#: core/audex.cpp:995
+#: core/audex.cpp:999
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "CUE 文件“%1”成功创建。"
 
-#: core/audex.cpp:998
+#: core/audex.cpp:1002
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "无法保存 CUE 文件“%1”。"
 
-#: core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "无法打开文件夹“%1”。"
@@ -716,13 +716,13 @@ msgstr "格式："
 msgid "Cover scheme:"
 msgstr ""
 
-#: dialogs/profiledatacuesheetdialog.cpp:20
+#: dialogs/profiledatacuesheetdialog.cpp:21
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "CUE 文件设置"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatacuesheetwidgetUI.ui:29
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
@@ -730,17 +730,23 @@ msgstr "CUE 文件设置"
 msgid "Name/Scheme:"
 msgstr ""
 
-#: dialogs/profiledatadialog.cpp:95
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid "Write MCN and ISRC values (if available)"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:96
 #, kde-format
 msgid "Modify Profile"
 msgstr "修改配置文件"
 
-#: dialogs/profiledatadialog.cpp:187
+#: dialogs/profiledatadialog.cpp:189
 #, kde-format
 msgid "Create Profile"
 msgstr "创建配置文件"
 
-#: dialogs/profiledatadialog.cpp:197
+#: dialogs/profiledatadialog.cpp:199
 #, kde-format
 msgid "New Profile"
 msgstr "新建配置方案"
@@ -1332,188 +1338,188 @@ msgstr "名称"
 msgid "Length"
 msgstr "长度"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "配置文件名称不能为空。"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "未设置配置文件名，请设置一个。"
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "配置文件编码器未定义。"
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "未为配置文件设置编码器，请设置一个。"
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:182
 #, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr ""
 
-#: models/profilemodel.cpp:181
+#: models/profilemodel.cpp:183
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
 
-#: models/profilemodel.cpp:202
+#: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "图像文件格式未知。"
 
-#: models/profilemodel.cpp:203
+#: models/profilemodel.cpp:205
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "封面名称不得为空。"
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "未设置封面名，请设置一个。"
 
-#: models/profilemodel.cpp:219
+#: models/profilemodel.cpp:221
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "播放列表文件格式未知。"
 
-#: models/profilemodel.cpp:220
+#: models/profilemodel.cpp:222
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr "您给定的播放列表文件格式未知。请选择下列格式之一：M3U、PLS 或 XSPF。"
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "播放列表文件名不能为空。"
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "未指定播放列表名称，请设置一个。"
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:244
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "信息文本名称不能为空。"
 
-#: models/profilemodel.cpp:243
+#: models/profilemodel.cpp:245
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "未指定信息文本的文件名，请设置一个。"
 
-#: models/profilemodel.cpp:252
+#: models/profilemodel.cpp:254
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "信息文本文件名后缀不能为空。"
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:255
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "未指定信息文本文件名的后缀，请设置一个。"
 
-#: models/profilemodel.cpp:263
+#: models/profilemodel.cpp:265
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "哈希列表的文件格式未知。"
 
-#: models/profilemodel.cpp:264
+#: models/profilemodel.cpp:266
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "哈希列表名称不能为空。"
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "未指定哈希列表的名称，请设置一个。"
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "CUE 文件名不能为空。"
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "未指定 CUE 文件的名称，请设置一个。"
 
-#: models/profilemodel.cpp:292
+#: models/profilemodel.cpp:296
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "文件名名称不能为空。"
 
-#: models/profilemodel.cpp:293
+#: models/profilemodel.cpp:297
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "未指定单个音频文件的文件名，请设置一个。"
 
-#: models/profilemodel.cpp:329
+#: models/profilemodel.cpp:333
 #, kde-format
 msgid "Profile name already exists."
 msgstr "该配置名已存在。"
 
-#: models/profilemodel.cpp:330
+#: models/profilemodel.cpp:334
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr "您的配置文件名 %1 已经存在于配置文件中。请选择一个唯一的名称。"
 
-#: models/profilemodel.cpp:349
+#: models/profilemodel.cpp:353
 #, kde-format
 msgid "Profile index already exists."
 msgstr "配置文件索引已存在。"
 
-#: models/profilemodel.cpp:350
+#: models/profilemodel.cpp:354
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr "您的配置文件索引 %1 已经存在于配置文件中。请选择一个唯一的索引。"
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "未知错误。在配置文件模型中找不到索引。"
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "这是一个内部错误。请报告。"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "复制"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "内部设备错误。"
 
-#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
@@ -1521,7 +1527,7 @@ msgid ""
 msgstr ""
 "检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
 
-#: utils/cddacdio.cpp:80
+#: utils/cddacdio.cpp:89
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1576,110 +1582,115 @@ msgstr "将整个 CD 抓取为单个曲目。"
 msgid "Start reading whole disc with %1 sectors"
 msgstr "开始读取音轨 %1 的 %2 个扇区"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:119
+#, kde-format
+msgid "Track %1 with start sector %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:122
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
 msgstr "用户取消了提取"
 
-#: utils/cddaextractthread.cpp:178
+#: utils/cddaextractthread.cpp:180
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "抓取音轨 %1 时出错。"
 
-#: utils/cddaextractthread.cpp:182
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "抓取 OK (音轨 %1)。"
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:186
 #, kde-format
 msgid "Ripping OK."
 msgstr "抓取成功。"
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
 msgstr "读取完成"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:248
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "已修复边缘扰动 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "已修复原子扰动 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:260
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "检测到刮花 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:263
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "检测到刮花！ (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:267
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "修复 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:270
+#: utils/cddaextractthread.cpp:272
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "跳过扇区 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:271
+#: utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "跳过！(绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:275
+#: utils/cddaextractthread.cpp:277
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "漂移 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:279
+#: utils/cddaextractthread.cpp:281
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "退避 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:289
+#: utils/cddaextractthread.cpp:291
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "修复已丢弃 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:293
+#: utils/cddaextractthread.cpp:295
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "修复已复制 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:299
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr "检测到读取错误 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:303
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

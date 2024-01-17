@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 03:12+0000\n"
+"POT-Creation-Date: 2024-01-17 03:11+0000\n"
 "PO-Revision-Date: 2023-07-18 13:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -143,7 +143,7 @@ msgstr "프로필 \"%1\"을(를) 사용하여 추출과 인코딩을 시작합�
 msgid "Can't find path \"%1\"."
 msgstr "경로 \"%1\"을(를) 찾을 수 없습니다."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "경로를 확인하십시오(쓰기 권한이 있습니까?)"
@@ -158,17 +158,17 @@ msgstr "\"%1\"의 남은 공간이 200 MiB 이하입니다."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "경고! 파일 \"%1\"이(가) 이미 존재합니다. 덮어씁니다."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "경고! 파일 \"%1\"이(가) 이미 존재합니다. 건너뜁니다."
 
-#: core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "폴더 \"%1\"을(를) 만들 수 없습니다."
 
-#: core/audex.cpp:678 core/audex.cpp:1080
+#: core/audex.cpp:678 core/audex.cpp:1084
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "폴더 \"%1\"을(를) 생성했습니다."
@@ -225,7 +225,7 @@ msgid "Unable to save cover \"%1\"."
 msgstr "앨범 커버 \"%1\"을(를) 저장할 수 없습니다."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "경로와 권한을 확인하십시오"
@@ -260,17 +260,17 @@ msgstr "해시 목록 \"%1\"을(를) 생성했습니다."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "해시 목록 \"%1\"을(를) 저장할 수 없습니다."
 
-#: core/audex.cpp:995
+#: core/audex.cpp:999
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "CUE 시트 \"%1\"을(를) 생성했습니다."
 
-#: core/audex.cpp:998
+#: core/audex.cpp:1002
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "CUE 시트 \"%1\"을(를) 저장할 수 없습니다."
 
-#: core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "폴더 \"%1\"을(를) 열 수 없습니다."
@@ -730,13 +730,13 @@ msgstr "형식:"
 msgid "Cover scheme:"
 msgstr "구성 정보"
 
-#: dialogs/profiledatacuesheetdialog.cpp:20
+#: dialogs/profiledatacuesheetdialog.cpp:21
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "CUE 시트 설정"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatacuesheetwidgetUI.ui:29
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
@@ -744,17 +744,23 @@ msgstr "CUE 시트 설정"
 msgid "Name/Scheme:"
 msgstr ""
 
-#: dialogs/profiledatadialog.cpp:95
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid "Write MCN and ISRC values (if available)"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:96
 #, kde-format
 msgid "Modify Profile"
 msgstr "프로필 수정"
 
-#: dialogs/profiledatadialog.cpp:187
+#: dialogs/profiledatadialog.cpp:189
 #, kde-format
 msgid "Create Profile"
 msgstr "프로필 만들기"
 
-#: dialogs/profiledatadialog.cpp:197
+#: dialogs/profiledatadialog.cpp:199
 #, kde-format
 msgid "New Profile"
 msgstr "새 프로필"
@@ -1370,45 +1376,45 @@ msgstr "제목"
 msgid "Length"
 msgstr "길이"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "프로필 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "프로필의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "프로필 인코더가 정의되지 않았습니다."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "프로필의 인코더를 지정하지 않았습니다. 인코더를 설정하십시오."
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:182
 #, fuzzy, kde-format
 #| msgid "Profile filename pattern is not defined."
 msgid "Profile filename scheme is not defined."
 msgstr "프로필 파일 이름 패턴이 정의되지 않았습니다."
 
-#: models/profilemodel.cpp:181
+#: models/profilemodel.cpp:183
 #, fuzzy, kde-format
 #| msgid "You have given no filename pattern for the profile. Please set one."
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
 "프로필의 파일 이름 패턴을 지정하지 않았습니다. 파일 이름 패턴을 설정하십시오."
 
-#: models/profilemodel.cpp:202
+#: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "그림 파일 형식을 알 수 없습니다."
 
-#: models/profilemodel.cpp:203
+#: models/profilemodel.cpp:205
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given image file format is unknown. Please choose on of these "
@@ -1420,22 +1426,22 @@ msgstr ""
 "그림 목록 파일 형식을 알 수 없습니다. 다음 중 하나를 지정하십시오: JPG/JPEG, "
 "PNG, BMP."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "앨범 커버 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "앨범 커버의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:219
+#: models/profilemodel.cpp:221
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "재생 목록 파일 형식을 알 수 없습니다."
 
-#: models/profilemodel.cpp:220
+#: models/profilemodel.cpp:222
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1444,43 +1450,43 @@ msgstr ""
 "재생목록 파일 형식을 알 수 없습니다. 다음 중 하나를 지정하십시오: M3U, PLS, "
 "XSPF."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "재생 목록 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "재생 목록의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:244
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "정보 텍스트 파일 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:243
+#: models/profilemodel.cpp:245
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "정보 텍스트 파일의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:252
+#: models/profilemodel.cpp:254
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "정보 텍스트 파일 확장자가 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:255
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
 "정보 텍스트 파일의 확장자를 지정하지 않았습니다. 확장자를 설정하십시오."
 
-#: models/profilemodel.cpp:263
+#: models/profilemodel.cpp:265
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "해시 목록 파일 형식을 알 수 없습니다."
 
-#: models/profilemodel.cpp:264
+#: models/profilemodel.cpp:266
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
@@ -1491,82 +1497,82 @@ msgid ""
 msgstr ""
 "해시 목록 파일 형식을 알 수 없습니다. 다음 중 하나를 지정하십시오: SFV, MD5."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "해시 목록 파일 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "해시 목록의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "CUE 시트 파일 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "CUE 시트의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:292
+#: models/profilemodel.cpp:296
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "파일 이름이 비어 있으면 안 됩니다."
 
-#: models/profilemodel.cpp:293
+#: models/profilemodel.cpp:297
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "단일 오디오 파일의 이름을 지정하지 않았습니다. 이름을 설정하십시오."
 
-#: models/profilemodel.cpp:329
+#: models/profilemodel.cpp:333
 #, kde-format
 msgid "Profile name already exists."
 msgstr "프로필 이름이 이미 존재합니다."
 
-#: models/profilemodel.cpp:330
+#: models/profilemodel.cpp:334
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr "프로필 이름 %1이(가) 프로필 목록에 있습니다. 다른 이름을 사용하십시오."
 
-#: models/profilemodel.cpp:349
+#: models/profilemodel.cpp:353
 #, kde-format
 msgid "Profile index already exists."
 msgstr "프로필 색인이 이미 존재합니다."
 
-#: models/profilemodel.cpp:350
+#: models/profilemodel.cpp:354
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr "프로필 색인 %1이(가) 프로필 목록에 있습니다. 다른 색인을 사용하십시오."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "알 수 없는 오류입니다. 프로필 모델에서 색인을 찾을 수 없습니다."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "내부 오류입니다. 보고해 주십시오."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "복사"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "내부 장치 오류입니다."
 
-#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
@@ -1575,7 +1581,7 @@ msgstr ""
 "장치를 확인하십시오. \"%1\"이(가) 맞습니까? 그렇다면 \"%1\" 접근 권한을 확인"
 "하십시오."
 
-#: utils/cddacdio.cpp:80
+#: utils/cddacdio.cpp:89
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1630,110 +1636,115 @@ msgstr "전체 CD를 단일 트랙으로 추출합니다."
 msgid "Start reading whole disc with %1 sectors"
 msgstr "트랙 %1(섹터 %2개) 읽기 시작"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:119
+#, kde-format
+msgid "Track %1 with start sector %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:122
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
 msgstr "사용자가 추출을 취소했습니다."
 
-#: utils/cddaextractthread.cpp:178
+#: utils/cddaextractthread.cpp:180
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "트랙 %1을(를) 추출하는 중 오류가 발생했습니다."
 
-#: utils/cddaextractthread.cpp:182
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "추출에 성공했습니다(트랙 %1)."
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:186
 #, kde-format
 msgid "Ripping OK."
 msgstr "추출에 성공했습니다."
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
 msgstr "읽기 완료됨"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:248
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "에지 지터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "아톰 지터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:260
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "흠집 감지됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:263
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr "흠집 감지됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:267
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "복구됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:270
+#: utils/cddaextractthread.cpp:272
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "섹터 건너뜀(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:271
+#: utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "건너뜀(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:275
+#: utils/cddaextractthread.cpp:277
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "드리프트(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:279
+#: utils/cddaextractthread.cpp:281
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "백오프(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:289
+#: utils/cddaextractthread.cpp:291
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "빠진 데이터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:293
+#: utils/cddaextractthread.cpp:295
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr "중복 데이터 교정됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:299
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr "읽기 오류 감지됨(절대 섹터 %1, 상대 섹터 %2, 트랙 시간 위치 %3:%4)"
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:303
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

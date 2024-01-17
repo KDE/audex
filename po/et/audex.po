@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 03:12+0000\n"
+"POT-Creation-Date: 2024-01-17 03:11+0000\n"
 "PO-Revision-Date: 2020-01-23 20:01+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -144,7 +144,7 @@ msgstr "Rippimise ja kodeerimise alustamine profiiliga \"%1\"..."
 msgid "Can't find path \"%1\"."
 msgstr "Asukohta \"%1\" ei leitud."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Palun kontrolli asukohta (kirjutamisõigus puudub?)"
@@ -159,17 +159,17 @@ msgstr "\"%1\" sisaldab vaba ruumi alla 200 MiB."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Hoiatus! Fail \"%1\" on juba olemas. See kirjutatakse üle."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Hoiatus! Fail \"%1\" on juba olemas. Jäetakse vahele."
 
-#: core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Kataloogi \"%1\" loomine nurjus."
 
-#: core/audex.cpp:678 core/audex.cpp:1080
+#: core/audex.cpp:678 core/audex.cpp:1084
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Kataloog \"%1\" loodi edukalt."
@@ -226,7 +226,7 @@ msgid "Unable to save cover \"%1\"."
 msgstr "Kaanepildi \"%1\" salvestamine nurjus."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Palun kontrolli oma asukohta ja õigusi."
@@ -261,17 +261,17 @@ msgstr "Räsiloend \"%1\" on edukalt loodud."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Räsiloendi \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:995
+#: core/audex.cpp:999
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Asukohatabel \"%1\" on edukalt loodud."
 
-#: core/audex.cpp:998
+#: core/audex.cpp:1002
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Asukohatabeli \"%1\" salvestamine nurjus."
 
-#: core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Kataloogi \"%1\" avamine nurjus."
@@ -739,13 +739,13 @@ msgstr "Vorming:"
 msgid "Cover scheme:"
 msgstr "Täpsemalt skeemidest"
 
-#: dialogs/profiledatacuesheetdialog.cpp:20
+#: dialogs/profiledatacuesheetdialog.cpp:21
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Asukohatabeli seadistused"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatacuesheetwidgetUI.ui:29
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
@@ -753,17 +753,23 @@ msgstr "Asukohatabeli seadistused"
 msgid "Name/Scheme:"
 msgstr ""
 
-#: dialogs/profiledatadialog.cpp:95
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid "Write MCN and ISRC values (if available)"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:96
 #, kde-format
 msgid "Modify Profile"
 msgstr "Profiili muutmine"
 
-#: dialogs/profiledatadialog.cpp:187
+#: dialogs/profiledatadialog.cpp:189
 #, kde-format
 msgid "Create Profile"
 msgstr "Profiili loomine"
 
-#: dialogs/profiledatadialog.cpp:197
+#: dialogs/profiledatadialog.cpp:199
 #, kde-format
 msgid "New Profile"
 msgstr "Uus profiil"
@@ -1378,44 +1384,44 @@ msgstr "Pealkiri"
 msgid "Length"
 msgstr "Pikkus"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Profiilil peab olema nimi."
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "Sa ei ole profiilile nime andnud. Palun tee seda."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Profiili kooder ei ole määratud."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Sa ei ole profiilile kooderit määranud. Palun tee seda."
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:182
 #, fuzzy, kde-format
 #| msgid "Profile filename pattern is not defined."
 msgid "Profile filename scheme is not defined."
 msgstr "Profiili failinime muster pole määratud."
 
-#: models/profilemodel.cpp:181
+#: models/profilemodel.cpp:183
 #, fuzzy, kde-format
 #| msgid "You have given no filename pattern for the profile. Please set one."
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Sa ei ole profiilile määranud failinime mustrit. Palun tee seda."
 
-#: models/profilemodel.cpp:202
+#: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Pildifaili vorming on tundmatu."
 
-#: models/profilemodel.cpp:203
+#: models/profilemodel.cpp:205
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given image file format is unknown. Please choose on of these "
@@ -1427,22 +1433,22 @@ msgstr ""
 "Määratud pildifaili vorming on tundmatu. Palun vali üks järgmistest "
 "vormingutest: JPG/JPEG, PNG või BMP."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Kaanepildil peab nimi olema."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "Sa ei ole kaanepildile nime andnud Palun tee seda."
 
-#: models/profilemodel.cpp:219
+#: models/profilemodel.cpp:221
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Esitusnimekirjafaili vorming on tundmatu."
 
-#: models/profilemodel.cpp:220
+#: models/profilemodel.cpp:222
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1451,42 +1457,42 @@ msgstr ""
 "Määratud esitusnimekirjafaili vorming on tundmatu. Palun vali üks "
 "järgmistest vormingutest: M3U, PLS või XSPF."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Esitusnimekirjal peab nimi olema."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Sa ei ole esitusnimekirjale nime andnud Palun tee seda."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:244
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Teabetekstil peab nimi olema."
 
-#: models/profilemodel.cpp:243
+#: models/profilemodel.cpp:245
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Sa ei ole teabetekstifailile nime andnud Palun tee seda."
 
-#: models/profilemodel.cpp:252
+#: models/profilemodel.cpp:254
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Teabetekstifailil peab järelliide olema."
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:255
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "Sa ei ole teabetekstifailile järelliidet määranud Palun tee seda."
 
-#: models/profilemodel.cpp:263
+#: models/profilemodel.cpp:265
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Räsiloendifaili vorming on tundmatu."
 
-#: models/profilemodel.cpp:264
+#: models/profilemodel.cpp:266
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
@@ -1498,42 +1504,42 @@ msgstr ""
 "Määratud räsiloendifaili vorming on tundmatu. Palun vali üks järgmistest "
 "vormingutest: SFV, MD5."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Räsiloendil peab nimi olema."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Sa ei ole räsiloendile nime andnud. Palun tee seda."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "Cue-failil peab nimi olema."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Asukohatabelile ei ole nime antud. Palun tee seda."
 
-#: models/profilemodel.cpp:292
+#: models/profilemodel.cpp:296
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "Failinimi peab määratud olema."
 
-#: models/profilemodel.cpp:293
+#: models/profilemodel.cpp:297
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "Sa ei ole üksikhelifailile nime andnud Palun tee seda."
 
-#: models/profilemodel.cpp:329
+#: models/profilemodel.cpp:333
 #, kde-format
 msgid "Profile name already exists."
 msgstr "Profiili nimi on juba olemas."
 
-#: models/profilemodel.cpp:330
+#: models/profilemodel.cpp:334
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
@@ -1542,12 +1548,12 @@ msgstr ""
 "Sinu profiili nimi %1 on juba profiilide seas olemas. Palun vali unikaalne "
 "nimi."
 
-#: models/profilemodel.cpp:349
+#: models/profilemodel.cpp:353
 #, kde-format
 msgid "Profile index already exists."
 msgstr "Profiili indeks on juba olemas."
 
-#: models/profilemodel.cpp:350
+#: models/profilemodel.cpp:354
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
@@ -1556,28 +1562,28 @@ msgstr ""
 "Sinu profiili indeks %1 on juba profiilide seas olemas. Palun vali unikaalne "
 "indeks."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "Tundmatu tõrge. Profiili mudelis ei leitud indeksit."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "See on sisemine tõrge. Palun anna sellest teada."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopeeri"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Sisemine seadme tõrge."
 
-#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
@@ -1586,7 +1592,7 @@ msgstr ""
 "Kontrolli seadet. Kas see on tõesti \"%1\"? Kui jah, siis kontrolli ka, "
 "millised on sinu õigused seadme \"%1\" puhul."
 
-#: utils/cddacdio.cpp:80
+#: utils/cddacdio.cpp:89
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1640,37 +1646,42 @@ msgstr "Kogu CD rippimine ühe rajana."
 msgid "Start reading whole disc with %1 sectors"
 msgstr "%2 sektoriga raja %1 lugemise alustamine"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:119
+#, kde-format
+msgid "Track %1 with start sector %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:122
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Kasutaja katkestas ekstraktimise."
 
-#: utils/cddaextractthread.cpp:178
+#: utils/cddaextractthread.cpp:180
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Raja %1 rippimisel tekkis tõrge."
 
-#: utils/cddaextractthread.cpp:182
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Rippimisega on kõik korras (rada %1)."
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:186
 #, kde-format
 msgid "Ripping OK."
 msgstr "Rippimisega on kõik korras."
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
 msgstr "Lugemine on lõpetatud"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:248
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1679,7 +1690,7 @@ msgstr ""
 "Parandati servavärin (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1688,7 +1699,7 @@ msgstr ""
 "Parandati aatomivärin (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:260
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1697,7 +1708,7 @@ msgstr ""
 "Tuvastati kriimustus (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:263
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1706,14 +1717,14 @@ msgstr ""
 "TUVASTATI KRIIMUSTUS (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:267
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Parandamine (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:270
+#: utils/cddaextractthread.cpp:272
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1721,26 +1732,26 @@ msgstr ""
 "Sektorite vahelejätmine (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:271
+#: utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "VAHELEJÄTMINE (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:275
+#: utils/cddaextractthread.cpp:277
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Triiv (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:279
+#: utils/cddaextractthread.cpp:281
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Oode (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:289
+#: utils/cddaextractthread.cpp:291
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1748,7 +1759,7 @@ msgstr ""
 "Hüljatu parandus (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:293
+#: utils/cddaextractthread.cpp:295
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1756,7 +1767,7 @@ msgstr ""
 "Topelduse parandus (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:299
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1765,7 +1776,7 @@ msgstr ""
 "Tuvastati lugemistõrge (absoluutne sektor %1, suhteline sektor %2, raja "
 "aegpositsioon %3:%4)"
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:303
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

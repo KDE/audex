@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 03:12+0000\n"
+"POT-Creation-Date: 2024-01-17 03:11+0000\n"
 "PO-Revision-Date: 2019-08-04 21:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -150,7 +150,7 @@ msgstr "Начало копирования и кодирования, испо�
 msgid "Can't find path \"%1\"."
 msgstr "Невозможно найти путь «%1»."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Проверьте введенный путь или права доступа"
@@ -165,17 +165,17 @@ msgstr "Свободное место на «%1» менее 200 Мб."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Внимание! Файл «%1» уже существует. Перезаписываю."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Внимание! Файл «%1» уже существует. Пропущено."
 
-#: core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Невозможно создать папку «%1»."
 
-#: core/audex.cpp:678 core/audex.cpp:1080
+#: core/audex.cpp:678 core/audex.cpp:1084
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Папка «%1» успешно создана."
@@ -238,7 +238,7 @@ msgid "Unable to save cover \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your path and permissions"
@@ -280,19 +280,19 @@ msgstr "Плейлист успешно создан."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:995
+#: core/audex.cpp:999
 #, fuzzy, kde-format
 #| msgid "Playlist \"%1\" successfully created."
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Плейлист успешно создан."
 
-#: core/audex.cpp:998
+#: core/audex.cpp:1002
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1049 core/audex.cpp:1076
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -776,14 +776,14 @@ msgstr "Формат:"
 msgid "Cover scheme:"
 msgstr "Файл обложки"
 
-#: dialogs/profiledatacuesheetdialog.cpp:20
+#: dialogs/profiledatacuesheetdialog.cpp:21
 #, fuzzy, kde-format
 #| msgid "Cover Settings"
 msgid "Cue Sheet Settings"
 msgstr "Настройки обложек"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatacuesheetwidgetUI.ui:29
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
@@ -791,17 +791,23 @@ msgstr "Настройки обложек"
 msgid "Name/Scheme:"
 msgstr ""
 
-#: dialogs/profiledatadialog.cpp:95
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid "Write MCN and ISRC values (if available)"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:96
 #, kde-format
 msgid "Modify Profile"
 msgstr "Редактировать профиль"
 
-#: dialogs/profiledatadialog.cpp:187
+#: dialogs/profiledatadialog.cpp:189
 #, kde-format
 msgid "Create Profile"
 msgstr "Создать профиль"
 
-#: dialogs/profiledatadialog.cpp:197
+#: dialogs/profiledatadialog.cpp:199
 #, kde-format
 msgid "New Profile"
 msgstr "Новый профиль"
@@ -1441,46 +1447,46 @@ msgstr "Название"
 msgid "Length"
 msgstr "Продолжительность"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no name for the profile. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Не указан кодировщик в профиле."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:182
 #, fuzzy, kde-format
 #| msgid "Profile filename pattern is not defined."
 msgid "Profile filename scheme is not defined."
 msgstr "Шаблон наименования файлов не определён."
 
-#: models/profilemodel.cpp:181
+#: models/profilemodel.cpp:183
 #, fuzzy, kde-format
 #| msgid "You've given no filename pattern for the profile. Please set one."
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Укажите шаблон наименования файлов в профиле."
 
-#: models/profilemodel.cpp:202
+#: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Неизвестный формат изображения."
 
-#: models/profilemodel.cpp:203
+#: models/profilemodel.cpp:205
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given image file format is unknown. Please choose on of these "
@@ -1492,23 +1498,23 @@ msgstr ""
 "Изображение неизвестного формата. Используйте один из этих форматов: JPG/"
 "JPEG, PNG или BMP."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Название обложки не должно быть пустым."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, fuzzy, kde-format
 #| msgid "You've given no name for the cover. Please set one."
 msgid "You have given no name for the cover. Please set one."
 msgstr "Укажите название обложки."
 
-#: models/profilemodel.cpp:219
+#: models/profilemodel.cpp:221
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Неизвестный формат плейлиста."
 
-#: models/profilemodel.cpp:220
+#: models/profilemodel.cpp:222
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given playlist file format is unknown. Please choose on of these "
@@ -1520,45 +1526,45 @@ msgstr ""
 "Неизвестный формат плейлиста. Используйте один из этих форматов: M3U, PLS "
 "или XSPF."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Название плейлиста не может быть пустым."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, fuzzy, kde-format
 #| msgid "You've given no name for the playlist. Please set one."
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Укажите название для плейлиста."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:244
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Необходимо ввести название файла информации."
 
-#: models/profilemodel.cpp:243
+#: models/profilemodel.cpp:245
 #, fuzzy, kde-format
 #| msgid "You've given no name for the info text file. Please set one."
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Пожалуйста, укажите имя для файла информации."
 
-#: models/profilemodel.cpp:252
+#: models/profilemodel.cpp:254
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Расширение файла информации не должно быть пустым."
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:255
 #, fuzzy, kde-format
 #| msgid "You've given no suffix for the info text file. Please set one."
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "Укажите расширение для файла информации."
 
-#: models/profilemodel.cpp:263
+#: models/profilemodel.cpp:265
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Неизвестный формат хэшлиста."
 
-#: models/profilemodel.cpp:264
+#: models/profilemodel.cpp:266
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
@@ -1568,47 +1574,47 @@ msgid ""
 "formats: SFV, MD5, SHA-256."
 msgstr "Неизвестный формат хэшлиста. Выберите один из следующих форматов: SFV."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Введите имя хэшлиста."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, fuzzy, kde-format
 #| msgid "You've given no name for the hashlist. Please set one."
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Не указано имя хэшлиста."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, fuzzy, kde-format
 #| msgid "Profile name must not be empty."
 msgid "Cue filename name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, fuzzy, kde-format
 #| msgid "You've given no name for the cover. Please set one."
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Укажите название обложки."
 
-#: models/profilemodel.cpp:292
+#: models/profilemodel.cpp:296
 #, fuzzy, kde-format
 #| msgid "Profile name must not be empty."
 msgid "Filename name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:293
+#: models/profilemodel.cpp:297
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:329
+#: models/profilemodel.cpp:333
 #, kde-format
 msgid "Profile name already exists."
 msgstr "Профиль уже существует."
 
-#: models/profilemodel.cpp:330
+#: models/profilemodel.cpp:334
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your profile name %1 already exists in the set of profiles. Please choose "
@@ -1618,12 +1624,12 @@ msgid ""
 "unique one."
 msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
 
-#: models/profilemodel.cpp:349
+#: models/profilemodel.cpp:353
 #, kde-format
 msgid "Profile index already exists."
 msgstr "Индекс профиля уже существует."
 
-#: models/profilemodel.cpp:350
+#: models/profilemodel.cpp:354
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your profile name %1 already exists in the set of profiles. Please choose "
@@ -1633,28 +1639,28 @@ msgid ""
 "unique one."
 msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, fuzzy, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "Ошибка! Не найден индекс в профиле"
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "Произошла внутренняя ошибка программы. Пожалуйста, сообщите нам о ней."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Копировать"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Ошибка устройства."
 
-#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
@@ -1663,7 +1669,7 @@ msgstr ""
 "Проверьте устройство. Это действительно «%1»? Также проверьте права для "
 "работы с «%1»."
 
-#: utils/cddacdio.cpp:80
+#: utils/cddacdio.cpp:89
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1719,39 +1725,44 @@ msgstr ""
 msgid "Start reading whole disc with %1 sectors"
 msgstr "Начало чтения дорожки %1 с %2 секторами"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:119
+#, kde-format
+msgid "Track %1 with start sector %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:122
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Копирование отменено пользователем."
 
-#: utils/cddaextractthread.cpp:178
+#: utils/cddaextractthread.cpp:180
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occurred while ripping track %1."
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:182
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Копирование завершено (Дорожка %1)."
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:186
 #, fuzzy, kde-format
 #| msgid "Ripping Track"
 msgid "Ripping OK."
 msgstr "Копирование дорожки"
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
 msgstr "Чтение завершено"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:248
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1763,7 +1774,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:253
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1775,7 +1786,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:260
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1787,7 +1798,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:263
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1799,7 +1810,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:267
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1809,7 +1820,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:270
+#: utils/cddaextractthread.cpp:272
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1820,7 +1831,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:271
+#: utils/cddaextractthread.cpp:273
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1830,7 +1841,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:275
+#: utils/cddaextractthread.cpp:277
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1840,7 +1851,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:279
+#: utils/cddaextractthread.cpp:281
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1850,7 +1861,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:289
+#: utils/cddaextractthread.cpp:291
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1861,7 +1872,7 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:293
+#: utils/cddaextractthread.cpp:295
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1872,14 +1883,14 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:299
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:303
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
