@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 00:37+0000\n"
-"PO-Revision-Date: 2024-01-15 10:05+0100\n"
+"POT-Creation-Date: 2024-01-17 00:37+0000\n"
+"PO-Revision-Date: 2024-01-16 16:02+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -146,7 +146,7 @@ msgstr "Comença l'extracció i codificació amb el perfil «%1»..."
 msgid "Can't find path \"%1\"."
 msgstr "No s'ha trobat el camí «%1»."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Si us plau, comproveu el camí (accés d'escriptura?)"
@@ -161,17 +161,17 @@ msgstr "L'espai lliure a «%1» és menys que 200 MiB."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Atenció! El fitxer «%1» ja existeix. Se sobreescriurà."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Atenció! El fitxer «%1» ja existeix. Se saltarà."
 
-#: core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "No s'ha pogut crear la carpeta «%1»."
 
-#: core/audex.cpp:678 core/audex.cpp:1080
+#: core/audex.cpp:678 core/audex.cpp:1084
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "La carpeta «%1» s'ha creat correctament."
@@ -227,7 +227,7 @@ msgid "Unable to save cover \"%1\"."
 msgstr "No s'ha pogut desar la caràtula «%1»."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Verifiqueu el camí i els permisos"
@@ -262,17 +262,17 @@ msgstr "La llista de resum «%1» s'ha creat correctament."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "No s'ha pogut desar la llista de resum «%1»."
 
-#: core/audex.cpp:995
+#: core/audex.cpp:999
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "El full de muntatge «%1» s'ha creat correctament."
 
-#: core/audex.cpp:998
+#: core/audex.cpp:1002
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "No s'ha pogut desar el full de muntatge «%1»."
 
-#: core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "No s'ha pogut obrir la carpeta «%1»."
@@ -732,13 +732,13 @@ msgstr "Format:"
 msgid "Cover scheme:"
 msgstr "Esquema de caràtules:"
 
-#: dialogs/profiledatacuesheetdialog.cpp:20
+#: dialogs/profiledatacuesheetdialog.cpp:21
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Configuració del full de muntatge"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatacuesheetwidgetUI.ui:29
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
@@ -746,17 +746,23 @@ msgstr "Configuració del full de muntatge"
 msgid "Name/Scheme:"
 msgstr "Nom/Esquema:"
 
-#: dialogs/profiledatadialog.cpp:95
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid "Write MCN and ISRC values (if available)"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:96
 #, kde-format
 msgid "Modify Profile"
 msgstr "Modifica el perfil"
 
-#: dialogs/profiledatadialog.cpp:187
+#: dialogs/profiledatadialog.cpp:189
 #, kde-format
 msgid "Create Profile"
 msgstr "Crea el perfil"
 
-#: dialogs/profiledatadialog.cpp:197
+#: dialogs/profiledatadialog.cpp:199
 #, kde-format
 msgid "New Profile"
 msgstr "Perfil nou"
@@ -1371,44 +1377,44 @@ msgstr "Títol"
 msgid "Length"
 msgstr "Durada"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "El nom del perfil no pot estar buit."
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "No heu indicat cap nom per al perfil. Si us plau, establiu-ne un."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "No s'ha definit el perfil del codificador."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr ""
 "No heu indicat cap codificador per al perfil. Si us plau, establiu-ne un."
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:182
 #, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "No s'ha definit l'esquema del nom de fitxer del perfil."
 
-#: models/profilemodel.cpp:181
+#: models/profilemodel.cpp:183
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr ""
 "No heu indicat cap esquema de nom de fitxer per al perfil. Establiu-ne un."
 
-#: models/profilemodel.cpp:202
+#: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "El format del fitxer d'imatge és desconegut."
 
-#: models/profilemodel.cpp:203
+#: models/profilemodel.cpp:205
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
@@ -1417,22 +1423,22 @@ msgstr ""
 "El format d'imatge que heu indicat és desconegut. Escolliu un dels formats "
 "següents: JPEG, PNG, TIFF o BMP."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "El nom de la caràtula no pot estar buit."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "No heu indicat cap nom per a la caràtula. Si us plau, establiu-ne un."
 
-#: models/profilemodel.cpp:219
+#: models/profilemodel.cpp:221
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "El format del fitxer de la llista de reproducció és desconegut."
 
-#: models/profilemodel.cpp:220
+#: models/profilemodel.cpp:222
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1441,48 +1447,48 @@ msgstr ""
 "El format del fitxer de la llista de reproducció és desconegut. Si us plau, "
 "escolliu un dels formats següents: M3U, PLS o XSPF."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "El nom de la llista de reproducció no pot estar buit."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr ""
 "No heu indicat cap nom per a la llista de reproducció. Si us plau, establiu-"
 "ne un."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:244
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "El nom del text informatiu no pot estar buit."
 
-#: models/profilemodel.cpp:243
+#: models/profilemodel.cpp:245
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr ""
 "No heu indicat cap nom per al fitxer de text informatiu. Si us plau, "
 "establiu-ne un."
 
-#: models/profilemodel.cpp:252
+#: models/profilemodel.cpp:254
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "El sufix del nom del fitxer de text informatiu no pot estar buit."
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:255
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
 "No heu indicat cap sufix per al nom del fitxer de text informatiu. Si us "
 "plau, establiu-ne un."
 
-#: models/profilemodel.cpp:263
+#: models/profilemodel.cpp:265
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "El format del fitxer de la llista de resum és desconegut."
 
-#: models/profilemodel.cpp:264
+#: models/profilemodel.cpp:266
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
@@ -1491,46 +1497,46 @@ msgstr ""
 "El format de fitxer de la llista de resum que heu indicat és desconegut. Si "
 "us plau, escolliu un dels formats següents: SFV, MD5, SHA-256."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "El nom de la llista de resum no ha d'estar buit."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr ""
 "No heu indicat cap nom per a la llista de resum. Si us plau, establiu-ne un."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "El nom de fitxer del full de muntatge no pot estar buit."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr ""
 "No heu indicat cap nom per al full de muntatge. Si us plau, establiu-ne un."
 
-#: models/profilemodel.cpp:292
+#: models/profilemodel.cpp:296
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "El nom de fitxer no ha d'estar buit."
 
-#: models/profilemodel.cpp:293
+#: models/profilemodel.cpp:297
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
 "No heu indicat cap nom per al fitxer d'àudio únic. Si us plau, establiu-ne "
 "un."
 
-#: models/profilemodel.cpp:329
+#: models/profilemodel.cpp:333
 #, kde-format
 msgid "Profile name already exists."
 msgstr "Ja existeix un perfil amb aquest nom."
 
-#: models/profilemodel.cpp:330
+#: models/profilemodel.cpp:334
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
@@ -1538,12 +1544,12 @@ msgid ""
 msgstr ""
 "El nom de perfil %1 ja existeix en el conjunt de perfils. Trieu un nom únic."
 
-#: models/profilemodel.cpp:349
+#: models/profilemodel.cpp:353
 #, kde-format
 msgid "Profile index already exists."
 msgstr "L'índex del perfil ja existeix."
 
-#: models/profilemodel.cpp:350
+#: models/profilemodel.cpp:354
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
@@ -1552,28 +1558,28 @@ msgstr ""
 "L'índex del perfil %1 ja existeix en el conjunt de perfils. Trieu-ne un que "
 "sigui únic."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "Error desconegut. No s'ha trobat un índex en el model del perfil."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "Això és un error intern. Si us plau, informeu-ho."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Copia"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Error intern del dispositiu."
 
-#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
@@ -1582,7 +1588,7 @@ msgstr ""
 "Comproveu el dispositiu. Segur que és «%1»? Si és així, comproveu també els "
 "permisos de «%1»."
 
-#: utils/cddacdio.cpp:80
+#: utils/cddacdio.cpp:89
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1604,7 +1610,7 @@ msgstr "Comproveu el dispositiu i elaboreu un informe d'error."
 #: utils/cddaextractthread.cpp:65
 #, kde-format
 msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
-msgstr ""
+msgstr "Informació de la unitat: fabricant: %1, model: %2, revisió: %3"
 
 #: utils/cddaextractthread.cpp:78
 #, kde-format
@@ -1612,10 +1618,9 @@ msgid "Extracting finished."
 msgstr "L'extracció ha finalitzat."
 
 #: utils/cddaextractthread.cpp:107
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Correction sample offset: %1"
-msgstr "Desplaçament de la mostra:"
+msgstr "Correcció del desplaçament de la mostra: %1"
 
 #: utils/cddaextractthread.cpp:113
 #, kde-format
@@ -1628,48 +1633,51 @@ msgid "Start reading track %1 with %2 sectors"
 msgstr "Es comença a llegir la pista %1 amb %2 sectors"
 
 #: utils/cddaextractthread.cpp:116
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track."
+#, kde-format
 msgid "Ripping whole CD as single track (%1:%2)."
-msgstr "S'extreu tot el CD com una sola pista."
+msgstr "S'extreu tot el CD com una sola pista (%1:%2)."
 
 #: utils/cddaextractthread.cpp:117
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
-msgid "Start reading whole disc with %1 sectors"
-msgstr "Es comença a llegir la pista %1 amb %2 sectors"
-
-#: utils/cddaextractthread.cpp:120
 #, kde-format
-msgid "First sector: %1, Last sector: %2"
+msgid "Start reading whole disc with %1 sectors"
+msgstr "Es comença a llegir tot el disc amb %1 sectors"
+
+#: utils/cddaextractthread.cpp:119
+#, kde-format
+msgid "Track %1 with start sector %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:122
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr "Primer sector: %1, últim sector: %2"
+
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
 msgstr "L'usuari ha cancel·lat l'extracció."
 
-#: utils/cddaextractthread.cpp:178
+#: utils/cddaextractthread.cpp:180
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "S'ha produït un error durant l'extracció de la pista %1."
 
-#: utils/cddaextractthread.cpp:182
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Extracció correcta (pista %1)."
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:186
 #, kde-format
 msgid "Ripping OK."
 msgstr "Extracció correcta."
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
 msgstr "Lectura finalitzada"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:248
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1678,7 +1686,7 @@ msgstr ""
 "S'ha corregit una desviació a la vora (sector absolut %1, sector relatiu %2, "
 "pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1687,7 +1695,7 @@ msgstr ""
 "S'ha corregit una desviació atòmica (sector absolut %1, sector relatiu %2, "
 "pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:260
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1696,7 +1704,7 @@ msgstr ""
 "S'ha detectat una ratllada (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:263
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1705,14 +1713,14 @@ msgstr ""
 "S'ha detectat una ratllada (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:267
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Reparació (sector absolut %1, sector relatiu %2, pos. temporal de la pista "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:270
+#: utils/cddaextractthread.cpp:272
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1720,27 +1728,27 @@ msgstr ""
 "Salta els sectors (sector absolut %1, sector relatiu %2, pos. temporal de la "
 "pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:271
+#: utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Salta (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:275
+#: utils/cddaextractthread.cpp:277
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Deriva (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:279
+#: utils/cddaextractthread.cpp:281
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Retrocés (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:289
+#: utils/cddaextractthread.cpp:291
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1748,7 +1756,7 @@ msgstr ""
 "S'ha descartat la correcció (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:293
+#: utils/cddaextractthread.cpp:295
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1756,7 +1764,7 @@ msgstr ""
 "S'ha duplicat la correcció (sector absolut %1, sector relatiu %2, pos. "
 "temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:299
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1765,7 +1773,7 @@ msgstr ""
 "S'ha detectat un error de lectura (sector absolut %1, sector relatiu %2, "
 "pos. temporal de la pista %3:%4)"
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:303
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"

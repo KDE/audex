@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 00:37+0000\n"
+"POT-Creation-Date: 2024-01-17 00:37+0000\n"
 "PO-Revision-Date: 2024-01-07 11:55+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -144,7 +144,7 @@ msgstr "Rozpocznij zgrywanie i kodowanie z profilem \"%1\"..."
 msgid "Can't find path \"%1\"."
 msgstr "Nie można znaleźć ścieżki \"%1\"."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Proszę sprawdzić swoją ścieżkę (prawa zapisu?)"
@@ -159,17 +159,17 @@ msgstr "Jest mniej niż 200 MiB wolnej przestrzeni dyskowej na \"%1\"."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Ostrzeżenie! Plik \"%1\" już istnieje. Zastępowanie."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1057
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Ostrzeżenie! Plik \"%1\" już istnieje. Pomijanie."
 
-#: core/audex.cpp:675 core/audex.cpp:1077
+#: core/audex.cpp:675 core/audex.cpp:1081
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nie można utworzyć katalogu \"%1\"."
 
-#: core/audex.cpp:678 core/audex.cpp:1080
+#: core/audex.cpp:678 core/audex.cpp:1084
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Pomyślnie utworzono katalog \"%1\"."
@@ -229,7 +229,7 @@ msgid "Unable to save cover \"%1\"."
 msgstr "Nie można zapisać okładki \"%1\"."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:998 core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Proszę sprawdzić ścieżkę i uprawnienia"
@@ -264,17 +264,17 @@ msgstr "Pomyślnie utworzono plik listę haszu \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nie można zapisać listy haszowanej \"%1\"."
 
-#: core/audex.cpp:995
+#: core/audex.cpp:999
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Pomyślnie utworzono arkusz cue \"%1\"."
 
-#: core/audex.cpp:998
+#: core/audex.cpp:1002
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nie można zapisać arkusza cue \"%1\"."
 
-#: core/audex.cpp:1045 core/audex.cpp:1072
+#: core/audex.cpp:1049 core/audex.cpp:1076
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Nie można otworzyć katalogu \"%1\"."
@@ -730,13 +730,13 @@ msgstr "Format:"
 msgid "Cover scheme:"
 msgstr "Wzorzec nazw okładek:"
 
-#: dialogs/profiledatacuesheetdialog.cpp:20
+#: dialogs/profiledatacuesheetdialog.cpp:21
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Ustawienia arkusza cue"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatacuesheetwidgetUI.ui:29
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
@@ -744,17 +744,23 @@ msgstr "Ustawienia arkusza cue"
 msgid "Name/Scheme:"
 msgstr "Nazwa/wzorzec:"
 
-#: dialogs/profiledatadialog.cpp:95
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid "Write MCN and ISRC values (if available)"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:96
 #, kde-format
 msgid "Modify Profile"
 msgstr "Zmień profil"
 
-#: dialogs/profiledatadialog.cpp:187
+#: dialogs/profiledatadialog.cpp:189
 #, kde-format
 msgid "Create Profile"
 msgstr "Utwórz profil"
 
-#: dialogs/profiledatadialog.cpp:197
+#: dialogs/profiledatadialog.cpp:199
 #, kde-format
 msgid "New Profile"
 msgstr "Nowy profil"
@@ -1367,42 +1373,42 @@ msgstr "Tytuł"
 msgid "Length"
 msgstr "Długość"
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Nazwa profilu nie może być pusta."
 
-#: models/profilemodel.cpp:167
+#: models/profilemodel.cpp:169
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "Nie podano nazwy dla profilu. Proszę ustawić jakąś."
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Nie określono programu kodującego profilu"
 
-#: models/profilemodel.cpp:174
+#: models/profilemodel.cpp:176
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Nie podano programu kodującego dla profilu. Proszę ustawić jakiś."
 
-#: models/profilemodel.cpp:180
+#: models/profilemodel.cpp:182
 #, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "Nie określono wzorca nazwy pliku profilu."
 
-#: models/profilemodel.cpp:181
+#: models/profilemodel.cpp:183
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Nie podano wzorca nazwy pliku dla profilu. Proszę ustawić jakiś."
 
-#: models/profilemodel.cpp:202
+#: models/profilemodel.cpp:204
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Format pliku obrazu jest nieznany."
 
-#: models/profilemodel.cpp:203
+#: models/profilemodel.cpp:205
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
@@ -1411,22 +1417,22 @@ msgstr ""
 "Twój podany format pliku jest nieznany. Proszę wybrać jeden z tych formatów: "
 "JPEG, PNG, TIFF lub BMP."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Nazwa okładki nie może być pusta."
 
-#: models/profilemodel.cpp:211
+#: models/profilemodel.cpp:213
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "Nie podano nazwy dla okładki. Proszę podać jakąś."
 
-#: models/profilemodel.cpp:219
+#: models/profilemodel.cpp:221
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Format pliku listy odtwarzania jest nieznany."
 
-#: models/profilemodel.cpp:220
+#: models/profilemodel.cpp:222
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1435,43 +1441,43 @@ msgstr ""
 "Twój podany format listy odtwarzania jest nieznany. Proszę wybrać jeden z "
 "tych formatów: M3U, PLS  lub XSPF."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Nazwa listy odtwarzania nie może być pusta."
 
-#: models/profilemodel.cpp:228
+#: models/profilemodel.cpp:230
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Nie podano nazwy dla listy odtwarzania. Proszę podać jakąś."
 
-#: models/profilemodel.cpp:242
+#: models/profilemodel.cpp:244
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Nazwa tekstu informacyjnego nie może być pusta."
 
-#: models/profilemodel.cpp:243
+#: models/profilemodel.cpp:245
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Nie podano nazwy dla pliku tekstu informacyjnego. Proszę podać jakąś."
 
-#: models/profilemodel.cpp:252
+#: models/profilemodel.cpp:254
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Przyrostek nazwa tekstu informacyjnego nie może być pusty."
 
-#: models/profilemodel.cpp:253
+#: models/profilemodel.cpp:255
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
 "Nie podano przyrostka dla pliku tekstu informacyjnego. Proszę podać jakiś."
 
-#: models/profilemodel.cpp:263
+#: models/profilemodel.cpp:265
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Format pliku listy haszu jest nieznany."
 
-#: models/profilemodel.cpp:264
+#: models/profilemodel.cpp:266
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
@@ -1483,43 +1489,43 @@ msgstr ""
 "Twój podany format listy haszu jest nieznany. Proszę wybrać jeden z tych "
 "formatów: SFV, MD5, SHA-256."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Nazwa listy haszu nie może być pusta."
 
-#: models/profilemodel.cpp:273
+#: models/profilemodel.cpp:275
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Nie podano nazwy listy haszu. Proszę podać jakąś."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "Nazwa pliku cue nie może być pusta."
 
-#: models/profilemodel.cpp:283
+#: models/profilemodel.cpp:285
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Nie podano nazwy dla arkusza cue. Proszę podać jakąś."
 
-#: models/profilemodel.cpp:292
+#: models/profilemodel.cpp:296
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "Nazwa pliku cue nie może być pusta."
 
-#: models/profilemodel.cpp:293
+#: models/profilemodel.cpp:297
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
 "Nie podano nazwy dla pojedynczego pliku dźwiękowego. Proszę podać jakąś."
 
-#: models/profilemodel.cpp:329
+#: models/profilemodel.cpp:333
 #, kde-format
 msgid "Profile name already exists."
 msgstr "Nazwa profilu już istnieje."
 
-#: models/profilemodel.cpp:330
+#: models/profilemodel.cpp:334
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
@@ -1528,12 +1534,12 @@ msgstr ""
 "Twoja nazwa profilu %1 już istnieje w ustawieniach profilu. Proszę wybrać "
 "jakąś niepowtarzalną nazwę."
 
-#: models/profilemodel.cpp:349
+#: models/profilemodel.cpp:353
 #, kde-format
 msgid "Profile index already exists."
 msgstr "Indeks profilu już istnieje."
 
-#: models/profilemodel.cpp:350
+#: models/profilemodel.cpp:354
 #, kde-format
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
@@ -1542,28 +1548,28 @@ msgstr ""
 "Twój indeks profilu %1 już istnieje w ustawieniach profilu. Proszę wybrać "
 "jakiś niepowtarzalny indeks."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "Nieznany błąd. Nie znaleziono indeksu w modelu profilu."
 
-#: models/profilemodel.cpp:478
+#: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "To jest wewnętrzny błąd. Proszę to zgłosić."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:898 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Skopiuj"
 
-#: utils/cddacdio.cpp:39 utils/cddaextractthread.cpp:26
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
 msgstr "Błąd urządzenia wewnętrznego."
 
-#: utils/cddacdio.cpp:39 utils/cddacdio.cpp:81
+#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
@@ -1572,7 +1578,7 @@ msgstr ""
 "Sprawdź swoje urządzenie. Czy to na pewno \"%1\"? Jeżeli tak, to sprawdź "
 "także swoje uprawnienia na \"%1\"."
 
-#: utils/cddacdio.cpp:80
+#: utils/cddacdio.cpp:89
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1627,37 +1633,42 @@ msgstr "Zgrywanie całej płyty CD jako pojedyncza ścieżka."
 msgid "Start reading whole disc with %1 sectors"
 msgstr "Rozpocznij czytanie ścieżki %1 o %2 sektorach"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:119
+#, kde-format
+msgid "Track %1 with start sector %2"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:122
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Użytkownik porzucił wydobywanie."
 
-#: utils/cddaextractthread.cpp:178
+#: utils/cddaextractthread.cpp:180
 #, kde-format
 msgid "An error occurred while ripping track %1."
 msgstr "Wystąpił błąd podczas zgrywania ścieżki %1."
 
-#: utils/cddaextractthread.cpp:182
+#: utils/cddaextractthread.cpp:184
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Zgrywanie OK (Ścieżka %1)."
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:186
 #, kde-format
 msgid "Ripping OK."
 msgstr "Zgrywanie OK."
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
 msgstr "Ukończono czytanie"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:248
 #, kde-format
 msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1666,7 +1677,7 @@ msgstr ""
 "Naprawiono krawędziowe drganie (bezwzględny sektor %1, względny sektor %2, "
 "pozycja czasowa ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1675,7 +1686,7 @@ msgstr ""
 "Naprawiono jednostkowe drganie (bezwzględny sektor %1, względny sektor %2, "
 "pozycja czasowa ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:260
 #, kde-format
 msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1684,7 +1695,7 @@ msgstr ""
 "Wykryto rysę (bezwzględny sektor %1, względny sektor %2, pozycja czasowa "
 "ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:263
 #, kde-format
 msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
@@ -1693,14 +1704,14 @@ msgstr ""
 "WYKRYTO RYSĘ (bezwzględny sektor %1, względny sektor %2, pozycja czasowa "
 "ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:265
+#: utils/cddaextractthread.cpp:267
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Naprawa  (bezwzględny sektor %1, względny sektor %2, pozycja czasowa ścieżki "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:270
+#: utils/cddaextractthread.cpp:272
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1708,28 +1719,28 @@ msgstr ""
 "Pomiń sektory (bezwzględny sektor %1, względny sektor %2, pozycja czasowa "
 "ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:271
+#: utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "POMIŃ (bezwzględny sektor %1, względny sektor %2, pozycja czasowa ścieżki %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:275
+#: utils/cddaextractthread.cpp:277
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Dryfuj (bezwzględny sektor %1, względny sektor %2, pozycja czasowa ścieżki "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:279
+#: utils/cddaextractthread.cpp:281
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Wycofaj (bezwzględny sektor %1, względny sektor %2, pozycja czasowa ścieżki "
 "%3:%4)"
 
-#: utils/cddaextractthread.cpp:289
+#: utils/cddaextractthread.cpp:291
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1737,7 +1748,7 @@ msgstr ""
 "Porzucono naprawę (bezwzględny sektor %1, względny sektor %2, pozycja "
 "czasowa ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:293
+#: utils/cddaextractthread.cpp:295
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
@@ -1745,7 +1756,7 @@ msgstr ""
 "Powielono naprawę (bezwzględny sektor %1, względny sektor %2, pozycja "
 "czasowa ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:299
+#: utils/cddaextractthread.cpp:301
 #, kde-format
 msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
@@ -1754,7 +1765,7 @@ msgstr ""
 "Wykryto błąd odczytu (bezwzględny sektor %1, względny sektor %2, pozycja "
 "czasowa ścieżki %3:%4)"
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:303
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
