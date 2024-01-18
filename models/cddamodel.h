@@ -63,9 +63,9 @@ public:
     {
         return p_cdio;
     }
-    inline const QString &device() const
+    inline const QString deviceFile() const
     {
-        return _device;
+        return device_file;
     }
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -145,7 +145,7 @@ public:
 
     inline bool empty()
     {
-        return _empty;
+        return p_empty;
     }
 
     inline const QSet<int> &selectedTracks() const
@@ -191,8 +191,8 @@ private Q_SLOTS:
     void lookup_cddb_done(KCDDB::Result result);
 
 private:
-    QString _device;
-    QString _udi;
+    QString device_file;
+    QString udi;
     CDDACDIO *p_cdio;
     CDDADevices *devices;
 
@@ -200,7 +200,7 @@ private:
     KCDDB::CDInfo cd_info;
     QImage p_cover;
     bool modified;
-    bool _empty; // no metadata available yet
+    bool p_empty; // no metadata available yet
     Error error;
     bool cddb_transaction_pending;
 
