@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 03:11+0000\n"
-"PO-Revision-Date: 2024-01-17 00:30+0100\n"
+"PO-Revision-Date: 2024-01-17 23:54+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -747,7 +747,7 @@ msgstr "Izena/Antolaera:"
 #: dialogs/profiledatacuesheetwidgetUI.ui:49
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Idatzi MCN eta ISRC balioak (eskuragarri badaude)"
 
 #: dialogs/profiledatadialog.cpp:96
 #, kde-format
@@ -1632,7 +1632,7 @@ msgstr "Hasi %1 sektoreko disko osoa irakurtzen"
 #: utils/cddaextractthread.cpp:119
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "%1 pista hasierako sektorea %2 duena"
 
 #: utils/cddaextractthread.cpp:122
 #, kde-format

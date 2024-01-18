@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 03:11+0000\n"
-"PO-Revision-Date: 2024-01-16 10:23+0100\n"
+"PO-Revision-Date: 2024-01-17 10:34+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -745,7 +745,7 @@ msgstr "Naam/schema:"
 #: dialogs/profiledatacuesheetwidgetUI.ui:49
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Waarden MCN en ISRC schrijven (indien beschikbaar)"
 
 #: dialogs/profiledatadialog.cpp:96
 #, kde-format
@@ -1636,7 +1636,7 @@ msgstr "Start met het lezen van de gehele schijf met %1 sectoren"
 #: utils/cddaextractthread.cpp:119
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "Track %1 met beginsector %2"
 
 #: utils/cddaextractthread.cpp:122
 #, kde-format
