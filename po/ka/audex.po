@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:37+0000\n"
-"PO-Revision-Date: 2024-01-16 02:46+0100\n"
+"PO-Revision-Date: 2024-01-17 05:26+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -741,7 +741,7 @@ msgstr "სახელი/სქემა:"
 #: dialogs/profiledatacuesheetwidgetUI.ui:49
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
-msgstr ""
+msgstr "MCN და ISR მნიშვნელობების ჩაწერა (თუ ხელმისაწვდომია)"
 
 #: dialogs/profiledatadialog.cpp:96
 #, kde-format
@@ -1618,7 +1618,7 @@ msgstr "მთლიანი დისკის წაკითხვის დ
 #: utils/cddaextractthread.cpp:119
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "ტრეკი %1 საწყისი სექტორით %2"
 
 #: utils/cddaextractthread.cpp:122
 #, kde-format

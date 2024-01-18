@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:37+0000\n"
-"PO-Revision-Date: 2024-01-16 21:56+0100\n"
+"PO-Revision-Date: 2024-01-17 20:52+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -740,7 +740,7 @@ msgstr "Nomo/Skemo:"
 #: dialogs/profiledatacuesheetwidgetUI.ui:49
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Skribi MCN- kaj ISRC-valorojn (se haveblaj)"
 
 #: dialogs/profiledatadialog.cpp:96
 #, kde-format
@@ -1614,7 +1614,7 @@ msgstr "Komenci legi tutan diskon kun %1 sektoroj"
 #: utils/cddaextractthread.cpp:119
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "Trako %1 kun komenca sektoro %2"
 
 #: utils/cddaextractthread.cpp:122
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-17 00:37+0000\n"
-"PO-Revision-Date: 2024-01-16 17:32+0100\n"
+"PO-Revision-Date: 2024-01-17 09:28+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1530,16 +1530,18 @@ msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
+"Tu indice de profilo %1 ja existe in le insimul de profilos. Pro favor "
+"selige un unic."
 
 #: models/profilemodel.cpp:485
 #, kde-format
 msgid "Unknown error. No index found in profile model."
-msgstr ""
+msgstr "Error incognite. Necun indice terovate in le modello de profilo."
 
 #: models/profilemodel.cpp:485
 #, kde-format
 msgid "This is an internal error. Please report."
-msgstr ""
+msgstr "Isto es un error interne. Pro favor tu reporta."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
@@ -1550,7 +1552,7 @@ msgstr "Copia"
 #: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Internal device error."
-msgstr ""
+msgstr "Error interne de dispositivo"
 
 #: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
 #, kde-format
@@ -1558,6 +1560,8 @@ msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
 "\"%1\"."
 msgstr ""
+"Verifica tu dispositivo. Illo es vermente \"%1\"? Si assi tu verifica tu "
+"permissiones sur \"%1\"."
 
 #: utils/cddacdio.cpp:89
 #, kde-format
@@ -1565,6 +1569,8 @@ msgid ""
 "Could not get device hardware information (vendor, model and firmware "
 "revision)."
 msgstr ""
+"Non poteva obtener information de hardware de dispositivo (venditor, modello "
+"e revision de firmware)."
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -1574,17 +1580,18 @@ msgstr "Disco Audio"
 #: utils/cddaextractthread.cpp:26
 #, kde-format
 msgid "Check your device and make a bug report."
-msgstr ""
+msgstr "Verifica tu dispositivo e face un reporto de falta."
 
 #: utils/cddaextractthread.cpp:65
 #, kde-format
 msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
 msgstr ""
+"Information de Unitate (Drive), Venditor: %1, Modello: %2, Revision: %3"
 
 #: utils/cddaextractthread.cpp:78
 #, kde-format
 msgid "Extracting finished."
-msgstr ""
+msgstr "Extraher terminate."
 
 #: utils/cddaextractthread.cpp:107
 #, kde-format
@@ -1599,7 +1606,7 @@ msgstr "Rippante tracia %1 (%2:%3)..."
 #: utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
-msgstr ""
+msgstr "Initia leger tracia %1 con %2 sectores"
 
 #: utils/cddaextractthread.cpp:116
 #, kde-format
@@ -1609,27 +1616,27 @@ msgstr "Rippar le complete CD como un singule tracia (%1:%2)."
 #: utils/cddaextractthread.cpp:117
 #, kde-format
 msgid "Start reading whole disc with %1 sectors"
-msgstr ""
+msgstr "Initia leger disco complete con %1 sectores"
 
 #: utils/cddaextractthread.cpp:119
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "Tracia %1 con sector initial %2"
 
 #: utils/cddaextractthread.cpp:122
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
-msgstr ""
+msgstr "Prime sector: %1. Ultime sector: %2"
 
 #: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "User canceled extracting."
-msgstr ""
+msgstr "Usator cancellava extraction."
 
 #: utils/cddaextractthread.cpp:180
 #, kde-format
 msgid "An error occurred while ripping track %1."
-msgstr ""
+msgstr "Un error occurreva durante que on rippava tracia %1."
 
 #: utils/cddaextractthread.cpp:184
 #, kde-format
@@ -1644,7 +1651,7 @@ msgstr "Rippar OK."
 #: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Reading finished"
-msgstr ""
+msgstr "Lectura terminate"
 
 #: utils/cddaextractthread.cpp:248
 #, kde-format
@@ -1765,7 +1772,7 @@ msgstr "Personalisate"
 #: utils/encoderwrapper.cpp:60
 #, kde-format
 msgid "Command scheme is empty."
-msgstr ""
+msgstr "Schema de coimmando es vacue."
 
 #: utils/encoderwrapper.cpp:90
 #, kde-format
@@ -1775,22 +1782,22 @@ msgstr "Codificante Tracia  %1..."
 #: utils/encoderwrapper.cpp:108
 #, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr ""
+msgstr "Delite file partial  \"%1\"."
 
 #: utils/encoderwrapper.cpp:113
 #, kde-format
 msgid "User canceled encoding."
-msgstr ""
+msgstr "Usator cancellava codificar."
 
 #: utils/encoderwrapper.cpp:172
 #, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr ""
+msgstr "Codificar OK (\"%1\")."
 
 #: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
-msgstr ""
+msgstr "Un error occurreva durante que on codificava le file: \"%1\"."
 
 #: utils/encoderwrapper.cpp:174 utils/encoderwrapper.cpp:189
 #: utils/encoderwrapper.cpp:192 utils/encoderwrapper.cpp:202
