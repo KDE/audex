@@ -107,6 +107,8 @@ private:
     int paranoia_retries;
     bool paranoia_never_skip;
 
+    QByteArray silence;
+
     int sample_offset;
     int sector_offset;
     int sample_offset_fraction;
@@ -121,13 +123,7 @@ private:
     QStringList extract_protocol;
 
     void createStatus(long, paranoia_cb_mode_t);
-
-    // status variables
-    long overlap;
-    long read_sectors;
-
-    bool read_error;
-    bool scratch_detected;
+    long status_previous_sector;
 
     // this friend function will call createStatus(long, paranoia_cb_mode_t)
     friend void paranoiaCallback(long, paranoia_cb_mode_t);

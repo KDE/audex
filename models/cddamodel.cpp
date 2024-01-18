@@ -12,8 +12,8 @@ CDDAModel::CDDAModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
     p_cdio = nullptr;
-    _device.clear();
-    _udi.clear();
+    device_file.clear();
+    udi.clear();
 
     devices = new CDDADevices(this);
     if (!devices) {
@@ -42,7 +42,7 @@ CDDAModel::CDDAModel(QObject *parent)
 
     cd_info.clear();
     modified = false;
-    _empty = true;
+    p_empty = true;
 
     QTimer::singleShot(200, devices, SLOT(scanBus()));
 }
@@ -886,7 +886,7 @@ bool CDDAModel::submitCDDB()
 
 void CDDAModel::eject()
 {
-    devices->eject(_udi);
+    devices->eject(udi);
 }
 
 void CDDAModel::new_audio_disc_available(const QString &udi)
@@ -894,8 +894,8 @@ void CDDAModel::new_audio_disc_available(const QString &udi)
     if (p_cdio)
         return;
 
-    _device = devices->blockDevice(udi);
-    _udi = udi;
+    device_file = devices->blockDevice(udi);
+    this->udi = udi;
 
     p_cdio = new CDDACDIO(this);
     if (!p_cdio) {
@@ -906,9 +906,9 @@ void CDDAModel::new_audio_disc_available(const QString &udi)
                       this);
         return;
     }
-    p_cdio->setDevice(_device);
+    p_cdio->init(device_file);
 
-    qDebug() << "new audio disc detected (" << udi << ", " << _device << ")";
+    qDebug() << "new audio disc detected (" << udi << ", " << device_file << ")";
 
     clear();
     confirm();
@@ -928,8 +928,8 @@ void CDDAModel::audio_disc_removed(const QString &udi)
 {
     qDebug() << "audio disc removed (" << udi << ")";
 
-    _device.clear();
-    _udi.clear();
+    device_file.clear();
+    this->udi.clear();
 
     if (p_cdio)
         delete p_cdio;
@@ -1040,7 +1040,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result)
 
     cddb_transaction_pending = false;
 
-    _empty = false;
+    p_empty = false;
 
     Q_EMIT cddbLookupDone(true);
 }
@@ -1080,6 +1080,6 @@ void CDDAModel::set_default_values()
 void CDDAModel::modify()
 {
     modified = true;
-    _empty = false;
+    p_empty = false;
     Q_EMIT cddbDataModified();
 }

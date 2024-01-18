@@ -45,6 +45,15 @@
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QCheckBox" name="checkBox_write_mcn_and_isrc">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Write Media Catalog Number (MCN) and International Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet (if your drive have the capability).&lt;/p&gt;&lt;p&gt;Depending in your drive it could take a few seconds at the end of your ripping process to fetch those numbers and codes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
      <property name="text">
       <string>Write MCN and ISRC values (if available)</string>
      </property>
