@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>372</width>
-    <height>216</height>
+    <height>220</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -227,7 +227,11 @@
     </widget>
    </item>
    <item row="0" column="0" colspan="5">
-    <widget class="QLineEdit" name="qlineedit_scheme"/>
+    <widget class="QLineEdit" name="qlineedit_scheme">
+     <property name="placeholderText">
+      <string>Please set a scheme</string>
+     </property>
+    </widget>
    </item>
    <item row="5" column="1">
     <widget class="QPushButton" name="kpushbutton_date">

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>383</width>
-    <height>103</height>
+    <height>128</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -93,7 +93,11 @@
     </widget>
    </item>
    <item row="2" column="1" colspan="4">
-    <widget class="QLineEdit" name="qlineedit_scheme"/>
+    <widget class="QLineEdit" name="qlineedit_scheme">
+     <property name="placeholderText">
+      <string>Please set a scheme</string>
+     </property>
+    </widget>
    </item>
    <item row="2" column="5">
     <widget class="QPushButton" name="kpushbutton_scheme"/>
@@ -118,11 +122,6 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -5,12 +5,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "profiledatasinglefiledialog.h"
+#include "profiledatalogfiledialog.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
+ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
@@ -21,10 +21,11 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(ProfileModel *profile_m
 
     applyButton = nullptr;
 
-    setWindowTitle(i18n("Single File Settings"));
+    setWindowTitle(i18n("Log Files Settings"));
 
-    // profile data single file data
-    QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
+    // profile data logfile data
+    QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString();
+    bool write_timestamps = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool();
 
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -34,9 +35,9 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(ProfileModel *profile_m
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     applyButton = buttonBox->button(QDialogButtonBox::Apply);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataSingleFileDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataSingleFileDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &ProfileDataSingleFileDialog::slotApplied);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataLogFileDialog::slotAccepted);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataLogFileDialog::reject);
+    connect(applyButton, &QPushButton::clicked, this, &ProfileDataLogFileDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
@@ -49,15 +50,18 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(ProfileModel *profile_m
     ui.qlineedit_scheme->setText(scheme);
     connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
+    ui.checkBox_timestamps->setChecked(write_timestamps);
+    connect(ui.checkBox_timestamps, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+
     if (applyButton)
         applyButton->setEnabled(false);
 }
 
-ProfileDataSingleFileDialog::~ProfileDataSingleFileDialog()
+ProfileDataLogFileDialog::~ProfileDataLogFileDialog()
 {
 }
 
-void ProfileDataSingleFileDialog::slotAccepted()
+void ProfileDataLogFileDialog::slotAccepted()
 {
     if (save())
         accept();
@@ -65,15 +69,15 @@ void ProfileDataSingleFileDialog::slotAccepted()
         ErrorDialog::show(this, error.message(), error.details());
 }
 
-void ProfileDataSingleFileDialog::slotApplied()
+void ProfileDataLogFileDialog::slotApplied()
 {
     if (!save())
         ErrorDialog::show(this, error.message(), error.details());
 }
 
-void ProfileDataSingleFileDialog::scheme_wizard()
+void ProfileDataLogFileDialog::scheme_wizard()
 {
-    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), "wav", this);
+    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), "log", this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
@@ -87,11 +91,17 @@ void ProfileDataSingleFileDialog::scheme_wizard()
     trigger_changed();
 }
 
-void ProfileDataSingleFileDialog::trigger_changed()
+void ProfileDataLogFileDialog::trigger_changed()
 {
     if (applyButton) {
-        QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
+        QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString();
+        bool write_timestamps = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool();
+
         if (ui.qlineedit_scheme->text() != scheme) {
+            applyButton->setEnabled(true);
+            return;
+        }
+        if (ui.checkBox_timestamps->isChecked() != write_timestamps) {
             applyButton->setEnabled(true);
             return;
         }
@@ -99,15 +109,18 @@ void ProfileDataSingleFileDialog::trigger_changed()
     }
 }
 
-bool ProfileDataSingleFileDialog::save()
+bool ProfileDataLogFileDialog::save()
 {
     QString scheme = ui.qlineedit_scheme->text();
+    bool write_timestamps = ui.checkBox_timestamps->isChecked();
 
     error.clear();
     bool success = true;
 
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX), scheme);
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX), scheme);
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX), write_timestamps);
 
     if (!success)
         error = profile_model->lastError();

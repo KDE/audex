@@ -5,28 +5,28 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROFILEDATAHASHLISTDIALOG_H
-#define PROFILEDATAHASHLISTDIALOG_H
+#ifndef PROFILEDATALOGFILESDIALOG_H
+#define PROFILEDATALOGFILESDIALOG_H
 
 #include <QWidget>
 
 #include <QDialog>
 #include <QPushButton>
 
-#include "filenameschemewizarddialog.h"
-
 #include "dialogs/errordialog.h"
 #include "models/profilemodel.h"
 
-#include "ui_profiledatahashlistwidgetUI.h"
+#include "filenameschemewizarddialog.h"
 
-class ProfileDataHashlistDialog : public QDialog
+#include "ui_profiledatalogfilewidgetUI.h"
+
+class ProfileDataLogFileDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    ProfileDataHashlistDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
-    ~ProfileDataHashlistDialog() override;
+    explicit ProfileDataLogFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
+    ~ProfileDataLogFileDialog() override;
 
 protected Q_SLOTS:
     void scheme_wizard();
@@ -38,7 +38,7 @@ private Q_SLOTS:
     void slotApplied();
 
 private:
-    Ui::ProfileDataHashlistWidgetUI ui;
+    Ui::ProfileDataLogFileWidgetUI ui;
     QPushButton *applyButton;
 
     ProfileModel *profile_model;

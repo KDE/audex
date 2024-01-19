@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>361</width>
+    <width>335</width>
     <height>266</height>
    </rect>
   </property>
@@ -25,8 +25,11 @@
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QCheckBox" name="kcfg_fullParanoiaMode">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use some special techniques to reduce the chance of unnoticed reading errors. Leads to a more secure reading process at the expense of ripping speed, so it might be also called &quot;secure mode&quot;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
-         <string>Full paranoia mode (reduce chance of read errors)</string>
+         <string>Full paranoia mode (secure mode)</string>
         </property>
        </widget>
       </item>
@@ -65,9 +68,12 @@
        </layout>
       </item>
       <item row="1" column="0">
-       <widget class="QCheckBox" name="kcfg_neverSkip">
+       <widget class="QCheckBox" name="kcfg_skipReadingErrors">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Skip reading errors of a sector (length of a sector: 1/75 second) after trying to read the sector again for at most 20 times. Usually broken sectors will be filled with silence.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
-         <string>Never skip on read error</string>
+         <string>Skip reading errors</string>
         </property>
        </widget>
       </item>

@@ -10,27 +10,40 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &scheme, const bool writeMCNAndISRC, QWidget *parent)
+ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
-    this->scheme = scheme;
-    this->writeMCNAndISRC = writeMCNAndISRC;
+    this->profile_model = profile_model;
+    this->profile_row = profile_row;
+    this->new_profile_mode = new_profile_mode;
+
+    applyButton = nullptr;
+
+    // profile data cue sheet data
+    QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
+    bool write_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
 
     setWindowTitle(i18n("Cue Sheet Settings"));
 
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
+    QDialogButtonBox::StandardButtons buttons = QDialogButtonBox::Ok | QDialogButtonBox::Cancel;
+    if (!new_profile_mode)
+        buttons |= QDialogButtonBox::Apply;
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(buttons);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    applyButton = buttonBox->button(QDialogButtonBox::Apply);
+    if (!new_profile_mode)
+        applyButton = buttonBox->button(QDialogButtonBox::Apply);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataCueSheetDialog::slotAccepted);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataCueSheetDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &ProfileDataCueSheetDialog::slotApplied);
+    if (!new_profile_mode)
+        connect(applyButton, &QPushButton::clicked, this, &ProfileDataCueSheetDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
@@ -43,10 +56,11 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(const QString &scheme, cons
     ui.qlineedit_scheme->setText(scheme);
     connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
-    ui.checkBox_write_mcn_and_isrc->setChecked(writeMCNAndISRC);
+    ui.checkBox_write_mcn_and_isrc->setChecked(write_mcn_and_isrc);
     connect(ui.checkBox_write_mcn_and_isrc, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
-    applyButton->setEnabled(false);
+    if (applyButton)
+        applyButton->setEnabled(false);
 }
 
 ProfileDataCueSheetDialog::~ProfileDataCueSheetDialog()
@@ -55,13 +69,16 @@ ProfileDataCueSheetDialog::~ProfileDataCueSheetDialog()
 
 void ProfileDataCueSheetDialog::slotAccepted()
 {
-    save();
-    accept();
+    if (save())
+        accept();
+    else
+        ErrorDialog::show(this, error.message(), error.details());
 }
 
 void ProfileDataCueSheetDialog::slotApplied()
 {
-    save();
+    if (!save())
+        ErrorDialog::show(this, error.message(), error.details());
 }
 
 void ProfileDataCueSheetDialog::scheme_wizard()
@@ -82,21 +99,44 @@ void ProfileDataCueSheetDialog::scheme_wizard()
 
 void ProfileDataCueSheetDialog::trigger_changed()
 {
-    if (ui.qlineedit_scheme->text() != scheme) {
-        applyButton->setEnabled(true);
-        return;
+    if (applyButton) {
+        QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
+        bool write_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
+
+        if (ui.qlineedit_scheme->text() != scheme) {
+            applyButton->setEnabled(true);
+            return;
+        }
+        if (ui.checkBox_write_mcn_and_isrc->isChecked() != write_mcn_and_isrc) {
+            applyButton->setEnabled(true);
+            return;
+        }
+        applyButton->setEnabled(false);
     }
-    if (ui.checkBox_write_mcn_and_isrc->isChecked() != writeMCNAndISRC) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    applyButton->setEnabled(false);
 }
 
 bool ProfileDataCueSheetDialog::save()
 {
-    scheme = ui.qlineedit_scheme->text();
-    writeMCNAndISRC = ui.checkBox_write_mcn_and_isrc->isChecked();
-    applyButton->setEnabled(false);
-    return true;
+    QString scheme = ui.qlineedit_scheme->text();
+    bool write_mcn_and_isrc = ui.checkBox_write_mcn_and_isrc->isChecked();
+
+    error.clear();
+    bool success = true;
+
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), scheme);
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX), write_mcn_and_isrc);
+
+    if (!success)
+        error = profile_model->lastError();
+
+    if (success) {
+        profile_model->commit();
+        if (applyButton)
+            applyButton->setEnabled(false);
+        return true;
+    }
+
+    return false;
 }

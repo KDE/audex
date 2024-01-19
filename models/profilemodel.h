@@ -60,6 +60,10 @@
 #define DEFAULT_CUE_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
 #define DEFAULT_CUE_WRITE_MCN_AND_ISRC false
 
+#define DEFAULT_LOG false
+#define DEFAULT_LOG_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_LOG_WRITE_TIMESTAMPS false
+
 #define DEFAULT_SF false
 #define DEFAULT_SF_NAME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
 
@@ -101,6 +105,10 @@ enum ProfileColumns {
     PROFILE_MODEL_COLUMN_CUE_INDEX,
     PROFILE_MODEL_COLUMN_CUE_NAME_INDEX,
     PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX,
+
+    PROFILE_MODEL_COLUMN_LOG_INDEX,
+    PROFILE_MODEL_COLUMN_LOG_NAME_INDEX,
+    PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX,
 
     PROFILE_MODEL_COLUMN_SF_INDEX,
     PROFILE_MODEL_COLUMN_SF_NAME_INDEX,
@@ -153,6 +161,10 @@ enum ProfileColumns {
 #define PROFILE_MODEL_CUE_NAME_KEY "cue_name"
 #define PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY "cue_write_mcn_and_isrc"
 
+#define PROFILE_MODEL_LOG_KEY "log"
+#define PROFILE_MODEL_LOG_NAME_KEY "log_name"
+#define PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY "log_write_timestamps"
+
 #define PROFILE_MODEL_SF_KEY "sf"
 #define PROFILE_MODEL_SF_NAME_KEY "sf_name"
 
@@ -180,6 +192,8 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
     bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
+
+    bool validateData(const QModelIndex &index, const QVariant &value);
 
     int currentProfileIndex() const;
     int currentProfileRow() const;

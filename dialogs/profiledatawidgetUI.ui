@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>404</height>
+    <width>462</width>
+    <height>442</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -104,6 +104,9 @@
                 <bold>false</bold>
                </font>
               </property>
+              <property name="placeholderText">
+               <string>Please set a scheme</string>
+              </property>
              </widget>
             </item>
             <item>
@@ -183,19 +186,6 @@
           <string notr="true"/>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="1" column="1">
-           <widget class="QPushButton" name="kpushbutton_playlist">
-            <property name="font">
-             <font>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Settings..</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="2">
            <spacer name="horizontalSpacer">
             <property name="orientation">
@@ -209,8 +199,8 @@
             </property>
            </spacer>
           </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="checkBox_info">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="checkBox_cover">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -218,19 +208,12 @@
              </font>
             </property>
             <property name="text">
-             <string>Create info file</string>
+             <string>Store cover file</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QPushButton" name="kpushbutton_cuesheet">
-            <property name="text">
-             <string>Settings..</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QPushButton" name="kpushbutton_info">
+          <item row="1" column="1">
+           <widget class="QPushButton" name="kpushbutton_playlist">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -255,8 +238,28 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QPushButton" name="kpushbutton_hashlist">
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="checkBox_cuesheet">
+            <property name="text">
+             <string>Create cue sheet</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="checkBox_playlist">
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Create playlist</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="kpushbutton_info">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -265,26 +268,6 @@
             </property>
             <property name="text">
              <string>Settings..</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="checkBox_cuesheet">
-            <property name="text">
-             <string>Create cue sheet</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="checkBox_cover">
-            <property name="font">
-             <font>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Store cover file</string>
             </property>
            </widget>
           </item>
@@ -301,8 +284,15 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="checkBox_playlist">
+          <item row="4" column="1">
+           <widget class="QPushButton" name="kpushbutton_cuesheet">
+            <property name="text">
+             <string>Settings..</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="checkBox_info">
             <property name="font">
              <font>
               <weight>50</weight>
@@ -310,7 +300,34 @@
              </font>
             </property>
             <property name="text">
-             <string>Create playlist</string>
+             <string>Create info file</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QPushButton" name="kpushbutton_hashlist">
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Settings..</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QPushButton" name="kpushbutton_logfile">
+            <property name="text">
+             <string>Settings..</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QCheckBox" name="checkBox_logfile">
+            <property name="text">
+             <string>Save log file</string>
             </property>
            </widget>
           </item>
@@ -386,19 +403,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KIconButton</class>
-   <extends>QPushButton</extends>
-   <header>KIconButton</header>
-  </customwidget>
-  <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>QLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>qlineedit.h</header>
+   <class>KIconButton</class>
+   <extends>QPushButton</extends>
+   <header>kiconbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

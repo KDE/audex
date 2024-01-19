@@ -108,6 +108,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="placeholderText">
+        <string>Please set a scheme</string>
+       </property>
       </widget>
      </item>
      <item>
