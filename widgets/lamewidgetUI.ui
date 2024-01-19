@@ -50,7 +50,7 @@
          </font>
         </property>
         <property name="toolTip">
-         <string>This preset should provide near transparency to most people on most music.</string>
+         <string>This preset should provide perceptual transparency to most people.</string>
         </property>
         <property name="text">
          <string>Medium (140...185 kbit/s)</string>
@@ -95,7 +95,7 @@
          </font>
         </property>
         <property name="toolTip">
-         <string>This preset should generally be transparent to most people on most music and is already quite high in quality.</string>
+         <string>This preset should generally be transparent to most people.</string>
         </property>
         <property name="text">
          <string>Standard (170...210 kbit/s)</string>
@@ -111,7 +111,7 @@
          </font>
         </property>
         <property name="toolTip">
-         <string>This preset will usually be overkill for most people and most situations, but if you must have the absolute highest quality with no regard to filesize, this is the way to go.</string>
+         <string>This preset will usually be overkill, but if you want to have the absolute highest quality with no regard to filesize, this is the way to go.</string>
         </property>
         <property name="text">
          <string>Insane (320 kbit/s)</string>
