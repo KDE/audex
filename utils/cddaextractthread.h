@@ -8,6 +8,7 @@
 #ifndef CDDAEXTRACTTHREAD_HEADER
 #define CDDAEXTRACTTHREAD_HEADER
 
+#include <QHash>
 #include <QString>
 #include <QThread>
 
@@ -36,6 +37,10 @@ public Q_SLOTS:
     void setParanoiaNeverSkip(const bool never_skip)
     {
         paranoia_never_skip = never_skip;
+    }
+    void setSkipReadingErrors(const bool skip_reading_errors)
+    {
+        this->skip_reading_errors = skip_reading_errors;
     }
     int setSampleOffset(const int offset)
     {
@@ -68,7 +73,7 @@ public Q_SLOTS:
 
     bool isProcessing();
 
-    const QStringList &protocol();
+    const QStringList &log();
 
     CDDACDIO *cdio()
     {
@@ -106,6 +111,9 @@ private:
     bool paranoia_full_mode;
     int paranoia_retries;
     bool paranoia_never_skip;
+    bool skip_reading_errors;
+    QMap<paranoia_cb_mode_t, int> paranoia_status_count;
+    QHash<int, paranoia_cb_mode_t> paranoia_status_table;
 
     QByteArray silence;
 
@@ -120,13 +128,13 @@ private:
     bool b_interrupt;
     bool b_error;
 
-    QStringList extract_protocol;
+    QStringList p_log;
 
-    void createStatus(long, paranoia_cb_mode_t);
+    void create_status(long, paranoia_cb_mode_t);
     long status_previous_sector;
 
-    // this friend function will call createStatus(long, paranoia_cb_mode_t)
-    friend void paranoiaCallback(long, paranoia_cb_mode_t);
+    // this friend function will call create_status(long, paranoia_cb_mode_t)
+    friend void paranoia_callback(long, paranoia_cb_mode_t);
 };
 
 #endif

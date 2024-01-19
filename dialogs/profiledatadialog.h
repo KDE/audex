@@ -26,13 +26,14 @@
 #include "widgets/wavewidget.h"
 
 #include "dialogs/errordialog.h"
-#include "dialogs/schemewizarddialog.h"
 #include "dialogs/profiledatacoverdialog.h"
 #include "dialogs/profiledatacuesheetdialog.h"
 #include "dialogs/profiledatahashlistdialog.h"
 #include "dialogs/profiledatainfodialog.h"
+#include "dialogs/profiledatalogfiledialog.h"
 #include "dialogs/profiledataplaylistdialog.h"
 #include "dialogs/profiledatasinglefiledialog.h"
+#include "dialogs/schemewizarddialog.h"
 
 #include "ui_profiledatawidgetUI.h"
 
@@ -54,6 +55,7 @@ private Q_SLOTS:
     void enable_settings_info(bool enabled);
     void enable_settings_hashlist(bool enabled);
     void enable_settings_cuesheet(bool enabled);
+    void enable_settings_logfile(bool enabled);
     void enable_settings_singlefile(bool enabled);
 
     void disable_playlist(bool disabled);
@@ -68,17 +70,21 @@ private Q_SLOTS:
     void info_settings();
     void hashlist_settings();
     void cuesheet_settings();
+    void logfile_settings();
     void singlefile_settings();
 
     void slotAccepted();
     void slotApplied();
+    void slotRejected();
 
 private:
     Ui::ProfileDataWidgetUI ui;
     ProfileModel *profile_model;
+
     QPushButton *applyButton;
 
     int profile_row;
+    bool new_profile_mode;
 
     lameWidget *lame_widget;
     Parameters lame_parameters;
@@ -96,27 +102,30 @@ private:
     Parameters custom_parameters;
     void set_encoder_widget(const EncoderAssistant::Encoder encoder);
 
-    bool pdcd_scale;
-    QSize pdcd_size;
-    QString pdcd_format;
-    QString pdcd_scheme;
+    bool cover_scale;
+    QSize cover_size;
+    QString cover_format;
+    QString cover_scheme;
 
-    QString pdpd_format;
-    QString pdpd_scheme;
-    bool pdpd_abs_file_path;
-    bool pdpd_utf8;
+    QString playlist_format;
+    QString playlist_scheme;
+    bool playlist_abs_file_path;
+    bool playlist_utf8;
 
-    QStringList pdid_text;
-    QString pdid_scheme;
-    QString pdid_suffix;
+    QStringList infofile_text;
+    QString infofile_scheme;
+    QString infofile_suffix;
 
-    QString pdhd_format;
-    QString pdhd_scheme;
+    QString hashlist_format;
+    QString hashlist_scheme;
 
-    QString pdud_scheme;
-    bool pdud_write_mcn_and_isrc;
+    QString cuesheet_scheme;
+    bool cuesheet_write_mcn_and_isrc;
 
-    QString pdsd_scheme;
+    QString logfile_scheme;
+    bool logfile_write_timestamps;
+
+    QString singlefile_scheme;
 
     bool save();
 

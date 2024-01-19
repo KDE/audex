@@ -115,6 +115,10 @@ void MainWindow::cddb_lookup()
 
 void MainWindow::cddb_submit()
 {
+    QStringList toc = cdda_model->cdio()->prettyTOC();
+    for (int i = 0; i < toc.size(); ++i)
+        qDebug() << toc.at(i);
+    return;
     if (!cdda_model->submitCDDB()) {
         ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
     }

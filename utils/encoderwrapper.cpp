@@ -119,9 +119,9 @@ bool EncoderWrapper::isProcessing()
     return (processing > 0);
 }
 
-const QStringList &EncoderWrapper::protocol()
+const QStringList &EncoderWrapper::log()
 {
-    return _protocol;
+    return p_log;
 }
 
 void EncoderWrapper::parseOutput()
@@ -133,7 +133,7 @@ void EncoderWrapper::parseOutput()
     if (rawoutput.size() > 0) {
         QString output(rawoutput);
         QStringList list = output.trimmed().split('\n');
-        _protocol << list;
+        p_log << list;
         for (int i = 0; i < list.count(); ++i) {
             if (list.at(i).contains('%')) {
                 QString line = list.at(i);

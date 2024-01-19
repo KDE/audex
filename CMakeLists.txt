@@ -97,12 +97,13 @@ set(audex_SRCS
     dialogs/profiledatainfodialog.cpp
     dialogs/profiledatahashlistdialog.cpp
     dialogs/profiledatacuesheetdialog.cpp
+    dialogs/profiledatalogfiledialog.cpp
     dialogs/profiledatasinglefiledialog.cpp
     dialogs/schemewizarddialog.cpp
     dialogs/commandwizarddialog.cpp
     dialogs/filenameschemewizarddialog.cpp
     dialogs/extractingprogressdialog.cpp
-    dialogs/protocolviewdialog.cpp
+    dialogs/logviewdialog.cpp
     dialogs/textviewdialog.cpp
     dialogs/errordialog.cpp
     core/audex.cpp)
@@ -127,12 +128,13 @@ ki18n_wrap_ui(
   dialogs/profiledatainfowidgetUI.ui
   dialogs/profiledatahashlistwidgetUI.ui
   dialogs/profiledatacuesheetwidgetUI.ui
+  dialogs/profiledatalogfilewidgetUI.ui
   dialogs/profiledatasinglefilewidgetUI.ui
   dialogs/schemewizardwidgetUI.ui
   dialogs/commandwizardwidgetUI.ui
   dialogs/filenameschemewizardwidgetUI.ui
   dialogs/extractingprogresswidgetUI.ui
-  dialogs/protocolviewwidgetUI.ui
+  dialogs/logviewwidgetUI.ui
   dialogs/textviewwidgetUI.ui)
 
 kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)

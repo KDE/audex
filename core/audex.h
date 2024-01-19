@@ -151,8 +151,8 @@ public Q_SLOTS:
     void start();
     void cancel();
 
-    const QStringList &extractProtocol();
-    const QStringList &encoderProtocol();
+    const QStringList &extractLog();
+    const QStringList &encoderLog();
 
 private Q_SLOTS:
     void start_extract();

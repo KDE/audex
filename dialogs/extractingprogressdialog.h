@@ -25,7 +25,7 @@
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
 
-#include "protocolviewdialog.h"
+#include "logviewdialog.h"
 
 #include "ui_extractingprogresswidgetUI.h"
 
@@ -46,8 +46,8 @@ private Q_SLOTS:
 
     void slotCancel();
     void slotClose();
-    void slotEncoderProtocol();
-    void slotExtractProtocol();
+    void slotEncoderLog();
+    void slotExtractLog();
 
     void show_changed_extract_track(int no, int total, const QString &artist, const QString &title);
     void show_changed_encode_track(int no, int total, const QString &filename);
@@ -74,8 +74,8 @@ private:
     QPushButton *cancelButton;
 
     void calc_overall_progress();
-    void open_encoder_protocol_view_dialog();
-    void open_extract_protocol_view_dialog();
+    void open_encoder_log_view_dialog();
+    void open_extract_log_view_dialog();
     void update_unity();
 
 private:

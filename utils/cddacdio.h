@@ -95,11 +95,17 @@ public:
     int numOfFramesOfTrack(const int track);
     qreal sizeOfTrack(const int track); // in MiB
     int frameOffsetOfTrack(const int track);
+
     bool isAudioTrack(const int track);
+    bool isDataTrack(const int track);
     bool isLastTrack(const int track);
+
+    bool isAudioDisc(); // all tracks are audio tracks?
 
     // First element is first track after lead-in, list of offsets, last element offset of lead-out
     QList<quint32> discSignature();
+
+    const QStringList prettyTOC();
 
     const QString getMCN();
     const QString getISRC(const int track);

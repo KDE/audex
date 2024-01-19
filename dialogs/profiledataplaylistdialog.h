@@ -13,6 +13,9 @@
 #include <QDialog>
 #include <QPushButton>
 
+#include "dialogs/errordialog.h"
+#include "models/profilemodel.h"
+
 #include "filenameschemewizarddialog.h"
 
 #include "ui_profiledataplaylistwidgetUI.h"
@@ -22,13 +25,8 @@ class ProfileDataPlaylistDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataPlaylistDialog(const QString &format, const QString &scheme, const bool absFilePath, const bool utf8, QWidget *parent = nullptr);
+    ProfileDataPlaylistDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
     ~ProfileDataPlaylistDialog() override;
-
-    QString format;
-    QString scheme;
-    bool absFilePath;
-    bool utf8;
 
 protected Q_SLOTS:
     void scheme_wizard();
@@ -45,7 +43,13 @@ private:
     Ui::ProfileDataPlaylistWidgetUI ui;
     QPushButton *applyButton;
 
+    ProfileModel *profile_model;
+    int profile_row;
+    bool new_profile_mode;
+
     bool save();
+
+    Error error;
 };
 
 #endif

@@ -12,9 +12,9 @@
 
 static CDDAExtractThread *aet = nullptr;
 
-void paranoiaCallback(long sector, paranoia_cb_mode_t status)
+void paranoia_callback(long sector, paranoia_cb_mode_t status)
 {
-    aet->createStatus(sector, status);
+    aet->create_status(sector, status);
 }
 
 CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDACDIO *cdio)
@@ -31,7 +31,8 @@ CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDACDIO *cdio)
     overall_sectors_read = 0;
     paranoia_full_mode = true;
     paranoia_retries = 20;
-    paranoia_never_skip = true;
+    paranoia_never_skip = false;
+    skip_reading_errors = false;
     sample_offset = 0;
     track = 1;
     b_first_run = true;
@@ -62,8 +63,13 @@ void CDDAExtractThread::run()
     b_interrupt = false;
     b_error = false;
 
+    paranoia_status_count.clear();
+    paranoia_status_table.clear();
+
     if (b_first_run) {
-        extract_protocol.append(i18n("Drive info, Vendor: %1, Model: %2, Revision: %3", p_cdio->getVendor(), p_cdio->getModel(), p_cdio->getRevision()));
+        p_log.append(i18n("Drive Vendor: %1, Drive Model: %2, Drive Revision: %3", p_cdio->getVendor(), p_cdio->getModel(), p_cdio->getRevision()));
+        p_log.append(i18n("TOC:"));
+        p_log.append(p_cdio->prettyTOC());
         b_first_run = false;
     }
 
@@ -100,7 +106,7 @@ void CDDAExtractThread::run()
 
     p_cdio->paranoiaSeek(first_sector, SEEK_SET);
     if (p_cdio->paranoiaError(paranoiaErrorMsg)) {
-        extract_protocol.append(i18n("Error occured while seeking at sector %1: %2", first_sector, paranoiaErrorMsg));
+        p_log.append(i18n("Error occured while seeking at sector %1: %2", first_sector, paranoiaErrorMsg));
         if (track > 0)
             Q_EMIT error(i18n("An error occured while ripping track %1. See log.", track));
         else
@@ -111,22 +117,21 @@ void CDDAExtractThread::run()
     current_sector = first_sector;
 
     if (sample_offset > 0)
-        extract_protocol.append(i18n("Correction sample offset: %1", sample_offset));
+        p_log.append(i18n("Correction sample offset: %1", sample_offset));
 
     QString min = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
     QString sec = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
 
     if (track > 0) {
         Q_EMIT info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
-        extract_protocol.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
+        p_log.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
     } else {
-        Q_EMIT info(i18n("Ripping whole CD as single track (%1:%2).", min, sec));
-        extract_protocol.append(i18n("Start reading whole disc with %1 sectors", sectors_all));
-        extract_protocol.append(
-            i18n("Track %1 with start sector %2", p_cdio->firstTrackNum(), p_cdio->firstSectorOfTrack(p_cdio->firstTrackNum()) + sector_offset));
+        Q_EMIT info(i18n("Ripping whole disc (%1:%2)...", min, sec));
+        p_log.append(i18n("Start reading whole disc with %1 sectors", sectors_all));
+        p_log.append(i18n("Track %1 with start sector %2", p_cdio->firstTrackNum(), p_cdio->firstSectorOfTrack(p_cdio->firstTrackNum()) + sector_offset));
     }
 
-    extract_protocol.append(i18n("First sector: %1, Last sector: %2", first_sector, last_sector));
+    p_log.append(i18n("First sector: %1, Last sector: %2", first_sector, last_sector));
 
     p_cdio->mediaChanged();
 
@@ -145,13 +150,13 @@ void CDDAExtractThread::run()
             continue;
         }
 
-        int16_t *buf = p_cdio->paranoiaRead(paranoiaCallback);
+        int16_t *buf = p_cdio->paranoiaRead(paranoia_callback);
         if (p_cdio->paranoiaError(paranoiaErrorMsg)) {
-            extract_protocol.append(i18n("Error occured while reading sector %1 (track time pos %2): %3",
-                                         current_sector,
-                                         CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-')),
-                                         paranoiaErrorMsg));
-            if (paranoia_never_skip) {
+            p_log.append(i18n("Error occured while reading sector %1 (track time pos %2): %3",
+                              current_sector,
+                              CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-')),
+                              paranoiaErrorMsg));
+            if (!skip_reading_errors) {
                 if (track > 0)
                     Q_EMIT error(i18n("An error occured while ripping track %1 at position %2. See log.",
                                       track,
@@ -172,21 +177,20 @@ void CDDAExtractThread::run()
         }
         if (!buf) {
             if (paranoiaErrorMsg.isEmpty()) {
-                extract_protocol.append(
-                    i18n("Error reading sector %1 (track time pos %2)", current_sector, CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+                p_log.append(i18n("Error reading sector %1 (track time pos %2)", current_sector, CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
                 if (paranoia_never_skip)
                     Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
                 else
                     Q_EMIT warning(
                         i18n("An error occured while ripping at position %1. See log.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
             }
-            if (paranoia_never_skip) {
+            if (!skip_reading_errors) {
                 b_error = true;
                 break;
             }
-            extract_protocol.append(i18n("Error reading sector %1 (%2): **Filling whole sector with silence**",
-                                         current_sector,
-                                         CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+            p_log.append(i18n("Error reading sector %1 (%2): **Filling whole sector with silence**",
+                              current_sector,
+                              CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
             buf = reinterpret_cast<int16_t *>(silence.data());
         }
 
@@ -212,7 +216,7 @@ void CDDAExtractThread::run()
             if (p_cdio->isLastTrack(track)) { // if we read into the leadout at the end of the disc then..
                 p_cdio->paranoiaSeek(current_sector, SEEK_SET); // flush the buffer (paranoia internal)
                 if (p_cdio->paranoiaError(paranoiaErrorMsg)) {
-                    extract_protocol.append(i18n("Error occured while seeking at sector %1: %2", current_sector, paranoiaErrorMsg));
+                    p_log.append(i18n("Error occured while seeking at sector %1: %2", current_sector, paranoiaErrorMsg));
                     if (track > 0)
                         Q_EMIT error(i18n("An error occured while ripping track %1. See log.", track));
                     else
@@ -236,17 +240,17 @@ void CDDAExtractThread::run()
 
     if (b_error) {
         Q_EMIT error(i18n("Ripping was canceled due to an error."));
-        extract_protocol.append(i18n("Ripping was canceled due to an error."));
+        p_log.append(i18n("Ripping was canceled due to an error."));
     } else if (b_interrupt) {
         Q_EMIT error(i18n("User canceled extracting."));
-        extract_protocol.append(i18n("Extraction interrupted"));
+        p_log.append(i18n("Extraction interrupted"));
     } else {
         if (track > 0) {
             Q_EMIT info(i18n("Ripping OK (Track %1).", track));
         } else {
             Q_EMIT info(i18n("Ripping OK."));
         }
-        extract_protocol.append(i18n("Ripping finished"));
+        p_log.append(i18n("Ripping finished"));
     }
 }
 
@@ -260,9 +264,9 @@ bool CDDAExtractThread::isProcessing()
     return !(b_interrupt || !isRunning());
 }
 
-const QStringList &CDDAExtractThread::protocol()
+const QStringList &CDDAExtractThread::log()
 {
-    return extract_protocol;
+    return p_log;
 }
 
 void CDDAExtractThread::reset()
@@ -284,75 +288,31 @@ void CDDAExtractThread::slot_error(const QString &message, const QString &detail
     Q_EMIT error(message, details);
 }
 
-void CDDAExtractThread::createStatus(long sector, paranoia_cb_mode_t status)
+void CDDAExtractThread::create_status(long sector, paranoia_cb_mode_t status)
 {
-    if (sector == status_previous_sector)
+    if (status == PARANOIA_CB_READ || status == PARANOIA_CB_FINISHED)
         return;
-    status_previous_sector = sector;
 
-    switch (status) {
-    case PARANOIA_CB_READ:
-        // no problem
-        break;
-    case PARANOIA_CB_VERIFY:
-        // qDebug() << "Verifying jitter";
-        break;
-    case PARANOIA_CB_FIXUP_EDGE:
-        // qDebug() << "Fixed edge jitter";
-        extract_protocol.append(i18n("Fixed edge jitter (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_FIXUP_ATOM:
-        // qDebug() << "Fixed atom jitter";
-        extract_protocol.append(i18n("Fixed atom jitter (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_SCRATCH:
-        // scratch detected
-        // qDebug() << "Scratch detected";
-        Q_EMIT warning(i18n("Scratch detected at track %1 at position %2.", current_sector, CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
-        extract_protocol.append(i18n("SCRATCH DETECTED (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_REPAIR:
-        // qDebug() << "Repair";
-        extract_protocol.append(i18n("Repair (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_SKIP:
-        // skipped sector
-        // qDebug() << "Skip";
-        Q_EMIT warning(i18n("Skip sectors at track %1 at position %2.", current_sector, CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
-        extract_protocol.append(i18n("SKIP (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_DRIFT:
-        // qDebug() << "Drift";
-        extract_protocol.append(i18n("Drift (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_BACKOFF:
-        // qDebug() << "Backoff";
-        extract_protocol.append(i18n("Backoff (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_OVERLAP:
-        // sector does not seem to contain the current
-        // sector but the amount of overlapped data
-        // qDebug() << "overlap.";
-        break;
-    case PARANOIA_CB_FIXUP_DROPPED:
-        // qDebug() << "Fixup dropped";
-        extract_protocol.append(i18n("Fixup dropped (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_FIXUP_DUPED:
-        // qDebug() << "Fixup duped";
-        extract_protocol.append(i18n("Fixup duped (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_READERR:
-        // qDebug() << "Read error";
-        Q_EMIT warning(i18n("Read error detected at track %1 position %2.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
-        extract_protocol.append(i18n("READ ERROR (sector %1, time pos %2)", sector, CDDACDIO::LSN2MSF(sector, QChar('-'))));
-        break;
-    case PARANOIA_CB_CACHEERR:
-        // qDebug() << "Bad cache management";
-        break;
-    case PARANOIA_CB_WROTE:
-        break;
-    case PARANOIA_CB_FINISHED:
-        break;
-    }
+    paranoia_status_count[status]++;
+    paranoia_status_table.insert(sector, status);
 }
+
+/* Paranoia status explanations:
+ *
+ * PARANOIA_CB_READ             : No error.
+ * PARANOIA_CB_VERIFY           : No error. Verifying jitter
+ * PARANOIA_CB_FIXUP_EDGE       : Recoverable minor error. Fixed edge jitter.
+ * PARANOIA_CB_FIXUP_ATOM       : Recoverable minor error. Fixed atom jitter.
+ * PARANOIA_CB_SCRATCH          : Unsupported with current paranoia implementation. Should not occur.
+ * PARANOIA_CB_REPAIR           : Unsupported with current paranoia implementation. Should not occur.
+ * PARANOIA_CB_SKIP             : Error. Skipped sector.
+ * PARANOIA_CB_DRIFT            : Error. Skipped sector.
+ * PARANOIA_CB_BACKOFF          : Unsupported with current paranoia implementation. Should not occur.
+ * PARANOIA_CB_OVERLAP          : No error. Dynamic overlap adjust. Sector does not seem to contain the current sector but the amount of overlapped data.
+ * PARANOIA_CB_FIXUP_DROPPED    : Recoverable error. Fixed dropped bytes.
+ * PARANOIA_CB_FIXUP_DUPED      : Recoverable error. Fixed duplicate bytes.
+ * PARANOIA_CB_READERR          : Error. Reading error.
+ * PARANOIA_CB_CACHEERR         : Cache error?
+ * PARANOIA_CB_WROTE            : No error.
+ * PARANOIA_CB_FINISHED         : No error. Just finished ripping.
+ */

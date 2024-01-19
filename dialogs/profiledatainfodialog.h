@@ -15,7 +15,10 @@
 #include <QTextBrowser>
 #include <QVBoxLayout>
 
+#include "dialogs/errordialog.h"
 #include "dialogs/textviewdialog.h"
+#include "models/profilemodel.h"
+
 #include "filenameschemewizarddialog.h"
 
 #include "ui_profiledatainfowidgetUI.h"
@@ -25,12 +28,8 @@ class ProfileDataInfoDialog : public QDialog
     Q_OBJECT
 
 public:
-    ProfileDataInfoDialog(const QStringList &text, const QString &scheme, const QString &suffix, QWidget *parent = nullptr);
+    ProfileDataInfoDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
     ~ProfileDataInfoDialog() override;
-
-    QStringList text;
-    QString scheme;
-    QString suffix;
 
 protected Q_SLOTS:
     void scheme_wizard();
@@ -51,7 +50,13 @@ private:
     QVBoxLayout *mainLayout;
     QPushButton *applyButton;
 
+    ProfileModel *profile_model;
+    int profile_row;
+    bool new_profile_mode;
+
     bool save();
+
+    Error error;
 
     TextViewDialog *help_dialog;
 };

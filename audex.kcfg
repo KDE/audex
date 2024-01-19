@@ -34,12 +34,12 @@
       <max>99</max>
     </entry>
     <entry name="fullParanoiaMode" type="Bool">
-      <label>Full paranoia mode (reduce chance of read errors)</label>
+      <label>Full paranoia mode (secure mode)</label>
       <default>true</default>
     </entry>
-    <entry name="neverSkip" type="Bool">
-      <label>Never skip on read error</label>
-      <default>true</default>
+    <entry name="skipReadingErrors" type="Bool">
+      <label>Skip reading errors</label>
+      <default>false</default>
     </entry>
     <entry name="sampleOffset" type="Int">
       <label>Sample offset</label>

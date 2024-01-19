@@ -34,17 +34,14 @@ int ProfileModel::columnCount(const QModelIndex &parent) const
 
 QVariant ProfileModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()) {
+    if (!index.isValid())
         return QVariant();
-    }
 
-    if ((index.row() < 0) || (index.row() >= p_cache.count())) {
+    if ((index.row() < 0) || (index.row() >= p_cache.count()))
         return QVariant();
-    }
 
-    if (role == Qt::TextAlignmentRole) {
+    if (role == Qt::TextAlignmentRole)
         return int(Qt::AlignLeft | Qt::AlignVCenter);
-    }
 
     if ((role == Qt::DisplayRole) || (role == Qt::EditRole)) {
         switch (index.column()) {
@@ -106,6 +103,12 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
             return p_cache.at(index.row())[PROFILE_MODEL_CUE_NAME_KEY];
         case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY];
+        case PROFILE_MODEL_COLUMN_LOG_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_LOG_KEY];
+        case PROFILE_MODEL_COLUMN_LOG_NAME_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_LOG_NAME_KEY];
+        case PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY];
         case PROFILE_MODEL_COLUMN_SF_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_SF_KEY];
         case PROFILE_MODEL_COLUMN_SF_NAME_INDEX:
@@ -134,9 +137,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
             QIcon icon = QIcon::fromTheme(iconName);
             if (icon.isNull() && QFile::exists(iconName))
                 icon = QIcon(iconName);
-            if (!icon.isNull()) {
+            if (!icon.isNull())
                 return icon;
-            }
         }
 
         return QIcon::fromTheme(DEFAULT_ICON);
@@ -147,216 +149,17 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
 
 bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (!index.isValid()) {
+    if (!index.isValid())
         return false;
-    }
 
-    if ((index.row() < 0) || (index.row() >= p_cache.count())) {
+    if ((index.row() < 0) || (index.row() >= p_cache.count()))
         return false;
-    }
 
     beginResetModel();
 
     if (role == Qt::EditRole) {
-        switch (index.column()) {
-        case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ICON_INDEX:
-            break;
-
-        case PROFILE_MODEL_COLUMN_NAME_INDEX:
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Profile name must not be empty."), i18n("You have given no name for the profile. Please set one."), Error::ERROR, this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX:
-            if (value.toInt() == -1) {
-                p_error =
-                    Error(i18n("Profile encoder is not defined."), i18n("You have given no encoder for the profile. Please set one."), Error::ERROR, this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_SCHEME_INDEX:
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Profile filename scheme is not defined."),
-                                i18n("You have given no filename scheme for the profile. Please set one."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_SC_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX:
-            if ((value.toString() != "JPEG") && (value.toString() != "JPG") && (value.toString() != "PNG") && (value.toString() != "TIFF")
-                && (value.toString() != "TIF") && (value.toString() != "BMP")) {
-                p_error = Error(i18n("The image file format is unknown."),
-                                i18n("Your given image file format is unknown. Please choose on of these formats: JPEG, PNG, TIFF or BMP."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_SC_NAME_INDEX:
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Cover name must not be empty."), i18n("You have given no name for the cover. Please set one."), Error::ERROR, this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_PL_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX:
-            if ((value.toString() != "M3U") && (value.toString() != "PLS") && (value.toString() != "XSPF")) {
-                p_error = Error(i18n("The playlist file format is unknown."),
-                                i18n("Your given playlist file format is unknown. Please choose on of these formats: M3U, PLS or XSPF."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_PL_NAME_INDEX:
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Playlist name must not be empty."), i18n("You have given no name for the playlist. Please set one."), Error::ERROR, this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_PL_UTF8_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_INF_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_INF_TEXT_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_INF_NAME_INDEX:
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Info text name must not be empty."),
-                                i18n("You have given no name for the info text file. Please set one."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX:
-            break;
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Info text file name suffix must not be empty."),
-                                i18n("You have given no suffix for the info text file. Please set one."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_HL_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX:
-            if ((value.toString() != "SFV") && (value.toString() != "MD5") && (value.toString() != "SHA-256")) {
-                p_error = Error(i18n("The hashlist file format is unknown."),
-                                i18n("Your given hashlist file format is unknown. Please choose one of these formats: SFV, MD5, SHA-256."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_HL_NAME_INDEX:
-            break;
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Hashlist name must not be empty."), i18n("You have given no name for the hashlist. Please set one."), Error::ERROR, this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_CUE_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
-            break;
-            if (value.toString().isEmpty()) {
-                p_error =
-                    Error(i18n("Cue filename name must not be empty."), i18n("You have given no name for the cue sheet. Please set one."), Error::ERROR, this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_SF_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_SF_NAME_INDEX:
-            break;
-            if (value.toString().isEmpty()) {
-                p_error = Error(i18n("Filename name must not be empty."),
-                                i18n("You have given no name for the single audio file. Please set one."),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX:
-            break;
-        case PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX:
-            break;
-        default:
+        if (!validateData(index, value))
             return false;
-        }
-
-        // check if name is unique
-        if (index.column() == PROFILE_MODEL_COLUMN_NAME_INDEX) {
-            bool found = false;
-            for (int i = 0; i < p_cache.count(); ++i) {
-                if (i == index.row())
-                    continue;
-                if (value.toString() == p_cache.at(i)[PROFILE_MODEL_NAME_KEY].toString()) {
-                    found = true;
-                    break;
-                }
-            }
-            if (found) {
-                p_error = Error(i18n("Profile name already exists."),
-                                i18n("Your profile name %1 already exists in the set of profiles. Please choose a unique one.", value.toString()),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-        }
-
-        // check if profile index is unique
-        if ((index.column() == PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX) && (value.toInt() != -1)) {
-            bool found = false;
-            for (int i = 0; i < p_cache.count(); ++i) {
-                if (i == index.row())
-                    continue;
-                if (value.toInt() == p_cache.at(i)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt()) {
-                    found = true;
-                    break;
-                }
-            }
-            if (found) {
-                p_error = Error(i18n("Profile index already exists."),
-                                i18n("Your profile index %1 already exists in the set of profiles. Please choose a unique one.", value.toInt()),
-                                Error::ERROR,
-                                this);
-                return false;
-            }
-        }
 
         switch (index.column()) {
         case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX:
@@ -368,11 +171,9 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_ICON_INDEX:
             p_cache[index.row()][PROFILE_MODEL_ICON_KEY] = value;
             break;
-
         case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX:
             p_cache[index.row()][PROFILE_MODEL_ENCODER_SELECTED_KEY] = value;
             break;
-
         case PROFILE_MODEL_COLUMN_SCHEME_INDEX:
             p_cache[index.row()][PROFILE_MODEL_SCHEME_KEY] = value;
             break;
@@ -385,6 +186,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX:
             p_cache[index.row()][PROFILE_MODEL_2DIGITSTRACKNUM_KEY] = value;
             break;
+
         case PROFILE_MODEL_COLUMN_SC_INDEX:
             p_cache[index.row()][PROFILE_MODEL_SC_KEY] = value;
             break;
@@ -400,6 +202,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_SC_NAME_INDEX:
             p_cache[index.row()][PROFILE_MODEL_SC_NAME_KEY] = value;
             break;
+
         case PROFILE_MODEL_COLUMN_PL_INDEX:
             p_cache[index.row()][PROFILE_MODEL_PL_KEY] = value;
             break;
@@ -415,6 +218,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_PL_UTF8_INDEX:
             p_cache[index.row()][PROFILE_MODEL_PL_UTF8_KEY] = value;
             break;
+
         case PROFILE_MODEL_COLUMN_INF_INDEX:
             p_cache[index.row()][PROFILE_MODEL_INF_KEY] = value;
             break;
@@ -427,6 +231,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX:
             p_cache[index.row()][PROFILE_MODEL_INF_SUFFIX_KEY] = value;
             break;
+
         case PROFILE_MODEL_COLUMN_HL_INDEX:
             p_cache[index.row()][PROFILE_MODEL_HL_KEY] = value;
             break;
@@ -436,6 +241,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_HL_NAME_INDEX:
             p_cache[index.row()][PROFILE_MODEL_HL_NAME_KEY] = value;
             break;
+
         case PROFILE_MODEL_COLUMN_CUE_INDEX:
             p_cache[index.row()][PROFILE_MODEL_CUE_KEY] = value;
             break;
@@ -445,6 +251,17 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
             p_cache[index.row()][PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = value;
             break;
+
+        case PROFILE_MODEL_COLUMN_LOG_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_LOG_KEY] = value;
+            break;
+        case PROFILE_MODEL_COLUMN_LOG_NAME_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_LOG_NAME_KEY] = value;
+            break;
+        case PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY] = value;
+            break;
+
         case PROFILE_MODEL_COLUMN_SF_INDEX:
             p_cache[index.row()][PROFILE_MODEL_SF_KEY] = value;
             break;
@@ -491,25 +308,21 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);
 
-    if ((row < 0) || (row >= p_cache.count())) {
+    if ((row < 0) || (row >= p_cache.count()))
         return false;
-    }
 
-    if (count <= 0) {
+    if (count <= 0)
         return false;
-    }
 
     beginResetModel();
     int c;
-    if (row + count > p_cache.count()) {
+    if (row + count > p_cache.count())
         c = p_cache.count();
-    } else {
+    else
         c = row + count;
-    }
 
-    for (int i = row; i < c; ++i) {
+    for (int i = row; i < c; ++i)
         p_cache.removeAt(i);
-    }
 
     endResetModel();
 
@@ -525,25 +338,22 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
 {
     Q_UNUSED(parent);
 
-    if ((row < 0) || (row > p_cache.count())) {
+    if ((row < 0) || (row > p_cache.count()))
         return false;
-    }
 
-    if (count <= 0) {
+    if (count <= 0)
         return false;
-    }
 
     bool wasEmpty = (p_cache.count() == 0);
 
     beginResetModel();
 
-    if (row == p_cache.count()) {
+    if (row == p_cache.count())
         for (int i = 0; i < count; ++i)
             p_cache.append(p_new_profile());
-    } else {
+    else
         for (int i = row; i < count; ++i)
             p_cache.insert(i, p_new_profile());
-    }
 
     endResetModel();
 
@@ -553,6 +363,226 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex &parent)
     }
 
     Q_EMIT profilesRemovedOrInserted();
+
+    return true;
+}
+
+bool ProfileModel::validateData(const QModelIndex &index, const QVariant &value)
+{
+    switch (index.column()) {
+    case PROFILE_MODEL_COLUMN_ICON_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_NAME_INDEX: {
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Profile name must not be empty."), i18n("You have given no name for the profile. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        // check if name is unique
+        bool found = false;
+        for (int i = 0; i < p_cache.count(); ++i) {
+            if (i == index.row())
+                continue;
+            if (value.toString() == p_cache.at(i)[PROFILE_MODEL_NAME_KEY].toString()) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            p_error = Error(i18n("Profile name already exists."),
+                            i18n("Your profile name %1 already exists in the set of profiles. Please choose a unique one.", value.toString()),
+                            Error::ERROR,
+                            this);
+            return false;
+        }
+    }
+
+    break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX:
+        if (value.toInt() == -1) {
+            p_error = Error(i18n("Profile encoder is not defined."), i18n("You have given no encoder for the profile. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_SCHEME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Profile filename scheme is not defined."),
+                            i18n("You have given no filename scheme for the profile. Please set one."),
+                            Error::ERROR,
+                            this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_SC_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX:
+        if ((value.toString() != "JPEG") && (value.toString() != "JPG") && (value.toString() != "PNG") && (value.toString() != "TIFF")
+            && (value.toString() != "TIF") && (value.toString() != "BMP")) {
+            p_error = Error(i18n("The image file format is unknown."),
+                            i18n("Your given image file format is unknown. Please choose on of these formats: JPEG, PNG, TIFF or BMP."),
+                            Error::ERROR,
+                            this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_SC_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Cover name must not be empty."), i18n("You have given no name for the cover. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_PL_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX:
+        if ((value.toString() != "M3U") && (value.toString() != "PLS") && (value.toString() != "XSPF")) {
+            p_error = Error(i18n("The playlist file format is unknown."),
+                            i18n("Your given playlist file format is unknown. Please choose on of these formats: M3U, PLS or XSPF."),
+                            Error::ERROR,
+                            this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_PL_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Playlist name must not be empty."), i18n("You have given no name for the playlist. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_PL_UTF8_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_INF_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_INF_TEXT_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_INF_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error =
+                Error(i18n("Info text name must not be empty."), i18n("You have given no name for the info text file. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Info text file name suffix must not be empty."),
+                            i18n("You have given no suffix for the info text file. Please set one."),
+                            Error::ERROR,
+                            this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_HL_INDEX:
+        break;
+    case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX:
+        if ((value.toString() != "SFV") && (value.toString() != "MD5") && (value.toString() != "SHA-256")) {
+            p_error = Error(i18n("The hashlist file format is unknown."),
+                            i18n("Your given hashlist file format is unknown. Please choose one of these formats: SFV, MD5, SHA-256."),
+                            Error::ERROR,
+                            this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_HL_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Hashlist name must not be empty."), i18n("You have given no name for the hashlist. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_CUE_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error =
+                Error(i18n("Cue filename name must not be empty."), i18n("You have given no name for the cue sheet. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_LOG_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_LOG_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error = Error(i18n("Log filename name must not be empty."), i18n("You have given no name for the log file. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_SF_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_SF_NAME_INDEX:
+        if (value.toString().isEmpty()) {
+            p_error =
+                Error(i18n("Filename name must not be empty."), i18n("You have given no name for the single audio file. Please set one."), Error::ERROR, this);
+            return false;
+        }
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX:
+        break;
+
+    case PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX:
+        break;
+
+    default:
+        return false;
+    }
 
     return true;
 }
@@ -632,13 +662,13 @@ int ProfileModel::getNewIndex() const
     QSet<int> indexes;
     QList<Profile>::ConstIterator it(p_cache.begin()), end(p_cache.end());
 
-    for (; it != end; ++it) {
+    for (; it != end; ++it)
         indexes.insert((*it)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt());
-    }
-    for (int i = 0; i < INT_MAX; ++i) {
+
+    for (int i = 0; i < INT_MAX; ++i)
         if (!indexes.contains(i))
             return i;
-    }
+
     return -1;
 }
 
@@ -885,6 +915,9 @@ const Profile ProfileModel::p_new_profile()
     p[PROFILE_MODEL_CUE_KEY] = DEFAULT_CUE;
     p[PROFILE_MODEL_CUE_NAME_KEY] = DEFAULT_CUE_NAME;
     p[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
+    p[PROFILE_MODEL_LOG_KEY] = DEFAULT_LOG;
+    p[PROFILE_MODEL_LOG_NAME_KEY] = DEFAULT_LOG_NAME;
+    p[PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY] = DEFAULT_LOG_WRITE_TIMESTAMPS;
     p[PROFILE_MODEL_SF_KEY] = DEFAULT_SF;
     p[PROFILE_MODEL_SF_NAME_KEY] = DEFAULT_SF_NAME;
 
@@ -901,13 +934,12 @@ const Profile ProfileModel::p_new_profile()
 
 void ProfileModel::p_new_name(QString &name)
 {
-    for (int j = 0; j < p_cache.count(); ++j) {
+    for (int j = 0; j < p_cache.count(); ++j)
         if (name == p_cache.at(j)[PROFILE_MODEL_NAME_KEY].toString()) {
             name = QString("%1 (%2)").arg(name).arg(i18n("Copy"));
             p_new_name(name);
             return;
         }
-    }
 }
 
 void ProfileModel::revert()
@@ -996,6 +1028,9 @@ void ProfileModel::p_save(KConfig *config)
         subGroup.writeEntry(PROFILE_MODEL_CUE_KEY, p_cache[i][PROFILE_MODEL_CUE_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_CUE_NAME_KEY, p_cache[i][PROFILE_MODEL_CUE_NAME_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY, p_cache[i][PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_LOG_KEY, p_cache[i][PROFILE_MODEL_LOG_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_LOG_NAME_KEY, p_cache[i][PROFILE_MODEL_LOG_NAME_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY, p_cache[i][PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_SF_KEY, p_cache[i][PROFILE_MODEL_SF_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_SF_NAME_KEY, p_cache[i][PROFILE_MODEL_SF_NAME_KEY]);
 
@@ -1054,6 +1089,9 @@ void ProfileModel::p_load(KConfig *config)
         p[PROFILE_MODEL_CUE_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_KEY, DEFAULT_CUE);
         p[PROFILE_MODEL_CUE_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_NAME_KEY, DEFAULT_CUE_NAME);
         p[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY, DEFAULT_CUE_WRITE_MCN_AND_ISRC);
+        p[PROFILE_MODEL_LOG_KEY] = subGroup.readEntry(PROFILE_MODEL_LOG_KEY, DEFAULT_LOG);
+        p[PROFILE_MODEL_LOG_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_LOG_NAME_KEY, DEFAULT_LOG_NAME);
+        p[PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY] = subGroup.readEntry(PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY, DEFAULT_LOG_WRITE_TIMESTAMPS);
         p[PROFILE_MODEL_SF_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_KEY, DEFAULT_SF);
         p[PROFILE_MODEL_SF_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_NAME_KEY, DEFAULT_SF_NAME);
 

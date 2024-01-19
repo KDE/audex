@@ -135,14 +135,14 @@ void ExtractingProgressDialog::slotClose()
     close();
 }
 
-void ExtractingProgressDialog::slotEncoderProtocol()
+void ExtractingProgressDialog::slotEncoderLog()
 {
-    open_encoder_protocol_view_dialog();
+    open_encoder_log_view_dialog();
 }
 
-void ExtractingProgressDialog::slotExtractProtocol()
+void ExtractingProgressDialog::slotExtractLog()
 {
-    open_extract_protocol_view_dialog();
+    open_extract_log_view_dialog();
 }
 
 void ExtractingProgressDialog::cancel()
@@ -273,19 +273,19 @@ void ExtractingProgressDialog::conclusion(bool successful)
         ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
-        if (audex->encoderProtocol().count() > 0) {
-            auto *encoderProtocolButton = new QPushButton();
-            encoderProtocolButton->setText(i18n("Show encoding log..."));
-            encoderProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
-            buttonBox->addButton(encoderProtocolButton, QDialogButtonBox::HelpRole);
-            connect(encoderProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderProtocol);
+        if (audex->encoderLog().count() > 0) {
+            auto *encoderLogButton = new QPushButton();
+            encoderLogButton->setText(i18n("Show encoding log..."));
+            encoderLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
+            buttonBox->addButton(encoderLogButton, QDialogButtonBox::HelpRole);
+            connect(encoderLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderLog);
         }
-        if (audex->extractProtocol().count() > 0) {
-            auto *extractProtocolButton = new QPushButton();
-            extractProtocolButton->setText(i18n("Show rip log..."));
-            extractProtocolButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
-            buttonBox->addButton(extractProtocolButton, QDialogButtonBox::HelpRole);
-            connect(extractProtocolButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractProtocol);
+        if (audex->extractLog().count() > 0) {
+            auto *extractLogButton = new QPushButton();
+            extractLogButton->setText(i18n("Show rip log..."));
+            extractLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
+            buttonBox->addButton(extractLogButton, QDialogButtonBox::HelpRole);
+            connect(extractLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractLog);
         }
     }
 
@@ -328,30 +328,27 @@ void ExtractingProgressDialog::show_error(const QString &message, const QString 
 
 void ExtractingProgressDialog::ask_timeout()
 {
-    if (KMessageBox::questionTwoActions(
-            this,
-            i18n("Ripping speed was extremely slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
-                 "If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data "
-                 "from this disc. Maybe try another one.\n\n"
-                 "However, do you want to continue extraction?"),
-            i18n("Cancel extraction"),
-            KStandardGuiItem::cont(),
-            KStandardGuiItem::cancel())
+    if (KMessageBox::questionTwoActions(this,
+                                        i18n("Ripping speed was extremely slow for the last 5 minutes.\n"
+                                             "Do you want to continue extraction?"),
+                                        i18n("Cancel extraction"),
+                                        KStandardGuiItem::cont(),
+                                        KStandardGuiItem::cancel())
         == KMessageBox::SecondaryAction) {
         audex->cancel();
     }
 }
 
-void ExtractingProgressDialog::open_encoder_protocol_view_dialog()
+void ExtractingProgressDialog::open_encoder_log_view_dialog()
 {
-    ProtocolViewDialog protocolViewDialog(audex->encoderProtocol(), i18n("Encoding protocol"), this);
-    protocolViewDialog.exec();
+    LogViewDialog logViewDialog(audex->encoderLog(), i18n("Encoding log"), this);
+    logViewDialog.exec();
 }
 
-void ExtractingProgressDialog::open_extract_protocol_view_dialog()
+void ExtractingProgressDialog::open_extract_log_view_dialog()
 {
-    ProtocolViewDialog protocolViewDialog(audex->extractProtocol(), i18n("Ripping protocol"), this);
-    protocolViewDialog.exec();
+    LogViewDialog logViewDialog(audex->extractLog(), i18n("Ripping log"), this);
+    logViewDialog.exec();
 }
 
 void ExtractingProgressDialog::update_unity()

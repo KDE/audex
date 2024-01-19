@@ -37,7 +37,7 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
         return;
     }
     cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
-    cdda_extract_thread->setParanoiaNeverSkip(Preferences::neverSkip());
+    cdda_extract_thread->setSkipReadingErrors(Preferences::skipReadingErrors());
     cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
 
     jobs = new AudexJobs();
@@ -121,14 +121,14 @@ void Audex::cancel()
     request_finish(false);
 }
 
-const QStringList &Audex::extractProtocol()
+const QStringList &Audex::extractLog()
 {
-    return cdda_extract_thread->protocol();
+    return cdda_extract_thread->log();
 }
 
-const QStringList &Audex::encoderProtocol()
+const QStringList &Audex::encoderLog()
 {
-    return encoder_wrapper->protocol();
+    return encoder_wrapper->log();
 }
 
 void Audex::start_extract()
@@ -1000,6 +1000,34 @@ void Audex::execute_finish()
                 cue_sheet = filename;
             } else {
                 Q_EMIT error(i18n("Unable to save cue sheet \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
+            }
+        }
+    }
+
+    QString log_file;
+    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool())) {
+        SchemeParser schemeparser;
+        QString filename = schemeparser.parseFilenameScheme(
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString(),
+            cdda_model->cdNum(),
+            cdda_model->numOfAudioTracks(),
+            cdda_model->artist(),
+            cdda_model->title(),
+            QString("%1").arg(cdda_model->year()),
+            cdda_model->genre(),
+            "log",
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
+
+        if (p_prepare_dir(filename, target_dir, overwrite)) {
+            QFile file(filename);
+            if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+                QTextStream out(&file);
+                out << cdda_extract_thread->log().join("\n");
+                file.close();
+                Q_EMIT info(i18n("Log file \"%1\" successfully stored.", QFileInfo(filename).fileName()));
+                info_file = filename;
+            } else {
+                Q_EMIT error(i18n("Unable to save log file \"%1\".", QFileInfo(filename).fileName()), i18n("Please check your path and permissions"));
             }
         }
     }

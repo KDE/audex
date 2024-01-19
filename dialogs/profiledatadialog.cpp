@@ -23,7 +23,20 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         qDebug() << "ProfileModel is NULL!";
         return;
     }
-    profile_row = profileRow;
+
+    if (profileRow < 0) { // find next free row index
+        int row = 0;
+        while (profile_model->hasIndex(row, PROFILE_MODEL_COLUMN_NAME_INDEX))
+            ++row;
+        profile_model->insertRows(row, 1);
+        profile_row = row;
+        new_profile_mode = true;
+    } else {
+        profile_row = profileRow;
+        new_profile_mode = false;
+    }
+
+    applyButton = nullptr;
 
     QWidget *widget = new QWidget(this);
     ui.setupUi(widget);
@@ -32,7 +45,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     setLayout(mainLayout);
     mainLayout->addWidget(widget);
 
-    if (profile_row >= 0) {
+    if (!new_profile_mode) {
         lame_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX)).toString());
         oggenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX)).toString());
         opusenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX)).toString());
@@ -81,6 +94,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(ui.kpushbutton_info, SIGNAL(clicked()), this, SLOT(info_settings()));
     connect(ui.kpushbutton_hashlist, SIGNAL(clicked()), this, SLOT(hashlist_settings()));
     connect(ui.kpushbutton_cuesheet, SIGNAL(clicked()), this, SLOT(cuesheet_settings()));
+    connect(ui.kpushbutton_logfile, SIGNAL(clicked()), this, SLOT(logfile_settings()));
     connect(ui.kpushbutton_singlefile, SIGNAL(clicked()), this, SLOT(singlefile_settings()));
 
     connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cover(bool)));
@@ -88,11 +102,14 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(enable_settings_info(bool)));
     connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_hashlist(bool)));
     connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cuesheet(bool)));
+    connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_logfile(bool)));
     connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_singlefile(bool)));
     connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_filenames(bool)));
     connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_playlist(bool)));
 
-    if (profile_row >= 0) {
+    connect(this, SIGNAL(rejected()), this, SLOT(slotRejected()));
+
+    if (!new_profile_mode) {
         setWindowTitle(i18n("Modify Profile"));
 
         QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
@@ -148,40 +165,16 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         enable_settings_cuesheet(ui.checkBox_cuesheet->isChecked());
         connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
+        ui.checkBox_logfile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool());
+        enable_settings_logfile(ui.checkBox_logfile->isChecked());
+        connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+
         ui.checkBox_singlefile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool());
         enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
         connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         if (ui.checkBox_singlefile->isChecked())
             disable_playlist(true);
-
-        // profile data cover data
-        pdcd_scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
-        pdcd_size = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
-        pdcd_format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
-        pdcd_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
-
-        // profile data playlist data
-        pdpd_format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString();
-        pdpd_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString();
-        pdpd_abs_file_path = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool();
-        pdpd_utf8 = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool();
-
-        // profile data info data
-        pdid_text = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
-        pdid_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString();
-        pdid_suffix = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString();
-
-        // profile data hashlist data
-        pdhd_format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
-        pdhd_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString();
-
-        // profile data cue sheet data
-        pdud_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
-        pdud_write_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
-
-        // profile data single file data
-        pdsd_scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString();
 
         applyButton->setEnabled(false);
 
@@ -194,6 +187,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
         connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
         connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+
         mainLayout->addWidget(buttonBox);
 
         ui.qlineedit_name->setText(i18n("New Profile"));
@@ -211,27 +205,31 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         ui.checkBox_info->setChecked(DEFAULT_INF);
         ui.checkBox_hashlist->setChecked(DEFAULT_HL);
         ui.checkBox_cuesheet->setChecked(DEFAULT_CUE);
+        ui.checkBox_logfile->setChecked(DEFAULT_LOG);
         ui.checkBox_singlefile->setChecked(DEFAULT_SF);
-        pdcd_scale = DEFAULT_SC_SCALE;
-        pdcd_size = DEFAULT_SC_SIZE;
-        pdcd_format = DEFAULT_SC_FORMAT;
-        pdcd_scheme = DEFAULT_SC_NAME;
-        pdpd_format = DEFAULT_PL_FORMAT;
-        pdpd_scheme = DEFAULT_PL_NAME;
-        pdid_text.clear();
-        pdid_scheme = DEFAULT_INF_NAME;
-        pdid_suffix = DEFAULT_INF_SUFFIX;
-        pdhd_format = DEFAULT_HL_FORMAT;
-        pdhd_scheme = DEFAULT_HL_NAME;
-        pdud_scheme = DEFAULT_CUE_NAME;
-        pdud_write_mcn_and_isrc = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
-        pdsd_scheme = DEFAULT_SF_NAME;
+        cover_scale = DEFAULT_SC_SCALE;
+        cover_size = DEFAULT_SC_SIZE;
+        cover_format = DEFAULT_SC_FORMAT;
+        cover_scheme = DEFAULT_SC_NAME;
+        playlist_format = DEFAULT_PL_FORMAT;
+        playlist_scheme = DEFAULT_PL_NAME;
+        infofile_text.clear();
+        infofile_scheme = DEFAULT_INF_NAME;
+        infofile_suffix = DEFAULT_INF_SUFFIX;
+        hashlist_format = DEFAULT_HL_FORMAT;
+        hashlist_scheme = DEFAULT_HL_NAME;
+        cuesheet_scheme = DEFAULT_CUE_NAME;
+        cuesheet_write_mcn_and_isrc = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
+        logfile_scheme = DEFAULT_CUE_NAME;
+        logfile_write_timestamps = DEFAULT_LOG_WRITE_TIMESTAMPS;
+        singlefile_scheme = DEFAULT_SF_NAME;
 
         enable_settings_cover(ui.checkBox_cover->isChecked());
         enable_settings_playlist(ui.checkBox_playlist->isChecked());
         enable_settings_info(ui.checkBox_info->isChecked());
         enable_settings_hashlist(ui.checkBox_hashlist->isChecked());
         enable_settings_cuesheet(ui.checkBox_cuesheet->isChecked());
+        enable_settings_logfile(ui.checkBox_logfile->isChecked());
         enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
 
         disable_playlist(ui.checkBox_singlefile->isChecked());
@@ -256,17 +254,22 @@ ProfileDataDialog::~ProfileDataDialog()
 
 void ProfileDataDialog::slotAccepted()
 {
-    if (save()) {
+    if (save())
         accept();
-    } else {
+    else
         ErrorDialog::show(this, error.message(), error.details());
-    }
 }
 
 void ProfileDataDialog::slotApplied()
 {
     if (!save())
         ErrorDialog::show(this, error.message(), error.details());
+}
+
+void ProfileDataDialog::slotRejected()
+{
+    if (new_profile_mode)
+        profile_model->removeRows(profile_row, 1);
 }
 
 void ProfileDataDialog::set_encoder(const int encoder)
@@ -283,7 +286,7 @@ void ProfileDataDialog::set_encoder_by_combobox(const int index)
 
 void ProfileDataDialog::trigger_changed()
 {
-    if (profile_row >= 0) {
+    if (applyButton) {
         applyButton->setEnabled(
             ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString()
             || ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString()
@@ -296,27 +299,23 @@ void ProfileDataDialog::trigger_changed()
             || ui.checkBox_cover->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool()
             || ui.checkBox_playlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX)).toBool()
             || ui.checkBox_info->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX)).toBool()
-            || pdcd_scale != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()
-            || pdcd_size != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize()
-            || pdcd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString()
-            || pdcd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString()
-            || pdpd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString()
-            || pdpd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString()
-            || pdpd_abs_file_path != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool()
-            || pdpd_utf8 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool()
-            || pdid_text != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList()
-            || pdid_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString()
-            || pdid_suffix != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString()
             || ui.checkBox_hashlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool()
-            || pdhd_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString()
-            || pdhd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString()
-            || pdud_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
-            || pdsd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
-            || pdud_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
-            || pdud_write_mcn_and_isrc != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool()
-            || pdsd_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
             || ui.checkBox_cuesheet->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()
+            || ui.checkBox_logfile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool()
             || ui.checkBox_singlefile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool()
+            || playlist_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString()
+            || playlist_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString()
+            || playlist_abs_file_path != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool()
+            || playlist_utf8 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool()
+            || infofile_text != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList()
+            || infofile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString()
+            || infofile_suffix != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString()
+            || hashlist_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString()
+            || hashlist_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString()
+            || logfile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString()
+            || logfile_write_timestamps != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool()
+            || singlefile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
+            || singlefile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
             || lame_widget->isChanged() || oggenc_widget->isChanged() || flac_widget->isChanged() || faac_widget->isChanged() || wave_widget->isChanged()
             || custom_widget->isChanged());
     }
@@ -345,6 +344,11 @@ void ProfileDataDialog::enable_settings_hashlist(bool enabled)
 void ProfileDataDialog::enable_settings_cuesheet(bool enabled)
 {
     ui.kpushbutton_cuesheet->setEnabled(enabled);
+}
+
+void ProfileDataDialog::enable_settings_logfile(bool enabled)
+{
+    ui.kpushbutton_logfile->setEnabled(enabled);
 }
 
 void ProfileDataDialog::enable_settings_singlefile(bool enabled)
@@ -386,104 +390,84 @@ void ProfileDataDialog::scheme_wizard()
 
 void ProfileDataDialog::cover_settings()
 {
-    ProfileDataCoverDialog *dialog = new ProfileDataCoverDialog(pdcd_scale, pdcd_size, pdcd_format, pdcd_scheme, this);
+    ProfileDataCoverDialog *dialog = new ProfileDataCoverDialog(profile_model, profile_row, new_profile_mode, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    pdcd_scale = dialog->scale;
-    pdcd_size = dialog->size;
-    pdcd_format = dialog->format;
-    pdcd_scheme = dialog->scheme;
-
     delete dialog;
-
-    trigger_changed();
 }
 
 void ProfileDataDialog::playlist_settings()
 {
-    ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(pdpd_format, pdpd_scheme, pdpd_abs_file_path, pdpd_utf8, this);
+    ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(profile_model, profile_row, new_profile_mode, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    pdpd_format = dialog->format;
-    pdpd_scheme = dialog->scheme;
-    pdpd_abs_file_path = dialog->absFilePath;
-    pdpd_utf8 = dialog->utf8;
-
     delete dialog;
-
-    trigger_changed();
 }
 
 void ProfileDataDialog::info_settings()
 {
-    ProfileDataInfoDialog *dialog = new ProfileDataInfoDialog(pdid_text, pdid_scheme, pdid_suffix, this);
+    ProfileDataInfoDialog *dialog = new ProfileDataInfoDialog(profile_model, profile_row, new_profile_mode, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    pdid_text = dialog->text;
-    pdid_scheme = dialog->scheme;
-    pdid_suffix = dialog->suffix;
-
     delete dialog;
-
-    trigger_changed();
 }
 
 void ProfileDataDialog::hashlist_settings()
 {
-    ProfileDataHashlistDialog *dialog = new ProfileDataHashlistDialog(pdhd_scheme, pdhd_format, this);
+    ProfileDataHashlistDialog *dialog = new ProfileDataHashlistDialog(profile_model, profile_row, new_profile_mode, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    pdhd_format = dialog->format;
-    pdhd_scheme = dialog->scheme;
-
     delete dialog;
-
-    trigger_changed();
 }
 
 void ProfileDataDialog::cuesheet_settings()
 {
-    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(pdud_scheme, pdud_write_mcn_and_isrc, this);
+    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(profile_model, profile_row, new_profile_mode, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
 
-    pdud_scheme = dialog->scheme;
-    pdud_write_mcn_and_isrc = dialog->writeMCNAndISRC;
+    delete dialog;
+}
+
+void ProfileDataDialog::logfile_settings()
+{
+    ProfileDataLogFileDialog *dialog = new ProfileDataLogFileDialog(profile_model, profile_row, new_profile_mode, this);
+
+    if (dialog->exec() != QDialog::Accepted) {
+        delete dialog;
+        return;
+    }
 
     delete dialog;
-
-    trigger_changed();
 }
 
 void ProfileDataDialog::singlefile_settings()
 {
-    ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(pdsd_scheme, this);
+    ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(profile_model, profile_row, new_profile_mode, this);
 
     if (dialog->exec() != QDialog::Accepted) {
         delete dialog;
         return;
     }
-
-    pdsd_scheme = dialog->scheme;
 
     delete dialog;
 
@@ -521,17 +505,9 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
 
 bool ProfileDataDialog::save()
 {
-    int row;
-    if (profile_row < 0) {
-        row = profile_model->rowCount();
-        profile_model->insertRows(row, 1);
-    } else {
-        row = profile_row;
-    }
-
     bool success = true;
 
-    error = Error();
+    error.clear();
 
     if (success)
         success = lame_widget->save();
@@ -574,94 +550,61 @@ bool ProfileDataDialog::save()
             error = custom_widget->lastError();
     }
 
-    if (success) {
-        success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX),
-                                             ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SCHEME_INDEX), ui.qlineedit_scheme->text());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX), ui.checkBox_underscore->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX), ui.checkBox_2digitstracknum->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_INDEX), ui.checkBox_cover->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX), pdcd_scale);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX), pdcd_size);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX), pdcd_format);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX), pdcd_scheme);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_INDEX), ui.checkBox_playlist->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_INDEX), ui.checkBox_info->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX), pdpd_format);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX), pdpd_scheme);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX), pdpd_abs_file_path);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX), pdpd_utf8);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX), pdid_text);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX), pdid_scheme);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX), pdid_suffix);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_HL_INDEX), ui.checkBox_hashlist->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX), pdhd_format);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX), pdhd_scheme);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cuesheet->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), pdud_scheme);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX), pdud_write_mcn_and_isrc);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SF_INDEX), ui.checkBox_singlefile->isChecked());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX), pdsd_scheme);
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX), lame_parameters.toString());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX), oggenc_parameters.toString());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX), opusenc_parameters.toString());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX), flac_parameters.toString());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX), faac_parameters.toString());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), wave_parameters.toString());
-        if (success)
-            success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX), custom_parameters.toString());
-    }
-
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX),
+                                         ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX), ui.qlineedit_scheme->text());
+    if (success)
+        success =
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX), ui.checkBox_underscore->isChecked());
+    if (success)
+        success =
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX), ui.checkBox_2digitstracknum->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX), ui.checkBox_cover->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX), ui.checkBox_playlist->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX), ui.checkBox_info->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX), ui.checkBox_hashlist->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cuesheet->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX), ui.checkBox_logfile->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX), ui.checkBox_singlefile->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX), lame_parameters.toString());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX), oggenc_parameters.toString());
+    if (success)
+        success =
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX), opusenc_parameters.toString());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX), flac_parameters.toString());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX), faac_parameters.toString());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), wave_parameters.toString());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX), custom_parameters.toString());
     if (!success)
         error = profile_model->lastError();
 
-    if (!success) {
-        if (profile_row < 0)
-            profile_model->removeRows(row, 1);
-        return false;
+    if (success) {
+        profile_model->commit();
+        if (applyButton)
+            applyButton->setEnabled(false);
+        return true;
     }
 
-    profile_model->commit();
-
-    if (profile_row >= 0)
-        applyButton->setEnabled(false);
-
-    return true;
+    return false;
 }

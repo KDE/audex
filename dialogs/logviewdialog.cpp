@@ -5,7 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "protocolviewdialog.h"
+#include "logviewdialog.h"
 
 #include <QFileDialog>
 #include <QTextStream>
@@ -16,7 +16,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-ProtocolViewDialog::ProtocolViewDialog(const QStringList &protocol, const QString &title, QWidget *parent)
+LogViewDialog::LogViewDialog(const QStringList &log, const QString &title, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
@@ -27,46 +27,46 @@ ProtocolViewDialog::ProtocolViewDialog(const QStringList &protocol, const QStrin
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Close);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProtocolViewDialog::slotSaveProtocol);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProtocolViewDialog::slotClosed);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &LogViewDialog::slotSaveLog);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &LogViewDialog::slotClosed);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    ui.ktextedit->setPlainText(protocol.join("\n"));
+    ui.ktextedit->setPlainText(log.join("\n"));
 
-    this->protocol = protocol;
+    this->log = log;
     this->title = title;
 }
 
-ProtocolViewDialog::~ProtocolViewDialog()
+LogViewDialog::~LogViewDialog()
 {
 }
 
-void ProtocolViewDialog::slotClosed()
+void LogViewDialog::slotClosed()
 {
     close();
 }
 
-void ProtocolViewDialog::slotSaveProtocol()
+void LogViewDialog::slotSaveLog()
 {
     save();
 }
 
-void ProtocolViewDialog::save()
+void LogViewDialog::save()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.pro");
+    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.log");
     if (!fileName.isEmpty()) {
         QFile data(fileName);
         if (data.open(QFile::WriteOnly | QFile::Truncate)) {
             QTextStream out(&data);
-            out << "AUDEX " << title << "\n";
-            out << tr("created on ") << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << "\n";
-            out << "\n";
-            for (int i = 0; i < protocol.count(); i++) {
-                out << protocol.at(i) << "\n";
+            out << "AUDEX " << title << Qt::endl;
+            out << i18n("created on ") << QDateTime::currentDateTime().toString() << Qt::endl;
+            out << Qt::endl;
+            for (int i = 0; i < log.count(); i++) {
+                out << log.at(i) << Qt::endl;
             }
         }
     }

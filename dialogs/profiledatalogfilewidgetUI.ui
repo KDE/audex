@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ProfileDataCueSheetWidgetUI</class>
- <widget class="QWidget" name="ProfileDataCueSheetWidgetUI">
+ <class>ProfileDataLogFileWidgetUI</class>
+ <widget class="QWidget" name="ProfileDataLogFileWidgetUI">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -48,7 +48,10 @@
     </spacer>
    </item>
    <item row="1" column="0" colspan="2">
-    <widget class="QCheckBox" name="checkBox_write_mcn_and_isrc">
+    <widget class="QCheckBox" name="checkBox_timestamps">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Write Media Catalog Number (MCN) and International Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet (if your drive have the capability).&lt;/p&gt;&lt;p&gt;Depending in your drive it could take a few seconds at the end of your ripping process to fetch those numbers and codes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
@@ -59,7 +62,10 @@
       <string/>
      </property>
      <property name="text">
-      <string>Write MCN and ISRC values (if available)</string>
+      <string>Write timestamps</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

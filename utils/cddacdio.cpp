@@ -22,7 +22,7 @@ CDDACDIO::CDDACDIO(QObject *parent)
     drive = nullptr;
     cdio = nullptr;
 
-    enableParanoiaNeverSkip();
+    enableParanoiaNeverSkip(false);
     setParanoiaMaxRetries(20);
     enableParanoiaFullMode();
 }
@@ -222,7 +222,7 @@ int CDDACDIO::firstSectorOfDisc()
 int CDDACDIO::lastSectorOfDisc()
 {
     if (drive)
-        return (int)cdio_get_disc_last_lsn(cdio) - 1;
+        return (int)cdio_get_disc_last_lsn(cdio) - 1; // last lsn ist start sector of leadout, so -1
     return -1;
 }
 
@@ -397,9 +397,28 @@ bool CDDACDIO::isAudioTrack(const int track)
     return true;
 }
 
+bool CDDACDIO::isDataTrack(const int track)
+{
+    if (cdio)
+        return cdio_get_track_format(cdio, track) == TRACK_FORMAT_DATA;
+    return true;
+}
+
 bool CDDACDIO::isLastTrack(const int track)
 {
     return track == lastTrackNum();
+}
+
+bool CDDACDIO::isAudioDisc()
+{
+    if (cdio) {
+        for (track_t t = 1; t <= numOfTracks(); ++t)
+            if (cdio_get_track_format(cdio, t) != TRACK_FORMAT_AUDIO)
+                return false;
+    } else {
+        return false;
+    }
+    return true;
 }
 
 QList<quint32> CDDACDIO::discSignature()
@@ -409,6 +428,68 @@ QList<quint32> CDDACDIO::discSignature()
     if (cdio)
         for (track_t t = 1; t <= numOfTracks() + 1; ++t)
             result.append(cdio_get_track_lba(cdio, t));
+
+    return result;
+}
+
+const QStringList CDDACDIO::prettyTOC()
+{
+    QStringList result;
+
+    result.append(i18n("Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"));
+
+    if (cdio)
+        for (track_t t = 1; t <= numOfTracks() + 1; ++t) {
+            QString track;
+            track = QString("%1").arg(t, 2, 10, QChar('0'));
+            if (t == numOfTracks() + 1)
+                track = "--";
+
+            QString start = QString("%1").arg(cdio_get_track_lba(cdio, t), 6, 10, QChar('0'));
+
+            QString size;
+            int size_i = cdio_get_track_last_lsn(cdio, t) - cdio_get_track_lba(cdio, t) + 150;
+            if (t == numOfTracks() + 1) {
+                if (isAudioDisc())
+                    size_i = 6750; // lead out of an audio disc is always 90 seconds (== 6750 sectors) long
+                else
+                    size_i = -1;
+            } else if (t == 0) {
+                size_i = 150;
+            }
+            if (size_i > -1)
+                size = QString("%1").arg(size_i, 6, 10, QChar('0'));
+
+            QString type;
+            switch (cdio_get_track_format(cdio, t)) {
+            case TRACK_FORMAT_AUDIO:
+                type = i18n("Audio");
+                break;
+            case TRACK_FORMAT_CDI:
+                type = i18n("Non-Audio: CD-i");
+                break;
+            case TRACK_FORMAT_XA:
+                type = i18n("Non-Audio: Data mode 2");
+                if (cdio_get_track_green(cdio, t))
+                    type += i18n(", form 1");
+                else
+                    type += i18n(", form 2");
+                break;
+            case TRACK_FORMAT_DATA:
+                type = i18n("Non-Audio: Data mode 1");
+                break;
+            case TRACK_FORMAT_PSX:
+                type = i18n("Non-Audio: Playstation 1");
+                break;
+            case TRACK_FORMAT_ERROR:
+                type = i18n("Non-Audio: Unknown format");
+                break;
+            }
+            if (t == numOfTracks() + 1)
+                type = i18n("Lead-out");
+
+            result.append(i18n("Track %1, Start sector: %2, Size in sectors: %3, Type: %4", track, start, size, type));
+        }
 
     return result;
 }

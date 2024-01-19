@@ -29,7 +29,7 @@ public:
     ~EncoderWrapper() override;
 
     bool isProcessing();
-    const QStringList &protocol();
+    const QStringList &log();
 
 public Q_SLOTS:
     bool encode(int n,
@@ -68,7 +68,7 @@ private:
     bool delete_fraction_files;
 
     QString encoder;
-    QStringList _protocol;
+    QStringList p_log;
 
     QString processing_filename;
 
