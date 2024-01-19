@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-17 00:37+0000\n"
+"POT-Creation-Date: 2024-01-19 00:37+0000\n"
 "PO-Revision-Date: 2024-01-13 06:00\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -730,8 +730,19 @@ msgstr "CUE 文件设置"
 msgid "Name/Scheme:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_write_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:49
+#, kde-format
+msgid ""
+"<html><head/><body><p>Write Media Catalog Number (MCN) and International "
+"Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet "
+"(if your drive have the capability).</p><p>Depending in your drive it could "
+"take a few seconds at the end of your ripping process to fetch those numbers "
+"and codes.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:58
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
 msgstr ""
@@ -1514,20 +1525,37 @@ msgstr "这是一个内部错误。请报告。"
 msgid "Copy"
 msgstr "复制"
 
-#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddaextractthread.cpp:26
-#, kde-format
-msgid "Internal device error."
+#: utils/cddacdio.cpp:45
+#, fuzzy, kde-format
+#| msgid "Internal device error."
+msgid "Device error (1)."
 msgstr "内部设备错误。"
 
-#: utils/cddacdio.cpp:42 utils/cddacdio.cpp:49 utils/cddacdio.cpp:90
-#, kde-format
+#: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
+#: utils/cddacdio.cpp:442
+#, fuzzy, kde-format
+#| msgid ""
+#| "Check your device. Is it really \"%1\"? If so also check your permissions "
+#| "on \"%1\"."
 msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
 "检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
 
-#: utils/cddacdio.cpp:89
+#: utils/cddacdio.cpp:52
+#, fuzzy, kde-format
+#| msgid "Internal device error."
+msgid "Device error (2)."
+msgstr "内部设备错误。"
+
+#: utils/cddacdio.cpp:60
+#, fuzzy, kde-format
+#| msgid "Internal device error."
+msgid "Device error (3)."
+msgstr "内部设备错误。"
+
+#: utils/cddacdio.cpp:441
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1541,159 +1569,225 @@ msgstr "音频盘片"
 
 #: utils/cddaextractthread.cpp:26
 #, kde-format
+msgid "Internal device error."
+msgstr "内部设备错误。"
+
+#: utils/cddaextractthread.cpp:26
+#, kde-format
 msgid "Check your device and make a bug report."
 msgstr "检查您的设备并提交错误报告。"
 
-#: utils/cddaextractthread.cpp:65
+#: utils/cddaextractthread.cpp:66
 #, kde-format
 msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:78
+#: utils/cddaextractthread.cpp:79
 #, kde-format
 msgid "Extracting finished."
 msgstr "提取完成。"
 
-#: utils/cddaextractthread.cpp:107
+#: utils/cddaextractthread.cpp:103 utils/cddaextractthread.cpp:215
+#, fuzzy, kde-format
+#| msgid "An error occurred while ripping track %1."
+msgid "Error occured while seeking at sector %1: %2"
+msgstr "抓取音轨 %1 时出错。"
+
+#: utils/cddaextractthread.cpp:105 utils/cddaextractthread.cpp:217
+#, fuzzy, kde-format
+#| msgid "An error occurred while ripping track %1."
+msgid "An error occured while ripping track %1. See log."
+msgstr "抓取音轨 %1 时出错。"
+
+#: utils/cddaextractthread.cpp:107 utils/cddaextractthread.cpp:219
+#, fuzzy, kde-format
+#| msgid "An error occurred while ripping track %1."
+msgid "An error occured while ripping. See log."
+msgstr "抓取音轨 %1 时出错。"
+
+#: utils/cddaextractthread.cpp:114
 #, fuzzy, kde-format
 #| msgid "Sample offset:"
 msgid "Correction sample offset: %1"
 msgstr "采样偏移"
 
-#: utils/cddaextractthread.cpp:113
+#: utils/cddaextractthread.cpp:120
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "抓取轨道 %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:114
+#: utils/cddaextractthread.cpp:121
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "开始读取音轨 %1 的 %2 个扇区"
 
-#: utils/cddaextractthread.cpp:116
+#: utils/cddaextractthread.cpp:123
 #, fuzzy, kde-format
 #| msgid "Ripping whole CD as single track."
 msgid "Ripping whole CD as single track (%1:%2)."
 msgstr "将整个 CD 抓取为单个曲目。"
 
-#: utils/cddaextractthread.cpp:117
+#: utils/cddaextractthread.cpp:124
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start reading whole disc with %1 sectors"
 msgstr "开始读取音轨 %1 的 %2 个扇区"
 
-#: utils/cddaextractthread.cpp:119
+#: utils/cddaextractthread.cpp:126
 #, kde-format
 msgid "Track %1 with start sector %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:122
+#: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:177
+#: utils/cddaextractthread.cpp:150
+#, fuzzy, kde-format
+#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgid "Error occured while reading sector %1 (track time pos %2): %3"
+msgstr "漂移 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+
+#: utils/cddaextractthread.cpp:156 utils/cddaextractthread.cpp:165
+#, fuzzy, kde-format
+#| msgid "An error occurred while ripping track %1."
+msgid "An error occured while ripping track %1 at position %2. See log."
+msgstr "抓取音轨 %1 时出错。"
+
+#: utils/cddaextractthread.cpp:160 utils/cddaextractthread.cpp:170
+#: utils/cddaextractthread.cpp:178 utils/cddaextractthread.cpp:181
+#, fuzzy, kde-format
+#| msgid "An error occurred while ripping track %1."
+msgid "An error occured while ripping at position %1. See log."
+msgstr "抓取音轨 %1 时出错。"
+
+#: utils/cddaextractthread.cpp:176
+#, fuzzy, kde-format
+#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgid "Error reading sector %1 (track time pos %2)"
+msgstr "漂移 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+
+#: utils/cddaextractthread.cpp:187
+#, kde-format
+msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:238 utils/cddaextractthread.cpp:239
+#, kde-format
+msgid "Ripping was canceled due to an error."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:241
 #, kde-format
 msgid "User canceled extracting."
 msgstr "用户取消了提取"
 
-#: utils/cddaextractthread.cpp:180
-#, kde-format
-msgid "An error occurred while ripping track %1."
-msgstr "抓取音轨 %1 时出错。"
+#: utils/cddaextractthread.cpp:242
+#, fuzzy, kde-format
+#| msgid "Extracting finished."
+msgid "Extraction interrupted"
+msgstr "提取完成。"
 
-#: utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:245
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "抓取 OK (音轨 %1)。"
 
-#: utils/cddaextractthread.cpp:186
+#: utils/cddaextractthread.cpp:247
 #, kde-format
 msgid "Ripping OK."
 msgstr "抓取成功。"
 
-#: utils/cddaextractthread.cpp:191
-#, kde-format
-msgid "Reading finished"
+#: utils/cddaextractthread.cpp:249
+#, fuzzy, kde-format
+#| msgid "Reading finished"
+msgid "Ripping finished"
 msgstr "读取完成"
 
-#: utils/cddaextractthread.cpp:248
-#, kde-format
-msgid ""
-"Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
-"%4)"
+#: utils/cddaextractthread.cpp:302
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos "
+#| "%3:%4)"
+msgid "Fixed edge jitter (sector %1, time pos %2)"
 msgstr "已修复边缘扰动 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:253
-#, kde-format
-msgid ""
-"Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
-"%4)"
+#: utils/cddaextractthread.cpp:306
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos "
+#| "%3:%4)"
+msgid "Fixed atom jitter (sector %1, time pos %2)"
 msgstr "已修复原子扰动 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:260
+#: utils/cddaextractthread.cpp:311
 #, kde-format
-msgid ""
-"Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
-"%4)"
-msgstr "检测到刮花 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+msgid "Scratch detected at track %1 at position %2."
+msgstr ""
 
-#: utils/cddaextractthread.cpp:263
-#, kde-format
-msgid ""
-"SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
-"%4)"
+#: utils/cddaextractthread.cpp:312
+#, fuzzy, kde-format
+#| msgid ""
+#| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
+#| "%3:%4)"
+msgid "SCRATCH DETECTED (sector %1, time pos %2)"
 msgstr "检测到刮花！ (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:267
-#, kde-format
-msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:316
+#, fuzzy, kde-format
+#| msgid ""
+#| "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgid "Repair (sector %1, time pos %2)"
 msgstr "修复 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:272
+#: utils/cddaextractthread.cpp:321
 #, kde-format
-msgid ""
-"Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr "跳过扇区 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+msgid "Skip sectors at track %1 at position %2."
+msgstr ""
 
-#: utils/cddaextractthread.cpp:273
+#: utils/cddaextractthread.cpp:322
 #, kde-format
-msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr "跳过！(绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+msgid "SKIP (sector %1, time pos %2)"
+msgstr ""
 
-#: utils/cddaextractthread.cpp:277
+#: utils/cddaextractthread.cpp:326
 #, kde-format
-msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr "漂移 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+msgid "Drift (sector %1, time pos %2)"
+msgstr ""
 
-#: utils/cddaextractthread.cpp:281
-#, kde-format
-msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:330
+#, fuzzy, kde-format
+#| msgid ""
+#| "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgid "Backoff (sector %1, time pos %2)"
 msgstr "退避 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:291
-#, kde-format
-msgid ""
-"Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:339
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:"
+#| "%4)"
+msgid "Fixup dropped (sector %1, time pos %2)"
 msgstr "修复已丢弃 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:295
-#, kde-format
-msgid ""
-"Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:343
+#, fuzzy, kde-format
+#| msgid ""
+#| "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgid "Fixup duped (sector %1, time pos %2)"
 msgstr "修复已复制 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
-#: utils/cddaextractthread.cpp:301
+#: utils/cddaextractthread.cpp:347
 #, kde-format
-msgid ""
-"Read error detected (absolute sector %1, relative sector %2, track time pos "
-"%3:%4)"
-msgstr "检测到读取错误 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+msgid "Read error detected at track %1 position %2."
+msgstr ""
 
-#: utils/cddaextractthread.cpp:303
-#, kde-format
-msgid ""
-"READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:348
+#, fuzzy, kde-format
+#| msgid ""
+#| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgid "READ ERROR (sector %1, time pos %2)"
 msgstr "读取错误！(绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
 #: utils/encoderassistant.h:59
@@ -2310,6 +2404,24 @@ msgstr "保存..."
 #, kde-format
 msgid "URL:"
 msgstr "网址："
+
+#~ msgid ""
+#~ "Scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~ "%3:%4)"
+#~ msgstr "检测到刮花 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+
+#~ msgid ""
+#~ "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:"
+#~ "%4)"
+#~ msgstr "跳过扇区 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+
+#~ msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#~ msgstr "跳过！(绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
+
+#~ msgid ""
+#~ "Read error detected (absolute sector %1, relative sector %2, track time "
+#~ "pos %3:%4)"
+#~ msgstr "检测到读取错误 (绝对扇区 %1，相对扇区 %2，轨道时间位置 %3:%4)"
 
 #~ msgid "Full paranoia mode (best quality)"
 #~ msgstr "强迫症专用模式 (最高质量)"
