@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2024-01-14 20:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -59,16 +59,18 @@ msgstr "要取得的專輯封面數"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
-#, kde-format
-msgid "Full paranoia mode (reduce chance of read errors)"
-msgstr ""
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:32
+#, fuzzy, kde-format
+#| msgid "Full paranoia mode (best quality)"
+msgid "Full paranoia mode (secure mode)"
+msgstr "完整強迫症模式 (品質最佳)"
 
-#. i18n: ectx: label, entry (neverSkip), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
-#, kde-format
-msgid "Never skip on read error"
+#. i18n: ectx: label, entry (skipReadingErrors), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:76
+#, fuzzy, kde-format
+#| msgid "Never skip on read error"
+msgid "Skip reading errors"
 msgstr "永不在讀取錯誤時跳過"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
@@ -143,7 +145,7 @@ msgstr "開始擷取並依「%1」設定檔編碼…"
 msgid "Can't find path \"%1\"."
 msgstr "找不到「%1」路徑。"
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1109
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "請檢查路徑（寫入權限？）"
@@ -158,17 +160,17 @@ msgstr "「%1」的剩餘空間少於 200 MiB。"
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "警告！「%1」檔案已經存在。覆寫。"
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1089
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "警告！「%1」檔案已經存在。略過。"
 
-#: core/audex.cpp:675 core/audex.cpp:1081
+#: core/audex.cpp:675 core/audex.cpp:1109
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "無法建立「%1」資料夾。"
 
-#: core/audex.cpp:678 core/audex.cpp:1084
+#: core/audex.cpp:678 core/audex.cpp:1112
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "資料夾 \"%1\" 已成功建立。"
@@ -224,7 +226,8 @@ msgid "Unable to save cover \"%1\"."
 msgstr "無法儲存封面 \"%1\"。"
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
+#: core/audex.cpp:1002 core/audex.cpp:1030 core/audex.cpp:1077
+#: core/audex.cpp:1104
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr ""
@@ -269,7 +272,19 @@ msgstr "Cue 檔 \"%1\" 已成功建立。"
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "無法儲存 Cue 檔 \"%1\"。"
 
-#: core/audex.cpp:1049 core/audex.cpp:1076
+#: core/audex.cpp:1027
+#, fuzzy, kde-format
+#| msgid "Info file \"%1\" successfully created."
+msgid "Log file \"%1\" successfully stored."
+msgstr "資訊檔案 \"%1\" 已成功建立。"
+
+#: core/audex.cpp:1030
+#, fuzzy, kde-format
+#| msgid "Unable to save info file \"%1\"."
+msgid "Unable to save log file \"%1\"."
+msgstr "無法儲存資訊檔案 \"%1\"。"
+
+#: core/audex.cpp:1077 core/audex.cpp:1104
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "無法開啟資料夾 \"%1\"。"
@@ -357,20 +372,27 @@ msgstr "命令機制精靈"
 msgid "Command scheme help"
 msgstr "命令機制說明"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
+#: dialogs/commandwizardwidgetUI.ui:17
+#, fuzzy, kde-format
+#| msgid "About commandline schemes"
+msgid "Please set a command scheme"
+msgstr "關於命令列機制"
+
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "專輯範例："
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
-#: dialogs/commandwizardwidgetUI.ui:269
+#: dialogs/commandwizardwidgetUI.ui:273
 #: dialogs/filenameschemewizardwidgetUI.ui:54
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
@@ -378,7 +400,7 @@ msgid "Help"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:293
+#: dialogs/commandwizardwidgetUI.ui:297
 #: dialogs/filenameschemewizardwidgetUI.ui:32
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
@@ -386,7 +408,7 @@ msgid "Album Artist"
 msgstr "專輯藝人"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:315
+#: dialogs/commandwizardwidgetUI.ui:319
 #: dialogs/filenameschemewizardwidgetUI.ui:182
 #: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
@@ -394,25 +416,25 @@ msgid "Album Title"
 msgstr "專輯標題"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:337 dialogs/schemewizardwidgetUI.ui:334
+#: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
 msgstr "音軌藝人"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:359 dialogs/schemewizardwidgetUI.ui:356
+#: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
 msgstr "音軌標題"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:369 dialogs/schemewizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
 msgstr "音軌 #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:379
+#: dialogs/commandwizardwidgetUI.ui:383
 #: dialogs/filenameschemewizardwidgetUI.ui:199
 #: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
@@ -420,23 +442,23 @@ msgid "CD #"
 msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:386
-#: dialogs/filenameschemewizardwidgetUI.ui:245
+#: dialogs/commandwizardwidgetUI.ui:390
+#: dialogs/filenameschemewizardwidgetUI.ui:249
 #: dialogs/schemewizardwidgetUI.ui:426
 #, kde-format
 msgid "# of Tracks"
 msgstr "音軌數量"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:396
-#: dialogs/filenameschemewizardwidgetUI.ui:238
+#: dialogs/commandwizardwidgetUI.ui:400
+#: dialogs/filenameschemewizardwidgetUI.ui:242
 #: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
 msgstr "日期"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:406
+#: dialogs/commandwizardwidgetUI.ui:410
 #: dialogs/filenameschemewizardwidgetUI.ui:225
 #: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
@@ -444,19 +466,19 @@ msgid "Genre"
 msgstr "風格"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
-#: dialogs/commandwizardwidgetUI.ui:416
+#: dialogs/commandwizardwidgetUI.ui:420
 #, kde-format
 msgid "Cover File"
 msgstr "封面檔案"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
-#: dialogs/commandwizardwidgetUI.ui:426
+#: dialogs/commandwizardwidgetUI.ui:430
 #, kde-format
 msgid "Input File"
 msgstr "輸入檔案"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
-#: dialogs/commandwizardwidgetUI.ui:436
+#: dialogs/commandwizardwidgetUI.ui:440
 #, kde-format
 msgid "Output File"
 msgstr "輸出檔案"
@@ -575,32 +597,29 @@ msgstr "顯示編碼紀錄..."
 msgid "Show rip log..."
 msgstr "顯示擷取紀錄..."
 
-#: dialogs/extractingprogressdialog.cpp:333
+#: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
-"Due to extraction quality, audex is configured to never skip any detected "
-"error. If your disc is really broken extraction may never end!\n"
-"In some cases, it might be that only this drive has difficulty ripping audio "
-"data from this disc. Maybe try another one.\n"
-"\n"
-"However, do you want to continue extraction?"
+"Do you want to continue extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:337
+#: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
 msgstr "取消擷取"
 
-#: dialogs/extractingprogressdialog.cpp:347
-#, kde-format
-msgid "Encoding protocol"
-msgstr "編碼協定"
+#: dialogs/extractingprogressdialog.cpp:344
+#, fuzzy, kde-format
+#| msgid "Encoding"
+msgid "Encoding log"
+msgstr "編碼"
 
-#: dialogs/extractingprogressdialog.cpp:353
-#, kde-format
-msgid "Ripping protocol"
-msgstr "擷取協定"
+#: dialogs/extractingprogressdialog.cpp:350
+#, fuzzy, kde-format
+#| msgid "Ripping OK."
+msgid "Ripping log"
+msgstr "擷取正常。"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -669,22 +688,47 @@ msgstr "後綴"
 msgid "Example:"
 msgstr "範例："
 
-#: dialogs/profiledatacoverdialog.cpp:23
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_scheme)
+#: dialogs/filenameschemewizardwidgetUI.ui:232
+#: dialogs/profiledatacoverwidgetUI.ui:98
+#: dialogs/profiledatacuesheetwidgetUI.ui:17
+#: dialogs/profiledatahashlistwidgetUI.ui:46
+#: dialogs/profiledatainfowidgetUI.ui:112
+#: dialogs/profiledatalogfilewidgetUI.ui:17
+#: dialogs/profiledataplaylistwidgetUI.ui:46
+#: dialogs/profiledatasinglefilewidgetUI.ui:30
+#: dialogs/profiledatawidgetUI.ui:108
+#, fuzzy, kde-format
+#| msgid "Please check."
+msgid "Please set a scheme"
+msgstr "請檢查。"
+
+#: dialogs/logviewdialog.cpp:60
+#, kde-format
+msgid "Save %1"
+msgstr "儲存 %1"
+
+#: dialogs/logviewdialog.cpp:66
+#, kde-format
+msgid "created on "
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
 msgid "Cover Settings"
 msgstr "封面設定"
 
-#: dialogs/profiledatacoverdialog.cpp:56
+#: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:57
+#: dialogs/profiledatacoverdialog.cpp:69
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:58
+#: dialogs/profiledatacoverdialog.cpp:70
 #, kde-format
 msgid "BMP (Windows Bitmap)"
 msgstr ""
@@ -715,22 +759,25 @@ msgstr "格式："
 msgid "Cover scheme:"
 msgstr "封面機制："
 
-#: dialogs/profiledatacuesheetdialog.cpp:21
+#: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Cue 檔設定"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:29
+#: dialogs/profiledatacuesheetwidgetUI.ui:33
 #: dialogs/profiledatahashlistwidgetUI.ui:39
+#: dialogs/profiledatalogfilewidgetUI.ui:33
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_write_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
 "<html><head/><body><p>Write Media Catalog Number (MCN) and International "
@@ -741,63 +788,63 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:58
+#: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
 msgstr ""
 
-#: dialogs/profiledatadialog.cpp:96
+#: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
 msgstr "修改設定檔"
 
-#: dialogs/profiledatadialog.cpp:189
+#: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
 msgstr "建立設定檔"
 
-#: dialogs/profiledatadialog.cpp:199
+#: dialogs/profiledatadialog.cpp:193
 #, kde-format
 msgid "New Profile"
 msgstr "新設定檔"
 
-#: dialogs/profiledatahashlistdialog.cpp:21
-#: dialogs/profiledataplaylistdialog.cpp:23
+#: dialogs/profiledatahashlistdialog.cpp:28
+#: dialogs/profiledataplaylistdialog.cpp:30
 #, kde-format
 msgid "Playlist Settings"
 msgstr "播放清單設定"
 
-#: dialogs/profiledatahashlistdialog.cpp:43
+#: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
 msgstr ""
 
-#: dialogs/profiledatahashlistdialog.cpp:44
+#: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr ""
 
-#: dialogs/profiledatahashlistdialog.cpp:45
+#: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:24
+#: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
 msgid "Info Settings"
 msgstr "資訊設定"
 
-#: dialogs/profiledatainfodialog.cpp:43
+#: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:128
+#: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
 msgid "Load Text Template"
 msgstr "載入文字樣本"
 
-#: dialogs/profiledatainfodialog.cpp:141
+#: dialogs/profiledatainfodialog.cpp:166
 #, kde-format
 msgid "Save Text Template"
 msgstr "儲存文字樣本"
@@ -823,19 +870,31 @@ msgstr "後綴："
 msgid "Scheme:"
 msgstr ""
 
+#: dialogs/profiledatalogfiledialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Single File Settings"
+msgid "Log Files Settings"
+msgstr "單一檔案設定"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
+#: dialogs/profiledatalogfilewidgetUI.ui:65
+#, kde-format
+msgid "Write timestamps"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
-#: dialogs/profiledataplaylistwidgetUI.ui:52
+#: dialogs/profiledataplaylistwidgetUI.ui:56
 #, kde-format
 msgid "Use absolute file paths in playlist"
 msgstr "播放清單中使用絕對檔案路徑"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_utf8)
-#: dialogs/profiledataplaylistwidgetUI.ui:59
+#: dialogs/profiledataplaylistwidgetUI.ui:63
 #, kde-format
 msgid "UTF-8 coding in playlist"
 msgstr "播放清單中使用 UTF-8 編碼"
 
-#: dialogs/profiledatasinglefiledialog.cpp:20
+#: dialogs/profiledatasinglefiledialog.cpp:24
 #, kde-format
 msgid "Single File Settings"
 msgstr "單一檔案設定"
@@ -853,89 +912,93 @@ msgid "Filenames"
 msgstr "檔案名稱"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
-#: dialogs/profiledatawidgetUI.ui:130
+#: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
 msgstr "建立與 FAT32 相容的檔案名稱"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
-#: dialogs/profiledatawidgetUI.ui:143
+#: dialogs/profiledatawidgetUI.ui:146
 #, kde-format
 msgid "Replace spaces with underscores"
 msgstr "將空白替換為底線 (_)"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
-#: dialogs/profiledatawidgetUI.ui:150
+#: dialogs/profiledatawidgetUI.ui:153
 #, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
-#: dialogs/profiledatawidgetUI.ui:153
+#: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: dialogs/profiledatawidgetUI.ui:177
+#: dialogs/profiledatawidgetUI.ui:180
 #, kde-format
 msgid "Extra"
 msgstr "額外"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: dialogs/profiledatawidgetUI.ui:211
+#, kde-format
+msgid "Store cover file"
+msgstr "儲存封面檔案"
+
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_logfile)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_singlefile)
-#: dialogs/profiledatawidgetUI.ui:195 dialogs/profiledatawidgetUI.ui:228
-#: dialogs/profiledatawidgetUI.ui:241 dialogs/profiledatawidgetUI.ui:267
-#: dialogs/profiledatawidgetUI.ui:300 dialogs/profiledatawidgetUI.ui:348
+#: dialogs/profiledatawidgetUI.ui:224 dialogs/profiledatawidgetUI.ui:270
+#: dialogs/profiledatawidgetUI.ui:283 dialogs/profiledatawidgetUI.ui:290
+#: dialogs/profiledatawidgetUI.ui:316 dialogs/profiledatawidgetUI.ui:323
+#: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
 msgstr "設定..."
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
-#: dialogs/profiledatawidgetUI.ui:221
-#, kde-format
-msgid "Create info file"
-msgstr "建立資訊檔案"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
-#: dialogs/profiledatawidgetUI.ui:254
+#: dialogs/profiledatawidgetUI.ui:237
 #, kde-format
 msgid "Create hashlist"
 msgstr "建立雜湊清單"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
-#: dialogs/profiledatawidgetUI.ui:274
+#: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
 msgid "Create cue sheet"
 msgstr "建立 Cue 檔 (cue sheet)"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
-#: dialogs/profiledatawidgetUI.ui:287
-#, kde-format
-msgid "Store cover file"
-msgstr "儲存封面檔案"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
-#: dialogs/profiledatawidgetUI.ui:313
+#: dialogs/profiledatawidgetUI.ui:257
 #, kde-format
 msgid "Create playlist"
 msgstr "建立播放清單"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: dialogs/profiledatawidgetUI.ui:303
+#, kde-format
+msgid "Create info file"
+msgstr "建立資訊檔案"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
+#: dialogs/profiledatawidgetUI.ui:330
+#, fuzzy, kde-format
+#| msgid "Create info file"
+msgid "Save log file"
+msgstr "建立資訊檔案"
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
-#: dialogs/profiledatawidgetUI.ui:338
+#: dialogs/profiledatawidgetUI.ui:355
 #, kde-format
 msgid "Write single file"
 msgstr "寫入單一檔案"
-
-#: dialogs/protocolviewdialog.cpp:60
-#, kde-format
-msgid "Save %1"
-msgstr "儲存 %1"
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
@@ -1035,64 +1098,64 @@ msgstr "內部錯誤。請檢查您的硬體。如果您的硬體沒有問題請
 msgid "Unable to create CDDAModel object."
 msgstr "無法建立 CDDAModel 物件。"
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:131
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "未設定碟片資訊。您確定要繼續嗎？"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:132
 #, kde-format
 msgid "Disc information not found"
 msgstr "找不到碟片資訊"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:143
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr "選取單一檔案擷取模式，但並未選取所有音訊軌道。您確定要繼續嗎？"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "單一檔案擷取未選取所有音訊軌道"
 
-#: mainwindow.cpp:152
+#: mainwindow.cpp:156
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "未設定封面。您確定要繼續嗎？"
 
-#: mainwindow.cpp:153
+#: mainwindow.cpp:157
 #, kde-format
 msgid "Cover is empty"
 msgstr "封面是空白的"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "General settings"
 msgstr "一般設定"
 
-#: mainwindow.cpp:181
+#: mainwindow.cpp:185
 #, kde-format
 msgid "Device settings"
 msgstr "裝置設定"
 
-#: mainwindow.cpp:187
+#: mainwindow.cpp:191
 #, kde-format
 msgid "Profiles"
 msgstr "設定檔"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:200
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB 設定"
 
-#: mainwindow.cpp:199
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Remote Server"
 msgstr "遠端伺服器"
 
-#: mainwindow.cpp:250
+#: mainwindow.cpp:254
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1101,17 +1164,17 @@ msgstr ""
 "CDDB 查詢失敗，傳回以下錯誤：\n"
 "%1"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:256
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD 查詢失敗"
 
-#: mainwindow.cpp:357
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Split titles"
 msgstr "分割標題"
 
-#: mainwindow.cpp:358
+#: mainwindow.cpp:362
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1122,107 +1185,107 @@ msgstr ""
 "\n"
 "分割器："
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "您確定要交換所有的藝人跟標題嗎？"
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:375
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "交換藝人和標題"
 
-#: mainwindow.cpp:385
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "您確定要為所有藝人和標題設定大寫嗎？"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "為藝人和標題設定大寫"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:404
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "您確定要自動填入音軌藝人嗎？"
 
-#: mainwindow.cpp:401
+#: mainwindow.cpp:405
 #, kde-format
 msgid "Autofill artists"
 msgstr "自動填入藝人"
 
-#: mainwindow.cpp:428
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Eject"
 msgstr "退出"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:439
 #, kde-format
 msgid "Profile:"
 msgstr "設定檔："
 
-#: mainwindow.cpp:447
+#: mainwindow.cpp:451
 #, kde-format
 msgid "&Profile:"
 msgstr "設定檔(&P)："
 
-#: mainwindow.cpp:453
+#: mainwindow.cpp:457
 #, kde-format
 msgid "Profile"
 msgstr "設定檔"
 
-#: mainwindow.cpp:461
+#: mainwindow.cpp:465
 #, kde-format
 msgid "Fetch"
 msgstr "抓取"
 
-#: mainwindow.cpp:468
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Submit"
 msgstr "提交"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:478
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: mainwindow.cpp:481
+#: mainwindow.cpp:485
 #, kde-format
 msgid "Rip..."
 msgstr "擷取..."
 
-#: mainwindow.cpp:490
+#: mainwindow.cpp:494
 #, kde-format
 msgid "Split Titles..."
 msgstr "分割標題..."
 
-#: mainwindow.cpp:495
+#: mainwindow.cpp:499
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "交換藝人和標題"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:504
 #, kde-format
 msgid "Capitalize"
 msgstr "變大寫"
 
-#: mainwindow.cpp:505
+#: mainwindow.cpp:509
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "自動填入藝人"
 
-#: mainwindow.cpp:510
+#: mainwindow.cpp:514
 #, kde-format
 msgid "Select All Tracks"
 msgstr "選取所有音軌"
 
-#: mainwindow.cpp:515
+#: mainwindow.cpp:519
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "取消選取所有音軌"
 
-#: mainwindow.cpp:520
+#: mainwindow.cpp:524
 #, kde-format
 msgid "Invert Selection"
 msgstr "反轉選取"
@@ -1349,178 +1412,178 @@ msgstr "標題"
 msgid "Length"
 msgstr "長度"
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "Unknown error. No index found in profile model."
+msgstr "未知錯誤。設定檔模型中沒有找到索引。"
+
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "This is an internal error. Please report."
+msgstr "這是一個內部錯誤。請回報給我們。"
+
+#: models/profilemodel.cpp:378
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "設定檔名稱不能是空白的。"
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:378
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "您並未提供設定檔的名稱。請設定一個。"
 
-#: models/profilemodel.cpp:176
-#, kde-format
-msgid "Profile encoder is not defined."
-msgstr "設定檔未定義編碼器。"
-
-#: models/profilemodel.cpp:176
-#, kde-format
-msgid "You have given no encoder for the profile. Please set one."
-msgstr "您並沒有為設定檔提供編碼器。請設定一個。"
-
-#: models/profilemodel.cpp:182
-#, kde-format
-msgid "Profile filename scheme is not defined."
-msgstr "設定檔未定義檔名機制。"
-
-#: models/profilemodel.cpp:183
-#, kde-format
-msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "您並沒有為設定檔提供檔名機制。請設定一個。"
-
-#: models/profilemodel.cpp:204
-#, kde-format
-msgid "The image file format is unknown."
-msgstr "圖片檔格式未知。"
-
-#: models/profilemodel.cpp:205
-#, kde-format
-msgid ""
-"Your given image file format is unknown. Please choose on of these formats: "
-"JPEG, PNG, TIFF or BMP."
-msgstr "您指定的圖片檔案格式是未知的。可用格式選項：JPEG、PNG、TIFF 或 BMP。"
-
-#: models/profilemodel.cpp:213
-#, kde-format
-msgid "Cover name must not be empty."
-msgstr "封面名稱不能是空白的。"
-
-#: models/profilemodel.cpp:213
-#, kde-format
-msgid "You have given no name for the cover. Please set one."
-msgstr "您並未提供封面的名稱。請設定一個。"
-
-#: models/profilemodel.cpp:221
-#, kde-format
-msgid "The playlist file format is unknown."
-msgstr "播放清單檔案格式未知。"
-
-#: models/profilemodel.cpp:222
-#, kde-format
-msgid ""
-"Your given playlist file format is unknown. Please choose on of these "
-"formats: M3U, PLS or XSPF."
-msgstr "您指定的播放清單檔案格式是未知的。可用格式選項：M3U、PLS 或 XSPF。"
-
-#: models/profilemodel.cpp:230
-#, kde-format
-msgid "Playlist name must not be empty."
-msgstr "播放清單名稱不能是空白的。"
-
-#: models/profilemodel.cpp:230
-#, kde-format
-msgid "You have given no name for the playlist. Please set one."
-msgstr "您並未提供播放清單的名稱。請設定一個。"
-
-#: models/profilemodel.cpp:244
-#, kde-format
-msgid "Info text name must not be empty."
-msgstr "資訊文字檔的名稱不能是空白的。"
-
-#: models/profilemodel.cpp:245
-#, kde-format
-msgid "You have given no name for the info text file. Please set one."
-msgstr "您並未提供資訊文字檔的名稱。請設定一個。"
-
-#: models/profilemodel.cpp:254
-#, kde-format
-msgid "Info text file name suffix must not be empty."
-msgstr "資訊文字檔的名稱後綴不能是空白的。"
-
-#: models/profilemodel.cpp:255
-#, kde-format
-msgid "You have given no suffix for the info text file. Please set one."
-msgstr "您並未提供資訊文字檔的後綴。請設定一個。"
-
-#: models/profilemodel.cpp:265
-#, kde-format
-msgid "The hashlist file format is unknown."
-msgstr "雜湊清單檔案格式未知。"
-
-#: models/profilemodel.cpp:266
-#, kde-format
-msgid ""
-"Your given hashlist file format is unknown. Please choose one of these "
-"formats: SFV, MD5, SHA-256."
-msgstr "您指定的雜湊清單檔案格式是未知的。可用格式選項：SFV、MD5、SHA-256。"
-
-#: models/profilemodel.cpp:275
-#, kde-format
-msgid "Hashlist name must not be empty."
-msgstr "雜湊清單名稱不能是空白的。"
-
-#: models/profilemodel.cpp:275
-#, kde-format
-msgid "You have given no name for the hashlist. Please set one."
-msgstr "您並未提供雜湊清單的名稱。請設定一個。"
-
-#: models/profilemodel.cpp:285
-#, kde-format
-msgid "Cue filename name must not be empty."
-msgstr "Cue 檔名稱不能是空白的。"
-
-#: models/profilemodel.cpp:285
-#, kde-format
-msgid "You have given no name for the cue sheet. Please set one."
-msgstr "您並未提供 cue 檔的名稱。請設定一個。"
-
-#: models/profilemodel.cpp:296
-#, kde-format
-msgid "Filename name must not be empty."
-msgstr "檔案名稱不能是空白的。"
-
-#: models/profilemodel.cpp:297
-#, kde-format
-msgid "You have given no name for the single audio file. Please set one."
-msgstr "您並未提供單一音訊檔的名稱。請設定一個。"
-
-#: models/profilemodel.cpp:333
+#: models/profilemodel.cpp:392
 #, kde-format
 msgid "Profile name already exists."
 msgstr "設定檔名稱已經存在。"
 
-#: models/profilemodel.cpp:334
+#: models/profilemodel.cpp:393
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
 
-#: models/profilemodel.cpp:353
+#: models/profilemodel.cpp:404
 #, kde-format
-msgid "Profile index already exists."
-msgstr "設定檔索引已經存在。"
+msgid "Profile encoder is not defined."
+msgstr "設定檔未定義編碼器。"
 
-#: models/profilemodel.cpp:354
+#: models/profilemodel.cpp:404
+#, kde-format
+msgid "You have given no encoder for the profile. Please set one."
+msgstr "您並沒有為設定檔提供編碼器。請設定一個。"
+
+#: models/profilemodel.cpp:411
+#, kde-format
+msgid "Profile filename scheme is not defined."
+msgstr "設定檔未定義檔名機制。"
+
+#: models/profilemodel.cpp:412
+#, kde-format
+msgid "You have given no filename scheme for the profile. Please set one."
+msgstr "您並沒有為設定檔提供檔名機制。請設定一個。"
+
+#: models/profilemodel.cpp:440
+#, kde-format
+msgid "The image file format is unknown."
+msgstr "圖片檔格式未知。"
+
+#: models/profilemodel.cpp:441
 #, kde-format
 msgid ""
-"Your profile index %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr ""
+"Your given image file format is unknown. Please choose on of these formats: "
+"JPEG, PNG, TIFF or BMP."
+msgstr "您指定的圖片檔案格式是未知的。可用格式選項：JPEG、PNG、TIFF 或 BMP。"
 
-#: models/profilemodel.cpp:485
+#: models/profilemodel.cpp:450
 #, kde-format
-msgid "Unknown error. No index found in profile model."
-msgstr "未知錯誤。設定檔模型中沒有找到索引。"
+msgid "Cover name must not be empty."
+msgstr "封面名稱不能是空白的。"
 
-#: models/profilemodel.cpp:485
+#: models/profilemodel.cpp:450
 #, kde-format
-msgid "This is an internal error. Please report."
-msgstr "這是一個內部錯誤。請回報給我們。"
+msgid "You have given no name for the cover. Please set one."
+msgstr "您並未提供封面的名稱。請設定一個。"
+
+#: models/profilemodel.cpp:460
+#, kde-format
+msgid "The playlist file format is unknown."
+msgstr "播放清單檔案格式未知。"
+
+#: models/profilemodel.cpp:461
+#, kde-format
+msgid ""
+"Your given playlist file format is unknown. Please choose on of these "
+"formats: M3U, PLS or XSPF."
+msgstr "您指定的播放清單檔案格式是未知的。可用格式選項：M3U、PLS 或 XSPF。"
+
+#: models/profilemodel.cpp:470
+#, kde-format
+msgid "Playlist name must not be empty."
+msgstr "播放清單名稱不能是空白的。"
+
+#: models/profilemodel.cpp:470
+#, kde-format
+msgid "You have given no name for the playlist. Please set one."
+msgstr "您並未提供播放清單的名稱。請設定一個。"
+
+#: models/profilemodel.cpp:490
+#, kde-format
+msgid "Info text name must not be empty."
+msgstr "資訊文字檔的名稱不能是空白的。"
+
+#: models/profilemodel.cpp:490
+#, kde-format
+msgid "You have given no name for the info text file. Please set one."
+msgstr "您並未提供資訊文字檔的名稱。請設定一個。"
+
+#: models/profilemodel.cpp:497
+#, kde-format
+msgid "Info text file name suffix must not be empty."
+msgstr "資訊文字檔的名稱後綴不能是空白的。"
+
+#: models/profilemodel.cpp:498
+#, kde-format
+msgid "You have given no suffix for the info text file. Please set one."
+msgstr "您並未提供資訊文字檔的後綴。請設定一個。"
+
+#: models/profilemodel.cpp:509
+#, kde-format
+msgid "The hashlist file format is unknown."
+msgstr "雜湊清單檔案格式未知。"
+
+#: models/profilemodel.cpp:510
+#, kde-format
+msgid ""
+"Your given hashlist file format is unknown. Please choose one of these "
+"formats: SFV, MD5, SHA-256."
+msgstr "您指定的雜湊清單檔案格式是未知的。可用格式選項：SFV、MD5、SHA-256。"
+
+#: models/profilemodel.cpp:519
+#, kde-format
+msgid "Hashlist name must not be empty."
+msgstr "雜湊清單名稱不能是空白的。"
+
+#: models/profilemodel.cpp:519
+#, kde-format
+msgid "You have given no name for the hashlist. Please set one."
+msgstr "您並未提供雜湊清單的名稱。請設定一個。"
+
+#: models/profilemodel.cpp:530
+#, kde-format
+msgid "Cue filename name must not be empty."
+msgstr "Cue 檔名稱不能是空白的。"
+
+#: models/profilemodel.cpp:530
+#, kde-format
+msgid "You have given no name for the cue sheet. Please set one."
+msgstr "您並未提供 cue 檔的名稱。請設定一個。"
+
+#: models/profilemodel.cpp:543
+#, fuzzy, kde-format
+#| msgid "Cue filename name must not be empty."
+msgid "Log filename name must not be empty."
+msgstr "Cue 檔名稱不能是空白的。"
+
+#: models/profilemodel.cpp:543
+#, fuzzy, kde-format
+#| msgid "You have given no name for the profile. Please set one."
+msgid "You have given no name for the log file. Please set one."
+msgstr "您並未提供設定檔的名稱。請設定一個。"
+
+#: models/profilemodel.cpp:557
+#, kde-format
+msgid "Filename name must not be empty."
+msgstr "檔案名稱不能是空白的。"
+
+#: models/profilemodel.cpp:557
+#, kde-format
+msgid "You have given no name for the single audio file. Please set one."
+msgstr "您並未提供單一音訊檔的名稱。請設定一個。"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "複製"
@@ -1532,7 +1595,7 @@ msgid "Device error (1)."
 msgstr "內部裝置錯誤。"
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
-#: utils/cddacdio.cpp:442
+#: utils/cddacdio.cpp:523
 #, fuzzy, kde-format
 #| msgid ""
 #| "Check your device. Is it really \"%1\"? If so also check your permissions "
@@ -1556,7 +1619,64 @@ msgstr "內部裝置錯誤。"
 msgid "Device error (3)."
 msgstr "內部裝置錯誤。"
 
-#: utils/cddacdio.cpp:441
+#: utils/cddacdio.cpp:439
+#, kde-format
+msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
+msgstr ""
+
+#: utils/cddacdio.cpp:466
+#, fuzzy, kde-format
+#| msgid "Audio Disc"
+msgid "Audio"
+msgstr "音訊碟片"
+
+#: utils/cddacdio.cpp:469
+#, fuzzy, kde-format
+#| msgid "Audio Disc"
+msgid "Non-Audio: CD-i"
+msgstr "音訊碟片"
+
+#: utils/cddacdio.cpp:472
+#, kde-format
+msgid "Non-Audio: Data mode 2"
+msgstr ""
+
+#: utils/cddacdio.cpp:474
+#, kde-format
+msgid ", form 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:476
+#, kde-format
+msgid ", form 2"
+msgstr ""
+
+#: utils/cddacdio.cpp:479
+#, kde-format
+msgid "Non-Audio: Data mode 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:482
+#, kde-format
+msgid "Non-Audio: Playstation 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:485
+#, kde-format
+msgid "Non-Audio: Unknown format"
+msgstr ""
+
+#: utils/cddacdio.cpp:489
+#, kde-format
+msgid "Lead-out"
+msgstr ""
+
+#: utils/cddacdio.cpp:491
+#, kde-format
+msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
+msgstr ""
+
+#: utils/cddacdio.cpp:522
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1578,72 +1698,77 @@ msgstr "內部裝置錯誤。"
 msgid "Check your device and make a bug report."
 msgstr "請檢查您的裝置，並進行錯誤回報。"
 
-#: utils/cddaextractthread.cpp:66
+#: utils/cddaextractthread.cpp:70
 #, kde-format
-msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:79
+#: utils/cddaextractthread.cpp:71
+#, kde-format
+msgid "TOC:"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:85
 #, kde-format
 msgid "Extracting finished."
 msgstr "擷取完成。"
 
-#: utils/cddaextractthread.cpp:103 utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:109 utils/cddaextractthread.cpp:219
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "Error occured while seeking at sector %1: %2"
 msgstr "擷取音軌 %1 時發生錯誤。"
 
-#: utils/cddaextractthread.cpp:105 utils/cddaextractthread.cpp:217
+#: utils/cddaextractthread.cpp:111 utils/cddaextractthread.cpp:221
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping track %1. See log."
 msgstr "擷取音軌 %1 時發生錯誤。"
 
-#: utils/cddaextractthread.cpp:107 utils/cddaextractthread.cpp:219
+#: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:223
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping. See log."
 msgstr "擷取音軌 %1 時發生錯誤。"
 
-#: utils/cddaextractthread.cpp:114
+#: utils/cddaextractthread.cpp:120
 #, kde-format
 msgid "Correction sample offset: %1"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:126
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "正在擷取音軌 %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:121
+#: utils/cddaextractthread.cpp:127
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "開始讀取音軌 %1，有 %2 個磁區"
 
-#: utils/cddaextractthread.cpp:123
+#: utils/cddaextractthread.cpp:129
 #, fuzzy, kde-format
 #| msgid "Ripping whole CD as single track."
-msgid "Ripping whole CD as single track (%1:%2)."
+msgid "Ripping whole disc (%1:%2)..."
 msgstr "正在將整個 CD 擷取成一個音軌。"
 
-#: utils/cddaextractthread.cpp:124
+#: utils/cddaextractthread.cpp:130
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start reading whole disc with %1 sectors"
 msgstr "開始讀取音軌 %1，有 %2 個磁區"
 
-#: utils/cddaextractthread.cpp:126
+#: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Track %1 with start sector %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:129
+#: utils/cddaextractthread.cpp:134
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:155
 #, fuzzy, kde-format
 #| msgid ""
 #| "Read error detected (absolute sector %1, relative sector %2, track time "
@@ -1651,134 +1776,62 @@ msgstr ""
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "偵測到讀取錯誤（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
 
-#: utils/cddaextractthread.cpp:156 utils/cddaextractthread.cpp:165
+#: utils/cddaextractthread.cpp:161 utils/cddaextractthread.cpp:170
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "擷取音軌 %1 時發生錯誤。"
 
-#: utils/cddaextractthread.cpp:160 utils/cddaextractthread.cpp:170
-#: utils/cddaextractthread.cpp:178 utils/cddaextractthread.cpp:181
+#: utils/cddaextractthread.cpp:165 utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:182 utils/cddaextractthread.cpp:185
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping at position %1. See log."
 msgstr "擷取音軌 %1 時發生錯誤。"
 
-#: utils/cddaextractthread.cpp:176
+#: utils/cddaextractthread.cpp:180
 #, fuzzy, kde-format
 #| msgid ""
 #| "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "修復（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
 
-#: utils/cddaextractthread.cpp:187
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:238 utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:242 utils/cddaextractthread.cpp:243
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:241
+#: utils/cddaextractthread.cpp:245
 #, kde-format
 msgid "User canceled extracting."
 msgstr "使用者取消了擷取。"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:246
 #, fuzzy, kde-format
 #| msgid "Extracting finished."
 msgid "Extraction interrupted"
 msgstr "擷取完成。"
 
-#: utils/cddaextractthread.cpp:245
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "擷取正常（音軌 %1）。"
 
-#: utils/cddaextractthread.cpp:247
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid "Ripping OK."
 msgstr "擷取正常。"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:253
 #, fuzzy, kde-format
 #| msgid "Reading finished"
 msgid "Ripping finished"
 msgstr "讀取完成"
-
-#: utils/cddaextractthread.cpp:302
-#, kde-format
-msgid "Fixed edge jitter (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:306
-#, kde-format
-msgid "Fixed atom jitter (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:311
-#, kde-format
-msgid "Scratch detected at track %1 at position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "SCRATCH DETECTED (sector %1, time pos %2)"
-msgstr "偵測到磨損！（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
-
-#: utils/cddaextractthread.cpp:316
-#, fuzzy, kde-format
-#| msgid ""
-#| "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgid "Repair (sector %1, time pos %2)"
-msgstr "修復（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
-
-#: utils/cddaextractthread.cpp:321
-#, kde-format
-msgid "Skip sectors at track %1 at position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:322
-#, kde-format
-msgid "SKIP (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:326
-#, kde-format
-msgid "Drift (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:330
-#, kde-format
-msgid "Backoff (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:339
-#, kde-format
-msgid "Fixup dropped (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:343
-#, kde-format
-msgid "Fixup duped (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:347
-#, kde-format
-msgid "Read error detected at track %1 position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:348
-#, fuzzy, kde-format
-#| msgid ""
-#| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgid "READ ERROR (sector %1, time pos %2)"
-msgstr "讀取錯誤！（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2098,8 +2151,8 @@ msgstr "命令機制："
 #. i18n: ectx: property (text), widget (QLabel, label_Vendor)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
-#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
-#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:114
+#: widgets/devicewidgetUI.ui:140 widgets/devicewidgetUI.ui:185
 #, fuzzy, kde-format
 #| msgid "No audio CD detected"
 msgid "(No disc detected)"
@@ -2111,33 +2164,52 @@ msgstr "未偵測到音訊 CD"
 msgid "Device"
 msgstr "裝置"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: widgets/devicewidgetUI.ui:29
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use some special techniques to reduce the chance of "
+"unnoticed reading errors. Leads to a more secure reading process at the "
+"expense of ripping speed, so it might be also called \"secure mode\".</p></"
+"body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:38
+#: widgets/devicewidgetUI.ui:41
 #, kde-format
 msgid "Sample offset:"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
+#: widgets/devicewidgetUI.ui:73
+#, kde-format
+msgid ""
+"<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
+"1/75 second) after trying to read the sector again for at most 20 times. "
+"Usually broken sectors will be filled with silence.</p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
-#: widgets/devicewidgetUI.ui:80
+#: widgets/devicewidgetUI.ui:86
 #, fuzzy, kde-format
 #| msgid "Disc information not found"
 msgid "Device information"
 msgstr "找不到碟片資訊"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:98
+#: widgets/devicewidgetUI.ui:104
 #, kde-format
 msgid "Model:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:153
+#: widgets/devicewidgetUI.ui:159
 #, kde-format
 msgid "Vendor:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:169
+#: widgets/devicewidgetUI.ui:175
 #, kde-format
 msgid "Revision:"
 msgstr ""
@@ -2216,8 +2288,7 @@ msgstr "品質/位元率"
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
 #, kde-format
-msgid ""
-"This preset should provide near transparency to most people on most music."
+msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
@@ -2242,10 +2313,11 @@ msgstr "極高 (220...260 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, kde-format
-msgid ""
-"This preset should generally be transparent to most people on most music and "
-"is already quite high in quality."
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset should generally be transparent to most people on most music "
+#| "and is already quite high in quality."
+msgid "This preset should generally be transparent to most people."
 msgstr ""
 "這個設定檔基本上為大部分音樂對於大部分人都聽不出差別，而品質已經頗高了。"
 
@@ -2257,11 +2329,14 @@ msgstr "標準 (170...210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset will usually be overkill for most people and most situations, "
+#| "but if you must have the absolute highest quality with no regard to "
+#| "filesize, this is the way to go."
 msgid ""
-"This preset will usually be overkill for most people and most situations, "
-"but if you must have the absolute highest quality with no regard to "
-"filesize, this is the way to go."
+"This preset will usually be overkill, but if you want to have the absolute "
+"highest quality with no regard to filesize, this is the way to go."
 msgstr ""
 "這個設定檔對於大部分人大部分時候來說都是過多的，但如果您認為要有最高品質而完"
 "全不管檔案大小，這可能會適合您。"
@@ -2398,6 +2473,34 @@ msgstr "儲存..."
 msgid "URL:"
 msgstr "網址："
 
+#~ msgid "Encoding protocol"
+#~ msgstr "編碼協定"
+
+#~ msgid "Ripping protocol"
+#~ msgstr "擷取協定"
+
+#~ msgid "Profile index already exists."
+#~ msgstr "設定檔索引已經存在。"
+
+#, fuzzy
+#~| msgid ""
+#~| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "SCRATCH DETECTED (sector %1, time pos %2)"
+#~ msgstr "偵測到磨損！（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
+
+#, fuzzy
+#~| msgid ""
+#~| "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#~ msgid "Repair (sector %1, time pos %2)"
+#~ msgstr "修復（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
+
+#, fuzzy
+#~| msgid ""
+#~| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#~ msgid "READ ERROR (sector %1, time pos %2)"
+#~ msgstr "讀取錯誤！（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
+
 #~ msgid ""
 #~ "Scratch detected (absolute sector %1, relative sector %2, track time pos "
 #~ "%3:%4)"
@@ -2411,17 +2514,11 @@ msgstr "網址："
 #~ msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 #~ msgstr "跳過！（絕對磁區 %1，相對磁區 %2，音軌時間位置 %3:%4）"
 
-#~ msgid "Full paranoia mode (best quality)"
-#~ msgstr "完整強迫症模式 (品質最佳)"
-
 #~ msgid "Unable to create CDDA paranoia object."
 #~ msgstr "無法建立 CDDA paranoia 物件。"
 
 #~ msgid "Wikipedia localization"
 #~ msgstr "維基百科本地化"
-
-#~ msgid "About commandline schemes"
-#~ msgstr "關於命令列機制"
 
 #~ msgid "About parameters"
 #~ msgstr "關於參數"

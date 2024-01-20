@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:37+0000\n"
+"POT-Creation-Date: 2024-01-20 00:37+0000\n"
 "PO-Revision-Date: 2019-08-04 21:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -64,16 +64,18 @@ msgstr "Количество запрашиваемых обложек"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
-#, kde-format
-msgid "Full paranoia mode (reduce chance of read errors)"
-msgstr ""
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:32
+#, fuzzy, kde-format
+#| msgid "Full paranoia mode (best quality)"
+msgid "Full paranoia mode (secure mode)"
+msgstr "Режим Full Paranoia (лучшее качество)"
 
-#. i18n: ectx: label, entry (neverSkip), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
-#, kde-format
-msgid "Never skip on read error"
+#. i18n: ectx: label, entry (skipReadingErrors), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:76
+#, fuzzy, kde-format
+#| msgid "Never skip on read error"
+msgid "Skip reading errors"
 msgstr "Не пропускать ошибки чтения"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
@@ -150,7 +152,7 @@ msgstr "Начало копирования и кодирования, испо�
 msgid "Can't find path \"%1\"."
 msgstr "Невозможно найти путь «%1»."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1109
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Проверьте введенный путь или права доступа"
@@ -165,17 +167,17 @@ msgstr "Свободное место на «%1» менее 200 Мб."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Внимание! Файл «%1» уже существует. Перезаписываю."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1089
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Внимание! Файл «%1» уже существует. Пропущено."
 
-#: core/audex.cpp:675 core/audex.cpp:1081
+#: core/audex.cpp:675 core/audex.cpp:1109
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Невозможно создать папку «%1»."
 
-#: core/audex.cpp:678 core/audex.cpp:1084
+#: core/audex.cpp:678 core/audex.cpp:1112
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Папка «%1» успешно создана."
@@ -238,7 +240,8 @@ msgid "Unable to save cover \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
+#: core/audex.cpp:1002 core/audex.cpp:1030 core/audex.cpp:1077
+#: core/audex.cpp:1104
 #, fuzzy, kde-format
 #| msgid "Please check your profile."
 msgid "Please check your path and permissions"
@@ -292,7 +295,19 @@ msgstr "Плейлист успешно создан."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Невозможно создать каталог «%1»."
 
-#: core/audex.cpp:1049 core/audex.cpp:1076
+#: core/audex.cpp:1027
+#, fuzzy, kde-format
+#| msgid "Infofile \"%1\" successfully stored."
+msgid "Log file \"%1\" successfully stored."
+msgstr "Файл информации «%1» успешно сохранен."
+
+#: core/audex.cpp:1030
+#, fuzzy, kde-format
+#| msgid "Unable to create directory \"%1\"."
+msgid "Unable to save log file \"%1\"."
+msgstr "Невозможно создать каталог «%1»."
+
+#: core/audex.cpp:1077 core/audex.cpp:1104
 #, fuzzy, kde-format
 #| msgid "Unable to create directory \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -384,20 +399,27 @@ msgstr "Мастер шаблона команды"
 msgid "Command scheme help"
 msgstr "Не указана команда."
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
+#: dialogs/commandwizardwidgetUI.ui:17
+#, fuzzy, kde-format
+#| msgid "Please set one."
+msgid "Please set a command scheme"
+msgstr "Пожалуйста, выберите."
+
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "Пример альбома:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr "Образец:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
-#: dialogs/commandwizardwidgetUI.ui:269
+#: dialogs/commandwizardwidgetUI.ui:273
 #: dialogs/filenameschemewizardwidgetUI.ui:54
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
@@ -405,7 +427,7 @@ msgid "Help"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:293
+#: dialogs/commandwizardwidgetUI.ui:297
 #: dialogs/filenameschemewizardwidgetUI.ui:32
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
@@ -413,7 +435,7 @@ msgid "Album Artist"
 msgstr "Исполнитель альбома"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:315
+#: dialogs/commandwizardwidgetUI.ui:319
 #: dialogs/filenameschemewizardwidgetUI.ui:182
 #: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
@@ -421,25 +443,25 @@ msgid "Album Title"
 msgstr "Название альбома"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:337 dialogs/schemewizardwidgetUI.ui:334
+#: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
 msgstr "Исполнитель дорожки"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:359 dialogs/schemewizardwidgetUI.ui:356
+#: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
 msgstr "Название дорожки"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:369 dialogs/schemewizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
 msgstr "№ дорожки"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:379
+#: dialogs/commandwizardwidgetUI.ui:383
 #: dialogs/filenameschemewizardwidgetUI.ui:199
 #: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
@@ -447,8 +469,8 @@ msgid "CD #"
 msgstr "№ CD"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:386
-#: dialogs/filenameschemewizardwidgetUI.ui:245
+#: dialogs/commandwizardwidgetUI.ui:390
+#: dialogs/filenameschemewizardwidgetUI.ui:249
 #: dialogs/schemewizardwidgetUI.ui:426
 #, fuzzy, kde-format
 #| msgid "Track"
@@ -456,15 +478,15 @@ msgid "# of Tracks"
 msgstr "Дорожка"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:396
-#: dialogs/filenameschemewizardwidgetUI.ui:238
+#: dialogs/commandwizardwidgetUI.ui:400
+#: dialogs/filenameschemewizardwidgetUI.ui:242
 #: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
 msgstr "Дата"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:406
+#: dialogs/commandwizardwidgetUI.ui:410
 #: dialogs/filenameschemewizardwidgetUI.ui:225
 #: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
@@ -472,19 +494,19 @@ msgid "Genre"
 msgstr "Жанр"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
-#: dialogs/commandwizardwidgetUI.ui:416
+#: dialogs/commandwizardwidgetUI.ui:420
 #, kde-format
 msgid "Cover File"
 msgstr "Файл обложки"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
-#: dialogs/commandwizardwidgetUI.ui:426
+#: dialogs/commandwizardwidgetUI.ui:430
 #, kde-format
 msgid "Input File"
 msgstr "Входной файл"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
-#: dialogs/commandwizardwidgetUI.ui:436
+#: dialogs/commandwizardwidgetUI.ui:440
 #, kde-format
 msgid "Output File"
 msgstr "Выходной файл"
@@ -613,49 +635,29 @@ msgstr "Показать журнал кодирования..."
 msgid "Show rip log..."
 msgstr "Показать журнал копирования..."
 
-#: dialogs/extractingprogressdialog.cpp:333
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ripping speed is extremly slow for the last 5 minutes by now.\n"
-#| "Due to extraction quality, audex is so configured, never skip any "
-#| "detected error. So if your disc is really broken extracting maybe never "
-#| "ends.\n"
-#| "In some cases only this drive can't rip audio data from this disc. Maybe "
-#| "try another one.\n"
-#| "\n"
-#| "However, do you want to continue extraction?"
+#: dialogs/extractingprogressdialog.cpp:332
+#, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
-"Due to extraction quality, audex is configured to never skip any detected "
-"error. If your disc is really broken extraction may never end!\n"
-"In some cases, it might be that only this drive has difficulty ripping audio "
-"data from this disc. Maybe try another one.\n"
-"\n"
-"However, do you want to continue extraction?"
+"Do you want to continue extraction?"
 msgstr ""
-"Скорость копирования очень медленная за последние 5 минут.\n"
-"Согласно настройкам, программа не пропускает ни одной ошибки чтения. "
-"Поэтому, если ваш диск действительно испорчен, процесс копирования никогда "
-"не закончится.\n"
-"В некоторых случаях бывает, что именно этот конкретный привод не может "
-"прочесть данные с диска. Возможно, стоит попробовать другой.\n"
-"\n"
-"Вы хотите продолжать копирование?"
 
-#: dialogs/extractingprogressdialog.cpp:337
+#: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Отменить копирование"
 
-#: dialogs/extractingprogressdialog.cpp:347
-#, kde-format
-msgid "Encoding protocol"
-msgstr "Протокол кодирования"
+#: dialogs/extractingprogressdialog.cpp:344
+#, fuzzy, kde-format
+#| msgid "Encoding Track"
+msgid "Encoding log"
+msgstr "Кодирование дорожки"
 
-#: dialogs/extractingprogressdialog.cpp:353
-#, kde-format
-msgid "Ripping protocol"
-msgstr "Протокол копирования"
+#: dialogs/extractingprogressdialog.cpp:350
+#, fuzzy, kde-format
+#| msgid "Ripping Track"
+msgid "Ripping log"
+msgstr "Копирование дорожки"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -729,22 +731,48 @@ msgstr "Расширение"
 msgid "Example:"
 msgstr "Пример:"
 
-#: dialogs/profiledatacoverdialog.cpp:23
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_scheme)
+#: dialogs/filenameschemewizardwidgetUI.ui:232
+#: dialogs/profiledatacoverwidgetUI.ui:98
+#: dialogs/profiledatacuesheetwidgetUI.ui:17
+#: dialogs/profiledatahashlistwidgetUI.ui:46
+#: dialogs/profiledatainfowidgetUI.ui:112
+#: dialogs/profiledatalogfilewidgetUI.ui:17
+#: dialogs/profiledataplaylistwidgetUI.ui:46
+#: dialogs/profiledatasinglefilewidgetUI.ui:30
+#: dialogs/profiledatawidgetUI.ui:108
+#, fuzzy, kde-format
+#| msgid "Please set one."
+msgid "Please set a scheme"
+msgstr "Пожалуйста, выберите."
+
+#: dialogs/logviewdialog.cpp:60
+#, fuzzy, kde-format
+#| msgid "Save "
+msgid "Save %1"
+msgstr "Сохранить"
+
+#: dialogs/logviewdialog.cpp:66
+#, kde-format
+msgid "created on "
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
 msgid "Cover Settings"
 msgstr "Настройки обложек"
 
-#: dialogs/profiledatacoverdialog.cpp:56
+#: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
 msgstr "JPEG (Joint Photographic Experts Group)"
 
-#: dialogs/profiledatacoverdialog.cpp:57
+#: dialogs/profiledatacoverdialog.cpp:69
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
 msgstr "PNG (Portable Network Graphics)"
 
-#: dialogs/profiledatacoverdialog.cpp:58
+#: dialogs/profiledatacoverdialog.cpp:70
 #, kde-format
 msgid "BMP (Windows Bitmap)"
 msgstr "BMP (Windows Bitmap)"
@@ -776,23 +804,26 @@ msgstr "Формат:"
 msgid "Cover scheme:"
 msgstr "Файл обложки"
 
-#: dialogs/profiledatacuesheetdialog.cpp:21
+#: dialogs/profiledatacuesheetdialog.cpp:28
 #, fuzzy, kde-format
 #| msgid "Cover Settings"
 msgid "Cue Sheet Settings"
 msgstr "Настройки обложек"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:29
+#: dialogs/profiledatacuesheetwidgetUI.ui:33
 #: dialogs/profiledatahashlistwidgetUI.ui:39
+#: dialogs/profiledatalogfilewidgetUI.ui:33
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_write_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
 "<html><head/><body><p>Write Media Catalog Number (MCN) and International "
@@ -803,64 +834,64 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:58
+#: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
 msgstr ""
 
-#: dialogs/profiledatadialog.cpp:96
+#: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
 msgstr "Редактировать профиль"
 
-#: dialogs/profiledatadialog.cpp:189
+#: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
 msgstr "Создать профиль"
 
-#: dialogs/profiledatadialog.cpp:199
+#: dialogs/profiledatadialog.cpp:193
 #, kde-format
 msgid "New Profile"
 msgstr "Новый профиль"
 
-#: dialogs/profiledatahashlistdialog.cpp:21
-#: dialogs/profiledataplaylistdialog.cpp:23
+#: dialogs/profiledatahashlistdialog.cpp:28
+#: dialogs/profiledataplaylistdialog.cpp:30
 #, kde-format
 msgid "Playlist Settings"
 msgstr "Настройки плейлистов"
 
-#: dialogs/profiledatahashlistdialog.cpp:43
+#: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
 msgstr ""
 
-#: dialogs/profiledatahashlistdialog.cpp:44
+#: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr ""
 
-#: dialogs/profiledatahashlistdialog.cpp:45
+#: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:24
+#: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
 msgid "Info Settings"
 msgstr "Настройки информации"
 
-#: dialogs/profiledatainfodialog.cpp:43
+#: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
 msgstr ""
 
-#: dialogs/profiledatainfodialog.cpp:128
+#: dialogs/profiledatainfodialog.cpp:153
 #, fuzzy, kde-format
 #| msgid "Load text template"
 msgid "Load Text Template"
 msgstr "Загрузить текстовый шаблон"
 
-#: dialogs/profiledatainfodialog.cpp:141
+#: dialogs/profiledatainfodialog.cpp:166
 #, fuzzy, kde-format
 #| msgid "Save text template"
 msgid "Save Text Template"
@@ -887,19 +918,31 @@ msgstr "Расширение:"
 msgid "Scheme:"
 msgstr ""
 
+#: dialogs/profiledatalogfiledialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Cover Settings"
+msgid "Log Files Settings"
+msgstr "Настройки обложек"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
+#: dialogs/profiledatalogfilewidgetUI.ui:65
+#, kde-format
+msgid "Write timestamps"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
-#: dialogs/profiledataplaylistwidgetUI.ui:52
+#: dialogs/profiledataplaylistwidgetUI.ui:56
 #, kde-format
 msgid "Use absolute file paths in playlist"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_utf8)
-#: dialogs/profiledataplaylistwidgetUI.ui:59
+#: dialogs/profiledataplaylistwidgetUI.ui:63
 #, kde-format
 msgid "UTF-8 coding in playlist"
 msgstr ""
 
-#: dialogs/profiledatasinglefiledialog.cpp:20
+#: dialogs/profiledatasinglefiledialog.cpp:24
 #, fuzzy, kde-format
 #| msgid "Cover Settings"
 msgid "Single File Settings"
@@ -918,96 +961,99 @@ msgid "Filenames"
 msgstr "Имена файлов"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
-#: dialogs/profiledatawidgetUI.ui:130
+#: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
 msgstr "Создавать имена файлов совместимые с FAT32"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
-#: dialogs/profiledatawidgetUI.ui:143
+#: dialogs/profiledatawidgetUI.ui:146
 #, kde-format
 msgid "Replace spaces with underscores"
 msgstr "Заменить пробелы символом подчеркивания"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
-#: dialogs/profiledatawidgetUI.ui:150
+#: dialogs/profiledatawidgetUI.ui:153
 #, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
-#: dialogs/profiledatawidgetUI.ui:153
+#: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: dialogs/profiledatawidgetUI.ui:177
+#: dialogs/profiledatawidgetUI.ui:180
 #, fuzzy, kde-format
 #| msgid "Extra Files"
 msgid "Extra"
 msgstr "Дополнительные файлы"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: dialogs/profiledatawidgetUI.ui:211
+#, fuzzy, kde-format
+#| msgid "Store cover file in target folder"
+msgid "Store cover file"
+msgstr "Сохранить обложку в каталог назначения"
+
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_logfile)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_singlefile)
-#: dialogs/profiledatawidgetUI.ui:195 dialogs/profiledatawidgetUI.ui:228
-#: dialogs/profiledatawidgetUI.ui:241 dialogs/profiledatawidgetUI.ui:267
-#: dialogs/profiledatawidgetUI.ui:300 dialogs/profiledatawidgetUI.ui:348
+#: dialogs/profiledatawidgetUI.ui:224 dialogs/profiledatawidgetUI.ui:270
+#: dialogs/profiledatawidgetUI.ui:283 dialogs/profiledatawidgetUI.ui:290
+#: dialogs/profiledatawidgetUI.ui:316 dialogs/profiledatawidgetUI.ui:323
+#: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
 msgstr "Настройки..."
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
-#: dialogs/profiledatawidgetUI.ui:221
-#, fuzzy, kde-format
-#| msgid "Create Profile"
-msgid "Create info file"
-msgstr "Создать профиль"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
-#: dialogs/profiledatawidgetUI.ui:254
+#: dialogs/profiledatawidgetUI.ui:237
 #, fuzzy, kde-format
 #| msgid "Create playlist in target folder"
 msgid "Create hashlist"
 msgstr "Создать плейлист в каталоге назначения"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
-#: dialogs/profiledatawidgetUI.ui:274
+#: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
 msgid "Create cue sheet"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
-#: dialogs/profiledatawidgetUI.ui:287
-#, fuzzy, kde-format
-#| msgid "Store cover file in target folder"
-msgid "Store cover file"
-msgstr "Сохранить обложку в каталог назначения"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
-#: dialogs/profiledatawidgetUI.ui:313
+#: dialogs/profiledatawidgetUI.ui:257
 #, fuzzy, kde-format
 #| msgid "Create playlist in target folder"
 msgid "Create playlist"
 msgstr "Создать плейлист в каталоге назначения"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: dialogs/profiledatawidgetUI.ui:303
+#, fuzzy, kde-format
+#| msgid "Create Profile"
+msgid "Create info file"
+msgstr "Создать профиль"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
+#: dialogs/profiledatawidgetUI.ui:330
+#, fuzzy, kde-format
+#| msgid "Create Profile"
+msgid "Save log file"
+msgstr "Создать профиль"
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
-#: dialogs/profiledatawidgetUI.ui:338
+#: dialogs/profiledatawidgetUI.ui:355
 #, fuzzy, kde-format
 #| msgid "Overwrite existing files"
 msgid "Write single file"
 msgstr "Перезаписывать существующие файлы"
-
-#: dialogs/protocolviewdialog.cpp:60
-#, fuzzy, kde-format
-#| msgid "Save "
-msgid "Save %1"
-msgstr "Сохранить"
 
 #: dialogs/schemewizarddialog.cpp:18
 #, fuzzy, kde-format
@@ -1116,17 +1162,17 @@ msgstr ""
 msgid "Unable to create CDDAModel object."
 msgstr "Unable to create CDDAModel object."
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:131
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:132
 #, kde-format
 msgid "Disc information not found"
 msgstr "Информация о диске не найдена."
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:143
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid ""
@@ -1134,66 +1180,66 @@ msgid ""
 "really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
-#: mainwindow.cpp:152
+#: mainwindow.cpp:156
 #, fuzzy, kde-format
 #| msgid "No disc information set. Do you really want to continue?"
 msgid "No cover was set. Do you really want to continue?"
 msgstr "Нет информации о диске. Вы действительно хотите продолжить?"
 
-#: mainwindow.cpp:153
+#: mainwindow.cpp:157
 #, fuzzy, kde-format
 #| msgid "Cover File"
 msgid "Cover is empty"
 msgstr "Файл обложки"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "General settings"
 msgstr "Общие настройки"
 
-#: mainwindow.cpp:181
+#: mainwindow.cpp:185
 #, kde-format
 msgid "Device settings"
 msgstr "Параметры устройства"
 
-#: mainwindow.cpp:187
+#: mainwindow.cpp:191
 #, kde-format
 msgid "Profiles"
 msgstr "Профили"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:200
 #, kde-format
 msgid "CDDB settings"
 msgstr "Параметры CDDB"
 
-#: mainwindow.cpp:199
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Remote Server"
 msgstr "Удаленный сервер"
 
-#: mainwindow.cpp:250
+#: mainwindow.cpp:254
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:256
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr ""
 
-#: mainwindow.cpp:357
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Split titles"
 msgstr "Разделить заголовки"
 
-#: mainwindow.cpp:358
+#: mainwindow.cpp:362
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1205,118 +1251,118 @@ msgstr ""
 "\n"
 "Разделитель:"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Вы действительно хотите поменять местами поля исполнителей и названий?"
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:375
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Поменять местами исполнителей и названия"
 
-#: mainwindow.cpp:385
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Вы действительно хотите записать названия и исполнителей с заглавной буквы"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Сделать заглавными названия и исполнителей"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:404
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Вы действительно хотите автоматически заполнить исполнителей?"
 
-#: mainwindow.cpp:401
+#: mainwindow.cpp:405
 #, kde-format
 msgid "Autofill artists"
 msgstr "Автоматически заполнить исполнителей"
 
-#: mainwindow.cpp:428
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Eject"
 msgstr "Извлечь диск"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:439
 #, fuzzy, kde-format
 #| msgid "Profile: "
 msgid "Profile:"
 msgstr "Профиль:"
 
-#: mainwindow.cpp:447
+#: mainwindow.cpp:451
 #, fuzzy, kde-format
 #| msgid "&Profile: "
 msgid "&Profile:"
 msgstr "&Профиль:"
 
-#: mainwindow.cpp:453
+#: mainwindow.cpp:457
 #, kde-format
 msgid "Profile"
 msgstr "Профиль"
 
-#: mainwindow.cpp:461
+#: mainwindow.cpp:465
 #, fuzzy, kde-format
 #| msgid "Fetch Info"
 msgid "Fetch"
 msgstr "Получить информацию"
 
-#: mainwindow.cpp:468
+#: mainwindow.cpp:472
 #, fuzzy, kde-format
 #| msgid "Submit Info"
 msgid "Submit"
 msgstr "Отправить информацию"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:478
 #, fuzzy, kde-format
 #| msgid "Edit Data"
 msgid "Edit"
 msgstr "Редактировать данные"
 
-#: mainwindow.cpp:481
+#: mainwindow.cpp:485
 #, kde-format
 msgid "Rip..."
 msgstr "Копировать..."
 
-#: mainwindow.cpp:490
+#: mainwindow.cpp:494
 #, fuzzy, kde-format
 #| msgid "Split titles..."
 msgid "Split Titles..."
 msgstr "Разделить заголовки"
 
-#: mainwindow.cpp:495
+#: mainwindow.cpp:499
 #, fuzzy, kde-format
 #| msgid "Swap artists and titles"
 msgid "Swap Artists And Titles"
 msgstr "Поменять местами исполнителей и названия"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:504
 #, kde-format
 msgid "Capitalize"
 msgstr "Сделать заглавными"
 
-#: mainwindow.cpp:505
+#: mainwindow.cpp:509
 #, fuzzy, kde-format
 #| msgid "Auto fill artists"
 msgid "Auto Fill Artists"
 msgstr "Автоматически заполнить исполнителей"
 
-#: mainwindow.cpp:510
+#: mainwindow.cpp:514
 #, fuzzy, kde-format
 #| msgid "Select all tracks"
 msgid "Select All Tracks"
 msgstr "Выбрать все дорожки"
 
-#: mainwindow.cpp:515
+#: mainwindow.cpp:519
 #, fuzzy, kde-format
 #| msgid "Select all tracks"
 msgid "Deselect All Tracks"
 msgstr "Выбрать все дорожки"
 
-#: mainwindow.cpp:520
+#: mainwindow.cpp:524
 #, kde-format
 msgid "Invert Selection"
 msgstr "Инвертировать выбор"
@@ -1458,46 +1504,71 @@ msgstr "Название"
 msgid "Length"
 msgstr "Продолжительность"
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:302
+#, fuzzy, kde-format
+msgid "Unknown error. No index found in profile model."
+msgstr "Ошибка! Не найден индекс в профиле"
+
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "This is an internal error. Please report."
+msgstr "Произошла внутренняя ошибка программы. Пожалуйста, сообщите нам о ней."
+
+#: models/profilemodel.cpp:378
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:378
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no name for the profile. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:176
+#: models/profilemodel.cpp:392
+#, kde-format
+msgid "Profile name already exists."
+msgstr "Профиль уже существует."
+
+#: models/profilemodel.cpp:393
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your profile name %1 already exists in the set of profiles. Please choose "
+#| "an unique one."
+msgid ""
+"Your profile name %1 already exists in the set of profiles. Please choose a "
+"unique one."
+msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
+
+#: models/profilemodel.cpp:404
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Не указан кодировщик в профиле."
 
-#: models/profilemodel.cpp:176
+#: models/profilemodel.cpp:404
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:182
+#: models/profilemodel.cpp:411
 #, fuzzy, kde-format
 #| msgid "Profile filename pattern is not defined."
 msgid "Profile filename scheme is not defined."
 msgstr "Шаблон наименования файлов не определён."
 
-#: models/profilemodel.cpp:183
+#: models/profilemodel.cpp:412
 #, fuzzy, kde-format
 #| msgid "You've given no filename pattern for the profile. Please set one."
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Укажите шаблон наименования файлов в профиле."
 
-#: models/profilemodel.cpp:204
+#: models/profilemodel.cpp:440
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Неизвестный формат изображения."
 
-#: models/profilemodel.cpp:205
+#: models/profilemodel.cpp:441
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given image file format is unknown. Please choose on of these "
@@ -1509,23 +1580,23 @@ msgstr ""
 "Изображение неизвестного формата. Используйте один из этих форматов: JPG/"
 "JPEG, PNG или BMP."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:450
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Название обложки не должно быть пустым."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:450
 #, fuzzy, kde-format
 #| msgid "You've given no name for the cover. Please set one."
 msgid "You have given no name for the cover. Please set one."
 msgstr "Укажите название обложки."
 
-#: models/profilemodel.cpp:221
+#: models/profilemodel.cpp:460
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Неизвестный формат плейлиста."
 
-#: models/profilemodel.cpp:222
+#: models/profilemodel.cpp:461
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given playlist file format is unknown. Please choose on of these "
@@ -1537,45 +1608,45 @@ msgstr ""
 "Неизвестный формат плейлиста. Используйте один из этих форматов: M3U, PLS "
 "или XSPF."
 
-#: models/profilemodel.cpp:230
+#: models/profilemodel.cpp:470
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Название плейлиста не может быть пустым."
 
-#: models/profilemodel.cpp:230
+#: models/profilemodel.cpp:470
 #, fuzzy, kde-format
 #| msgid "You've given no name for the playlist. Please set one."
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Укажите название для плейлиста."
 
-#: models/profilemodel.cpp:244
+#: models/profilemodel.cpp:490
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Необходимо ввести название файла информации."
 
-#: models/profilemodel.cpp:245
+#: models/profilemodel.cpp:490
 #, fuzzy, kde-format
 #| msgid "You've given no name for the info text file. Please set one."
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Пожалуйста, укажите имя для файла информации."
 
-#: models/profilemodel.cpp:254
+#: models/profilemodel.cpp:497
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Расширение файла информации не должно быть пустым."
 
-#: models/profilemodel.cpp:255
+#: models/profilemodel.cpp:498
 #, fuzzy, kde-format
 #| msgid "You've given no suffix for the info text file. Please set one."
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "Укажите расширение для файла информации."
 
-#: models/profilemodel.cpp:265
+#: models/profilemodel.cpp:509
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Неизвестный формат хэшлиста."
 
-#: models/profilemodel.cpp:266
+#: models/profilemodel.cpp:510
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your given hashlist file format is unknown. Please choose on of these "
@@ -1585,83 +1656,55 @@ msgid ""
 "formats: SFV, MD5, SHA-256."
 msgstr "Неизвестный формат хэшлиста. Выберите один из следующих форматов: SFV."
 
-#: models/profilemodel.cpp:275
+#: models/profilemodel.cpp:519
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Введите имя хэшлиста."
 
-#: models/profilemodel.cpp:275
+#: models/profilemodel.cpp:519
 #, fuzzy, kde-format
 #| msgid "You've given no name for the hashlist. Please set one."
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Не указано имя хэшлиста."
 
-#: models/profilemodel.cpp:285
+#: models/profilemodel.cpp:530
 #, fuzzy, kde-format
 #| msgid "Profile name must not be empty."
 msgid "Cue filename name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:285
+#: models/profilemodel.cpp:530
 #, fuzzy, kde-format
 #| msgid "You've given no name for the cover. Please set one."
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Укажите название обложки."
 
-#: models/profilemodel.cpp:296
+#: models/profilemodel.cpp:543
+#, fuzzy, kde-format
+#| msgid "Profile name must not be empty."
+msgid "Log filename name must not be empty."
+msgstr "Имя профиля не может быть пустым."
+
+#: models/profilemodel.cpp:543
+#, fuzzy, kde-format
+#| msgid "You've given no name for the profile. Please set one."
+msgid "You have given no name for the log file. Please set one."
+msgstr "Выберите названия для профиля. "
+
+#: models/profilemodel.cpp:557
 #, fuzzy, kde-format
 #| msgid "Profile name must not be empty."
 msgid "Filename name must not be empty."
 msgstr "Имя профиля не может быть пустым."
 
-#: models/profilemodel.cpp:297
+#: models/profilemodel.cpp:557
 #, fuzzy, kde-format
 #| msgid "You've given no name for the profile. Please set one."
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "Выберите названия для профиля. "
 
-#: models/profilemodel.cpp:333
-#, kde-format
-msgid "Profile name already exists."
-msgstr "Профиль уже существует."
-
-#: models/profilemodel.cpp:334
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your profile name %1 already exists in the set of profiles. Please choose "
-#| "an unique one."
-msgid ""
-"Your profile name %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
-
-#: models/profilemodel.cpp:353
-#, kde-format
-msgid "Profile index already exists."
-msgstr "Индекс профиля уже существует."
-
-#: models/profilemodel.cpp:354
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your profile name %1 already exists in the set of profiles. Please choose "
-#| "an unique one."
-msgid ""
-"Your profile index %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
-
-#: models/profilemodel.cpp:485
-#, fuzzy, kde-format
-msgid "Unknown error. No index found in profile model."
-msgstr "Ошибка! Не найден индекс в профиле"
-
-#: models/profilemodel.cpp:485
-#, kde-format
-msgid "This is an internal error. Please report."
-msgstr "Произошла внутренняя ошибка программы. Пожалуйста, сообщите нам о ней."
-
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Копировать"
@@ -1673,7 +1716,7 @@ msgid "Device error (1)."
 msgstr "Ошибка привода"
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
-#: utils/cddacdio.cpp:442
+#: utils/cddacdio.cpp:523
 #, fuzzy, kde-format
 #| msgid ""
 #| "Check your device. Is it really \"%1\"? If so also check your permissions "
@@ -1697,7 +1740,64 @@ msgstr "Ошибка привода"
 msgid "Device error (3)."
 msgstr "Ошибка привода"
 
-#: utils/cddacdio.cpp:441
+#: utils/cddacdio.cpp:439
+#, kde-format
+msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
+msgstr ""
+
+#: utils/cddacdio.cpp:466
+#, fuzzy, kde-format
+#| msgid "Audio disc"
+msgid "Audio"
+msgstr "Аудио диск"
+
+#: utils/cddacdio.cpp:469
+#, fuzzy, kde-format
+#| msgid "Audio disc"
+msgid "Non-Audio: CD-i"
+msgstr "Аудио диск"
+
+#: utils/cddacdio.cpp:472
+#, kde-format
+msgid "Non-Audio: Data mode 2"
+msgstr ""
+
+#: utils/cddacdio.cpp:474
+#, kde-format
+msgid ", form 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:476
+#, kde-format
+msgid ", form 2"
+msgstr ""
+
+#: utils/cddacdio.cpp:479
+#, kde-format
+msgid "Non-Audio: Data mode 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:482
+#, kde-format
+msgid "Non-Audio: Playstation 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:485
+#, kde-format
+msgid "Non-Audio: Unknown format"
+msgstr ""
+
+#: utils/cddacdio.cpp:489
+#, kde-format
+msgid "Lead-out"
+msgstr ""
+
+#: utils/cddacdio.cpp:491
+#, kde-format
+msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
+msgstr ""
+
+#: utils/cddacdio.cpp:522
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1720,73 +1820,79 @@ msgstr "Ошибка устройства."
 msgid "Check your device and make a bug report."
 msgstr "Проверьте устройство и отправьте отчет об ошибке."
 
-#: utils/cddaextractthread.cpp:66
+#: utils/cddaextractthread.cpp:70
 #, kde-format
-msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:79
+#: utils/cddaextractthread.cpp:71
+#, kde-format
+msgid "TOC:"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:85
 #, kde-format
 msgid "Extracting finished."
 msgstr "Копирование завершено."
 
-#: utils/cddaextractthread.cpp:103 utils/cddaextractthread.cpp:215
+#: utils/cddaextractthread.cpp:109 utils/cddaextractthread.cpp:219
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "Error occured while seeking at sector %1: %2"
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:105 utils/cddaextractthread.cpp:217
+#: utils/cddaextractthread.cpp:111 utils/cddaextractthread.cpp:221
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occured while ripping track %1. See log."
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:107 utils/cddaextractthread.cpp:219
+#: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:223
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occured while ripping. See log."
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:114
+#: utils/cddaextractthread.cpp:120
 #, fuzzy, kde-format
 #| msgid "Sampler Example:"
 msgid "Correction sample offset: %1"
 msgstr "Образец:"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:126
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Копирование дорожки %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:121
+#: utils/cddaextractthread.cpp:127
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Начало чтения дорожки %1 с %2 секторами"
 
-#: utils/cddaextractthread.cpp:123
-#, kde-format
-msgid "Ripping whole CD as single track (%1:%2)."
-msgstr ""
+#: utils/cddaextractthread.cpp:129
+#, fuzzy, kde-format
+#| msgid "Ripping track %1 (%2:%3)..."
+msgid "Ripping whole disc (%1:%2)..."
+msgstr "Копирование дорожки %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:124
+#: utils/cddaextractthread.cpp:130
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start reading whole disc with %1 sectors"
 msgstr "Начало чтения дорожки %1 с %2 секторами"
 
-#: utils/cddaextractthread.cpp:126
+#: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Track %1 with start sector %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:129
+#: utils/cddaextractthread.cpp:134
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:150
+#: utils/cddaextractthread.cpp:155
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1796,20 +1902,20 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:156 utils/cddaextractthread.cpp:165
+#: utils/cddaextractthread.cpp:161 utils/cddaextractthread.cpp:170
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:160 utils/cddaextractthread.cpp:170
-#: utils/cddaextractthread.cpp:178 utils/cddaextractthread.cpp:181
+#: utils/cddaextractthread.cpp:165 utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:182 utils/cddaextractthread.cpp:185
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occured while ripping at position %1. See log."
 msgstr "Во время копирования дорожки %1 произошла ошибка."
 
-#: utils/cddaextractthread.cpp:176
+#: utils/cddaextractthread.cpp:180
 #, fuzzy, kde-format
 #| msgid ""
 #| "scratch detected (absolute sector %1, relative sector %2, track time pos "
@@ -1819,143 +1925,43 @@ msgstr ""
 "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
 "%4)"
 
-#: utils/cddaextractthread.cpp:187
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:238 utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:242 utils/cddaextractthread.cpp:243
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:241
+#: utils/cddaextractthread.cpp:245
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Копирование отменено пользователем."
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:246
 #, fuzzy, kde-format
 #| msgid "Extracting finished."
 msgid "Extraction interrupted"
 msgstr "Копирование завершено."
 
-#: utils/cddaextractthread.cpp:245
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Копирование завершено (Дорожка %1)."
 
-#: utils/cddaextractthread.cpp:247
+#: utils/cddaextractthread.cpp:251
 #, fuzzy, kde-format
 #| msgid "Ripping Track"
 msgid "Ripping OK."
 msgstr "Копирование дорожки"
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:253
 #, fuzzy, kde-format
 #| msgid "Reading finished"
 msgid "Ripping finished"
 msgstr "Чтение завершено"
-
-#: utils/cddaextractthread.cpp:302
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Fixed edge jitter (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:306
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Fixed atom jitter (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:311
-#, kde-format
-msgid "Scratch detected at track %1 at position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "SCRATCH DETECTED (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:316
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Repair (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:321
-#, kde-format
-msgid "Skip sectors at track %1 at position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:322
-#, kde-format
-msgid "SKIP (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:326
-#, kde-format
-msgid "Drift (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:330
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Backoff (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:339
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Fixup dropped (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:343
-#, fuzzy, kde-format
-#| msgid ""
-#| "scratch detected (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Fixup duped (sector %1, time pos %2)"
-msgstr ""
-"обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:347
-#, kde-format
-msgid "Read error detected at track %1 position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:348
-#, kde-format
-msgid "READ ERROR (sector %1, time pos %2)"
-msgstr ""
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2279,8 +2285,8 @@ msgstr "Шаблон команды:"
 #. i18n: ectx: property (text), widget (QLabel, label_Vendor)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
-#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
-#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:114
+#: widgets/devicewidgetUI.ui:140 widgets/devicewidgetUI.ui:185
 #, fuzzy, kde-format
 #| msgid "No audio CD detected"
 msgid "(No disc detected)"
@@ -2292,35 +2298,54 @@ msgstr "Аудиодисков не обнаружено"
 msgid "Device"
 msgstr "Устройство"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: widgets/devicewidgetUI.ui:29
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use some special techniques to reduce the chance of "
+"unnoticed reading errors. Leads to a more secure reading process at the "
+"expense of ripping speed, so it might be also called \"secure mode\".</p></"
+"body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:38
+#: widgets/devicewidgetUI.ui:41
 #, fuzzy, kde-format
 #| msgid "Sampler Example:"
 msgid "Sample offset:"
 msgstr "Образец:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
+#: widgets/devicewidgetUI.ui:73
+#, kde-format
+msgid ""
+"<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
+"1/75 second) after trying to read the sector again for at most 20 times. "
+"Usually broken sectors will be filled with silence.</p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
-#: widgets/devicewidgetUI.ui:80
+#: widgets/devicewidgetUI.ui:86
 #, fuzzy, kde-format
 #| msgid "Information text:"
 msgid "Device information"
 msgstr "Информация:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:98
+#: widgets/devicewidgetUI.ui:104
 #, kde-format
 msgid "Model:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:153
+#: widgets/devicewidgetUI.ui:159
 #, fuzzy, kde-format
 #| msgid "Genre:"
 msgid "Vendor:"
 msgstr "Жанр:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:169
+#: widgets/devicewidgetUI.ui:175
 #, kde-format
 msgid "Revision:"
 msgstr ""
@@ -2398,9 +2423,10 @@ msgstr "Качество/битрейт"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
-#, kde-format
-msgid ""
-"This preset should provide near transparency to most people on most music."
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset should provide near transparency to most people on most music."
+msgid "This preset should provide perceptual transparency to most people."
 msgstr "Приемлемое для большинства людей и большинства музыки."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
@@ -2427,11 +2453,11 @@ msgstr "Высокое (220...260 кбит/с)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, kde-format
-msgid ""
-"This preset should generally be transparent to most people on most music and "
-"is already quite high in quality."
-msgstr "Хорошее для большинства людей и большинства музыки."
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset should provide near transparency to most people on most music."
+msgid "This preset should generally be transparent to most people."
+msgstr "Приемлемое для большинства людей и большинства музыки."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2441,11 +2467,14 @@ msgstr "Стандартное (170...210 кбит/с)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset will usually be overkill for most people and most situations, "
+#| "but if you must have the absolute highest quality with no regard to "
+#| "filesize, this is the way to go."
 msgid ""
-"This preset will usually be overkill for most people and most situations, "
-"but if you must have the absolute highest quality with no regard to "
-"filesize, this is the way to go."
+"This preset will usually be overkill, but if you want to have the absolute "
+"highest quality with no regard to filesize, this is the way to go."
 msgstr ""
 "Самое высокое возможное качество. Избыточно для большинства людей и ситуаций."
 
@@ -2595,6 +2624,120 @@ msgstr "URL:"
 
 #, fuzzy
 #~| msgid ""
+#~| "Ripping speed is extremly slow for the last 5 minutes by now.\n"
+#~| "Due to extraction quality, audex is so configured, never skip any "
+#~| "detected error. So if your disc is really broken extracting maybe never "
+#~| "ends.\n"
+#~| "In some cases only this drive can't rip audio data from this disc. Maybe "
+#~| "try another one.\n"
+#~| "\n"
+#~| "However, do you want to continue extraction?"
+#~ msgid ""
+#~ "Ripping speed was extremely slow for the last 5 minutes.\n"
+#~ "Due to extraction quality, audex is configured to never skip any detected "
+#~ "error. If your disc is really broken extraction may never end!\n"
+#~ "In some cases, it might be that only this drive has difficulty ripping "
+#~ "audio data from this disc. Maybe try another one.\n"
+#~ "\n"
+#~ "However, do you want to continue extraction?"
+#~ msgstr ""
+#~ "Скорость копирования очень медленная за последние 5 минут.\n"
+#~ "Согласно настройкам, программа не пропускает ни одной ошибки чтения. "
+#~ "Поэтому, если ваш диск действительно испорчен, процесс копирования "
+#~ "никогда не закончится.\n"
+#~ "В некоторых случаях бывает, что именно этот конкретный привод не может "
+#~ "прочесть данные с диска. Возможно, стоит попробовать другой.\n"
+#~ "\n"
+#~ "Вы хотите продолжать копирование?"
+
+#~ msgid "Encoding protocol"
+#~ msgstr "Протокол кодирования"
+
+#~ msgid "Ripping protocol"
+#~ msgstr "Протокол копирования"
+
+#~ msgid "Profile index already exists."
+#~ msgstr "Индекс профиля уже существует."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your profile name %1 already exists in the set of profiles. Please "
+#~| "choose an unique one."
+#~ msgid ""
+#~ "Your profile index %1 already exists in the set of profiles. Please "
+#~ "choose a unique one."
+#~ msgstr "Профиль с именем %1 уже существует. Выберите другое имя."
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "Fixed edge jitter (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "Fixed atom jitter (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "SCRATCH DETECTED (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "Repair (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "Backoff (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "Fixup dropped (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#, fuzzy
+#~| msgid ""
+#~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "Fixup duped (sector %1, time pos %2)"
+#~ msgstr ""
+#~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
+#~ "%3:%4)"
+
+#~ msgid ""
+#~ "This preset should generally be transparent to most people on most music "
+#~ "and is already quite high in quality."
+#~ msgstr "Хорошее для большинства людей и большинства музыки."
+
+#, fuzzy
+#~| msgid ""
 #~| "scratch detected (absolute sector %1, relative sector %2, track time pos "
 #~| "%3:%4)"
 #~ msgid ""
@@ -2623,9 +2766,6 @@ msgstr "URL:"
 #~ msgstr ""
 #~ "обнаружена царапина (абсолютный сектор %1, относительный сектор %2, время "
 #~ "%3:%4)"
-
-#~ msgid "Full paranoia mode (best quality)"
-#~ msgstr "Режим Full Paranoia (лучшее качество)"
 
 #, fuzzy
 #~| msgid "Unable to create CDDAModel object."
@@ -3274,9 +3414,6 @@ msgstr "URL:"
 #~| msgid "Temporary directory name \"%1\" must not be empty."
 #~ msgid "Temporary folder name \"%1\" must not be empty."
 #~ msgstr "Должно быть указано имя временного каталога «%1»."
-
-#~ msgid "Please set one."
-#~ msgstr "Пожалуйста, выберите."
 
 #~ msgid "View Cover"
 #~ msgstr "Смотреть обложку"
