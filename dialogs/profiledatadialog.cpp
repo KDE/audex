@@ -219,7 +219,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         hashlist_format = DEFAULT_HL_FORMAT;
         hashlist_scheme = DEFAULT_HL_NAME;
         cuesheet_scheme = DEFAULT_CUE_NAME;
-        cuesheet_write_mcn_and_isrc = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
+        cuesheet_write_mcn_and_isrc = DEFAULT_CUE_ADD_MCN_AND_ISRC;
         logfile_scheme = DEFAULT_CUE_NAME;
         logfile_write_timestamps = DEFAULT_LOG_WRITE_TIMESTAMPS;
         singlefile_scheme = DEFAULT_SF_NAME;

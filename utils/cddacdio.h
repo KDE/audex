@@ -109,6 +109,7 @@ public:
 
     const QString getMCN();
     const QString getISRC(const int track);
+    void fetchAndCacheSubchannelInfo();
 
     bool isPreemphasis(const int track);
 

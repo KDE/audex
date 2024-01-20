@@ -42,6 +42,7 @@ public Q_SLOTS:
                 const QString &ttitle,
                 const QString &genre,
                 const QString &date,
+                const QString &isrc,
                 const QString &suffix,
                 const QImage &cover,
                 const QString &tmppath,

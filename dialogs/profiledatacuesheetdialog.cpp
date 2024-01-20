@@ -23,7 +23,7 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(ProfileModel *profile_model
 
     // profile data cue sheet data
     QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
-    bool write_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
+    bool add_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX)).toBool();
 
     setWindowTitle(i18n("Cue Sheet Settings"));
 
@@ -56,8 +56,8 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(ProfileModel *profile_model
     ui.qlineedit_scheme->setText(scheme);
     connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
-    ui.checkBox_write_mcn_and_isrc->setChecked(write_mcn_and_isrc);
-    connect(ui.checkBox_write_mcn_and_isrc, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    ui.checkBox_add_mcn_and_isrc->setChecked(add_mcn_and_isrc);
+    connect(ui.checkBox_add_mcn_and_isrc, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -101,13 +101,13 @@ void ProfileDataCueSheetDialog::trigger_changed()
 {
     if (applyButton) {
         QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
-        bool write_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
+        bool add_mcn_and_isrc = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX)).toBool();
 
         if (ui.qlineedit_scheme->text() != scheme) {
             applyButton->setEnabled(true);
             return;
         }
-        if (ui.checkBox_write_mcn_and_isrc->isChecked() != write_mcn_and_isrc) {
+        if (ui.checkBox_add_mcn_and_isrc->isChecked() != add_mcn_and_isrc) {
             applyButton->setEnabled(true);
             return;
         }
@@ -118,7 +118,7 @@ void ProfileDataCueSheetDialog::trigger_changed()
 bool ProfileDataCueSheetDialog::save()
 {
     QString scheme = ui.qlineedit_scheme->text();
-    bool write_mcn_and_isrc = ui.checkBox_write_mcn_and_isrc->isChecked();
+    bool add_mcn_and_isrc = ui.checkBox_add_mcn_and_isrc->isChecked();
 
     error.clear();
     bool success = true;
@@ -126,7 +126,7 @@ bool ProfileDataCueSheetDialog::save()
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), scheme);
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX), write_mcn_and_isrc);
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX), add_mcn_and_isrc);
 
     if (!success)
         error = profile_model->lastError();

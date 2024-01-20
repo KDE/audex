@@ -6,6 +6,7 @@
  */
 
 #include "cddaextractthread.h"
+#include "utils/cddacdio.h"
 
 #include <QDebug>
 #include <cdio/sector.h>
@@ -121,6 +122,14 @@ void CDDAExtractThread::run()
 
     QString min = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
     QString sec = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
+
+    // fetch subchannel infos
+
+    if (p_cdio->getDriveCapabilities().contains(READ_MCN) || p_cdio->getDriveCapabilities().contains(READ_ISRC)) {
+        Q_EMIT info(i18n("Fetching extra information from disc..."));
+        p_cdio->fetchAndCacheSubchannelInfo();
+        p_log.append(i18n("Fetching subchannel infos from disc"));
+    }
 
     if (track > 0) {
         Q_EMIT info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));

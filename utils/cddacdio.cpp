@@ -360,6 +360,13 @@ const QString CDDACDIO::getISRC(const int track)
     return track_isrcs.value(track, QString());
 }
 
+void CDDACDIO::fetchAndCacheSubchannelInfo()
+{
+    getMCN();
+    for (int t = firstTrackNum(); t < numOfTracks(); ++t)
+        getISRC(t);
+}
+
 bool CDDACDIO::isPreemphasis(const int track)
 {
     if (drive && isAudioTrack(track))
