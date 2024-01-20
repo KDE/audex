@@ -288,6 +288,7 @@ const QString SchemeParser::parsePerTrackFilenameScheme(const QString &scheme,
                                                         const QString &ttitle,
                                                         const QString &date,
                                                         const QString &genre,
+                                                        const QString &isrc,
                                                         const QString &suffix,
                                                         const bool fat32compatible,
                                                         const bool replacespaceswithunderscores,
@@ -301,6 +302,7 @@ const QString SchemeParser::parsePerTrackFilenameScheme(const QString &scheme,
     placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle, fat32compatible, true, replacespaceswithunderscores));
     placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, true, replacespaceswithunderscores));
     placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc, fat32compatible, true, replacespaceswithunderscores));
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -332,6 +334,7 @@ const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
                                                        const QString &ttitle,
                                                        const QString &date,
                                                        const QString &genre,
+                                                       const QString &isrc,
                                                        const QString &suffix,
                                                        const QImage &cover,
                                                        const QString &tmppath,
@@ -349,6 +352,7 @@ const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
     placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle));
     placeholders.insert(VAR_DATE, customize_placeholder_value(date));
     placeholders.insert(VAR_GENRE, customize_placeholder_value(genre));
+    placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc));
     placeholders.insert(VAR_ENCODER, customize_placeholder_value(encoder));
 
     placeholders.insert(VAR_AUDEX, customize_placeholder_value(AUDEX_VERSION));
@@ -465,6 +469,7 @@ void SchemeParser::parseInfoTextScheme(QStringList &text,
                                        const QString &title,
                                        const QString &date,
                                        const QString &genre,
+                                       const QString &mcn,
                                        const quint32 discid,
                                        const qreal size,
                                        const int length,
@@ -476,6 +481,7 @@ void SchemeParser::parseInfoTextScheme(QStringList &text,
     placeholders.insert(VAR_ALBUM_TITLE, title);
     placeholders.insert(VAR_DATE, date);
     placeholders.insert(VAR_GENRE, genre);
+    placeholders.insert(VAR_MCN, mcn);
     placeholders.insert(VAR_AUDEX, AUDEX_VERSION);
 
     placeholders.insert(VAR_DISCID, QString("%1").arg(discid, 0, 16));

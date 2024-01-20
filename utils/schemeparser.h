@@ -34,6 +34,7 @@
 #define VAR_CD_NO "cdno"
 #define VAR_DATE "date"
 #define VAR_GENRE "genre"
+#define VAR_ISRC "isrc"
 #define VAR_SUFFIX "suffix"
 #define VAR_ENCODER "encoder"
 
@@ -41,6 +42,7 @@
 #define VAR_OUTPUT_FILE "o"
 #define VAR_COVER_FILE "cover"
 
+#define VAR_MCN "mcn"
 #define VAR_DISCID "discid"
 #define VAR_CD_SIZE "size"
 #define VAR_CD_LENGTH "length"
@@ -78,6 +80,7 @@ public:
                                               const QString &ttitle,
                                               const QString &date,
                                               const QString &genre,
+                                              const QString &isrc,
                                               const QString &suffix,
                                               const bool fat32compatible,
                                               const bool replacespaceswithunderscores,
@@ -96,6 +99,7 @@ public:
                                              const QString &ttitle,
                                              const QString &date,
                                              const QString &genre,
+                                             const QString &isrc,
                                              const QString &suffix,
                                              const QImage &cover,
                                              const QString &tmppath,
@@ -117,6 +121,7 @@ public:
                              const QString &title,
                              const QString &date,
                              const QString &genre,
+                             const QString &mcn,
                              const quint32 discid,
                              const qreal size,
                              const int length,
@@ -132,7 +137,7 @@ public:
         return p_error_string;
     }
 
-    // scheme: 0 == PerTrackFilename, 1 == PerTrackCommand, 2 == Filename, 3 == InfoText
+    // scheme: 1 == PerTrackFilename, 2 = PerTrackCommand, 3 == Filename, 4 == InfoText
     static const QString helpHTMLDoc(const int scheme)
     {
         QString result =
@@ -184,13 +189,15 @@ public:
             "<tr><td><tt>post</tt></td><td>String</td><td>A string which will be placed <b>after</b> the value.</td></tr>"
             "</table>"));
 
-        if (scheme == 1 || scheme == 2 || scheme == 3) {
+        if (scheme == 1 || scheme == 2) {
             result.append(
                 i18n("<table>"
                      "<tr><th>Placeholder</th><th>Description</th></tr>"
                      "<tr><td>$tartist</td><td>This is the artist of every track. It is especially useful on compilation CDs.</td></tr>"
                      "<tr><td>$ttitle</td><td>The track title. Normally each track on a CD has its own title, which is the name of the song.</td></tr>"
                      "<tr><td>$trackno</td><td>The track number. First track is 1.</td></tr>"
+                     "<tr><td><tt>$isrc</tt></td><td>The International Standard Recording Code (ISRC) of the track (only available if supported by your "
+                     "device).</td></tr>"
                      "</table>"));
         }
 
@@ -218,6 +225,7 @@ public:
                 "<tr><td>$length</td><td></td><td>Prints the relevant overall length of all extracted tracks. The format is min:sec.</td></tr>"
                 "<tr><td>$nooftracks</td><td></td><td>Prints the total number of extracted tracks.</td></tr>"
                 "<tr><td>$discid</td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></tr>"
+                "<tr><td><tt>$mcn</tt></td><td></td><td>The Media Catalog Number (MCN) of the CD (only available if supported by your device).</td></tr>"
                 "<tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current date and/or time. The parameter format specifies the output. "
                 "Please consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, "
                 "<tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) for the supported specifiers within the format string. With the additional key "

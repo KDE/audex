@@ -101,8 +101,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
             return p_cache.at(index.row())[PROFILE_MODEL_CUE_KEY];
         case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_CUE_NAME_KEY];
-        case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
-            return p_cache.at(index.row())[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY];
+        case PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY];
         case PROFILE_MODEL_COLUMN_LOG_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_LOG_KEY];
         case PROFILE_MODEL_COLUMN_LOG_NAME_INDEX:
@@ -248,8 +248,8 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX:
             p_cache[index.row()][PROFILE_MODEL_CUE_NAME_KEY] = value;
             break;
-        case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
-            p_cache[index.row()][PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = value;
+        case PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY] = value;
             break;
 
         case PROFILE_MODEL_COLUMN_LOG_INDEX:
@@ -532,7 +532,7 @@ bool ProfileModel::validateData(const QModelIndex &index, const QVariant &value)
         }
         break;
 
-    case PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX:
+    case PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX:
         break;
 
     case PROFILE_MODEL_COLUMN_LOG_INDEX:
@@ -914,7 +914,7 @@ const Profile ProfileModel::p_new_profile()
     p[PROFILE_MODEL_HL_NAME_KEY] = DEFAULT_HL_NAME;
     p[PROFILE_MODEL_CUE_KEY] = DEFAULT_CUE;
     p[PROFILE_MODEL_CUE_NAME_KEY] = DEFAULT_CUE_NAME;
-    p[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = DEFAULT_CUE_WRITE_MCN_AND_ISRC;
+    p[PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY] = DEFAULT_CUE_ADD_MCN_AND_ISRC;
     p[PROFILE_MODEL_LOG_KEY] = DEFAULT_LOG;
     p[PROFILE_MODEL_LOG_NAME_KEY] = DEFAULT_LOG_NAME;
     p[PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY] = DEFAULT_LOG_WRITE_TIMESTAMPS;
@@ -1027,7 +1027,7 @@ void ProfileModel::p_save(KConfig *config)
         subGroup.writeEntry(PROFILE_MODEL_HL_NAME_KEY, p_cache[i][PROFILE_MODEL_HL_NAME_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_CUE_KEY, p_cache[i][PROFILE_MODEL_CUE_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_CUE_NAME_KEY, p_cache[i][PROFILE_MODEL_CUE_NAME_KEY]);
-        subGroup.writeEntry(PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY, p_cache[i][PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY, p_cache[i][PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_LOG_KEY, p_cache[i][PROFILE_MODEL_LOG_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_LOG_NAME_KEY, p_cache[i][PROFILE_MODEL_LOG_NAME_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY, p_cache[i][PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY]);
@@ -1088,7 +1088,7 @@ void ProfileModel::p_load(KConfig *config)
         p[PROFILE_MODEL_HL_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_NAME_KEY, DEFAULT_HL_NAME);
         p[PROFILE_MODEL_CUE_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_KEY, DEFAULT_CUE);
         p[PROFILE_MODEL_CUE_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_NAME_KEY, DEFAULT_CUE_NAME);
-        p[PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_WRITE_MCN_AND_ISRC_KEY, DEFAULT_CUE_WRITE_MCN_AND_ISRC);
+        p[PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY, DEFAULT_CUE_ADD_MCN_AND_ISRC);
         p[PROFILE_MODEL_LOG_KEY] = subGroup.readEntry(PROFILE_MODEL_LOG_KEY, DEFAULT_LOG);
         p[PROFILE_MODEL_LOG_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_LOG_NAME_KEY, DEFAULT_LOG_NAME);
         p[PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY] = subGroup.readEntry(PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY, DEFAULT_LOG_WRITE_TIMESTAMPS);

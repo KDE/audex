@@ -186,7 +186,12 @@ void MainWindow::configure()
     devicePage->setIcon(QIcon::fromTheme("drive-optical"));
 
     if (cdda_model && cdda_model->cdio())
-        device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(), cdda_model->cdio()->getModel(), cdda_model->cdio()->getRevision());
+        device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(),
+                                     cdda_model->cdio()->getModel(),
+                                     cdda_model->cdio()->getRevision(),
+                                     cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN)
+                                         && cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
+                                     cdda_model->cdio()->getDriveCapabilities().contains(C2_ERRS));
 
     KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
     profilePage->setIcon(QIcon::fromTheme("document-multiple"));
@@ -226,7 +231,12 @@ void MainWindow::new_audio_disc_detected()
 
     if (device_widget) {
         if (cdda_model && cdda_model->cdio()) {
-            device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(), cdda_model->cdio()->getModel(), cdda_model->cdio()->getRevision());
+            device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(),
+                                         cdda_model->cdio()->getModel(),
+                                         cdda_model->cdio()->getRevision(),
+                                         cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN)
+                                             && cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
+                                         cdda_model->cdio()->getDriveCapabilities().contains(C2_ERRS));
         } else {
             device_widget->clearDeviceInfo();
         }

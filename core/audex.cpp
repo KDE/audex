@@ -71,8 +71,8 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     process_counter = 0;
     timeout_done = false;
     timeout_counter = 0;
-    _finished = false;
-    _finished_successful = false;
+    p_finished = false;
+    p_finished_successful = false;
 
     en_track_index = 0;
     en_track_count = 0;
@@ -133,7 +133,7 @@ const QStringList &Audex::encoderLog()
 
 void Audex::start_extract()
 {
-    if (_finished)
+    if (p_finished)
         return;
 
     if (p_single_file) {
@@ -208,6 +208,7 @@ void Audex::start_extract()
             QString ttitle = cdda_model->data(cdda_model->index(ex_track_index - 1, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString();
             QString year = cdda_model->year();
             QString genre = cdda_model->genre();
+            QString isrc = cdda_model->cdio()->getISRC(ex_track_index);
             QString suffix = p_suffix;
             QString basepath = Preferences::basePath();
             bool fat32_compatible =
@@ -238,6 +239,7 @@ void Audex::start_extract()
                                                ttitle,
                                                year,
                                                genre,
+                                               isrc,
                                                suffix,
                                                basepath,
                                                fat32_compatible,
@@ -260,6 +262,7 @@ void Audex::start_extract()
                                                ttitle,
                                                year,
                                                genre,
+                                               isrc,
                                                suffix,
                                                basepath,
                                                fat32_compatible,
@@ -305,7 +308,7 @@ void Audex::finish_extract()
     process_counter--;
 
     wave_file_writer->close();
-    if (_finished) {
+    if (p_finished) {
         QFile file(ex_track_source_filename);
         file.remove();
         if (!process_counter)
@@ -318,7 +321,7 @@ void Audex::finish_extract()
 
 void Audex::start_encode()
 {
-    if (_finished)
+    if (p_finished)
         return;
 
     if (p_single_file) {
@@ -360,6 +363,7 @@ void Audex::start_encode()
                                      title,
                                      genre,
                                      year,
+                                     cdda_model->cdio()->getISRC(job->trackNo()),
                                      suffix,
                                      cdda_model->cover(),
                                      tmp_dir.path(),
@@ -412,6 +416,7 @@ void Audex::start_encode()
                                          ttitle,
                                          genre,
                                          year,
+                                         cdda_model->cdio()->getISRC(job->trackNo()),
                                          suffix,
                                          cdda_model->cover(),
                                          tmp_dir.path(),
@@ -430,6 +435,7 @@ void Audex::start_encode()
                                          ttitle,
                                          genre,
                                          year,
+                                         cdda_model->cdio()->getISRC(job->trackNo()),
                                          suffix,
                                          cdda_model->cover(),
                                          tmp_dir.path(),
@@ -453,7 +459,7 @@ void Audex::finish_encode()
     QFile file(en_track_filename);
     file.remove();
 
-    if (_finished) {
+    if (p_finished) {
         if (!process_counter)
             execute_finish();
         return;
@@ -572,6 +578,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
                                       const QString &ttitle,
                                       const QString &year,
                                       const QString &genre,
+                                      const QString &isrc,
                                       const QString &ext,
                                       const QString &basepath,
                                       bool fat32_compatible,
@@ -596,6 +603,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
             ttitle,
             year,
             genre,
+            isrc,
             ext,
             fat32_compatible,
             replacespaceswithunderscores,
@@ -727,9 +735,9 @@ bool Audex::check()
 
 void Audex::request_finish(bool successful)
 {
-    if (!_finished) {
-        _finished = true;
-        _finished_successful = successful;
+    if (!p_finished) {
+        p_finished = true;
+        p_finished_successful = successful;
     } else {
         return;
     }
@@ -769,7 +777,7 @@ void Audex::execute_finish()
     }
 
     QString cover_file;
-    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
+    if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
         // store the cover
         if (!cdda_model->isCoverEmpty()) {
             QImage image(cdda_model->cover());
@@ -805,7 +813,7 @@ void Audex::execute_finish()
     }
 
     QString playlist_file;
-    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_INDEX)).toBool())
+    if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PL_INDEX)).toBool())
         && (target_filename_list.count() > 0) && (!p_single_file)) {
         // create the playlist
         Playlist playlist;
@@ -878,7 +886,7 @@ void Audex::execute_finish()
     }
 
     QString info_file;
-    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_INDEX)).toBool())) {
+    if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_INDEX)).toBool())) {
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
@@ -902,6 +910,7 @@ void Audex::execute_finish()
                                                  cdda_model->title(),
                                                  QString("%1").arg(cdda_model->year()),
                                                  cdda_model->genre(),
+                                                 cdda_model->cdio()->getMCN(),
                                                  DiscIDCalculator::CDDBId(cdda_model->discSignature()),
                                                  p_size_of_all_files(target_filename_list),
                                                  cdda_model->lengthOfAudioTracksInSelection(),
@@ -917,7 +926,7 @@ void Audex::execute_finish()
     }
 
     QString hash_list;
-    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_INDEX)).toBool())
+    if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_INDEX)).toBool())
         && (target_filename_list.count() > 0)) {
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString();
         QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
@@ -964,11 +973,11 @@ void Audex::execute_finish()
     }
 
     QString cue_sheet;
-    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool())
+    if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool())
         && (((target_filename_list.count() > 0) && !p_single_file) || p_single_file)) {
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
         bool writeMCNAndISRC =
-            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_WRITE_MCN_AND_ISRC_INDEX)).toBool();
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX)).toBool();
 
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
@@ -1005,7 +1014,7 @@ void Audex::execute_finish()
     }
 
     QString log_file;
-    if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool())) {
+    if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool())) {
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString(),
@@ -1032,7 +1041,7 @@ void Audex::execute_finish()
         }
     }
 
-    if ((_finished_successful) && (Preferences::upload()) && (target_filename_list.count() > 0)) {
+    if ((p_finished_successful) && (Preferences::upload()) && (target_filename_list.count() > 0)) {
         QString targetpath = QFileInfo(target_filename_list.at(0)).absolutePath().mid(Preferences::basePath().length());
 
         QStringList files_to_transfer = target_filename_list;
@@ -1056,7 +1065,7 @@ void Audex::execute_finish()
     // flush temporary path
     tmp_dir.remove();
 
-    Q_EMIT finished(_finished_successful);
+    Q_EMIT finished(p_finished_successful);
 }
 
 bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)

@@ -25,8 +25,8 @@
 #include "utils/encoderwrapper.h"
 #include "utils/hashlist.h"
 #include "utils/parameters.h"
-#include "utils/schemeparser.h"
 #include "utils/playlist.h"
+#include "utils/schemeparser.h"
 #include "utils/upload.h"
 #include "utils/wavefilewriter.h"
 
@@ -219,6 +219,7 @@ private:
                                    const QString &ttitle,
                                    const QString &date,
                                    const QString &genre,
+                                   const QString &isrc,
                                    const QString &ext,
                                    const QString &basepath,
                                    bool fat32_compatible,
@@ -242,8 +243,8 @@ private:
 
     QString target_dir;
 
-    bool _finished;
-    bool _finished_successful;
+    bool p_finished;
+    bool p_finished_successful;
     void request_finish(bool successful);
     void execute_finish();
 
