@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 03:11+0000\n"
-"PO-Revision-Date: 2024-01-18 10:18+0100\n"
+"POT-Creation-Date: 2024-01-20 03:06+0000\n"
+"PO-Revision-Date: 2024-01-19 07:28+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -60,16 +60,18 @@ msgstr "Št. naslovnic za pridobitev"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: audex.kcfg:37 widgets/devicewidgetUI.ui:29
-#, kde-format
-msgid "Full paranoia mode (reduce chance of read errors)"
-msgstr "Način popolne paranoje (zmanjša možnost napak pri branju)"
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:32
+#, fuzzy, kde-format
+#| msgid "Full paranoia mode (best quality)"
+msgid "Full paranoia mode (secure mode)"
+msgstr "Skrajno previden način (največja kakovost)"
 
-#. i18n: ectx: label, entry (neverSkip), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#: audex.kcfg:41 widgets/devicewidgetUI.ui:70
-#, kde-format
-msgid "Never skip on read error"
+#. i18n: ectx: label, entry (skipReadingErrors), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:76
+#, fuzzy, kde-format
+#| msgid "Never skip on read error"
+msgid "Skip reading errors"
 msgstr "Nikoli ne preskoči bralne napake"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
@@ -144,7 +146,7 @@ msgstr "Začni zajemati in kodirati s profilom \"%1\"..."
 msgid "Can't find path \"%1\"."
 msgstr "Ne najdem poti \"%1\"."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1081
+#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1109
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Prosim preverite ciljno pot (uporabniška dovoljenja?)"
@@ -159,17 +161,17 @@ msgstr "Prostora na \"%1\" je manj kot 200 MiB."
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Prepisujem."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1061
+#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1089
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Pozor! Datoteka \"%1\" že obstaja. Preskakovanje."
 
-#: core/audex.cpp:675 core/audex.cpp:1081
+#: core/audex.cpp:675 core/audex.cpp:1109
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Ni bilo mogoče ustvariti mape \"%1\"."
 
-#: core/audex.cpp:678 core/audex.cpp:1084
+#: core/audex.cpp:678 core/audex.cpp:1112
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Mapa \"%1\" uspešno ustvarjena."
@@ -225,7 +227,8 @@ msgid "Unable to save cover \"%1\"."
 msgstr "Naslovnice \"%1\" ni bilo mogoče shraniti."
 
 #: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:1002 core/audex.cpp:1049 core/audex.cpp:1076
+#: core/audex.cpp:1002 core/audex.cpp:1030 core/audex.cpp:1077
+#: core/audex.cpp:1104
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Preverite ciljno pot in dovoljenja"
@@ -270,7 +273,19 @@ msgstr "Cue seznam \"%1\" uspešno ustvarjen."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue seznama \"%1\" ni bilo mogoče shraniti."
 
-#: core/audex.cpp:1049 core/audex.cpp:1076
+#: core/audex.cpp:1027
+#, fuzzy, kde-format
+#| msgid "Info file \"%1\" successfully created."
+msgid "Log file \"%1\" successfully stored."
+msgstr "Podatkovna datoteka \"%1\" je bila uspešno ustvarjena."
+
+#: core/audex.cpp:1030
+#, fuzzy, kde-format
+#| msgid "Unable to save info file \"%1\"."
+msgid "Unable to save log file \"%1\"."
+msgstr "Podatkovne datoteke \"%1\" ni bilo mogoče shraniti."
+
+#: core/audex.cpp:1077 core/audex.cpp:1104
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Mape \"%1\" ni mogoče odpreti."
@@ -360,20 +375,27 @@ msgstr "Čarovnik sheme ukazov"
 msgid "Command scheme help"
 msgstr "Pomoč za shemo ukazov"
 
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
+#: dialogs/commandwizardwidgetUI.ui:17
+#, fuzzy, kde-format
+#| msgid "About commandline schemes"
+msgid "Please set a command scheme"
+msgstr "O shemah v opravilni vrstici"
+
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: dialogs/commandwizardwidgetUI.ui:26 dialogs/schemewizardwidgetUI.ui:26
+#: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
 msgstr "Primer albuma:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: dialogs/commandwizardwidgetUI.ui:143 dialogs/schemewizardwidgetUI.ui:140
+#: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
 msgstr "Primer vzorčenja:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
-#: dialogs/commandwizardwidgetUI.ui:269
+#: dialogs/commandwizardwidgetUI.ui:273
 #: dialogs/filenameschemewizardwidgetUI.ui:54
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
@@ -381,7 +403,7 @@ msgid "Help"
 msgstr "Pomoč"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
-#: dialogs/commandwizardwidgetUI.ui:293
+#: dialogs/commandwizardwidgetUI.ui:297
 #: dialogs/filenameschemewizardwidgetUI.ui:32
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
@@ -389,7 +411,7 @@ msgid "Album Artist"
 msgstr "Izvajalec albuma"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
-#: dialogs/commandwizardwidgetUI.ui:315
+#: dialogs/commandwizardwidgetUI.ui:319
 #: dialogs/filenameschemewizardwidgetUI.ui:182
 #: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
@@ -397,25 +419,25 @@ msgid "Album Title"
 msgstr "Naslov albuma"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
-#: dialogs/commandwizardwidgetUI.ui:337 dialogs/schemewizardwidgetUI.ui:334
+#: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
 msgstr "Izvajalec skladbe"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
-#: dialogs/commandwizardwidgetUI.ui:359 dialogs/schemewizardwidgetUI.ui:356
+#: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
 msgstr "Naslov skladbe"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
-#: dialogs/commandwizardwidgetUI.ui:369 dialogs/schemewizardwidgetUI.ui:366
+#: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
 msgstr "Sled #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
-#: dialogs/commandwizardwidgetUI.ui:379
+#: dialogs/commandwizardwidgetUI.ui:383
 #: dialogs/filenameschemewizardwidgetUI.ui:199
 #: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
@@ -423,23 +445,23 @@ msgid "CD #"
 msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
-#: dialogs/commandwizardwidgetUI.ui:386
-#: dialogs/filenameschemewizardwidgetUI.ui:245
+#: dialogs/commandwizardwidgetUI.ui:390
+#: dialogs/filenameschemewizardwidgetUI.ui:249
 #: dialogs/schemewizardwidgetUI.ui:426
 #, kde-format
 msgid "# of Tracks"
 msgstr "# sledi"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
-#: dialogs/commandwizardwidgetUI.ui:396
-#: dialogs/filenameschemewizardwidgetUI.ui:238
+#: dialogs/commandwizardwidgetUI.ui:400
+#: dialogs/filenameschemewizardwidgetUI.ui:242
 #: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
 msgstr "Datum"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
-#: dialogs/commandwizardwidgetUI.ui:406
+#: dialogs/commandwizardwidgetUI.ui:410
 #: dialogs/filenameschemewizardwidgetUI.ui:225
 #: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
@@ -447,19 +469,19 @@ msgid "Genre"
 msgstr "Žanr"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
-#: dialogs/commandwizardwidgetUI.ui:416
+#: dialogs/commandwizardwidgetUI.ui:420
 #, kde-format
 msgid "Cover File"
 msgstr "Naslovnica"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
-#: dialogs/commandwizardwidgetUI.ui:426
+#: dialogs/commandwizardwidgetUI.ui:430
 #, kde-format
 msgid "Input File"
 msgstr "Vhodna datoteka"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
-#: dialogs/commandwizardwidgetUI.ui:436
+#: dialogs/commandwizardwidgetUI.ui:440
 #, kde-format
 msgid "Output File"
 msgstr "Izhodna datoteka"
@@ -578,40 +600,29 @@ msgstr "Pokaži zapisnik o kodiranju..."
 msgid "Show rip log..."
 msgstr "Pokaži zapisnik o zajemanju..."
 
-#: dialogs/extractingprogressdialog.cpp:333
+#: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
-"Due to extraction quality, audex is configured to never skip any detected "
-"error. If your disc is really broken extraction may never end!\n"
-"In some cases, it might be that only this drive has difficulty ripping audio "
-"data from this disc. Maybe try another one.\n"
-"\n"
-"However, do you want to continue extraction?"
+"Do you want to continue extraction?"
 msgstr ""
-"Hitrost zajemanja je bila v zadnjih 5 min. izredno nizka.\n"
-"Zaradi kakovosti pretvorbe je Audex nastavljen tako, da nikoli ne preskoči "
-"nobene zaznane napake. Če je disk pokvarjen, postopka ne bo zares nikoli "
-"zaključilo!\n"
-"Možno je, da ima težave pri branju le ta CD/DVD naprava. Morda lahko "
-"poskusite še s kako drugo.\n"
-"\n"
-"Kakorkoli že, ali želite nadaljevati s pretvorbo?"
 
-#: dialogs/extractingprogressdialog.cpp:337
+#: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Prekini pretvorbo"
 
-#: dialogs/extractingprogressdialog.cpp:347
-#, kde-format
-msgid "Encoding protocol"
-msgstr "Protokol kodiranja"
+#: dialogs/extractingprogressdialog.cpp:344
+#, fuzzy, kde-format
+#| msgid "Encoding"
+msgid "Encoding log"
+msgstr "Kodiram"
 
-#: dialogs/extractingprogressdialog.cpp:353
-#, kde-format
-msgid "Ripping protocol"
-msgstr "Protokol zajemanja"
+#: dialogs/extractingprogressdialog.cpp:350
+#, fuzzy, kde-format
+#| msgid "Ripping OK."
+msgid "Ripping log"
+msgstr "Zajem uspešen."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -680,22 +691,47 @@ msgstr "Pripona"
 msgid "Example:"
 msgstr "Primer:"
 
-#: dialogs/profiledatacoverdialog.cpp:23
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_scheme)
+#: dialogs/filenameschemewizardwidgetUI.ui:232
+#: dialogs/profiledatacoverwidgetUI.ui:98
+#: dialogs/profiledatacuesheetwidgetUI.ui:17
+#: dialogs/profiledatahashlistwidgetUI.ui:46
+#: dialogs/profiledatainfowidgetUI.ui:112
+#: dialogs/profiledatalogfilewidgetUI.ui:17
+#: dialogs/profiledataplaylistwidgetUI.ui:46
+#: dialogs/profiledatasinglefilewidgetUI.ui:30
+#: dialogs/profiledatawidgetUI.ui:108
+#, fuzzy, kde-format
+#| msgid "Please check."
+msgid "Please set a scheme"
+msgstr "Preverite."
+
+#: dialogs/logviewdialog.cpp:60
+#, kde-format
+msgid "Save %1"
+msgstr "Shrani %1"
+
+#: dialogs/logviewdialog.cpp:66
+#, kde-format
+msgid "created on "
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
 msgid "Cover Settings"
 msgstr "Nastavitve naslovnice"
 
-#: dialogs/profiledatacoverdialog.cpp:56
+#: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
 msgstr "JPEG"
 
-#: dialogs/profiledatacoverdialog.cpp:57
+#: dialogs/profiledatacoverdialog.cpp:69
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
 msgstr "PNG"
 
-#: dialogs/profiledatacoverdialog.cpp:58
+#: dialogs/profiledatacoverdialog.cpp:70
 #, kde-format
 msgid "BMP (Windows Bitmap)"
 msgstr "BMP"
@@ -726,22 +762,25 @@ msgstr "Format:"
 msgid "Cover scheme:"
 msgstr "Krovna shema:"
 
-#: dialogs/profiledatacuesheetdialog.cpp:21
+#: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
 msgid "Cue Sheet Settings"
 msgstr "Nastavitve seznama cue"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
-#: dialogs/profiledatacuesheetwidgetUI.ui:29
+#: dialogs/profiledatacuesheetwidgetUI.ui:33
 #: dialogs/profiledatahashlistwidgetUI.ui:39
+#: dialogs/profiledatalogfilewidgetUI.ui:33
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
 msgstr "Ime/Shema:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_write_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:49
+#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
 "<html><head/><body><p>Write Media Catalog Number (MCN) and International "
@@ -750,65 +789,70 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Zapiši medijsko kataloško številko (MCN) in mednarodne "
+"standardne kode za snemanje (ISRC, ISO 3901) skladb v iztočni list (če ima "
+"vaš pogon to zmožnost).</p ><p>Odvisno od vašega pogona lahko na koncu "
+"postopka kopiranja traja nekaj sekund, da pridobite te številke in kode.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:58
+#: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Write MCN and ISRC values (if available)"
 msgstr "Zapiši vrednosti MCN in ISRC (če so na voljo)"
 
-#: dialogs/profiledatadialog.cpp:96
+#: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
 msgstr "Spremeni profil"
 
-#: dialogs/profiledatadialog.cpp:189
+#: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
 msgstr "Ustvari profil"
 
-#: dialogs/profiledatadialog.cpp:199
+#: dialogs/profiledatadialog.cpp:193
 #, kde-format
 msgid "New Profile"
 msgstr "Nov profil"
 
-#: dialogs/profiledatahashlistdialog.cpp:21
-#: dialogs/profiledataplaylistdialog.cpp:23
+#: dialogs/profiledatahashlistdialog.cpp:28
+#: dialogs/profiledataplaylistdialog.cpp:30
 #, kde-format
 msgid "Playlist Settings"
 msgstr "Nastavitve seznama predvajanja"
 
-#: dialogs/profiledatahashlistdialog.cpp:43
+#: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
 msgstr "SFV (preprosto preverjanje zapisa)"
 
-#: dialogs/profiledatahashlistdialog.cpp:44
+#: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (izvleček sporočil algoritem 5)"
 
-#: dialogs/profiledatahashlistdialog.cpp:45
+#: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
 msgstr "SHA-256 (Secure Hash Algorithm)"
 
-#: dialogs/profiledatainfodialog.cpp:24
+#: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
 msgid "Info Settings"
 msgstr "Nastavitve informacij"
 
-#: dialogs/profiledatainfodialog.cpp:43
+#: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
 msgstr "Pomoč za shemo informacij"
 
-#: dialogs/profiledatainfodialog.cpp:128
+#: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
 msgid "Load Text Template"
 msgstr "Odpri predlogo besedila"
 
-#: dialogs/profiledatainfodialog.cpp:141
+#: dialogs/profiledatainfodialog.cpp:166
 #, kde-format
 msgid "Save Text Template"
 msgstr "Shrani predlogo besedila"
@@ -834,19 +878,31 @@ msgstr "Predpona:"
 msgid "Scheme:"
 msgstr "Shema:"
 
+#: dialogs/profiledatalogfiledialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Single File Settings"
+msgid "Log Files Settings"
+msgstr "Nastavitve za zajem v eno datoteko"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
+#: dialogs/profiledatalogfilewidgetUI.ui:65
+#, kde-format
+msgid "Write timestamps"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
-#: dialogs/profiledataplaylistwidgetUI.ui:52
+#: dialogs/profiledataplaylistwidgetUI.ui:56
 #, kde-format
 msgid "Use absolute file paths in playlist"
 msgstr "Uporabi polne poti v seznamu predvajanja"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_utf8)
-#: dialogs/profiledataplaylistwidgetUI.ui:59
+#: dialogs/profiledataplaylistwidgetUI.ui:63
 #, kde-format
 msgid "UTF-8 coding in playlist"
 msgstr "Uporabi kodiranje UTF-8 v seznamu predvajanja"
 
-#: dialogs/profiledatasinglefiledialog.cpp:20
+#: dialogs/profiledatasinglefiledialog.cpp:24
 #, kde-format
 msgid "Single File Settings"
 msgstr "Nastavitve za zajem v eno datoteko"
@@ -864,19 +920,19 @@ msgid "Filenames"
 msgstr "Imena datotek"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
-#: dialogs/profiledatawidgetUI.ui:130
+#: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
 msgstr "Ustvari imena, združljiva s FAT32"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
-#: dialogs/profiledatawidgetUI.ui:143
+#: dialogs/profiledatawidgetUI.ui:146
 #, kde-format
 msgid "Replace spaces with underscores"
 msgstr "Zamenjaj presledke s podčrtaji"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
-#: dialogs/profiledatawidgetUI.ui:150
+#: dialogs/profiledatawidgetUI.ui:153
 #, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
@@ -884,70 +940,74 @@ msgstr ""
 "Ta nastavitev prekrije nastavitve vseh parametriziranih spremenljivk v shemi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
-#: dialogs/profiledatawidgetUI.ui:153
+#: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
 msgstr "Uporabi dvomestno oštevilčevanje (npr. 01, 02, 03...)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: dialogs/profiledatawidgetUI.ui:177
+#: dialogs/profiledatawidgetUI.ui:180
 #, kde-format
 msgid "Extra"
 msgstr "Dodatno"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: dialogs/profiledatawidgetUI.ui:211
+#, kde-format
+msgid "Store cover file"
+msgstr "Shrani naslovnico"
+
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
-#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_logfile)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_singlefile)
-#: dialogs/profiledatawidgetUI.ui:195 dialogs/profiledatawidgetUI.ui:228
-#: dialogs/profiledatawidgetUI.ui:241 dialogs/profiledatawidgetUI.ui:267
-#: dialogs/profiledatawidgetUI.ui:300 dialogs/profiledatawidgetUI.ui:348
+#: dialogs/profiledatawidgetUI.ui:224 dialogs/profiledatawidgetUI.ui:270
+#: dialogs/profiledatawidgetUI.ui:283 dialogs/profiledatawidgetUI.ui:290
+#: dialogs/profiledatawidgetUI.ui:316 dialogs/profiledatawidgetUI.ui:323
+#: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
 msgstr "Nastavitve..."
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
-#: dialogs/profiledatawidgetUI.ui:221
-#, kde-format
-msgid "Create info file"
-msgstr "Ustvari v datoteko"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
-#: dialogs/profiledatawidgetUI.ui:254
+#: dialogs/profiledatawidgetUI.ui:237
 #, kde-format
 msgid "Create hashlist"
 msgstr "Ustvari seznam zgoščevanja (hashlist)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
-#: dialogs/profiledatawidgetUI.ui:274
+#: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
 msgid "Create cue sheet"
 msgstr "Ustvari seznam cue"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
-#: dialogs/profiledatawidgetUI.ui:287
-#, kde-format
-msgid "Store cover file"
-msgstr "Shrani naslovnico"
-
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
-#: dialogs/profiledatawidgetUI.ui:313
+#: dialogs/profiledatawidgetUI.ui:257
 #, kde-format
 msgid "Create playlist"
 msgstr "Ustvari seznam predvajanja"
 
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: dialogs/profiledatawidgetUI.ui:303
+#, kde-format
+msgid "Create info file"
+msgstr "Ustvari v datoteko"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
+#: dialogs/profiledatawidgetUI.ui:330
+#, fuzzy, kde-format
+#| msgid "Create info file"
+msgid "Save log file"
+msgstr "Ustvari v datoteko"
+
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
-#: dialogs/profiledatawidgetUI.ui:338
+#: dialogs/profiledatawidgetUI.ui:355
 #, kde-format
 msgid "Write single file"
 msgstr "Zapiši v eno datoteko"
-
-#: dialogs/protocolviewdialog.cpp:60
-#, kde-format
-msgid "Save %1"
-msgstr "Shrani %1"
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
@@ -1049,17 +1109,17 @@ msgstr ""
 msgid "Unable to create CDDAModel object."
 msgstr "Ni bilo mogoče ustvariti objekta CDDAModel."
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:131
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Podatki o disku niso nastavljeni. Ali res želite nadaljevati?"
 
-#: mainwindow.cpp:128
+#: mainwindow.cpp:132
 #, kde-format
 msgid "Disc information not found"
 msgstr "Informacij o disku ni bilo mogoče najti"
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:143
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1068,47 +1128,47 @@ msgstr ""
 "Za zajem je izbran način \"zapiši v eno datoteko\", izbrane pa niso vse "
 "skladbe na CD-ju. Ali res želite nadaljevati?"
 
-#: mainwindow.cpp:140
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Za način \"zapiši v eno datoteko\" niso izbrane vse skladbe"
 
-#: mainwindow.cpp:152
+#: mainwindow.cpp:156
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "Naslovnica ni nastavljena. Ali res želite nadaljevati?"
 
-#: mainwindow.cpp:153
+#: mainwindow.cpp:157
 #, kde-format
 msgid "Cover is empty"
 msgstr "Naslovnica je prazna"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:181
 #, kde-format
 msgid "General settings"
 msgstr "Splošne nastavitve"
 
-#: mainwindow.cpp:181
+#: mainwindow.cpp:185
 #, kde-format
 msgid "Device settings"
 msgstr "Nastavitve naprav"
 
-#: mainwindow.cpp:187
+#: mainwindow.cpp:191
 #, kde-format
 msgid "Profiles"
 msgstr "Profili"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:200
 #, kde-format
 msgid "CDDB settings"
 msgstr "Nastavitve CDDB"
 
-#: mainwindow.cpp:199
+#: mainwindow.cpp:203
 #, kde-format
 msgid "Remote Server"
 msgstr "Oddaljeni strežnik"
 
-#: mainwindow.cpp:250
+#: mainwindow.cpp:254
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1117,17 +1177,17 @@ msgstr ""
 "Poizvedba na CDDB-ju neuspešna, javljena je bila napaka:\n"
 "%1"
 
-#: mainwindow.cpp:252
+#: mainwindow.cpp:256
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Napaka med poizvedbo na CDDB-ju"
 
-#: mainwindow.cpp:357
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Split titles"
 msgstr "Loči naslove"
 
-#: mainwindow.cpp:358
+#: mainwindow.cpp:362
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1138,108 +1198,108 @@ msgstr ""
 "\n"
 "Razdelilnik:"
 
-#: mainwindow.cpp:370
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Ali res želite zamenjati vse izvajalce in naslove?"
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:375
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Zamenjaj izvajalce in naslove"
 
-#: mainwindow.cpp:385
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 "Ali res želite uporabiti velike začetnice v imenih vseh izvajalcev in skladb?"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Uporabi velike začetnice v imenih izvajalcev in skladb"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:404
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Ali res želite, da se imena izvajalcev samodejno izpolnijo?"
 
-#: mainwindow.cpp:401
+#: mainwindow.cpp:405
 #, kde-format
 msgid "Autofill artists"
 msgstr "Samodejno izpolni izvajalce"
 
-#: mainwindow.cpp:428
+#: mainwindow.cpp:432
 #, kde-format
 msgid "Eject"
 msgstr "Izvrzi"
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:439
 #, kde-format
 msgid "Profile:"
 msgstr "Profil:"
 
-#: mainwindow.cpp:447
+#: mainwindow.cpp:451
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profile:"
 
-#: mainwindow.cpp:453
+#: mainwindow.cpp:457
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:461
+#: mainwindow.cpp:465
 #, kde-format
 msgid "Fetch"
 msgstr "Pridobi"
 
-#: mainwindow.cpp:468
+#: mainwindow.cpp:472
 #, kde-format
 msgid "Submit"
 msgstr "Pošlji"
 
-#: mainwindow.cpp:474
+#: mainwindow.cpp:478
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
 
-#: mainwindow.cpp:481
+#: mainwindow.cpp:485
 #, kde-format
 msgid "Rip..."
 msgstr "Zajemi..."
 
-#: mainwindow.cpp:490
+#: mainwindow.cpp:494
 #, kde-format
 msgid "Split Titles..."
 msgstr "Loči naslove..."
 
-#: mainwindow.cpp:495
+#: mainwindow.cpp:499
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Zamenjaj imena izvajalcev in skladb"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:504
 #, kde-format
 msgid "Capitalize"
 msgstr "Uporabi velike začetnice"
 
-#: mainwindow.cpp:505
+#: mainwindow.cpp:509
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Samodejno izpolni izvajalce"
 
-#: mainwindow.cpp:510
+#: mainwindow.cpp:514
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Izberi vse zvočne sledi"
 
-#: mainwindow.cpp:515
+#: mainwindow.cpp:519
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Odstrani izbiro vseh zvočnih sledi"
 
-#: mainwindow.cpp:520
+#: mainwindow.cpp:524
 #, kde-format
 msgid "Invert Selection"
 msgstr "Obrni izbiro"
@@ -1373,42 +1433,64 @@ msgstr "Naslov"
 msgid "Length"
 msgstr "Dolžina"
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "Unknown error. No index found in profile model."
+msgstr "Neznana napaka. Indeks ni bil najden v modelu profila."
+
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "This is an internal error. Please report."
+msgstr "Notranja napaka. Oddajte poročilo."
+
+#: models/profilemodel.cpp:378
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "Ime profila ne sme ostati prazno."
 
-#: models/profilemodel.cpp:169
+#: models/profilemodel.cpp:378
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "Ime profila ni določeno. Določite ime profila."
 
-#: models/profilemodel.cpp:176
+#: models/profilemodel.cpp:392
+#, kde-format
+msgid "Profile name already exists."
+msgstr "Ime profila že obstaja."
+
+#: models/profilemodel.cpp:393
+#, kde-format
+msgid ""
+"Your profile name %1 already exists in the set of profiles. Please choose a "
+"unique one."
+msgstr "Ime profila %1 že obstaja v zbirki profilov. Določite drugo ime."
+
+#: models/profilemodel.cpp:404
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "Noben kodirnik ni določen."
 
-#: models/profilemodel.cpp:176
+#: models/profilemodel.cpp:404
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "Za ta profil ni določen noben kodirnik. Določite ga."
 
-#: models/profilemodel.cpp:182
+#: models/profilemodel.cpp:411
 #, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "Shema imen datotek profila ni določena."
 
-#: models/profilemodel.cpp:183
+#: models/profilemodel.cpp:412
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Za profil niste navedli sheme imen datotek. Nastavite eno."
 
-#: models/profilemodel.cpp:204
+#: models/profilemodel.cpp:440
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "Neznana vrsta datoteke."
 
-#: models/profilemodel.cpp:205
+#: models/profilemodel.cpp:441
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
@@ -1417,22 +1499,22 @@ msgstr ""
 "Vaš podani format slikovne datoteke ni znan. Prosimo izberite enega od teh "
 "formatov: JPEG, PNG, TIFF ali BMP."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:450
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "Ime naslovnice ne sme ostati prazno."
 
-#: models/profilemodel.cpp:213
+#: models/profilemodel.cpp:450
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "Ime naslovnice ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:221
+#: models/profilemodel.cpp:460
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "Neznana vrsta datoteke seznama predvajanja."
 
-#: models/profilemodel.cpp:222
+#: models/profilemodel.cpp:461
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1441,42 +1523,42 @@ msgstr ""
 "Vrsta datoteke seznama predvajanja je neznana. Izbirate lahko med: M3U, PLS "
 "in XSPF."
 
-#: models/profilemodel.cpp:230
+#: models/profilemodel.cpp:470
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "Ime seznama predvajanja ne sme ostati prazno."
 
-#: models/profilemodel.cpp:230
+#: models/profilemodel.cpp:470
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "Ime seznama predvajanja ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:244
+#: models/profilemodel.cpp:490
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "Ime besedila opombe ne sme ostati prazno."
 
-#: models/profilemodel.cpp:245
+#: models/profilemodel.cpp:490
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "Ime besedila opombe ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:254
+#: models/profilemodel.cpp:497
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "Pripona imena besedilne opombe ne sme ostati prazna."
 
-#: models/profilemodel.cpp:255
+#: models/profilemodel.cpp:498
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "Za besedilno opombo ni določena nobena pripona. Določite jo."
 
-#: models/profilemodel.cpp:265
+#: models/profilemodel.cpp:509
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "Vrsta razpršenega seznama ni znana."
 
-#: models/profilemodel.cpp:266
+#: models/profilemodel.cpp:510
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
@@ -1485,108 +1567,136 @@ msgstr ""
 "Vaš podani format datoteke razpršenega seznama ni znan. Prosimo izberite "
 "enega od teh formatov: SFV, MD5, SHA-256."
 
-#: models/profilemodel.cpp:275
+#: models/profilemodel.cpp:519
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "Ime raspršenega seznama ne sme ostati prazno."
 
-#: models/profilemodel.cpp:275
+#: models/profilemodel.cpp:519
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "Ime razpršenega seznama ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:285
+#: models/profilemodel.cpp:530
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "Ime seznama cue ne sme ostati prazno."
 
-#: models/profilemodel.cpp:285
+#: models/profilemodel.cpp:530
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Ime seznama cue ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:296
+#: models/profilemodel.cpp:543
+#, fuzzy, kde-format
+#| msgid "Cue filename name must not be empty."
+msgid "Log filename name must not be empty."
+msgstr "Ime seznama cue ne sme ostati prazno."
+
+#: models/profilemodel.cpp:543
+#, fuzzy, kde-format
+#| msgid "You have given no name for the profile. Please set one."
+msgid "You have given no name for the log file. Please set one."
+msgstr "Ime profila ni določeno. Določite ime profila."
+
+#: models/profilemodel.cpp:557
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "Ime skladbe ne sme ostati prazno."
 
-#: models/profilemodel.cpp:297
+#: models/profilemodel.cpp:557
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "Ime skladbe ni določeno. Določite ga."
 
-#: models/profilemodel.cpp:333
-#, kde-format
-msgid "Profile name already exists."
-msgstr "Ime profila že obstaja."
-
-#: models/profilemodel.cpp:334
-#, kde-format
-msgid ""
-"Your profile name %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr "Ime profila %1 že obstaja v zbirki profilov. Določite drugo ime."
-
-#: models/profilemodel.cpp:353
-#, kde-format
-msgid "Profile index already exists."
-msgstr "Indeks profila že obstaja."
-
-#: models/profilemodel.cpp:354
-#, kde-format
-msgid ""
-"Your profile index %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr "Indeks profila %1 že obstaja v zbirki profilov. Določite drugega."
-
-#: models/profilemodel.cpp:485
-#, kde-format
-msgid "Unknown error. No index found in profile model."
-msgstr "Neznana napaka. Indeks ni bil najden v modelu profila."
-
-#: models/profilemodel.cpp:485
-#, kde-format
-msgid "This is an internal error. Please report."
-msgstr "Notranja napaka. Oddajte poročilo."
-
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:906 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "Kopiraj"
 
 #: utils/cddacdio.cpp:45
-#, fuzzy, kde-format
-#| msgid "Internal device error."
+#, kde-format
 msgid "Device error (1)."
-msgstr "Napaka v napravi."
+msgstr "Napaka naprave (1)."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
-#: utils/cddacdio.cpp:442
-#, fuzzy, kde-format
-#| msgid ""
-#| "Check your device. Is it really \"%1\"? If so also check your permissions "
-#| "on \"%1\"."
+#: utils/cddacdio.cpp:523
+#, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
-"Preverite napravo. Ali je res \"%1\"? Če je, preverite še dovoljenja na "
-"\"%1\"."
+"Preverite napravo. Ali je res \"%1\"? Preverite tudi dovoljenja na \"%1\"."
 
 #: utils/cddacdio.cpp:52
-#, fuzzy, kde-format
-#| msgid "Internal device error."
+#, kde-format
 msgid "Device error (2)."
-msgstr "Napaka v napravi."
+msgstr "Napaka naprave (2)."
 
 #: utils/cddacdio.cpp:60
-#, fuzzy, kde-format
-#| msgid "Internal device error."
+#, kde-format
 msgid "Device error (3)."
-msgstr "Napaka v napravi."
+msgstr "Napaka naprave (3)."
 
-#: utils/cddacdio.cpp:441
+#: utils/cddacdio.cpp:439
+#, kde-format
+msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
+msgstr ""
+
+#: utils/cddacdio.cpp:466
+#, fuzzy, kde-format
+#| msgid "Audio Disc"
+msgid "Audio"
+msgstr "Zvočni disk"
+
+#: utils/cddacdio.cpp:469
+#, fuzzy, kde-format
+#| msgid "Audio Disc"
+msgid "Non-Audio: CD-i"
+msgstr "Zvočni disk"
+
+#: utils/cddacdio.cpp:472
+#, kde-format
+msgid "Non-Audio: Data mode 2"
+msgstr ""
+
+#: utils/cddacdio.cpp:474
+#, kde-format
+msgid ", form 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:476
+#, kde-format
+msgid ", form 2"
+msgstr ""
+
+#: utils/cddacdio.cpp:479
+#, kde-format
+msgid "Non-Audio: Data mode 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:482
+#, kde-format
+msgid "Non-Audio: Playstation 1"
+msgstr ""
+
+#: utils/cddacdio.cpp:485
+#, kde-format
+msgid "Non-Audio: Unknown format"
+msgstr ""
+
+#: utils/cddacdio.cpp:489
+#, kde-format
+msgid "Lead-out"
+msgstr ""
+
+#: utils/cddacdio.cpp:491
+#, kde-format
+msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
+msgstr ""
+
+#: utils/cddacdio.cpp:522
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1610,222 +1720,132 @@ msgstr "Napaka v napravi."
 msgid "Check your device and make a bug report."
 msgstr "Preverite napravo in oddajte poročilo o napaki."
 
-#: utils/cddaextractthread.cpp:66
-#, kde-format
-msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+#: utils/cddaextractthread.cpp:70
+#, fuzzy, kde-format
+#| msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
 msgstr "Informacije o pogonu, Prodajalec: %1, Model: %2, Revizija: %3"
 
-#: utils/cddaextractthread.cpp:79
+#: utils/cddaextractthread.cpp:71
+#, kde-format
+msgid "TOC:"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:85
 #, kde-format
 msgid "Extracting finished."
 msgstr "Razširjanje zaključeno."
 
-#: utils/cddaextractthread.cpp:103 utils/cddaextractthread.cpp:215
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#: utils/cddaextractthread.cpp:109 utils/cddaextractthread.cpp:219
+#, kde-format
 msgid "Error occured while seeking at sector %1: %2"
-msgstr "Med zajemanjem sledi %1 je prišlo do napake."
+msgstr "Prišlo je do napake med iskanjem v sektorju %1: %2"
 
-#: utils/cddaextractthread.cpp:105 utils/cddaextractthread.cpp:217
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#: utils/cddaextractthread.cpp:111 utils/cddaextractthread.cpp:221
+#, kde-format
 msgid "An error occured while ripping track %1. See log."
-msgstr "Med zajemanjem sledi %1 je prišlo do napake."
+msgstr "Prišlo do napake med ripanjem sledi %1. Poglejte dnevnik."
 
-#: utils/cddaextractthread.cpp:107 utils/cddaextractthread.cpp:219
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:223
+#, kde-format
 msgid "An error occured while ripping. See log."
-msgstr "Med zajemanjem sledi %1 je prišlo do napake."
+msgstr "Prišlo do napake med ripanjem. Poglejte dnevnik."
 
-#: utils/cddaextractthread.cpp:114
+#: utils/cddaextractthread.cpp:120
 #, kde-format
 msgid "Correction sample offset: %1"
 msgstr "Popravek zamika vzorčenja: %1"
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:126
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Zajemam sled %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:121
+#: utils/cddaextractthread.cpp:127
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Berem sled %1 s sektorji %2"
 
-#: utils/cddaextractthread.cpp:123
-#, kde-format
-msgid "Ripping whole CD as single track (%1:%2)."
+#: utils/cddaextractthread.cpp:129
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track (%1:%2)."
+msgid "Ripping whole disc (%1:%2)..."
 msgstr "Ripam celoten CD kot eno sled (%1:%2)."
 
-#: utils/cddaextractthread.cpp:124
+#: utils/cddaextractthread.cpp:130
 #, kde-format
 msgid "Start reading whole disc with %1 sectors"
 msgstr "Začenjam brati celotni disk s %1 sektorji"
 
-#: utils/cddaextractthread.cpp:126
+#: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Track %1 with start sector %2"
 msgstr "Sled %1 z začetnim sektorjem %2"
 
-#: utils/cddaextractthread.cpp:129
+#: utils/cddaextractthread.cpp:134
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr "Prvi sektor: %1, Zadnji sektor: %2"
 
-#: utils/cddaextractthread.cpp:150
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:155
+#, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr "Podrsaj (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
+msgstr ""
+"Prišlo je do napake med branjem sektorja %1 (čas posnetka pozicija %2): %3"
 
-#: utils/cddaextractthread.cpp:156 utils/cddaextractthread.cpp:165
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#: utils/cddaextractthread.cpp:161 utils/cddaextractthread.cpp:170
+#, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "Med zajemanjem sledi %1 je prišlo do napake."
+msgstr ""
+"Prišlo je do napake med ripanjem sledi %1 na poziciji %2. Poglejte dnevnik."
 
-#: utils/cddaextractthread.cpp:160 utils/cddaextractthread.cpp:170
-#: utils/cddaextractthread.cpp:178 utils/cddaextractthread.cpp:181
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#: utils/cddaextractthread.cpp:165 utils/cddaextractthread.cpp:175
+#: utils/cddaextractthread.cpp:182 utils/cddaextractthread.cpp:185
+#, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "Med zajemanjem sledi %1 je prišlo do napake."
+msgstr "Prišlo je do napake med ripanjem na poziciji %1. Poglejte dnevnik."
 
-#: utils/cddaextractthread.cpp:176
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: utils/cddaextractthread.cpp:180
+#, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
-msgstr "Podrsaj (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
+msgstr "Prišlo je do napake pri branju sektorja %1 (čas skladbe pos %2)"
 
-#: utils/cddaextractthread.cpp:187
+#: utils/cddaextractthread.cpp:191
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"Prišlo je do napake pri branju sektorja %1 (%2): **Polnjenje celega sektorja "
+"s tišino**"
 
-#: utils/cddaextractthread.cpp:238 utils/cddaextractthread.cpp:239
+#: utils/cddaextractthread.cpp:242 utils/cddaextractthread.cpp:243
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "Ripanje je bilo preklicano zaradi napake."
 
-#: utils/cddaextractthread.cpp:241
+#: utils/cddaextractthread.cpp:245
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Razširjanje prekinjeno s strani uporabnika."
 
-#: utils/cddaextractthread.cpp:242
-#, fuzzy, kde-format
-#| msgid "Extracting finished."
+#: utils/cddaextractthread.cpp:246
+#, kde-format
 msgid "Extraction interrupted"
-msgstr "Razširjanje zaključeno."
+msgstr "Razširjanje prekinjeno"
 
-#: utils/cddaextractthread.cpp:245
+#: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Zajem uspešen (sled %1)."
 
-#: utils/cddaextractthread.cpp:247
+#: utils/cddaextractthread.cpp:251
 #, kde-format
 msgid "Ripping OK."
 msgstr "Zajem uspešen."
 
-#: utils/cddaextractthread.cpp:249
-#, fuzzy, kde-format
-#| msgid "Reading finished"
+#: utils/cddaextractthread.cpp:253
+#, kde-format
 msgid "Ripping finished"
-msgstr "Branje dokončano"
-
-#: utils/cddaextractthread.cpp:302
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Fixed edge jitter (sector %1, time pos %2)"
-msgstr ""
-"Obrobno tresenje (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
-
-#: utils/cddaextractthread.cpp:306
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "Fixed atom jitter (sector %1, time pos %2)"
-msgstr ""
-"Jedrno tresenje (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
-
-#: utils/cddaextractthread.cpp:311
-#, kde-format
-msgid "Scratch detected at track %1 at position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
-#| "%3:%4)"
-msgid "SCRATCH DETECTED (sector %1, time pos %2)"
-msgstr ""
-"ZAZNANA PRASKA (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
-
-#: utils/cddaextractthread.cpp:316
-#, fuzzy, kde-format
-#| msgid "First sector: %1, Last sector: %2"
-msgid "Repair (sector %1, time pos %2)"
-msgstr "Prvi sektor: %1, Zadnji sektor: %2"
-
-#: utils/cddaextractthread.cpp:321
-#, kde-format
-msgid "Skip sectors at track %1 at position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:322
-#, kde-format
-msgid "SKIP (sector %1, time pos %2)"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:326
-#, fuzzy, kde-format
-#| msgid "First sector: %1, Last sector: %2"
-msgid "Drift (sector %1, time pos %2)"
-msgstr "Prvi sektor: %1, Zadnji sektor: %2"
-
-#: utils/cddaextractthread.cpp:330
-#, fuzzy, kde-format
-#| msgid ""
-#| "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgid "Backoff (sector %1, time pos %2)"
-msgstr "Odnehaj (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
-
-#: utils/cddaextractthread.cpp:339
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:"
-#| "%4)"
-msgid "Fixup dropped (sector %1, time pos %2)"
-msgstr ""
-"Popravek opuščen (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
-
-#: utils/cddaextractthread.cpp:343
-#, fuzzy, kde-format
-#| msgid ""
-#| "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgid "Fixup duped (sector %1, time pos %2)"
-msgstr ""
-"Popravek prelisičen (absolutni sektor %1, relativni sektor %2, čas sledi %3:"
-"%4)"
-
-#: utils/cddaextractthread.cpp:347
-#, kde-format
-msgid "Read error detected at track %1 position %2."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:348
-#, fuzzy, kde-format
-#| msgid ""
-#| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgid "READ ERROR (sector %1, time pos %2)"
-msgstr ""
-"NAPAKA PRI BRANJU (absolutni sektor %1, relativni sektor %2, čas sledi %3:%4)"
+msgstr "Ripanje dokončano"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2225,8 +2245,8 @@ msgstr "Shema ukazov:"
 #. i18n: ectx: property (text), widget (QLabel, label_Vendor)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
-#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:108
-#: widgets/devicewidgetUI.ui:134 widgets/devicewidgetUI.ui:179
+#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:114
+#: widgets/devicewidgetUI.ui:140 widgets/devicewidgetUI.ui:185
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(Ni zaznanega diska)"
@@ -2237,32 +2257,51 @@ msgstr "(Ni zaznanega diska)"
 msgid "Device"
 msgstr "Naprava"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: widgets/devicewidgetUI.ui:29
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use some special techniques to reduce the chance of "
+"unnoticed reading errors. Leads to a more secure reading process at the "
+"expense of ripping speed, so it might be also called \"secure mode\".</p></"
+"body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:38
+#: widgets/devicewidgetUI.ui:41
 #, kde-format
 msgid "Sample offset:"
 msgstr "Zamik vzorčenja:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
+#: widgets/devicewidgetUI.ui:73
+#, kde-format
+msgid ""
+"<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
+"1/75 second) after trying to read the sector again for at most 20 times. "
+"Usually broken sectors will be filled with silence.</p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
-#: widgets/devicewidgetUI.ui:80
+#: widgets/devicewidgetUI.ui:86
 #, kde-format
 msgid "Device information"
 msgstr "Informacije o napravi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:98
+#: widgets/devicewidgetUI.ui:104
 #, kde-format
 msgid "Model:"
 msgstr "Model:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:153
+#: widgets/devicewidgetUI.ui:159
 #, kde-format
 msgid "Vendor:"
 msgstr "Prodajalec:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:169
+#: widgets/devicewidgetUI.ui:175
 #, kde-format
 msgid "Revision:"
 msgstr "Revizija:"
@@ -2340,9 +2379,10 @@ msgstr "Kakovost/bitna hitrost"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
-#, kde-format
-msgid ""
-"This preset should provide near transparency to most people on most music."
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset should provide near transparency to most people on most music."
+msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
 "Ta prednastavitev bi morala ustrezati večini ljudem in večini zvrsti glasbe."
 
@@ -2370,13 +2410,12 @@ msgstr "Izjemno (220...260 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, kde-format
-msgid ""
-"This preset should generally be transparent to most people on most music and "
-"is already quite high in quality."
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset should provide near transparency to most people on most music."
+msgid "This preset should generally be transparent to most people."
 msgstr ""
-"Ta prednastavitev bi morala ustrezati večini ljudem ter večini zvrsti glasbe "
-"in je hkrati zelo visoke kakovosti."
+"Ta prednastavitev bi morala ustrezati večini ljudem in večini zvrsti glasbe."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2386,11 +2425,14 @@ msgstr "Standard (170...210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This preset will usually be overkill for most people and most situations, "
+#| "but if you must have the absolute highest quality with no regard to "
+#| "filesize, this is the way to go."
 msgid ""
-"This preset will usually be overkill for most people and most situations, "
-"but if you must have the absolute highest quality with no regard to "
-"filesize, this is the way to go."
+"This preset will usually be overkill, but if you want to have the absolute "
+"highest quality with no regard to filesize, this is the way to go."
 msgstr ""
 "Ta prednastavitev sicer krepko presega potrebe večine ljudi in situacij, če "
 "pa res potrebujete najvišjo in brezkompromisno kakovost ne glede na končno "
@@ -2532,6 +2574,108 @@ msgstr "Shrani..."
 msgid "URL:"
 msgstr "URL naslov:"
 
+#~ msgid "Full paranoia mode (reduce chance of read errors)"
+#~ msgstr "Način popolne paranoje (zmanjša možnost napak pri branju)"
+
+#~ msgid ""
+#~ "Ripping speed was extremely slow for the last 5 minutes.\n"
+#~ "Due to extraction quality, audex is configured to never skip any detected "
+#~ "error. If your disc is really broken extraction may never end!\n"
+#~ "In some cases, it might be that only this drive has difficulty ripping "
+#~ "audio data from this disc. Maybe try another one.\n"
+#~ "\n"
+#~ "However, do you want to continue extraction?"
+#~ msgstr ""
+#~ "Hitrost zajemanja je bila v zadnjih 5 min. izredno nizka.\n"
+#~ "Zaradi kakovosti pretvorbe je Audex nastavljen tako, da nikoli ne "
+#~ "preskoči nobene zaznane napake. Če je disk pokvarjen, postopka ne bo "
+#~ "zares nikoli zaključilo!\n"
+#~ "Možno je, da ima težave pri branju le ta CD/DVD naprava. Morda lahko "
+#~ "poskusite še s kako drugo.\n"
+#~ "\n"
+#~ "Kakorkoli že, ali želite nadaljevati s pretvorbo?"
+
+#~ msgid "Encoding protocol"
+#~ msgstr "Protokol kodiranja"
+
+#~ msgid "Ripping protocol"
+#~ msgstr "Protokol zajemanja"
+
+#~ msgid "Profile index already exists."
+#~ msgstr "Indeks profila že obstaja."
+
+#~ msgid ""
+#~ "Your profile index %1 already exists in the set of profiles. Please "
+#~ "choose a unique one."
+#~ msgstr "Indeks profila %1 že obstaja v zbirki profilov. Določite drugega."
+
+#~| msgid ""
+#~| "Fixed edge jitter (absolute sector %1, relative sector %2, track time "
+#~| "pos %3:%4)"
+#~ msgid "Fixed edge jitter (sector %1, time pos %2)"
+#~ msgstr "Popravljeno tresenje robov (sektor %1, čas poz %2)"
+
+#~| msgid ""
+#~| "Fixed atom jitter (absolute sector %1, relative sector %2, track time "
+#~| "pos %3:%4)"
+#~ msgid "Fixed atom jitter (sector %1, time pos %2)"
+#~ msgstr "Popravljeno tresenje atoma (sektor %1, čas poz %2)"
+
+#~ msgid "Scratch detected at track %1 at position %2."
+#~ msgstr "Zaznana praska pri skladbi %1 na poziciji %2."
+
+#~| msgid ""
+#~| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
+#~| "%3:%4)"
+#~ msgid "SCRATCH DETECTED (sector %1, time pos %2)"
+#~ msgstr "ZAZNANA PRASKA (sektor %1, čas pozi %2)"
+
+#~| msgid "First sector: %1, Last sector: %2"
+#~ msgid "Repair (sector %1, time pos %2)"
+#~ msgstr "Popravek (sektor %1, čas pozi %2)"
+
+#~ msgid "Skip sectors at track %1 at position %2."
+#~ msgstr "Preskok sektorjev na skladbi %1 na poziciji %2."
+
+#~ msgid "SKIP (sector %1, time pos %2)"
+#~ msgstr "PRESKOK (sektor %1, čas poz %2)"
+
+#~| msgid "First sector: %1, Last sector: %2"
+#~ msgid "Drift (sector %1, time pos %2)"
+#~ msgstr "Zdrs (sektor %1, čas poz %2)"
+
+#~| msgid ""
+#~| "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#~ msgid "Backoff (sector %1, time pos %2)"
+#~ msgstr "Umik (sektor %1, čas poz %2)"
+
+#~| msgid ""
+#~| "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:"
+#~| "%4)"
+#~ msgid "Fixup dropped (sector %1, time pos %2)"
+#~ msgstr "Opuščen popravek (sektor %1, čas pos %2)"
+
+#~| msgid ""
+#~| "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:"
+#~| "%4)"
+#~ msgid "Fixup duped (sector %1, time pos %2)"
+#~ msgstr "Poneverjen popravek (sektor %1, čas poz %2)"
+
+#~ msgid "Read error detected at track %1 position %2."
+#~ msgstr "Napaka pri branju zaznana na skladbi %1 poziciji %2."
+
+#~| msgid ""
+#~| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#~ msgid "READ ERROR (sector %1, time pos %2)"
+#~ msgstr "NAPAKA PRI BRANJU (sektor %1, čas poz %2)"
+
+#~ msgid ""
+#~ "This preset should generally be transparent to most people on most music "
+#~ "and is already quite high in quality."
+#~ msgstr ""
+#~ "Ta prednastavitev bi morala ustrezati večini ljudem ter večini zvrsti "
+#~ "glasbe in je hkrati zelo visoke kakovosti."
+
 #~ msgid ""
 #~ "Scratch detected (absolute sector %1, relative sector %2, track time pos "
 #~ "%3:%4)"
@@ -2560,9 +2704,6 @@ msgstr "URL naslov:"
 #~ msgstr ""
 #~ "Napaka pri branju (absolutni sektor %1, relativni sektor %2, čas sledi %3:"
 #~ "%4)"
-
-#~ msgid "Full paranoia mode (best quality)"
-#~ msgstr "Skrajno previden način (največja kakovost)"
 
 #~ msgid "Unable to create CDDA paranoia object."
 #~ msgstr "Ni bilo mogoče ustvariti objekta \"skrajno previdni CDDA\"."
@@ -2646,9 +2787,6 @@ msgstr "URL naslov:"
 #~ "vstavljene pred (pred) ali za (po) spremenljivko. Te vrednosti so "
 #~ "<b>samo</b>prikazane, če je vrednost nastavljena. Deluje z vsemi "
 #~ "spremenljivkami ukazne vrstice."
-
-#~ msgid "About commandline schemes"
-#~ msgstr "O shemah v opravilni vrstici"
 
 #~ msgid "About parameters"
 #~ msgstr "O parametrih"
