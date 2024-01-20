@@ -150,10 +150,10 @@
          <bool>false</bool>
         </property>
         <property name="toolTip">
-         <string>Your device can read subchannel data CD-TEXT, the Media Catalog Number (MCN) and the International Standard Recording Codes (ISRC) per track</string>
+         <string>Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) and the International Standard Recording Codes (ISRC) per track</string>
         </property>
         <property name="text">
-         <string>Can read subchannel data (CD-TEXT, MCN, ISRC)</string>
+         <string>Can read subchannel data (CD-Text, MCN, ISRC)</string>
         </property>
         <property name="checkable">
          <bool>true</bool>
