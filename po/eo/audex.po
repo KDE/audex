@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-20 03:06+0000\n"
+"POT-Creation-Date: 2024-01-21 03:07+0000\n"
 "PO-Revision-Date: 2024-01-09 19:31+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -58,7 +58,7 @@ msgstr "Nombro da kovriloj por alporti"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: audex.kcfg:37 widgets/devicewidgetUI.ui:32
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:45
 #, fuzzy, kde-format
 #| msgid "Full paranoia mode (best quality)"
 msgid "Full paranoia mode (secure mode)"
@@ -66,7 +66,7 @@ msgstr "Plena paranoja reĝimo (plej bona kvalito)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
-#: audex.kcfg:41 widgets/devicewidgetUI.ui:76
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:89
 #, fuzzy, kde-format
 #| msgid "Never skip on read error"
 msgid "Skip reading errors"
@@ -139,151 +139,151 @@ msgstr "Neniu profilo elektita. Operacio ĉesigi."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Komenci ekstrakti kaj kodi per profilo \"%1\"..."
 
-#: core/audex.cpp:606 core/audex.cpp:666
+#: core/audex.cpp:614 core/audex.cpp:674
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Ne povas trovi vojon \"%1\"."
 
-#: core/audex.cpp:606 core/audex.cpp:666 core/audex.cpp:675 core/audex.cpp:1109
+#: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Bonvolu kontroli vian vojon (skribi aliron?)"
 
-#: core/audex.cpp:619
+#: core/audex.cpp:627
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Libera spaco sur \"%1\" estas malpli ol 200 MiB."
 
-#: core/audex.cpp:625 core/audex.cpp:694
+#: core/audex.cpp:633 core/audex.cpp:702
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Averto! Dosiero \"%1\" jam ekzistas. Superskribo."
 
-#: core/audex.cpp:627 core/audex.cpp:696 core/audex.cpp:1089
+#: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Averto! Dosiero \"%1\" jam ekzistas. Salti."
 
-#: core/audex.cpp:675 core/audex.cpp:1109
+#: core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Ne eblas krei dosierujon \"%1\"."
 
-#: core/audex.cpp:678 core/audex.cpp:1112
+#: core/audex.cpp:686 core/audex.cpp:1121
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Dosierujo \"%1\" sukcese kreita."
 
-#: core/audex.cpp:681
+#: core/audex.cpp:689
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Dosierujo \"%1\" jam ekzistas."
 
-#: core/audex.cpp:688
+#: core/audex.cpp:696
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Libera spaco sur \"%1\" estas malpli ol 800 MiB."
 
-#: core/audex.cpp:711
+#: core/audex.cpp:719
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Eraro (%2) pri provizora dosierujo \"%1\"."
 
-#: core/audex.cpp:711
+#: core/audex.cpp:719
 #, kde-format
 msgid "Please check."
 msgstr "Bonvolu kontroli."
 
-#: core/audex.cpp:719
+#: core/audex.cpp:727
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Libera spaco en provizora dosierujo \"%1\" estas malpli ol 800 MiB."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:729
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Provizora dosierujo \"%1\" bezonas almenaŭ 200 MiB da libera spaco."
 
-#: core/audex.cpp:721
+#: core/audex.cpp:729
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Bonvolu liberigi spacon aŭ agordi alian vojon."
 
-#: core/audex.cpp:750
+#: core/audex.cpp:758
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Elĵeti KD-pleton"
 
-#: core/audex.cpp:798
+#: core/audex.cpp:806
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Kovro \"%1\" sukcese konservita."
 
-#: core/audex.cpp:801
+#: core/audex.cpp:809
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Ne eblas konservi kovrilon \"%1\"."
 
-#: core/audex.cpp:801 core/audex.cpp:875 core/audex.cpp:914 core/audex.cpp:961
-#: core/audex.cpp:1002 core/audex.cpp:1030 core/audex.cpp:1077
-#: core/audex.cpp:1104
+#: core/audex.cpp:809 core/audex.cpp:883 core/audex.cpp:923 core/audex.cpp:970
+#: core/audex.cpp:1011 core/audex.cpp:1039 core/audex.cpp:1086
+#: core/audex.cpp:1113
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Bonvolu kontroli vian vojon kaj permesojn"
 
-#: core/audex.cpp:871
+#: core/audex.cpp:879
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Ludlisto \"%1\" sukcese kreita."
 
-#: core/audex.cpp:875
+#: core/audex.cpp:883
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Ne eblas konservi ludliston \"%1\"."
 
-#: core/audex.cpp:911
+#: core/audex.cpp:920
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Infodosiero \"%1\" sukcese kreita."
 
-#: core/audex.cpp:914
+#: core/audex.cpp:923
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Ne eblas konservi informdosieron \"%1\"."
 
-#: core/audex.cpp:958
+#: core/audex.cpp:967
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Hashlist \"%1\" sukcese kreita."
 
-#: core/audex.cpp:961
+#: core/audex.cpp:970
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Ne eblas konservi hashlist \"%1\"."
 
-#: core/audex.cpp:999
+#: core/audex.cpp:1008
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Indikfolio \"%1\" sukcese kreita."
 
-#: core/audex.cpp:1002
+#: core/audex.cpp:1011
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Ne eblas konservi signalfolion \"%1\"."
 
-#: core/audex.cpp:1027
+#: core/audex.cpp:1036
 #, fuzzy, kde-format
 #| msgid "Info file \"%1\" successfully created."
 msgid "Log file \"%1\" successfully stored."
 msgstr "Infodosiero \"%1\" sukcese kreita."
 
-#: core/audex.cpp:1030
+#: core/audex.cpp:1039
 #, fuzzy, kde-format
 #| msgid "Unable to save info file \"%1\"."
 msgid "Unable to save log file \"%1\"."
 msgstr "Ne eblas konservi informdosieron \"%1\"."
 
-#: core/audex.cpp:1077 core/audex.cpp:1104
+#: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Ne eblas malfermi dosierujon \"%1\"."
@@ -773,7 +773,7 @@ msgid "Name/Scheme:"
 msgstr "Nomo/Skemo:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:53
 #: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
@@ -785,10 +785,10 @@ msgid ""
 "and codes.</p></body></html>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_write_mcn_and_isrc)
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
-msgid "Write MCN and ISRC values (if available)"
+msgid "Add MCN and ISRC values (if available)"
 msgstr ""
 
 #: dialogs/profiledatadialog.cpp:113
@@ -1142,22 +1142,22 @@ msgstr "Ĝenerala agordo"
 msgid "Device settings"
 msgstr "Aparataj agordoj"
 
-#: mainwindow.cpp:191
+#: mainwindow.cpp:196
 #, kde-format
 msgid "Profiles"
 msgstr "Profiloj"
 
-#: mainwindow.cpp:200
+#: mainwindow.cpp:205
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB-agordoj"
 
-#: mainwindow.cpp:203
+#: mainwindow.cpp:208
 #, kde-format
 msgid "Remote Server"
 msgstr "Fora Servilo"
 
-#: mainwindow.cpp:254
+#: mainwindow.cpp:264
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1166,17 +1166,17 @@ msgstr ""
 "CDDB-serĉo malsukcesis, kun la jena eraro:\n"
 "%1"
 
-#: mainwindow.cpp:256
+#: mainwindow.cpp:266
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Fiasko de serĉo de CDD"
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Split titles"
 msgstr "Dividi titolojn"
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:372
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1187,107 +1187,107 @@ msgstr ""
 "\n"
 "Disigilo:"
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:384
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Ĉu vi vere volas interŝanĝi ĉiujn artistojn kaj titolojn?"
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:385
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Interŝanĝi artistojn kaj titolojn"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "Ĉu vi vere volas majuskligi ĉiujn artistojn kaj titolojn?"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Majuskligi artistojn kaj titolojn"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:414
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Ĉu vi vere volas aŭtomate plenigi spurajn artistojn?"
 
-#: mainwindow.cpp:405
+#: mainwindow.cpp:415
 #, kde-format
 msgid "Autofill artists"
 msgstr "Aŭtoplenaj artistoj"
 
-#: mainwindow.cpp:432
+#: mainwindow.cpp:442
 #, kde-format
 msgid "Eject"
 msgstr "Elĵeti"
 
-#: mainwindow.cpp:439
+#: mainwindow.cpp:449
 #, kde-format
 msgid "Profile:"
 msgstr "Profilo:"
 
-#: mainwindow.cpp:451
+#: mainwindow.cpp:461
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profilo:"
 
-#: mainwindow.cpp:457
+#: mainwindow.cpp:467
 #, kde-format
 msgid "Profile"
 msgstr "Profilo"
 
-#: mainwindow.cpp:465
+#: mainwindow.cpp:475
 #, kde-format
 msgid "Fetch"
 msgstr "Ekpreni"
 
-#: mainwindow.cpp:472
+#: mainwindow.cpp:482
 #, kde-format
 msgid "Submit"
 msgstr "Sendi"
 
-#: mainwindow.cpp:478
+#: mainwindow.cpp:488
 #, kde-format
 msgid "Edit"
 msgstr "Redakti"
 
-#: mainwindow.cpp:485
+#: mainwindow.cpp:495
 #, kde-format
 msgid "Rip..."
 msgstr "Ekstrakti..."
 
-#: mainwindow.cpp:494
+#: mainwindow.cpp:504
 #, kde-format
 msgid "Split Titles..."
 msgstr "Dividi Titolojn..."
 
-#: mainwindow.cpp:499
+#: mainwindow.cpp:509
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Interŝanĝi Artistojn Kaj Titolojn"
 
-#: mainwindow.cpp:504
+#: mainwindow.cpp:514
 #, kde-format
 msgid "Capitalize"
 msgstr "Majuskligi"
 
-#: mainwindow.cpp:509
+#: mainwindow.cpp:519
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Aŭtomata Plenigi Artistoj"
 
-#: mainwindow.cpp:514
+#: mainwindow.cpp:524
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Elekti Ĉiujn Trakojn"
 
-#: mainwindow.cpp:519
+#: mainwindow.cpp:529
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Malelekti Ĉiujn Trakojn"
 
-#: mainwindow.cpp:524
+#: mainwindow.cpp:534
 #, kde-format
 msgid "Invert Selection"
 msgstr "Inversigi elekton"
@@ -1614,7 +1614,7 @@ msgid "Device error (1)."
 msgstr "Eraro de interna aparato."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
-#: utils/cddacdio.cpp:523
+#: utils/cddacdio.cpp:530
 #, fuzzy, kde-format
 #| msgid ""
 #| "Check your device. Is it really \"%1\"? If so also check your permissions "
@@ -1638,64 +1638,64 @@ msgstr "Eraro de interna aparato."
 msgid "Device error (3)."
 msgstr "Eraro de interna aparato."
 
-#: utils/cddacdio.cpp:439
+#: utils/cddacdio.cpp:446
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
 
-#: utils/cddacdio.cpp:466
+#: utils/cddacdio.cpp:473
 #, fuzzy, kde-format
 #| msgid "Audio Disc"
 msgid "Audio"
 msgstr "Sondisko"
 
-#: utils/cddacdio.cpp:469
+#: utils/cddacdio.cpp:476
 #, fuzzy, kde-format
 #| msgid "Audio Disc"
 msgid "Non-Audio: CD-i"
 msgstr "Sondisko"
 
-#: utils/cddacdio.cpp:472
+#: utils/cddacdio.cpp:479
 #, kde-format
 msgid "Non-Audio: Data mode 2"
 msgstr ""
 
-#: utils/cddacdio.cpp:474
+#: utils/cddacdio.cpp:481
 #, kde-format
 msgid ", form 1"
 msgstr ""
 
-#: utils/cddacdio.cpp:476
+#: utils/cddacdio.cpp:483
 #, kde-format
 msgid ", form 2"
 msgstr ""
 
-#: utils/cddacdio.cpp:479
+#: utils/cddacdio.cpp:486
 #, kde-format
 msgid "Non-Audio: Data mode 1"
 msgstr ""
 
-#: utils/cddacdio.cpp:482
+#: utils/cddacdio.cpp:489
 #, kde-format
 msgid "Non-Audio: Playstation 1"
 msgstr ""
 
-#: utils/cddacdio.cpp:485
+#: utils/cddacdio.cpp:492
 #, kde-format
 msgid "Non-Audio: Unknown format"
 msgstr ""
 
-#: utils/cddacdio.cpp:489
+#: utils/cddacdio.cpp:496
 #, kde-format
 msgid "Lead-out"
 msgstr ""
 
-#: utils/cddacdio.cpp:491
+#: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
 msgstr ""
 
-#: utils/cddacdio.cpp:522
+#: utils/cddacdio.cpp:529
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
@@ -1707,144 +1707,154 @@ msgstr ""
 msgid "Audio Disc"
 msgstr "Sondisko"
 
-#: utils/cddaextractthread.cpp:26
+#: utils/cddaextractthread.cpp:27
 #, kde-format
 msgid "Internal device error."
 msgstr "Eraro de interna aparato."
 
-#: utils/cddaextractthread.cpp:26
+#: utils/cddaextractthread.cpp:27
 #, kde-format
 msgid "Check your device and make a bug report."
 msgstr "Kontrolu vian aparaton kaj faru cimraporton."
 
-#: utils/cddaextractthread.cpp:70
+#: utils/cddaextractthread.cpp:71
 #, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:71
+#: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:85
+#: utils/cddaextractthread.cpp:86
 #, kde-format
 msgid "Extracting finished."
 msgstr "Ekstraktado finiĝis."
 
-#: utils/cddaextractthread.cpp:109 utils/cddaextractthread.cpp:219
+#: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "Error occured while seeking at sector %1: %2"
 msgstr "Okazis eraro dum ŝirado de trako %1."
 
-#: utils/cddaextractthread.cpp:111 utils/cddaextractthread.cpp:221
+#: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping track %1. See log."
 msgstr "Okazis eraro dum ŝirado de trako %1."
 
-#: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:223
+#: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping. See log."
 msgstr "Okazis eraro dum ŝirado de trako %1."
 
-#: utils/cddaextractthread.cpp:120
+#: utils/cddaextractthread.cpp:121
 #, fuzzy, kde-format
 #| msgid "Sample offset:"
 msgid "Correction sample offset: %1"
 msgstr "Specimena deŝovo:"
 
-#: utils/cddaextractthread.cpp:126
+#: utils/cddaextractthread.cpp:129
+#, kde-format
+msgid "Fetching extra information from disc..."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:131
+#, kde-format
+msgid "Fetching subchannel infos from disc"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:135
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
 msgstr "Ŝirante trakon %1 (%2:%3)..."
 
-#: utils/cddaextractthread.cpp:127
+#: utils/cddaextractthread.cpp:136
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
 msgstr "Komenci legi trakon %1 kun %2 sektoroj"
 
-#: utils/cddaextractthread.cpp:129
+#: utils/cddaextractthread.cpp:138
 #, fuzzy, kde-format
 #| msgid "Ripping whole CD as single track."
 msgid "Ripping whole disc (%1:%2)..."
 msgstr "Ŝirante tutan KD kiel ununura trako."
 
-#: utils/cddaextractthread.cpp:130
+#: utils/cddaextractthread.cpp:139
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start reading whole disc with %1 sectors"
 msgstr "Komenci legi trakon %1 kun %2 sektoroj"
 
-#: utils/cddaextractthread.cpp:131
+#: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "Track %1 with start sector %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:134
+#: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:155
+#: utils/cddaextractthread.cpp:164
 #, fuzzy, kde-format
 #| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "Drivo (absoluta sektoro %1, relativa sektoro %2, trakotempo pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:161 utils/cddaextractthread.cpp:170
+#: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "Okazis eraro dum ŝirado de trako %1."
 
-#: utils/cddaextractthread.cpp:165 utils/cddaextractthread.cpp:175
-#: utils/cddaextractthread.cpp:182 utils/cddaextractthread.cpp:185
+#: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
 #, fuzzy, kde-format
 #| msgid "An error occurred while ripping track %1."
 msgid "An error occured while ripping at position %1. See log."
 msgstr "Okazis eraro dum ŝirado de trako %1."
 
-#: utils/cddaextractthread.cpp:180
+#: utils/cddaextractthread.cpp:189
 #, fuzzy, kde-format
 #| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "Drivo (absoluta sektoro %1, relativa sektoro %2, trakotempo pos %3:%4)"
 
-#: utils/cddaextractthread.cpp:191
+#: utils/cddaextractthread.cpp:200
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:242 utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:245
+#: utils/cddaextractthread.cpp:254
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Uzanto nuligis eltiron."
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:255
 #, fuzzy, kde-format
 #| msgid "Extracting finished."
 msgid "Extraction interrupted"
 msgstr "Ekstraktado finiĝis."
 
-#: utils/cddaextractthread.cpp:249
+#: utils/cddaextractthread.cpp:258
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Ripping OK (Trako %1)."
 
-#: utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:260
 #, kde-format
 msgid "Ripping OK."
 msgstr "Ripping OK."
 
-#: utils/cddaextractthread.cpp:253
+#: utils/cddaextractthread.cpp:262
 #, fuzzy, kde-format
 #| msgid "Reading finished"
 msgid "Ripping finished"
@@ -1887,48 +1897,48 @@ msgstr "WAVE (Kruda Nekunpremita)"
 msgid "Custom"
 msgstr "Propra"
 
-#: utils/encoderwrapper.cpp:60
+#: utils/encoderwrapper.cpp:61
 #, kde-format
 msgid "Command scheme is empty."
 msgstr "Komandskemo estas malplena."
 
-#: utils/encoderwrapper.cpp:90
+#: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
 msgstr "Kodi trakon %1..."
 
-#: utils/encoderwrapper.cpp:108
+#: utils/encoderwrapper.cpp:110
 #, kde-format
 msgid "Deleted partial file \"%1\"."
 msgstr "Forigita parta dosiero \"%1\"."
 
-#: utils/encoderwrapper.cpp:113
+#: utils/encoderwrapper.cpp:115
 #, kde-format
 msgid "User canceled encoding."
 msgstr "Uzanto nuligis kodigon."
 
-#: utils/encoderwrapper.cpp:171
+#: utils/encoderwrapper.cpp:173
 #, kde-format
 msgid "Encoding OK (\"%1\")."
 msgstr "Kodigo Bone (\"%1\")."
 
-#: utils/encoderwrapper.cpp:173
+#: utils/encoderwrapper.cpp:175
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
 msgstr "Okazis eraro dum kodado de dosiero \"%1\"."
 
-#: utils/encoderwrapper.cpp:173 utils/encoderwrapper.cpp:188
-#: utils/encoderwrapper.cpp:191 utils/encoderwrapper.cpp:201
+#: utils/encoderwrapper.cpp:175 utils/encoderwrapper.cpp:190
+#: utils/encoderwrapper.cpp:193 utils/encoderwrapper.cpp:203
 #, kde-format
 msgid "Please check your profile."
 msgstr "Bonvolu kontroli vian profilon."
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:187
 #, kde-format
 msgid "%1 failed to start."
 msgstr "%1 malsukcesis komenci."
 
-#: utils/encoderwrapper.cpp:185
+#: utils/encoderwrapper.cpp:187
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
@@ -1936,22 +1946,22 @@ msgid ""
 msgstr ""
 "Aŭ ĝi mankas, aŭ vi eble havas nesufiĉajn permesojn por alvoki la programon."
 
-#: utils/encoderwrapper.cpp:188
+#: utils/encoderwrapper.cpp:190
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
 msgstr "%1 paneis iom da tempo post komenci sukcese."
 
-#: utils/encoderwrapper.cpp:191
+#: utils/encoderwrapper.cpp:193
 #, kde-format
 msgid "%1 timed out. This should not happen."
 msgstr "%1 elĉerpiĝis. Ĉi tio ne devus okazi."
 
-#: utils/encoderwrapper.cpp:194
+#: utils/encoderwrapper.cpp:196
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
 msgstr "Eraro okazis kiam oni provis skribi al %1."
 
-#: utils/encoderwrapper.cpp:195
+#: utils/encoderwrapper.cpp:197
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
@@ -1959,17 +1969,17 @@ msgid ""
 msgstr ""
 "Ekzemple, la procezo eble ne funkcias, aŭ ĝi eble fermis sian enigkanalon."
 
-#: utils/encoderwrapper.cpp:198
+#: utils/encoderwrapper.cpp:200
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
 msgstr "Eraro okazis kiam oni provis legi el %1."
 
-#: utils/encoderwrapper.cpp:198
+#: utils/encoderwrapper.cpp:200
 #, kde-format
 msgid "For example, the process may not be running."
 msgstr "Ekzemple, la procezo eble ne funkcias."
 
-#: utils/encoderwrapper.cpp:201
+#: utils/encoderwrapper.cpp:203
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
 msgstr "Nekonata eraro okazis al %1. Ĉi tio ne devus okazi."
@@ -2004,12 +2014,12 @@ msgstr ""
 msgid "Unclosed brace."
 msgstr "Nefermita kuniga krampo"
 
-#: utils/schemeparser.cpp:423
+#: utils/schemeparser.cpp:427
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Ne eblis krei provizoran kovrildosieron: %1"
 
-#: utils/schemeparser.h:151
+#: utils/schemeparser.h:156
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2044,7 +2054,7 @@ msgstr ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Nomo kaj versio de Audex.</td></"
 "tr></table>"
 
-#: utils/schemeparser.h:168
+#: utils/schemeparser.h:173
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2101,14 +2111,23 @@ msgstr ""
 "tr><tr><td><tt>post</tt></td><td>Ĉeno</td><td>Ĉeno kiu estos metata <b>post</"
 "b> la valoro.</td></tr></table>"
 
-#: utils/schemeparser.h:189
-#, kde-format
+#: utils/schemeparser.h:194
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
+#| "td><td>This is the artist of every track. It is especially useful on "
+#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
+#| "Normally each track on a CD has its own title, which is the name of the "
+#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
+#| "1.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
 "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. Normally "
 "each track on a CD has its own title, which is the name of the song.</td></"
-"tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></tr></"
+"tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></"
+"tr><tr><td><tt>$isrc</tt></td><td>The International Standard Recording Code "
+"(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
 "<table><tr><th>Lokokupilo</th><th>Priskribo</th></tr><tr><td>$tartist</"
@@ -2118,7 +2137,7 @@ msgstr ""
 "td></tr><tr><td>$trackno</td><td>La kantonumero. Unua trako estas 1.</td></"
 "tr></table>"
 
-#: utils/schemeparser.h:199
+#: utils/schemeparser.h:206
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2146,8 +2165,30 @@ msgstr ""
 "<i><b>Noto:</b>LAME forĵetas kovrildosierojn pli grandajn ol 128 KiB.</i></"
 "td></tr></table>"
 
-#: utils/schemeparser.h:213
-#, kde-format
+#: utils/schemeparser.h:220
+#, fuzzy, kde-format
+#| msgid ""
+#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
+#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
+#| "td><td>Prints the overall size of all extracted (encoded) music files "
+#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
+#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
+#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
+#| "td><td>Prints the relevant overall length of all extracted tracks. The "
+#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
+#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
+#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
+#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
+#| "date and/or time. The parameter format specifies the output. Please "
+#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+#| "for the supported specifiers within the format string. With the "
+#| "additional key <tt>locale</tt> you can specify a language setting. By "
+#| "default your system locales are used. The locale has the format "
+#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
+#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
+#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
+#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2158,17 +2199,19 @@ msgid ""
 "all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Prints the total number of extracted tracks.</td></"
 "tr><tr><td>$discid</td><td>base</td><td>Prints the CDDB discid in "
-"hexadecimal format.</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
-"td><td>Prints the current date and/or time. The parameter format specifies "
-"the output. Please consult official qt documentation (<tt>https://doc.qt.io/"
-"qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
-"html#toString</tt>) for the supported specifiers within the format string. "
-"With the additional key <tt>locale</tt> you can specify a language setting. "
-"By default your system locales are used. The locale has the format "
-"<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-"lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-"uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-"td><td></td><td>Prints a linebreak.</td></tr></table>"
+"hexadecimal format.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>The "
+"Media Catalog Number (MCN) of the CD (only available if supported by your "
+"device).</td></tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints "
+"the current date and/or time. The parameter format specifies the output. "
+"Please consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) for "
+"the supported specifiers within the format string. With the additional key "
+"<tt>locale</tt> you can specify a language setting. By default your system "
+"locales are used. The locale has the format <tt>language_TERRITORY</tt>, e."
+"g. <tt>en_EN</tt>. <tt>language</tt> is a lowercase, two-letter, ISO 639 "
+"language code and <tt>TERRITORY</tt> an uppercase, two-letter, ISO 3166 "
+"territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
+"td></tr></table>"
 msgstr ""
 "<table><tr><th>Lokokupilo</th><th>Specifa parametro</th><th>Priskribo</th></"
 "tr><tr><td>$size</td><td> <tt>iec,precision</tt></td><td> Presas la "
@@ -2247,25 +2290,25 @@ msgstr "Forigi Kovron"
 msgid "Command Scheme:"
 msgstr "Komandoskemo:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Model)
 #. i18n: ectx: property (text), widget (QLabel, label_Vendor)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
-#: widgets/devicewidget.cpp:32 widgets/devicewidget.cpp:33
-#: widgets/devicewidget.cpp:34 widgets/devicewidgetUI.ui:114
-#: widgets/devicewidgetUI.ui:140 widgets/devicewidgetUI.ui:185
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
+#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
 #, fuzzy, kde-format
 #| msgid "No audio CD detected"
 msgid "(No disc detected)"
 msgstr "Neniu sona KD detektita"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:23
+#: widgets/devicewidgetUI.ui:36
 #, kde-format
 msgid "Device"
 msgstr "Disponaĵo"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: widgets/devicewidgetUI.ui:29
+#: widgets/devicewidgetUI.ui:42
 #, kde-format
 msgid ""
 "<html><head/><body><p>Use some special techniques to reduce the chance of "
@@ -2275,13 +2318,13 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: widgets/devicewidgetUI.ui:41
+#: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample offset:"
 msgstr "Specimena deŝovo:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
-#: widgets/devicewidgetUI.ui:73
+#: widgets/devicewidgetUI.ui:86
 #, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
@@ -2290,28 +2333,48 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
-#: widgets/devicewidgetUI.ui:86
+#: widgets/devicewidgetUI.ui:99
 #, fuzzy, kde-format
 #| msgid "Disc information not found"
 msgid "Device information"
 msgstr "Disko informo ne trovita"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:104
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:137
 #, kde-format
-msgid "Model:"
+msgid "C2 error correction available"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
+#: widgets/devicewidgetUI.ui:153
+#, kde-format
+msgid ""
+"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
+"and the International Standard Recording Codes (ISRC) per track"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
+#: widgets/devicewidgetUI.ui:156
+#, kde-format
+msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:181
+#, kde-format
+msgid "Revision:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:159
+#: widgets/devicewidgetUI.ui:197
 #, kde-format
 msgid "Vendor:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:175
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:213
 #, kde-format
-msgid "Revision:"
+msgid "Model:"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
