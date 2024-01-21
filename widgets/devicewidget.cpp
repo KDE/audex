@@ -20,7 +20,8 @@ deviceWidget::~deviceWidget()
 void deviceWidget::setDeviceInfo(const QString &vendor,
                                  const QString &model,
                                  const QString &revision,
-                                 const bool canReadSubChannelData,
+                                 const bool canReadMCN,
+                                 const bool canReadISRC,
                                  const bool c2ErrorCorrection)
 {
     label_Vendor->setText(vendor);
@@ -31,13 +32,17 @@ void deviceWidget::setDeviceInfo(const QString &vendor,
     label_Model->setEnabled(true);
     label_Revision->setEnabled(true);
 
-    checkBox_canReadSubchannelData->setChecked(canReadSubChannelData);
+    checkBox_canReadMCN->setChecked(canReadMCN);
+    checkBox_canReadISRC->setChecked(canReadISRC);
     checkBox_c2ErrorCorrection->setChecked(c2ErrorCorrection);
 
-    checkBox_canReadSubchannelData->setEnabled(true);
+    checkBox_canReadMCN->setEnabled(true);
+    checkBox_canReadISRC->setEnabled(true);
     checkBox_c2ErrorCorrection->setEnabled(true);
-    checkBox_canReadSubchannelData->setAttribute(Qt::WA_TransparentForMouseEvents);
-    checkBox_canReadSubchannelData->setFocusPolicy(Qt::NoFocus);
+    checkBox_canReadMCN->setAttribute(Qt::WA_TransparentForMouseEvents);
+    checkBox_canReadMCN->setFocusPolicy(Qt::NoFocus);
+    checkBox_canReadISRC->setAttribute(Qt::WA_TransparentForMouseEvents);
+    checkBox_canReadISRC->setFocusPolicy(Qt::NoFocus);
     checkBox_c2ErrorCorrection->setAttribute(Qt::WA_TransparentForMouseEvents);
     checkBox_c2ErrorCorrection->setFocusPolicy(Qt::NoFocus);
 }
@@ -50,8 +55,10 @@ void deviceWidget::clearDeviceInfo()
     label_Vendor->setEnabled(false);
     label_Model->setEnabled(false);
     label_Revision->setEnabled(false);
-    checkBox_canReadSubchannelData->setChecked(false);
+    checkBox_canReadMCN->setChecked(false);
+    checkBox_canReadISRC->setChecked(false);
     checkBox_c2ErrorCorrection->setChecked(false);
-    checkBox_canReadSubchannelData->setEnabled(false);
+    checkBox_canReadMCN->setEnabled(false);
+    checkBox_canReadISRC->setEnabled(false);
     checkBox_c2ErrorCorrection->setEnabled(false);
 }
