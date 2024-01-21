@@ -189,8 +189,8 @@ void MainWindow::configure()
         device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(),
                                      cdda_model->cdio()->getModel(),
                                      cdda_model->cdio()->getRevision(),
-                                     cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN)
-                                         && cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
+                                     cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN),
+                                     cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
                                      cdda_model->cdio()->getDriveCapabilities().contains(C2_ERRS));
 
     KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
@@ -234,8 +234,8 @@ void MainWindow::new_audio_disc_detected()
             device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(),
                                          cdda_model->cdio()->getModel(),
                                          cdda_model->cdio()->getRevision(),
-                                         cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN)
-                                             && cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
+                                         cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN),
+                                         cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
                                          cdda_model->cdio()->getDriveCapabilities().contains(C2_ERRS));
         } else {
             device_widget->clearDeviceInfo();

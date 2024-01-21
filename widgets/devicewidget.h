@@ -33,7 +33,12 @@ public:
     explicit deviceWidget(QWidget *parent = nullptr);
     ~deviceWidget() override;
 public Q_SLOTS:
-    void setDeviceInfo(const QString &vendor, const QString &model, const QString &revision, const bool canReadSubChannelData, const bool c2ErrorCorrection);
+    void setDeviceInfo(const QString &vendor,
+                       const QString &model,
+                       const QString &revision,
+                       const bool canReadMCN,
+                       const bool canReadISRC,
+                       const bool c2ErrorCorrection);
     void clearDeviceInfo();
 };
 
