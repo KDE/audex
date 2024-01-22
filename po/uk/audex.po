@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:36+0000\n"
-"PO-Revision-Date: 2024-01-20 19:40+0200\n"
+"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"PO-Revision-Date: 2024-01-21 09:48+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -796,10 +796,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Записати значення MCN та ISRC (якщо доступні)"
+msgstr "Додати значення MCN і ISRC (якщо доступні)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1773,15 +1772,14 @@ msgid "Correction sample offset: %1"
 msgstr "Зсув зразка виправлення: %1"
 
 #: utils/cddaextractthread.cpp:129
-#, fuzzy, kde-format
-#| msgid "Fetching CDDB information..."
+#, kde-format
 msgid "Fetching extra information from disc..."
-msgstr "Отримання відомостей з CDDB…"
+msgstr "Отримання додаткових відомостей з диска…"
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Отримуємо дані підканалу з диска"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2130,14 +2128,7 @@ msgstr ""
 "<b>після</b> значення.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2153,6 +2144,8 @@ msgstr ""
 "компіляціями.</td></tr><tr><td>$ttitle</td><td>Заголовок доріжки. Зазвичай, "
 "кожна доріжка на компакт-диску має свій заголовок, яким є назва композиції.</"
 "td></tr><tr><td>$trackno</td><td>Номер доріжки. Перша доріжка має номер 1.</"
+"td></tr><tr><td><tt>$isrc</tt></td><td>International Standard Recording Code "
+"(ISRC) доріжки (доступний, лише якщо передбачено підтримку на пристрої).</"
 "td></tr></table>"
 
 #: utils/schemeparser.h:206
@@ -2186,29 +2179,7 @@ msgstr ""
 "td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2243,6 +2214,8 @@ msgstr ""
 "секунди.</td></tr><tr><td>$nooftracks</td><td></td><td>Виводить загальну "
 "кількість видобутих доріжок.</td></tr><tr><td>$discid</td><td>основа</"
 "td><td>Виводить ідентифікатор диска CDDB у шістнадцятковому форматі.</td></"
+"tr><tr><td><tt>$mcn</tt></td><td></td><td>Media Catalog Number (MCN) компакт-"
+"диска (доступний, лише якщо передбачено підтримку на пристрої).</td></"
 "tr><tr><td>$now</td><td><tt>формат,локаль</tt></td><td>Виводить поточну дату "
 "і/або час. Параметр «формат» визначає формат результату. Будь ласка, "
 "скористайтеся офіційною документацією qt (<tt>https://doc.qt.io/qt-5/qtime."
@@ -2311,12 +2284,12 @@ msgstr "Вилучити обкладинку"
 msgid "Command Scheme:"
 msgstr "Схема команди:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(Не виявлено диска)"
@@ -2365,44 +2338,60 @@ msgstr ""
 msgid "Device information"
 msgstr "Інформація щодо пристрою"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, fuzzy, kde-format
-#| msgid "No disc information available"
-msgid "C2 error correction available"
-msgstr "Не вдалося отримати даних щодо диска"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr "Модифікація:"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr "Виробник:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "Модифікація:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "Доступне виправлення помилок C2"
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
 msgstr "Модель:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
+#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+"Ваш пристрій може читати дані CD-Text, Media Catalog Number (MCN) та "
+"International Standard Recording Codes (ISRC) з підканалу для окремих доріжок"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2666,6 +2655,9 @@ msgstr "Зберегти…"
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+#~ msgstr "Може читати дані підканалу (CD-Text, MCN, ISRC)"
 
 #~ msgid "Full paranoia mode (reduce chance of read errors)"
 #~ msgstr "Режим повної параної (зменшити ймовірність помилок читання)"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:36+0000\n"
-"PO-Revision-Date: 2024-01-20 09:00+0100\n"
+"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"PO-Revision-Date: 2024-01-21 18:27+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -792,10 +792,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Zapiši vrednosti MCN in ISRC (če so na voljo)"
+msgstr "Dodaj vrednosti MCN in ISRC (če so na voljo)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1749,12 +1748,12 @@ msgstr "Popravek zamika vzorčenja: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "Pridobivanje dodatnih informacij z diska..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Pridobivanje informacij o podkanalu z diska"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2078,7 +2077,7 @@ msgstr ""
 "td><td>true/false</td><td>Nadomestna vrednost bo napisana z velikimi črkami."
 "</td></tr><tr><td><tt>podčrtaji </tt></td><td>true/false</td><td>Zamenjajte "
 "presledke v nadomestni vrednosti s podčrtaji.</td></"
-"tr><tr><td><tt>fat32compatible< /tt></td><td>true/false</td><td>Zamenjaj "
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Zamenjaj "
 "nedovoljene znake v imenu datoteke datotečnega sistema FAT32 s podčrtaji.</"
 "td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Zamenjaj "
 "znake. Ta parameter potrebuje dva dodatna ključa enake velikosti vrednosti: "
@@ -2096,14 +2095,7 @@ msgstr ""
 "td><td>Niz, ki bo postavljen <b>za</b> vrednostjo.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2114,11 +2106,13 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
-"<table><tr><th>Placeholder</th><th>Opis</th></tr><tr><td>$tartist</td><td>To "
-"je izvajalec vsake skladbe. Še posebej je uporaben na CD-jih kompilacije.</"
-"td></tr><tr><td>$ttitle</td><td>Naslov skladbe. Običajno ima vsaka skladba "
-"na CD-ju svoj naslov, ki je ime pesmi.</td></tr><tr><td>$trackno</"
-"td><td>Številka skladbe. Prva skladba je 1.</td></tr></table>"
+"<table><tr><th>Nadomestni znak</th><th>Opis</th></tr><tr><td>$tartist</"
+"td><td>To je izvajalec vsake skladbe. Še posebej je uporaben na CD-jih "
+"kompilacij.</td></tr><tr><td>$ttitle</td><td>Naslov skladbe. Običajno ima "
+"vsaka skladba na CD-ju svoj naslov, ki je ime pesmi.</td></tr><tr><td>"
+"$trackno</td><td>Številka skladbe. Prva skladba je 1.</td></tr><tr><td><tt>"
+"$isrc</tt></td><td>The International Standard Recording Code (ISRC) sledi "
+"(na voljo samo, če to podpira vaša naprava).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2149,29 +2143,7 @@ msgstr ""
 "td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2205,17 +2177,19 @@ msgstr ""
 "dolžina vseh izvlečenih sledi. Format je min:sec.</td></tr><tr><td>"
 "$nooftracks</td><td></td><td>Natisne skupno število ekstrahiranih skladb.</"
 "td></tr><tr><td>$discid</td><td>base</td><td>Natisne CDDB discid v "
-"šestnajstiški obliki.</td></tr><tr><td>$now </td><td><tt>format,locale</tt></"
-"td><td>Natisne trenutni datum in/ali uro. Format parametra določa izhod. "
-"Oglejte si uradno dokumentacijo qt (<tt>https://doc.qt.io/qt-5/qtime."
-"html#toString</tt>, <tt>https://doc.qt.io/qt-6/ qdate.html#toString</tt>) za "
-"podprte določilnike znotraj formatnega niza. Z dodatnim ključem <tt>locale</"
-"tt> lahko določite jezikovno nastavitev. Privzeto se uporabljajo področne "
-"nastavitve vašega sistema. Področne nastavitve imajo obliko "
-"<tt>language_TERRITORY</tt>, npr. <tt>en_EN</tt>. <tt>jezik</tt> je "
-"dvočrkovna koda jezika ISO 639, <tt>TERRITORY</tt> pa dvočrkovna koda "
-"območja ISO 3166 z velikimi črkami.</td></tr>< tr><td>$br</td><td></"
-"td><td>Natisne prelom vrstice.</td></tr></table>"
+"šestnajstiški obliki.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>The "
+"Media Catalog Number (MCN) od CD (na voljo samo, le to podpira vaša naprava)."
+"</td></tr><tr><td>$now </td><td><tt>format,locale</tt></td><td>Natisne "
+"trenutni datum in/ali uro. Format parametra določa izhod. Oglejte si uradno "
+"dokumentacijo qt (<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, "
+"<tt>https://doc.qt.io/qt-6/ qdate.html#toString</tt>) za podprte določilnike "
+"znotraj formatnega niza. Z dodatnim ključem <tt>locale</tt> lahko določite "
+"jezikovno nastavitev. Privzeto se uporabljajo področne nastavitve vašega "
+"sistema. Področne nastavitve imajo obliko <tt>language_TERRITORY</tt>, npr. "
+"<tt>en_EN</tt>. <tt>jezik</tt> je dvočrkovna koda jezika ISO 639, "
+"<tt>TERRITORY</tt> pa dvočrkovna koda območja ISO 3166 z velikimi črkami.</"
+"td></tr><tr><td>$br</td><td></td><td>Natisne prelom vrstice.</td></tr></"
+"table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2273,12 +2247,12 @@ msgstr "Odstrani naslovnico"
 msgid "Command Scheme:"
 msgstr "Shema ukazov:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(Ni zaznanega diska)"
@@ -2327,43 +2301,61 @@ msgstr ""
 msgid "Device information"
 msgstr "Informacije o napravi"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, kde-format
-msgid "C2 error correction available"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr "Revizija:"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr "Prodajalec:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "Revizija:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "Na voljo je popravek napak C2"
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
 msgstr "Model:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
+#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+"Vaša naprava lahko bere CD-besedilo s podatki podkanala, kataloško številko "
+"medijev - Media Catalog Number (MCN) in mednarodne standardne kode za "
+"snemanje - International Standard Recording Codes (ISRC) na sled"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2622,6 +2614,9 @@ msgstr "Shrani..."
 #, kde-format
 msgid "URL:"
 msgstr "URL naslov:"
+
+#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+#~ msgstr "Lahko bere podatke podkanala (CD-Text, MCN, ISRC)"
 
 #~ msgid "Full paranoia mode (reduce chance of read errors)"
 #~ msgstr "Način popolne paranoje (zmanjša možnost napak pri branju)"

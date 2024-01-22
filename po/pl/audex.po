@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:36+0000\n"
-"PO-Revision-Date: 2024-01-20 13:41+0100\n"
+"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"PO-Revision-Date: 2024-01-21 08:49+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -127,7 +127,7 @@ msgstr "Narzędzia korekcji tytułu"
 #: audexui.rc:32
 #, kde-format
 msgid "&Settings"
-msgstr "&Ustawienia"
+msgstr "U&stawienia"
 
 #: core/audex.cpp:100
 #, kde-format
@@ -795,10 +795,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Zapisz wartości MCN oraz ISRC (jeśli dostępne)"
+msgstr "Dodaj wartości MCN oraz ISRC (jeśli dostępne)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1762,15 +1761,14 @@ msgid "Correction sample offset: %1"
 msgstr "Przesunięcie próbki poprawki: %1"
 
 #: utils/cddaextractthread.cpp:129
-#, fuzzy, kde-format
-#| msgid "Fetching CDDB information..."
+#, kde-format
 msgid "Fetching extra information from disc..."
-msgstr "Pobieranie informacji CDDB..."
+msgstr "Pobieranie dodatkowych danych z płyty..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Pobieranie danych o podkanałach z płyty"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2116,14 +2114,7 @@ msgstr ""
 "umieszczenia <b>po</b> wartości.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2139,7 +2130,9 @@ msgstr ""
 "płytach CD, będących składankami.</td></tr><tr><td>$ttitle</td><td>Tytuł "
 "utworu. Zazwyczaj każdy utwór na płycie CD ma swój własny tytuł, który jest "
 "nazwą piosenki.</td></tr><tr><td>$trackno</td><td>Numer utworu. Pierwszy "
-"utwór to 1.</td></tr></table>"
+"utwór to 1.</td></tr><tr><td><tt>$isrc</tt></td><td>International Standard "
+"Recording Code (ISRC) utworu (dostępne tylko, gdy obsługiwane przez twoje "
+"urządzenie).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2170,29 +2163,7 @@ msgstr ""
 "większe niż 128 KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2227,7 +2198,9 @@ msgstr ""
 "utworów. Zapis to min:s.</td></tr><tr><td>$nooftracks</td><td></"
 "td><td>Wyświetla odpowiednią całkowitą liczbę wszystkich wydobytych utworów."
 "</td></tr><tr><td>$discid</td><td>base</td><td>Wyświetla discid z CDDB w "
-"zapisie szesnastkowym.</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
+"zapisie szesnastkowym.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>Media "
+"Catalog Number (MCN) płyty (dostępne tylko, gdy obsługiwane przez twoje "
+"urządzenie).</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
 "td><td>Wyświetla bieżącą datę i/lub czas. Parametr format określa wygląd "
 "wyjścia. Zajrzyj do dokumentacji Qt (<tt>https://doc.qt.io/qt-5/qtime."
 "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) aby "
@@ -2295,12 +2268,12 @@ msgstr "Usuń okładkę"
 msgid "Command Scheme:"
 msgstr "Wzorzec polecenia:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(Nie wykryto żadnej płyty)"
@@ -2349,44 +2322,60 @@ msgstr ""
 msgid "Device information"
 msgstr "Szczegóły o urządzeniu"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, fuzzy, kde-format
-#| msgid "No disc information available"
-msgid "C2 error correction available"
-msgstr "Brak informacji o dysku"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr "Wydanie:"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr "Wytwórca:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "Wydanie:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "Dostępne dane naprawcze C2"
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
 msgstr "Model:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
+#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+"Twoje urządzenie może odczytywać dane w podkanałach CD-Text, Media Catalog "
+"Number (MCN) oraz International Standard Recording Codes (ISRC) na ścieżkę"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2645,6 +2634,9 @@ msgstr "Zapisz..."
 #, kde-format
 msgid "URL:"
 msgstr "Adres URL:"
+
+#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+#~ msgstr "Może odczytywać dane w podkanałach (CD-Text, MCN, ISRC)"
 
 #~ msgid ""
 #~ "Ripping speed was extremely slow for the last 5 minutes.\n"

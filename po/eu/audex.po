@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 00:36+0000\n"
-"PO-Revision-Date: 2024-01-20 10:47+0100\n"
+"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"PO-Revision-Date: 2024-01-21 18:43+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -794,10 +794,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Idatzi MCN eta ISRC balioak (eskuragarri badaude)"
+msgstr "Gehitu MCN eta ISRC balioak (eskuragarri badaude)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1765,12 +1764,12 @@ msgstr "Zuzenketa-laginaren jatorri-aldaketa: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "Diskotik informazio gehigarria lortzen..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Diskotik azpi-kanalen informazioak lortzen"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2114,14 +2113,7 @@ msgstr ""
 "td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2137,7 +2129,9 @@ msgstr ""
 "CDetan.</td></tr><tr><td>$title</td><td>Pistaren titulua. CD bateko pista "
 "bakoitzak titulu bat izan ohi du, abestiaren izena hain zuzen.</td></"
 "tr><tr><td>$trackno</td><td>Pista-zenbakia. Lehenengo pistarena 1 da.</td></"
-"tr></table>"
+"tr>Lehenengo pista 1 da.</td></tr><tr><td><tt>$isrc</tt></td><td>Pistaren "
+"ISRC (International Standard Recording Code) (erabilgarri bakarrik zure "
+"gailuak onartzen badu).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2169,29 +2163,7 @@ msgstr ""
 "table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2226,14 +2198,17 @@ msgstr ""
 "Formatua min:seg da.</td></tr><tr><td>$nooftracks</td><td></"
 "td><td>Erauzitako pista kopuru osoa inprimatzen du.</td></tr><tr><td>"
 "$discid</td><td>oinarria</td><td>CDDB discid formatu hamaseitarrean "
-"inprimatzen du.</td></tr><tr><td>$now</td><td><tt>formatua,tokikoa</tt></"
-"td><td>Uneko data eta/edo ordua inprimatzen du. Parametro formatuak irteera "
-"zehazten du. Mesedez, kontsultatu «Qt»ren dokumentazio ofiziala (<tt>https://"
-"doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
-"html#toString</tt>) formatu kate barnean onartutako zehatzaileetarako. "
-"<tt>Tokikoa</tt> gako osagarriarekin hizkuntza ezarpen bat zehaztu dezakezu. "
-"Era lehenetsian zure sistemako tokiko ezarpenak erabiltzen dira. Tokikoak "
-"<tt>hizkuntza_LURRALDEA</tt> formatua du, adib. <tt>eu_ES</tt>. "
+"inprimatzen du.</td></tr><tr><td> <tt>$mcn</tt></td><td></td><td>CDaren "
+"Multimedia Katalogo Zenbakia (MCN: «Media Catalog Number») (erabilgarri "
+"bakarrik zure gailuak onartzen badu).</td></tr><tr><td>$now</"
+"td><td><tt>formatua,tokikoa</tt></td> <td>Uneko data eta/edo ordua "
+"inprimatzen du. Parametro formatuak irteera zehazten du. Mesedez, "
+"kontsultatu «Qt»ren dokumentazio ofiziala (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
+"formatu kate barnean onartutako zehatzaileetarako. <tt>Tokikoa</tt> gako "
+"osagarriarekin hizkuntza ezarpen bat zehaztu dezakezu. Era lehenetsian zure "
+"sistemako tokiko ezarpenak erabiltzen dira. Tokikoak "
+"<tt>hizkuntza_LURRALDEA</tt> formatua du, adib. <tt>eu_ES</tt>."
 "<tt>hizkuntza</tt> bi letra xeheko ISO 639 hizkuntza kode bat da eta "
 "<tt>Lurraldea</tt> bi letra larriko ISO 3166 lurralde kode bat da.</td></"
 "tr><tr><td>$br</td><td></td><td>Lerro jauzi bat inprimatzen du. </td></tr></"
@@ -2295,12 +2270,12 @@ msgstr "Kendu disko-azala"
 msgid "Command Scheme:"
 msgstr "Komando-antolaera:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(ez du diskorik antzeman)"
@@ -2349,43 +2324,62 @@ msgstr ""
 msgid "Device information"
 msgstr "Gailuaren informazioa"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, kde-format
-msgid "C2 error correction available"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr "Berrikuspena:"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr "Saltzailea:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "Berrikuspena:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "C2 errore zuzenketa erabilgarri"
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
 msgstr "Eredua:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
+#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+"Zure gailuak azpi-kanalaren datuen CD-Testua, Multimedia Katalogo Zenbakia "
+"(MCN: «Media Catalog Number») eta Nazioarteko Grabaketa Kode Estandarra "
+"(ISRC: «International Standard Recording Codes») irakur ditzake pista "
+"bakoitzeko"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2643,6 +2637,9 @@ msgstr "Gorde..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+#~ msgstr "Azpi-kanalaren datuak (CD-Testua, MCN, ISRC) irakur ditzake"
 
 #~ msgid "Full paranoia mode (reduce chance of read errors)"
 #~ msgstr "Paranoia osoa modua (irakurketa-erroreen aukera murrizten du)"
