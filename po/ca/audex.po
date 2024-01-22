@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 03:07+0000\n"
-"PO-Revision-Date: 2024-01-20 11:58+0100\n"
+"POT-Creation-Date: 2024-01-22 03:51+0000\n"
+"PO-Revision-Date: 2024-01-21 12:19+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -787,18 +787,18 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Escriu el Número de catàleg multimèdia (MCN) i els "
-"Codis d'enregistrament estàndard internacionals (ISRC, ISO 3901) de les "
-"pistes al full CUE (si la unitat té la capacitat).</p><p>Depenent de la "
-"unitat, podria trigar alguns segons al final del procés d'extracció per a "
-"recuperar aquests números i codis.</p></body></html>"
+"<html><head/><body><p>Escriu el Número de Catàleg Multimèdia («Media Catalog "
+"Number», MCN) i el Codi internacional estàndard d'enregistrament "
+"(«International Standard Recording Code», ISRC, ISO 3901) de les pistes al "
+"full CUE (si la unitat té la capacitat).</p><p>Depenent de la unitat, podria "
+"trigar alguns segons al final del procés d'extracció per a recuperar aquests "
+"números i codis.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Escriu els valors de MCN i ISRC (si són disponibles)"
+msgstr "Afegeix els valors de MCN i ISRC (si són disponibles)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1777,12 +1777,12 @@ msgstr "Correcció del desplaçament de la mostra: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "S'està recuperant informació extra del disc..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "S'està recuperant informació del subcanal del disc"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2133,14 +2133,7 @@ msgstr ""
 "td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2156,7 +2149,10 @@ msgstr ""
 "els CD de recull.</td></tr><tr><td>$ttitle</td><td>El títol de la pista. "
 "Normalment cada pista d'un CD té el seu propi títol, que és el nom de la "
 "cançó.</td></tr><tr><td>$trackno</td><td>El número de pista. La primera "
-"pista és la 1.</td></tr></table>"
+"pista és la 1.</td></tr><tr><td><tt>$isrc</tt></td><td>El Codi internacional "
+"estàndard d'enregistrament («International Standard Recording Code», ISRC) "
+"de la pista (només és disponible si el dispositiu ho implementa).</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2188,29 +2184,7 @@ msgstr ""
 "KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2245,13 +2219,15 @@ msgstr ""
 "El format és min:sec.</td></tr><tr><td>$nooftracks</td><td></"
 "td><td>Imprimeix el nombre total de peces extretes.</td></tr><tr><td>"
 "$discid</td><td>base</td><td>Imprimeix el «discid» de CDDB en format "
-"hexadecimal.</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
-"td><td>Imprimeix la data o hora actual. El format del paràmetre especifica "
-"la sortida. Consulteu la documentació oficial de les Qt (<tt>https://doc.qt."
-"io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
-"html#toString</tt>) per als especificadors implementats en la cadena de "
-"format. Amb la clau addicional <tt>locale</tt> podeu especificar un "
-"paràmetre d'idioma. De manera predeterminada, es fa servir la vostra "
+"hexadecimal.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>El Número de "
+"Catàleg Multimèdia («Media Catalog Number», MCN) del CD (només és disponible "
+"si el dispositiu ho implementa).</td></tr><tr><td>$now</td><td><tt>format,"
+"locale</tt></td><td>Imprimeix la data o hora actual. El format del paràmetre "
+"especifica la sortida. Consulteu la documentació oficial de les Qt "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>) per als especificadors implementats en la "
+"cadena de format. Amb la clau addicional <tt>locale</tt> podeu especificar "
+"un paràmetre d'idioma. De manera predeterminada, es fa servir la vostra "
 "configuració regional. La configuració regional té el format "
 "<tt>language_TERRITORY</tt>, p. ex. <tt>en_EN</tt>. <tt>language</tt> és un "
 "codi d'idioma ISO 639 de dues lletres minúscules i <tt>TERRITORY</tt> un "
@@ -2314,12 +2290,12 @@ msgstr "Elimina la caràtula"
 msgid "Command Scheme:"
 msgstr "Esquema de l'ordre:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(No s'ha detectat cap disc)"
@@ -2369,43 +2345,61 @@ msgstr ""
 msgid "Device information"
 msgstr "Informació del dispositiu"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, kde-format
-msgid "C2 error correction available"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr "Revisió:"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr "Fabricant:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "Revisió:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "És disponible la correcció d'errors C2"
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
 msgstr "Model:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
+#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+"El dispositiu pot llegir dades de subcanal de CD-Text, el Número de Catàleg "
+"Multimèdia («Media Catalog Number», MCN) i el Codi internacional estàndard "
+"d'enregistrament («International Standard Recording Code», ISRC) per pista"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2666,140 +2660,5 @@ msgstr "Desa..."
 msgid "URL:"
 msgstr "URL:"
 
-#~ msgid ""
-#~ "Ripping speed was extremely slow for the last 5 minutes.\n"
-#~ "Due to extraction quality, audex is configured to never skip any detected "
-#~ "error. If your disc is really broken extraction may never end!\n"
-#~ "In some cases, it might be that only this drive has difficulty ripping "
-#~ "audio data from this disc. Maybe try another one.\n"
-#~ "\n"
-#~ "However, do you want to continue extraction?"
-#~ msgstr ""
-#~ "La velocitat de l'extracció ha estat extremadament lenta durant els "
-#~ "darrers 5 minuts.\n"
-#~ "A causa de la qualitat de l'extracció, l'Audex està configurat per a no "
-#~ "saltar-se cap error detectat. Si el disc està trencat, l'extracció no "
-#~ "acabarà mai!\n"
-#~ "En alguns casos, podria ser que només tingui dificultats aquesta unitat, "
-#~ "per a fer extraccions de dades d'àudio a partir d'aquest disc. Proveu-ho "
-#~ "amb una altra.\n"
-#~ "\n"
-#~ "No obstant això, voleu continuar amb l'extracció?"
-
-#~ msgid "Encoding protocol"
-#~ msgstr "Protocol de codificació"
-
-#~ msgid "Ripping protocol"
-#~ msgstr "Protocol d'extracció"
-
-#~ msgid "Profile index already exists."
-#~ msgstr "L'índex del perfil ja existeix."
-
-#~ msgid ""
-#~ "Your profile index %1 already exists in the set of profiles. Please "
-#~ "choose a unique one."
-#~ msgstr ""
-#~ "L'índex del perfil %1 ja existeix en el conjunt de perfils. Trieu-ne un "
-#~ "que sigui únic."
-
-#~| msgid ""
-#~| "Fixed edge jitter (absolute sector %1, relative sector %2, track time "
-#~| "pos %3:%4)"
-#~ msgid "Fixed edge jitter (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "S'ha corregit una desviació a la vora (sector %1, posició temporal %2)"
-
-#~| msgid ""
-#~| "Fixed atom jitter (absolute sector %1, relative sector %2, track time "
-#~| "pos %3:%4)"
-#~ msgid "Fixed atom jitter (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "S'ha corregit una desviació atòmica (sector %1, posició temporal %2)"
-
-#~ msgid "Scratch detected at track %1 at position %2."
-#~ msgstr "S'ha detectat una ratllada en la pista %1 a la posició %2."
-
-#~| msgid ""
-#~| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
-#~| "%3:%4)"
-#~ msgid "SCRATCH DETECTED (sector %1, time pos %2)"
-#~ msgstr "S'ha detectat una ratllada (sector %1, posició temporal %2)"
-
-#~| msgid "First sector: %1, Last sector: %2"
-#~ msgid "Repair (sector %1, time pos %2)"
-#~ msgstr "Reparació (sector %1, posició temporal %2)"
-
-#~ msgid "Skip sectors at track %1 at position %2."
-#~ msgstr "Salta sector en la pista %1 a la posició %2."
-
-#~ msgid "SKIP (sector %1, time pos %2)"
-#~ msgstr "Salta (sector %1, posició temporal %2)"
-
-#~| msgid "First sector: %1, Last sector: %2"
-#~ msgid "Drift (sector %1, time pos %2)"
-#~ msgstr "Deriva (sector %1, posició temporal %2)"
-
-#~| msgid ""
-#~| "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgid "Backoff (sector %1, time pos %2)"
-#~ msgstr "Retrocés (sector %1, posició temporal %2)"
-
-#~| msgid ""
-#~| "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:"
-#~| "%4)"
-#~ msgid "Fixup dropped (sector %1, time pos %2)"
-#~ msgstr "S'ha descartat la correcció (sector %1, posició temporal %2)"
-
-#~| msgid ""
-#~| "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:"
-#~| "%4)"
-#~ msgid "Fixup duped (sector %1, time pos %2)"
-#~ msgstr "S'ha duplicat la correcció (sector %1, posició temporal %2)"
-
-#~ msgid "Read error detected at track %1 position %2."
-#~ msgstr "S'ha detectat un error de lectura en la pista %1 a la posició %2."
-
-#~| msgid ""
-#~| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgid "READ ERROR (sector %1, time pos %2)"
-#~ msgstr "Error de lectura (sector %1, posició temporal %2)"
-
-#~ msgid ""
-#~ "This preset should generally be transparent to most people on most music "
-#~ "and is already quite high in quality."
-#~ msgstr ""
-#~ "Aquest valor predefinit, en general ha de ser transparent per a la "
-#~ "majoria de la gent en la major part de la música i ja està força alt en "
-#~ "termes de qualitat."
-
-#~ msgid ""
-#~ "Scratch detected (absolute sector %1, relative sector %2, track time pos "
-#~ "%3:%4)"
-#~ msgstr ""
-#~ "S'ha detectat una ratllada (sector absolut %1, sector relatiu %2, pos. "
-#~ "temporal de la pista %3:%4)"
-
-#~ msgid ""
-#~ "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgstr ""
-#~ "Reparació (sector absolut %1, sector relatiu %2, pos. temporal de la "
-#~ "pista %3:%4)"
-
-#~ msgid ""
-#~ "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:"
-#~ "%4)"
-#~ msgstr ""
-#~ "Salta els sectors (sector absolut %1, sector relatiu %2, pos. temporal de "
-#~ "la pista %3:%4)"
-
-#~ msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgstr ""
-#~ "Salta (sector absolut %1, sector relatiu %2, pos. temporal de la pista %3:"
-#~ "%4)"
-
-#~ msgid ""
-#~ "Read error detected (absolute sector %1, relative sector %2, track time "
-#~ "pos %3:%4)"
-#~ msgstr ""
-#~ "S'ha detectat un error de lectura (sector absolut %1, sector relatiu %2, "
-#~ "pos. temporal de la pista %3:%4)"
+#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+#~ msgstr "Pot llegir dades de subcanal (CD-Text, MCN, ISRC)"

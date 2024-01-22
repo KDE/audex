@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 03:07+0000\n"
-"PO-Revision-Date: 2024-01-20 14:27+0100\n"
+"POT-Creation-Date: 2024-01-22 03:51+0000\n"
+"PO-Revision-Date: 2024-01-21 15:43+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -792,10 +792,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Waarden MCN en ISRC schrijven (indien beschikbaar)"
+msgstr "Waarden MCN en ISRC toevoegen (indien beschikbaar)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1767,15 +1766,14 @@ msgid "Correction sample offset: %1"
 msgstr "Offset van correctiesample: %1"
 
 #: utils/cddaextractthread.cpp:129
-#, fuzzy, kde-format
-#| msgid "Fetching CDDB information..."
+#, kde-format
 msgid "Fetching extra information from disc..."
-msgstr "Verkrijgen van CDDB informatie..."
+msgstr "Extra informatie van schijfje halen..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Subkanaalinformatie van schijfje halen"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2124,14 +2122,7 @@ msgstr ""
 "de waarde.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2147,7 +2138,9 @@ msgstr ""
 "compilaties.</td></tr><tr><td>$ttitle</td><td>De titel van de track. Normaal "
 "heeft iedere track op een cd zijn eigen titel, wat de naam van de song is.</"
 "td></tr><tr><td>$trackno</td><td>Het nummer van de track. Eerste track is 1."
-"</td></tr></table>"
+"</td></tr><tr><td><tt>$isrc</tt></td><td>De International Standard Recording "
+"Code (ISRC) van de track (alleen beschikbaar indien ondersteund door uw "
+"apparaat).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2179,29 +2172,7 @@ msgstr ""
 "128 KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2230,14 +2201,16 @@ msgstr ""
 "th><th>Beschrijving</th></tr><tr><td>$size</td><td><tt>iec,precisie</tt></"
 "td><td>Toont de overall grootte van alle uitgepakte (gecodeerde) "
 "muziekbestanden (incl. het hoesafbeeldingsbestand). Met <tt>iec</tt> bereken "
-"(k)ibi, (m)ibi of (g)ibi. De extra parameter <tt>precisie</tt> kan het "
+"(k)ibi, (M)ibi of (G)ibi. De extra parameter <tt>precisie</tt> kan het "
 "aantal decimale plaatsen definiëren.</td></tr><tr><td>$length</td><td></"
 "td><td>Toont de relevante overall lengte van alle uitgepakte tracks. Het "
 "formaat is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Toont het "
 "totale aantal uitgepakte tracks.</td></tr><tr><td>$discid</td><td>base</"
-"td><td>Toont de CDDB-discid in hexadecimaal formaat.</td></tr><tr><td>$now</"
+"td><td>Toont de CDDB-discid in hexadecimaal formaat.</td></tr><tr><td><tt>"
+"$mcn</tt></td><td></td><td>Het Media Catalog Number (MCN) van de cd (alleen "
+"beschikbaar indien ondersteund door uw apparaat).</td></tr><tr><td>$now</"
 "td><td><tt>formaat,taalcode</tt></td><td>Toont de huidige datum en/of tijd. "
-"Het parameterformaat specificeert de uitvoer. Bekijk de officiële qt "
+"De parameter formaat specificeert de uitvoer. Bekijk de officiële qt "
 "documentatie (<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, "
 "<tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) voor de ondersteunde "
 "specifiers in de tekenreeks van het formaat. Met de extra sleutel "
@@ -2304,12 +2277,12 @@ msgstr "Album-hoes Verwijderen"
 msgid "Command Scheme:"
 msgstr "Commandoschema:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr "(Geen schijf gedetecteerd)"
@@ -2359,44 +2332,60 @@ msgstr ""
 msgid "Device information"
 msgstr "Apparaatinformatie"
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, fuzzy, kde-format
-#| msgid "No disc information available"
-msgid "C2 error correction available"
-msgstr "Geen schijfinformatie beschikbaar"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr "Revisie:"
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr "Leverancier:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "Revisie:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "C2-foutcorrectie beschikbaar"
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
 msgstr "Model:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
+#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+"Uw apparaat kan subkanaalgegevens cd-tekst lezen, het Media Catalog Number "
+"(MCN) en de International Standard Recording Codes (ISRC) per track"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2658,6 +2647,9 @@ msgstr "Opslaan..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
+#~ msgstr "Kan subkanaalgegevens lezen (cd-tekst, MCN, ISRC)"
 
 #~ msgid "Full paranoia mode (reduce chance of read errors)"
 #~ msgstr "Volledige paranoia-modus (reduceert kans op leesfouten)"

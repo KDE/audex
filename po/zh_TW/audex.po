@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-21 03:07+0000\n"
+"POT-Creation-Date: 2024-01-22 03:51+0000\n"
 "PO-Revision-Date: 2019-12-12 19:16+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2125,12 +2125,12 @@ msgstr ""
 msgid "Command Scheme:"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
-#: widgets/devicewidget.cpp:47 widgets/devicewidget.cpp:48
-#: widgets/devicewidget.cpp:49 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:124 widgets/devicewidgetUI.ui:223
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
 msgstr ""
@@ -2172,42 +2172,54 @@ msgstr ""
 msgid "Device information"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:137
-#, kde-format
-msgid "C2 error correction available"
-msgstr ""
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:153
-#, kde-format
-msgid ""
-"Your device can read subchannel data CD-Text, the Media Catalog Number (MCN) "
-"and the International Standard Recording Codes (ISRC) per track"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadSubchannelData)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:181
-#, kde-format
-msgid "Revision:"
-msgstr ""
-
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:197
+#: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
 msgstr ""
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:213
+#: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, kde-format
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
