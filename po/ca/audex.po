@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-21 12:17+0100\n"
+"PO-Revision-Date: 2024-01-22 10:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2356,12 +2356,15 @@ msgstr "Fabricant:"
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"El dispositiu pot llegir dades del Número de Catàleg Multimèdia («Media "
+"Catalog Number», MCN) del disc."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
 msgstr ""
+"Pot llegir el Número de Catàleg Multimèdia («Media Catalog Number», MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2383,23 +2386,22 @@ msgstr "Model:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
-#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+#, kde-format
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"El dispositiu pot llegir dades de subcanal de CD-Text, el Número de Catàleg "
-"Multimèdia («Media Catalog Number», MCN) i el Codi internacional estàndard "
-"d'enregistrament («International Standard Recording Code», ISRC) per pista"
+"El dispositiu pot llegir dades del Codi internacional estàndard "
+"d'enregistrament («International Standard Recording Code», ISRC) de cada "
+"pista individual."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
 msgstr ""
+"Pot llegir el Codi internacional estàndard d'enregistrament («International "
+"Standard Recording Code», ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

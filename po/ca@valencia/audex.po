@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-20 12:03+0100\n"
+"PO-Revision-Date: 2024-01-22 10:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -787,18 +787,18 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Escriu el Número de catàleg multimèdia (MCN) i els "
-"Codis de gravació estàndard internacionals (ISRC, ISO 3901) de les pistes al "
-"full CUE (si la unitat té la capacitat).</p><p>Depenent de la unitat, podria "
-"tardar alguns segons al final del procés d'extracció per a recuperar estos "
-"números i codis.</p></body></html>"
+"<html><head/><body><p>Escriu el Número de Catàleg Multimèdia («Media Catalog "
+"Number», MCN) i el Codi internacional estàndard de gravació («International "
+"Standard Recording Code», ISRC, ISO 3901) de les pistes al full CUE (si la "
+"unitat té la capacitat).</p><p>Depenent de la unitat, podria tardar alguns "
+"segons al final del procés d'extracció per a recuperar estos números i codis."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "Escriu els valors de MCN i ISRC (si estan disponibles)"
+msgstr "Afig els valors de MCN i ISRC (si estan disponibles)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -1768,12 +1768,12 @@ msgstr "Correcció del desplaçament de la mostra: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "S'està recuperant informació extra del disc..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "S'està recuperant informació del subcanal del disc"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -2124,14 +2124,7 @@ msgstr ""
 "<b>després</b> del valor.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2147,7 +2140,10 @@ msgstr ""
 "els CD d'arreplega.</td></tr><tr><td>$ttitle</td><td>El títol de la pista. "
 "Normalment cada pista d'un CD té el seu propi títol, que és el nom de la "
 "cançó.</td></tr><tr><td>$trackno</td><td>El número de pista. La primera "
-"pista és la 1.</td></tr></table>"
+"pista és la 1.</td></tr><tr><td><tt>$isrc</tt></td><td>El Codi internacional "
+"estàndard de gravació («International Standard Recording Code», ISRC) de la "
+"pista (només estarà disponible si el dispositiu ho implementa).</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2179,29 +2175,7 @@ msgstr ""
 "td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2228,25 +2202,28 @@ msgid ""
 msgstr ""
 "<table><tr><th>Variable de substitució</th><th>Paràmetre específic</"
 "th><th>Descripció</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-"td><td>Imprimix la mida global de tots els fitxers de música extrets "
+"td><td>Imprimix la mida global de tots els fitxer de música extrets "
 "(codificats) (incloent-hi el fitxer imatge de caràtula). Amb <tt>iec</tt> "
 "calcula (k)ibi, (m)ebi o (g)ibi. El paràmetre addicional <tt>precision</tt> "
 "pot definir el nombre posicions decimals.</td></tr><tr><td>$length</td><td></"
 "td><td>Imprimix la llargària global rellevant de totes les peces extretes. "
 "El format és min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Imprimix "
 "el nombre total de peces extretes.</td></tr><tr><td>$discid</td><td>base</"
-"td><td>Imprimix el «discid» de CDDB en format hexadecimal.</td></tr><tr><td>"
-"$now</td><td><tt>format,locale</tt></td><td>Imprimix la data o hora actual. "
-"El format del paràmetre especifica l'eixida. Consulteu la documentació "
-"oficial de les Qt (<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, "
-"<tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) per als especificadors "
-"implementats en la cadena de format. Amb la clau addicional <tt>locale</tt> "
-"podeu especificar un paràmetre d'idioma. De manera predeterminada, "
-"s'utilitza la vostra configuració regional. La configuració regional té el "
-"format <tt>language_TERRITORY</tt>, p. ex., <tt>en_EN</tt>. <tt>language</"
-"tt> és un codi d'idioma ISO 639 de dues lletres minúscules i <tt>TERRITORY</"
-"tt> un codi de territori ISO 3166 de dues lletres majúscules.</td></"
-"tr><tr><td>$br</td><td></td><td>Imprimix un salt de línia.</td></tr></table>"
+"td><td>Imprimix el «discid» de CDDB en format hexadecimal.</td></"
+"tr><tr><td><tt>$mcn</tt></td><td></td><td>El Número de Catàleg Multimèdia "
+"(«Media Catalog Number», MCN) del CD (només estarà disponible si el "
+"dispositiu ho implementa).</td></tr><tr><td>$now</td><td><tt>format,locale</"
+"tt></td><td>Imprimix la data o hora actual. El format del paràmetre "
+"especifica l'eixida. Consulteu la documentació oficial de les Qt "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>) per als especificadors implementats en la "
+"cadena de format. Amb la clau addicional <tt>locale</tt> podeu especificar "
+"un paràmetre d'idioma. De manera predeterminada, s'utilitza la vostra "
+"configuració regional. La configuració regional té el format "
+"<tt>language_TERRITORY</tt>, p. ex., <tt>en_EN</tt>. <tt>language</tt> és un "
+"codi d'idioma ISO 639 de dues lletres minúscules i <tt>TERRITORY</tt> un "
+"codi de territori ISO 3166 de dues lletres majúscules.</td></tr><tr><td>$br</"
+"td><td></td><td>Imprimix un salt de línia.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2370,12 +2347,15 @@ msgstr "Fabricant:"
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"El dispositiu pot llegir dades del Número de Catàleg Multimèdia («Media "
+"Catalog Number», MCN) del disc."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
 msgstr ""
+"Pot llegir el Número de Catàleg Multimèdia («Media Catalog Number», MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2387,7 +2367,7 @@ msgstr "Revisió:"
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr ""
+msgstr "Està disponible la correcció d'errors C2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
@@ -2402,12 +2382,16 @@ msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
+"El dispositiu pot llegir dades del Codi internacional estàndard de gravació "
+"(«International Standard Recording Code», ISRC) de cada pista individual."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
 msgstr ""
+"Pot llegir el Codi internacional estàndard de gravació («International "
+"Standard Recording Code», ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-19 10:01+0100\n"
+"PO-Revision-Date: 2024-01-22 10:47+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -59,18 +59,16 @@ msgstr "Numero de coperturas a trovar"
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (best quality)"
+#, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "Modo de paranoia complete (melior qualitate)"
+msgstr "Modo de paranoia complete (modo secur)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
-#, fuzzy, kde-format
-#| msgid "Never skip on read error"
+#, kde-format
 msgid "Skip reading errors"
-msgstr "Jammais salta  su error de lettura"
+msgstr "Salta  su error de lettura"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
@@ -272,16 +270,14 @@ msgid "Unable to save cue sheet \"%1\"."
 msgstr "Incapace de salveguardar file parola indice (cue) \"%1\"."
 
 #: core/audex.cpp:1036
-#, fuzzy, kde-format
-#| msgid "Info file \"%1\" successfully created."
+#, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "File de information \"%1\" create con successo."
+msgstr "File de registro \"%1\" immagazinate con successo."
 
 #: core/audex.cpp:1039
-#, fuzzy, kde-format
-#| msgid "Unable to save info file \"%1\"."
+#, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Incapace a salveguardar file de information\"%1\"."
+msgstr "Incapace a salveguardar file de registro \"%1\"."
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
@@ -375,10 +371,9 @@ msgstr "Adjuta de schema de commando"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
-#, fuzzy, kde-format
-#| msgid "About commandline schemes"
+#, kde-format
 msgid "Please set a command scheme"
-msgstr "Re schemas de linea de commando"
+msgstr "Profavorassigna un schema de commando"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
@@ -611,16 +606,14 @@ msgid "Cancel extraction"
 msgstr "Cancella extraction"
 
 #: dialogs/extractingprogressdialog.cpp:344
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "Codificar"
+msgstr "Registro de Codificar"
 
 #: dialogs/extractingprogressdialog.cpp:350
-#, fuzzy, kde-format
-#| msgid "Ripping OK."
+#, kde-format
 msgid "Ripping log"
-msgstr "Rippar OK."
+msgstr "Registro de Rippar"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -699,10 +692,9 @@ msgstr "Exemplo:"
 #: dialogs/profiledataplaylistwidgetUI.ui:46
 #: dialogs/profiledatasinglefilewidgetUI.ui:30
 #: dialogs/profiledatawidgetUI.ui:108
-#, fuzzy, kde-format
-#| msgid "Please check."
+#, kde-format
 msgid "Please set a scheme"
-msgstr "Pro favor verifica."
+msgstr "Pro favor assigna un schema"
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -712,7 +704,7 @@ msgstr "Salveguarda %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "create sur "
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -872,10 +864,9 @@ msgid "Scheme:"
 msgstr "Schema:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Single File Settings"
+#, kde-format
 msgid "Log Files Settings"
-msgstr "Preferentias de File Singule"
+msgstr "Preferentias de File de registro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
@@ -992,10 +983,9 @@ msgstr "Crea file de info"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
-#, fuzzy, kde-format
-#| msgid "Create info file"
+#, kde-format
 msgid "Save log file"
-msgstr "Crea file de info"
+msgstr "Salveguarda file de registro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -1596,16 +1586,15 @@ msgid "You have given no name for the cue sheet. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "Profile name must not be empty."
+#, kde-format
 msgid "Log filename name must not be empty."
-msgstr "Nomine de profilo non pote esser vacue."
+msgstr "Nomine de nomine de file non debe esser vacue."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "You have given no name for the profile. Please set one."
+#, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr "Tu non ha date alcun nomine al profilo. Pro favor tu assigna un."
+msgstr ""
+"Tu non ha date alcun nomine al filede registro. Pro favor tu assigna un."
 
 #: models/profilemodel.cpp:557
 #, kde-format
@@ -1654,16 +1643,14 @@ msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
 
 #: utils/cddacdio.cpp:473
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Audio"
-msgstr "Disco Audio"
+msgstr "Audio"
 
 #: utils/cddacdio.cpp:476
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Non-Audio: CD-i"
-msgstr "Disco Audio"
+msgstr "Non-Audio: CD-i"
 
 #: utils/cddacdio.cpp:479
 #, kde-format
@@ -1673,12 +1660,12 @@ msgstr ""
 #: utils/cddacdio.cpp:481
 #, kde-format
 msgid ", form 1"
-msgstr ""
+msgstr ", forma 1"
 
 #: utils/cddacdio.cpp:483
 #, kde-format
 msgid ", form 2"
-msgstr ""
+msgstr ", forma 2"
 
 #: utils/cddacdio.cpp:486
 #, kde-format
@@ -1730,16 +1717,16 @@ msgid "Check your device and make a bug report."
 msgstr "Verifica tu dispositivo e face un reporto de falta."
 
 #: utils/cddaextractthread.cpp:71
-#, fuzzy, kde-format
-#| msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+#, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
 msgstr ""
-"Information de Unitate (Drive), Venditor: %1, Modello: %2, Revision: %3"
+"Venditor de Unitate (Drive): %1, Modello de Unitate: %2, Revision de "
+"Unitate: %3"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "TOC:"
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1788,10 +1775,9 @@ msgid "Start reading track %1 with %2 sectors"
 msgstr "Initia leger tracia %1 con %2 sectores"
 
 #: utils/cddaextractthread.cpp:138
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track (%1:%2)."
+#, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr "Rippar le complete CD como un singule tracia (%1:%2)."
+msgstr "Rippar le complete disco (%1:%2)..."
 
 #: utils/cddaextractthread.cpp:139
 #, kde-format

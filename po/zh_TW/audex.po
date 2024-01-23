@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-21 00:37+0900\n"
+"PO-Revision-Date: 2024-01-22 16:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -783,10 +783,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
-#, fuzzy, kde-format
-#| msgid "Write MCN and ISRC values (if available)"
+#, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "寫入 MCN 及 ISRC 值（可用時）"
+msgstr "加入 MCN 及 ISRC 值（可用時）"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -2188,13 +2187,13 @@ msgstr "廠商："
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr ""
+msgstr "您的裝置可以讀取碟片的媒體編目代碼 (Media Catalog Number, MCN)。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "可以讀取媒體編目代碼 (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2220,13 +2219,13 @@ msgstr "型號："
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
-msgstr ""
+msgstr "您的裝置可以讀取每一個音軌的國際標準錄音錄影資料代碼 (ISRC)。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "可以讀取國際標準錄音錄影資料代碼 (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2318,6 +2317,8 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"如果您的聽力和設備都非常的好，這個設定檔基本上會提供比「標準」模式稍微更高一"
+"點的品質"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
