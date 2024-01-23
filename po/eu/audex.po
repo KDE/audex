@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-21 18:43+0100\n"
+"PO-Revision-Date: 2024-01-23 00:00+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -2335,12 +2335,15 @@ msgstr "Saltzailea:"
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"Zure gailuak diskoaren Multimedia Katalogo Zenbakia (MCN: «Media Catalog "
+"Number») irakur dezake."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
 msgstr ""
+"Multimedia Katalogo Zenbakia (MCN: «Media Catalog Number») irakur dezake"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2362,24 +2365,21 @@ msgstr "Eredua:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
-#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+#, kde-format
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"Zure gailuak azpi-kanalaren datuen CD-Testua, Multimedia Katalogo Zenbakia "
-"(MCN: «Media Catalog Number») eta Nazioarteko Grabaketa Kode Estandarra "
-"(ISRC: «International Standard Recording Codes») irakur ditzake pista "
-"bakoitzeko"
+"Zure gailuak pista guztien Nazioarteko Grabaketa Kode Estandarra (ISRC: "
+"«International Standard Recording Codes») irakur dezake."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
 msgstr ""
+"Nazioarteko Grabaketa Kode Estandarra (ISRC: «International Standard "
+"Recording Codes») irakur dezake"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

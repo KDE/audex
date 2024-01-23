@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-21 10:48+0100\n"
+"PO-Revision-Date: 2024-01-22 09:29+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -2079,7 +2079,7 @@ msgstr ""
 "presledke v nadomestni vrednosti s podčrtaji.</td></"
 "tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Zamenjaj "
 "nedovoljene znake v imenu datoteke datotečnega sistema FAT32 s podčrtaji.</"
-"td></tr><tr><td><tt>replace_chars< /tt></td><td>true/false</td><td>Zamenjaj "
+"td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Zamenjaj "
 "znake. Ta parameter potrebuje dva dodatna ključa enake velikosti vrednosti: "
 "<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. To so "
 "seznami znakov. Prvi znak <tt>replace_char_list_from</tt> bo nadomeščen s "
@@ -2188,7 +2188,7 @@ msgstr ""
 "sistema. Področne nastavitve imajo obliko <tt>language_TERRITORY</tt>, npr. "
 "<tt>en_EN</tt>. <tt>jezik</tt> je dvočrkovna koda jezika ISO 639, "
 "<tt>TERRITORY</tt> pa dvočrkovna koda območja ISO 3166 z velikimi črkami.</"
-"td></tr>< tr><td>$br</td><td></td><td>Natisne prelom vrstice.</td></tr></"
+"td></tr><tr><td>$br</td><td></td><td>Natisne prelom vrstice.</td></tr></"
 "table>"
 
 #: utils/upload.cpp:54
@@ -2312,12 +2312,15 @@ msgstr "Prodajalec:"
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"Vaša naprava lahko bere medijsko kataloško številko - Media Catalog Number "
+"(MCN) diska."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
 msgstr ""
+"Lahko bere medijsko kataloško številko - Media Catalog Number (MCN) diska"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2339,23 +2342,21 @@ msgstr "Model:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
-#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+#, kde-format
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"Vaša naprava lahko bere CD-besedilo s podatki podkanala, kataloško številko "
-"medijev - Media Catalog Number (MCN) in mednarodne standardne kode za "
-"snemanje - International Standard Recording Codes (ISRC) na sled"
+"Vaša naprava lahko bere Mednarodne standardne kode za snemanje - "
+"International Standard Recording Codes (ISRC) na vsaki sledi."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
 msgstr ""
+"Lahko bere Medn. standardno kodo za snemanje - Intern. Standard Recording "
+"Code (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
