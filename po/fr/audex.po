@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-09 23:04+0100\n"
+"PO-Revision-Date: 2024-01-24 21:56+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -70,18 +70,16 @@ msgstr "Nombre de couvertures à extraire"
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (best quality)"
+#, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "Mode paranoïaque total (la meilleure qualité)"
+msgstr "Mode paranoïaque complet (Mode sécurisé)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
-#, fuzzy, kde-format
-#| msgid "Never skip on read error"
+#, kde-format
 msgid "Skip reading errors"
-msgstr "Ne jamais passer outre lors d'une erreur de lecture"
+msgstr "Ignorer les erreurs de lecture"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
@@ -285,16 +283,14 @@ msgid "Unable to save cue sheet \"%1\"."
 msgstr "Impossible d'enregistrer la feuille de montage « %1 »."
 
 #: core/audex.cpp:1036
-#, fuzzy, kde-format
-#| msgid "Info file \"%1\" successfully created."
+#, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "Fichier d'informations « %1 » créé avec succès."
+msgstr "Fichier de journal « %1 » enregistré avec succès."
 
 #: core/audex.cpp:1039
-#, fuzzy, kde-format
-#| msgid "Unable to save info file \"%1\"."
+#, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Impossible d'enregistrer le fichier d'informations « %1 »."
+msgstr "Impossible d'enregistrer le fichier de journal « %1 »."
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
@@ -388,10 +384,9 @@ msgstr "Aide concernant les thèmes de commandes."
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
-#, fuzzy, kde-format
-#| msgid "About commandline schemes"
+#, kde-format
 msgid "Please set a command scheme"
-msgstr "À propos des schémas de ligne de commandes"
+msgstr "Veuillez définir un thème de commandes"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
@@ -617,6 +612,9 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
+"La vitesse de déchirure a été extrêmement faible durant les 5 dernières "
+"minutes.\n"
+"Voulez-vous vraiment continuer l'extraction ?"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -624,16 +622,14 @@ msgid "Cancel extraction"
 msgstr "Annuler l'extraction"
 
 #: dialogs/extractingprogressdialog.cpp:344
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "Encodage"
+msgstr "Journal d'encodage"
 
 #: dialogs/extractingprogressdialog.cpp:350
-#, fuzzy, kde-format
-#| msgid "Ripping OK."
+#, kde-format
 msgid "Ripping log"
-msgstr "Extraction réussie."
+msgstr "Journal d'extraction"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -712,10 +708,9 @@ msgstr "Exemple :"
 #: dialogs/profiledataplaylistwidgetUI.ui:46
 #: dialogs/profiledatasinglefilewidgetUI.ui:30
 #: dialogs/profiledatawidgetUI.ui:108
-#, fuzzy, kde-format
-#| msgid "Please check."
+#, kde-format
 msgid "Please set a scheme"
-msgstr "Veuillez vérifier."
+msgstr "Veuillez définir un thème."
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -725,7 +720,7 @@ msgstr "Enregistrer %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "créé sur "
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -800,12 +795,18 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Les codes « MCN » (Media Catalog Number) et "
+"« ISRC » (International Standard Recording Codes, dénommée aussi « ISO "
+"3901 ») des pistes dans la table d'informations (Si votre périphérique les "
+"prend en charge).</p><p>Selon votre lecteur, cela peut prendre quelques "
+"secondes à la fin du processus d'extraction pour retrouver ces nombres et "
+"ces codes.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Ajouter les valeurs « MCN » et « ISRC » (Si disponible)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -885,16 +886,15 @@ msgid "Scheme:"
 msgstr "Thème :"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Single File Settings"
+#, kde-format
 msgid "Log Files Settings"
-msgstr "Paramètres des fichiers isolés"
+msgstr "Configuration des fichiers de journaux"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "Écrire des horodatages"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
@@ -1005,10 +1005,9 @@ msgstr "Créer un fichier d'informations"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
-#, fuzzy, kde-format
-#| msgid "Create info file"
+#, kde-format
 msgid "Save log file"
-msgstr "Créer un fichier d'informations"
+msgstr "Enregistrer le fichier de journal"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -1407,10 +1406,9 @@ msgstr ""
 "serveur « CDDB »."
 
 #: models/cddamodel.cpp:903
-#, fuzzy, kde-format
-#| msgid "Unable to create KCDDB object."
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "Impossible de créer l'objet « KCDDB »."
+msgstr "Impossible de créer l'objet « CDIO »."
 
 #: models/cddamodel.cpp:983
 #, kde-format
@@ -1548,7 +1546,7 @@ msgid ""
 "formats: M3U, PLS or XSPF."
 msgstr ""
 "Le format de fichier de la liste de lecture que vous avez indiqué est "
-"inconnu. Veuillez choisir un de ces formats : « M3U », « PLS » ou « XSPF »."
+"inconnu. Veuillez choisir un de ces formats : « M3U », « pls » ou « xspf »."
 
 #: models/profilemodel.cpp:470
 #, kde-format
@@ -1626,16 +1624,16 @@ msgstr ""
 "saisir un."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "Cue filename name must not be empty."
+#, kde-format
 msgid "Log filename name must not be empty."
-msgstr "Un nom de fichier de feuille de montage ne doit pas être vide."
+msgstr "Le nom du fichier de journal ne doit pas être vide."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "You have given no name for the profile. Please set one."
+#, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr "Vous n'avez pas indiqué de nom pour le profil. Veuillez en saisir un."
+msgstr ""
+"Vous n'avez fourni aucun nom pour le fichier de journal. Veuillez en saisir "
+"un."
 
 #: models/profilemodel.cpp:557
 #, kde-format
@@ -1656,89 +1654,87 @@ msgid "Copy"
 msgstr "Copier"
 
 #: utils/cddacdio.cpp:45
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device error (1)."
-msgstr "Erreur de lecteur"
+msgstr "Erreur du périphérique (1)."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
 #: utils/cddacdio.cpp:530
-#, fuzzy, kde-format
-#| msgid ""
-#| "Check your device. Is it really \"%1\"? If so also check your permissions "
-#| "on \"%1\"."
+#, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
-"Vérifiez votre périphérique. S'agit-il réellement de « %1 » ? Si tel est le "
-"cas, veuillez vérifier vos droits d'accès sur « %1 »."
+"Veuillez vérifier votre périphérique. S'agit-il réellement de « %1 » ? "
+"Veuillez aussi vérifier vos droits d'accès sur « %1 »."
 
 #: utils/cddacdio.cpp:52
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device error (2)."
-msgstr "Erreur de lecteur"
+msgstr "Erreur de périphérique (2)."
 
 #: utils/cddacdio.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device error (3)."
-msgstr "Erreur de lecteur"
+msgstr "Erreur du périphérique (3)."
 
 #: utils/cddacdio.cpp:446
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"Piste --. Secteur de démarrage : 000000. Taille des secteurs : 000150. "
+"Type : entrée"
 
 #: utils/cddacdio.cpp:473
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Audio"
-msgstr "Disque audio"
+msgstr "Audio"
 
 #: utils/cddacdio.cpp:476
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Non-Audio: CD-i"
-msgstr "Disque audio"
+msgstr "Non audio : CD-i"
 
 #: utils/cddacdio.cpp:479
 #, kde-format
 msgid "Non-Audio: Data mode 2"
-msgstr ""
+msgstr "Non audio : mode 2 de données"
 
 #: utils/cddacdio.cpp:481
 #, kde-format
 msgid ", form 1"
-msgstr ""
+msgstr ", formulaire 1"
 
 #: utils/cddacdio.cpp:483
 #, kde-format
 msgid ", form 2"
-msgstr ""
+msgstr ", formulaire 2"
 
 #: utils/cddacdio.cpp:486
 #, kde-format
 msgid "Non-Audio: Data mode 1"
-msgstr ""
+msgstr "Non audio : mode 1 de données"
 
 #: utils/cddacdio.cpp:489
 #, kde-format
 msgid "Non-Audio: Playstation 1"
-msgstr ""
+msgstr "Non audio : PlayStation 1"
 
 #: utils/cddacdio.cpp:492
 #, kde-format
 msgid "Non-Audio: Unknown format"
-msgstr ""
+msgstr "Non audio : format inconnu"
 
 #: utils/cddacdio.cpp:496
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "Sortie"
 
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
 msgstr ""
+"Piste %1. Secteur de démarrage : %2. Taille des secteurs : %3. Type : %4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
@@ -1746,6 +1742,8 @@ msgid ""
 "Could not get device hardware information (vendor, model and firmware "
 "revision)."
 msgstr ""
+"Impossible d'obtenir des informations sur le matériel du périphérique "
+"(Fournisseur, modèle et microprogramme)."
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -1766,11 +1764,12 @@ msgstr "Vérifiez votre périphérique et rédigez un rapport de bogue."
 #, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
 msgstr ""
+"Fabricant du lecteur : %1. Modèle du lecteur : %2. Révision du lecteur : %3"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "Table des matières :"
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1778,38 +1777,37 @@ msgid "Extracting finished."
 msgstr "Extraction terminée."
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "Error occured while seeking at sector %1: %2"
-msgstr "Une erreur est survenue pendant l'extraction de la piste %1."
+msgstr "Une erreur est survenue lors de la recherche au secteur %1 : %2"
 
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1. See log."
-msgstr "Une erreur est survenue pendant l'extraction de la piste %1."
+msgstr ""
+"Une erreur est survenue lors l'extraction de la piste %1. Veuillez consulter "
+"le journal."
 
 #: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping. See log."
-msgstr "Une erreur est survenue pendant l'extraction de la piste %1."
+msgstr ""
+"Une erreur est survenue pendant l'extraction. Veuillez consulter le journal."
 
 #: utils/cddaextractthread.cpp:121
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Correction sample offset: %1"
-msgstr "Décalage (« sample offset ») :"
+msgstr "Correction du décalage de l'échantillon : %1"
 
 #: utils/cddaextractthread.cpp:129
-#, fuzzy, kde-format
+#, kde-format
 msgid "Fetching extra information from disc..."
-msgstr "Extraction des informations « CDDB »..."
+msgstr "Recherche d'informations additionnelles à partir du disque..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Recherche des informations de sous-canaux à partir du disque"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -1822,65 +1820,64 @@ msgid "Start reading track %1 with %2 sectors"
 msgstr "Commencer à lire la piste %1 avec %2 secteurs"
 
 #: utils/cddaextractthread.cpp:138
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track."
+#, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr "Extraction de la totalité du CD sous la forme d'une seule piste."
+msgstr "Extraction de la totalité du disque (%1 : %2)..."
 
 #: utils/cddaextractthread.cpp:139
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start reading whole disc with %1 sectors"
-msgstr "Commencer à lire la piste %1 avec %2 secteurs"
+msgstr "Démarrer la lecture de la totalité du disque avec %1 secteurs"
 
 #: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "Piste %1 avec le secteur de démarrage %2"
 
 #: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
-msgstr ""
+msgstr "Premier secteur : %1. Dernier secteur :%2"
 
 #: utils/cddaextractthread.cpp:164
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr ""
-"Écart (secteur absolu %1, secteur relatif %2, position de durée de piste %3:"
-"%4)"
+"Une erreur est survenue lors de la lecture du secteur %1 (Position de temps "
+"de la piste %2) : %3"
 
 #: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "Une erreur est survenue pendant l'extraction de la piste %1."
+msgstr ""
+"Une erreur est survenue lors de l'extraction de la piste %1 à la position "
+"%2. Veuillez consulter le journal."
 
 #: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
 #: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "Une erreur est survenue pendant l'extraction de la piste %1."
+msgstr ""
+"Une erreur est survenue lors de l'extraction à la position %1. Veuillez "
+"consulter le journal."
 
 #: utils/cddaextractthread.cpp:189
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr ""
-"Écart (secteur absolu %1, secteur relatif %2, position de durée de piste %3:"
-"%4)"
+"Erreur lors de la lecteur du secteur %1 (Position de temps de la piste %2)"
 
 #: utils/cddaextractthread.cpp:200
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"Erreur lors de la lecture du secteur %1 (%2) : **Remplissage de la totalité "
+"du secteur avec un bruit blanc**"
 
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "L'extraction a été annulée en raison d'une erreur."
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
@@ -1888,10 +1885,9 @@ msgid "User canceled extracting."
 msgstr "L'utilisateur a annulé l'extraction."
 
 #: utils/cddaextractthread.cpp:255
-#, fuzzy, kde-format
-#| msgid "Extracting finished."
+#, kde-format
 msgid "Extraction interrupted"
-msgstr "Extraction terminée."
+msgstr "Extraction interrompue."
 
 #: utils/cddaextractthread.cpp:258
 #, kde-format
@@ -1904,10 +1900,9 @@ msgid "Ripping OK."
 msgstr "Extraction réussie."
 
 #: utils/cddaextractthread.cpp:262
-#, fuzzy, kde-format
-#| msgid "Reading finished"
+#, kde-format
 msgid "Ripping finished"
-msgstr "Lecture terminée"
+msgstr "Extraction terminée"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2061,9 +2056,9 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
-"Le paramètre « Remplace_Liste_Caractères » a besoin de deux paramètres "
-"supplémentaires « Remplace_Liste_Caractères_De » et "
-"« Remplace_Liste_Caractères_A » avec une taille égale."
+"Le paramètre « Remplace-Liste-Caractères » a besoin de deux paramètres "
+"supplémentaires « Remplace-Liste-Caractères-De » et « Remplace-Liste-"
+"Caractères-A » avec une taille égale."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
@@ -2142,46 +2137,40 @@ msgid ""
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
 "<p>Les emplacements réservés dans Audex peuvent posséder des paramètres sous "
-"la forme « clé = valeur », par exemple,  <tt>${title lowercase=true}</tt>. "
+"la forme « clé = valeur », par exemple, <tt>${title lowercase=true}</tt>. "
 "Dans cet exemple, le titre sera basculé en minuscules. Les paramètres "
 "généraux suivants peuvent être utilisés avec les emplacements réservés :</"
 "p><table><tr><th>Clé</th><th>Valeur</th><th>Description</th></"
-"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>La valeur de "
+"tr><tr><td><tt>minuscule</tt></td><td>True / False</td><td>La valeur de "
 "l'emplacement réservé sera basculé en minuscules.</td></"
-"tr><tr><td><tt>uppercase</tt></td><td>true/false</td><td>La valeur de "
+"tr><tr><td><tt>majuscules</tt></td><td>True / False</td><td>La valeur de "
 "l'emplacement réservé sera basculé en majuscules.</td></"
-"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Remplacer les "
+"tr><tr><td><tt>underscores</tt></td><td>True / False</td><td>Remplacer les "
 "espaces dans la valeur de l'emplacement réservé par le caractère de "
-"soulignement.</td></tr><tr><td><tt>fat32compatible</tt></td><td>true/false</"
-"td><td>Remplacer les caractères de nom de fichier incorrects d'un système de "
-"fichiers en FAT32 filesystem par le caractère de soulignement.</td></"
-"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Remplacer des "
+"soulignement.</td></tr><tr><td><tt>fat32compatible</tt></td><td>True / "
+"False</td><td>Remplacer les caractères de nom de fichier incorrects d'un "
+"système de fichiers en « FAT32 » par le caractère de soulignement.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>True / False</td><td>Remplacer des "
 "caractères. Ce paramètre a besoin de deux clés additionnelles de la même "
 "taille de valeur :<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</"
 "tt>. Celles-ci sont des listes de caractères. Le premier caractère de "
 "<tt>replace_char_list_from</tt> sera remplacé par le premier caractère de "
-"<tt>replace_char_list_to</tt> et ainsi de suite.</td></tr><tr><td><tt>left</"
-"tt></td><td>Nombre</td><td>Prendre les n premiers caractères à partir de la "
-"gauche de la valeur de l'emplacement réservé.</td></tr><tr><td><tt>length</"
-"tt></td><td>Nombre</td><td>Si la valeur de l'emplacement réservé est un "
-"nombre, il est étendu à la longueur demandée. De plus, vous pouvez définir "
-"un caractère de remplissage avec une clé supplémentaire <tt>fillchar</tt>. "
-"Le caractère de remplissage par défaut est « 0 ».</td></tr><tr><td><tt>pre</"
-"tt></td><td>String</td><td>Une chaîne de caractères sera placée <b>avant</b> "
-"la valeur. Ceci est particulièrement utile pour les paramètres de ligne de "
-"commandes, qui ne devraient pas être définis du tout, si la valeur est vide."
-"</td></tr><tr><td><tt>post</tt></td><td>Chaîne</td><td>Une chaîne de "
-"caractères sera placée <b>après</b> la valeur.</td></tr></table>"
+"<tt>replace_char_list_to</tt> et ainsi de suite.</td></"
+"tr><tr><td><tt>gauche</tt></td><td>Nombre</td><td>Prendre les n premiers "
+"caractères à partir de la gauche de la valeur de l'emplacement réservé.</"
+"td></tr><tr><td><tt>length</tt></td><td>Nombre</td><td>Si la valeur de "
+"l'emplacement réservé est un nombre, il est étendu à la longueur demandée. "
+"De plus, vous pouvez définir un caractère de remplissage avec une clé "
+"supplémentaire <tt>remplissage</tt>. Le caractère de remplissage par défaut "
+"est « 0 ».</td></tr><tr><td><tt>pre</tt></td><td>Chaîne</td><td>Une chaîne "
+"de caractères sera placée <b>avant</b> la valeur. Ceci est particulièrement "
+"utile pour les paramètres de ligne de commandes, qui ne devraient pas être "
+"définis du tout, si la valeur est vide.</td></tr><tr><td><tt>post</tt></"
+"td><td>Chaîne</td><td>Une chaîne de caractères sera placée <b>après</b> la "
+"valeur.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2192,12 +2181,15 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
-"<table><tr><th>Espace réservé</th><th>Description</th></tr><tr><td>$tartist</"
-"td><td>Ceci est l'artiste pour chaque poste. Ceci est tout particulièrement "
-"utile pour les CD de compilation.</td></tr><tr><td>$ttitle</td><td>Le titre "
-"de la piste. Normalement, chaque piste d'un CD possède son propre titre, qui "
-"est aussi le nom de la chanson.</td></tr><tr><td>$trackno</td><td>Le numéro "
-"de piste. La première  piste est numérotée à 1.</td></tr></table>"
+"<table><tr><th>Emplacement réservé</th><th>Description</th></tr><tr><td>"
+"$tartist</td><td>Ceci est l'artiste pour chaque piste. Ceci peut être utile "
+"pour les CD de compilation.</td></tr><tr><td>$ttitle</td><td>Le titre de la "
+"piste. En général, chaque piste possède son titre propre qui est le nom de "
+"la chanson.</td></tr><tr><td>$trackno</td><td>Le numéro de la piste. La "
+"première piste est numérotée 1.</td></tr><tr><td><tt>$isrc</tt></td><td>Le "
+"code « ISRC » (International Standard Recording Code) de la piste "
+"(Uniquement disponible si pris en charge par votre périphérique).</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2216,44 +2208,22 @@ msgid ""
 msgstr ""
 "<table><tr><th>Emplacement réservé</th><th>Paramètre spécifique</"
 "th><th>Description</th></tr><tr><td><tt>$i</tt></td><td></td><td>Le fichier "
-"« WAV » temporaire (RIFF WAVE) est créé  par Audex à partir de la piste "
-"audio du CD. Ceci est le fichier d'entrée pour votre encodeur en ligne de "
+"« WAV » temporaire (RIFF WAVE) est créé par Audex à partir de la piste audio "
+"du CD. Ceci est le fichier d'entrée pour votre encodeur en ligne de "
 "commandes.</td></tr><tr><td><tt>$o</tt></td><td></td><td>Le nom de fichier "
 "et l'emplacement complet du fichier de sortie. Veuillez l'utiliser comme "
 "sortie de votre encodeur en ligne de commandes.</td></tr><tr><td><tt>$cover</"
 "tt></td><td><tt>format, x, y</tt></td><td>Nom du fichier pour la couverture. "
 "Si aucune couverture n'est définie, ce paramètre doit être laissé vide. La "
 "plupart du temps utile en conjonction avec le paramètre <tt>pre</tt>. "
-"L'image soit être dimensionnée selon les paramètres <tt>x</tt> and <tt>y</"
+"L'image soit être dimensionnée selon les paramètres <tt>x</tt> et <tt>y</"
 "tt>. Les <tt>formats</tt> possibles d'images sont « JPEG », « PNG », « GIF » "
 "ou « BMP  » (Par par_defaut : « JPEG »). <i><b>Remarque : </b> l'encodeur "
 "LAME ignore les fichiers de couverture de taille supérieure à 128 Ko.</i></"
 "td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2282,26 +2252,27 @@ msgstr ""
 "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec, precision</tt></"
 "td><td>Affiche la taille totale de tous les fichiers musicaux extraits "
 "(encodés) (Y compris le fichier de l'image de la couverture). Avec le "
-"paramètre <tt>iec</tt> vous calculer en (K)o, (M)o or (G)o. Le paramètre "
-"supplémentaire <tt>précision</tt> peut définir le nombre de digits décimaux."
-"</td></tr><tr><td>$length</td><td></td><td>Affiche la longueur totale "
-"correspondante à toutes les pistes extraites. Le format is min : sec.</td></"
-"tr><tr><td>$nooftracks</td><td></td><td>Imprime le nombre total de pistes "
+"paramètre <tt>iec</tt>, calcule (K)o, (M)o ou (G)o. Le paramètre additionnel "
+"<tt>precision</tt> peut définir le nombre de chiffres décimaux.</td></"
+"tr><tr><td>$length</td><td></td><td>Affiche la longueur totale correspondant "
+"à toutes les pistes extraites. Le format est sous la forme min : sec.</td></"
+"tr><tr><td>$nooftracks</td><td></td><td>Affiche le nombre total de pistes "
 "extraites.</td></tr><tr><td>$discid</td><td>base</td><td>Affiche "
-"l'identifiant « DiscID » de la base de données « CDDB » en format "
-"hexadécimal.</td></tr><tr><td>$now</td><td><tt>format, locale</tt></"
-"td><td>Imprime la date et / ou l'heure courante. Le paramètre de format "
-"définit la sortie. Veuillez consulter la documentation officielle de Qt "
-"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
-"qt-6/qdate.html#toString</tt>) pour les pour les spécificateurs pris en "
-"charge dans la chaîne de format. Avec le paramètre additionnel  <tt>locale</"
-"tt>, vous pouvez spécifier un paramètre de langue. Par défaut, les "
-"paramètres de localisation de votre système sont utilisés. Le paramètre de "
-"localisation se présente sous le format <tt>language_TERRITORY</tt>, par "
-"exemple, <tt>en_EN</tt>. <tt>language</tt> est en minuscules, composé de "
-"deux lettres, utilisant le code de langues « ISO 639 » et <tt>TERRITORY</tt> "
-"est en majuscules, composé de deux lettres, utilisant le code « ISO 3166 » "
-"des pays.</td></tr><tr><td>$br</td><td></td><td>Affiche un saut de ligne.</"
+"l'identifiant de disque « CDDB » au format hexadécimal.</td></tr><tr><td><tt>"
+"$mcn</tt></td><td></td><td>Le code « MCN » (Media Catalog Number) du CD "
+"(Disponible uniquement si pris en charge par votre périphérique).</td></"
+"tr><tr><td>$now</td><td><tt>format, locale</tt></td><td>Imprime la date et / "
+"ou l'heure courante. La sortie est faite selon le paramètre de format. "
+"Veuillez consulter la documentation officielle de Qt (<tt>https://doc.qt.io/"
+"qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
+"html#toString</tt>) pour les spécificateurs pris en charge sous forme de "
+"chaînes. Avec la clé supplémentaire <tt>locale</tt>, vous pouvez spécifier "
+"un paramètre de langue. Par défaut, les paramètres de localisation e votre "
+"système sont utilisés. Le paramètre « locale » est défini par le format "
+"<tt>langue_PAYS</tt>, par exemple, <tt>en_EN</tt>. <tt>langue</tt> est en 2 "
+"lettres minuscules et selon le code des langues « ISO 639 » et le paramètre "
+"<tt>PAYS</tt> est en 2 lettres majuscules et selon le code de pays « ISO "
+"3166 ».</td></tr><tr><td>$br</td><td></td><td>Imprime un saut de ligne.</"
 "td></tr></table>"
 
 #: utils/upload.cpp:54
@@ -2366,10 +2337,9 @@ msgstr "Thème de commandes :"
 #: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
 #: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
 #: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
-#, fuzzy, kde-format
-#| msgid "No audio CD detected"
+#, kde-format
 msgid "(No disc detected)"
-msgstr "Aucun disque audio"
+msgstr "(Aucun disque détecté)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:36
@@ -2386,6 +2356,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Utiliser des techniques spéciales pour réduire les "
+"risques d'erreurs de lecture inaperçues. Cela conduit à un processus de "
+"lecture plus sécurisé au détriment de la vitesse d'extraction. Ainsi, il "
+"peut donc être également appelé « mode sécurisé ».</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2401,49 +2375,54 @@ msgid ""
 "1/75 second) after trying to read the sector again for at most 20 times. "
 "Usually broken sectors will be filled with silence.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Ignorer les erreurs de lecture sur un secteur "
+"(Longueur de secteur : 1 / 75 de seconde) après des tentatives "
+"supplémentaires de lecture de plus de vingt fois. En général, les secteurs "
+"endommagés seront remplis avec un bruit blanc.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
-#, fuzzy, kde-format
-#| msgid "Disc information not found"
+#, kde-format
 msgid "Device information"
-msgstr "Informations de disque introuvables"
+msgstr "Informations sur les périphériques"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
-msgstr ""
+msgstr "Fournisseur :"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"Votre périphérique peut lire le code « MCN » (Media Catalog Number) du "
+"disque."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "Peut lire le numéro de catalogue des média (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
 #, kde-format
 msgid "Revision:"
-msgstr ""
+msgstr "Révision :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
 #: widgets/devicewidgetUI.ui:224
-#, fuzzy, kde-format
+#, kde-format
 msgid "C2 error correction available"
-msgstr "Aucune information d'état disponible sur le disque"
+msgstr "Correction d'erreurs « C2 » disponible"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
-msgstr ""
+msgstr "Modèle :"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
@@ -2452,12 +2431,14 @@ msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
+"Votre périphérique peut lire le code « ISRC » (International Standard "
+"Recording Code) de chaque piste."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "Peut lire le code « ISRC » (International Standard Recording Code)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2532,13 +2513,11 @@ msgstr "Qualité / Débit binaire"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
-"Ce préréglage devrait offrir une quasi-transparence pour la plupart des "
-"utilisateurs sur de nombreux genres de musique."
+"Ce préréglage devrait offrir une transparence de perception à la plupart "
+"personnes."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
@@ -2565,13 +2544,11 @@ msgstr "Extrême (220 à 260 Kbits / s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should generally be transparent to most people."
 msgstr ""
-"Ce préréglage devrait offrir une quasi-transparence pour la plupart des "
-"utilisateurs sur de nombreux genres de musique."
+"Ce préréglage devrait être quasiment transparent pour la plupart des "
+"personnes."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2581,19 +2558,14 @@ msgstr "Standard (170...210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset will usually be overkill for most people and most situations, "
-#| "but if you must have the absolute highest quality with no regard to "
-#| "filesize, this is the way to go."
+#, kde-format
 msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
-"Ce préréglage sera habituellement surpuissant pour la plupart des "
-"utilisateurs dans la majorité des cas, mais si vous devez avoir la qualité "
-"la plus élevée absolue sans tenir compte de la taille du fichier, il vous "
-"conviendra parfaitement."
+"Ce préréglage sera habituellement excessif. Mais si vous voulez absolument "
+"la qualité absolue la plus élevée absolue sans tenir compte de la taille du "
+"fichier, il vous conviendra parfaitement."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
@@ -2671,7 +2643,7 @@ msgid ""
 msgstr ""
 "<p>Voulez-vous rechercher à nouveau des codecs dans votre système (« Lame », "
 "« Opus », « Flac », etc.) ?</p><p><font style=\"font-style:italic;\">Cette "
-"opération tentera de créer certains profils d’échantillonage  partir de "
+"opération tentera de créer certains profils d'échantillonage à partir de "
 "n'importe quel codec trouvé.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
