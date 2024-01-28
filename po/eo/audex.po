@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-21 17:22+0100\n"
+"PO-Revision-Date: 2024-01-28 11:08+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -779,7 +779,7 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Skribi Amaskomunikilaran Katalog-Numeron (MCN) kaj "
+"<html><head/><body><p>Skribi aŭdvidaĵan katalog-numeron (MCN) kaj "
 "Internaciajn Normajn Registradokodojn (ISRC, ISO 3901) de la trakoj en la "
 "signalfolion (se via diskaparato havu la kapablon).</p><p>Depende de via "
 "diskaparato ĝi povus daŭri kelkajn sekundojn ĉe la fino de via ŝirprocezo "
@@ -2092,14 +2092,7 @@ msgstr ""
 "b> la valoro.</td></tr></table>"
 
 #: utils/schemeparser.h:194
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
-#| "td><td>This is the artist of every track. It is especially useful on "
-#| "compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. "
-#| "Normally each track on a CD has its own title, which is the name of the "
-#| "song.</td></tr><tr><td>$trackno</td><td>The track number. First track is "
-#| "1.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
 "td><td>This is the artist of every track. It is especially useful on "
@@ -2115,7 +2108,9 @@ msgstr ""
 "je kompilaĵaj KD-oj.</td></tr><tr><td>$ttitle</td><td>La traktitolo. Normale "
 "ĉiu kanto sur KD havas sian propran titolon, kiu estas la nomo de la kanto.</"
 "td></tr><tr><td>$trackno</td><td>La kantonumero. Unua trako estas 1.</td></"
-"tr></table>"
+"tr><tr><td><tt>$isrc</tt></td><td>La internacian norman registrad-kodon "
+"(ISRC) de la trako (nur havebla se subtenata de via aparato).</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2146,29 +2141,7 @@ msgstr ""
 "td></tr></table>"
 
 #: utils/schemeparser.h:220
-#, fuzzy, kde-format
-#| msgid ""
-#| "<table><tr><th>Placeholder</th><th>Specific parameter</"
-#| "th><th>Description</th></tr><tr><td>$size</td><td><tt>iec,precision</tt></"
-#| "td><td>Prints the overall size of all extracted (encoded) music files "
-#| "(incl. the cover image file). With <tt>iec</tt> calculate (k)ibi, (m)ebi "
-#| "or (g)ibi. The additional parameter <tt>precision</tt> can define the "
-#| "number of decimal places.</td></tr><tr><td>$length</td><td></"
-#| "td><td>Prints the relevant overall length of all extracted tracks. The "
-#| "format is min:sec.</td></tr><tr><td>$nooftracks</td><td></td><td>Prints "
-#| "the total number of extracted tracks.</td></tr><tr><td>$discid</"
-#| "td><td>base</td><td>Prints the CDDB discid in hexadecimal format.</td></"
-#| "tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints the current "
-#| "date and/or time. The parameter format specifies the output. Please "
-#| "consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
-#| "html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) "
-#| "for the supported specifiers within the format string. With the "
-#| "additional key <tt>locale</tt> you can specify a language setting. By "
-#| "default your system locales are used. The locale has the format "
-#| "<tt>language_TERRITORY</tt>, e.g. <tt>en_EN</tt>. <tt>language</tt> is a "
-#| "lowercase, two-letter, ISO 639 language code and <tt>TERRITORY</tt> an "
-#| "uppercase, two-letter, ISO 3166 territory code.</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td></tr></table>"
+#, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
 "th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
@@ -2202,16 +2175,18 @@ msgstr ""
 "entutan longon de ĉiuj ĉerpitaj trakoj. La formato estas min:sek.</td></"
 "tr><tr><td>$nooftracks</td><td></td><td>Presas la entutan nombron de "
 "ĉerpitaj trakoj.</td></tr><tr><td>$discid</td><td>base</td><td>Presas la "
-"CDDB-discid en deksesuma formato.</td></tr><tr><td>$now</td><td><tt>format, "
-"locale</tt></td><td>Presas la aktualan daton kaj/aŭ horon. La parametra "
-"formato specifas la eligon. Bonvolu konsulti oficialan qt-dokumentadon "
-"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
-"qt-6/qdate.html#toString</tt>) pri la subtenataj specifiloj ene de la "
-"formatĉeno. Per la aldona ŝlosilo <tt>locale</tt> vi povas specifi lingvan "
-"agordon. Defaŭlte viaj sistemlokaĵaroj estas uzata. La lokaĵaro havas la "
-"formaton <tt>lingvo_TERITORIO</tt>, ekz. <tt>eo_EO</tt>. <tt>lingvo</tt> "
-"estas minuskla, dulitera, ISO-639 lingvokodo kaj <tt>TERITORIO</tt> "
-"majuskla, dulitera, ISO 3166-teritoria kodo.</td></tr><tr><td>$br</td><td></"
+"CDDB-discid en deksesuma formato.</td></tr><tr>+<td><tt>$mcn</tt></td><td></"
+"td><td>La aŭdvidaĵa katalog-numero (MCN) de la KD (nur se subtenata de via "
+"aparato).</td></tr><tr><td>$now</td><td><tt>format, locale</tt></"
+"td><td>Presas la aktualan daton kaj/aŭ horon. La parametra formato specifas "
+"la eligon. Bonvolu konsulti oficialan qt-dokumentadon (<tt>https://doc.qt.io/"
+"qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
+"html#toString</tt>) pri la subtenataj specifiloj ene de la formatĉeno. Per "
+"la aldona ŝlosilo <tt>locale</tt> vi povas specifi lingvan agordon. Defaŭlte "
+"viaj sistemlokaĵaroj estas uzata. La lokaĵaro havas la formaton "
+"<tt>lingvo_TERITORIO</tt>, ekz. <tt>eo_EO</tt>. <tt>lingvo</tt> estas "
+"minuskla, dulitera, ISO-639 lingvokodo kaj <tt>TERITORIO</tt> majuskla, "
+"dulitera, ISO 3166-teritoria kodo.</td></tr><tr><td>$br</td><td></"
 "td><td>Presas linirompon.</td></tr></table>"
 
 #: utils/upload.cpp:54
@@ -2334,12 +2309,13 @@ msgstr "Vendisto:"
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"Via aparato kapablas legi la aŭdvidaĵan katalog-numeron (MCN) de la disko."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "Kapablas legi Media Catalog Number (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2361,22 +2337,19 @@ msgstr "Modelo:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
-#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+#, kde-format
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"Via aparato kapablas legi subkanal-datuman KD-Tekston, la Media Katalog-"
-"Numeron (MCN) kaj la Internaciajn Normajn Regstrad-Kodojn (ISRC) laŭtrake"
+"Via aparato kapablas legi la internacian norman regstrad-kodon (ISRC) de ĉiu "
+"unuopa trako."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "Kapablas legi Intern. Standard Recording Code (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2633,6 +2606,3 @@ msgstr "Konservi..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-#~ msgstr "Kapablas legi subkanal-datumojn (CD-Text, MCN, ISRC)"
