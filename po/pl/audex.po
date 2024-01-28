@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-21 08:50+0100\n"
+"PO-Revision-Date: 2024-01-27 11:06+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -2331,13 +2331,13 @@ msgstr "Wytwórca:"
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr ""
+msgstr "Twoje urządzenie może odczytywać Media Catalog Number (MCN) z płyty."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "Może odczytywać Media Catalog Number (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2359,22 +2359,19 @@ msgstr "Model:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
-#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+#, kde-format
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"Twoje urządzenie może odczytywać dane w podkanałach CD-Text, Media Catalog "
-"Number (MCN) oraz International Standard Recording Codes (ISRC) na ścieżkę"
+"Twoje urządzenie może odczytywać International Standard Recording Code "
+"każdej pojedynczej ścieżki."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "Może odczytywać Intern Standard Recording Code (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

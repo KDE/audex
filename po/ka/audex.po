@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-05 05:22+0100\n"
+"PO-Revision-Date: 2024-01-27 05:34+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -60,18 +60,16 @@ msgstr "გადმოსაწერი ყდების რაოდენ�
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (best quality)"
+#, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "სრული პარანოიდალური რეჟიმი (საუკეთესო ხარისხი)"
+msgstr "სრული პარანოიდალური რეჟიმი (დაცული რეჟიმი)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
-#, fuzzy, kde-format
-#| msgid "Never skip on read error"
+#, kde-format
 msgid "Skip reading errors"
-msgstr "არასდროს გამოტოვო კითხვის შეცდომა"
+msgstr "კითხვის შეცდომების გამოტოვება"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
@@ -273,16 +271,14 @@ msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue sheet \"%1\" -ის შენახვის შეცდომა."
 
 #: core/audex.cpp:1036
-#, fuzzy, kde-format
-#| msgid "Info file \"%1\" successfully created."
+#, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "ინფორმაციის ფაილი \"%1\" წარმატებით შეიქმნა."
+msgstr "ჟურნალის ფაილის \"%1\" შენახვა წარმატებულია."
 
 #: core/audex.cpp:1039
-#, fuzzy, kde-format
-#| msgid "Unable to save info file \"%1\"."
+#, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "ფაილში \"%1\" შენახვის შეცდომა."
+msgstr "ჟურნალის ფაილის \"%1\" შენახვა შეუძლებელია."
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
@@ -368,17 +364,15 @@ msgid "Command Scheme Wizard"
 msgstr "ბრძანების სქემის ოსტატი"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command scheme is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "ბრძანების სქემა ცარიელია."
+msgstr "ბრძანების სქემის დახმარება"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
-#, fuzzy, kde-format
-#| msgid "About commandline schemes"
+#, kde-format
 msgid "Please set a command scheme"
-msgstr "ბრძანებებისსტრიქონის სქემების შესახებ"
+msgstr "დააყენეთ ბრძანების სქემა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
@@ -398,7 +392,7 @@ msgstr "სემპლერის მაგალითი:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "დახმარება"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -604,6 +598,8 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
+"დარიპვის სიჩქარე ბოლო 5 წუთის განმავლობაში ძალიან შენელდა.\n"
+"გნებავთ პროცესის გაგრძელება?"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -611,16 +607,14 @@ msgid "Cancel extraction"
 msgstr "გამოღების გაუქმება"
 
 #: dialogs/extractingprogressdialog.cpp:344
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "კოდირება"
+msgstr "კოდირების ჟურნალი"
 
 #: dialogs/extractingprogressdialog.cpp:350
-#, fuzzy, kde-format
-#| msgid "Ripping OK."
+#, kde-format
 msgid "Ripping log"
-msgstr "დარიპვა წარმატებულია."
+msgstr "დარიპვის ჟურნალი"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -672,10 +666,9 @@ msgid "Scheme Wizard"
 msgstr "სქემის ოსტატი"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Scheme Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "ფაილის სახელის სქემის ოსტატი"
+msgstr "ფაილის სახელის სქემის დახმარება"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -700,10 +693,9 @@ msgstr "მაგალითი:"
 #: dialogs/profiledataplaylistwidgetUI.ui:46
 #: dialogs/profiledatasinglefilewidgetUI.ui:30
 #: dialogs/profiledatawidgetUI.ui:108
-#, fuzzy, kde-format
-#| msgid "Please check."
+#, kde-format
 msgid "Please set a scheme"
-msgstr "გთხოვთ, გადაამოწმოთ."
+msgstr "დააყენეთ სქემა"
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -713,7 +705,7 @@ msgstr "%1-ის შენახვა"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "შექმნის დრო "
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -788,12 +780,17 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>ტრეკების მედიის კატალოგის ნომრისა (MCN) და "
+"საერთაშორისო სტანდარტული ჩანაწერის კოდების (ISRC, ISO 3901) ჩაწერა CUE "
+"ცხრილზე (თუ თქვენს ამძრავს ამის შესაძლებლობა გააჩნია).</p><p>თქვენს ამძრავზე "
+"დამოკიდებულებით, ამას რიპინგის პროცესის ბოლოს რამდენიმე წამი შეიძლება "
+"დასჭირდეს, რომ ეს რიცხვები და კოდები გამოვითხოვო</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "MCN და ISR მნიშვნელობების დამატება (თუ ხელმისაწვდომია)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -822,15 +819,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (ფაილის მარტივი შემოწმება)"
 
 #: dialogs/profiledatahashlistdialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (შეტყობინების დაიჯესტის ალგორითმი 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (დაცული ჰეშის ალგორითმი)"
 
 #: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
@@ -840,7 +836,7 @@ msgstr "Info Settings"
 #: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "ტექსტური ინფორმაციის სქემის დახმარება"
 
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
@@ -874,16 +870,15 @@ msgid "Scheme:"
 msgstr "სქემა:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Single File Settings"
+#, kde-format
 msgid "Log Files Settings"
-msgstr "ერთი ფაილის მორგება"
+msgstr "ჟურნალის ფაილის მორგება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "დროის შტამპების ჩაწერა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
@@ -993,10 +988,9 @@ msgstr "ინფორმაციის ფაილის შექმნა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
-#, fuzzy, kde-format
-#| msgid "Create info file"
+#, kde-format
 msgid "Save log file"
-msgstr "ინფორმაციის ფაილის შექმნა"
+msgstr "ჟურნალის ფაილის შენახვა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -1131,16 +1125,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "ერთ-ფაილიანი დარიპვისთვის ყველა ტრეკი მონიშნული არაა"
 
 #: mainwindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "დისკის ინფორმაცია დაყენებული არაა. მართლა გნებავთ, გააგრძელოთ?"
+msgstr "ყდა დაყენებული არაა. მართლა გნებავთ, გააგრძელოთ?"
 
 #: mainwindow.cpp:157
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "ყდის ფაილი"
+msgstr "ყდა ცარიელია"
 
 #: mainwindow.cpp:181
 #, kde-format
@@ -1387,10 +1379,9 @@ msgstr ""
 "შეავსეთ შეცდომის ანგარიში და დაუკავშირდით CDDB სერვერის ადმინისტრატორს."
 
 #: models/cddamodel.cpp:902
-#, fuzzy, kde-format
-#| msgid "Unable to create KCDDB object."
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "KDCDDB ობიექტის შექმნის შეცდომა."
+msgstr "CDIO ობიექტის შექმნის შეცდომა."
 
 #: models/cddamodel.cpp:982
 #, kde-format
@@ -1560,16 +1551,13 @@ msgid "The hashlist file format is unknown."
 msgstr "ჰეშლისტის ფაილის ფორმატი უცნობია."
 
 #: models/profilemodel.cpp:510
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "მითითებული ჰეშლისტის ფაილის ფორმატი უცნობია. აირჩიეთ ერთ-ერთი შემდეგიდან: "
-"SFV, MD5."
+"SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:519
 #, kde-format
@@ -1592,16 +1580,14 @@ msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Cue Sheet-ისთვის სახელი არ დაგირქმევიათ. გთხოვთ, დააყენოთ."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "Cue filename name must not be empty."
+#, kde-format
 msgid "Log filename name must not be empty."
-msgstr "Cue-ის ფაილის სახელი ცარიელი არ უნდა იყოს."
+msgstr "ფაილის სახელი ცარიელი არ უნდა იყოს."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "You have given no name for the profile. Please set one."
+#, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr "პროფილისთვის სახელი არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
+msgstr "ჟურნალის ფაილისთვის სახელი არ მიგინიჭებიათ. გთხოვთ, მიუთითოთ ის."
 
 #: models/profilemodel.cpp:557
 #, kde-format
@@ -1620,92 +1606,85 @@ msgid "Copy"
 msgstr "კოპირება"
 
 #: utils/cddacdio.cpp:45
-#, fuzzy, kde-format
-#| msgid "Internal device error."
+#, kde-format
 msgid "Device error (1)."
-msgstr "მოწყობილობის შიდა შეცდომა."
+msgstr "მოწყობილობის შეცდომა (1)."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
 #: utils/cddacdio.cpp:530
-#, fuzzy, kde-format
-#| msgid ""
-#| "Check your device. Is it really \"%1\"? If so also check your permissions "
-#| "on \"%1\"."
+#, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
-"გადაამოწმეთ მოწყობილობა. მართლა \"%1\"-ა? თუ ასეა, \"%1\"-ზე წვდომებიც "
-"გადაამოწმეთ."
+"გადაამოწმეთ მოწყობილობა. მართლა \"%1\"-ია? თუ ასეა, \"%1\"-ზე თქვენი "
+"წვდომებიც გადაამოწმეთ."
 
 #: utils/cddacdio.cpp:52
-#, fuzzy, kde-format
-#| msgid "Internal device error."
+#, kde-format
 msgid "Device error (2)."
-msgstr "მოწყობილობის შიდა შეცდომა."
+msgstr "მოწყობილობის შეცდომა (2)."
 
 #: utils/cddacdio.cpp:60
-#, fuzzy, kde-format
-#| msgid "Internal device error."
+#, kde-format
 msgid "Device error (3)."
-msgstr "მოწყობილობის შიდა შეცდომა."
+msgstr "მოწყობილობის შეცდომა (3)."
 
 #: utils/cddacdio.cpp:446
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"ტრეკი --, საწყისი სექტორი: 000000, ზომა სექტორებში: 000150, ტიპი: შეყვანა"
 
 #: utils/cddacdio.cpp:473
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Audio"
-msgstr "აუდიო დისკი"
+msgstr "აუდიო"
 
 #: utils/cddacdio.cpp:476
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Non-Audio: CD-i"
-msgstr "აუდიო დისკი"
+msgstr "არა-აუდიო: CD-i"
 
 #: utils/cddacdio.cpp:479
 #, kde-format
 msgid "Non-Audio: Data mode 2"
-msgstr ""
+msgstr "არა-აუდიო: მონაცემების რეჟიმი 2"
 
 #: utils/cddacdio.cpp:481
 #, kde-format
 msgid ", form 1"
-msgstr ""
+msgstr ", ფორმა 1"
 
 #: utils/cddacdio.cpp:483
 #, kde-format
 msgid ", form 2"
-msgstr ""
+msgstr ", ფორმა 2"
 
 #: utils/cddacdio.cpp:486
 #, kde-format
 msgid "Non-Audio: Data mode 1"
-msgstr ""
+msgstr "არა-აუდიო: მონაცემების რეჟიმი 1"
 
 #: utils/cddacdio.cpp:489
 #, kde-format
 msgid "Non-Audio: Playstation 1"
-msgstr ""
+msgstr "არა-აუდიო: Playstation 1"
 
 #: utils/cddacdio.cpp:492
 #, kde-format
 msgid "Non-Audio: Unknown format"
-msgstr ""
+msgstr "არა-აუდიო: უცნობი ფორმატი"
 
 #: utils/cddacdio.cpp:496
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "გამოყვანა"
 
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "ტრეკი %1, საწყისი სექტორი: %2, ზომა სექტორებში: %3, ტიპი: %4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
@@ -1713,6 +1692,8 @@ msgid ""
 "Could not get device hardware information (vendor, model and firmware "
 "revision)."
 msgstr ""
+"მოწყობილობის აპარატურის ინფორმაციის (მომწოდებელი, მოდელი და მიკროკოდის "
+"ვერსია) მიღება შეუძლებელია."
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -1732,12 +1713,12 @@ msgstr "შეამოწმეთ თქვენი მოწყობილ�
 #: utils/cddaextractthread.cpp:71
 #, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-msgstr ""
+msgstr "ამძრავის მომწოდებელი: %1, მოდელი: %2, რევიზია: %3"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "სარჩევი:"
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1745,38 +1726,34 @@ msgid "Extracting finished."
 msgstr "გაშლა დასრულებულია."
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "Error occured while seeking at sector %1: %2"
-msgstr "შეცდომა %1-ე ტრეკის დარიპვისას."
+msgstr "გადახვევის შეცდომა სექტორთან %1: %2"
 
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1. See log."
-msgstr "შეცდომა %1-ე ტრეკის დარიპვისას."
+msgstr "რიპინგის შეცდომა ტრეკისთვის %1. იხილეთ ჟურნალი."
 
 #: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping. See log."
-msgstr "შეცდომა %1-ე ტრეკის დარიპვისას."
+msgstr "შეცდომა რიპინგისას. იხილეთ ჟურნალი."
 
 #: utils/cddaextractthread.cpp:121
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Correction sample offset: %1"
-msgstr "სემპლის წანაცვლება:"
+msgstr "კორექციის სემპლის წანაცვლება: %1"
 
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "დისკიდან დამატებითი ინფორმაციის გამოთხოვა..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "დისკიდან ქვეარხის ინფორმაციების გამოთხოვა"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -1789,65 +1766,58 @@ msgid "Start reading track %1 with %2 sectors"
 msgstr "%2 სექტორის მქონე %1 ტრეკის წაკითხვის დაწყება"
 
 #: utils/cddaextractthread.cpp:138
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track."
+#, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr "მთლიანი CD-ის ერთ ტრეკად დარიპვა."
+msgstr "მთელი დისკის დარიპვა (%1:%2)..."
 
 #: utils/cddaextractthread.cpp:139
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start reading whole disc with %1 sectors"
-msgstr "%2 სექტორის მქონე %1 ტრეკის წაკითხვის დაწყება"
+msgstr "მთლიანი დისკის წაკითხვის დაწყება %1 სექტორით"
 
 #: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "ტრეკი %1 საწყისი სექტორით %2"
 
 #: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
-msgstr ""
+msgstr "პირველი სექტორი: %1, ბოლო სექტორი: %2"
 
 #: utils/cddaextractthread.cpp:164
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr ""
-"გასრიალება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
-"პოზიცია %3:%4)"
+"აღმოჩენილია შეცდომა სექტორის %1 კითხვისას (ტრეკის დროის მდებარეობა %2): %3"
 
 #: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "შეცდომა %1-ე ტრეკის დარიპვისას."
+msgstr "შეცდომა %1-ე ტრეკის დარიპვისას მდებარეობაზე %2. იხილეთ ჟურნალი."
 
 #: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
 #: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "შეცდომა %1-ე ტრეკის დარიპვისას."
+msgstr "აღმოჩენილია დარიპვის შეცდომა მდებარეობაზე %1. იხილეთ ჟურნალი."
 
 #: utils/cddaextractthread.cpp:189
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr ""
-"გასრიალება (აბსოლუტური სექტორი %1, შედარებითი სექტორი %2, ტრეკის დროის "
-"პოზიცია %3:%4)"
+"აღმოჩენილია კითხვის შეცდომა სექტორისთვის %1 (ტრეკის დროის მდებარეობა %2)"
 
 #: utils/cddaextractthread.cpp:200
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"კითხვის შეცდომა სექტორისთვის %1 (%2): **მთელი სექტორი სიჩუმით შეივსება**"
 
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "რიპინგი გაუქმდა შეცდომის გამო."
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
@@ -1855,10 +1825,9 @@ msgid "User canceled extracting."
 msgstr "გადმოტანა გაუქმებულია მომხმარებლის მიერ."
 
 #: utils/cddaextractthread.cpp:255
-#, fuzzy, kde-format
-#| msgid "Extracting finished."
+#, kde-format
 msgid "Extraction interrupted"
-msgstr "გაშლა დასრულებულია."
+msgstr "გაშლა შეწყდა"
 
 #: utils/cddaextractthread.cpp:258
 #, kde-format
@@ -1871,10 +1840,9 @@ msgid "Ripping OK."
 msgstr "დარიპვა წარმატებულია."
 
 #: utils/cddaextractthread.cpp:262
-#, fuzzy, kde-format
-#| msgid "Reading finished"
+#, kde-format
 msgid "Ripping finished"
-msgstr "წაკითხვა დასრულდა"
+msgstr "დარიპვა დასრულდა"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -2035,26 +2003,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "ვერ შევქმენი დროებითი ყდის ფაილი: %1"
 
 #: utils/schemeparser.h:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -2072,23 +2021,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>ფაილის სახელის სქემები აბსოლუტური გზის გარეშე იქნება მოჭრილ მუსიკალურ "
-"ფაილებთან შედარებით.</p><p>შემდეგი ცვლადები შეიცვლება მათი განსაკუთრებული "
-"მნიშვნელობით ყველა ტრეკის სახელით.</p><p><table border="
-"\"1\"><tr><th><em>ცვლადი</em></th><th><em>აღწერა</em></th></tr><tr><td>"
-"$artist</td><td>CD- ის მხატვარი. თუ თქვენი CD არის კომპილაცია, მაშინ ეს ტეგი "
-"წარმოადგენს სათაურს უმეტეს შემთხვევაში.</td></tr><tr><td>$title</td><td>CD- "
-"ს სათაური. თუ თქვენი CD არის კომპილაცია, მაშინ ეს ტეგი წარმოადგენს სუბტიტრს "
-"უმეტეს შემთხვევაში.</td></tr><tr><td>$date</td><td>CD-ის გამოშვების თარიღი. "
-"თითქმის ყველა შემთხვევაში ეს წელია.</td></tr><tr><td>$genre</td><td>CD- ის "
-"ჟანრი.</td></tr><tr><td>$cdno</td><td>CD-ის მულტი-CD ალბომის CD ნომერი. "
-"ხშირად კომპილაციები შედგება რამდენიმე CD. <i>შენიშვნა:</i> თუ მრავალ CD "
-"დროშა <b>არ</b> არის მითითებული მიმდინარე CD, ვიდრე ეს ღირებულება მხოლოდ "
-"ცარიელი იქნება.</td></tr><tr><td>$suffix</td><td>ფაილის სახელის გაფართოება "
-"(მაგ., \".jpg\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</"
-"td><td>CD- ის აუდიო ტრეკების საერთო რაოდენობა.</td></tr><tr><td>$encoder</"
-"td><td>კოდირის სახელი და ვერსია.</td></tr><tr><td>$audex</td><td>Audex "
-"სახელი და ვერსია.</td></tr></table></p>"
+"<p>შემდეგი ადგილმჭერები ცანაცვლდება მათი მნიშვნელობებით:</"
+"p><table><tr><th>ადგილმჭერი</th><th>აღწერა</th></tr><tr><td><tt>$artist</"
+"tt></td><td>CD-ის ხელოვანი CD. თუ თქვენი CD ნაკრებია, მაშინ ეს ჭდე უმრავლეს "
+"შემთხვვაში სათაურს წარმოადგენს.</td></tr><tr><td><tt>$title</tt></td><td>CD-"
+"ის სათაური. თუ თქვენი CD ნაკრებია, ეს ჭდე უმრავლე შემთხვევაში ქვესათაურია.</"
+"td></tr><tr><td><tt>$date</tt></td><td>CD-ის გამოცემის თარიღი. უმეტეს "
+"შემთხევაში ეს წელიწადია.</td></tr><tr><td><tt>$genre</tt></td><td>CD-ის "
+"ჟანრი.</td></tr><tr><td><tt>$cdno</tt></td><td>CD-ის ნომერი მრავალდისკიან "
+"ალბომში. ხშირად ნაკრებები ერთზე მეტი დისკისგან შედგება. <i>შენიშვნა:</i> თუ "
+"მრავალდისკიანობის ალამი მიმდინარე CD-სთვის დაყენებული <b>არაა</b>, "
+"მნიშვნელობა ცარიელი იქნება.</td></tr><tr><td><tt>$nooftracks</tt></td><td>CD-"
+"ის აუდიობილიკების ჯამური რაოდენობა.</td></tr><tr><td><tt>$encoder</tt></"
+"td><td>ენკოდერის სახელი და ვერსია.</td></tr><tr><td><tt>$audex</tt></"
+"td><td>Audex-ის სახელი და ვერსია.</td></tr></table>"
 
 #: utils/schemeparser.h:173
 #, kde-format
@@ -2120,6 +2066,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Audex-ში ადგილმჭერებს შეიძლება პარამეტრები გასაღები=მნიშვნელობა სახით "
+"ჰქონდეთ. მაგ: <tt>${title lowercase=true}</tt>. ამ მაგალითში, სათაური დაბალ "
+"რეგისტრში გადავა. ადგილმჭერებთან ერთად შეგიძლიათ, შემდეგი ზოგადი პარამეტრები "
+"გამოიყენოთ:</p><table><tr><th>გასაღები</th><th>მნიშვნელობა</th><th>აღწერა</"
+"th></tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>ადგილმჭერის "
+"მნიშვნელობა ქვედა რეგისტრში გადავა.</td></tr><tr><td><tt>uppercase</tt></"
+"td><td>true/false</td><td>ადგილმჭერის მნიშვნელობა ზედა რეგისტრში გადავა.</"
+"td></tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>ადგილმჭერში "
+"გამოტოვებების ქვედატირეებით ჩანაცვლება.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>FAT32 ფაილური "
+"სისტემისთვის შეუთავსებელი სიმბოლოების ქვედატირეთი ჩანაცვლება.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>სიმბოლოების "
+"ჩანაცვლება. ამ პარამეტრს 2 დამატებითი გასაღების სჭირდება, იგივე მნისვნელობიზ "
+"ზომით:<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. ესენი "
+"სიმბოლოების სიებია. <tt>replace_char_list_from</tt>-ის პირველი სიმბოლო "
+"<tt>replace_char_list_to</tt>-ის პირველი სიმბოლოთი ჩანაცვლდება და ა.შ.</td></"
+"tr><tr><td><tt>left</tt></td><td>რიცხვი</td><td>ადგილმჭერში მარცხნიდან "
+"მითითებული ნომრის მქონე სიმბოლოს მნიშვნელობა.</td></tr><tr><td><tt>length</"
+"tt></td><td>რიცხვი</td><td>თუ ადგილმჭერის მნიშვნელობა რიცხვია, ის მითითებულ "
+"სიგრძემდე გადიდდება. ასე რომ, შეგიძლიათ ასევე აღწეროთ სიმბოლოც, რომლითაც "
+"შევსება მოხდება პარამეტრით <tt>fillchar</tt>. ნაგულისხმევი fillchar არის '0'."
+"</td></tr><tr><td><tt>pre</tt></td><td>სტრიქონი</td><td>სტრიქონი, რომელიც "
+"<b>მნიშვნელობამდე</b> მოთავსდება. განსაკუთრებით სასარგებლოა ბრძანებების "
+"სტრიქონის პარამეტრებისთვის, რომელსაც ვერ დააყენებთ, თუ მნიშვნელობა ცარიელია."
+"</td></tr><tr><td><tt>post</tt></td><td>სტრიქონი</td><td>სტრიქონი, რომელიც "
+"მნიშვნელობის <b>შემდეგ</b> მოთავსდება.</td></tr></table>"
 
 #: utils/schemeparser.h:194
 #, kde-format
@@ -2133,6 +2105,14 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>ადგილმჭერი</th><th>აღწერა</th></tr><tr><td>$tartist</"
+"td><td>ეს თითოეული ტრეკის ხელოვანია. განსაკუთრებით სასარგებლოა ნაკრები CD-"
+"ებისთვის.</td></tr><tr><td>$ttitle</td><td>ტრეკის სათაური. ჩვეულებრივ, CD-ზე "
+"არსებულ თითოეულ ტრეკს თავისი სათაური აქვს, რომელიც ჩვეულებრივ სიმღერის "
+"სახელია.</td></tr><tr><td>$trackno</td><td>ტრეკის ნომერი. პირველი ტრეკის "
+"ნომერია 1</td></tr></tr><td><tt>$isrc</tt></td</td>ტრეკის საერთაშორისო "
+"სტანდარტული ჩანაწერის კოდი (ISRC) (ხელმისაწვდომია, მხოლოდ, თუ მხარდაჭერილია "
+"თქვენი მოწყობილობის მიერ).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2149,6 +2129,18 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>ადგილმჭერი</th><th>სპეციფიკური პარამეტრი</th><th>აღწერა</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>დროებითი WAVE ფაილი, (RIFF WAVE) "
+"რომელიც Audex-მა CD აუდიობილიკიდან შექმნა. ეს შეყვანის ფაილია თქვენი "
+"ბრძანების სტრიქონის ენკოდერისთვის.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>სრული გამოტანის ფაილის სახელი და ბილიკი. გამოიყენეთ ის, როგორც "
+"გამოტანის ფაილი თქვენი ბრძანების სტრიქონის ენკოდერიდან.</td></tr><tr><td><tt>"
+"$cover</tt></td><td><tt>ფორმატი,x,y</tt></td><td>ყდის ფაილის სახელი. თუ ყდა "
+"დაყენებული არაა, ეს ცარიელი იქნება. ძირითადად, გამოიყენება <tt>pre</tt> "
+"პარამეტრთან ერთად. მოხდება გამოსახულების მასშტაბში გადაყვანა <tt>x</tt> და "
+"<tt>y</tt> პარამეტრებით. შესაძლო გამოსახულების <tt>ფორმატებია</tt> JPEG, "
+"PNG, GIF ან BMP (ნაგულისხმევი: JPEG). <i><b>შენიშვნა:</b> LAME ვერ აღიქვამს "
+"128 კიბ-ზე დიდ ყდის ფაილებს.</i></td></tr></table>"
 
 #: utils/schemeparser.h:220
 #, kde-format
@@ -2176,6 +2168,27 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table><tr><th>ადგილმჭერი</th><th>სპეციფიკური პარამეტრი</th><th>აღწერა</th></"
+"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>გამოიტანს ყველა "
+"გაშლილი (კოდირებული) მუსიკის ფაილის ჯამურ ზომას (ყდის გამოსახულების ფაილის "
+"ჩათვლით). <tt>iec</tt>-ით გამოთვლა (k)იბებში, (m)ებებში ან (g)იბებში. "
+"დამატებითი პარამეტრით <tt>precise</tt> (სიზუსტე) შეგიძლიათ ათობითის სიზუსტის "
+"რაოდენობა მიუთითოთ.</td></tr><tr><td>$length</td><td></td><td>გამოიტანს "
+"ყველა გაშლილი ტრეკის ჯამურ ხანგრძლივობას. ფორმატია წუთი:წამი.</td></"
+"tr><tr><td>$nooftracks</td><td></td><td>გამოიტანს გაშლილი ტრეკების ჯამურ "
+"რაოდენობას.</td></tr><tr><td>$discid</td><td>base</td><td>გამოიტანს CDDB "
+"discid-ს თექვსმეტობით ფორმატში.</td></tr><tr><td>$now</td><td><tt>ფორმატი,"
+"ენა</tt></td><td>გამოიტანს მიმდინარე თარიღს ან/და დროს. პარამეტრი "
+"ფორმატგანსაზღვრავს გამოტანის ფორმატს. იხილეთ qt-ის ოფიციალური დოკუმენტაცია "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>) მხარდაჭერილი ფორმატის სტრიქონის შესადგენად. "
+"დამატებითი პარამეტრით <tt>ენა</tt> შეგიძლიათ, გამოტანის ენა შეცვალოთ. "
+"ნაგულისხმევად გამოიყენება თქვენი სისტემის ენა. ენის ფორმატია "
+"<tt>ენა_ტერიტორია</tt>(ტერიტორია მაღალი რეგისტრის სიმბოლოებით), მაგ: "
+"<tt>ka_GE</tt>. <tt>ენა</tt> დაბალ რეგისტრში, ორასოიანი, ISO 639 ენის კოდია. "
+"<tt>ტერიტორია</tt> მაღალი რეგისტრის სიმბოლოებით შედგენილი ორასოიანი ISO 3166 "
+"ტერიტორიის კოდია.</td></tr><tr><td>$br</td><td></td><td>ხაზის გადატანას "
+"გამოიწვევს.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2239,10 +2252,9 @@ msgstr "ბრძანების სქემა:"
 #: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
 #: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
 #: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
-#, fuzzy, kde-format
-#| msgid "No audio CD detected"
+#, kde-format
 msgid "(No disc detected)"
-msgstr "Audio CD ვერ ვიპოვე"
+msgstr "(დისკი ვერ ვიპოვე)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:36
@@ -2259,6 +2271,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>წაკითხვის შეუმჩნეველი შეცდომების აღმოჩენის სპეციალური "
+"ტექნიკის გამოყენება. მიგიყვანთ უფრო დაცულ წაკითხვის პროცესამდე, დარიპვის "
+"სიჩქარის ხარჯზე. ასე რომ, მას \"დაცული რეჟიმიც\" შეგიძლიათ, დაარქვათ.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2274,49 +2290,52 @@ msgid ""
 "1/75 second) after trying to read the sector again for at most 20 times. "
 "Usually broken sectors will be filled with silence.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>20-მდე წარუმატებელი ცდის შემდეგ სექტორის (სექტორის "
+"სიგრძე: 1/75 წმ) წაკითხვის მცდელობების მიტოვება. ჩვეულებრივ, გაფუჭებული "
+"სექტორები სიჩუმით ივსება.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
-#, fuzzy, kde-format
-#| msgid "Disc information not found"
+#, kde-format
 msgid "Device information"
-msgstr "დისკის ინფორმაცია ვერ ვიპოვე"
+msgstr "მოწყობილობის ინფორმაცია"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
-msgstr ""
+msgstr "მომწოდებელი:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"თქვენს მოწყობილობას დისკიდან მედიის კატალოგის ნომრის (MCN) წაკითხვა შეუძლია."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "შეუძლია მედიის კატალოგის ნომრის (MCN) წაკითხვა"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
 #, kde-format
 msgid "Revision:"
-msgstr ""
+msgstr "რევიზია:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr ""
+msgstr "ხელმისაწვდომია შეცდომების გასწორება C2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
-msgstr ""
+msgstr "მოდელი:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
@@ -2325,12 +2344,14 @@ msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
+"თქვენს მოწყობილობას შეუძლია, თითოეული ტრეკიდან საერთაშორისო სტანდარტული "
+"ჩანაწერის კოდი წაიკითხოს."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "შეუძლია საერთ. სტანდარტ. ჩანაწერს კოდის (ISRC) წაკითხვა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2405,12 +2426,10 @@ msgstr "ხარისხი/ბიტური სიჩქარე"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
-"ეს პრესეტი ხალხის უმრავლესობისთვის მუსიკის უმეტესობისთვის თითქმის "
+"ეს პრესეტი ხალხის უმრავლესობისთვის მუსიკის უმეტესობისთვის მისაღებად "
 "გამჭვირვალეა."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
@@ -2437,13 +2456,11 @@ msgstr "ექსტრემალური (220...260 კბიტ/წმ)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should generally be transparent to most people."
 msgstr ""
 "ეს პრესეტი ხალხის უმრავლესობისთვის მუსიკის უმეტესობისთვის თითქმის "
-"გამჭვირვალეა."
+"გამჭვირვალე უნდა იყოს."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2453,18 +2470,14 @@ msgstr "სტანდარტული (170...210 კბიტ/წმ)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset will usually be overkill for most people and most situations, "
-#| "but if you must have the absolute highest quality with no regard to "
-#| "filesize, this is the way to go."
+#, kde-format
 msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
-"ეს პრესეტი როგორც წესი მეტისმეტია ხალხისა და სიტუაციების უმეტესობისთვის. "
-"მაგრამ თუ თქვენ უნდა გქონდეთ უმაღლესი ხარისხი ფაილის ზომის "
-"გაუთვალისწინებლად, ეს სწორედ ისაა, რაც გჭირდებათ."
+"ეს პრესეტი როგორც წესი მეტისმეტია, მაგრამ თუ თქვენ უნდა გქონდეთ უმაღლესი "
+"შესაძლო ხარისხი ფაილის ზომის გაუთვალისწინებლად, ეს სწორედ ისაა, რაც "
+"გჭირდებათ."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
