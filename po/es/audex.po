@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-21 12:38+0100\n"
+"PO-Revision-Date: 2024-01-30 19:28+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -785,6 +785,11 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Escribir el número de catálogo del medio (MCN) y el "
+"código estándar internacional de grabación (ISRC, ISO 3901) de las pistas en "
+"la hoja de datos de pistas (si el dispositivo posee dicha capacidad).</"
+"p><p>Según el dispositivo, puede tardar varios segundos tras el proceso de "
+"extracción para obtener estos números y códigos.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
@@ -1649,6 +1654,8 @@ msgstr "Error de dispositivo (3)."
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"Pista --. Sector de inicio: 000000. Tamaño en sectores: 000150. Tipo: Zona "
+"de entrada"
 
 #: utils/cddacdio.cpp:473
 #, kde-format
@@ -1668,12 +1675,12 @@ msgstr "Sin audio: Modo de datos 2"
 #: utils/cddacdio.cpp:481
 #, kde-format
 msgid ", form 1"
-msgstr ""
+msgstr ", forma 1"
 
 #: utils/cddacdio.cpp:483
 #, kde-format
 msgid ", form 2"
-msgstr ""
+msgstr ", forma 2"
 
 #: utils/cddacdio.cpp:486
 #, kde-format
@@ -1693,12 +1700,12 @@ msgstr "Sin audio: Formato desconocido"
 #: utils/cddacdio.cpp:496
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "Zona de salida"
 
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "Pista %1. Sector de inicio: %2. Tamaño en sectores: %3. Tipo: %4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
@@ -1725,15 +1732,14 @@ msgid "Check your device and make a bug report."
 msgstr "Compruebe su dispositivo y elabore un informe de fallo."
 
 #: utils/cddaextractthread.cpp:71
-#, fuzzy, kde-format
-#| msgid "Drive info, Vendor: %1, Model: %2, Revision: %3"
+#, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-msgstr "Información del dispositivo. Fabricante: %1. Modelo: %2. Revisión: %3"
+msgstr "Fabricante del dispositivo: %1. Modelo: %2. Revisión: %3"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "Tabla de contenido:"
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1741,10 +1747,9 @@ msgid "Extracting finished."
 msgstr "Extracción terminada."
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "Error occured while seeking at sector %1: %2"
-msgstr "Ha ocurrido un error durante la extracción de la pista %1."
+msgstr "Ha ocurrido un error de posicionamiento en la pista %1: %2"
 
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
 #, kde-format
@@ -1804,12 +1809,11 @@ msgid "First sector: %1, Last sector: %2"
 msgstr "Primer sector: %1. Último sector: %2"
 
 #: utils/cddaextractthread.cpp:164
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr ""
-"Deriva (sector absoluto %1, sector relativo %2, posición en el tiempo de la "
-"pista %3:%4)"
+"Ha ocurrido un error al leer el sector %1 (posición en el tiempo de la pista "
+"%2): %3"
 
 #: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
 #, kde-format
@@ -1827,17 +1831,18 @@ msgstr ""
 "registro."
 
 #: utils/cddaextractthread.cpp:189
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr ""
-"Deriva (sector absoluto %1, sector relativo %2, posición en el tiempo de la "
-"pista %3:%4)"
+"Ha ocurrido un error al leer el sector %1 (posición en el tiempo de la pista "
+"%2)"
 
 #: utils/cddaextractthread.cpp:200
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"Ha ocurrido un error al leer el sector %1 (%2). **Se rellena todo el sector "
+"con silencio**"
 
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
@@ -2348,12 +2353,13 @@ msgstr "Fabricante:"
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
 msgstr ""
+"El dispositivo puede leer el número de catálogo del medio (MCN) del disco."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "Puede leer el número de catálogo del medio (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2375,23 +2381,19 @@ msgstr "Modelo:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your device can read subchannel data CD-Text, the Media Catalog Number "
-#| "(MCN) and the International Standard Recording Codes (ISRC) per track"
+#, kde-format
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"El dispositivo puede leer datos de subcanal por pista: CD-Text, el número de "
-"catálogo del medio (MCN) y el código estándar internacional de grabación "
-"(ISRC)"
+"El dispositivo puede leer el código estándar internacional de grabación de "
+"cada pista."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "Puede leer el código estándar internacional de grabación (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
