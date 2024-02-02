@@ -2338,7 +2338,8 @@ msgstr "Laufwerksinformationen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/devicewidgetUI.ui:156
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Vendor:"
 msgid "Vendor:"
 msgstr "Anbieter:"
 
@@ -2369,7 +2370,8 @@ msgstr "Keine CD-Informationen verfügbar"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Model:"
 msgid "Model:"
 msgstr "Modell:"
 
