@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-21 14:17\n"
+"PO-Revision-Date: 2024-02-05 11:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -61,14 +61,14 @@ msgstr "获取的封面个数"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr ""
+msgstr "完全默认模式 (安全模式)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
 #, kde-format
 msgid "Skip reading errors"
-msgstr ""
+msgstr "跳过读取错误"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
@@ -185,7 +185,7 @@ msgstr "“%1”中的空闲空间少于 800 MiB。"
 #: core/audex.cpp:719
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr ""
+msgstr "临时文件夹 \"%1\" 错误 (%2)。"
 
 #: core/audex.cpp:719
 #, kde-format
@@ -272,12 +272,12 @@ msgstr "无法保存 CUE 文件“%1”。"
 #: core/audex.cpp:1036
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr ""
+msgstr "日志文件 \"%1\" 存储成功。"
 
 #: core/audex.cpp:1039
 #, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr ""
+msgstr "无法保存日志文件“%1”。"
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
@@ -362,18 +362,18 @@ msgstr "0x00000000"
 #: dialogs/commandwizarddialog.cpp:20
 #, kde-format
 msgid "Command Scheme Wizard"
-msgstr ""
+msgstr "命令方案向导"
 
 #: dialogs/commandwizarddialog.cpp:39
 #, kde-format
 msgid "Command scheme help"
-msgstr ""
+msgstr "命令方案帮助"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
 #, kde-format
 msgid "Please set a command scheme"
-msgstr ""
+msgstr "请设置命令方案"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
@@ -393,7 +393,7 @@ msgstr "采样器示例："
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -598,7 +598,7 @@ msgstr "显示抓取日志..."
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
-msgstr ""
+msgstr "提取速度在最近5分钟内特别慢。您要继续提取吗？"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -608,12 +608,12 @@ msgstr "取消提取"
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding log"
-msgstr ""
+msgstr "编码日志"
 
 #: dialogs/extractingprogressdialog.cpp:350
 #, kde-format
 msgid "Ripping log"
-msgstr ""
+msgstr "提取日志"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -651,7 +651,7 @@ msgstr "速度：0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -662,12 +662,12 @@ msgstr "正在编码轨道 8，共 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "方案向导"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
 #, kde-format
 msgid "Filename scheme help"
-msgstr ""
+msgstr "文件名方案帮助"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -694,7 +694,7 @@ msgstr "示例："
 #: dialogs/profiledatawidgetUI.ui:108
 #, kde-format
 msgid "Please set a scheme"
-msgstr ""
+msgstr "请设定方案"
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -704,7 +704,7 @@ msgstr "保存 %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "创建于 "
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -750,7 +750,7 @@ msgstr "格式："
 #: dialogs/profiledatacoverwidgetUI.ui:91
 #, kde-format
 msgid "Cover scheme:"
-msgstr ""
+msgstr "封面方案："
 
 #: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
@@ -765,7 +765,7 @@ msgstr "CUE 文件设置"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "名称/方案："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
@@ -779,12 +779,16 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>写入媒体目录号 (MCN) 和 International Standard "
+"Recording 代码  (ISRC)  曲目的ISO 3901进入 CUE 文件 (如果你的设备具备能力) 。"
+"</p><p>这取决于您的驱动器，在提取过程结束后可能需要几秒钟才能获取这些数字和代"
+"码。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "添加 MCN 和 ISRC 值 (如果可用) "
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -815,12 +819,12 @@ msgstr "SFV (Simple File Verification，简单文件验证)"
 #: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr ""
+msgstr "MD5 (Message-Digorithm 5，信息摘要算法版本 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256（Secure Hash Algorithm，安全哈希算法）"
 
 #: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
@@ -830,7 +834,7 @@ msgstr "信息设置"
 #: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "文本信息方案帮助"
 
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
@@ -861,18 +865,18 @@ msgstr "后缀："
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "方案："
 
 #: dialogs/profiledatalogfiledialog.cpp:24
 #, kde-format
 msgid "Log Files Settings"
-msgstr ""
+msgstr "日志文件设置"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "写入时间戳"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
@@ -920,7 +924,7 @@ msgstr "用下划线替换空格"
 #, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr ""
+msgstr "此设置覆盖方案中任何参数化的变量设置"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
@@ -983,7 +987,7 @@ msgstr "创建信息文件"
 #: dialogs/profiledatawidgetUI.ui:330
 #, kde-format
 msgid "Save log file"
-msgstr ""
+msgstr "保存日志文件"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -994,7 +998,7 @@ msgstr "写出单个文件"
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
 msgid "Filename Scheme Wizard"
-msgstr ""
+msgstr "文件名方案向导"
 
 #: main.cpp:32
 #, kde-format
@@ -1114,12 +1118,12 @@ msgstr "单文件抓取时没有选择全部音轨。"
 #: mainwindow.cpp:156
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr ""
+msgstr "没有设置封面。您确定要继续吗？"
 
 #: mainwindow.cpp:157
 #, kde-format
 msgid "Cover is empty"
-msgstr ""
+msgstr "封面为空"
 
 #: mainwindow.cpp:181
 #, kde-format
@@ -1359,7 +1363,7 @@ msgstr "请提交错误报告并联系 CDDB 服务器管理员。"
 #: models/cddamodel.cpp:902
 #, kde-format
 msgid "Unable to create CDIO object."
-msgstr ""
+msgstr "无法创建 CDIO 对象。"
 
 #: models/cddamodel.cpp:982
 #, kde-format
@@ -1446,12 +1450,12 @@ msgstr "未为配置文件设置编码器，请设置一个。"
 #: models/profilemodel.cpp:411
 #, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr ""
+msgstr "配置文件名方案未定义。"
 
 #: models/profilemodel.cpp:412
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr ""
+msgstr "未指定配置文件的文件名方案，请设置一个。"
 
 #: models/profilemodel.cpp:440
 #, kde-format
@@ -1464,6 +1468,7 @@ msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
+"您给定的图像文件格式未知，请选择下列格式之一：JPG/JPEG、PNG、TIFF 或 BMP。"
 
 #: models/profilemodel.cpp:450
 #, kde-format
@@ -1528,6 +1533,7 @@ msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
+"您给定的哈希列表文件格式未知，请在下列格式中选择：SFV、MD5 或 SHA-256。"
 
 #: models/profilemodel.cpp:519
 #, kde-format
@@ -1552,12 +1558,12 @@ msgstr "未指定 CUE 文件的名称，请设置一个。"
 #: models/profilemodel.cpp:543
 #, kde-format
 msgid "Log filename name must not be empty."
-msgstr ""
+msgstr "日志文件名不能为空。"
 
 #: models/profilemodel.cpp:543
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr ""
+msgstr "未设置日志文件名，请设置一个。"
 
 #: models/profilemodel.cpp:557
 #, kde-format
@@ -1578,7 +1584,7 @@ msgstr "复制"
 #: utils/cddacdio.cpp:45
 #, kde-format
 msgid "Device error (1)."
-msgstr ""
+msgstr "设备错误 (1) 。"
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
 #: utils/cddacdio.cpp:530
@@ -1587,51 +1593,52 @@ msgid ""
 "Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
+"检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
 
 #: utils/cddacdio.cpp:52
 #, kde-format
 msgid "Device error (2)."
-msgstr ""
+msgstr "设备错误 (2) 。"
 
 #: utils/cddacdio.cpp:60
 #, kde-format
 msgid "Device error (3)."
-msgstr ""
+msgstr "设备错误 (3) 。"
 
 #: utils/cddacdio.cpp:446
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
-msgstr ""
+msgstr "轨道 --, 开始扇区: 000000, 扇区大小: 000150, 类型: 引导"
 
 #: utils/cddacdio.cpp:473
 #, kde-format
 msgid "Audio"
-msgstr ""
+msgstr "音频"
 
 #: utils/cddacdio.cpp:476
 #, kde-format
 msgid "Non-Audio: CD-i"
-msgstr ""
+msgstr "非音频：CD-i"
 
 #: utils/cddacdio.cpp:479
 #, kde-format
 msgid "Non-Audio: Data mode 2"
-msgstr ""
+msgstr "非音频：数据模式 2"
 
 #: utils/cddacdio.cpp:481
 #, kde-format
 msgid ", form 1"
-msgstr ""
+msgstr "，表单1"
 
 #: utils/cddacdio.cpp:483
 #, kde-format
 msgid ", form 2"
-msgstr ""
+msgstr "，表单2"
 
 #: utils/cddacdio.cpp:486
 #, kde-format
 msgid "Non-Audio: Data mode 1"
-msgstr ""
+msgstr "非音频：数据模式 1"
 
 #: utils/cddacdio.cpp:489
 #, kde-format
@@ -2296,7 +2303,7 @@ msgstr "品质/码率"
 #: widgets/lamewidgetUI.ui:53
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
-msgstr ""
+msgstr "这个预设将为大多数的人提供近乎完全的信息。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
@@ -2323,7 +2330,7 @@ msgstr "极限 (220...260 kbits/s)"
 #: widgets/lamewidgetUI.ui:98
 #, kde-format
 msgid "This preset should generally be transparent to most people."
-msgstr ""
+msgstr "这个预设通常为大多数的人提供近乎完全的信息。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2338,6 +2345,8 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
+"这个预设通常有些过度。 但如果您必须拥有绝对最高的质量，而不考虑文件尺寸问题，"
+"那就可以选择它。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
