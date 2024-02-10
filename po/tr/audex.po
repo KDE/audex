@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-01-22 17:29+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -38,7 +38,7 @@ msgstr "İptal sonrası kısımsal dosyaları sil"
 #: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
-msgstr "Parçalar aktarıldıktan sonra CD'yi çıkar"
+msgstr "Parçalar aktarıldıktan sonra CD’yi çıkar"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
@@ -96,7 +96,7 @@ msgstr "Dosyaları sunucuya yükle"
 #: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
-msgstr "Sunucunun URL'si"
+msgstr "Sunucunun URL’si"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
@@ -153,7 +153,7 @@ msgstr "Lütfen dizini gözden geçirin (yazma hakkınız var mı?)"
 #: core/audex.cpp:627
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr "\"%1\" üzerindeki boş alan 200 MiB'tan daha az."
+msgstr "\"%1\" üzerindeki boş alan 200 MiB’tan daha az."
 
 #: core/audex.cpp:633 core/audex.cpp:702
 #, kde-format
@@ -183,7 +183,7 @@ msgstr "\"%1\" klasörü halihazırda var."
 #: core/audex.cpp:696
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr "\"%1\" üzerindeki boş alan 800 MiB'tan daha az."
+msgstr "\"%1\" üzerindeki boş alan 800 MiB’tan daha az."
 
 #: core/audex.cpp:719
 #, kde-format
@@ -198,7 +198,7 @@ msgstr "Lütfen denetleyin."
 #: core/audex.cpp:727
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
-msgstr "\"%1\" geçici klasöründeki boş alan 800 MiB'tan daha az."
+msgstr "\"%1\" geçici klasöründeki boş alan 800 MiB’tan daha az."
 
 #: core/audex.cpp:729
 #, kde-format
@@ -213,7 +213,7 @@ msgstr "Lütfen yer açın veya başka bir yol ayarlayın."
 #: core/audex.cpp:758
 #, kde-format
 msgid "Eject CD tray"
-msgstr "CD'yi çıkar"
+msgstr "CD’yi çıkar"
 
 #: core/audex.cpp:806
 #, kde-format
@@ -491,7 +491,7 @@ msgstr "Dönüştür ve Kodla"
 #: dialogs/extractingprogressdialog.cpp:178
 #, kde-format
 msgid "Ripping whole CD as single track"
-msgstr "Tüm CD'yi tek bir parça olacak şekilde dönüştür"
+msgstr "Tüm CD’yi tek bir parça olacak şekilde dönüştür"
 
 #: dialogs/extractingprogressdialog.cpp:37
 #, kde-format
@@ -1061,7 +1061,7 @@ msgstr "credativ GmbH"
 #: main.cpp:34
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Desteği için eski credativ GmbH'ye (Almanya) ayrıca teşekkürler ederiz"
+msgstr "Desteği için eski credativ GmbH’ye (Almanya) ayrıca teşekkürler ederiz"
 
 #: main.cpp:35
 #, kde-format
@@ -2028,16 +2028,16 @@ msgid ""
 msgstr ""
 "<p>Aşağıdaki yer tutucular kendi özel anlamlarıyla değiştirilirler</"
 "p><table><tr><th>Yer Tutucu</th><th>Açıklama</th></tr><tr><td><tt>$artist</"
-"tt></td><td>CD sanatçısı. CD'niz bir derleme ise bu etiket birçok durumda "
-"başlığı temsil eder.</td></tr><tr><td><tt>$title</tt></td><td>CD'nin "
-"başlığı. CD'niz bir derleme ise bu etiket birçok durumda alt başlığı temsil "
-"eder.</td></tr><tr><td><tt>$date</tt></td><td>CD'nin piyasaya çıkış tarihi. "
+"tt></td><td>CD sanatçısı. CD’niz bir derleme ise bu etiket birçok durumda "
+"başlığı temsil eder.</td></tr><tr><td><tt>$title</tt></td><td>CD’nin "
+"başlığı. CD’niz bir derleme ise bu etiket birçok durumda alt başlığı temsil "
+"eder.</td></tr><tr><td><tt>$date</tt></td><td>CD’nin piyasaya çıkış tarihi. "
 "Neredeyse tüm durumlarda bu bir yılı gösterir.</td></tr><tr><td><tt>$genre</"
-"tt></td><td>CD'nin türü.</td></tr><tr><td><tt>$cdno</tt></td><td>Birden çok "
-"CD'li bir albümün CD numarası. Derlemeler genelde birden çok CD'den "
+"tt></td><td>CD’nin türü.</td></tr><tr><td><tt>$cdno</tt></td><td>Birden çok "
+"CD’li bir albümün CD numarası. Derlemeler genelde birden çok CD’den "
 "oluşurlar. <i>Not:</i> Geçerli CD için çoklu CD bayrağı <b>ayarlanmamışsa</"
 "b> bu değer boş olacaktır.</td></tr><tr><td><tt>$nooftracks</tt></"
-"td><td>CD'deki ses izlerinin toplam sayısı.</td></tr><tr><td><tt>$encoder</"
+"td><td>CD’deki ses izlerinin toplam sayısı.</td></tr><tr><td><tt>$encoder</"
 "tt></td><td>Kodlayıcı adı ve sürümü.</td></tr><tr><td><tt>$audex</tt></"
 "td><td>Audeks adı ve sürümü.</td></tr></table>"
 
@@ -2071,7 +2071,7 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
-"<p>Audeks'teki yer tutucular anahtar=değer biçiminde parametrelere sahip "
+"<p>Audeks’teki yer tutucular anahtar=değer biçiminde parametrelere sahip "
 "olabilirler. Örneğin, <tt>${title lowercase=true}</tt>. Bu örnekte, başlık "
 "küçük harfe dönüştürülür. Aşağıdaki genel parametreler yer tutucularla "
 "birlikte kullanılabilir:</p><table><tr><th>Anahtar</th><th>Değer</"
@@ -2086,13 +2086,13 @@ msgstr ""
 "td><td>Karakterleri değiştirin. Bu parametre, aynı değer boyutlu iki ek "
 "anahtara gereksinim duyar:<tt>replace_char_list_from</tt>, "
 "<tt>replace_char_list_to</tt>. Bunlar karakter listeleridir. "
-"<tt>replace_char_list_from</tt>'un ilk karakteri, <tt>replace_char_list_to</"
-"tt>'in ilk karakteriyle değiştirilir.</td></tr><tr><td><tt>left</tt></"
+"<tt>replace_char_list_from</tt>’un ilk karakteri, <tt>replace_char_list_to</"
+"tt>’in ilk karakteriyle değiştirilir.</td></tr><tr><td><tt>left</tt></"
 "td><td>sayı</td><td>Yer tutucu değerinin soldan n. karakterini alın.</td></"
 "tr><tr><td><tt>length</tt></td><td>sayı</td><td>Yer tutucu değeri bir "
 "sayıysa onu verilen uzunluğa genişletin. Dahası, ek <tt>fillchar</tt> "
 "anahtarıyla bir dolgu karakteri de tanımlayabilirsiniz. Öntanımlı fillchar "
-"'0'dır.</td></tr><tr><td><tt>pre</tt></td><td>dizi</td><td>Değerden <b>önce</"
+"’0’dır.</td></tr><tr><td><tt>pre</tt></td><td>dizi</td><td>Değerden <b>önce</"
 "b> yerleştirilecek bir dizi. Özellikle değer boşsa hiçbir zaman "
 "ayarlanmaması gereken komut satırı parametreleri için yararlıdır.</td></"
 "tr><tr><td><tt>post</tt></td><td>dizi</td><td>Değerden <b>sonra</b> "
@@ -2111,10 +2111,10 @@ msgid ""
 "table>"
 msgstr ""
 "<table><tr><th>Yer Tutucu</th><th>Açıklama</th></tr><tr><td>$tartist</"
-"td><td>Bu, her izin sanatçısıdır. Özellikle derleme CD'lerde pek "
+"td><td>Bu, her izin sanatçısıdır. Özellikle derleme CD’lerde pek "
 "kullanışlıdır.</td></tr><tr><td>$ttitle</td><td>İz başlığı. Normalde, bir "
-"CD'deki her bir izin kendi başlığı vardır, bu da genelde şarkının adıdır.</"
-"td></tr><tr><td>$trackno</td><td>İz numarası. Birinci iz 1'dir.</td></"
+"CD’deki her bir izin kendi başlığı vardır, bu da genelde şarkının adıdır.</"
+"td></tr><tr><td>$trackno</td><td>İz numarası. Birinci iz 1’dir.</td></"
 "tr><tr><td><tt>$isrc</tt></td><td>Parçanın Uluslarası Standart Kayıt Kodu "
 "(ISRC) (yalnızca aygıtınız destekliyorsa kullanılabilir).</td></tr></table>"
 
@@ -2143,7 +2143,7 @@ msgstr ""
 "olur. Genelde <tt>pre</tt> parametresiyle birlikte kullanıldığında "
 "yararlıdır. Görsel, <tt>x</tt> ve <tt>y</tt> parametreleriyle "
 "ölçeklendirilebilir. Olası görsel <tt>biçimleri</tt> JPEG, PNG, GIF veya "
-"BMP'dir (Öntanımlı: JPEG). <i><b>Not:</b> LAME, 128 KiB'den büyük kapak "
+"BMP’dir (Öntanımlı: JPEG). <i><b>Not:</b> LAME, 128 KiB’den büyük kapak "
 "dosyalarını atar.</i></td></tr></table>"
 
 #: utils/schemeparser.h:220
@@ -2178,22 +2178,22 @@ msgstr ""
 "içerilir). <tt>iec</tt> ile (k)ibi, (m)ebi veya (g)ibi hesaplanır. Ek "
 "<tt>precision</tt> parametresi, ondalık sayısını tanımlayabilir.</td></"
 "tr><tr><td>$length</td><td></td><td>Çıkarılan tüm izlerin ilgili ortalama "
-"uzunluğunu yazdırır. Biçim, dak:san'dir.</td></tr><tr><td>$nooftracks</"
+"uzunluğunu yazdırır. Biçim, dak:san’dir.</td></tr><tr><td>$nooftracks</"
 "td><td></td><td>Çıkarılan toplam iz sayısını yazdırır.</td></tr><tr><td>"
 "$discid</td><td>base</td><td>CDDB disk kimliğini onaltılık biçimde yazdırır."
-"</td></tr><tr><td>$mcn</tt></td><td></td><td>CD'nin Ortam Katalog Numarası "
-"(MCN) (yalnızca aygıtınız destekliyorsa kullanılabilir).</td></tr><tr><td>"
-"$now</td><td><tt>format,locale</tt></td><td>Şu anki tarihi ve zamanı "
-"yazdırır. Parametre biçimi, çıktıyı belirtir. Biçim dizisinde desteklenen "
-"belirteçler için resmi Qt belgelendirmesine başvurun (<tt>https://doc.qt.io/"
-"qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate."
-"html#toString</tt>). Ek <tt>locale</tt> anahtarı ile bir dil ayarı "
-"belirtebilirsiniz. Öntanımlı olarak sistem yerel ayarlarınız kullanılır. "
-"Yerel ayar, <tt>dil_BÖLGE</tt> biçimini kullanır; örneğin, <tt>tr_CY</tt>. "
-"<tt>dil</tt>, küçük harfli, iki harften oluşan bir ISO 639 dil kodu olup "
-"<tt>BÖLGE</tt>, BÜYÜK harfli, iki harften oluşan bir ISO 3166 bölge kodudur."
-"</td></tr><tr><td>$br</td><td></td><td>Bir satır sonu yazdırır.</td></tr></"
-"table>"
+"</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>CD’nin Ortam Katalog "
+"Numarası (MCN) (yalnızca aygıtınız destekliyorsa kullanılabilir).</td></"
+"tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Şu anki tarihi ve "
+"zamanı yazdırır. Parametre biçimi, çıktıyı belirtir. Biçim dizisinde "
+"desteklenen belirteçler için resmi Qt belgelendirmesine başvurun "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>). Ek <tt>locale</tt> anahtarı ile bir dil "
+"ayarı belirtebilirsiniz. Öntanımlı olarak sistem yerel ayarlarınız "
+"kullanılır. Yerel ayar, <tt>dil_BÖLGE</tt> biçimini kullanır; örneğin, "
+"<tt>tr_CY</tt>. <tt>dil</tt>, küçük harfli, iki harften oluşan bir ISO 639 "
+"dil kodu olup <tt>BÖLGE</tt>, BÜYÜK harfli, iki harften oluşan bir ISO 3166 "
+"bölge kodudur.</td></tr><tr><td>$br</td><td></td><td>Bir satır sonu yazdırır."
+"</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2213,7 +2213,7 @@ msgstr "CD numarası: "
 #: widgets/cddaheaderwidget.cpp:147
 #, kde-format
 msgid "No audio CD detected"
-msgstr "Algılanan ses CD'si yok"
+msgstr "Algılanan ses CD’si yok"
 
 #: widgets/cddaheaderwidget.cpp:260
 #, kde-format
@@ -2315,13 +2315,13 @@ msgstr "Satıcı:"
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr "Aygıtınız artık diskin Ortam Katalog Numarası'nı (MCM) okuyabilir."
+msgstr "Aygıtınız artık diskin Ortam Katalog Numarası’nı (MCM) okuyabilir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr "Ortam Katalog Numarası'nı (MCM) okuyabilir"
+msgstr "Ortam Katalog Numarası’nı (MCM) okuyabilir"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2348,13 +2348,13 @@ msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
-"Aygıtınız artık her parçanın Uluslarası Standart Kayıt Kodu'nu okuyabilir."
+"Aygıtınız artık her parçanın Uluslarası Standart Kayıt Kodu’nu okuyabilir."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr "Uluslararası Standart Kayıt Kodu'nu (ISRC) okuyabilir"
+msgstr "Uluslararası Standart Kayıt Kodu’nu (ISRC) okuyabilir"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2407,7 +2407,7 @@ msgstr "Müzik dosyalarını saklamak için temel yol:"
 #: widgets/generalsettingswidgetUI.ui:60
 #, kde-format
 msgid "Eject CD tray after finished extraction"
-msgstr "Çıkarma tamamlandıktan sonra CD'yi çıkar"
+msgstr "Çıkarma tamamlandıktan sonra CD’yi çıkar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
 #: widgets/generalsettingswidgetUI.ui:77
