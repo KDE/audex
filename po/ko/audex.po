@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-02-10 00:44+0100\n"
+"PO-Revision-Date: 2024-02-10 22:40+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -781,6 +781,10 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>드라이브에서 사용 가능한 경우 트랙의 미디어 카탈로그 번"
+"호(MCN)과 국제 표준 녹음 코드(ISRC, ISO 3901)를 CUE 시트에 기록합니다.</p><p>"
+"드라이브에 따라서 이 값을 가져오는 데 추출 작업이 끝난 후 몇 초 정도 더 걸릴 "
+"수 있습니다.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
@@ -1978,6 +1982,8 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"replace_char_list에는 replace_char_list_from 인자와 replace_char_list_to 인자"
+"가 더 필요하며 둘의 길이는 같아야 합니다."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
@@ -1990,26 +1996,7 @@ msgid "Could not create temporary cover file: %1"
 msgstr "임시 커버 파일을 만들 수 없음: %1"
 
 #: utils/schemeparser.h:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -2027,20 +2014,18 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>절대 경로를 지정하지 않은 파일 이름 구성표는 추출한 음악 파일에 대한 상대 "
-"경로를 가정합니다.</p><p>다음 변수가 각각 트랙에 해당하는 값으로 대체됩니다."
-"</p><p><table border=\"1\"><tr><th><em>변수</em></th><th><em>설명</em></th></"
-"tr><tr><td>$artist</td><td>CD 아티스트입니다. CD가 컴필레이션 앨범이라면 대개"
-"의 경우 제목입니다.</td></tr><tr><td>$title</td><td>CD 제목입니다. CD가 컴필"
-"레이션 앨범이라면 대개의 경우 부제목입니다.</td></tr><tr><td>$date</td><td>CD"
-"의 출시 날짜입니다. 대개의 경우 연도입니다.</td></tr><tr><td>$genre</"
-"td><td>CD의 장르입니다.</td></tr><tr><td>$cdno</td><td>CD가 여러 장인 앨범에"
-"서의 CD 번호입니다. 컴필레이션 앨범은 대개 CD 여러 장으로 구성됩니다. <i>메"
-"모:</i> 현재 CD가 멀티 CD 앨범이 <b>아니라면</b> 이 값은 비어 있습니다.</"
-"td></tr><tr><td>$suffix</td><td>파일 이름 확장자입니다(예: \".jpg\", \".m3u"
-"\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>CD의 총 오디오 트랙 "
-"개수입니다.</td></tr><tr><td>$encoder</td><td>인코더 이름과 버전입니다.</"
-"td></tr><tr><td>$audex</td><td>Audex 이름과 버전입니다.</td></tr></table></p>"
+"<p>다음 자리 비움자는 해당하는 값으로 대체됩니다.</p><p><table><tr><th>자리 "
+"비움자</th><th>설명</th></tr><tr><td><tt>$artist</tt></td><td>CD 아티스트입니"
+"다. CD가 컴필레이션 앨범이라면 대개의 경우 제목입니다.</td></tr><tr><td><tt>"
+"$title</tt></td><td>CD 제목입니다. CD가 컴필레이션 앨범이라면 대개의 경우 부"
+"제목입니다.</td></tr><tr><td><tt>$date</tt></td><td>CD의 출시 날짜입니다. 대"
+"개의 경우 연도입니다.</td></tr><tr><td><tt>$genre</tt></td><td>CD의 장르입니"
+"다.</td></tr><tr><td><tt>$cdno</tt></td><td>CD가 여러 장인 앨범에서의 CD 번호"
+"입니다. 컴필레이션 앨범은 대개 CD 여러 장으로 구성됩니다. <i>메모:</i> 현재 "
+"CD가 멀티 CD 앨범이 <b>아니라면</b> 이 값은 비어 있습니다.</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>CD의 총 오디오 트랙 개수입니다.</"
+"td></tr><tr><td><tt>$encoder</tt></td><td>인코더 이름과 버전입니다.</td></"
+"tr><tr><td><tt>$audex</tt></td><td>Audex 이름과 버전입니다.</td></tr></table>"
 
 #: utils/schemeparser.h:173
 #, kde-format
@@ -2210,6 +2195,9 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>감지되지 않은 읽기 오류의 가능성을 줄일 수 있는 특수 방"
+"식을 사용합니다. 속도를 희생하는 대신 더 안전한 읽기 방식을 사용하므로 \"안"
+"전 모드\"로도 불립니다.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2225,6 +2213,9 @@ msgid ""
 "1/75 second) after trying to read the sector again for at most 20 times. "
 "Usually broken sectors will be filled with silence.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>섹터 읽기를 최대 20회 재시도한 후 섹터 읽기 오류를 건너"
+"뜁니다(섹터 크기: 1/75초). 손상된 섹터는 묵음으로 처리됩니다.</p></body></"
+"html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
@@ -2242,13 +2233,13 @@ msgstr "제조사:"
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr ""
+msgstr "장치에서 디스크의 미디어 카탈로그 번호(MCN)를 읽을 수 있습니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "미디어 카탈로그 번호(MCN)를 읽을 수 있음"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2274,13 +2265,13 @@ msgstr "모델:"
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
-msgstr ""
+msgstr "장치에서 트랙별 국제 표준 녹음 코드(ISRC)를 읽을 수 있습니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "국제 표준 녹음 코드(ISRC)를 읽을 수 있음"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2355,9 +2346,7 @@ msgstr "품질/비트 전송률"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should provide perceptual transparency to most people."
 msgstr "이 사전 설정은 대부분 음악 감상에 유용합니다."
 
@@ -2385,11 +2374,9 @@ msgstr "최대(220...260 kbits/초)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should generally be transparent to most people."
-msgstr "이 사전 설정은 대부분 음악 감상에 유용합니다."
+msgstr "이 사전 설정은 대부분 음악 감상 시 구분하기 어렵습니다."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2399,17 +2386,13 @@ msgstr "표준(170...210 kbit/초)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset will usually be overkill for most people and most situations, "
-#| "but if you must have the absolute highest quality with no regard to "
-#| "filesize, this is the way to go."
+#, kde-format
 msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
-"이 사전 설정은 대부분 사람과 경우에 넘칠 수도 있지만, 파일 크기를 고려하지 않"
-"고 최고의 음질을 추구한다면 선택하십시오."
+"이 사전 설정은 필요 이상일 수도 있지만, 파일 크기를 고려하지 않고 최고의 음질"
+"을 추구한다면 선택하십시오."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
