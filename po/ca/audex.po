@@ -2661,6 +2661,3 @@ msgstr "Desa..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-#~ msgstr "Pot llegir dades de subcanal (CD-Text, MCN, ISRC)"
