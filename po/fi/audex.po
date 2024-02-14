@@ -3,13 +3,13 @@
 # Author: Lliehu
 # Author: Luksi
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022, 2023.
+# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2023-09-04 14:32+0300\n"
+"PO-Revision-Date: 2024-02-08 10:51+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -62,18 +62,16 @@ msgstr "Noudettavien kansikuvien määrä"
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (best quality)"
+#, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "Täysi paranoia-tila (paras laatu)"
+msgstr "Täysi paranoia-tila (turvallinen tila)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
-#, fuzzy, kde-format
-#| msgid "Never skip on read error"
+#, kde-format
 msgid "Skip reading errors"
-msgstr "Älä koskaan ohita lukuvirheitä"
+msgstr "Ohita lukuvirheet"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
@@ -110,12 +108,11 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metatiedot"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -189,10 +186,9 @@ msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Laitteella ”%1” on vapaata tilaa alle 800 MiB."
 
 #: core/audex.cpp:719
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" error."
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Väliaikaiskansion ”%1” virhe."
+msgstr "Väliaikaiskansion ”%1” virhe (%2)."
 
 #: core/audex.cpp:719
 #, kde-format
@@ -277,16 +273,14 @@ msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue-tiedoston ”%1” tallennus epäonnistui."
 
 #: core/audex.cpp:1036
-#, fuzzy, kde-format
-#| msgid "Info file \"%1\" successfully created."
+#, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "Infotiedosto ”%1” luotiin onnistuneesti."
+msgstr "Lokitiedoston ”%1” talletus onnistui."
 
 #: core/audex.cpp:1039
-#, fuzzy, kde-format
-#| msgid "Unable to save info file \"%1\"."
+#, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Info-tiedoston ”%1” tallennus epäonnistui."
+msgstr "Lokitiedoston ”%1” tallennus epäonnistui."
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
@@ -356,10 +350,9 @@ msgstr "Lisätiedot:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "FreeDB:n levytunniste:"
+msgstr "CDDB:n levytunniste:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -368,23 +361,20 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
-#, fuzzy, kde-format
-#| msgid "Command Pattern Wizard"
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Opastettu komentorivin luonti"
+msgstr "Opastettu komentokuvion luonti"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme help"
-msgstr "Komentokuvio on tyhjä."
+msgstr "Komentokuvion ohje"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
-#, fuzzy, kde-format
-#| msgid "About commandline schemes"
+#, kde-format
 msgid "Please set a command scheme"
-msgstr "Komentorivimalleista"
+msgstr "Aseta komentokuvio"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
@@ -404,7 +394,7 @@ msgstr "Näytteistysesimerkki:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Ohje"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -610,6 +600,8 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
+"Purkunopeus on ollut hyvin hidas viimeiset 5 minuuttia.\n"
+"Haluatko jatkaa purkamista?"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -617,16 +609,14 @@ msgid "Cancel extraction"
 msgstr "Peru purkaminen"
 
 #: dialogs/extractingprogressdialog.cpp:344
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "Koodataan"
+msgstr "Koodausloki"
 
 #: dialogs/extractingprogressdialog.cpp:350
-#, fuzzy, kde-format
-#| msgid "Ripping OK."
+#, kde-format
 msgid "Ripping log"
-msgstr "Purku onnistui."
+msgstr "Purkuloki"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -664,7 +654,7 @@ msgstr "Nopeus: 0×"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p %"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -675,13 +665,12 @@ msgstr "Puretaan raitaa 8 / 12"
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Kuvioavustaja"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Opastettu tiedostonimikuvion luonti"
+msgstr "Tiedostonimikuvion ohje"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -706,10 +695,9 @@ msgstr "Esimerkki:"
 #: dialogs/profiledataplaylistwidgetUI.ui:46
 #: dialogs/profiledatasinglefilewidgetUI.ui:30
 #: dialogs/profiledatawidgetUI.ui:108
-#, fuzzy, kde-format
-#| msgid "Please check."
+#, kde-format
 msgid "Please set a scheme"
-msgstr "Tarkista."
+msgstr "Aseta kuvio"
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -719,7 +707,7 @@ msgstr "Tallenna %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "luotu"
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -763,10 +751,9 @@ msgstr "Muoto:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
-#| msgid "About schemes"
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Tietoa malleista"
+msgstr "Kansikuvakuvio:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
@@ -781,7 +768,7 @@ msgstr "Cue-tiedoston asetukset"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Nimi/kuvio:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
@@ -795,12 +782,16 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Kirjoita raitojen MCN- (Media Catalog Number) ja ISRC-"
+"koodit (International Standard Recording Code, ISO 3901) Cue-tiedostoon (jos "
+"asema tukee ominaisuutta).</p><p>Riippuu asemasta, kauanko koodien nouto "
+"purkamisen lopuksi vie.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Lisää MCN- ja ISRC-arvot (jos saatavilla)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -829,15 +820,14 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (Message-Digest algorithm 5)"
+msgstr "MD5 (viestitiivistealgoritmi 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (turvallinen tiivistealgoritmi)"
 
 #: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
@@ -878,19 +868,18 @@ msgstr "Pääte:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Malli:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Single File Settings"
+#, kde-format
 msgid "Log Files Settings"
-msgstr "Yksittäistiedoston asetukset"
+msgstr "Lokitiedoston asetukset"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "Kirjoita aikaleimat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
@@ -935,9 +924,7 @@ msgstr "Korvaa välilyönnit alaviivoin"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting overrides any parameterized variable settings in the pattern"
+#, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr "Tämä asetus korvaa kuviossa annetut parametroidut muuttujat"
@@ -1001,10 +988,9 @@ msgstr "Luo Info-tiedosto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
-#, fuzzy, kde-format
-#| msgid "Create info file"
+#, kde-format
 msgid "Save log file"
-msgstr "Luo Info-tiedosto"
+msgstr "Tallenna lokitiedosto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -1013,8 +999,7 @@ msgid "Write single file"
 msgstr "Kirjoita yksittäinen tiedosto"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Filename Pattern Wizard"
+#, kde-format
 msgid "Filename Scheme Wizard"
 msgstr "Opastettu tiedostonimikuvion luonti"
 
@@ -1029,10 +1014,9 @@ msgid "KDE CDDA Extractor"
 msgstr "KDE:n CDDA-haku"
 
 #: main.cpp:28
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr "Tekijänoikeus © 2007–2015 Marco Nelles"
+msgstr "Tekijänoikeudet © 2007–2023 Marco Nelles"
 
 #: main.cpp:31
 #, kde-format
@@ -1070,10 +1054,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:34
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr "Erityiskiitokset credativ GmbH:lle (Saksa) tuesta"
+msgstr "Erityiskiitokset tuesta credativ GmbH:lle (Saksa)"
 
 #: main.cpp:35
 #, kde-format
@@ -1140,16 +1123,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr "Kaikkia ääniraitoja ei valittu yksittäisen tiedoston purkuun"
 
 #: mainwindow.cpp:156
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Levytietoa ei ole asetettu. Haluatko varmasti jatkaa?"
+msgstr "Kansikuvaa ei ole asetettu. Haluatko varmasti jatkaa?"
 
 #: mainwindow.cpp:157
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Kansikuvatiedosto"
+msgstr "Kansikuva on tyhjä"
 
 #: mainwindow.cpp:181
 #, kde-format
@@ -1258,22 +1239,19 @@ msgid "Profile"
 msgstr "Profiili"
 
 #: mainwindow.cpp:475
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Nouda tietoa"
+msgstr "Nouda"
 
 #: mainwindow.cpp:482
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Lähetä tietoa"
+msgstr "Lähetä"
 
 #: mainwindow.cpp:488
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Muokkaa tietoja"
+msgstr "Muokkaa"
 
 #: mainwindow.cpp:495
 #, kde-format
@@ -1400,10 +1378,9 @@ msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "Tee vikailmoitus ja ota yhteyttä CDDB-palvelimen ylläpitoon."
 
 #: models/cddamodel.cpp:903
-#, fuzzy, kde-format
-#| msgid "Unable to create KCDDB object."
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "KCDDB-oliota ei voitu luoda."
+msgstr "CDIO-oliota ei voitu luoda."
 
 #: models/cddamodel.cpp:983
 #, kde-format
@@ -1490,10 +1467,9 @@ msgid "You have given no encoder for the profile. Please set one."
 msgstr "Profiiliin ei ole asetettu koodausohjelmaa. Aseta se."
 
 #: models/profilemodel.cpp:411
-#, fuzzy, kde-format
-#| msgid "Profile filename pattern is not defined."
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Profiilin tiedostonimikuviota ei ole asetettu."
+msgstr "Profiilin tiedostonimikuviota ei ole määritetty."
 
 #: models/profilemodel.cpp:412
 #, fuzzy, kde-format
@@ -1609,16 +1585,14 @@ msgid "You have given no name for the cue sheet. Please set one."
 msgstr "Cue-tiedostolle ei ole annettu nimeä. Aseta se."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "Cue filename name must not be empty."
+#, kde-format
 msgid "Log filename name must not be empty."
-msgstr "Cue-tiedostonimi ei saa olla tyhjä."
+msgstr "Lokitiedoston nimi ei saa olla tyhjä."
 
 #: models/profilemodel.cpp:543
-#, fuzzy, kde-format
-#| msgid "You have given no name for the profile. Please set one."
+#, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr "Profiilille ei ole annettu nimeä. Aseta se."
+msgstr "Lokitiedostolle ei ole annettu nimeä. Aseta se."
 
 #: models/profilemodel.cpp:557
 #, kde-format
@@ -1637,57 +1611,50 @@ msgid "Copy"
 msgstr "Kopioi"
 
 #: utils/cddacdio.cpp:45
-#, fuzzy, kde-format
-#| msgid "Drive error"
+#, kde-format
 msgid "Device error (1)."
-msgstr "Asemaan liittyvä virhe"
+msgstr "Laitevirhe (1)."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
 #: utils/cddacdio.cpp:530
-#, fuzzy, kde-format
-#| msgid ""
-#| "Check your device. Is it really \"%1\"? If so also check your permissions "
-#| "on \"%1\"."
+#, kde-format
 msgid ""
 "Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
-"Tarkista laitteesi. Onko se todella ”%1”? Jos on, tarkista myös laitteen "
+"Tarkista laitteesi: onko se todella ”%1”? Jos on, tarkista myös laitteen "
 "”%1” käyttöoikeudet."
 
 #: utils/cddacdio.cpp:52
-#, fuzzy, kde-format
-#| msgid "Drive error"
+#, kde-format
 msgid "Device error (2)."
-msgstr "Asemaan liittyvä virhe"
+msgstr "Laitevirhe (2)."
 
 #: utils/cddacdio.cpp:60
-#, fuzzy, kde-format
-#| msgid "Drive error"
+#, kde-format
 msgid "Device error (3)."
-msgstr "Asemaan liittyvä virhe"
+msgstr "Laitevirhe (3)."
 
 #: utils/cddacdio.cpp:446
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"Raita --, alkusektori: 000000, koko sektoreina: 000150, tyyppi: Lead-in"
 
 #: utils/cddacdio.cpp:473
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Audio"
-msgstr "Äänilevy"
+msgstr "Ääni"
 
 #: utils/cddacdio.cpp:476
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Non-Audio: CD-i"
-msgstr "Äänilevy"
+msgstr "Ei-ääni: CD-i"
 
 #: utils/cddacdio.cpp:479
 #, kde-format
 msgid "Non-Audio: Data mode 2"
-msgstr ""
+msgstr "Ei-ääni: datatila 2"
 
 #: utils/cddacdio.cpp:481
 #, kde-format
@@ -1702,17 +1669,17 @@ msgstr ""
 #: utils/cddacdio.cpp:486
 #, kde-format
 msgid "Non-Audio: Data mode 1"
-msgstr ""
+msgstr "Ei-ääni: datatila 1"
 
 #: utils/cddacdio.cpp:489
 #, kde-format
 msgid "Non-Audio: Playstation 1"
-msgstr ""
+msgstr "Ei-ääni: Playstation 1"
 
 #: utils/cddacdio.cpp:492
 #, kde-format
 msgid "Non-Audio: Unknown format"
-msgstr ""
+msgstr "Ei-ääni: tuntematon muoto"
 
 #: utils/cddacdio.cpp:496
 #, kde-format
@@ -1722,7 +1689,7 @@ msgstr ""
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "Raita %1, alkusektori: %2, koko sektoreina: %3, tyyppi: %4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
@@ -1730,6 +1697,8 @@ msgid ""
 "Could not get device hardware information (vendor, model and firmware "
 "revision)."
 msgstr ""
+"Laitetietoa ei saatu luetuksi (valmistajaa, mallia ja "
+"laiteohjelmistoversiota)."
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -1749,7 +1718,7 @@ msgstr "Tarkista laitteesi ja tee vikailmoitus."
 #: utils/cddaextractthread.cpp:71
 #, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-msgstr ""
+msgstr "Aseman valmistaja: %1, aseman malli: %2, aseman versio: %3"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
@@ -1768,16 +1737,14 @@ msgid "Error occured while seeking at sector %1: %2"
 msgstr "Raitaa %1 purettaessa sattui virhe."
 
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1. See log."
-msgstr "Raitaa %1 purettaessa sattui virhe."
+msgstr "Purettaessa raitaa %1 sattui virhe. Katso lokia."
 
 #: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping. See log."
-msgstr "Raitaa %1 purettaessa sattui virhe."
+msgstr "Purettaessa sattui virhe. Katso lokia."
 
 #: utils/cddaextractthread.cpp:121
 #, fuzzy, kde-format
@@ -1788,12 +1755,12 @@ msgstr "Näytesiirtymä:"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "Noudetaan levyltä lisätietoa…"
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Noudetaan levyltä alikanavatietoa"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -1806,26 +1773,24 @@ msgid "Start reading track %1 with %2 sectors"
 msgstr "Ala lukea raitaa %1, jolla %2 sektoria"
 
 #: utils/cddaextractthread.cpp:138
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track."
+#, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr "Koko CD:n purku yhtenä raitana."
+msgstr "Puretaan koko levyä (%1:%2)…"
 
 #: utils/cddaextractthread.cpp:139
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start reading whole disc with %1 sectors"
-msgstr "Ala lukea raitaa %1, jolla %2 sektoria"
+msgstr "Ala lukea koko %1 sektorin levyä"
 
 #: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "Raita %1, aloitussektori %2"
 
 #: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
-msgstr ""
+msgstr "Ensimmäinen sektori: %1, viimeinen sektori: %2"
 
 #: utils/cddaextractthread.cpp:164
 #, fuzzy, kde-format
@@ -1848,21 +1813,20 @@ msgid "An error occured while ripping at position %1. See log."
 msgstr "Raitaa %1 purettaessa sattui virhe."
 
 #: utils/cddaextractthread.cpp:189
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
-msgstr ""
-"Poikkeama (abs. sektori %1, suht. sektori %2, raidan ajall. sij. %3:%4)"
+msgstr "Virhe luettaessa sektoria %1 (raidan aikasijainti %2)"
 
 #: utils/cddaextractthread.cpp:200
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"Virhe luettaessa sektoria %1 (%2): **Täytetään koko sektori hiljaisuudella**"
 
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "Purkaminen peruttiin virheen takia."
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
@@ -1870,10 +1834,9 @@ msgid "User canceled extracting."
 msgstr "Käyttäjä perui purkamisen."
 
 #: utils/cddaextractthread.cpp:255
-#, fuzzy, kde-format
-#| msgid "Extracting finished."
+#, kde-format
 msgid "Extraction interrupted"
-msgstr "Purku valmis."
+msgstr "Purkaminen keskeytetty"
 
 #: utils/cddaextractthread.cpp:258
 #, kde-format
@@ -1886,10 +1849,9 @@ msgid "Ripping OK."
 msgstr "Purku onnistui."
 
 #: utils/cddaextractthread.cpp:262
-#, fuzzy, kde-format
-#| msgid "Reading finished"
+#, kde-format
 msgid "Ripping finished"
-msgstr "Luku valmis"
+msgstr "Purku valmistui"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1904,7 +1866,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:98
 #, kde-format
@@ -1929,8 +1891,7 @@ msgid "Custom"
 msgstr "Mukautettu"
 
 #: utils/encoderwrapper.cpp:61
-#, fuzzy, kde-format
-#| msgid "Command pattern is empty."
+#, kde-format
 msgid "Command scheme is empty."
 msgstr "Komentokuvio on tyhjä."
 
@@ -2018,17 +1979,17 @@ msgstr "Tiedostossa %1 ilmeni odottamaton virhe. Näin ei pitäisi tapahtua."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Indeksistä %1 löytyi virheellinen merkki: ”%2”"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Löytyi sulkematon lainausmerkki"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Indeksistä %1 löytyi virheellinen merkki: %2"
 
 #: utils/schemeparser.cpp:127
 #, kde-format
@@ -2040,34 +2001,15 @@ msgstr ""
 #: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Sulkematon sulje."
 
 #: utils/schemeparser.cpp:427
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Väliaikaista kansikuvatiedostoa ei voitu luoda: %1"
 
 #: utils/schemeparser.h:156
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Filename schemes without an absolute path will be relative to the "
-#| "ripped music files.</p><p>The following variables will be replaced with "
-#| "their particular meaning in every track name.</p><p><table border="
-#| "\"1\"><tr><th><em>Variable</em></th><th><em>Description</em></th></"
-#| "tr><tr><td>$artist</td><td>The artist of the CD. If your CD is a "
-#| "compilation, then this tag represents the title in most cases.</td></"
-#| "tr><tr><td>$title</td><td>The title of the CD. If your CD is a "
-#| "compilation, then this tag represents the subtitle in most cases.</td></"
-#| "tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-#| "this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</"
-#| "td></tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-#| "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-#| "<b>not</b> set for the current CD, than this value will be just empty.</"
-#| "td></tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \"."
-#| "m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total "
-#| "number of audio tracks of the CD.</td></tr><tr><td>$encoder</"
-#| "td><td>Encoder name and version.</td></tr><tr><td>$audex</td><td>Audex "
-#| "name and version.</td></tr></table></p>"
+#, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
 "</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
@@ -2085,22 +2027,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>Tiedostonimimallit, joissa ei ole absoluuttista sijaintia, tulkitaan "
-"suhteessa purettuihin musiikkitiedostoihin.</p><p>Seuraavat muuttujat "
-"korvataan kunkin raidan nimessä merkityksillään.</p><p><table border="
-"\"1\"><tr><th><em>Muuttuja</em></th><th><em>Kuvaus</em></th></tr><tr><td>"
-"$artist</td><td>CD:n artisti. Kokoelma-CD:ssä muuttuja useimmiten edustaa "
-"sen nimeä.</td></tr><tr><td>$title</td><td>CD:n otsikko (nimi). Kokoelma-CD:"
-"ssä muuttuja useimmiten edustaa sen alaotsikkoa.</td></tr><tr><td>$date</"
-"td><td>CD:n julkaisupäivä. Useimmiten tämä on pelkkä vuosiluku.</td></"
-"tr><tr><td>$genre</td><td>CD:n tyylilaji.</td></tr><tr><td>$cdno</"
-"td><td>Useampilevyisen albumin CD:n numero. Kokoelmat koostuvat usein "
-"useammista levyistä. <i>Huom!</i> Ellei useamman levyn osoittavaa lippua ole "
-"asetettu nykyiselle levylle, muuttujan arvo on tyhjä.</td></tr><tr><td>"
-"$suffix</td><td>Tiedostonimen pääte (esim. ”.jpg”, ”.m3u”, ”.md5”…).</td></"
-"tr><tr><td>$nooftracks</td><td>CD:n ääniraitojen kokonaismäärä.</td></"
-"tr><tr><td>$encoder</td><td>Koodausohjelman nimi ja versio.</td></tr><tr><td>"
-"$audex</td><td>Audexin nimi ja versio.</td></tr></table></p>"
+"<p>Seuraavat paikkamerkit korvataan merkityksillään:</"
+"p><table><tr><th>Paikkamerkki</th><th>Kuvaus</th></tr><td><tt>$artist</tt></"
+"td><td>Levyn artisti. Jos CD on kokoelmalevy, tämä edustaa useimmiten "
+"albumin nimeä.</td></tr><tr><td><tt>$title</tt></td><td>CD:n nimi. Jos CD on "
+"kokoelmaolevy, tämä edustaa useimmiten albumin nimen alaotsikkoa.</td></"
+"tr><tr><td><tt>$date</tt></td><td>CD:n julkaisupäivä. Useimmiten tässä on "
+"vain vuosi.</td></tr><tr><td><tt>$genre</tt></td><td>CD:n tyylilaji.</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>Useampilevyisen albumin levyn numero. "
+"Kokoelmat koostuvat usein useammasta levystä. <i>Huom!</i> Ellei tälle "
+"levylle ole asetettu useampaa levyä osoittavaa lippua, tämä arvo on tyhjä.</"
+"td></tr><tr><td><tt>$nooftracks</tt></td><td>CD-raitojen kokonaismäärä.</"
+"td></tr><tr><td><tt>$encoder</tt></td><td>Koodausohjelman nimi ja versio.</"
+"td></tr><tr><td><tt>$audex</tt></td><td>Audexin nimi ja versio.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:173
 #, kde-format
@@ -2132,6 +2072,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Audexin paikkamerkeillä voi olla parametreja muodossa avain=arvo, esim. "
+"<tt>${title lowercase=true}</tt>, jolloin albumin nimi muunnetaan "
+"pienaakkosiin. Paikkamerkkien kanssa voi käyttää seuraavia yleisparametreja:"
+"</p><table><tr><th>Avain</th><th>Arvo</th><th>Kuvaus</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>Paikkamerkin arvo "
+"muunnetaan pienaakkosiin.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
+"false</td><td>Paikkamerkin arvo muunnetaan suuraakkosiin.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Paikkamerkissä "
+"olevat sanavälit korvataan alaviivoin (_).</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Tiedostonimen "
+"FAT32-tiedostojärjestelmälle kelpaamattomat merkit korvataan alaviivoin (_)."
+"</td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Merkkien "
+"korvaus. Parametri tarvitsee kaksi samankokoista lisäavainta: "
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. Nämä ovat "
+"merkkiluetteloja. Avaimen <tt>replace_char_list_from</tt> ensimmäinen merkki "
+"korvataan avaimen <tt>replace_char_list_to</tt> ensimmäisellä merkillä jne.</"
+"td></tr><tr><td><tt>left</tt></td><td>luku</td><td>Ota paikkamerkin arvosta "
+"n ensimmäistä merkkiä.</td></tr><tr><td><tt>length</tt></td><td>luku</"
+"td><td>Jos paikkamerkin arvo on luku, laajenna se pyydettyyn leveyteen. "
+"Lisäksi voi määrittää täytemerkin lisäavaimella <tt>fillchar</tt>; "
+"oletustäyte on ”0” .</td></tr><tr><td><tt>pre</tt></td><td>merkkijono</"
+"td><td>Paikkamerkin arvon <b>edelle</b> sijoitettava merkkijono. Avuksi "
+"erityisesti komentoriviparametreille, joita ei tulisi asettaa lainkaan, jos "
+"arvo on tyhjä.</td></tr><tr><td><tt>post</tt></td><td>merkkijono</"
+"td><td>Paikkamerkin arvon <b>perään</b> sijoitettava merkkijono.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:194
 #, kde-format
@@ -2145,6 +2111,13 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Paikkamerkki</th><th>Kuvaus</th></tr><tr><td>$tartist</"
+"td><td>Kaikkien raitojen artisti. Hyödyksi erityisesti kokoelmalevyissä.</"
+"td></tr><tr><td>$ttitle</td><td>Raidan nimi. Yleensä CD:n kullakin raidalla "
+"on oma otsikko eli kappaleen nimi.</td></tr><tr><td>$trackno</td><td>Raidan "
+"numero. Numerointi alkaa 1:stä.</td></tr><tr><td><tt>$isrc</tt></"
+"td><td>Raidan ISRC (International Standard Recording Code), jos asema tukee "
+"sitä.</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2161,6 +2134,17 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Paikkamerkki</th><th>Erityisparametri</th><th>Kuvaus</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>Audexin kustakin CD-ääniraidasta "
+"luoma väliaikainen WAV-tiedosto (RIFF WAVE). Tämä toimii "
+"komentorivikoodaimen syötetiedostona.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>Tulostiedostonimi sijainteineen. Voi käyttää komentorivikoodaimen "
+"tulosta varten.</td></tr><tr><td><tt>$cover</tt></td><td><tt>muoto,x,y</tt></"
+"td><td>Kansikuvatiedoston tiedostonimi; tyhjä, ellei kansikuvaa ole "
+"asetettu. Hyödyllinen lähinnä yhdessä <tt>pre</tt>-parametrin kanssa. Kuvaa "
+"voi skaalata <tt>x</tt>- ja <tt>y</tt>-parametreilla. Mahdollisia "
+"kuva<tt>muotoja</tt> ovat JPEG, PNG, GIF ja BMP; oletus on JPEG. <i><b>Huom!"
+"</b> LAME hylkää yli 128 KiB kansikuvat.</i></td></tr></table>"
 
 #: utils/schemeparser.h:220
 #, kde-format
@@ -2188,6 +2172,27 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table><tr><th>Paikkamerkki</th><th>Erityisparametri</th><th>Kuvaus</th></"
+"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Tulostaa kaikkien "
+"purettujen (koodattujen) musiikkitiedostojen yhteiskoon (kansikuvatiedosto "
+"mukaan lukien). <tt>iec</tt> asettaa yksikön: k (kibi), m (mebi) tai g "
+"(gibi). Lisäparametrilla <tt>precision</tt> voi asettaa desimaalien määrän.</"
+"td></tr><tr><td>$length</td><td></td><td>Tulostaa kaikkien purettujen "
+"raitojen yhteiskeston. Muoto on minuutit:sekunnit.</td></tr><tr><td>"
+"$nooftracks</td><td></td><td>Tulostaa purettujen raitojen kokonaismäärän.</"
+"td></tr><tr><td>$discid</td><td>base</td><td>Tulostaa CDDB-levytunnisteen "
+"heksadesimaalisena.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>CD:n MCN "
+"(Media Catalog Number), jos asema tukee sitä.</td></tr><tr><td>$now</"
+"td><td><tt>format,locale</tt></td><td>Tulostaa nykyisen päivämäärän tai "
+"kellonajan. format-parametri määrittää tulosmuodon. Muotoilujonon tukemat "
+"määritteet löytyvät Qt:n ohjeista (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>). "
+"Lisäavaimella <tt>locale</tt> voi määrittää kielen. Oletuksena käytetään "
+"järjestelmän maa-asetuksia. Muoto on <tt>kieli_ALUE</tt>, esim. <tt>fi_FI</"
+"tt>. <tt>kieli</tt> on pienaakkosellinen kaksikirjaiminen ISO 639 -"
+"kielikoodi ja <tt>ALUE</tt> suuraakkosellinen kaksikirjaimen  ISO 3166 -"
+"aluekoodi.</td></tr><tr><td>$br</td><td></td><td>Tulostaa rivinvaihdon.</"
+"td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2241,8 +2246,7 @@ msgstr "Poista kansikuva"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Command Pattern:"
+#, kde-format
 msgid "Command Scheme:"
 msgstr "Komentokuvio:"
 
@@ -2252,10 +2256,9 @@ msgstr "Komentokuvio:"
 #: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
 #: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
 #: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
-#, fuzzy, kde-format
-#| msgid "No audio CD detected"
+#, kde-format
 msgid "(No disc detected)"
-msgstr "Ääni-CD:tä ei havaittu"
+msgstr "(Levyä ei havaittu)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:36
@@ -2290,46 +2293,45 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
-#, fuzzy, kde-format
-#| msgid "Disc information not found"
+#, kde-format
 msgid "Device information"
-msgstr "Levytietoa ei löytynyt"
+msgstr "Laitetiedot"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
-msgstr ""
+msgstr "Valmistaja:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr ""
+msgstr "Laite osaa lukea levyn MCN:n (Media Catalog Number)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "Osaa lukea MCN:n"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
 #, kde-format
 msgid "Revision:"
-msgstr ""
+msgstr "Versio:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr ""
+msgstr "C2-virheenkorjaus käytettävissä"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
-msgstr ""
+msgstr "Malli:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
@@ -2338,12 +2340,14 @@ msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
+"Laite osaa lukea kunkin yksittäisen raidan ISRC:n (International Standard "
+"Recording Code)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "Osaa lukea ISRC:n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2418,13 +2422,9 @@ msgstr "Laatu/bittinopeus"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should provide perceptual transparency to most people."
-msgstr ""
-"Tämän esiasetuksen pitäisi taata hyvä tulos useimmille lähes kaikkeen "
-"musiikkiin."
+msgstr "Tällä esiasetuksella useimmat eivät kuule eroa alkuperäiseen."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
@@ -2450,13 +2450,9 @@ msgstr "Äärimmäinen (220–260 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset should provide near transparency to most people on most music."
+#, kde-format
 msgid "This preset should generally be transparent to most people."
-msgstr ""
-"Tämän esiasetuksen pitäisi taata hyvä tulos useimmille lähes kaikkeen "
-"musiikkiin."
+msgstr "Tämän esiasetuksen pitäisi taata useimmille kelpaava lopputulos."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2466,18 +2462,13 @@ msgstr "Vakio (170–210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
-#, fuzzy, kde-format
-#| msgid ""
-#| "This preset will usually be overkill for most people and most situations, "
-#| "but if you must have the absolute highest quality with no regard to "
-#| "filesize, this is the way to go."
+#, kde-format
 msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
-"Tämä esiasetus on useimmille käyttäjille useimmissa tilanteissa liioittelua, "
-"mutta jos vaadit absoluuttisen parasta laatua tiedostokoosta riippumatta, "
-"tästä sen saa."
+"Tämä esiasetus on useimmiten liioittelua, mutta jos vaaditaan absoluuttisen "
+"parasta laatua tiedostokoosta riippumatta, tästä sen saa."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
@@ -2494,22 +2485,19 @@ msgstr "Tasainen bittinopeus"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
-#, fuzzy, kde-format
-#| msgid "Target Bitrate (kbit/s)"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
 msgstr "Kohdebittinopeus (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
 msgstr "Kohdebittinopeus ~"
 
@@ -2550,19 +2538,15 @@ msgid "Load Profiles"
 msgstr "Lataa profiileja"
 
 #: widgets/profilewidget.cpp:138
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-#| "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to "
-#| "create some sample profiles based upon any found codecs.</font></p>"
+#, kde-format
 msgid ""
 "<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>Haluatko etsiä koodekkeja (Lame, Ogg Vorbis, FLAC jne.) järjestelmästäsi "
-"uudestaan?</p><p><font style=\"font-style:italic;\">Tämä yrittää luoda "
-"löytyneille koodekeille myös esimerkkiprofiileja.</font></p>"
+"<p>Haluatko etsiä koodekkeja (Lame, Opus, FLAC jne.) järjestelmästä "
+"uudestaan?</p><p><font style=\"font-style:italic;\">Löytyneille koodekeille "
+"yritetään luoda myös esimerkkiprofiileja.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
