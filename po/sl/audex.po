@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-02-04 19:43+0100\n"
+"PO-Revision-Date: 2024-02-16 17:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -2348,7 +2348,7 @@ msgid ""
 "single track."
 msgstr ""
 "Vaša naprava lahko bere Mednarodne standardne kode za snemanje - "
-"International Standard Recording Codes (ISRC) na vsaki sledi"
+"International Standard Recording Codes (ISRC) na vsaki sledi."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
