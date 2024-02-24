@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 00:36+0000\n"
-"PO-Revision-Date: 2024-02-20 11:46+0100\n"
+"PO-Revision-Date: 2024-02-23 10:43+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2052,6 +2052,22 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>Le sequente  substitutos essera reimplaciate con lor particular "
+"signification:</p><table><tr><th>Substitutor</th><th>Description</th></"
+"tr><tr><td><tt>$artist</tt></td><td>Le artista del CD. Si tu CD es un "
+"compilation alora tste etiquetta representa in multe casos le titulo.</td></"
+"tr><tr><td><tt>$title</tt></td><td>Le titulo del CD. Si tu CD es un "
+"compilation alora iste etiquetta  representa le subtitulo in multe casos.</"
+"td></tr><tr><td><tt>$date</tt></td><td>Le data de liberation del CD. In "
+"quasi omne casos isto es le anno.</td></tr><tr><td><tt>$genre</tt></"
+"td><td>Le genere del CD.</td></tr><tr><td><tt>$cdno</tt></td><td>Le numero "
+"de CD number de un album multi-CD . Sovente compilationes consiste de plure "
+"CDs. <i>Nota:</i> Si le bandiera de multi-CD flag es <b>non</b> assignate "
+"per le CD currente alora iste valo ressera vacue.</td></tr><tr><td><tt>"
+"$nooftracks</tt></td><td>Le numero total de tracias audio del CD.</td></"
+"tr><tr><td><tt>$encoder</tt></td><td>Nomine del codificator e version.</td></"
+"tr><tr><td><tt>$audex</tt></td><td>Nomine e version de Audex.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:173
 #, kde-format
@@ -2096,6 +2112,14 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Substituto</th><th>Description</th></tr><tr><td>$tartist</"
+"td><td>Isto es le artista de cata tracia. Illo es specialmente utile sur CDs "
+"de compilation.</td></tr><tr><td>$ttitle</td><td>Le titulo de tracia. "
+"Normalmente cata tracia sur un CD ha su proprie titulo, que es le nomine del "
+"canto.</td></tr><tr><td>$trackno</td><td>Le numero de tracia. Prime tracia "
+"es 1.</td></tr><tr><td><tt>$isrc</tt></td><td>Le codice ISCR (International "
+"Standard Recording Code) del tracia (solmente disponibile si supportate per "
+"tu dispositivo).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2221,6 +2245,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Usa alcun technicas special per reducer "
+"lepossibilitate de errores de lectura non notificate. Il duce a un processo "
+"de lectura plus secur a expensa de velocitate de rippar, assi illo poterea "
+"anque esser appellate \"modo secur\".</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2371,6 +2399,8 @@ msgstr "Qualitate/Frequentia de bits"
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
+"Iste preconfiguration deberea fornir transparentia de perception al "
+"majoritate de personas.   "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
@@ -2385,6 +2415,9 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"Si tu ha audito extrememente bon e equipamento similar, iste "
+"preconfiguration generalmente fornira un qualitate legiermente superior que "
+"le modo \"standard\"  "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
@@ -2397,6 +2430,8 @@ msgstr "Extreme (220...260 kbits/s)"
 #, kde-format
 msgid "This preset should generally be transparent to most people."
 msgstr ""
+"Iste preconfiguration generalmente es transparente al majoritate de "
+"personas. "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2411,6 +2446,9 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
+"Iste preconfiguration essera solitemente exaggerate, ma si tu vole haber le "
+"qualitate absolute melior con nulle respecto al dimension de file, isto es "
+"le modo de facer.   "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
@@ -2429,7 +2467,7 @@ msgstr "Frequentia de bit constante"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr ""
+msgstr "Frequentia de bit de objectivo (kbits/s) "
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
@@ -2441,7 +2479,7 @@ msgstr " kbit/s"
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr ""
+msgstr "Frequentia de Objectivo ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2467,7 +2505,7 @@ msgstr "Fixa maxime frequentia de bit"
 #: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Tu vermente vole deler le profilo \"%1\"?"
 
 #: widgets/profilewidget.cpp:79
 #, kde-format
