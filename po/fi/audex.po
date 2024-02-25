@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-02-08 10:51+0200\n"
+"PO-Revision-Date: 2024-02-19 11:33+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -837,7 +837,7 @@ msgstr "Tietoasetukset"
 #: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Tekstitietokuvion ohje"
 
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
@@ -1472,8 +1472,7 @@ msgid "Profile filename scheme is not defined."
 msgstr "Profiilin tiedostonimikuviota ei ole määritetty."
 
 #: models/profilemodel.cpp:412
-#, fuzzy, kde-format
-#| msgid "You have given no filename pattern for the profile. Please set one."
+#, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "Profiilille ei ole annettu tiedostonimikuviota. Aseta se."
 
@@ -1483,16 +1482,13 @@ msgid "The image file format is unknown."
 msgstr "Kuvan tiedostomuoto on tuntematon."
 
 #: models/profilemodel.cpp:441
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Antamasi kuvatiedostomuoto on tuntematon. Valitse jokin seuraavista "
-"muodoista: JPG/JPEG, PNG tai BMP."
+"muodoista: JPEG, PNG, TIFF tai BMP."
 
 #: models/profilemodel.cpp:450
 #, kde-format
@@ -1554,15 +1550,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Tiivisteluettelon tiedostomuoto on tuntematon."
 
 #: models/profilemodel.cpp:510
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
-"Tiivisteluettelon tiedostomuoto on tuntematon. Aseta jompikumpi: SFV tai MD5."
+"Tiivisteluettelon tiedostomuoto on tuntematon. Aseta jokin seuraavista: SFV, "
+"MD5 tai SHA-256."
 
 #: models/profilemodel.cpp:519
 #, kde-format
@@ -1723,7 +1717,7 @@ msgstr "Aseman valmistaja: %1, aseman malli: %2, aseman versio: %3"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "Sisällys:"
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1731,10 +1725,9 @@ msgid "Extracting finished."
 msgstr "Purku valmis."
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "Error occured while seeking at sector %1: %2"
-msgstr "Raitaa %1 purettaessa sattui virhe."
+msgstr "Etsittäessä sektoria %1 sattui virhe: %2"
 
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
 #, kde-format
@@ -1747,10 +1740,9 @@ msgid "An error occured while ripping. See log."
 msgstr "Purettaessa sattui virhe. Katso lokia."
 
 #: utils/cddaextractthread.cpp:121
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Correction sample offset: %1"
-msgstr "Näytesiirtymä:"
+msgstr "Korjausnäytesiirtymä: %1"
 
 #: utils/cddaextractthread.cpp:129
 #, kde-format
@@ -1793,24 +1785,20 @@ msgid "First sector: %1, Last sector: %2"
 msgstr "Ensimmäinen sektori: %1, viimeinen sektori: %2"
 
 #: utils/cddaextractthread.cpp:164
-#, fuzzy, kde-format
-#| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr ""
-"Poikkeama (abs. sektori %1, suht. sektori %2, raidan ajall. sij. %3:%4)"
+msgstr "Luettaessa sektoria %1 sattui virhe (raidan ajallinen sijainti %2): %3"
 
 #: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "Raitaa %1 purettaessa sattui virhe."
+msgstr "Purettaessa raitaa %1 kohdassa %2 sattui virhe. Katso lokia."
 
 #: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
 #: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "Raitaa %1 purettaessa sattui virhe."
+msgstr "Purettaessa sattui virhe kohdassa %1. Katso lokia."
 
 #: utils/cddaextractthread.cpp:189
 #, kde-format
@@ -1997,6 +1985,8 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"replace_char_list-parametri tarvitsee kaksi samankokoista lisäparametria, "
+"replace_char_list_from ja replace_char_list_to."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
@@ -2275,6 +2265,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Vähennä havaitsematta jäävien lukuvirheiden "
+"mahdollisuutta erityistekniikoin. Takaa varmemman lukuprosessin "
+"purkunopeuden kustannuksella, joten tätä voisi kutsua ”turvatilaksi”.</p></"
+"body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2290,6 +2284,9 @@ msgid ""
 "1/75 second) after trying to read the sector again for at most 20 times. "
 "Usually broken sectors will be filled with silence.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Sivuuta sektorin lukuvirheet (sektorin kesto: 1/75 "
+"sekuntia) enintään 20 lukuyrityskerran jälkeen. Virheelliset sektorit "
+"täytetään yleensä hiljaisuudella.</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
