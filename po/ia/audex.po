@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-31 11:41+0100\n"
+"PO-Revision-Date: 2024-02-26 11:06+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -599,6 +599,8 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
+"Velocitate de rippar esseva extrememente basse per le ultime 5 minutas.\n"
+"Tu vole continuar extraction?"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -779,12 +781,17 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Scribe Media Catalog Number (MCN) e International "
+"Standard Recording Codes (ISRC, ISO 3901) del tracias in le folio indice (si "
+"tu  unitate de memorisation ha le capacitate).</p><p>Dependente de tu "
+"unitate il poterea prender alcun secundas al fin de tu processo de rippar "
+"per recuperar ille numeros e codices.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Adde valores MCN e ISRC ( si disponibile)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -872,7 +879,7 @@ msgstr "Preferentias de File de registro"
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "Scribe marcas temporal"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
@@ -1556,7 +1563,7 @@ msgstr ""
 #: models/profilemodel.cpp:509
 #, kde-format
 msgid "The hashlist file format is unknown."
-msgstr ""
+msgstr "Le formato d file de hashlist es incognoscite."
 
 #: models/profilemodel.cpp:510
 #, kde-format
@@ -1564,26 +1571,28 @@ msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
+"Tu formato date de file de hashlist es incognoscite. Pro favor tu selige "
+"alcun de iste formatos: SFV, MD5, SHA-256"
 
 #: models/profilemodel.cpp:519
 #, kde-format
 msgid "Hashlist name must not be empty."
-msgstr ""
+msgstr "Nomine de hashlist non pote esser vacue."
 
 #: models/profilemodel.cpp:519
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
-msgstr ""
+msgstr "Tu non ha date alcun nomine per le hashlist. Pro favor tu assigna un."
 
 #: models/profilemodel.cpp:530
 #, kde-format
 msgid "Cue filename name must not be empty."
-msgstr ""
+msgstr "Nomine de nomine d efile indice (cue) non pote esser vacue."
 
 #: models/profilemodel.cpp:530
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
-msgstr ""
+msgstr "Tu non ha date alcun nomine per le folio indice. Pro favot assigna un."
 
 #: models/profilemodel.cpp:543
 #, kde-format
@@ -1599,12 +1608,13 @@ msgstr ""
 #: models/profilemodel.cpp:557
 #, kde-format
 msgid "Filename name must not be empty."
-msgstr ""
+msgstr "Nomine de nomine de file nonpote esser vacue."
 
 #: models/profilemodel.cpp:557
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
+"Tu non ha date alcun nomine per le singule file audio. Pro favor assigna un."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
@@ -1641,6 +1651,8 @@ msgstr "Error de dispositivo (3)."
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"Tracia --, Sector de initio: 000000, Grandor  in sectores: 000150, Typo: "
+"Lead-in (Introduction)"
 
 #: utils/cddacdio.cpp:473
 #, kde-format
@@ -1655,7 +1667,7 @@ msgstr "Non-Audio: CD-i"
 #: utils/cddacdio.cpp:479
 #, kde-format
 msgid "Non-Audio: Data mode 2"
-msgstr ""
+msgstr "Non-Audio: Modo de datos 2"
 
 #: utils/cddacdio.cpp:481
 #, kde-format
@@ -1670,27 +1682,27 @@ msgstr ", forma 2"
 #: utils/cddacdio.cpp:486
 #, kde-format
 msgid "Non-Audio: Data mode 1"
-msgstr ""
+msgstr "Non-Audio: Modo de datos 1"
 
 #: utils/cddacdio.cpp:489
 #, kde-format
 msgid "Non-Audio: Playstation 1"
-msgstr ""
+msgstr "Non-Audio: Playstation 1"
 
 #: utils/cddacdio.cpp:492
 #, kde-format
 msgid "Non-Audio: Unknown format"
-msgstr ""
+msgstr "Non-Audio: Formato incognoscite"
 
 #: utils/cddacdio.cpp:496
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "Lead-out (Termination)"
 
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "Tracia %1, Sector de initio: %2, Grandor in sectores: %3, Typo: %4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
@@ -1757,12 +1769,12 @@ msgstr "Displaciamento de Exemplo de correction: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "Recuperante information extra ex disco..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "Recuoerante infos de subcanal ex disco"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -1827,11 +1839,13 @@ msgstr ""
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"Error quando legeva sector %1 (%2): **Reimplente le complete sector con "
+"silentio**"
 
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "Rippar esseva cancellate debite a un error."
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
@@ -1942,21 +1956,23 @@ msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr ""
+"O il es mancante, o tu pote haber inadequate permissiones per invocar le "
+"programma. "
 
 #: utils/encoderwrapper.cpp:190
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
-msgstr ""
+msgstr "%1 se fracassava alcun vice postea startar con successo."
 
 #: utils/encoderwrapper.cpp:193
 #, kde-format
 msgid "%1 timed out. This should not happen."
-msgstr ""
+msgstr "%1 expirava.Isto non deberea occurrer."
 
 #: utils/encoderwrapper.cpp:196
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr ""
+msgstr "Un error occurreva quando on tentava scriber a %1."
 
 #: utils/encoderwrapper.cpp:197
 #, kde-format
@@ -1964,11 +1980,13 @@ msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
 msgstr ""
+"Proexemplo, le processo poterea non esser executante, o illo poterea haber "
+"claudite sucanales de ingresso."
 
 #: utils/encoderwrapper.cpp:200
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
-msgstr ""
+msgstr "Un error occurreva quando on tentava leger ex %1."
 
 #: utils/encoderwrapper.cpp:200
 #, kde-format
@@ -1984,17 +2002,17 @@ msgstr "Un error incognoscite occurreva a %1. Isto non debrea occurrer."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Character illegal trovate al indice %1: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Trovate un citation non claudite"
 
 #: utils/schemeparser.cpp:76
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Character illegal trovate al indice %1: %2"
 
 #: utils/schemeparser.cpp:127
 #, kde-format
@@ -2002,16 +2020,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"Parametro de replace_char_list necessita duo altere parametros "
+"replace_char_list_from e replace_char_list_to con equal dimension."
 
 #: utils/schemeparser.cpp:273
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Parenthesis non claudite"
 
 #: utils/schemeparser.cpp:427
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Non poteva crear file de copertura temporanee: %1"
 
 #: utils/schemeparser.h:156
 #, kde-format
@@ -2032,6 +2052,22 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>Le sequente  substitutos essera reimplaciate con lor particular "
+"signification:</p><table><tr><th>Substitutor</th><th>Description</th></"
+"tr><tr><td><tt>$artist</tt></td><td>Le artista del CD. Si tu CD es un "
+"compilation alora tste etiquetta representa in multe casos le titulo.</td></"
+"tr><tr><td><tt>$title</tt></td><td>Le titulo del CD. Si tu CD es un "
+"compilation alora iste etiquetta  representa le subtitulo in multe casos.</"
+"td></tr><tr><td><tt>$date</tt></td><td>Le data de liberation del CD. In "
+"quasi omne casos isto es le anno.</td></tr><tr><td><tt>$genre</tt></"
+"td><td>Le genere del CD.</td></tr><tr><td><tt>$cdno</tt></td><td>Le numero "
+"de CD number de un album multi-CD . Sovente compilationes consiste de plure "
+"CDs. <i>Nota:</i> Si le bandiera de multi-CD flag es <b>non</b> assignate "
+"per le CD currente alora iste valo ressera vacue.</td></tr><tr><td><tt>"
+"$nooftracks</tt></td><td>Le numero total de tracias audio del CD.</td></"
+"tr><tr><td><tt>$encoder</tt></td><td>Nomine del codificator e version.</td></"
+"tr><tr><td><tt>$audex</tt></td><td>Nomine e version de Audex.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:173
 #, kde-format
@@ -2076,6 +2112,14 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Substituto</th><th>Description</th></tr><tr><td>$tartist</"
+"td><td>Isto es le artista de cata tracia. Illo es specialmente utile sur CDs "
+"de compilation.</td></tr><tr><td>$ttitle</td><td>Le titulo de tracia. "
+"Normalmente cata tracia sur un CD ha su proprie titulo, que es le nomine del "
+"canto.</td></tr><tr><td>$trackno</td><td>Le numero de tracia. Prime tracia "
+"es 1.</td></tr><tr><td><tt>$isrc</tt></td><td>Le codice ISCR (International "
+"Standard Recording Code) del tracia (solmente disponibile si supportate per "
+"tu dispositivo).</td></tr></table>"
 
 #: utils/schemeparser.h:206
 #, kde-format
@@ -2123,12 +2167,12 @@ msgstr ""
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr ""
+msgstr "Incargante file %1 al servitor. Pro favor tu attende..."
 
 #: utils/upload.cpp:61
 #, kde-format
 msgid "Finished uploading file %1 to server."
-msgstr ""
+msgstr "Terminate incargar file %1 al servitor."
 
 #: widgets/cddaheaderwidget.cpp:133
 #, kde-format
@@ -2153,17 +2197,17 @@ msgstr "Salveguarda copertura"
 #: widgets/cddaheaderwidget.cpp:350
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "Assigna Copertura Personalisate..."
 
 #: widgets/cddaheaderwidget.cpp:355
 #, kde-format
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "Salveguarda Copertura a file..."
 
 #: widgets/cddaheaderwidget.cpp:360
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "Monstra copertura a grandor complete..."
 
 #: widgets/cddaheaderwidget.cpp:365
 #, kde-format
@@ -2174,7 +2218,7 @@ msgstr "Remove copertura"
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Scheme:"
-msgstr ""
+msgstr "Schema de commando:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
@@ -2201,6 +2245,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Usa alcun technicas special per reducer "
+"lepossibilitate de errores de lectura non notificate. Il duce a un processo "
+"de lectura plus secur a expensa de velocitate de rippar, assi illo poterea "
+"anque esser appellate \"modo secur\".</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2233,13 +2281,13 @@ msgstr "Venditor:"
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr ""
+msgstr "Tu dispositivo pote leger  le Media Catalog Number (MCN) del disco."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "Pote leger Media Catalog Number (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
@@ -2251,7 +2299,7 @@ msgstr "Revision:"
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr ""
+msgstr "Correction de error C2 disponibile"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
@@ -2266,12 +2314,14 @@ msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
 msgstr ""
+"Tu disposisitivo pote leger le International Standard Recording Code de cata "
+"singule tracia."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "Pote leger Intern. Standard Recording Code (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2300,7 +2350,7 @@ msgstr "plus alte"
 #: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
 #, kde-format
 msgid "Embed cover in music file"
-msgstr ""
+msgstr "Incorpora copertura in file de musica"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
@@ -2349,6 +2399,8 @@ msgstr "Qualitate/Frequentia de bits"
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
+"Iste preconfiguration deberea fornir transparentia de perception al "
+"majoritate de personas.   "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
@@ -2363,6 +2415,9 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"Si tu ha audito extrememente bon e equipamento similar, iste "
+"preconfiguration generalmente fornira un qualitate legiermente superior que "
+"le modo \"standard\"  "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
@@ -2375,6 +2430,8 @@ msgstr "Extreme (220...260 kbits/s)"
 #, kde-format
 msgid "This preset should generally be transparent to most people."
 msgstr ""
+"Iste preconfiguration generalmente es transparente al majoritate de "
+"personas. "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2389,6 +2446,9 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
+"Iste preconfiguration essera solitemente exaggerate, ma si tu vole haber le "
+"qualitate absolute melior con nulle respecto al dimension de file, isto es "
+"le modo de facer.   "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
@@ -2407,7 +2467,7 @@ msgstr "Frequentia de bit constante"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr ""
+msgstr "Frequentia de bit de objectivo (kbits/s) "
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
@@ -2419,7 +2479,7 @@ msgstr " kbit/s"
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr ""
+msgstr "Frequentia de Objectivo ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2445,7 +2505,7 @@ msgstr "Fixa maxime frequentia de bit"
 #: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Tu vermente vole deler le profilo \"%1\"?"
 
 #: widgets/profilewidget.cpp:79
 #, kde-format
