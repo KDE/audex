@@ -14,14 +14,11 @@ find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_MODULE_PATH}
                       ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
-configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
-
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -g")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(ECMAddTests)
 include(FeatureSummary)
@@ -58,6 +55,11 @@ include_directories(
   ${CDIO_CDDA_INCLUDE_DIRS} ${CDIO_PARANOIA_INCLUDE_DIRS})
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
+
+ecm_setup_version(${PROJECT_VERSION}
+    VARIABLE_PREFIX AUDEX
+    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/audex-version.h
+)
 
 remove_definitions(
   -DQT_NO_CAST_FROM_ASCII -DQT_NO_URL_CAST_FROM_STRING

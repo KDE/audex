@@ -11,7 +11,7 @@
 #include <KAboutData>
 #include <KCrash>
 
-#include "config.h"
+#include "audex-version.h"
 #include "mainwindow.h"
 
 int main(int argc, char *argv[])
@@ -22,11 +22,8 @@ int main(int argc, char *argv[])
 
     KLocalizedString::setApplicationDomain("audex");
 
-    KAboutData aboutData("audex", i18n("Audex"), AUDEX_VERSION);
-    aboutData.setShortDescription(i18n("KDE CDDA Extractor"));
-    aboutData.setLicense(KAboutLicense::GPL);
-    aboutData.setCopyrightStatement(i18n("Copyright © 2007-2023 Marco Nelles"));
-    aboutData.setHomepage("https://userbase.kde.org/Audex");
+    KAboutData aboutData("audex", i18n("Audex"), AUDEX_VERSION_STRING, i18nc("@info", "Audio ripping application"), KAboutLicense::GPL, i18n("Copyright © 2007-2023 Marco Nelles"));
+    aboutData.setHomepage("https://bugs.kde.org/describecomponents.cgi?product=audex");
     aboutData.setBugAddress("audex@maniatek.de");
     aboutData.addAuthor(i18n("Marco Nelles"), i18n("Current maintainer, main developer"), "marco@maniatek.de");
     aboutData.addCredit(i18n("Craig Drummond"), i18n("GUI improvements, development"), nullptr, "");
