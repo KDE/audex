@@ -36,81 +36,29 @@
   <name xml:lang="x-test">xxAudexxx</name>
   <name xml:lang="zh-CN">Audex</name>
   <name xml:lang="zh-TW">Audex</name>
-  <summary>An easy to use audio CD ripping application</summary>
-  <summary xml:lang="ca">Una aplicació d'extracció dels CD d'ús senzill</summary>
-  <summary xml:lang="ca-valencia">Una aplicació d'extracció dels CD d'ús senzill</summary>
-  <summary xml:lang="da">Et brugervenligt program til at rippe cd'er</summary>
-  <summary xml:lang="de">Eine einfach zu bedienende Anwendung zum Auslesen von Audio-CDs.</summary>
-  <summary xml:lang="en-GB">An easy to use audio CD ripping application</summary>
-  <summary xml:lang="eo">Facile uzebla kopiilo por aŭdio-KD-oj</summary>
-  <summary xml:lang="es">Una aplicación de extracción de CD de sonido fácil de usar</summary>
-  <summary xml:lang="et">Hõlpsasti kasutatav heli-CD-de rippimise rakendus</summary>
-  <summary xml:lang="eu">Audio CDetatik erauzteko aplikazio erraz bat</summary>
-  <summary xml:lang="fi">Helppokäyttöinen CD:n purkusovellus</summary>
-  <summary xml:lang="fr">Une application d'extraction de CD audio facile à utiliser</summary>
-  <summary xml:lang="gl">Unha aplicación de copia de CD de son fácil de usar.</summary>
-  <summary xml:lang="ia">Un application per rippar CD audio facile a usar</summary>
-  <summary xml:lang="id">Sebuah kemudahan untuk menggunakan aplikasi perabitan CD audio</summary>
-  <summary xml:lang="it">Un'applicazione per l'estrazione dei CD audio semplice da usare</summary>
-  <summary xml:lang="ka">აუდიო დისკიდან სიმღერების გადმოსაწერი აპლიკაცია</summary>
-  <summary xml:lang="ko">쉽게 사용 가능한 오디오 CD 추출 앱</summary>
-  <summary xml:lang="nl">Een gemakkelijk te gebruiken audio-CD toepassing voor rippen</summary>
-  <summary xml:lang="pl">Łatwa w użyciu aplikacja do zgrywania płyt CD</summary>
-  <summary xml:lang="pt">Uma aplicação de extracção de CD's de áudio simples de usar</summary>
-  <summary xml:lang="pt-BR">Um aplicativo fácil de usar para copiar CDs de áudio</summary>
-  <summary xml:lang="ro">Aplicație simplă pentru extragerea discurilor audio</summary>
-  <summary xml:lang="sk">Jednoduchá aplikácia na ripovanie CD</summary>
-  <summary xml:lang="sl">Preprosta aplikacije za pretvorbo zvočnih CD-jev</summary>
-  <summary xml:lang="sv">Ett lättanvänt program för cd-lagring</summary>
-  <summary xml:lang="tr">Kullanımı kolay bir CD dönüştürme uygulaması</summary>
-  <summary xml:lang="uk">Проста у користуванні програма для видобування даних зі звукових компакт-дисків</summary>
-  <summary xml:lang="x-test">xxAn easy to use audio CD ripping applicationxx</summary>
-  <summary xml:lang="zh-CN">一个易于使用的音频 CD 抓取应用程序</summary>
-  <summary xml:lang="zh-TW">簡單易用的音訊 CD 擷取應用程式</summary>
+  <summary>Grab the audio from your CD-ROMs</summary>
   <description>
     <p>
-      The general usage of Audex is self-explanatory. With the first start Audex
-      scans your system for common encoders and creates a common set of profiles
-      automatically for you.
+      Audex it's an CD ripper application. It let's you extract the audio from
+      your CD-ROMs to let you listen to them on your computer and you other
+      devices. It includes a CDDB and a MusicBrainz integration to fetch the
+      metadata and covers for your CD-ROMs if available.
     </p>
-    <p xml:lang="ca">L'ús general de l'Audex és autoexplicatiu. Al primer inici, l'Audex explora el sistema cercant els codificadors usuals i crea automàticament un conjunt normal de perfils.</p>
-    <p xml:lang="ca-valencia">L'ús general d'Audex és autoexplicatiu. En el primer inici, Audex explora el sistema buscant els codificadors usuals i crea automàticament un conjunt normal de perfils.</p>
-    <p xml:lang="da">Den generelle brug af Audex er selvforklarende. Ved første start scanner Audex dit system for almindelige indkodere og opretter automatisk et almindeligt sæt profiler til dig.</p>
-    <p xml:lang="de">Die Anwendung von Audex ist selbsterklärend. Beim ersten Start durchsucht Audex Ihr System nach gängigen Kodierern und erstellt automatisch einen gemeinsamen Satz von Profilen für Sie.</p>
-    <p xml:lang="en-GB">The general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.</p>
-    <p xml:lang="eo">La ĝenerala uzado de Audex estas memklariga. Je la unua startigo Audex skanas vian sistemon por kutimaj kodiloj kaj aŭtomate kreas komunan aron da profiloj por vi.</p>
-    <p xml:lang="es">El uso general de Audex es autoexplicativo. La primera vez que se inicia Audex busca en el sistema codificadores comunes y crea una conjunto de perfiles comunes de forma automática.</p>
-    <p xml:lang="et">Audexi kasutamine peaks üldiselt olema iseenesest mõistetav. Esmakäivitusel uurib Audexi süsteemis leiduvaid levinud kodeerijaid ja loob sulle automaatselt mitmed üldised profiilid.</p>
-    <p xml:lang="eu">Audex-en erabilera orokorra ulergarria da azalpen osagarririk gabe. Lehen abioan, Audex-ek, zure sistema aztertzen du kodetzaile komunen bila eta ohiko profilen multzo bat sortzen du automatikoki zuretzat.</p>
-    <p xml:lang="fi">Audexin yleisen käytön tulisi olla itsestäänselvää. Ensikäynnistyksellä Audex etsii järjestelmästä koodausohjelmia ja luo automaattisesti yleisen profiilijoukon.</p>
-    <p xml:lang="fr">L'utilisation de base de Audex est extrêmement intuitive. Lors de son premier démarrage, Audex scanne votre système à la recherche des encodeurs les plus utilisés et crée automatiquement une liste de profils génériques.</p>
-    <p xml:lang="gl">O uso xeral de Audex é moi intuitivo. No primeiro inicio Audex examina o sistema en busca de codificadores comúns e crea automaticamente un conxunto común de perfís.</p>
-    <p xml:lang="ia">Le uso general de Audex es auto-explicatori. Con le prime initio Aude scande tu systema per codificatores commun e crea automaticamente per te un insimul de profilos</p>
-    <p xml:lang="id">Penggunaan umum Audex adalah cukup jelas. Dengan pemulaian pertama, Audex memindai sistemmu untuk pengenkode pada umumnya dan menciptakan set profil pada umumnya secara otomatis untukmu.</p>
-    <p xml:lang="it">L'uso generale di Audex è autoesplicativo. Al primo avvio Audex ricerca nel sistema i codificatori più comuni, e crea automaticamente un insieme comune di profili.</p>
-    <p xml:lang="ka">Audex-ის ჩვეული გამოყენების არე თვით-ახსნადია. პირველი გაშვებისას Audex-ი თქვენს სისტემას ენკოდერებზე დაასკანერებს და შესაბამის პროფილებს ავტომატურად შეგიქმნით.</p>
-    <p xml:lang="ko">Audex의 일반적인 사용은 어렵지 않습니다. Audex를 처음으로 시작하면 시스템을 검사하여 인코더 설치 여부를 확인하고 적합한 프로필을 생성합니다.</p>
-    <p xml:lang="nl">Het algemene gebruik van Audex verklaart zichzelf. Bij de eerste keer starten van Audex scant uw systeem naar gemeenschappelijke encoders en maakt een gemeenschappelijke set van profielen automatisch voor u aan.</p>
-    <p xml:lang="pl">Ogólne przeznaczenie Audex rozumie się samo przez się. Po pierwszym uruchomieniu, Audex przegląda system w poszukiwaniu powszechnych enkoderów i tworzy powszechne profile gotowe do użytku.</p>
-    <p xml:lang="pt">O uso geral do Audex é relativamente simples. No primeiro arranque, o Audex sonda o seu sistema à procura de codificadores e cria automaticamente um conjunto comum de perfis para si.</p>
-    <p xml:lang="pt-BR">O uso geral do Audex é auto-explicativo. Com a primeira inicialização, o Audex examina seu sistema em busca de codificadores comuns e cria automaticamente um conjunto de perfis para você.</p>
-    <p xml:lang="ro">Utilizarea generală a Audex este intuitivă. La prima pornire, Audex vă scanează sistemul pentru codori comuni și creează automat un set de profile pentru dumneavoastră.</p>
-    <p xml:lang="sl">Splošna uporaba Audexa je samoumevna. S prvim zagonom Audex pregleda vaš sistem za skupne enkoderje in samodejno ustvari skupni niz profilov za vas.</p>
-    <p xml:lang="sv">Den allmänna användningen av Audex är självförklarande. När Audex startas för första gången söker det igenom systemet efter vanliga kodare och skapar automatisk en uppsättning av vanliga profiler åt dig.</p>
-    <p xml:lang="tr">Audeks tek kullanım amacı olan bir uygulamadır. İlk çalıştırmada, sisteminizi tarar, yaygın kullanılan kodlayıcıları belirler ve kendiliğinden sizin için profiller oluşturur.</p>
-    <p xml:lang="uk">Загальні принципи користування Audex є доволі очевидними. Під час першого запуску Audex виконує пошук у вашій системі типових засобів кодування і автоматично створює типовий набір профілів.</p>
-    <p xml:lang="x-test">xxThe general usage of Audex is self-explanatory. With the first start Audex scans your system for common encoders and creates a common set of profiles automatically for you.xx</p>
-    <p xml:lang="zh-CN">Audex 的一般用法是不言自明的。 初次启动时，Audex 会扫描您系统中的常见编码器，并自动为您创建一组共同的配置文件。</p>
-    <p xml:lang="zh-TW">Audex 的普通使用不用多說明。首次啟動時 Audex 會掃描您的系統來尋找通用編碼器並為您自動建立一群通用的設定檔。</p>
   </description>
   <content_rating type="oars-1.1"/>
   <screenshots>
     <screenshot type="default">
-      <image type="source" width="664" height="566">https://cdn.kde.org/screenshots/audex/audex.png</image>
+      <image type="source">https://cdn.kde.org/screenshots/audex/audex.png</image>
+      <caption>Main view</caption>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://userbase.kde.org/Audex</url>
+  <url type="homepage">https://apps.kde.org/audex</url>
+  <url type="donation">https://www.kde.org/community/donations/?app=audex&amp;source=appdata</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=audex</url>
   <project_group>KDE</project_group>
+  <developer id="kde.org">
+    <name translate="no">KDE</name>
+  </developer>
   <provides>
     <binary>audex</binary>
   </provides>
