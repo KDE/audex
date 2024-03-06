@@ -23,7 +23,6 @@
 
 #include <KLocalizedString>
 
-#include "config.h"
 #include "utils/parameters.h"
 
 #define VAR_ALBUM_ARTIST "artist"

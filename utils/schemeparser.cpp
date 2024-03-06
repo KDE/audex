@@ -9,6 +9,7 @@
 
 #include <QDebug>
 #include <QStandardPaths>
+#include "audex-version.h"
 
 #if QT_VERSION >= 0x060000
 #define IS_TRUE(val) (val.typeId() == QMetaType::Bool && val.toBool())
@@ -355,7 +356,7 @@ const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
     placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc));
     placeholders.insert(VAR_ENCODER, customize_placeholder_value(encoder));
 
-    placeholders.insert(VAR_AUDEX, customize_placeholder_value(AUDEX_VERSION));
+    placeholders.insert(VAR_AUDEX, customize_placeholder_value(AUDEX_VERSION_STRING));
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -482,7 +483,7 @@ void SchemeParser::parseInfoTextScheme(QStringList &text,
     placeholders.insert(VAR_DATE, date);
     placeholders.insert(VAR_GENRE, genre);
     placeholders.insert(VAR_MCN, mcn);
-    placeholders.insert(VAR_AUDEX, AUDEX_VERSION);
+    placeholders.insert(VAR_AUDEX, AUDEX_VERSION_STRING);
 
     placeholders.insert(VAR_DISCID, QString("%1").arg(discid, 0, 16));
     placeholders.insert(VAR_CD_LENGTH, QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0')));

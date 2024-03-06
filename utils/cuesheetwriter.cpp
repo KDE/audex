@@ -6,6 +6,8 @@
  */
 
 #include "cuesheetwriter.h"
+#include "audex-version.h"
+#include "utils/discidcalculator.h"
 
 CueSheetWriter::CueSheetWriter(CDDAModel *model)
 {
@@ -20,7 +22,7 @@ QStringList CueSheetWriter::cueSheet(const QString &binFilename, const int frame
 {
     QStringList result;
 
-    result << "REM cue file written by Audex Version " AUDEX_VERSION;
+    result << "REM cue file written by Audex Version " AUDEX_VERSION_STRING;
     result << QString("REM DISCID %1").arg(DiscIDCalculator::CDDBId(model->discSignature()), 8, 16, QLatin1Char('g')).toUpper();
     result << QString("REM GENRE \"%1\"").arg(model->genre());
     result << QString("REM DATE \"%1\"").arg(model->year());
@@ -62,7 +64,7 @@ QStringList CueSheetWriter::cueSheet(const QStringList &filenames, const int fra
     Q_UNUSED(frameOffset);
 
     QStringList result;
-    result << "REM cue file written by Audex Version " AUDEX_VERSION;
+    result << "REM cue file written by Audex Version " AUDEX_VERSION_STRING;
     result << QString("REM DISCID %1").arg(DiscIDCalculator::CDDBId(model->discSignature()), 8, 16, QLatin1Char('g')).toUpper();
     result << QString("REM GENRE \"%1\"").arg(model->genre());
     result << QString("REM DATE \"%1\"").arg(model->year());

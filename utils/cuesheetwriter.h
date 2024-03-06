@@ -14,9 +14,7 @@
 
 #include <KLocalizedString>
 
-#include "config.h"
 #include "models/cddamodel.h"
-#include "utils/discidcalculator.h"
 
 class CueSheetWriter : public QObject
 {
