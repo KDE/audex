@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-22 08:38+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1017,75 +1017,76 @@ msgstr "Майстер схем назв файлів"
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "Інструмент видобування даних з CDDA для KDE"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "© Marco Nelles, 2007–2023"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Поточний супровідник, основний розробник"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Покращення інтерфейсу програми, участь у розробці"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "розробка"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Особлива подяка колишньому credativ GmbH (Німеччина) за підтримку"
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Фундація Xiph.Org"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Особлива подяка фундації Xiph.Org за надання пристрою для видобування даних "
 "з компакт-дисків"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -2008,12 +2009,12 @@ msgstr "Виявлено некоректний символ з індексом
 msgid "Unclosed quote found"
 msgstr "Виявлено незакриті лапки"
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Виявлено некоректний символ з індексом %1: %2"
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -2022,17 +2023,17 @@ msgstr ""
 "Для параметра replace_char_list потрібні ще два параметри, "
 "replace_char_list_from та replace_char_list_to, однакового розміру."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Незакриті дужки."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Не вдалося створити тимчасовий файл обкладинки: %1"
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2068,7 +2069,7 @@ msgstr ""
 "tr><tr><td><tt>$encoder</tt></td><td>Назва і версія засобу кодування.</td></"
 "tr><tr><td><tt>$audex</tt></td><td>Назва і версія Audex.</td></tr></table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2127,7 +2128,7 @@ msgstr ""
 "tr><tr><td><tt>post</tt></td><td>Рядок</td><td>Рядок, який має бути дописано "
 "<b>після</b> значення.</td></tr></table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2148,7 +2149,7 @@ msgstr ""
 "(ISRC) доріжки (доступний, лише якщо передбачено підтримку на пристрої).</"
 "td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2178,7 +2179,7 @@ msgstr ""
 "відкидає файли зображень обкладинок, розмір яких перевищує 128 КіБ.</i></"
 "td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2652,6 +2653,9 @@ msgstr "Зберегти…"
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "Інструмент видобування даних з CDDA для KDE"
 
 #~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
 #~ msgstr "Може читати дані підканалу (CD-Text, MCN, ISRC)"

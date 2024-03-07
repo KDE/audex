@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-22 10:43+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1013,76 +1013,77 @@ msgstr "Bestandsnaam van assistent voor schema"
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "CDDA-extractor voor KDE"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Copyright © 2007–2023 door Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Huidige onderhouder, hoofdontwikkelaar"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Verbeteringen aan de GUI, ontwikkeling"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "ontwikkeling"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 "Speciale dank aan voormalig credativ GmbH (Duitsland) voor ondersteuning"
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org foundation"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Speciale dank aan Xiph.Org Foundation voor het leveren van de ripper voor de "
 "compact disc"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kenny Verstraete"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -2002,12 +2003,12 @@ msgstr "Ongeldig teken gevonden bij index %1: '%2'"
 msgid "Unclosed quote found"
 msgstr "Niet gepaard aanhalingsteken gevonden"
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Ongeldig teken gevonden bij index %1: %2"
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -2016,17 +2017,17 @@ msgstr ""
 "parameter replace_char_list heeft twee extra parameters nodig "
 "replace_char_list_from en replace_char_list_to van gelijke grootte."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Niet gepaarde accolade gevonden."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Kon geen tijdelijk hoesbestand aanmaken: %1"
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2062,7 +2063,7 @@ msgstr ""
 "codeerder.</td></tr><tr><td><tt>$audex</tt></td><td>Audex-naam en versie.</"
 "td></tr></table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2121,7 +2122,7 @@ msgstr ""
 "td><td>tekenreeks</td><td>Een tekenreeks die geplaatst zal worden <b>na</b> "
 "de waarde.</td></tr></table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2142,7 +2143,7 @@ msgstr ""
 "Code (ISRC) van de track (alleen beschikbaar indien ondersteund door uw "
 "apparaat).</td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2171,7 +2172,7 @@ msgstr ""
 "(Standaard: JPEG). <i><b>Opmerking:</b> LAME bant hoesbestanden groter dan "
 "128 KiB.</i></td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2644,6 +2645,9 @@ msgstr "Opslaan..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "CDDA-extractor voor KDE"
 
 #~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
 #~ msgstr "Kan subkanaalgegevens lezen (cd-tekst, MCN, ISRC)"

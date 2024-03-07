@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-27 10:51+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1016,76 +1016,77 @@ msgstr "Pomocnik zapisu nazw plików"
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "Wydobywanie CDDA dla KDE"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Copyright © 2007–2023 by Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Obecny opiekun, główny programista"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Ulepszenia GUI, programowanie"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "rozwój"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 "Szczególne podziękowania dla poprzedniego credativ GmbH (Niemcy) za wsparcie"
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Fundacja Xiph.Org"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Specjalne podziękowania dla Fundacji Xiph.Org za dostarczenie programu "
 "zgrywającego dyski kompaktowe"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Łukasz Wojniłowicz"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1994,12 +1995,12 @@ msgstr "Napotkano na niedozwolony znak w miejscu %1: '%2'"
 msgid "Unclosed quote found"
 msgstr "Napotkano na niezamknięty cudzysłów"
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Napotkano na niedozwolony znak w miejscu %1: %2"
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -2008,17 +2009,17 @@ msgstr ""
 "replace_char_list wymaga dwóch parametrów więcej, tj. replace_char_list_from "
 "oraz replace_char_list_to o równych rozmiarach."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Niezamknięta klamra."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Nie można utworzyć pliku tymczasowego okładki: %1"
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2054,7 +2055,7 @@ msgstr ""
 "tr><tr><td>$encoder</td><td>Nazwa i wersja enkodera.</td></tr><tr><td>"
 "$audex</td><td>Nazwa i wersja Audex.</td></tr></table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2113,7 +2114,7 @@ msgstr ""
 "tr><tr><td><tt>post</tt></td><td>Łańcuch znaków</td><td>Łańcuch znaków do "
 "umieszczenia <b>po</b> wartości.</td></tr></table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2134,7 +2135,7 @@ msgstr ""
 "Recording Code (ISRC) utworu (dostępne tylko, gdy obsługiwane przez twoje "
 "urządzenie).</td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2162,7 +2163,7 @@ msgstr ""
 "GIF lub BMP (Domyślnie: JPEG). <i><b>Pamiętaj:</b> LAME usuwa pliki okładek "
 "większe niż 128 KiB.</i></td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2631,6 +2632,9 @@ msgstr "Zapisz..."
 #, kde-format
 msgid "URL:"
 msgstr "Adres URL:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "Wydobywanie CDDA dla KDE"
 
 #~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
 #~ msgstr "Może odczytywać dane w podkanałach (CD-Text, MCN, ISRC)"

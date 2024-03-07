@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-02-16 17:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -1012,73 +1012,74 @@ msgstr "Čarovnik shem imen datotek"
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "Odpakirnik KDE CDDA"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Avtorske pravice © 2007–2023: Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Trenutni vzdrževalec, glavni razvijalec"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Razvoj in izboljšave grafičnega vmesnika"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "razvoj"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Posebna zahvala nekdanji credativ GmbH (Nemčija) za podporo"
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Fundacija Xiph.Org"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr "Posebna zahvala fundaciji Xiph.org za nudenje zajemalnika diskov"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Ugo Ugowsky"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1980,12 +1981,12 @@ msgstr "Nedovoljen znak je najden v indexu %1: '%2'"
 msgid "Unclosed quote found"
 msgstr "Najdena nezaključena navednica"
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Nedovoljen znak je najden v indexu %1: %2"
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -1994,17 +1995,17 @@ msgstr ""
 "replace_char_list parameter potrebuje še dva parametra "
 "replace_char_list_from in replace_char_list_to enake velikosti."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Nezaključen oklepaj."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Ni bilo mogoče ustvariti datoteke začasne naslovnice: %1"
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2038,7 +2039,7 @@ msgstr ""
 "in različica kodirnika.</td></tr><tr><td><tt>$audex</tt></td><td>Audex ime "
 "in  različica.</td ></tr></table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2094,7 +2095,7 @@ msgstr ""
 "je vrednost prazna.</td></tr><tr><td><tt>post</tt></td><td>String</"
 "td><td>Niz, ki bo postavljen <b>za</b> vrednostjo.</td></tr></table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2114,7 +2115,7 @@ msgstr ""
 "$isrc</tt></td><td>The International Standard Recording Code (ISRC) sledi "
 "(na voljo samo, če to podpira vaša naprava).</td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2142,7 +2143,7 @@ msgstr ""
 "<i><b>Opomba:</b>  LAME zavrže naslovne datoteke, večje od 128 KiB.</i></"
 "td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2615,6 +2616,9 @@ msgstr "Shrani..."
 #, kde-format
 msgid "URL:"
 msgstr "URL naslov:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "Odpakirnik KDE CDDA"
 
 #~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
 #~ msgstr "Lahko bere podatke podkanala (CD-Text, MCN, ISRC)"

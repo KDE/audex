@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-02-19 11:33+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1008,73 +1008,74 @@ msgstr "Opastettu tiedostonimikuvion luonti"
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "KDE:n CDDA-haku"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Tekijänoikeudet © 2007–2023 Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Nykyinen ylläpitäjä, pääkehittäjä"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Käyttöliittymäparannukset, kehitys"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "kehitys"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Erityiskiitokset tuesta credativ GmbH:lle (Saksa)"
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org-säätiö"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr "Erityiskiitos Xiph.Org-säätiölle CD-purkajan tarjoamisesta"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kalle Korhonen"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1974,12 +1975,12 @@ msgstr "Indeksistä %1 löytyi virheellinen merkki: ”%2”"
 msgid "Unclosed quote found"
 msgstr "Löytyi sulkematon lainausmerkki"
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Indeksistä %1 löytyi virheellinen merkki: %2"
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -1988,17 +1989,17 @@ msgstr ""
 "replace_char_list-parametri tarvitsee kaksi samankokoista lisäparametria, "
 "replace_char_list_from ja replace_char_list_to."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Sulkematon sulje."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Väliaikaista kansikuvatiedostoa ei voitu luoda: %1"
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2032,7 +2033,7 @@ msgstr ""
 "td></tr><tr><td><tt>$audex</tt></td><td>Audexin nimi ja versio.</td></tr></"
 "table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2089,7 +2090,7 @@ msgstr ""
 "td><td>Paikkamerkin arvon <b>perään</b> sijoitettava merkkijono.</td></tr></"
 "table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2109,7 +2110,7 @@ msgstr ""
 "td><td>Raidan ISRC (International Standard Recording Code), jos asema tukee "
 "sitä.</td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2136,7 +2137,7 @@ msgstr ""
 "kuva<tt>muotoja</tt> ovat JPEG, PNG, GIF ja BMP; oletus on JPEG. <i><b>Huom!"
 "</b> LAME hylkää yli 128 KiB kansikuvat.</i></td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2599,6 +2600,9 @@ msgstr "Tallenna…"
 #, kde-format
 msgid "URL:"
 msgstr "Verkko-osoite:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "KDE:n CDDA-haku"
 
 #~ msgid ""
 #~ "Ripping speed was extremely slow for the last 5 minutes.\n"

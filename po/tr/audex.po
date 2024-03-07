@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 21:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1013,75 +1013,76 @@ msgstr "Dosya Adı Şeması Sihirbazı"
 msgid "Audex"
 msgstr "Audeks"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "KDE CDDA Aktarıcısı"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "Telif hakkı © 2007–2023 by Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Mevcut yönetici, ana geliştirici"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Kullanıcı arayüzü iyileştirmeleri, geliştirme"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "geliştirme"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr "Desteği için eski credativ GmbH’ye (Almanya) ayrıca teşekkürler ederiz"
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Xiph.Org Vakfı"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Kompakt disk dönüştürücüyü sağladığı için Xiph.Org vakfına ayrıca "
 "teşekkürler ederiz"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Serdar Soytetir, Kaan Özdinçer, Emir SARI"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1983,12 +1984,12 @@ msgstr "%1 indeksinde izin verilmeyen karakter bulundu: '%2'"
 msgid "Unclosed quote found"
 msgstr "Kapatılmamış tırnak bulundu"
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "%1 indeksinde izin verilmeyen karakter bulundu: %2"
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -1997,17 +1998,17 @@ msgstr ""
 "replace_char_list parametresine iki adet parametre daha gerek: "
 "replace_char_list_from ve eşit boyutlu replace_char_list_to."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Kapatılmamış ayraç bulundu."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Geçici kapak dosyası oluşturulamadı: %1"
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2041,7 +2042,7 @@ msgstr ""
 "tt></td><td>Kodlayıcı adı ve sürümü.</td></tr><tr><td><tt>$audex</tt></"
 "td><td>Audeks adı ve sürümü.</td></tr></table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2098,7 +2099,7 @@ msgstr ""
 "tr><tr><td><tt>post</tt></td><td>dizi</td><td>Değerden <b>sonra</b> "
 "yerleştirilecek bir dizi.</td></tr></table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2118,7 +2119,7 @@ msgstr ""
 "tr><tr><td><tt>$isrc</tt></td><td>Parçanın Uluslarası Standart Kayıt Kodu "
 "(ISRC) (yalnızca aygıtınız destekliyorsa kullanılabilir).</td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2146,7 +2147,7 @@ msgstr ""
 "BMP’dir (Öntanımlı: JPEG). <i><b>Not:</b> LAME, 128 KiB’den büyük kapak "
 "dosyalarını atar.</i></td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2611,6 +2612,9 @@ msgstr "Kaydet..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "KDE CDDA Aktarıcısı"
 
 #~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
 #~ msgstr "Alt kanal verisi okuyabilir (CD-Text, MCN, ISRC)"

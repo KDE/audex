@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-22 00:36+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-22 19:30+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -1014,76 +1014,77 @@ msgstr "Asistente de esquemas de nome"
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:26
+#: main.cpp:25
 #, kde-format
-msgid "KDE CDDA Extractor"
-msgstr "Extractor de CDDA de KDE"
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr ""
 
-#: main.cpp:28
+#: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
 msgstr "© 2007-2023 Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:31
+#: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Mantedor actual, desenvolvedor principal."
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:32
+#: main.cpp:29
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Melloras da interface e desenvolvemento."
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:33
+#: main.cpp:30
 #, kde-format
 msgid "development"
 msgstr "Desenvolvemento."
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:34
+#: main.cpp:31
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
 msgstr ""
 "Un agradecemento especial á extinta credativ GmbH (Alemaña) polo seu apoio."
 
-#: main.cpp:35
+#: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
 msgstr "Fundación Xiph.Org"
 
-#: main.cpp:36
+#: main.cpp:33
 #, kde-format
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 "Moitísimas grazas á Fundación Xiph.Org por fornecer un extractor de discos "
 "compactos."
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Adrián Chaves Fernández"
 
-#: main.cpp:39
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -1998,12 +1999,12 @@ msgstr "Atopouse un carácter non permitido no índice %1: «%2»."
 msgid "Unclosed quote found"
 msgstr "Atopáronse comiñas sen pechar."
 
-#: utils/schemeparser.cpp:76
+#: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Atopouse un carácter non permitido no índice %1: %2."
 
-#: utils/schemeparser.cpp:127
+#: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -2012,17 +2013,17 @@ msgstr ""
 "O parámetro «replace_char_list» necesita outros dous parámetros, "
 "«replace_char_list_from» e «replace_char_list_to», co mesmo tamaño."
 
-#: utils/schemeparser.cpp:273
+#: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Chave sen pechar."
 
-#: utils/schemeparser.cpp:427
+#: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Non foi posíbel crear o ficheiro de portada temporal: %1."
 
-#: utils/schemeparser.h:156
+#: utils/schemeparser.h:155
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2057,7 +2058,7 @@ msgstr ""
 "tr><tr><td><tt>$encoder</tt></td><td>Nome e versión do codificador.</td></"
 "tr><tr><td><tt>$audex</tt></td><td>Nome e versión de Audex.</td></tr></table>"
 
-#: utils/schemeparser.h:173
+#: utils/schemeparser.h:172
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2116,7 +2117,7 @@ msgstr ""
 "tr><tr><td><tt>post</tt></td><td>Cadea</td><td>Unha cadea para colocar "
 "<b>despois</b> do valor.</td></tr></table>"
 
-#: utils/schemeparser.h:194
+#: utils/schemeparser.h:193
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2137,7 +2138,7 @@ msgstr ""
 "internacional (ISRC) da pista (só dispoñíbel se o seu dispositivo o permite)."
 "</td></tr></table>"
 
-#: utils/schemeparser.h:206
+#: utils/schemeparser.h:205
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2166,7 +2167,7 @@ msgstr ""
 "<i><b>Nota:</b> LAME descarta os ficheiros de portada de máis de 128 KiB.</"
 "i></td></tr></table>"
 
-#: utils/schemeparser.h:220
+#: utils/schemeparser.h:219
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2634,6 +2635,9 @@ msgstr "Gardar…"
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "KDE CDDA Extractor"
+#~ msgstr "Extractor de CDDA de KDE"
 
 #~ msgid "Full paranoia mode (reduce chance of read errors)"
 #~ msgstr ""
