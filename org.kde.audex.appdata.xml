@@ -39,8 +39,8 @@
   <summary>Grab the audio from your CD-ROMs</summary>
   <description>
     <p>
-      Audex it's an CD ripper application. It let's you extract the audio from
-      your CD-ROMs to let you listen to them on your computer and you other
+      Audex is an CD ripper application. It lets you extract the audio from
+      your CD-ROMs to let you listen to them on your computer and your other
       devices. It includes a CDDB and a MusicBrainz integration to fetch the
       metadata and covers for your CD-ROMs if available.
     </p>
