@@ -24,7 +24,7 @@ include(ECMAddTests)
 include(FeatureSummary)
 include(KDEClangFormat)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Widgets Qml Core5Compat)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Widgets Qml)
 find_package(
   KF6 ${KF6_MIN_VER} REQUIRED
   COMPONENTS Config
@@ -153,7 +153,6 @@ target_link_libraries(
   audex
   Qt6::Widgets
   Qt6::Qml
-  Qt6::Core5Compat
   KF6::Completion
   KF6::CoreAddons
   KF6::Crash
