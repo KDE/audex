@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-02-16 17:13+0100\n"
+"PO-Revision-Date: 2024-03-07 08:02+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -601,7 +601,7 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
-"Hitrost ripanja je bila zadnjih 5 minut izjemno počasna.\n"
+"Hitrost zajemanja je bila zadnjih 5 minut izjemno počasna.\n"
 "Ali želite nadaljevati pridobivanje?\n"
 "​"
 
@@ -618,7 +618,7 @@ msgstr "Kodiranje dnevnika"
 #: dialogs/extractingprogressdialog.cpp:350
 #, kde-format
 msgid "Ripping log"
-msgstr "Ripanje dnevnika"
+msgstr "Dnevnik zajemanja"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -1016,7 +1016,7 @@ msgstr "Audex"
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "Aplikacija za zajemanje zvoka"
 
 #: main.cpp:25
 #, kde-format
@@ -1734,12 +1734,12 @@ msgstr "Prišlo je do napake med iskanjem v sektorju %1: %2"
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
 #, kde-format
 msgid "An error occured while ripping track %1. See log."
-msgstr "Prišlo do napake med ripanjem sledi %1. Poglejte dnevnik."
+msgstr "Prišlo do napake med zajemanjem sledi %1. Poglejte dnevnik."
 
 #: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
 #, kde-format
 msgid "An error occured while ripping. See log."
-msgstr "Prišlo do napake med ripanjem. Poglejte dnevnik."
+msgstr "Prišlo do napake med zajemanjem. Poglejte dnevnik."
 
 #: utils/cddaextractthread.cpp:121
 #, kde-format
@@ -1769,7 +1769,7 @@ msgstr "Berem sled %1 s sektorji %2"
 #: utils/cddaextractthread.cpp:138
 #, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr "Ripam celotni disk (%1:%2)..."
+msgstr "Zajemam celotni disk (%1:%2)..."
 
 #: utils/cddaextractthread.cpp:139
 #, kde-format
@@ -1796,13 +1796,13 @@ msgstr ""
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr ""
-"Prišlo je do napake med ripanjem sledi %1 na poziciji %2. Poglejte dnevnik."
+"Prišlo je do napake med zajemanjem sledi %1 na poziciji %2. Poglejte dnevnik."
 
 #: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
 #: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "Prišlo je do napake med ripanjem na poziciji %1. Poglejte dnevnik."
+msgstr "Prišlo je do napake med zajemanjem na poziciji %1. Poglejte dnevnik."
 
 #: utils/cddaextractthread.cpp:189
 #, kde-format
@@ -1819,7 +1819,7 @@ msgstr ""
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr "Ripanje je bilo preklicano zaradi napake."
+msgstr "Zajemanje je bilo preklicano zaradi napake."
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
@@ -1844,7 +1844,7 @@ msgstr "Zajem uspešen."
 #: utils/cddaextractthread.cpp:262
 #, kde-format
 msgid "Ripping finished"
-msgstr "Ripanje dokončano"
+msgstr "Zajemanje dokončano"
 
 #: utils/encoderassistant.h:59
 #, kde-format

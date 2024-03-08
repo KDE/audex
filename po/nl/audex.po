@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-01-22 10:43+0100\n"
+"PO-Revision-Date: 2024-03-07 10:17+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1017,7 +1017,7 @@ msgstr "Audex"
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "Toepassing voor audio-rippen"
 
 #: main.cpp:25
 #, kde-format
