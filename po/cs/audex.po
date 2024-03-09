@@ -2507,6 +2507,3 @@ msgstr "Uložit..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "KDE CDDA Extractor"
-#~ msgstr "Extraktor CDDA pro KDE"
