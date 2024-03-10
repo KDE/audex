@@ -39,8 +39,10 @@
   <summary>Grab the audio from your CD-ROMs</summary>
   <summary xml:lang="ca">Captura l'àudio dels CD-ROM</summary>
   <summary xml:lang="ca-valencia">Captura l'àudio dels CD-ROM</summary>
+  <summary xml:lang="eo">Ekpreni la aŭdaĵon de viaj KD-ROM</summary>
   <summary xml:lang="es">Extraiga el sonido de sus CD-ROM</summary>
   <summary xml:lang="eu">Harrapatu audioa zure CD-ROMetatik</summary>
+  <summary xml:lang="fr">Transférer les pistes audio à partir de vos CD-ROM</summary>
   <summary xml:lang="ia">Sasi (grab) le audio ex tu CD-Roms</summary>
   <summary xml:lang="ka">დაითრიეთ აუდიო თქვენი CD-ROM-ებიდან</summary>
   <summary xml:lang="nl">Haal de audio uit uw CD-ROM's</summary>
@@ -56,6 +58,8 @@
       metadata and covers for your CD-ROMs if available.
     </p>
     <p xml:lang="ca">Audex és una aplicació d'extracció de CD. Permet extreure l'àudio dels CD-ROM per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb el CDDB i el MusicBrainz per a obtenir les metadades i caràtules dels CD-ROM si estan disponibles.</p>
+    <p xml:lang="ca-valencia">Audex és una aplicació d'extracció de CD. Permet extraure l'àudio dels CD-ROM per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb CDDB i MusicBrainz per a obtindre les metadades i caràtules dels CD-ROM si estan disponibles.</p>
+    <p xml:lang="eo">Audex estas KD-ripper-aplikaĵo. Ĝi ebligas al vi ĉerpi la audaĵon de viaj KD-ROM por ebligi vin aŭskulti ilin en via komputilo kaj viaj aliaj aparatoj. Ĝi inkluzivas CDDB kaj MusicBrainz-integriĝon por preni la metadatenojn kaj kovriloj por viaj KD-ROM se disponeblaj.</p>
     <p xml:lang="es">Audex es una aplicación para extraer sonido de CD. Le permite extraer el sonido de sus CD para escucharlo en su equipo o en otros dispositivos. Incluye integración con CDDB y MusicBrainz para obtener metadatos y portadas de CD, si están disponibles.</p>
     <p xml:lang="eu">Audex, CDtik erauzteko aplikazio bat da. Zure CD-ROMetatik musika atera, eta zure ordenagailuan eta beste gailu batzuetan entzuteko aukera ematen dizu. Erabilgarri daudenean, zure CD-ROMei buruzko meta-datuak eta azalak ekartzeko, CDDB eta MusicBrainz-ekin bateratzeko aukera du.</p>
     <p xml:lang="ia">Audex es un application per rippar. Il te permitte extraher le audio ex tu CD-Roms, te permitte ascoltar los sur tu computator e sur tu altere dispositivos. Illo include un CDDB e un integration de MusicBrainz pro trovar metadatos e coperturas per tu CD-Roms, si disponibile.</p>
@@ -73,8 +77,10 @@
       <caption>Main view</caption>
       <caption xml:lang="ca">Vista principal</caption>
       <caption xml:lang="ca-valencia">Vista principal</caption>
+      <caption xml:lang="eo">Ĉefa vido</caption>
       <caption xml:lang="es">Vista principal</caption>
       <caption xml:lang="eu">Ikuspegi nagusia</caption>
+      <caption xml:lang="fr">Vue principale</caption>
       <caption xml:lang="ia">Vista principal</caption>
       <caption xml:lang="ka">მთავარი ხედი</caption>
       <caption xml:lang="nl">Hoofdweergave</caption>
