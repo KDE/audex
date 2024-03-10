@@ -1011,7 +1011,7 @@ msgstr "Audex"
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "Apliko por aŭd-ekstraktado"
 
 #: main.cpp:25
 #, kde-format
@@ -2607,6 +2607,3 @@ msgstr "Konservi..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "KDE CDDA Extractor"
-#~ msgstr "KDE CDDA Eltiro"
