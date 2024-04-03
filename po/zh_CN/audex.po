@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-03-30 19:37\n"
+"PO-Revision-Date: 2024-04-01 14:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1009,7 +1009,7 @@ msgstr "Audex"
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "音频抓取应用程序"
 
 #: main.cpp:25
 #, kde-format
@@ -1644,12 +1644,12 @@ msgstr "非音频：数据模式 1"
 #: utils/cddacdio.cpp:489
 #, kde-format
 msgid "Non-Audio: Playstation 1"
-msgstr ""
+msgstr "非音频：Playstation 1"
 
 #: utils/cddacdio.cpp:492
 #, kde-format
 msgid "Non-Audio: Unknown format"
-msgstr ""
+msgstr "非音频：未知格式"
 
 #: utils/cddacdio.cpp:496
 #, kde-format
@@ -1659,14 +1659,14 @@ msgstr ""
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "轨道 %1, 开始扇区: %2, 扇区大小: %3, 类型: %4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
 msgid ""
 "Could not get device hardware information (vendor, model and firmware "
 "revision)."
-msgstr ""
+msgstr "无法获取设备硬件信息(供应商、模型和固件修改)。"
 
 #: utils/cddadevices.cpp:86
 #, kde-format
@@ -1686,12 +1686,12 @@ msgstr "检查您的设备并提交错误报告。"
 #: utils/cddaextractthread.cpp:71
 #, kde-format
 msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-msgstr ""
+msgstr "驱动器销售商: %1, 驱动器模型: %2, 驱动器修订: %3"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "目录:"
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1701,32 +1701,32 @@ msgstr "提取完成。"
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
 #, kde-format
 msgid "Error occured while seeking at sector %1: %2"
-msgstr ""
+msgstr "在扇区%1中查找时出错%2"
 
 #: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
 #, kde-format
 msgid "An error occured while ripping track %1. See log."
-msgstr ""
+msgstr "抓取轨道 %1时发生错误。请参阅日志。"
 
 #: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
 #, kde-format
 msgid "An error occured while ripping. See log."
-msgstr ""
+msgstr "抓取时出错。请参阅日志。"
 
 #: utils/cddaextractthread.cpp:121
 #, kde-format
 msgid "Correction sample offset: %1"
-msgstr ""
+msgstr "校正样本偏移: %1"
 
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "正在从光盘获取额外信息..."
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "正在从光盘获取子频道信息"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -1741,53 +1741,53 @@ msgstr "开始读取音轨 %1 的 %2 个扇区"
 #: utils/cddaextractthread.cpp:138
 #, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr ""
+msgstr "正在抓取整个光盘(%1:%2)..."
 
 #: utils/cddaextractthread.cpp:139
 #, kde-format
 msgid "Start reading whole disc with %1 sectors"
-msgstr ""
+msgstr "从 %1 扇区开始读取整个盘片"
 
 #: utils/cddaextractthread.cpp:140
 #, kde-format
 msgid "Track %1 with start sector %2"
-msgstr ""
+msgstr "音轨 %1 与起始扇区 %2"
 
 #: utils/cddaextractthread.cpp:143
 #, kde-format
 msgid "First sector: %1, Last sector: %2"
-msgstr ""
+msgstr "第一个扇区: %1, 最后一个扇区: %2"
 
 #: utils/cddaextractthread.cpp:164
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr ""
+msgstr "读取扇区时发生错误 %1 (音轨时间点 %2)： %3"
 
 #: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr ""
+msgstr "抓取扇区 %2 轨道 %1时发生错误。请参阅日志。"
 
 #: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
 #: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr ""
+msgstr "抓取 %1时发生错误。请参阅日志。"
 
 #: utils/cddaextractthread.cpp:189
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
-msgstr ""
+msgstr "读取扇区时发生错误 %1 (音轨时间点 %2)： "
 
 #: utils/cddaextractthread.cpp:200
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
-msgstr ""
+msgstr "读取扇区错误 %1 (%2)：**以默认值填充整个扇区**"
 
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "抓取因为错误而被取消。"
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
@@ -1797,7 +1797,7 @@ msgstr "用户取消了提取"
 #: utils/cddaextractthread.cpp:255
 #, kde-format
 msgid "Extraction interrupted"
-msgstr ""
+msgstr "解压已中止"
 
 #: utils/cddaextractthread.cpp:258
 #, kde-format
@@ -1812,7 +1812,7 @@ msgstr "抓取成功。"
 #: utils/cddaextractthread.cpp:262
 #, kde-format
 msgid "Ripping finished"
-msgstr ""
+msgstr "抓取完成"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1854,7 +1854,7 @@ msgstr "定制"
 #: utils/encoderwrapper.cpp:61
 #, kde-format
 msgid "Command scheme is empty."
-msgstr ""
+msgstr "命令行为空."
 
 #: utils/encoderwrapper.cpp:92
 #, kde-format
@@ -1940,7 +1940,7 @@ msgstr "%1发生未知错误。这不应发生。"
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "索引 %1中发现非法字符: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
@@ -1950,7 +1950,7 @@ msgstr ""
 #: utils/schemeparser.cpp:77
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "索引 %1发现非法字符: %2"
 
 #: utils/schemeparser.cpp:128
 #, kde-format
@@ -1958,16 +1958,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"replace_char_list 参数需要两个额外的参数替换_char_list_from and "
+"replace_char_list_to 具有相同大小的参数。"
 
 #: utils/schemeparser.cpp:274
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "未闭合的括号。"
 
 #: utils/schemeparser.cpp:428
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "无法创建临时封面文件： %1"
 
 #: utils/schemeparser.h:155
 #, kde-format
@@ -1988,6 +1990,17 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>以下占位符将替换为其特定含义：</p><table><tr><th>占位符</th><th>描述</"
+"th></tr><tr><td><tt>$artist</tt></td><td>CD的艺术家。如果你的CD是一个汇编，那"
+"么这个标签在大多数情况下代表标题。</td></tr><tr><td><tt>$title</tt></"
+"td><td>CD的标题。如果你的CD是一个汇编，那么这个标签在大多数情况下代表副标题。"
+"</td></tr><tr><td><tt>$date</tt></td><td>CD的发行日期。在几乎所有的情况下，是"
+"指发行年份。</td></tr><tr><td><tt>$genre</tt></td><td>CD的风格。</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>多CD唱片集的CD编号。通常汇编由几个CD组成。"
+"<i>注意：</i> 如果<b>没有</b>为当前CD设置多CD标志，则此值将为空。</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>CD的音轨总数。</td></tr><tr><td><tt>"
+"$encoder</tt></td><td>编码器名称和版本。</td></tr><tr><td><tt>$audex</tt></"
+"td><td>Audex名称和版本。</td></tr></table>"
 
 #: utils/schemeparser.h:172
 #, kde-format
@@ -2019,6 +2032,25 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Audex中的占位符可以有key=value形式的参数。例如，<tt>${title "
+"lowercase=true}</tt>。在这个例子中，标题将小写。以下常规参数可以与占位符一起"
+"使用：</p><table><tr><th></th><th>键值</th><th></th></tr><tr><td><tt>描述</"
+"tt></td><td>true/false</td><td>占位符值将为小写。</td></tr><tr><td><tt>true</"
+"tt></td><td>/false</td><td>占位符值将被升级。</td></tr><tr><td><tt>下划线</"
+"tt></td><td>true/false</td><td>将占位符值中的空格替换为下划线。</td></"
+"tr><tr><td><tt>fat32 compatible</tt></td><td>true/false</td><td>用下划线替换"
+"FAT32文件系统的非法文件名字符。</td></tr><tr><td><tt>replace_chars</tt></"
+"td><td>true/false</td><td>替换字符。此参数需要两个相同值大小的附加键："
+"<tt>replace_char_list_from</tt>和<tt>replace_char_list_to</tt>。这些是人物列"
+"表。<tt>replace_char_list_from</tt>的第一个字符将被<tt>replace_char_list_to</"
+"tt>的第一个字符替换，依此类推。</td></tr><tr><td><tt>left</tt></"
+"td><td>Number</td><td>从占位符值的左侧取第n个字符。</td></"
+"tr><tr><td><tt>length</tt></td><td>Number</td><td>如果占位符值是一个数字，则"
+"将其扩展到给定的长度。此外，您可以使用附加键<tt>fillchar</tt>定义填充字符。默"
+"认fillchar为“0”。</td></tr><tr><td><tt>pre</tt></td><td>String</td><td>一个字"
+"符串，将被放置<b>在</b>值之前。对于命令行参数特别有用，如果值为空，则根本不应"
+"设置这些参数。</td></tr><tr><td><tt>post</tt></td><td>String</td><td>一个字符"
+"串，将被放置<b>在</b>值之后。</td></tr></table>"
 
 #: utils/schemeparser.h:193
 #, kde-format
@@ -2130,7 +2162,7 @@ msgstr "删除封面"
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Scheme:"
-msgstr ""
+msgstr "命令方案："
 
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
@@ -2140,7 +2172,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
 #, kde-format
 msgid "(No disc detected)"
-msgstr ""
+msgstr "(未检测到光盘)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:36
@@ -2157,6 +2189,9 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>使用一些特殊技术来减少未注意到的阅读错误。 导致一种更安"
+"全的阅读过程而牺牲了抓取速度，因此它也可以被称为“安全模式”。</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2172,48 +2207,50 @@ msgid ""
 "1/75 second) after trying to read the sector again for at most 20 times. "
 "Usually broken sectors will be filled with silence.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>尝试再次读取扇区（扇区长度：1/75秒）最多20次后，跳过该"
+"扇区的阅读错误。通常破碎的扇区会充满沉默。</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
 #, kde-format
 msgid "Device information"
-msgstr ""
+msgstr "设备信息"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: widgets/devicewidgetUI.ui:156
 #, kde-format
 msgid "Vendor:"
-msgstr ""
+msgstr "发行者："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:179
 #, kde-format
 msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr ""
+msgstr "您的设备可以读取磁盘的媒体目录号 (MCN)。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
 #: widgets/devicewidgetUI.ui:182
 #, kde-format
 msgid "Can read Media Catalog Number (MCN)"
-msgstr ""
+msgstr "可以读取媒体目录号码 (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:214
 #, kde-format
 msgid "Revision:"
-msgstr ""
+msgstr "修订版本："
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr ""
+msgstr "C2 错误校正可用"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
 #, kde-format
 msgid "Model:"
-msgstr ""
+msgstr "模型："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:256
@@ -2221,7 +2258,7 @@ msgstr ""
 msgid ""
 "Your device can read the International Standard Recording Code of every "
 "single track."
-msgstr ""
+msgstr "您的设备可以读取每一首歌曲的国际标准记录代码。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
 #: widgets/devicewidgetUI.ui:259
