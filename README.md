@@ -7,7 +7,7 @@ Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 
 ### Some of the new features
 
-* Now dependencies to cdio/cdparanoia anymore (new custom ripping engine)
+* No dependencies to cdio/cdparanoia anymore (new custom ripping engine)
 * CD-Text support
 * Full offset correction with AccurateRip database reading support (http://www.accuraterip.com/driveoffsets.htm)
 * AccurateRip support (http://www.accuraterip.com/)
