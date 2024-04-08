@@ -1,26 +1,27 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2024 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "wavefilewriter.h"
+#include "wavefile_writer.h"
 
-#include <QDebug>
+namespace Audex
+{
 
-WaveFileWriter::WaveFileWriter()
+WAVEFileWriter::WAVEFileWriter()
 {
     p_data_written = 0;
     p_endianess = LittleEndian;
 }
 
-WaveFileWriter::~WaveFileWriter()
+WAVEFileWriter::~WAVEFileWriter()
 {
     close();
 }
 
-bool WaveFileWriter::open(const QString &filename)
+bool WAVEFileWriter::open(const QString &filename)
 {
     close();
 
@@ -36,27 +37,27 @@ bool WaveFileWriter::open(const QString &filename)
     }
 }
 
-bool WaveFileWriter::isOpen()
+bool WAVEFileWriter::isOpen()
 {
     return p_output_file.isOpen();
 }
 
-QString WaveFileWriter::filename() const
+QString WAVEFileWriter::filename() const
 {
     return p_filename;
 }
 
-void WaveFileWriter::setEndianess(const Endianess e)
+void WAVEFileWriter::setEndianess(const Endianess e)
 {
     p_endianess = e;
 }
 
-WaveFileWriter::Endianess WaveFileWriter::endianess()
+WAVEFileWriter::Endianess WAVEFileWriter::endianess()
 {
     return p_endianess;
 }
 
-void WaveFileWriter::close()
+void WAVEFileWriter::close()
 {
     if (isOpen()) {
         if (p_data_written) {
@@ -71,19 +72,20 @@ void WaveFileWriter::close()
     p_filename.clear();
 }
 
-void WaveFileWriter::write(const QByteArray &data)
+void WAVEFileWriter::write(const QByteArray &data)
 {
     int len = data.size();
     if (isOpen()) {
         if (p_endianess == LittleEndian) {
             qint64 ret = p_output_file.write(data);
             if (ret == -1) {
-                Q_EMIT error(p_output_file.errorString());
+                Q_EMIT log(Message(p_output_file.errorString(), Message::CRITICAL));
                 return;
             }
         } else {
             if (data.size() % 2 > 0) {
-                qDebug() << "Data length is not a multiple of 2! Cannot write data.";
+                qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Data length is not a multiple of 2! Cannot write data.";
+                Q_EMIT log(Message(i18n("Unable to write WAVE file. Internal buffer length error."), Message::CRITICAL));
                 return;
             }
             // we need to swap the bytes
@@ -99,7 +101,7 @@ void WaveFileWriter::write(const QByteArray &data)
     }
 }
 
-void WaveFileWriter::p_write_empty_header()
+void WAVEFileWriter::p_write_empty_header()
 {
     static const unsigned char riffHeader[] = {
         0x52, 0x49, 0x46, 0x46, // 0  "RIFF"
@@ -112,12 +114,12 @@ void WaveFileWriter::p_write_empty_header()
         0x10, 0xb1, 0x02, 0x00, // 28
         0x04, 0x00, 0x10, 0x00, // 32
         0x64, 0x61, 0x74, 0x61, // 36 "data"
-        0x00, 0x00, 0x00, 0x00  // 40 byteCount
+        0x00, 0x00, 0x00, 0x00 // 40 byteCount
     };
     p_output_file.write((char *)riffHeader, 44);
 }
 
-void WaveFileWriter::p_update_header()
+void WAVEFileWriter::p_update_header()
 {
     if (isOpen()) {
         p_output_file.flush();
@@ -144,4 +146,6 @@ void WaveFileWriter::p_update_header()
         // jump back to the end
         p_output_file.seek(p_output_file.size());
     }
+}
+
 }

@@ -46,13 +46,9 @@ set_package_properties(
   URL "https://commits.kde.org/libkcddb"
   TYPE REQUIRED
   PURPOSE "libkcddb is used to retrieve audio CD meta data from the internet.")
-find_package(cdio REQUIRED)
-find_package(cdio_cdda REQUIRED)
-find_package(cdio_paranoia REQUIRED)
 
 include_directories(
-  ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${CDIO_INCLUDE_DIRS}
-  ${CDIO_CDDA_INCLUDE_DIRS} ${CDIO_PARANOIA_INCLUDE_DIRS})
+  ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_BINARY_DIR})
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
 
@@ -70,22 +66,36 @@ set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 set(audex_SRCS
     main.cpp
     mainwindow.cpp
-    models/cddamodel.cpp
-    models/profilemodel.cpp
+    datatypes/dataset.cpp
+    datatypes/message.cpp
+    datatypes/metadata.cpp
+    datatypes/toc.cpp
+    datatypes/driveinfo.cpp
+    datatypes/cdinfo.cpp
+    device/scsi.cpp
+    device/manager.cpp
+    device/drive.cpp
+    device/task.cpp
+    device/cdtext_reader_task.cpp
+    device/driveinfo_fetcher_task.cpp
+    device/mcnisrc_reader_task.cpp
+    device/rip_task.cpp
+    device/toc_reader_task.cpp
+    models/drivelistmodel.cpp
+    models/cdinfomodel.cpp
+    device/scsi.cpp
+    utils/crc.cpp
+    utils/cddbid.cpp
+    utils/accuraterip.cpp
+    utils/wavefile_writer.cpp
     utils/schemeparser.cpp
     utils/playlist.cpp
-    utils/wavefilewriter.cpp
-    utils/cddacdio.cpp
-    utils/cddadevices.cpp
     utils/encoderwrapper.cpp
-    utils/cddaextractthread.cpp
     utils/upload.cpp
     utils/encoderassistant.cpp
     utils/hashlist.cpp
-    utils/crc32hash.cpp
     utils/parameters.cpp
     utils/cuesheetwriter.cpp
-    utils/discidcalculator.cpp
     widgets/cddaheaderwidget.cpp
     widgets/generalsettingswidget.cpp
     widgets/devicewidget.cpp
@@ -165,10 +175,7 @@ target_link_libraries(
   KF6::TextWidgets
   KF6::WidgetsAddons
   KF6::XmlGui
-  KCddb6
-  ${CDIO_LIBRARIES}
-  ${CDIO_CDDA_LIBRARIES}
-  ${CDIO_PARANOIA_LIBRARIES})
+  KCddb6)
 
 install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
