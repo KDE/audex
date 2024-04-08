@@ -1,7 +1,7 @@
 Audex
 =====
 
-** WARNING! This is a not yet runnable and highly experimental branch with complete new ripping technologies. **
+** WARNING! This is a not yet runnable and highly experimental branch with complete new ripping technologies and code from my prototype applications. Within the next weeks I'm going to integrate them into Audex. **
 
 Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
 
