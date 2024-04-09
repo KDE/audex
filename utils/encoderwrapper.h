@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef ENCODERWRAPPER_HEADER
-#define ENCODERWRAPPER_HEADER
+#ifndef ENCODERWRAPPER_H
+#define ENCODERWRAPPER_H
 
 #include <QImage>
 #include <QRegularExpression>
@@ -16,6 +16,9 @@
 #include <KProcess>
 
 #include "utils/schemeparser.h"
+
+namespace Audex
+{
 
 class EncoderWrapper : public QObject
 {
@@ -80,5 +83,7 @@ private:
 
     int not_found_counter;
 };
+
+}
 
 #endif

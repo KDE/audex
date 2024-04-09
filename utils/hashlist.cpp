@@ -7,8 +7,8 @@
 
 #include "hashlist.h"
 
-#include <QDebug>
-#include <QTime>
+namespace Audex
+{
 
 Hashlist::Hashlist()
 {
@@ -18,7 +18,7 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
 {
     QStringList list;
 
-    CRC32Hash checksum;
+    CRC::CRC32_Calculator checksum;
     for (int i = 0; i < filenames.count(); ++i) {
         QFile file(filenames.at(i));
         if (!file.exists())
@@ -27,12 +27,12 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
             continue;
 
         while (!file.atEnd())
-            checksum.addData(file.read(HASHCALC_BUFSIZE));
+            checksum.process(file.read(HASHCALC_BUFSIZE));
 
         QFileInfo info(filenames.at(i));
         list << info.fileName() + ' ' + QString("%1").arg(checksum.result(), 8, 16, QLatin1Char('g')).toUpper();
 
-        checksum.clear();
+        checksum.reset();
 
         file.close();
     }
@@ -88,4 +88,6 @@ const QStringList Hashlist::getSHA256(const QStringList &filenames)
     }
 
     return list;
+}
+
 }

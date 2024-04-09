@@ -41,8 +41,7 @@ void MCNISRCReaderTask::run()
     int deviceHandle = ::open(block_device.constData(), O_RDONLY | O_NONBLOCK);
     if (deviceHandle == -1) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to initialize device:" << block_device;
-        last_error = Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL);
-        Q_EMIT log(drive_udi, last_error);
+        log_entry(Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL));
         Q_EMIT finished(drive_udi, false);
         return;
     }
@@ -57,11 +56,10 @@ void MCNISRCReaderTask::run()
 
         if (ec) {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to read mcn (subchannel info):" << block_device;
-            last_error = Message(i18n("Failed to read MCN from disc in drive %1.", QString::fromLatin1(block_device)),
+            log_entry(Message(i18n("Failed to read MCN from disc in drive %1.", QString::fromLatin1(block_device)),
                                  Message::CRITICAL,
                                  ec.errorCode(),
-                                 ec.senseKeyString());
-            Q_EMIT log(drive_udi, last_error);
+                                 ec.senseKeyString()));
             ::close(deviceHandle);
             Q_EMIT finished(drive_udi, false);
             return;
@@ -76,16 +74,14 @@ void MCNISRCReaderTask::run()
             }
         } else {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Wrong buffer site while reading MCN:" << buffer.size() << block_device;
-            last_error = Message(i18n("Failed to read MCN from disc in drive %1. Wrong buffer size (%2).", QString::fromLatin1(block_device), buffer.size()),
-                                 Message::ERROR);
-            Q_EMIT log(drive_udi, last_error);
+            log_entry(Message(i18n("Failed to read MCN from disc in drive %1. Wrong buffer size (%2).", QString::fromLatin1(block_device), buffer.size()), Message::ERROR));
         }
 
     }
 
     if (isInterruptionRequested()) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Interrupted." << block_device;
-        Q_EMIT log(drive_udi, Message(i18n("Reading MCN/ISRC Interrupted."), Message::WARNING));
+        log_entry(Message(i18n("Reading MCN/ISRC interrupted."), Message::WARNING));
         ::close(deviceHandle);
         Q_EMIT finished(drive_udi, false);
         return;
@@ -103,11 +99,10 @@ void MCNISRCReaderTask::run()
 
         if (ec) {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to read mcn (subchannel info):" << block_device;
-            last_error = Message(i18n("Failed to read MCN from disc in drive %1.", QString::fromLatin1(block_device)),
+            log_entry(Message(i18n("Failed to read MCN from disc in drive %1.", QString::fromLatin1(block_device)),
                                  Message::CRITICAL,
                                  ec.errorCode(),
-                                 ec.senseKeyString());
-            Q_EMIT log(drive_udi, last_error);
+                                 ec.senseKeyString()));
             ::close(deviceHandle);
             Q_EMIT finished(drive_udi, false);
             return;
@@ -126,7 +121,7 @@ void MCNISRCReaderTask::run()
         } else {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Wrong buffer site while reading ISRC for track:" << t << buffer.size()
                      << block_device;
-            Q_EMIT log(drive_udi, Message(i18n("Failed to read MCN from disc in drive %1. Wrong buffer size (%2) for track %3.",
+            log_entry(Message(i18n("Failed to read MCN from disc in drive %1. Wrong buffer size (%2) for track %3.",
                                              QString::fromLatin1(block_device),
                                              buffer.size(),
                                              t),
@@ -135,7 +130,7 @@ void MCNISRCReaderTask::run()
 
         if (isInterruptionRequested()) {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Interrupted." << block_device;
-            Q_EMIT log(drive_udi, Message(i18n("Reading MCN/ISRC Interrupted."), Message::WARNING));
+            log_entry(Message(i18n("Reading MCN/ISRC Interrupted."), Message::WARNING));
             ::close(deviceHandle);
             Q_EMIT finished(drive_udi, false);
             return;

@@ -36,6 +36,9 @@ public:
     Message lastError() const;
     void resetError();
 
+    QStringList logbook() const;
+    void resetLogbook();
+
 Q_SIGNALS:
     void started(const QString &driveUDI);
     void finished(const QString &driveUDI, const bool successful);
@@ -47,6 +50,10 @@ protected:
     QByteArray block_device;
 
     Message last_error;
+
+    void log_entry(const Message &msg);
+
+    QStringList p_logbook;
 };
 
 }

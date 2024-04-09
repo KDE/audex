@@ -7,6 +7,9 @@
 
 #include "encoderassistant.h"
 
+namespace Audex
+{
+
 long makeVersionNumber(int major, int minor, int patch)
 {
     long versionNumber = ((major & 0xFF) << 16) | ((minor & 0xFF) << 8) | (patch & 0xFF);
@@ -496,4 +499,6 @@ const QMap<int, QString> EncoderAssistant::availableEncoderNameListWithVersions(
         encoders[(int)EncoderAssistant::CUSTOM] = ENCODER_CUSTOM_NAME + ' ' + version(CUSTOM);
 
     return encoders;
+}
+
 }

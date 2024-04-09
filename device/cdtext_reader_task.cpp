@@ -25,8 +25,7 @@ void CDTextReaderTask::run()
     int deviceHandle = ::open(block_device.constData(), O_RDONLY | O_NONBLOCK);
     if (deviceHandle == -1) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to initialize device:" << block_device;
-        last_error = Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL);
-        Q_EMIT log(drive_udi, last_error);
+        log_entry(Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL));
         Q_EMIT finished(drive_udi, false);
         return;
     }
@@ -36,11 +35,10 @@ void CDTextReaderTask::run()
 
     if (ec) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to read CD-Text:" << block_device;
-        last_error = Message(i18n("Failed to read CD-Text from disc in drive %1.", QString::fromLatin1(block_device)),
+        log_entry(Message(i18n("Failed to read CD-Text from disc in drive %1.", QString::fromLatin1(block_device)),
                              Message::CRITICAL,
                              ec.errorCode(),
-                             ec.senseKeyString());
-        Q_EMIT log(drive_udi, last_error);
+                             ec.senseKeyString()));
         ::close(deviceHandle);
         Q_EMIT finished(drive_udi, false);
         return;
@@ -49,8 +47,7 @@ void CDTextReaderTask::run()
     // we need more than the header and a multiple of 18 bytes to have valid CD-TEXT
     if (buffer.size() <= 4 || buffer.size() % 18 != 4) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Invalid CD-Text length:" << buffer.size() << block_device;
-        last_error = Message(i18n("Failed to read CD-Text from disc in drive %1 (invalid length).", QString::fromLatin1(block_device)), Message::CRITICAL);
-        Q_EMIT log(drive_udi, last_error);
+        log_entry(Message(i18n("Failed to read CD-Text from disc in drive %1 (invalid length).", QString::fromLatin1(block_device)), Message::CRITICAL));
         ::close(deviceHandle);
         Q_EMIT finished(drive_udi, false);
         return;
@@ -68,10 +65,7 @@ void CDTextReaderTask::run()
         if (pack[i].dbcc) {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__
                      << "CD-Text decoding of disc in drive failed (Double byte code not supported yet):" << block_device;
-            last_error =
-                Message(i18n("Failed to decode CD-Text from disc in drive %1 (double byte code not supported yet).", QString::fromLatin1(block_device)),
-                        Message::CRITICAL);
-            Q_EMIT log(drive_udi, last_error);
+            log_entry(Message(i18n("Failed to decode CD-Text from disc in drive %1 (double byte code not supported yet).", QString::fromLatin1(block_device)), Message::CRITICAL));
             ::close(deviceHandle);
             Q_EMIT finished(drive_udi, false);
             return;

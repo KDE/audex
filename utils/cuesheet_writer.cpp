@@ -53,51 +53,12 @@ QStringList CUESheetWriter::cueSheet(const QString &binFilename, const int frame
         if (writeISRC) {
             QString isrc = QString::fromLatin1(cdinfo.metadata().track(i+1).get(Metadata::ISRC).toByteArray());
             if (!isrc.isEmpty() && isrc != QStringLiteral(u"0"))
-                result << QStringLiteral("    ISRC %1").arg(isrc);
+                result << QStringLiteral(u"    ISRC %1").arg(isrc);
         }
-        result << QStringLiteral("    PERFORMER \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
-        result << QStringLiteral("    TITLE \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
+        result << QStringLiteral(u"    PERFORMER \"%1\"").arg(cdinfo.metadata().track(i+1).get(Metadata::Artist).toString());
+        result << QStringLiteral(u"    TITLE \"%1\"").arg(cdinfo.metadata().track(i+1).get(Metadata::Title).toString());
 
-        if (i == 0 && model->cdio()->firstSectorOfDisc() < model->cdio()->firstSectorOfTrack(1) + frameOffset) {
-            result << QString("    INDEX 00 %1").arg(CDDACDIO::LSN2MSF(model->cdio()->firstSectorOfDisc()));
-        }
-
-        result << QString("    INDEX 01 %1").arg(model->cdio()->msfOfTrack(i + 1));
-    }
-
-    return result;
-}
-
-QStringList CUESheetWriter::cueSheet(const QStringList &filenames, const int frameOffset, const bool writeMCN, const bool writeISRC) const
-{
-    Q_UNUSED(frameOffset);
-
-    QStringList result;
-    result << "REM cue file written by Audex Version " AUDEX_VERSION_STRING;
-    result << QString("REM DISCID %1").arg(DiscIDCalculator::CDDBId(model->discSignature()), 8, 16, QLatin1Char('g')).toUpper();
-    result << QString("REM GENRE \"%1\"").arg(model->genre());
-    result << QString("REM DATE \"%1\"").arg(model->year());
-    if (writeMCN) {
-        QString mcn = model->cdio()->getMCN();
-        if (!mcn.isEmpty() && mcn != "0")
-            result << QString("CATALOG %1").arg(mcn);
-    }
-    result << QString("PERFORMER \"%1\"").arg(model->artist());
-    result << QString("TITLE \"%1\"").arg(model->title());
-
-    for (int i = 0; i < filenames.count(); ++i) {
-        QFileInfo info(filenames.at(i));
-        result << QString("FILE \"%1\" %2").arg(info.fileName(), p_filetype(filenames.at(i)));
-
-        result << QString("  TRACK %1 AUDIO").arg(i + 1, 2, 10, QChar('0'));
-        if (writeISRC) {
-            QString isrc = model->cdio()->getISRC(i + 1);
-            if (!isrc.isEmpty() && isrc != "0")
-                result << QString("    ISRC %1").arg(isrc);
-        }
-        result << QStringLiteral(u"    PERFORMER \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
-        result << QStringLiteral(u"    TITLE \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
-        result << QStringLiteral(u"    INDEX 01 00:00:00");
+        result << QStringLiteral(u"    INDEX 01 %1").arg(Toc::Frames2MSFString(cdinfo.toc().firstSectorOfTrack(i+1)));
     }
 
     return result;

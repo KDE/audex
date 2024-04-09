@@ -7,8 +7,8 @@
 
 #include "upload.h"
 
-#include <QDebug>
-#include <QUrl>
+namespace Audex
+{
 
 Upload::Upload(const QUrl &url, QObject *parent)
     : QObject(parent)
@@ -60,4 +60,6 @@ void Upload::upload(const QString &targetpath, const QStringList &filelist)
         }
         Q_EMIT info(i18n("Finished uploading file %1 to server.", fi.fileName()));
     }
+}
+
 }

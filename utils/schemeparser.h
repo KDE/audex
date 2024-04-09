@@ -20,10 +20,17 @@
 #include <QMetaType>
 #include <QObject>
 #include <QTemporaryFile>
+#include <QDebug>
+#include <QStandardPaths>
 
 #include <KLocalizedString>
 
-#include "utils/parameters.h"
+#include "datatypes/parameters.h"
+
+#include "audex-version.h"
+
+namespace Audex
+{
 
 #define VAR_ALBUM_ARTIST "artist"
 #define VAR_ALBUM_TITLE "title"
@@ -271,5 +278,7 @@ private:
     const QString replace_spaces_with_underscores(const QString &string);
     const QString replace_char_list(const QString &from, const QString &to, const QString &string);
 };
+
+}
 
 #endif

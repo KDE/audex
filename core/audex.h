@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef AUDEX_HEADER
-#define AUDEX_HEADER
+#ifndef AUDEX_H
+#define AUDEX_H
 
 #include <QDir>
 #include <QQueue>
@@ -17,33 +17,33 @@
 
 #include <KLocalizedString>
 
-#include "models/cddamodel.h"
+#include "models/cdinfomodel.h"
 #include "models/profilemodel.h"
-#include "utils/cddaextractthread.h"
-#include "utils/cuesheetwriter.h"
-#include "utils/discidcalculator.h"
+#include "datatypes/parameters.h"
+#include "device/manager.h"
+#include "utils/cuesheet_writer.h"
 #include "utils/encoderwrapper.h"
 #include "utils/hashlist.h"
-#include "utils/parameters.h"
 #include "utils/playlist.h"
 #include "utils/schemeparser.h"
 #include "utils/upload.h"
-#include "utils/wavefilewriter.h"
+#include "utils/wavefile_writer.h"
 
 #include "preferences.h"
 
-class AudexJob : public QObject
+namespace Audex
+{
+
+class Job : public QObject
 {
     Q_OBJECT
 public:
-    explicit AudexJob(QObject *parent = nullptr)
+    explicit Job(QObject *parent = nullptr)
         : QObject(parent)
     {
-        source_filename = "";
-        target_filename = "";
-        _trackno = 0;
+        track_number = 0;
     }
-    ~AudexJob() override
+    ~Job() override
     {
     }
     void setSourceFilename(const QString &n)
@@ -62,41 +62,41 @@ public:
     {
         return target_filename;
     }
-    void setTrackNo(const int t)
+    void setTrackNumber(const int t)
     {
-        _trackno = t;
+        track_number = t;
     }
-    int trackNo() const
+    int trackNumber() const
     {
-        return _trackno;
+        return track_number;
     }
 
 private:
     QString source_filename;
     QString target_filename;
-    int _trackno;
+    int track_number;
 };
 
-class AudexJobs : public QObject
+class Jobs : public QObject
 {
     Q_OBJECT
 public:
-    explicit AudexJobs(QObject *parent = nullptr)
+    explicit Jobs(QObject *parent = nullptr)
         : QObject(parent)
     {
         job_in_progress = false;
     }
-    ~AudexJobs() override
+    ~Jobs() override
     {
         for (int i = 0; i < cache.count(); i++) {
-            // make really sure all files are away
+            // make sure all files are absent
             QFile file(cache.at(i)->sourceFilename());
             if (file.exists())
                 file.remove();
             delete cache.at(i);
         }
     }
-    AudexJob *orderJob()
+    Job *orderJob()
     {
         if (job_queue.isEmpty()) {
             return nullptr;
@@ -117,23 +117,25 @@ public:
     {
         return (job_queue.count() > 0);
     }
+
 public Q_SLOTS:
-    void addNewJob(const QString &sourceFilename, const QString &targetFilename, const int trackno)
+    void addNewJob(const QString &sourceFilename, const QString &targetFilename, const int trackNumber)
     {
-        auto *j = new AudexJob();
+        auto *j = new Job();
         j->setSourceFilename(sourceFilename);
         j->setTargetFilename(targetFilename);
-        j->setTrackNo(trackno);
+        j->setTrackNumber(trackNumber);
         job_queue.enqueue(j);
         cache.append(j);
         Q_EMIT newJobAvailable();
     }
+
 Q_SIGNALS:
     void newJobAvailable();
 
 private:
-    QQueue<AudexJob *> job_queue;
-    QList<AudexJob *> cache;
+    QQueue<Job *> job_queue;
+    QList<Job *> cache;
     bool job_in_progress;
 };
 
@@ -142,31 +144,36 @@ class Audex : public QObject
     Q_OBJECT
 
 public:
-    Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model);
+    Audex(QWidget *parent, ProfileModel *profile_model, Device::Manager *manager);
     ~Audex() override;
 
-    bool prepare();
+    bool prepare(const QString& udi, const TracknumberSet& tracksToRip);
 
 public Q_SLOTS:
     void start();
     void cancel();
 
-    const QStringList &extractLog();
+    const QStringList &ripLog();
     const QStringList &encoderLog();
 
 private Q_SLOTS:
-    void start_extract();
-    void finish_extract();
+    void start_rip();
+    void rip_next_track(const QString &driveUDI, const int prev_tracknumber, const int tracknumber);
     void start_encode();
     void finish_encode();
 
-    void calculate_speed_extract();
     void calculate_speed_encode();
 
-    void progress_extract(int percent_of_track, int sector, int overall_sectors_read);
+    void progress_rip(const QString &driveUDI,
+                         const int tracknumber,
+                         const qreal fractionCurrentTrack,
+                         const qreal fraction,
+                         const int currentSector,
+                         const int sectorsRead,
+                         const qreal currentSpeed);
     void progress_encode(int percent);
 
-    void write_to_wave(const QByteArray &data);
+    void write_to_wave(const QString &drive_udi, const QByteArray &data);
 
     void slot_error(const QString &message, const QString &details = QString());
     void slot_warning(const QString &message);
@@ -183,8 +190,8 @@ Q_SIGNALS:
     void progressEncodeTrack(int percent);
     void progressEncodeOverall(int percent);
 
-    void speedExtract(double times);
-    void speedEncode(double times);
+    void speedExtract(qreal times);
+    void speedEncode(qreal times);
 
     void finished(bool successful);
 
@@ -197,16 +204,18 @@ Q_SIGNALS:
 private:
     QWidget *parent;
     ProfileModel *profile_model;
-    CDDAModel *cdda_model;
+    Device::Manager *manager;
     EncoderWrapper *encoder_wrapper;
-    CDDAExtractThread *cdda_extract_thread;
-    AudexJobs *jobs;
-    WaveFileWriter *wave_file_writer;
+    Jobs *jobs;
+    WAVEFileWriter *wave_file_writer;
     QTemporaryDir tmp_dir;
 
-    QString p_profile_name;
-    QString p_suffix;
-    bool p_single_file;
+    QString udi;
+    TracknumberSet tracks_to_rip;
+
+    QString profile_name;
+    QString suffix;
+    bool single_file;
 
     bool construct_target_filename(QString &targetFilename,
                                    int trackno,
@@ -244,7 +253,7 @@ private:
     QString target_dir;
 
     bool p_finished;
-    bool p_finished_successful;
+    bool finished_successful;
     void request_finish(bool successful);
     void execute_finish();
 
@@ -252,28 +261,29 @@ private:
     bool timeout_done;
     int timeout_counter;
 
-    /*PROCESS 1: EXTRACTING*/
+    /* PROCESS 1: RIPPING */
     QString ex_track_source_filename;
     QString ex_track_target_filename;
     int ex_track_index;
     int ex_track_count;
     QTimer *timer_extract;
     int current_sector;
-    int last_measuring_point_sector;
     int overall_frames;
 
-    /*PROCESS 2: ENCODING*/
+    /* PROCESS 2: ENCODING */
     QString en_track_filename;
     QString en_track_target_filename;
     int en_track_index;
     int en_track_count;
     QTimer *timer_encode;
     int current_encoder_percent;
-    int last_measuring_point_encoder_percent;
+    int last_checkpoint_encoder_percent;
 
-    bool p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite = false);
-    bool p_mkdir(const QString &absoluteFilePath);
-    qreal p_size_of_all_files(const QStringList &filenames) const;
+    bool prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite = false);
+    bool mkdir(const QString &absoluteFilePath);
+    qreal size_of_all_files(const QStringList &filenames) const;
 };
+
+}
 
 #endif

@@ -5,17 +5,21 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PLAYLIST_HEADER
-#define PLAYLIST_HEADER
+#ifndef PLAYLIST_H
+#define PLAYLIST_H
 
 #include <QDir>
-#include <QDomDocument>
 #include <QFileInfo>
+#include <QDomDocument>
 #include <QString>
 #include <QStringList>
 #include <QTextStream>
+#include <QRegularExpression>
 
 #include <KLocalizedString>
+
+namespace Audex
+{
 
 class PlaylistItem
 {
@@ -117,16 +121,18 @@ public:
     QByteArray toXSPF() const;
 
 private:
-    PlaylistItemList p_playlist;
+    PlaylistItemList playlist_item_list;
 
     // guess the playlist format: m3u, pls, xspf
-    const QString p_playlist_format(const QByteArray &playlist);
+    const QString playlist_format(const QByteArray &playlist);
 
-    void p_add_M3U(const QByteArray &playlist);
-    void p_add_PLS(const QByteArray &playlist);
-    void p_add_XSPF(const QByteArray &playlist);
+    void add_M3U(const QByteArray &playlist);
+    void add_PLS(const QByteArray &playlist);
+    void add_XSPF(const QByteArray &playlist);
 
-    const PlaylistItem p_parse_m3u_metadata_line(const QString &line);
+    const PlaylistItem parse_m3u_metadata_line(const QString &line);
 };
+
+}
 
 #endif

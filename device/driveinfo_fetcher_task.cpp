@@ -27,8 +27,7 @@ void DriveInfoFetcherTask::run()
     int deviceHandle = ::open(block_device.constData(), O_RDONLY | O_NONBLOCK);
     if (deviceHandle == -1) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to initialize device:" << block_device;
-        last_error = Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL);
-        Q_EMIT log(drive_udi, last_error);
+        log_entry(Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL));
         Q_EMIT finished(drive_udi, false);
         return;
     }
@@ -38,8 +37,7 @@ void DriveInfoFetcherTask::run()
 
     if (ec) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to inquiry drive:" << block_device;
-        last_error = Message(i18n("Failed to inquiry drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL, ec.errorCode(), ec.senseKeyString());
-        Q_EMIT log(drive_udi, last_error);
+        log_entry(Message(i18n("Failed to inquiry drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL, ec.errorCode(), ec.senseKeyString()));
         ::close(deviceHandle);
         Q_EMIT finished(drive_udi, false);
         return;
@@ -55,11 +53,10 @@ void DriveInfoFetcherTask::run()
 
     if (ec) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to detect drive capabilities for drive:" << block_device;
-        last_error = Message(i18n("Failed to detect drive capabilities for drive %1.", QString::fromLatin1(block_device)),
+        log_entry(Message(i18n("Failed to detect drive capabilities for drive %1.", QString::fromLatin1(block_device)),
                              Message::CRITICAL,
                              ec.errorCode(),
-                             ec.senseKeyString());
-        Q_EMIT log(drive_udi, last_error);
+                             ec.senseKeyString()));
         ::close(deviceHandle);
         Q_EMIT finished(drive_udi, false);
         return;

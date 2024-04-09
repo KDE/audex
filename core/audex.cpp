@@ -7,19 +7,20 @@
 
 #include "audex.h"
 
-/* The heart of audex */
+namespace Audex
+{
 
-Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model)
+Audex::Audex(QWidget *parent, ProfileModel *profile_model, Device::Manager *manager)
     : QObject(parent)
 {
     Q_UNUSED(parent);
 
     this->profile_model = profile_model;
-    this->cdda_model = cdda_model;
+    this->manager = manager;
 
-    p_profile_name = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_NAME_INDEX)).toString();
-    p_suffix = profile_model->getSelectedEncoderSuffixFromCurrentIndex();
-    p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
+    profile_name = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_NAME_INDEX)).toString();
+    suffix = profile_model->getSelectedEncoderSuffixFromCurrentIndex();
+    single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
 
     encoder_wrapper = new EncoderWrapper(this,
                                          profile_model->getSelectedEncoderSchemeFromCurrentIndex(),
@@ -31,29 +32,23 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
         return;
     }
 
-    cdda_extract_thread = new CDDAExtractThread(this, cdda_model->cdio());
-    if (!cdda_extract_thread) {
-        qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
-        return;
-    }
-    cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
-    cdda_extract_thread->setSkipReadingErrors(Preferences::skipReadingErrors());
-    cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
+    /*cdda_rip_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
+    cdda_rip_thread->setSkipReadingErrors(Preferences::skipReadingErrors());
+    cdda_rip_thread->setSampleOffset(Preferences::sampleOffset());*/
 
-    jobs = new AudexJobs();
-    connect(jobs, SIGNAL(newJobAvailable()), this, SLOT(start_encode()));
+    jobs = new Jobs();
+    connect(jobs, &Jobs::newJobAvailable, this, &Audex::start_encode);
 
-    wave_file_writer = new WaveFileWriter();
+    wave_file_writer = new WAVEFileWriter();
 
-    last_measuring_point_sector = -1;
-    timer_extract = new QTimer(this);
-    connect(timer_extract, SIGNAL(timeout()), this, SLOT(calculate_speed_extract()));
-    timer_extract->start(4000);
-
-    last_measuring_point_encoder_percent = -1;
+    last_checkpoint_encoder_percent = -1;
     timer_encode = new QTimer(this);
-    connect(timer_encode, SIGNAL(timeout()), this, SLOT(calculate_speed_encode()));
+    connect(timer_encode, &QTimer::timeout, this, &Audex::calculate_speed_encode);
     timer_encode->start(2000);
+
+    connect(manager, &Device::Manager::ripTaskProgress, this, &Audex::progress_rip);
+    connect(manager, &Device::Manager::ripTaskOutput, this, &Audex::write_to_wave);
+    connect(manager, &Device::Manager::ripTaskNextTrack, this, &Audex::rip_next_track);
 
     connect(encoder_wrapper, SIGNAL(progress(int)), this, SLOT(progress_encode(int)));
     connect(encoder_wrapper, SIGNAL(finished()), this, SLOT(finish_encode()));
@@ -61,18 +56,18 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     connect(encoder_wrapper, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
     connect(encoder_wrapper, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
 
-    connect(cdda_extract_thread, SIGNAL(progress(int, int, int)), this, SLOT(progress_extract(int, int, int)));
-    connect(cdda_extract_thread, SIGNAL(output(const QByteArray &)), this, SLOT(write_to_wave(const QByteArray &)));
-    connect(cdda_extract_thread, SIGNAL(finished()), this, SLOT(finish_extract()));
-    connect(cdda_extract_thread, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
-    connect(cdda_extract_thread, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
-    connect(cdda_extract_thread, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
+    /*connect(cdda_rip_thread, SIGNAL(progress(int, int, int)), this, SLOT(progress_rip(int, int, int)));
+    connect(cdda_rip_thread, SIGNAL(output(const QByteArray &)), this, SLOT(write_to_wave(const QByteArray &)));
+    connect(cdda_rip_thread, SIGNAL(finished()), this, SLOT(finish_rip()));
+    connect(cdda_rip_thread, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
+    connect(cdda_rip_thread, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
+    connect(cdda_rip_thread, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));*/
 
     process_counter = 0;
     timeout_done = false;
     timeout_counter = 0;
     p_finished = false;
-    p_finished_successful = false;
+    finished_successful = false;
 
     en_track_index = 0;
     en_track_count = 0;
@@ -89,13 +84,15 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
 Audex::~Audex()
 {
     delete encoder_wrapper;
-    delete cdda_extract_thread;
     delete wave_file_writer;
     delete jobs;
 }
 
-bool Audex::prepare()
+bool Audex::prepare(const QString& udi, const TracknumberSet& tracksToRip)
 {
+    this->udi = udi;
+    this->tracks_to_rip = tracksToRip;
+
     if (profile_model->currentProfileIndex() < 0) {
         slot_error(i18n("No profile selected. Operation abort."));
         return false;
@@ -108,10 +105,10 @@ bool Audex::prepare()
 
 void Audex::start()
 {
-    Q_EMIT changedEncodeTrack(0, 0, "");
-    Q_EMIT info(i18n("Start ripping and encoding with profile \"%1\"...", p_profile_name));
+    Q_EMIT changedEncodeTrack(0, 0, QString());
+    Q_EMIT info(i18n("Start ripping and encoding with profile \"%1\"...", profile_name));
     if (check())
-        start_extract();
+        start_rip();
     else
         request_finish(false);
 }
@@ -121,9 +118,9 @@ void Audex::cancel()
     request_finish(false);
 }
 
-const QStringList &Audex::extractLog()
+const QStringList &Audex::ripLog()
 {
-    return cdda_extract_thread->log();
+    return cdda_rip_thread->log();
 }
 
 const QStringList &Audex::encoderLog()
@@ -131,19 +128,54 @@ const QStringList &Audex::encoderLog()
     return encoder_wrapper->log();
 }
 
-void Audex::start_extract()
+void Audex::start_rip()
 {
+    if (!jobs->jobInProgress() && !jobs->pendingJobs())
+        request_finish(true);
+
     if (p_finished)
         return;
 
-    if (p_single_file) {
-        if (ex_track_count >= 1) {
-            if (!jobs->jobInProgress() && !jobs->pendingJobs())
-                request_finish(true);
+    CDInfo cdinfo = manager->drive(udi)->cdInfo();
+
+    if (single_file) {
+
+        QString artist = cdinfo.metadata().get(Metadata::Artist).toString();
+        QString title = cdinfo.metadata().get(Metadata::Title).toString();
+        QString year = cdinfo.metadata().get(Metadata::Year).toString();
+        QString genre = cdinfo.metadata().get(Metadata::Genre).toString();
+        QString lsuffix = suffix;
+        QString basepath = Preferences::basePath();
+        int cdnum;
+        if (!cdinfo.metadata().get(Metadata::MultiDisc, false).toBool())
+            cdnum = 0;
+        else
+            cdnum = cdinfo.metadata().get(Metadata::Discnumber, 0).toInt();
+        int nooftracks = cdinfo.toc().audioTrackCount();
+        bool overwrite = Preferences::overwriteExistingFiles();
+
+        QString targetFilename;
+        if (!construct_target_filename_for_singlefile(targetFilename, cdnum, nooftracks, artist, title, year, genre, lsuffix, basepath, overwrite)) {
+            request_finish(false);
             return;
         }
 
-        ex_track_index++;
+
+
+
+
+
+    if (ex_track_count >= 1) {
+        if (!jobs->jobInProgress() && !jobs->pendingJobs())
+            request_finish(true);
+        return;
+    }
+
+
+
+
+    if (single_file) {
+
 
         QString artist = cdda_model->artist();
         QString title = cdda_model->title();
@@ -170,14 +202,14 @@ void Audex::start_extract()
 
         // if empty (maybe because it already exists) skip
         if (!targetFilename.isEmpty()) {
-            Q_EMIT changedExtractTrack(ex_track_index, 1, artist, title);
+            Q_EMIT changedRipTrack(ex_track_index, 1, artist, title);
 
             QString sourceFilename = tmp_dir.path() + '/' + "tracks-all.wav";
             ex_track_source_filename = sourceFilename;
             wave_file_writer->open(sourceFilename);
 
-            cdda_extract_thread->setTrackToRip(0);
-            cdda_extract_thread->start();
+            cdda_rip_thread->setTrackToRip(0);
+            cdda_rip_thread->start();
             process_counter++;
 
             ex_track_count++;
@@ -278,14 +310,14 @@ void Audex::start_extract()
 
             // if empty (maybe because it already exists) skip
             if (!targetFilename.isEmpty()) {
-                Q_EMIT changedExtractTrack(ex_track_index, cdda_model->numOfAudioTracks(), tartist, ttitle);
+                Q_EMIT changedRipTrack(ex_track_index, cdda_model->numOfAudioTracks(), tartist, ttitle);
 
                 QString sourceFilename = tmp_dir.path() + '/' + QString("track-%1").arg(ex_track_index) + ".wav";
                 ex_track_source_filename = sourceFilename;
                 wave_file_writer->open(sourceFilename);
 
-                cdda_extract_thread->setTrackToRip(ex_track_index);
-                cdda_extract_thread->start();
+                cdda_rip_thread->setTrackToRip(ex_track_index);
+                cdda_rip_thread->start();
                 process_counter++;
 
                 ex_track_count++;
@@ -293,18 +325,22 @@ void Audex::start_extract()
             } else {
                 en_track_count++;
                 ex_track_count++; // important to check for finish
-                cdda_extract_thread->skipTrack(ex_track_index);
-                start_extract();
+                cdda_rip_thread->skipTrack(ex_track_index);
+                start_rip();
             }
 
         } else {
-            start_extract();
+            start_rip();
         }
     }
 }
 
-void Audex::finish_extract()
+void Audex::rip_next_track(const QString &driveUDI, const int prev_tracknumber, const int tracknumber)
 {
+    Q_UNUSED(driveUDI);
+    Q_UNUSED(prev_tracknumber);
+    Q_UNUSED(tracknumber);
+
     process_counter--;
 
     wave_file_writer->close();
@@ -316,7 +352,7 @@ void Audex::finish_extract()
         return;
     }
     jobs->addNewJob(ex_track_source_filename, ex_track_target_filename, ex_track_index);
-    start_extract();
+    start_rip();
 }
 
 void Audex::start_encode()
@@ -469,61 +505,37 @@ void Audex::finish_encode()
     start_encode();
 }
 
-void Audex::calculate_speed_extract()
-{
-    if ((last_measuring_point_sector > -1) && (cdda_extract_thread->isProcessing())) {
-        double new_value = (double)(current_sector - last_measuring_point_sector) / (2.0f * (double)SECTORS_PER_SECOND);
-        if (new_value < 0.0f)
-            new_value = 0.0f;
-        if ((new_value < 0.2f) && (!timeout_done)) {
-            timeout_counter += 2;
-            if (timeout_counter >= 300) {
-                timeout_done = true;
-                Q_EMIT timeout();
-            }
-        }
-        Q_EMIT speedExtract(new_value);
-    } else {
-        Q_EMIT speedExtract(0.0f);
-    }
-    last_measuring_point_sector = current_sector;
-}
-
 void Audex::calculate_speed_encode()
 {
-    if ((last_measuring_point_encoder_percent > -1) && (encoder_wrapper->isProcessing()) && (current_encoder_percent > 0)) {
+    if ((last_checkpoint_encoder_percent > -1) && (encoder_wrapper->isProcessing()) && (current_encoder_percent > 0)) {
         int song_length = cdda_model->data(cdda_model->index(en_track_index - 1, CDDA_MODEL_COLUMN_LENGTH_INDEX), CDDA_MODEL_INTERNAL_ROLE).toInt();
-        double new_value = (double)((double)song_length / 100.0f) * ((double)current_encoder_percent - (double)last_measuring_point_encoder_percent);
+        qreal new_value = (qreal)((qreal)song_length / 100.0f) * ((qreal)current_encoder_percent - (qreal)last_checkpoint_encoder_percent);
         if (new_value < 0.0f)
             new_value = 0.0f;
         Q_EMIT speedEncode(new_value);
     } else {
         Q_EMIT speedEncode(0.0f);
     }
-    last_measuring_point_encoder_percent = current_encoder_percent;
+    last_checkpoint_encoder_percent = current_encoder_percent;
 }
 
-void Audex::progress_extract(int percent_of_track, int sector, int overall_sectors_read)
-{
-    if (overall_frames == 0) {
-        QSet<int> sel = cdda_model->selectedTracks();
-        QSet<int>::ConstIterator it(sel.begin()), end(sel.end());
-        for (; it != end; ++it) {
-            if ((*it < 0) || (*it > cdda_extract_thread->cdio()->numOfTracks()) || (!cdda_extract_thread->cdio()->isAudioTrack((*it)))) {
-                continue;
-            }
-            overall_frames += cdda_extract_thread->cdio()->numOfFramesOfTrack((*it));
-        }
-    }
+void Audex::progress_rip(const QString &driveUDI,
+                         const int tracknumber,
+                         const qreal fractionCurrentTrack,
+                         const qreal fraction,
+                         const int currentSector,
+                         const int sectorsRead,
+                         const qreal currentSpeed) {
 
-    float fraction = 0.0f;
-    if (overall_frames > 0)
-        fraction = (float)overall_sectors_read / (float)overall_frames;
+    Q_UNUSED(driveUDI);
+    Q_UNUSED(tracknumber);
+    Q_UNUSED(sectorsRead);
 
-    Q_EMIT progressExtractTrack(percent_of_track);
-    Q_EMIT progressExtractOverall((int)(fraction * 100.0f));
+    Q_EMIT progressRipTrack((int)(fractionCurrentTrack * 100.0f));
+    Q_EMIT progressRipOverall((int)(fraction * 100.0f));
+    Q_EMIT speedRip(currentSpeed);
 
-    current_sector = sector;
+    current_sector = currentSector;
 }
 
 void Audex::progress_encode(int percent)
@@ -536,8 +548,9 @@ void Audex::progress_encode(int percent)
     current_encoder_percent = percent;
 }
 
-void Audex::write_to_wave(const QByteArray &data)
+void Audex::write_to_wave(const QString& drive_udi, const QByteArray &data)
 {
+    Q_UNUSED(drive_udi);
     wave_file_writer->write(data);
 }
 
@@ -559,11 +572,11 @@ void Audex::slot_info(const QString &description)
 
 void Audex::check_if_thread_still_running()
 {
-    if (cdda_extract_thread->isRunning()) {
+    if (cdda_rip_thread->isRunning()) {
         // this could happen if the thread is stuck in paranoia_read
         // because of an unreadable cd
-        cdda_extract_thread->terminate();
-        qDebug() << "Terminate extracting thread.";
+        cdda_rip_thread->terminate();
+        qDebug() << "Terminate riping thread.";
     }
 }
 
@@ -618,7 +631,7 @@ bool Audex::construct_target_filename(QString &targetFilename,
     QString targetStrippedFilename = targetFilename.mid(lastSlash + 1);
     target_dir = targetPath;
 
-    if (!p_mkdir(targetPath))
+    if (!mkdir(targetPath))
         return false;
 
     QStorageInfo diskfreespace(targetPath);
@@ -744,7 +757,7 @@ void Audex::request_finish(bool successful)
 
     if (process_counter > 0) {
         encoder_wrapper->cancel();
-        cdda_extract_thread->cancel();
+        cdda_rip_thread->cancel();
         QTimer::singleShot(2000, this, SLOT(check_if_thread_still_running()));
 
     } else {
@@ -1031,7 +1044,7 @@ void Audex::execute_finish()
             QFile file(filename);
             if (file.open(QFile::WriteOnly | QFile::Truncate)) {
                 QTextStream out(&file);
-                out << cdda_extract_thread->log().join("\n");
+                out << cdda_rip_thread->log().join("\n");
                 file.close();
                 Q_EMIT info(i18n("Log file \"%1\" successfully stored.", QFileInfo(filename).fileName()));
                 info_file = filename;
@@ -1068,13 +1081,13 @@ void Audex::execute_finish()
     Q_EMIT finished(p_finished_successful);
 }
 
-bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
+bool Audex::prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
 {
     QString result;
 
     QFileInfo fileinfo(filename);
     if (fileinfo.isAbsolute()) {
-        if (!p_mkdir(fileinfo.dir().absolutePath())) {
+        if (!mkdir(fileinfo.dir().absolutePath())) {
             return false;
         } else {
             result = filename;
@@ -1105,7 +1118,7 @@ bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative,
     return true;
 }
 
-bool Audex::p_mkdir(const QString &absoluteFilePath)
+bool Audex::mkdir(const QString &absoluteFilePath)
 {
     QDir dir(absoluteFilePath);
     if (dir.exists()) {
@@ -1125,12 +1138,14 @@ bool Audex::p_mkdir(const QString &absoluteFilePath)
     return true;
 }
 
-qreal Audex::p_size_of_all_files(const QStringList &filenames) const
+qqreal Audex::size_of_all_files(const QStringList &filenames) const
 {
-    qreal size = .0f;
+    qqreal size = .0f;
     for (int i = 0; i < filenames.count(); ++i) {
         QFileInfo info(filenames.at(i));
         size += info.size();
     }
     return size;
+}
+
 }

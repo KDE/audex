@@ -19,7 +19,10 @@
 #include <QFileInfo>
 #include <QStringList>
 
-#include "utils/crc32hash.h"
+#include "utils/crc.h"
+
+namespace Audex
+{
 
 #define HASHCALC_BUFSIZE 4 * 1024 * 1024
 
@@ -32,5 +35,7 @@ public:
     const QStringList getMD5(const QStringList &filenames);
     const QStringList getSHA256(const QStringList &filenames);
 };
+
+}
 
 #endif

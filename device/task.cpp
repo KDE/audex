@@ -26,9 +26,25 @@ Message Task::lastError() const
 {
     return last_error;
 }
+
 void Task::resetError()
 {
     last_error.clear();
+}
+
+QStringList Task::logbook() const {
+    return p_logbook;
+}
+
+void Task::resetLogbook() {
+    p_logbook.clear();
+}
+
+void Task::log_entry(const Message &msg) {
+    p_logbook.append(msg.text());
+    if (msg.type() == Message::ERROR || msg.type() == Message::CRITICAL)
+        last_error = msg;
+    Q_EMIT log(drive_udi, msg);
 }
 
 }

@@ -15,8 +15,11 @@
 #include <KLocalizedString>
 #include <KProcess>
 
-#include "utils/parameters.h"
+#include "datatypes/parameters.h"
 #include "utils/schemeparser.h"
+
+namespace Audex
+{
 
 #define ENCODER_LAME_SUFFIX_KEY "suffix"
 #define ENCODER_LAME_PRESET_KEY "preset"
@@ -154,5 +157,7 @@ const QMap<int, QString> availableEncoderNameList();
 const QMap<int, QString> availableEncoderNameListWithVersions();
 
 };
+
+}
 
 #endif

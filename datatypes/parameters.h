@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PARAMETERS_HEADER
-#define PARAMETERS_HEADER
+#ifndef PARAMETERS_H
+#define PARAMETERS_H
 
 #include <QList>
 #include <QMap>

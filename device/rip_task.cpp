@@ -255,8 +255,7 @@ void RipTask::run()
     int device_handle = ::open(block_device.constData(), O_RDONLY | O_NONBLOCK);
     if (device_handle == -1) {
         qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Failed to initialize device:" << block_device;
-        last_error = Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL);
-        Q_EMIT log(drive_udi, last_error);
+        log_entry(Message(i18n("Failed to initialize drive %1.", QString::fromLatin1(block_device)), Message::CRITICAL));
         Q_EMIT finished(drive_udi, false);
         return;
     }
@@ -265,14 +264,14 @@ void RipTask::run()
 
     Toc::Toc toc = drive->cdInfo().toc();
 
-    Q_EMIT log(drive_udi, Message(i18n("Drive Vendor: %1, Drive Model: %2, Drive Revision: %3",
+    log_entry(Message(i18n("Drive Vendor: %1, Drive Model: %2, Drive Revision: %3",
                                      QString::fromLatin1(drive->driveInfo().getVendor()),
                                      QString::fromLatin1(drive->driveInfo().getModel()),
                                      QString::fromLatin1(drive->driveInfo().getRevision()))));
-    Q_EMIT log(drive_udi, Message(i18n("TOC:")));
-    Q_EMIT log(drive_udi, Message(toc.prettyTOC().join(QChar(u'\n'))));
+    log_entry(Message(i18n("TOC:")));
+    log_entry(Message(toc.prettyTOC().join(QChar(u'\n'))));
 
-    Q_EMIT log(drive_udi, Message(i18n("Correction sample offset: %1", sample_shift)));
+    log_entry(Message(i18n("Correction sample offset: %1", sample_shift)));
 
     qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << ", Tracks:" << tracknumbers << ", Sample correction offset:" << sample_shift
              << ", Sector correction shift left:" << sector_shift_left << ", Sector correction shift right:" << sector_shift_right;
@@ -347,12 +346,12 @@ void RipTask::run()
         QString sec = QStringLiteral(u"%1").arg((last_sector - first_sector / SECTORS_PER_SECOND) % 60, 2, 10, QChar(u'0'));
 
         if (!rip_image) {
-            Q_EMIT log(drive_udi, Message(i18n("Ripping track %1 (%2:%3)...", track, min, sec)));
+            log_entry(Message(i18n("Ripping track %1 (%2:%3)...", track, min, sec)));
         } else {
-            Q_EMIT log(drive_udi, Message(i18n("Ripping all tracks at once (%1:%2)...", min, sec)));
+            log_entry(Message(i18n("Ripping all tracks at once (%1:%2)...", min, sec)));
         }
 
-        Q_EMIT log(drive_udi, Message(i18n("First sector: %1, Last sector: %2.", first_sector, last_sector)));
+        log_entry(Message(i18n("First sector: %1, Last sector: %2.", first_sector, last_sector)));
 
         if (calc_checksum_crc32)
             crc32_calculator.reset();
@@ -446,14 +445,14 @@ void RipTask::run()
         }
 
         if (p_error) {
-            Q_EMIT log(drive_udi, Message(i18n("Ripping was canceled due to an error.")));
+            log_entry(Message(i18n("Ripping was canceled due to an error.")));
         } else if (isInterruptionRequested()) {
-            Q_EMIT log(drive_udi, Message(i18n("Ripping interrupted due to user cancel.")));
+            log_entry(Message(i18n("Ripping interrupted due to user cancel.")));
         } else {
             if (!rip_image) {
-                Q_EMIT log(drive_udi, Message(i18n("Ripping OK (Track %1).", track)));
+                log_entry(Message(i18n("Ripping OK (Track %1).", track)));
             } else {
-                Q_EMIT log(drive_udi, Message(i18n("Ripping OK.")));
+                log_entry(Message(i18n("Ripping OK.")));
             }
         }
 
@@ -463,7 +462,7 @@ void RipTask::run()
     Q_EMIT nextTrack(drive_udi, prev_track, -1);
 
     if (!p_error)
-        Q_EMIT log(drive_udi, Message(i18n("Ripping finished.")));
+        log_entry(Message(i18n("Ripping finished.")));
 
     ::close(device_handle);
 
@@ -477,29 +476,29 @@ Sector RipTask::read_current_sector(const int device_handle, int attempt_num)
     QByteArray buf = SCSI::readCD(device_handle, ec, current_sector, 1, c2_err_ptrs_check ? 0x01 : 0x00, subchannel_sync_check ? 0x02 : 0x00);
 
     if (ec.senseKey() == 0x01) {
-        Q_EMIT log(drive_udi, Message(i18n("Reading sector %1 (track time pos %2) recovered data.", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
+        log_entry(Message(i18n("Reading sector %1 (track time pos %2) recovered data.", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
                                     Message::INFO));
     } else if (ec.senseKey() == 0x03) {
-        Q_EMIT log(drive_udi, Message(
+        log_entry(Message(
                      i18n("Reading error occured while reading sector %1 (track time pos %2).", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
                      Message::ERROR,
                      ec.errorCode(),
                      ec.senseKeyString()));
 
         if (attempt_num < num_retries_on_read_error) {
-            Q_EMIT log(drive_udi, Message(i18n("Starting next attempt #%1 to read sector", attempt_num + 1, current_sector), Message::INFO));
+            log_entry(Message(i18n("Starting next attempt #%1 to read sector", attempt_num + 1, current_sector), Message::INFO));
             return read_current_sector(device_handle, attempt_num + 1);
         } else if (!skip_read_errors) {
             requestInterruption();
             return Sector();
         }
 
-        Q_EMIT log(drive_udi, Message(i18n("There is probably an audible defect at sector %1 (track time pos %2).",
+        log_entry(Message(i18n("There is probably an audible defect at sector %1 (track time pos %2).",
                                          current_sector,
                                          Toc::Frames2TimeString(current_sector - first_sector)),
                                     Message::ERROR));
     } else if (buf.isEmpty()) {
-        Q_EMIT log(drive_udi, Message(
+        log_entry(Message(
                      i18n("No data retrieved while reading sector %1 (track time pos %2).", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
                      Message::ERROR));
         if (!skip_read_errors) {
@@ -508,18 +507,18 @@ Sector RipTask::read_current_sector(const int device_handle, int attempt_num)
         }
 
         if (attempt_num < num_retries_on_read_error) {
-            Q_EMIT log(drive_udi, Message(i18n("Starting next attempt #%1 to read sector", attempt_num + 1, current_sector), Message::INFO));
+            log_entry(Message(i18n("Starting next attempt #%1 to read sector", attempt_num + 1, current_sector), Message::INFO));
             return read_current_sector(device_handle, attempt_num + 1);
         } else if (!skip_read_errors) {
             requestInterruption();
             return Sector();
         }
 
-        Q_EMIT log(drive_udi, Message(i18n("Filling sector %1 (track time pos %2) with silence.", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
+        log_entry(Message(i18n("Filling sector %1 (track time pos %2) with silence.", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
                                     Message::ERROR));
         buf = silence;
     } else if (ec) {
-        Q_EMIT log(drive_udi, Message(
+        log_entry(Message(
                      i18n("Hardware error occured while reading sector %1 (track time pos %2).", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
                      Message::CRITICAL,
                      ec.errorCode(),
@@ -530,14 +529,14 @@ Sector RipTask::read_current_sector(const int device_handle, int attempt_num)
             return Sector();
         }
 
-        Q_EMIT log(drive_udi, Message(i18n("There is probably an audible defect at sector %1 (track time pos %2).",
+        log_entry(Message(i18n("There is probably an audible defect at sector %1 (track time pos %2).",
                                          current_sector,
                                          Toc::Frames2TimeString(current_sector - first_sector)),
                                     Message::ERROR));
     }
 
     if (attempt_num > 0) {
-        Q_EMIT log(drive_udi, Message(i18n("Reading sector %1 (track time pos %2) succeeded.", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
+        log_entry(Message(i18n("Reading sector %1 (track time pos %2) succeeded.", current_sector, Toc::Frames2TimeString(current_sector - first_sector)),
                                     Message::INFO));
     }
 
@@ -546,7 +545,7 @@ Sector RipTask::read_current_sector(const int device_handle, int attempt_num)
     if (!ec && !buf.isEmpty()) {
         if (subchannel_sync_check && sector.subchannelAbsoluteSectornumber() != current_sector + 150) {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Sector sequence out of sync with subchannel data:" << current_sector;
-            Q_EMIT log(drive_udi, Message(i18n("Sector number %1 (track time pos %2) out of sync with subchannel. There might be an audible defect.",
+            log_entry(Message(i18n("Sector number %1 (track time pos %2) out of sync with subchannel. There might be an audible defect.",
                                              current_sector,
                                              Toc::Frames2TimeString(current_sector - first_sector)),
                                         Message::WARNING));
@@ -554,7 +553,7 @@ Sector RipTask::read_current_sector(const int device_handle, int attempt_num)
 
         if (c2_err_ptrs_check && sector.checkC2ErrPtrs()) {
             qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Sector reports" << current_sector << "C2 errors";
-            Q_EMIT log(drive_udi, Message(i18n("Sector number %1 (track time pos %2) reports %3 C2 errors. There might be an audible defect.",
+            log_entry(Message(i18n("Sector number %1 (track time pos %2) reports %3 C2 errors. There might be an audible defect.",
                                              current_sector,
                                              Toc::Frames2TimeString(current_sector - first_sector),
                                              sector.checkC2ErrPtrs()),

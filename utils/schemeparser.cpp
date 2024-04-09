@@ -7,9 +7,8 @@
 
 #include "schemeparser.h"
 
-#include <QDebug>
-#include <QStandardPaths>
-#include "audex-version.h"
+namespace Audex
+{
 
 #if QT_VERSION >= 0x060000
 #define IS_TRUE(val) (val.typeId() == QMetaType::Bool && val.toBool())
@@ -573,4 +572,6 @@ const QString SchemeParser::replace_char_list(const QString &from, const QString
     qDebug() << "finished:" << result;
 
     return result;
+}
+
 }

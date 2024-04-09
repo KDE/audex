@@ -12,12 +12,17 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QObject>
+#include <QDebug>
+#include <QUrl>
 
 #include <KIO/CopyJob>
 #include <KIO/Job>
 #include <KIO/MkdirJob>
 #include <KIO/SimpleJob>
 #include <KLocalizedString>
+
+namespace Audex
+{
 
 class Upload : public QObject
 {
@@ -36,5 +41,7 @@ Q_SIGNALS:
 private:
     QUrl base_url;
 };
+
+}
 
 #endif

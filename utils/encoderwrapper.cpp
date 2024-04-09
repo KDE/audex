@@ -9,6 +9,9 @@
 
 #include <QDebug>
 
+namespace Audex
+{
+
 EncoderWrapper::EncoderWrapper(QObject *parent, const QString &commandScheme, const QString &encoderName, const bool deleteFractionFiles)
     : QObject(parent)
 {
@@ -206,4 +209,6 @@ void EncoderWrapper::processError(QProcess::ProcessError err)
     }
     Q_EMIT finished();
     qDebug() << "encoding finished.";
+}
+
 }

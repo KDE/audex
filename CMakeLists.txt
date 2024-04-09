@@ -72,6 +72,7 @@ set(audex_SRCS
     datatypes/toc.cpp
     datatypes/driveinfo.cpp
     datatypes/cdinfo.cpp
+    datatypes/parameters.cpp
     device/scsi.cpp
     device/manager.cpp
     device/drive.cpp
@@ -94,8 +95,7 @@ set(audex_SRCS
     utils/upload.cpp
     utils/encoderassistant.cpp
     utils/hashlist.cpp
-    utils/parameters.cpp
-    utils/cuesheetwriter.cpp
+    utils/cuesheet_writer.cpp
     widgets/cddaheaderwidget.cpp
     widgets/generalsettingswidget.cpp
     widgets/devicewidget.cpp
