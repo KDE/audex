@@ -40,6 +40,7 @@
   <summary>Grab the audio from your CD-ROMs</summary>
   <summary xml:lang="ca">Captura l'àudio dels CD-ROM</summary>
   <summary xml:lang="ca-valencia">Captura l'àudio dels CD-ROM</summary>
+  <summary xml:lang="cs">Kopírovat hudbu ze svých CD-ROMů</summary>
   <summary xml:lang="eo">Ekpreni la aŭdaĵon de viaj KD-ROM</summary>
   <summary xml:lang="es">Extraiga el sonido de sus CD-ROM</summary>
   <summary xml:lang="eu">Harrapatu audioa zure CD-ROMetatik</summary>
@@ -85,6 +86,7 @@
       <caption>Main view</caption>
       <caption xml:lang="ca">Vista principal</caption>
       <caption xml:lang="ca-valencia">Vista principal</caption>
+      <caption xml:lang="cs">Hlavní pohled</caption>
       <caption xml:lang="eo">Ĉefa vido</caption>
       <caption xml:lang="es">Vista principal</caption>
       <caption xml:lang="eu">Ikuspegi nagusia</caption>
