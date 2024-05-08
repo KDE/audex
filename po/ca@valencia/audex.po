@@ -138,7 +138,7 @@ msgstr "No s'ha seleccionat el perfil. S'interromp l'operació."
 #: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr "Comença l'extracció i codificació amb el perfil «%1»..."
+msgstr "Comença l'extracció i codificació amb el perfil «%1»…"
 
 #: core/audex.cpp:614 core/audex.cpp:674
 #, kde-format
@@ -546,7 +546,7 @@ msgstr "Progrés global (s'extrau la pista %1 de %2)"
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
-msgstr "S'està esperant per a un treball de codificació..."
+msgstr "S'està esperant per a un treball de codificació…"
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
@@ -591,12 +591,12 @@ msgstr "No s'ha pogut."
 #: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
-msgstr "Mostra el registre de la codificació..."
+msgstr "Mostra el registre de la codificació…"
 
 #: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
-msgstr "Mostra el registre de l'extracció..."
+msgstr "Mostra el registre de l'extracció…"
 
 #: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
@@ -633,7 +633,7 @@ msgstr "Mostra/Oculta els detalls"
 #: dialogs/extractingprogresswidgetUI.ui:33
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -941,7 +941,7 @@ msgstr "Esta opció substituirà qualsevol variable amb paràmetre en l'esquema"
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "Establix un nombre de pista de dos dígits (p. ex., 01, 02, 03...)"
+msgstr "Establix un nombre de pista de dos dígits (p. ex., 01, 02, 03…)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -968,7 +968,7 @@ msgstr "Emmagatzema el fitxer de la caràtula"
 #: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
-msgstr "Configuració..."
+msgstr "Configuració…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
@@ -1269,12 +1269,12 @@ msgstr "Edita"
 #: mainwindow.cpp:495
 #, kde-format
 msgid "Rip..."
-msgstr "Extrau..."
+msgstr "Extrau…"
 
 #: mainwindow.cpp:504
 #, kde-format
 msgid "Split Titles..."
-msgstr "Dividix els títols..."
+msgstr "Dividix els títols…"
 
 #: mainwindow.cpp:509
 #, kde-format
@@ -1769,7 +1769,7 @@ msgstr "Correcció del desplaçament de la mostra: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr "S'està recuperant informació extra del disc..."
+msgstr "S'està recuperant informació extra del disc…"
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
@@ -1779,7 +1779,7 @@ msgstr "S'està recuperant informació del subcanal del disc"
 #: utils/cddaextractthread.cpp:135
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr "S'extrau la pista %1 (%2:%3)..."
+msgstr "S'extrau la pista %1 (%2:%3)…"
 
 #: utils/cddaextractthread.cpp:136
 #, kde-format
@@ -1789,7 +1789,7 @@ msgstr "Es comença a llegir la pista %1 amb %2 sectors"
 #: utils/cddaextractthread.cpp:138
 #, kde-format
 msgid "Ripping whole disc (%1:%2)..."
-msgstr "S'extrau el disc sencer (%1:%2)..."
+msgstr "S'extrau el disc sencer (%1:%2)…"
 
 #: utils/cddaextractthread.cpp:139
 #, kde-format
@@ -1913,7 +1913,7 @@ msgstr "L'esquema de l'ordre està buit."
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr "S'està codificant la pista %1..."
+msgstr "S'està codificant la pista %1…"
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
@@ -2229,7 +2229,7 @@ msgstr ""
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr "S'està pujant el fitxer %1 al servidor. Espereu un moment..."
+msgstr "S'està pujant el fitxer %1 al servidor. Espereu un moment…"
 
 #: utils/upload.cpp:61
 #, kde-format
@@ -2259,17 +2259,17 @@ msgstr "Guarda la caràtula"
 #: widgets/cddaheaderwidget.cpp:350
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr "Establix una caràtula personalitzada..."
+msgstr "Establix una caràtula personalitzada…"
 
 #: widgets/cddaheaderwidget.cpp:355
 #, kde-format
 msgid "Save Cover To File..."
-msgstr "Guarda la caràtula a un fitxer..."
+msgstr "Guarda la caràtula a un fitxer…"
 
 #: widgets/cddaheaderwidget.cpp:360
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr "Mostra la caràtula a mida completa..."
+msgstr "Mostra la caràtula a mida completa…"
 
 #: widgets/cddaheaderwidget.cpp:365
 #, kde-format
@@ -2368,7 +2368,7 @@ msgstr "Revisió:"
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr "Està disponible la correcció d'errors C2"
+msgstr "Està disponible l'esmena d'errors C2"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
@@ -2477,7 +2477,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr "Mitjana (140...185 kbits/s)"
+msgstr "Mitjana (140…185 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2493,7 +2493,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr "Extrema (220...260 kbits/s)"
+msgstr "Extrema (220…260 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2507,7 +2507,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "Estàndard (170...210 kbits/s)"
+msgstr "Estàndard (170…210 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2621,7 +2621,7 @@ msgstr[1] "S'han afegit %1 perfils nous"
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afig…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
@@ -2633,19 +2633,19 @@ msgstr "Elimina"
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr "Modifica..."
+msgstr "Modifica…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr "Carrega..."
+msgstr "Carrega…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 #, kde-format
 msgid "Save..."
-msgstr "Guarda..."
+msgstr "Guarda…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
