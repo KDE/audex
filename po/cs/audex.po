@@ -4,21 +4,21 @@
 # Pavel Fric <pavelfric@seznam.cz>, 2009, 2010.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2017.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2015, 2018, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2015, 2018, 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2023-06-23 11:45+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-05-07 15:43+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -65,14 +65,14 @@ msgstr "Počet obalů, který se má natáhnout"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr ""
+msgstr "Úplný režim paranoia (bezpečný režim)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
 #, kde-format
 msgid "Skip reading errors"
-msgstr ""
+msgstr "Chyba při čtení chyb"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
@@ -116,7 +116,7 @@ msgstr "&Metadata"
 #, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
@@ -189,7 +189,7 @@ msgstr "Na \"%1\" je méně než 800 MiB volného místa."
 #: core/audex.cpp:719
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr ""
+msgstr "Chyba (%2) složky s dočasnými soubory \"%1\"."
 
 #: core/audex.cpp:719
 #, kde-format
@@ -279,12 +279,12 @@ msgstr "Nelze uložit cue sheet \"%1\"."
 #: core/audex.cpp:1036
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr ""
+msgstr "Soubor záznamu \"%1\" byl úspěšně uložen."
 
 #: core/audex.cpp:1039
 #, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr ""
+msgstr "Nelze uložit soubor záznamu \"%1\"."
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
@@ -358,7 +358,7 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:176
 #, kde-format
 msgid "CDDB disc ID:"
-msgstr ""
+msgstr "Číslo disku na CDDB:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -615,7 +615,7 @@ msgstr "Zrušit získávání dat"
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding log"
-msgstr ""
+msgstr "Zápis o průběhu převádění"
 
 #: dialogs/extractingprogressdialog.cpp:350
 #, kde-format
@@ -658,7 +658,7 @@ msgstr "Rychlost: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -711,7 +711,7 @@ msgstr "Uložit %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "vytvořeno dne"
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -822,7 +822,7 @@ msgstr "SFV (jednoduché ověření souboru - Simple File Verification)"
 #: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr ""
+msgstr "MD5 (algoritmus pro obsah zpráv 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
@@ -990,7 +990,7 @@ msgstr "Vytvořit soubor s informacemi"
 #: dialogs/profiledatawidgetUI.ui:330
 #, kde-format
 msgid "Save log file"
-msgstr ""
+msgstr "Uložit záznam do souboru"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -1016,7 +1016,7 @@ msgstr "Extraktor CDDA pro KDE"
 #: main.cpp:35
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr ""
+msgstr "Autorská práva © 2007-2023 Marco Nelles"
 
 #: main.cpp:38
 #, kde-format
@@ -1056,7 +1056,7 @@ msgstr "credativ GmbH"
 #: main.cpp:41
 #, kde-format
 msgid "Special thanks to former credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "Zvláštní poděkování bývalým credativ GmbH (Německo) za podporu"
 
 #: main.cpp:42
 #, kde-format
@@ -1612,7 +1612,7 @@ msgstr "Kopírovat"
 #: utils/cddacdio.cpp:45
 #, kde-format
 msgid "Device error (1)."
-msgstr ""
+msgstr "Chyba zařízení (1)."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
 #: utils/cddacdio.cpp:530
@@ -1625,12 +1625,12 @@ msgstr ""
 #: utils/cddacdio.cpp:52
 #, kde-format
 msgid "Device error (2)."
-msgstr ""
+msgstr "Chyba zařízení (2)."
 
 #: utils/cddacdio.cpp:60
 #, kde-format
 msgid "Device error (3)."
-msgstr ""
+msgstr "Chyba zařízení (3)."
 
 #: utils/cddacdio.cpp:446
 #, kde-format
@@ -2393,7 +2393,7 @@ msgstr "Stálý datový tok"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr ""
+msgstr "Cílový datový tok (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
@@ -2405,7 +2405,7 @@ msgstr " kbit/s"
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr ""
+msgstr "Cílový datový tok ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2450,6 +2450,9 @@ msgid ""
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>Přejete si, aby byl systém znovu prohledán kvůli kodekům (Lame, Opus, "
+"FLAC, etc.)?</p><p><font style=\"font-style:italic;\">Pokusí se vytvořit "
+"nějaké vzorové profily založené na jakýchkoli nalezených kodecích.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
