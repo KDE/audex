@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-01-18 09:36+0100\n"
+"PO-Revision-Date: 2024-05-12 22:59+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,249 +17,249 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
-msgstr ""
+msgstr "Meglévő fájlok felülírása"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
-msgstr ""
+msgstr "Részleges fájlok törlése megszakítás után"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
-msgstr ""
+msgstr "A CD-tálca kiadása a kinyerés befejezésekor"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
-msgstr ""
+msgstr "CDDB keresés automatikus végrehajtása"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
-msgstr ""
+msgstr "Borítókeresés (Amazon) automatikus végrehajtása"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
-msgstr ""
+msgstr "Lekérendő borítók száma"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr ""
+msgstr "Teljes paranoia mód (biztonságos mód)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:89
 #, kde-format
 msgid "Skip reading errors"
-msgstr ""
+msgstr "Olvasási hibák kihagyása"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:45
 #, kde-format
 msgid "Sample offset"
-msgstr ""
+msgstr "Mintavételezés eltolása"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:51
 #, kde-format
 msgid "Base path to store music files"
-msgstr ""
+msgstr "Zenefájlok tárolásának alap elérési útja"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
 #: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
-msgstr ""
+msgstr "Fájlok feltöltése kiszolgálóra"
 
 #. i18n: ectx: label, entry (url), group (general)
 #: audex.kcfg:59
 #, kde-format
 msgid "URL of server"
-msgstr ""
+msgstr "Kiszolgáló URL-je"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
 #, kde-format
 msgid "&Audex"
-msgstr ""
+msgstr "&Audex"
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metaadat"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
 #, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr ""
+msgstr "Címjavító eszközök"
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:32
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "&Beállítások"
 
 #: core/audex.cpp:100
 #, kde-format
 msgid "No profile selected. Operation abort."
-msgstr ""
+msgstr "Nincs kiválasztva profil. Művelet megszakítva."
 
 #: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
+msgstr "Beolvasás és kódolás indítása a(z) „%1” profillal…"
 
 #: core/audex.cpp:614 core/audex.cpp:674
 #, kde-format
 msgid "Can't find path \"%1\"."
-msgstr ""
+msgstr "A(z) „%1” útvonal nem található."
 
 #: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
 msgid "Please check your path (write access?)"
-msgstr ""
+msgstr "Ellenőrizze az útvonalat (van írási joga?)"
 
 #: core/audex.cpp:627
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr ""
+msgstr "A szabad hely kevesebb, mint 200 MiB itt: „%1”."
 
 #: core/audex.cpp:633 core/audex.cpp:702
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr ""
+msgstr "Figyelem! A(z) „%1” fájl már létezik. Felülírás."
 
 #: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr ""
+msgstr "Figyelem! A(z) „%1” fájl már létezik. Kihagyás."
 
 #: core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr ""
+msgstr "Nem lehet létrehozni a(z) „%1” mappát."
 
 #: core/audex.cpp:686 core/audex.cpp:1121
 #, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr ""
+msgstr "A(z) „%1” mappa sikeresen létrehozva."
 
 #: core/audex.cpp:689
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr ""
+msgstr "A(z) „%1” mappa már létezik."
 
 #: core/audex.cpp:696
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "A szabad hely kevesebb, mint 800 MiB itt: „%1”."
 
 #: core/audex.cpp:719
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr ""
+msgstr "Hiba a(z) „%1” átmeneti mappában (%2)."
 
 #: core/audex.cpp:719
 #, kde-format
 msgid "Please check."
-msgstr ""
+msgstr "Kérjük, ellenőrizze."
 
 #: core/audex.cpp:727
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "A(z) „%1” átmeneti mappában a szabad hely kevesebb, mint 800 MiB."
 
 #: core/audex.cpp:729
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr ""
+msgstr "A(z) „%1” átmeneti mappának legalább 200 MiB szabad hely kell."
 
 #: core/audex.cpp:729
 #, kde-format
 msgid "Please free space or set another path."
-msgstr ""
+msgstr "Kérjük, szabadítson fel helyet, vagy adjon meg másik útvonalat."
 
 #: core/audex.cpp:758
 #, kde-format
 msgid "Eject CD tray"
-msgstr ""
+msgstr "CD-tálca kiadása"
 
 #: core/audex.cpp:806
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr ""
+msgstr "A(z) „%1” borító sikeresen mentve."
 
 #: core/audex.cpp:809
 #, kde-format
 msgid "Unable to save cover \"%1\"."
-msgstr ""
+msgstr "Nem lehet menteni a(z) „%1” borítót."
 
 #: core/audex.cpp:809 core/audex.cpp:883 core/audex.cpp:923 core/audex.cpp:970
 #: core/audex.cpp:1011 core/audex.cpp:1039 core/audex.cpp:1086
 #: core/audex.cpp:1113
 #, kde-format
 msgid "Please check your path and permissions"
-msgstr ""
+msgstr "Kérjük, ellenőrizze az útvonalat és a jogosultságokat"
 
 #: core/audex.cpp:879
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr ""
+msgstr "A(z) „%1” lejátszólista sikeresen létrehozva."
 
 #: core/audex.cpp:883
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
-msgstr ""
+msgstr "Nem lehet menteni a(z) „%1” lejátszólistát."
 
 #: core/audex.cpp:920
 #, kde-format
 msgid "Info file \"%1\" successfully created."
-msgstr ""
+msgstr "A(z) „%1” információs fájl sikeresen létrehozva."
 
 #: core/audex.cpp:923
 #, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr ""
+msgstr "Nem lehet menteni a(z) „%1” információs fájlt."
 
 #: core/audex.cpp:967
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr ""
+msgstr "A(z) „%1” kivonatlista sikeresen létrehozva."
 
 #: core/audex.cpp:970
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr ""
+msgstr "Nem lehet menteni a(z) „%1” kivonatlistát."
 
 #: core/audex.cpp:1008
 #, kde-format
@@ -274,28 +274,28 @@ msgstr ""
 #: core/audex.cpp:1036
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr ""
+msgstr "A(z) „%1” naplófájl sikeresen tárolva."
 
 #: core/audex.cpp:1039
 #, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr ""
+msgstr "Nem lehet menteni a(z) „%1” naplófájlt"
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
 msgid "Unable to open folder \"%1\"."
-msgstr ""
+msgstr "Nem lehet megnyitni a(z) „%1” mappát."
 
 #: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
 msgid "Edit Data"
-msgstr ""
+msgstr "Adatok szerkesztése"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
 #, kde-format
 msgid "Various Artists"
-msgstr ""
+msgstr "Különböző előadók"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:24
@@ -307,13 +307,13 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:50
 #, kde-format
 msgid "Artist:"
-msgstr ""
+msgstr "Előadó:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:66
 #, kde-format
 msgid "Title:"
-msgstr ""
+msgstr "Cím:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:76
@@ -331,13 +331,13 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:110
 #, kde-format
 msgid "Genre:"
-msgstr ""
+msgstr "Műfaj:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:133
 #, kde-format
 msgid "Year:"
-msgstr ""
+msgstr "Év:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:160
@@ -346,6 +346,8 @@ msgid ""
 "Additional\n"
 "Information:"
 msgstr ""
+"További\n"
+"információk:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
@@ -357,7 +359,7 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:186
 #, kde-format
 msgid "0x00000000"
-msgstr ""
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
 #, kde-format
@@ -393,7 +395,7 @@ msgstr ""
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Súgó"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -451,7 +453,7 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:410
@@ -459,7 +461,7 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
 msgid "Genre"
-msgstr ""
+msgstr "Műfaj"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:420
@@ -493,7 +495,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:37
 #, kde-format
 msgid "Encoding"
-msgstr ""
+msgstr "Kódolás"
 
 #: dialogs/extractingprogressdialog.cpp:40
 #, kde-format
@@ -513,7 +515,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
@@ -557,7 +559,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:240
 #, kde-format
 msgid "Speed: %1x"
-msgstr ""
+msgstr "Sebesség: %1x"
 
 #: dialogs/extractingprogressdialog.cpp:258
 #, kde-format
@@ -569,7 +571,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:264
 #, kde-format
 msgid "Finished!"
-msgstr ""
+msgstr "Befejezve!"
 
 #: dialogs/extractingprogressdialog.cpp:269
 #, kde-format
@@ -581,7 +583,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:275
 #, kde-format
 msgid "Failed!"
-msgstr ""
+msgstr "Sikertelen!"
 
 #: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
@@ -625,7 +627,7 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:33
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -641,7 +643,7 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
-msgstr ""
+msgstr "Sebesség: 0x"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -651,7 +653,7 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -674,13 +676,13 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:406
 #, kde-format
 msgid "Suffix"
-msgstr ""
+msgstr "Utótag"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/filenameschemewizardwidgetUI.ui:212
 #, kde-format
 msgid "Example:"
-msgstr ""
+msgstr "Példa:"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_scheme)
 #: dialogs/filenameschemewizardwidgetUI.ui:232
@@ -699,17 +701,17 @@ msgstr ""
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
 msgid "Save %1"
-msgstr ""
+msgstr "%1 mentése"
 
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "létrehozva: "
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
 msgid "Cover Settings"
-msgstr ""
+msgstr "Borítóbeállítások"
 
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
@@ -736,7 +738,7 @@ msgstr ""
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -744,7 +746,7 @@ msgstr ""
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 #, kde-format
 msgid "Format:"
-msgstr ""
+msgstr "Formátum:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
@@ -789,17 +791,17 @@ msgstr ""
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
-msgstr ""
+msgstr "Profil módosítása"
 
 #: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
-msgstr ""
+msgstr "Profil létrehozása"
 
 #: dialogs/profiledatadialog.cpp:193
 #, kde-format
 msgid "New Profile"
-msgstr ""
+msgstr "Új profil"
 
 #: dialogs/profiledatahashlistdialog.cpp:28
 #: dialogs/profiledataplaylistdialog.cpp:30
@@ -855,13 +857,13 @@ msgstr ""
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
-msgstr ""
+msgstr "Utótag:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Séma:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
 #, kde-format
@@ -895,13 +897,13 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:38
 #, kde-format
 msgid "Encoder"
-msgstr ""
+msgstr "Kódoló"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
 #, kde-format
 msgid "Filenames"
-msgstr ""
+msgstr "Fájlnevek"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:133
@@ -932,7 +934,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:180
 #, kde-format
 msgid "Extra"
-msgstr ""
+msgstr "Extra"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:211
@@ -953,13 +955,13 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
-msgstr ""
+msgstr "Beállítások…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
 #, kde-format
 msgid "Create hashlist"
-msgstr ""
+msgstr "Kivonatlista létrehozása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:244
@@ -971,19 +973,19 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:257
 #, kde-format
 msgid "Create playlist"
-msgstr ""
+msgstr "Lejátszólista létrehozása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:303
 #, kde-format
 msgid "Create info file"
-msgstr ""
+msgstr "Információs fájl létrehozása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
 #, kde-format
 msgid "Save log file"
-msgstr ""
+msgstr "Naplófájl mentése"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
@@ -999,33 +1001,33 @@ msgstr ""
 #: main.cpp:25
 #, kde-format
 msgid "Audex"
-msgstr ""
+msgstr "Audex"
 
 #: main.cpp:25
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "Hangbeolvasó alkalmazás"
 
 #: main.cpp:25
 #, kde-format
 msgid "Copyright © 2007-2023 Marco Nelles"
-msgstr ""
+msgstr "Copyright © Marco Nelles, 2007-2023."
 
 #: main.cpp:28
 #, kde-format
 msgid "Marco Nelles"
-msgstr ""
+msgstr "Marco Nelles"
 
 #: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
-msgstr ""
+msgstr "Jelenlegi karbantartó, fő fejlesztő"
 
 #: main.cpp:29
 #, kde-format
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Craig Drummond"
 
 #: main.cpp:29
 #, kde-format
@@ -1035,17 +1037,17 @@ msgstr ""
 #: main.cpp:30
 #, kde-format
 msgid "Elson"
-msgstr ""
+msgstr "Elson"
 
 #: main.cpp:30
 #, kde-format
 msgid "development"
-msgstr ""
+msgstr "fejlesztés"
 
 #: main.cpp:31
 #, kde-format
 msgid "credativ GmbH"
-msgstr ""
+msgstr "credativ GmbH"
 
 #: main.cpp:31
 #, kde-format
@@ -1055,7 +1057,7 @@ msgstr ""
 #: main.cpp:32
 #, kde-format
 msgid "Xiph.Org Foundation"
-msgstr ""
+msgstr "Xiph.Org Alapítvány"
 
 #: main.cpp:33
 #, kde-format
@@ -1066,13 +1068,13 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kiszel Kristóf"
 
 #: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "ulysses@fsf.hu"
 
 #: mainwindow.cpp:39
 #, kde-format
@@ -1125,17 +1127,17 @@ msgstr ""
 #: mainwindow.cpp:181
 #, kde-format
 msgid "General settings"
-msgstr ""
+msgstr "Általános beállítások"
 
 #: mainwindow.cpp:185
 #, kde-format
 msgid "Device settings"
-msgstr ""
+msgstr "Eszközbeállítások"
 
 #: mainwindow.cpp:196
 #, kde-format
 msgid "Profiles"
-msgstr ""
+msgstr "Profilok"
 
 #: mainwindow.cpp:205
 #, kde-format
@@ -1145,7 +1147,7 @@ msgstr ""
 #: mainwindow.cpp:208
 #, kde-format
 msgid "Remote Server"
-msgstr ""
+msgstr "Távoli kiszolgáló"
 
 #: mainwindow.cpp:264
 #, kde-format
@@ -1205,42 +1207,42 @@ msgstr ""
 #: mainwindow.cpp:442
 #, kde-format
 msgid "Eject"
-msgstr ""
+msgstr "Kiadás"
 
 #: mainwindow.cpp:449
 #, kde-format
 msgid "Profile:"
-msgstr ""
+msgstr "Profil:"
 
 #: mainwindow.cpp:461
 #, kde-format
 msgid "&Profile:"
-msgstr ""
+msgstr "&Profil:"
 
 #: mainwindow.cpp:467
 #, kde-format
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: mainwindow.cpp:475
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Lekérés"
 
 #: mainwindow.cpp:482
 #, kde-format
 msgid "Submit"
-msgstr ""
+msgstr "Elküldés"
 
 #: mainwindow.cpp:488
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: mainwindow.cpp:495
 #, kde-format
 msgid "Rip..."
-msgstr ""
+msgstr "Beolvasás…"
 
 #: mainwindow.cpp:504
 #, kde-format
@@ -1297,7 +1299,7 @@ msgstr ""
 #: models/cddamodel.cpp:122
 #, kde-format
 msgid "Track %1"
-msgstr ""
+msgstr "%1. szám"
 
 #: models/cddamodel.cpp:526
 #, kde-format
@@ -1375,27 +1377,27 @@ msgstr ""
 #: models/cddamodel.h:34
 #, kde-format
 msgid "Rip"
-msgstr ""
+msgstr "Beolvasás"
 
 #: models/cddamodel.h:35
 #, kde-format
 msgid "Track"
-msgstr ""
+msgstr "Szám"
 
 #: models/cddamodel.h:36
 #, kde-format
 msgid "Artist"
-msgstr ""
+msgstr "Előadó"
 
 #: models/cddamodel.h:37
 #, kde-format
 msgid "Title"
-msgstr ""
+msgstr "Cím"
 
 #: models/cddamodel.h:38
 #, kde-format
 msgid "Length"
-msgstr ""
+msgstr "Hossz"
 
 #: models/profilemodel.cpp:302
 #, kde-format
@@ -1569,12 +1571,12 @@ msgstr ""
 #: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Másolás"
 
 #: utils/cddacdio.cpp:45
 #, kde-format
 msgid "Device error (1)."
-msgstr ""
+msgstr "Eszközhiba (1)."
 
 #: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
 #: utils/cddacdio.cpp:530
@@ -1587,12 +1589,12 @@ msgstr ""
 #: utils/cddacdio.cpp:52
 #, kde-format
 msgid "Device error (2)."
-msgstr ""
+msgstr "Eszközhiba (2)."
 
 #: utils/cddacdio.cpp:60
 #, kde-format
 msgid "Device error (3)."
-msgstr ""
+msgstr "Eszközhiba (3)."
 
 #: utils/cddacdio.cpp:446
 #, kde-format
@@ -1602,7 +1604,7 @@ msgstr ""
 #: utils/cddacdio.cpp:473
 #, kde-format
 msgid "Audio"
-msgstr ""
+msgstr "Hang"
 
 #: utils/cddacdio.cpp:476
 #, kde-format
@@ -1659,12 +1661,12 @@ msgstr ""
 #: utils/cddadevices.cpp:86
 #, kde-format
 msgid "Audio Disc"
-msgstr ""
+msgstr "Hanglemez"
 
 #: utils/cddaextractthread.cpp:27
 #, kde-format
 msgid "Internal device error."
-msgstr ""
+msgstr "Belső eszközhiba."
 
 #: utils/cddaextractthread.cpp:27
 #, kde-format
