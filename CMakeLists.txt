@@ -21,6 +21,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(ECMAddTests)
+include(ECMAddAppIcon)
 include(FeatureSummary)
 include(KDEClangFormat)
 
@@ -170,13 +171,22 @@ target_link_libraries(
   ${CDIO_CDDA_LIBRARIES}
   ${CDIO_PARANOIA_LIBRARIES})
 
+ecm_add_app_icon(audex ICONS
+    icons/sc-apps-org.kde.audex.svg
+    icons/16-apps-org.kde.audex.png
+    icons/32-apps-org.kde.audex.png
+    icons/48-apps-org.kde.audex.png
+    icons/64-apps-org.kde.audex.png
+    icons/128-apps-org.kde.audex.png
+)
+
 install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.audex.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES audex-rip-audiocd.desktop
         DESTINATION ${KDE_INSTALL_DATADIR}/solid/actions)
+install(FILES org.kde.audex.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 
-add_subdirectory(icons)
 add_subdirectory(images)
 
 if(BUILD_TESTING)

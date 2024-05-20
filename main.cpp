@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     aboutData.setDesktopFileName(QStringLiteral("org.kde.audex"));
 
     KAboutData::setApplicationData(aboutData);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("audex")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("org.kde.audex")));
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
