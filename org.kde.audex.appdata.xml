@@ -64,9 +64,9 @@
   <description>
     <p>
       Audex is an CD ripper application. It lets you extract the audio from
-      your CD-ROMs to let you listen to them on your computer and your other
-      devices. It includes a CDDB and a MusicBrainz integration to fetch the
-      metadata and covers for your CD-ROMs if available.
+      your CDs to let you listen to them on your computer and your other
+      devices. It includes CDDB and MusicBrainz integrations to fetch the
+      metadata and covers for your CDs if available.
     </p>
     <p xml:lang="ca">Audex és una aplicació d'extracció de CD. Permet extreure l'àudio dels CD-ROM per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb el CDDB i el MusicBrainz per a obtenir les metadades i caràtules dels CD-ROM si estan disponibles.</p>
     <p xml:lang="ca-valencia">Audex és una aplicació d'extracció de CD. Permet extraure l'àudio dels CD-ROM per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb CDDB i MusicBrainz per a obtindre les metadades i caràtules dels CD-ROM si estan disponibles.</p>
