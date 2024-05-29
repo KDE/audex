@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.4\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -44,13 +43,13 @@ msgstr "Wysuń tackę napędu po ukończonym wydobywaniu"
 #: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
-msgstr "Sam poszukaj okładki w CDDB"
+msgstr "Samoczynnie znajdź w bazie CDDB"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
-msgstr "Sam poszukaj okładki na Amazonie"
+msgstr "Samoczynnie znajdź okładkę (amazon)"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:31
@@ -802,7 +801,7 @@ msgstr "Dodaj wartości MCN oraz ISRC (jeśli dostępne)"
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
-msgstr "Zmień profil"
+msgstr "Modyfikuj profil"
 
 #: dialogs/profiledatadialog.cpp:182
 #, kde-format
@@ -848,12 +847,12 @@ msgstr "Pomoc do wzorca tekstu informacyjnego"
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
 msgid "Load Text Template"
-msgstr "Wczytaj wzorzec tekstowy"
+msgstr "Wczytaj szablon tekstowy"
 
 #: dialogs/profiledatainfodialog.cpp:166
 #, kde-format
 msgid "Save Text Template"
-msgstr "Zapisz wzorzec tekstowy"
+msgstr "Zapisz szablon tekstowy"
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
@@ -874,7 +873,7 @@ msgstr "Przyrostek:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr "Wzorzec:"
+msgstr "Schemat:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
 #, kde-format
@@ -1943,8 +1942,7 @@ msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr ""
-"Albo go brakuje, albo masz niewystarczające uprawnienia do wykonania "
-"programu."
+"Albo go brakuje, albo masz niewystarczające uprawnienia do wykoania programu."
 
 #: utils/encoderwrapper.cpp:191
 #, kde-format
