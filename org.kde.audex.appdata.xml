@@ -63,7 +63,7 @@
   <summary xml:lang="zh-CN">从您的 CD-ROM 获取音频</summary>
   <description>
     <p>
-      Audex is an CD ripper application. It lets you extract the audio from
+      Audex is a CD ripper application. It lets you extract the audio from
       your CDs to let you listen to them on your computer and your other
       devices. It includes CDDB and MusicBrainz integrations to fetch the
       metadata and covers for your CDs if available.
@@ -78,7 +78,7 @@
     <p xml:lang="sl">Audex je aplikacija za zajemanje CD-jev. Omogoča vam ekstrahiranje zvoka s CD-jev, da jih lahko poslušate na računalniku in drugih napravah. Vključuje integracijo CDDB in MusicBrainz za pridobivanje metapodatkov in ovitkov za vaše CD-je, če so na voljo.</p>
     <p xml:lang="tr">Audeks bir ses CD’si aktarıcısı uygulamadır. CD’lerinizden sesleri çıkarmanıza ve onları bilgisayarınızda veya başka bir aygıtınızda dinlemenize olanak tanır. Kullanılabiliyorsa CD’lerinizin kapak bilgisini ve sanatçı/şarkı üst verisini almanızı sağlamak için CDDB ve MusicBrainz tümleştirmesi sunar.</p>
     <p xml:lang="uk">Audex — програма для видобування звукових даних з компакт-дисків. За її допомогою ви можете видобувати звукові дані з компакт-дисків для прослуховування на комп'ютері та інших ваших пристроях. Програму інтегровано з CDDB та MusicBrainz для отримання метаданих та зображень обкладинок компакт-дисків, якщо такі доступні.</p>
-    <p xml:lang="x-test">xxAudex is an CD ripper application. It lets you extract the audio from your CDs to let you listen to them on your computer and your other devices. It includes CDDB and MusicBrainz integrations to fetch the metadata and covers for your CDs if available.xx</p>
+    <p xml:lang="x-test">xxAudex is a CD ripper application. It lets you extract the audio from your CDs to let you listen to them on your computer and your other devices. It includes CDDB and MusicBrainz integrations to fetch the metadata and covers for your CDs if available.xx</p>
   </description>
   <content_rating type="oars-1.1"/>
   <screenshots>
