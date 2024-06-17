@@ -59,7 +59,7 @@
   <summary xml:lang="tr">CD-ROM’larınızdaki sesleri bilgisayarınıza aktarın</summary>
   <summary xml:lang="uk">Отримання звукових даних з ваших компакт-дисків</summary>
   <summary xml:lang="x-test">xxGrab the audio from your CD-ROMsxx</summary>
-  <summary xml:lang="zh-CN">从您的 CD-ROM 获取音频</summary>
+  <summary xml:lang="zh-CN">从 CD-ROM 抓取音频</summary>
   <description>
     <p>
       Audex is an CD ripper application. It lets you extract the audio from
@@ -113,7 +113,7 @@
       <caption xml:lang="tr">Ana görünüm</caption>
       <caption xml:lang="uk">Головне вікно</caption>
       <caption xml:lang="x-test">xxMain viewxx</caption>
-      <caption xml:lang="zh-CN">主界面</caption>
+      <caption xml:lang="zh-CN">主视图</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://apps.kde.org/audex</url>
