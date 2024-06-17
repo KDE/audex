@@ -57,6 +57,7 @@
   <summary xml:lang="nl">Haal de audio uit uw CD-ROM's</summary>
   <summary xml:lang="pl">Zgraj dźwięk ze swoich płyt CD</summary>
   <summary xml:lang="sl">Zgrabite zvok iz svojih CD-ROM-ov</summary>
+  <summary xml:lang="sv">Hämta ljud från cd-rom</summary>
   <summary xml:lang="tr">CD-ROM’larınızdaki sesleri bilgisayarınıza aktarın</summary>
   <summary xml:lang="uk">Отримання звукових даних з ваших компакт-дисків</summary>
   <summary xml:lang="x-test">xxGrab the audio from your CD-ROMsxx</summary>
@@ -68,6 +69,17 @@
       devices. It includes CDDB and MusicBrainz integrations to fetch the
       metadata and covers for your CDs if available.
     </p>
+    <p xml:lang="ca">L'Audex és una aplicació d'extracció de CD. Permet extreure l'àudio dels CD per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb el CDDB i el MusicBrainz per a obtenir les metadades i caràtules dels CD si estan disponibles.</p>
+    <p xml:lang="ca-valencia">Audex és una aplicació d'extracció de CD. Permet extraure l'àudio dels CD per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb CDDB i MusicBrainz per a obtindre les metadades i caràtules dels CD si estan disponibles.</p>
+    <p xml:lang="eo">Audex estas KD-ripper-aplikaĵo. Ĝi ebligas al vi ĉerpi la audaĵon de viaj KD-ROM por ebligi vin aŭskulti ilin en via komputilo kaj viaj aliaj aparatoj. Ĝi inkluzivas CDDB- kaj MusicBrainz-integriĝon por preni la metadatenojn kaj kovriloj por viaj KD-ROM se disponeblaj.</p>
+    <p xml:lang="es">Audex es una aplicación para extraer sonido de CD. Le permite extraer el sonido de sus CD para escucharlo en su equipo o en otros dispositivos. Incluye integración con CDDB y MusicBrainz para obtener metadatos y portadas de CD, si están disponibles.</p>
+    <p xml:lang="ka">'Audex' CD-დან რიპინგის აპლიკაციაა. ის საშუალებას გაძლევთ, თქვენი CD-ROM-ებიდან აუდიო გამოიღოთ და კომპიუტერზე ან სხვა მოწყობილობაზე უსმინოთ. ის ასევე შეიცავს CDDB და MusicBrainz-ის ინტეგრაციას, რომ მეტამონაცემები და ყდები გადმოწეროთ თქვენი CD-ებისთვის, თუ ისინი ხელმისაწვდომია.</p>
+    <p xml:lang="nl">Audex is een toepassing voor cd-rippen. Het laat u de audio uit uw cd's halen om u er naar te laten luisteren op uw computer en uw andere apparaten. Het omvat CDDB- en MusicBrainz-integratie om de metagegevens en hoezen op te halen voor uw cd's indien beschikbaar.</p>
+    <p xml:lang="sl">Audex je aplikacija za zajemanje CD-jev. Omogoča vam ekstrahiranje zvoka s CD-jev, da jih lahko poslušate na računalniku in drugih napravah. Vključuje integracijo s CDDB in MusicBrainz za pridobivanje metapodatkov in ovitkov za vaše CD-je, če so na voljo.</p>
+    <p xml:lang="sv">Audex är ett cd-lagringsprogram. Det låter dig extrahera ljud från cd-skivor för att kunna lyssna på dem på datorn och andra apparater. Det inkluderar integration med CDDB och MusicBrainz för att hämta metadata och omslag för cd-skivor om tillgängliga.</p>
+    <p xml:lang="tr">Audeks bir ses CD’si aktarıcısı uygulamadır. CD’lerinizden sesleri çıkarmanıza ve onları bilgisayarınızda veya başka bir aygıtınızda dinlemenize olanak tanır. Kullanılabiliyorsa CD’lerinizin kapak bilgisini ve sanatçı/şarkı üst verisini almanızı sağlamak için CDDB ve MusicBrainz tümleştirmesi sunar.</p>
+    <p xml:lang="uk">Audex — програма для видобування звукових даних з компакт-дисків. За її допомогою ви можете видобувати звукові дані з компакт-дисків для прослуховування на комп'ютері та інших ваших пристроях. Програму інтегровано з CDDB та MusicBrainz для отримання метаданих та зображень обкладинок компакт-дисків, якщо такі доступні.</p>
+    <p xml:lang="x-test">xxAudex is a CD ripper application. It lets you extract the audio from your CDs to let you listen to them on your computer and your other devices. It includes CDDB and MusicBrainz integrations to fetch the metadata and covers for your CDs if available.xx</p>
   </description>
   <content_rating type="oars-1.1"/>
   <screenshots>
@@ -91,6 +103,7 @@
       <caption xml:lang="nl">Hoofdweergave</caption>
       <caption xml:lang="pl">Widok główny</caption>
       <caption xml:lang="sl">Glavni pogled</caption>
+      <caption xml:lang="sv">Huvudvy</caption>
       <caption xml:lang="tr">Ana görünüm</caption>
       <caption xml:lang="uk">Головне вікно</caption>
       <caption xml:lang="x-test">xxMain viewxx</caption>
