@@ -59,7 +59,7 @@
   <summary xml:lang="tr">CD-ROM’larınızdaki sesleri bilgisayarınıza aktarın</summary>
   <summary xml:lang="uk">Отримання звукових даних з ваших компакт-дисків</summary>
   <summary xml:lang="x-test">xxGrab the audio from your CD-ROMsxx</summary>
-  <summary xml:lang="zh-CN">从 CD-ROM 抓取音频</summary>
+  <summary xml:lang="zh-CN">抓取 CD-ROM 中的音频</summary>
   <description>
     <p>
       Audex is an CD ripper application. It lets you extract the audio from
