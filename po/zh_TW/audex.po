@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-01-22 16:05+0900\n"
+"PO-Revision-Date: 2024-07-12 03:54+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -384,7 +384,7 @@ msgstr "專輯範例："
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
-msgstr ""
+msgstr "取樣器範例："
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -780,6 +780,9 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>將音軌的媒體編目代碼 (MCN) 與國際標準錄音錄影資料代碼 "
+"(ISRC, ISO 3901) 寫入 Cue 檔（如果您的光碟機有此功能的話）。</p><p>依光碟機不"
+"同，擷取結束時取得這些代碼可能會需要幾秒鐘。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:62
@@ -921,7 +924,7 @@ msgstr "將空白替換為底線 (_)"
 #, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr ""
+msgstr "這個設定會覆寫機制中的參數化變數設定"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
@@ -1006,7 +1009,7 @@ msgstr "Audex"
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "音訊擷取應用程式"
 
 #: main.cpp:25
 #, kde-format
@@ -1655,7 +1658,7 @@ msgstr "導出"
 #: utils/cddacdio.cpp:498
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "音軌 %1，起始磁區：%2，以磁區為單位的大小：%3，類型：%4"
 
 #: utils/cddacdio.cpp:529
 #, kde-format
@@ -1687,7 +1690,7 @@ msgstr "磁碟機廠商：%1，磁碟機型號：%2，磁碟機版本：%3"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "TOC:"
-msgstr ""
+msgstr "目錄："
 
 #: utils/cddaextractthread.cpp:86
 #, kde-format
@@ -1712,17 +1715,17 @@ msgstr "擷取時發生錯誤。請見紀錄。"
 #: utils/cddaextractthread.cpp:121
 #, kde-format
 msgid "Correction sample offset: %1"
-msgstr ""
+msgstr "修正樣本偏移：%1"
 
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr ""
+msgstr "正在從碟片取得額外資訊…"
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
 msgid "Fetching subchannel infos from disc"
-msgstr ""
+msgstr "正在從碟片取得子頻道資訊"
 
 #: utils/cddaextractthread.cpp:135
 #, kde-format
@@ -1954,6 +1957,9 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"replace_char_list（替換字元清單）參數需要另外兩個參數："
+"replace_char_list_from（替換字元清單——來源）及 replace_char_list_to（替換字元"
+"清單——目標），它們的大小必須相同。"
 
 #: utils/schemeparser.cpp:274
 #, kde-format
@@ -1984,6 +1990,18 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>以下佔位符會被替換為其代表的值：</p><table>  <tr><th>佔位符</th><th>描述</"
+"th></tr>  <tr>    <td><tt>$artist</tt></td>    <td>CD 的藝人。如果您的 CD 是"
+"合輯，則這個標籤通常代表的是標題。</td>  </tr>  <tr>    <td><tt>$title</tt></"
+"td>    <td>CD 的標題。如果您的 CD 是合輯，則這個標籤通常代表的是子標題。</"
+"td>  </tr>  <tr>    <td><tt>$date</tt></td>    <td>CD 的發行日期。絕大部分時"
+"候這會是年份。</td>  </tr>  <tr>    <td><tt>$genre</tt></td>    <td>CD 的曲"
+"風。</td>  </tr>  <tr>    <td><tt>$cdno</tt></td>    <td>多張 CD 專輯的碟片編"
+"號。合輯通常包含多張 CD 片。<i>請注意</i>：如果目前的 CD <b>未</b>設定多 CD "
+"旗標，則這個值會是空的。</td>  </tr>  <tr>    <td><tt>$nooftracks</tt></"
+"td>    <td>CD 中的音軌數量。</td>  </tr>  <tr>    <td><tt>$encoder</tt></"
+"td>    <td>編碼器名稱和版本。</td>  </tr>  <tr>    <td><tt>$audex</tt></"
+"td>    <td>Audex 名稱和版本。</td>  </tr></table>"
 
 #: utils/schemeparser.h:172
 #, kde-format
@@ -2015,6 +2033,31 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>  Audex 中的佔位符可以使用參數，參數格式為「鍵=值」，例如 <tt>${title "
+"lowercase=true}</tt>。這個範例中，\"title\"（標題）會被轉為小寫。  佔位符有這"
+"些通用參數可供使用：</p><table>  <tr>    <th>鍵</th>    <th>值</th>    <th>描"
+"述</th>  </tr>  <tr>    <td><tt>lowercase</tt></td>    <td>true/false</"
+"td>    <td>為 true 時佔位符的值會被轉為小寫。</td>  </tr>  <tr>    "
+"<td><tt>uppercase</tt></td>    <td>true/false</td>    <td>為 true 時佔位符的"
+"值會被轉為大寫。</td>  </tr>  <tr>    <td><tt>underscores</tt></td>    "
+"<td>true/false</td>    <td>為 true 時將佔位符的值中的空格轉為底線。</td>  </"
+"tr>  <tr>    <td><tt>fat32compatible</tt></td>    <td>true/false</td>    "
+"<td>      為 true 時將不能於 FAT32 檔案系統的檔案名稱中使用的字元轉為底"
+"線。    </td>  </tr>  <tr>    <td><tt>replace_chars</tt></td>    <td>true/"
+"false</td>    <td>      為 true 時取代字元。這個參數需要提供另外兩個值大小相"
+"同的鍵： <tt>replace_char_list_from</tt>（替換字元清單——來源）、"
+"<tt>replace_char_list_to</tt>（替換字元清單——目標）。      這兩個清單是字元的"
+"清單。<tt>replace_char_list_from</tt> 當中的第一個字元會被取代為 "
+"<tt>replace_char_list_to</tt> 的第一個字元，前者第二個字元會取代為後者第二個"
+"字元，以此類推。    </td>  </tr>  <tr>    <td><tt>left</tt></td>    <td>數字"
+"</td>    <td>從佔位符的值左方取 N 個字元。</td>  </tr>  <tr>    "
+"<td><tt>length</tt></td>    <td>數字</td>    <td>      佔位符的值是數字的時候"
+"將它擴展到指定的長度。      您也可以另外以 <tt>fillchar</tt> 鍵指定擴展長度時"
+"填補的字元。預設的填補用字元是 '0'。    </td>  </tr>  <tr>    <td><tt>pre</"
+"tt></td>    <td>字串</td>    <td>      會置於佔位符的值<b>前方</b>的字串。可"
+"以用來指定佔位符的值為空的時候完全不應設定的命令列參數。    </td>  </tr>  "
+"<tr>    <td><tt>post</tt></td>    <td>字串</td>    <td>會置於佔位符的值<b>後"
+"方</b>的字串。</td>  </tr></table>"
 
 #: utils/schemeparser.h:193
 #, kde-format
@@ -2028,6 +2071,13 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table>  <tr>    <th>佔位符</th>    <th>描述</th>  </tr>  <tr>    <td>"
+"$tartist</td>    <td>這是每個音軌的藝人。在合輯專輯中特別有用。</td>  </tr>  "
+"<tr>    <td>$ttitle</td>    <td>      音軌的標題。通常 CD 上各個音軌都有自己"
+"的標題，是每一首歌的名稱。    </td>  </tr>  <tr>    <td>$trackno</td>    <td>"
+"音軌編號。第一個音軌是編號 1。</td>  </tr>  <tr>    <td><tt>$isrc</tt></"
+"td>    <td>      音軌的國際標準錄音錄影資料代碼 (ISRC)。只有在您的裝置支援時"
+"才能使用。    </td>  </tr></table>"
 
 #: utils/schemeparser.h:205
 #, kde-format
@@ -2044,6 +2094,17 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table>  <tr>    <th>佔位符</th>    <th>特定參數</th>    <th>描述</th>  </"
+"tr>  <tr>    <td><tt>$i</tt></td>    <td></td>    <td>      Audex 從 CD 音訊"
+"軌道建立的暫存 WAVE (RIFF WAVE) 檔案。      這是您的命令列編碼器會收到的輸入"
+"檔案。    </td>  </tr>  <tr>    <td><tt>$o</tt></td>    <td></td>    "
+"<td>      完整輸出檔案名稱與路徑。可以提供給您的命令列編碼器作為輸出參"
+"數。    </td>  </tr>  <tr>    <td><tt>$cover</tt></td>    <td><tt>格式,x,y</"
+"tt></td>    <td>      封面檔案的檔名。若沒有設定封面，此數值會是空的。通常與 "
+"<tt>pre</tt> 參數一同使用。      影像可以用 <tt>x</tt> 與 <tt>y</tt> 參數來調"
+"整大小。      可使用的影像<tt>格式</tt>有 JPEG、PNG、GIF 或 BMP (預設為 "
+"JPEG)。      <i><b>注意：</b>LAME 編碼器會捨棄大小超過 128 KiB 的封面檔案。</"
+"i>    </td>  </tr></table>"
 
 #: utils/schemeparser.h:219
 #, kde-format
@@ -2071,6 +2132,25 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table>  <tr>    <th>佔位符</th>    <th>特定參數</th>    <th>描述</th>  </"
+"tr>  <tr>    <td>$size</td>    <td><tt>iec,精確度</tt></td>    <td>      印出"
+"所有取出（編碼後）的音樂檔案加總的大小，也包含封面影像檔案。      提供 "
+"<tt>iec</tt> 時計算 (k)ibi、(m)ebi 或 (g)ibi。      額外參數 <tt>精確度</tt> "
+"能用來定義小數點後的位數。    </td>  </tr>  <tr>    <td>$length</td>    "
+"<td></td>    <td>      印出所有取出的音軌的相關總長度。格式為分:秒。    </"
+"td>  </tr>  <tr>    <td>$nooftracks</td>    <td></td>    <td>印出取出的音軌的"
+"總數。</td>  </tr>  <tr>    <td>$discid</td>    <td>base</td>    <td>以十六進"
+"制格式印出 CDDB 碟片 ID。</td>  </tr>  <tr>    <td><tt>$mcn</tt></td>    "
+"<td></td>    <td>      CD 的媒體編目代碼 (MCN)。只有在您的裝置支援時才能使"
+"用。    </td>  </tr>  <tr>    <td>$now</td>    <td><tt>格式,地域</tt></"
+"td>    <td>      印出目前的日期、日期加時間，或僅時間。「格式」參數會定義輸出"
+"的格式。請參考 Qt 官方說明文件 (<tt>https://doc.qt.io/qt-5/qtime. "
+"html#toString</tt>、<tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) 中關"
+"於格式化字串中可以使用的格式定義符號。      可以利用額外參數 <tt>地域</tt> 來"
+"指定語言設定。預設會使用您的系統地域。地域格式為 <tt>語言_地區</tt>, 例如 "
+"<tt>zh_TW</tt>。<tt>語言</tt> 為小寫兩字母的 ISO 639 語言代碼，<tt>地區</tt> "
+"則是大寫兩字母的 ISO 3166 地區代碼。    </td>  </tr>  <tr>    <td>$br</"
+"td>    <td></td>    <td>印出換行符。</td>  </tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2161,7 +2241,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample offset:"
-msgstr ""
+msgstr "樣本偏移："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
 #: widgets/devicewidgetUI.ui:86
@@ -2171,6 +2251,8 @@ msgid ""
 "1/75 second) after trying to read the sector again for at most 20 times. "
 "Usually broken sectors will be filled with silence.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>嘗試讀取磁區最多 20 次之後跳過讀取磁區的錯誤（磁區長"
+"度：1/75 秒）。通常破損的磁區會以靜音填滿。</p></body></html>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
 #: widgets/devicewidgetUI.ui:99
@@ -2206,7 +2288,7 @@ msgstr "版本："
 #: widgets/devicewidgetUI.ui:224
 #, kde-format
 msgid "C2 error correction available"
-msgstr ""
+msgstr "C2 錯誤修正可用"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: widgets/devicewidgetUI.ui:246
@@ -2303,7 +2385,7 @@ msgstr "品質/位元率"
 #: widgets/lamewidgetUI.ui:53
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
-msgstr ""
+msgstr "這個設定檔對大部分人來說會聽不出差別。"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
