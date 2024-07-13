@@ -60,6 +60,7 @@
   <summary xml:lang="uk">Отримання звукових даних з ваших компакт-дисків</summary>
   <summary xml:lang="x-test">xxGrab the audio from your CD-ROMsxx</summary>
   <summary xml:lang="zh-CN">抓取 CD-ROM 中的音频</summary>
+  <summary xml:lang="zh-TW">從您的 CD-ROM 光碟取出音訊</summary>
   <description>
     <p>
       Audex is an CD ripper application. It lets you extract the audio from
@@ -114,6 +115,7 @@
       <caption xml:lang="uk">Головне вікно</caption>
       <caption xml:lang="x-test">xxMain viewxx</caption>
       <caption xml:lang="zh-CN">主视图</caption>
+      <caption xml:lang="zh-TW">主檢視</caption>
     </screenshot>
   </screenshots>
   <url type="homepage">https://apps.kde.org/audex</url>
