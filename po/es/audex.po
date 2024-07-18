@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-22 03:51+0000\n"
-"PO-Revision-Date: 2024-01-30 19:51+0100\n"
+"PO-Revision-Date: 2024-07-17 13:54+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -164,7 +164,7 @@ msgstr "Advertencia: El archivo «%1» ya existe. Sobrescribiendo."
 #: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "Advertencia: El archivo «%1» ya existe. Ignorándolo."
+msgstr "Advertencia: El archivo «%1» ya existe. Se omite."
 
 #: core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
@@ -486,7 +486,7 @@ msgstr "Archivo de salida"
 #: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
 msgid "Rip And Encode"
-msgstr "Convertir y codificar"
+msgstr "Extraer y codificar"
 
 #: dialogs/extractingprogressdialog.cpp:36
 #: dialogs/extractingprogressdialog.cpp:178
@@ -522,7 +522,7 @@ msgstr "Cancelar"
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track"
-msgstr "Convirtiendo pista"
+msgstr "Extrayendo pista"
 
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
@@ -595,7 +595,7 @@ msgstr "Mostrar registro de la codificación..."
 #: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
-msgstr "Mostrar registro de la conversión..."
+msgstr "Mostrar registro de la extracción..."
 
 #: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
@@ -640,7 +640,7 @@ msgstr "..."
 #: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr "Convirtiendo pista 8 de 12"
+msgstr "Extrayendo pista 8 de 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
@@ -1413,7 +1413,7 @@ msgstr "Seleccione una entrada de CDDB:"
 #: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
-msgstr "Convertir"
+msgstr "Extraer"
 
 #: models/cddamodel.h:36
 #, kde-format
@@ -1782,7 +1782,7 @@ msgstr "Obteniendo información de subcanales del disco"
 #: utils/cddaextractthread.cpp:135
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr "Convirtiendo pista %1 (%2:%3)..."
+msgstr "Extrayendo pista %1 (%2:%3)..."
 
 #: utils/cddaextractthread.cpp:136
 #, kde-format
@@ -1848,7 +1848,7 @@ msgstr ""
 #: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr "La extracción se ha cancelado debido a un error."
+msgstr "Se ha cancelado la extracción debido a un error."
 
 #: utils/cddaextractthread.cpp:254
 #, kde-format
