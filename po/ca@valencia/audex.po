@@ -1347,7 +1347,7 @@ msgid ""
 "and try again."
 msgstr ""
 "Ja es troba en curs una transacció amb la CDDB. Espereu fins que acabe i "
-"torneu-ho a intentar de nou."
+"torneu-ho a provar de nou."
 
 #: models/cddamodel.cpp:843 models/cddamodel.cpp:957
 #, kde-format
