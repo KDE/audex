@@ -251,13 +251,11 @@ private:
     QString p_error_string;
 
     inline const QString
-    customize_placeholder_value(const QString &string, bool fat32compatible = false, bool compatible2 = true, bool replacespaceswithunderscores = false)
+    customize_placeholder_value(const QString &string, bool fat32compatible = false, bool replacespaceswithunderscores = false)
     {
         QString tmp = string;
         if (fat32compatible)
             tmp = make_fat32_compatible(tmp);
-        else if (compatible2)
-            tmp = make_compatible_2(tmp);
         else
             tmp = make_compatible(tmp);
         if (replacespaceswithunderscores)
@@ -265,8 +263,14 @@ private:
         return tmp;
     }
 
+    inline const QString mask_inner_quotes(const QString &string)
+    {
+        QString s = string;
+        s = s.replace('"', "\\\"");
+        return s;
+    }
+
     const QString make_compatible(const QString &string);
-    const QString make_compatible_2(const QString &string);
     const QString make_fat32_compatible(const QString &string);
     const QString replace_spaces_with_underscores(const QString &string);
     const QString replace_char_list(const QString &from, const QString &to, const QString &string);

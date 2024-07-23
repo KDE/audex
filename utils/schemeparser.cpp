@@ -297,13 +297,13 @@ const QString SchemeParser::parsePerTrackFilenameScheme(const QString &scheme,
 {
     Placeholders placeholders;
 
-    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible, true, replacespaceswithunderscores));
-    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible, true, replacespaceswithunderscores));
-    placeholders.insert(VAR_TRACK_ARTIST, customize_placeholder_value(tartist, fat32compatible, true, replacespaceswithunderscores));
-    placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle, fat32compatible, true, replacespaceswithunderscores));
-    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, true, replacespaceswithunderscores));
-    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, true, replacespaceswithunderscores));
-    placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc, fat32compatible, true, replacespaceswithunderscores));
+    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_TRACK_ARTIST, customize_placeholder_value(tartist, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc, fat32compatible, replacespaceswithunderscores));
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -345,16 +345,16 @@ const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
     Placeholders placeholders;
 
     placeholders.insert(VAR_INPUT_FILE, input);
-    placeholders.insert(VAR_OUTPUT_FILE, output);
+    placeholders.insert(VAR_OUTPUT_FILE, mask_inner_quotes(output));
 
-    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist));
-    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title));
-    placeholders.insert(VAR_TRACK_ARTIST, customize_placeholder_value(tartist));
-    placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle));
-    placeholders.insert(VAR_DATE, customize_placeholder_value(date));
-    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre));
+    placeholders.insert(VAR_ALBUM_ARTIST, mask_inner_quotes(customize_placeholder_value(artist)));
+    placeholders.insert(VAR_ALBUM_TITLE, mask_inner_quotes(customize_placeholder_value(title)));
+    placeholders.insert(VAR_TRACK_ARTIST, mask_inner_quotes(customize_placeholder_value(tartist)));
+    placeholders.insert(VAR_TRACK_TITLE, mask_inner_quotes(customize_placeholder_value(ttitle)));
+    placeholders.insert(VAR_DATE, mask_inner_quotes(customize_placeholder_value(date)));
+    placeholders.insert(VAR_GENRE, mask_inner_quotes(customize_placeholder_value(genre)));
     placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc));
-    placeholders.insert(VAR_ENCODER, customize_placeholder_value(encoder));
+    placeholders.insert(VAR_ENCODER, mask_inner_quotes(customize_placeholder_value(encoder)));
 
     placeholders.insert(VAR_AUDEX, customize_placeholder_value(AUDEX_VERSION_STRING));
 
@@ -452,10 +452,10 @@ const QString SchemeParser::parseFilenameScheme(const QString &text,
 {
     Placeholders placeholders;
 
-    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible, false));
-    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible, false));
-    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, false));
-    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, false));
+    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible));
+    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible));
+    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible));
+    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible));
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -501,26 +501,17 @@ const QString SchemeParser::make_compatible(const QString &string)
     QString s = string;
     for (int i = 0; i < s.size(); i++) {
         switch (s[i].unicode()) {
-        case '/':
+        //case '/':
         case '\\':
             s[i] = '_';
             break;
-
-        case '"':
-            s[i] = '\'';
-            break;
-
+        // case '"':
+        //     s[i] = '\'';
+        //     break;
         default:
             break;
         }
     }
-    return s;
-}
-
-const QString SchemeParser::make_compatible_2(const QString &string)
-{
-    QString s = string;
-    s = s.replace('"', "\"");
     return s;
 }
 

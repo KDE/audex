@@ -177,8 +177,8 @@ const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder)
 
     switch (encoder) {
     case EncoderAssistant::LAME:
-        if ((words.contains("version")) && (words.indexOf("version") + 1 < words.count()))
-            return words[words.indexOf("version") + 1];
+        if ((words.contains(QStringLiteral("version"))) && (words.indexOf(QStringLiteral("version")) + 1 < words.count()))
+            return words[words.indexOf(QStringLiteral("version")) + 1];
         if (words.count() < 2)
             return "";
         return words[words.count() - 2];
@@ -197,8 +197,8 @@ const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder)
         words = list[1].split(' ');
         if (words.count() < 2)
             return "";
-        if ((words.contains("FAAC")) && (words.indexOf("FAAC") + 1 < words.count()))
-            return words[words.indexOf("FAAC") + 1];
+        if ((words.contains(QStringLiteral("FAAC"))) && (words.indexOf(QStringLiteral("FAAC")) + 1 < words.count()))
+            return words[words.indexOf(QStringLiteral("FAAC")) + 1];
         return words[1];
 
     case EncoderAssistant::WAVE:
@@ -269,35 +269,31 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         QString cmd = ENCODER_LAME_BIN;
         switch (preset) {
         case ENCODER_LAME_PRESET_MEDIUM:
-            cmd += " --preset medium";
+            cmd += QStringLiteral(" --preset medium");
             break;
         case ENCODER_LAME_PRESET_STANDARD:
-            cmd += " --preset standard";
+            cmd += QStringLiteral(" --preset standard");
             break;
         case ENCODER_LAME_PRESET_EXTREME:
-            cmd += " --preset extreme";
+            cmd += QStringLiteral(" --preset extreme");
             break;
         case ENCODER_LAME_PRESET_INSANE:
-            cmd += " --preset insane";
+            cmd += QStringLiteral(" --preset insane");
             break;
         case ENCODER_LAME_PRESET_CUSTOM:
-            cmd += QString(" --preset") + (cbr ? QString(" cbr") : QString()) + QString(" %1").arg(bitrate);
+            cmd += QStringLiteral(" --preset") + (cbr ? QStringLiteral(" cbr") : QString()) + QStringLiteral(" %1").arg(bitrate);
             break;
         default:
-            cmd += " --preset standard";
+            cmd += QStringLiteral(" --preset standard");
         }
         QString v = EncoderAssistant::version(EncoderAssistant::LAME);
-        if ((v.startsWith(QLatin1String("3.95"))) || (v.startsWith(QLatin1String("3.96"))) || (v.startsWith(QLatin1String("3.97"))))
-            cmd += QString(" --vbr-new");
+        if ((v.startsWith(QStringLiteral("3.95"))) || (v.startsWith(QStringLiteral("3.96"))) || (v.startsWith(QStringLiteral("3.97"))))
+            cmd += QStringLiteral(" --vbr-new");
 
         if (embed_cover)
-            cmd += QString::fromUtf8(" --ti \"${" VAR_COVER_FILE "}\"");
+            cmd += QStringLiteral(u" --ti \"${%1}\"").arg(VAR_COVER_FILE);
 
-        cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$" VAR_TRACK_TITLE "\" --ta \"$" VAR_TRACK_ARTIST
-                                 "\" --tl \"$" VAR_ALBUM_TITLE "\" --ty \"$" VAR_DATE "\" --tn \"$" VAR_TRACK_NO "/$" VAR_NO_OF_TRACKS "\" --tc \"$" VAR_AUDEX
-                                 " / Encoder $" VAR_ENCODER
-                                 "\" "
-                                 "--tg \"$" VAR_GENRE "\" --tv TPOS=$" VAR_CD_NO " $" VAR_INPUT_FILE " \"$" VAR_OUTPUT_FILE "\"");
+        cmd += QStringLiteral(u" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$%1\" --ta \"$%2\" --tl \"$%3\" --ty \"$%4\" --tn \"$%5/$%6\" --tc \"$%7 / Encoder $%8\" --tg \"$%9\"  --tv TPOS=\"$%10\" \"$%11\" \"$%12\"").arg(VAR_TRACK_TITLE).arg(VAR_TRACK_ARTIST).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_NO_OF_TRACKS).arg(VAR_AUDEX).arg(VAR_ENCODER).arg(VAR_GENRE).arg(VAR_CD_NO).arg(VAR_INPUT_FILE).arg(VAR_OUTPUT_FILE);
 
         return cmd;
     }
@@ -309,17 +305,15 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         bool max_bitrate = parameters.value(ENCODER_OGGENC_MAXBITRATE_KEY).toBool();
         int max_bitrate_value = parameters.value(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE).toInt();
         QString cmd = ENCODER_OGGENC_BIN;
-        cmd += QString(" -q %1").arg(quality, 0, 'f', 2);
+        cmd += QStringLiteral(u" -q %1").arg(quality, 0, 'f', 2);
 
         if (min_bitrate)
-            cmd += QString(" -m %1").arg(min_bitrate_value);
+            cmd += QStringLiteral(u" -m %1").arg(min_bitrate_value);
 
         if (max_bitrate)
-            cmd += QString(" -M %1").arg(max_bitrate_value);
+            cmd += QStringLiteral(u" -M %1").arg(max_bitrate_value);
 
-        cmd += QString::fromUtf8(" -c \"Artist=$" VAR_TRACK_ARTIST "\" -c \"Title=$" VAR_TRACK_TITLE "\" -c \"Album=$" VAR_ALBUM_TITLE "\" -c \"Date=$" VAR_DATE
-                                 "\" -c \"Tracknumber=$" VAR_TRACK_NO "\" -c \"Genre=$" VAR_GENRE "\" -c Discnumber=$" VAR_CD_NO " -o \"$" VAR_OUTPUT_FILE
-                                 "\" $" VAR_INPUT_FILE);
+        cmd += QStringLiteral(u" -c \"Artist=$%1\" -c \"Title=$%2\" -c \"Album=$%3\" -c \"Date=$%4\" -c \"Tracknumber=$%5\" -c \"Genre=$%6\" -c \"Discnumber=$%7\" -o \"$%8\" \"$%9\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_GENRE).arg(VAR_CD_NO).arg(VAR_OUTPUT_FILE).arg(VAR_INPUT_FILE);
 
         return cmd;
     }
@@ -328,15 +322,12 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         qreal bitrate = parameters.value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toReal();
         bool embed_cover = parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY).toBool();
         QString cmd = ENCODER_OPUSENC_BIN;
-        cmd += QString(" --bitrate %1").arg(bitrate, 0, 'f', 2);
+        cmd += QStringLiteral(u" --bitrate %1").arg(bitrate, 0, 'f', 2);
 
         if (embed_cover)
-            cmd += QString::fromUtf8(" --picture \"3||||${" VAR_COVER_FILE "}\"");
+            cmd += QStringLiteral(u" --picture \"3||||${%1}\"").arg(VAR_COVER_FILE);
 
-        cmd += QString::fromUtf8(" --artist \"$" VAR_TRACK_ARTIST "\" --title \"$" VAR_TRACK_TITLE "\" --album \"$" VAR_ALBUM_TITLE "\" --date \"$" VAR_DATE
-                                 "\" --tracknumber \"$" VAR_TRACK_NO "\" --genre \"$" VAR_GENRE
-                                 "\""
-                                 " $" VAR_INPUT_FILE " \"$" VAR_OUTPUT_FILE "\"");
+        cmd += QStringLiteral(" --artist \"$%1\" --title \"$%2\" --album \"$%3\" --date \"$%4\" --tracknumber \"$%5\" --genre \"$%6\" \"$%7\" \"$%8\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_GENRE).arg(VAR_INPUT_FILE).arg(VAR_OUTPUT_FILE);
 
         return cmd;
     }
@@ -349,12 +340,13 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         if (embed_cover) {
             long versionNumber = EncoderAssistant::versionNumber(EncoderAssistant::FLAC);
             if (versionNumber >= makeVersionNumber(1, 1, 3))
-                cmd += QString::fromUtf8(" --picture=\"\\|\\|\\|\\|$" VAR_COVER_FILE "\"");
+                cmd += QStringLiteral(u" --picture=\"\\|\\|\\|\\|$%1\"").arg(VAR_COVER_FILE);
         }
 
-        cmd += QString(" -%1").arg(compression);
-        cmd += QString::fromUtf8(" -T Artist=\"$" VAR_TRACK_ARTIST "\" -T Title=\"$" VAR_TRACK_TITLE "\" -T Album=\"$" VAR_ALBUM_TITLE "\" -T Date=\"$" VAR_DATE
-                                 "\" -T Tracknumber=\"$" VAR_TRACK_NO "\" -T Genre=\"$" VAR_GENRE "\" -o \"$" VAR_OUTPUT_FILE "\" $" VAR_INPUT_FILE);
+        cmd += QStringLiteral(u" -%1").arg(compression);
+
+        cmd += QStringLiteral(u" -T Artist=\"$%1\" -T Title=\"$%2\" -T Album=\"$%3\" -T Date=\"$%4\" -T Tracknumber=\"$%5\" -T Genre=\"$%6\" -o \"$%7\" \"$%8\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_GENRE).arg(VAR_OUTPUT_FILE).arg(VAR_INPUT_FILE);
+
         return cmd;
     }
 
@@ -362,19 +354,18 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         int quality = parameters.value(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY).toInt();
         bool embed_cover = parameters.value(ENCODER_FAAC_EMBED_COVER_KEY).toBool();
         QString cmd = ENCODER_FAAC_BIN;
-        cmd += QString(" -q %1").arg(quality);
+        cmd += QStringLiteral(u" -q %1").arg(quality);
 
         if (embed_cover)
-            cmd += QString::fromUtf8(" --cover-art \"${" VAR_COVER_FILE "}\"");
+            cmd += QStringLiteral(u" --cover-art \"${%1}\"").arg(VAR_COVER_FILE);
 
-        cmd += QString::fromUtf8(" --title \"$" VAR_TRACK_TITLE "\" --artist \"$" VAR_TRACK_ARTIST "\" --album \"$" VAR_ALBUM_TITLE "\" --year \"$" VAR_DATE
-                                 "\" --track $" VAR_TRACK_NO " --disc $" VAR_CD_NO " --genre \"$" VAR_GENRE "\" -o \"$" VAR_OUTPUT_FILE "\" $" VAR_INPUT_FILE);
+        cmd += QStringLiteral(u" --artist \"$%1\" --title \"$%2\" --album \"$%3\" --year \"$%4\" --track \"$%5\" --disc \"$%6\" --genre \"$%7\" -o \"$%8\" \"$%9\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_CD_NO).arg(VAR_GENRE).arg(VAR_OUTPUT_FILE).arg(VAR_INPUT_FILE);
 
         return cmd;
     }
 
     case EncoderAssistant::WAVE: {
-        return QString(ENCODER_WAVE_BIN) + " $" VAR_INPUT_FILE " \"$" VAR_OUTPUT_FILE "\"";
+        return QStringLiteral(ENCODER_WAVE_BIN) + QStringLiteral(u" \"$%1\" \"$%2\"").arg(VAR_INPUT_FILE).arg(VAR_OUTPUT_FILE);
     }
 
     case EncoderAssistant::CUSTOM: {
