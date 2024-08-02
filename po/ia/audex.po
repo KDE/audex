@@ -140,7 +140,7 @@ msgstr "Initia rippar e codificar con profilo  \"%1\"..."
 #: core/audex.cpp:614 core/audex.cpp:674
 #, kde-format
 msgid "Can't find path \"%1\"."
-msgstr "Nonpote trovar percurso \"%1\"."
+msgstr "Non pote trovar percurso \"%1\"."
 
 #: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
@@ -1503,7 +1503,7 @@ msgstr ""
 #: models/profilemodel.cpp:450
 #, kde-format
 msgid "Cover name must not be empty."
-msgstr "Nomine de copertura nonpote esser vacue."
+msgstr "Nomine de copertura non pote esser vacue."
 
 #: models/profilemodel.cpp:450
 #, kde-format
@@ -1609,7 +1609,7 @@ msgstr ""
 #: models/profilemodel.cpp:557
 #, kde-format
 msgid "Filename name must not be empty."
-msgstr "Nomine de nomine de file nonpote esser vacue."
+msgstr "Nomine de nomine de file non pote esser vacue."
 
 #: models/profilemodel.cpp:557
 #, kde-format
