@@ -53,6 +53,7 @@
   <summary xml:lang="he">לכידת קטעי השמע מהתקליטורים שלך</summary>
   <summary xml:lang="hu">Rögzítse a hangot CD-ROM-jairól</summary>
   <summary xml:lang="ia">Sasi (grab) le audio ex tu CD-Roms</summary>
+  <summary xml:lang="id">Raih audio dari CD-ROM Anda</summary>
   <summary xml:lang="it">Estrai l'audio dai tuoi CD-ROM</summary>
   <summary xml:lang="ka">დაითრიეთ აუდიო თქვენი CD-ROM-ებიდან</summary>
   <summary xml:lang="ko">CD에서 오디오 추출</summary>
@@ -83,6 +84,7 @@
     <p xml:lang="he">Audex הוא יישום להעתקה מתקליטורים. הוא מאפשר לך לחלץ את השמע מהתקליטורים שלך כדי להאזין להם במחשב ובמכשירים האחרים שלך. כולל שילוב מול CDDB ו־MusicBrainz כדי למשוך את נתוני העל ועטיפות התקליטורים שלך אם זמינים.</p>
     <p xml:lang="hu">Az Audex egy CD-beolvasó alkalmazás. Lehetővé teszi a hanganyagok kinyerését CD-kről, hogy meghallgathassa azokat számítógépén vagy más eszközein. A CDDB és MusicBrainz integrációnak köszönhetően lekérdezi a CD-k metaadatait és borítóit, ha azok elérhetők.</p>
     <p xml:lang="ia">Audex es un application per rippar CD. Il te permitte extraher le audio ex tu CDs, te permitte ascoltar los sur tu computator e sur tu altere dispositivos. Illo include integrationes de  CDDB e de MusicBrainz pro trovar metadatos  e coperturas per tu CDs, si disponibile.</p>
+    <p xml:lang="id">Audex adalah aplikasi ripper CD. Aplikasi ini memungkinkan Anda mengekstrak audio dari CD agar dapat didengarkan di komputer dan perangkat lain. Aplikasi ini menyertakan integrasi CDDB dan MusicBrainz untuk mengambil metadata dan sampul CD jika tersedia.</p>
     <p xml:lang="it">Audex è un'applicazione per l'estrazione dai CD. Ti permette di estrarre gli audio dai tuoi CD, e di ascoltarli sul tuo computer o su altri dispositivi. Include un'integrazione con CDDB e MusicBrainz per il recupero dei metadati e le copertine dei tuoi CD, se disponibili.</p>
     <p xml:lang="ka">'Audex' CD-დან რიპინგის აპლიკაციაა. ის საშუალებას გაძლევთ, თქვენი CD-ROM-ებიდან აუდიო გამოიღოთ და კომპიუტერზე ან სხვა მოწყობილობაზე უსმინოთ. ის ასევე შეიცავს CDDB და MusicBrainz-ის ინტეგრაციას, რომ მეტამონაცემები და ყდები გადმოწეროთ თქვენი CD-ებისთვის, თუ ისინი ხელმისაწვდომია.</p>
     <p xml:lang="ko">Audex는 CD 추출 앱입니다. CD에서 오디오를 추출하여 컴퓨터나 기타 장치에서 들을 수 있습니다. 메타데이터 가져오기를 위하여 CDDB와 MusicBrainz 통합을 지원하며, 사용 가능한 경우 CD 커버 이미지를 가져옵니다.</p>
@@ -114,6 +116,7 @@
       <caption xml:lang="he">תצוגה ראשית</caption>
       <caption xml:lang="hu">Fő nézet</caption>
       <caption xml:lang="ia">Vista principal</caption>
+      <caption xml:lang="id">Tampilan utama</caption>
       <caption xml:lang="it">Vista principale</caption>
       <caption xml:lang="ka">მთავარი ხედი</caption>
       <caption xml:lang="ko">주 보기</caption>
