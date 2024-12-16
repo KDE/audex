@@ -1,0 +1,2583 @@
+# Hindi translations for audex package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the audex package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: audex\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"PO-Revision-Date: 2024-12-15 19:04+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
+#: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
+#, kde-format
+msgid "Overwrite existing files"
+msgstr "मौजूदा फ़ाइलों को अधिलेखित करें"
+
+#. i18n: ectx: label, entry (deletePartialFiles), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
+#: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
+#, kde-format
+msgid "Delete partial files after cancel"
+msgstr "रद्द करने के बाद आंशिक फ़ाइलें हटाएं"
+
+#. i18n: ectx: label, entry (ejectCDTray), group (general)
+#: audex.kcfg:19
+#, kde-format
+msgid "Eject CD tray after extraction finished"
+msgstr "निष्कर्षण समाप्त होने के बाद सीडी ट्रे को बाहर निकालें"
+
+#. i18n: ectx: label, entry (cddbLookupAuto), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
+#: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
+#, kde-format
+msgid "Perform CDDB lookup automatically"
+msgstr "CDDB लुकअप स्वचालित रूप से निष्पादित करें"
+
+#. i18n: ectx: label, entry (coverLookupAuto), group (general)
+#: audex.kcfg:27
+#, kde-format
+msgid "Perform cover lookup (amazon) automatically"
+msgstr "कवर लुकअप (अमेज़न) स्वचालित रूप से निष्पादित करें"
+
+#. i18n: ectx: label, entry (fetchCount), group (general)
+#: audex.kcfg:31
+#, kde-format
+msgid "Number of covers to fetch"
+msgstr "प्राप्त किये जाने वाले कवरों की संख्या"
+
+#. i18n: ectx: label, entry (fullParanoiaMode), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:45
+#, kde-format
+msgid "Full paranoia mode (secure mode)"
+msgstr "पूर्ण व्यामोह मोड (सुरक्षित मोड)"
+
+#. i18n: ectx: label, entry (skipReadingErrors), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:89
+#, kde-format
+msgid "Skip reading errors"
+msgstr "पढ़ने में त्रुटियाँ छोड़ें"
+
+#. i18n: ectx: label, entry (sampleOffset), group (general)
+#: audex.kcfg:45
+#, kde-format
+msgid "Sample offset"
+msgstr "नमूना ऑफसेट"
+
+#. i18n: ectx: label, entry (basePath), group (general)
+#: audex.kcfg:51
+#, kde-format
+msgid "Base path to store music files"
+msgstr "संगीत फ़ाइलों को संग्रहीत करने के लिए आधार पथ"
+
+#. i18n: ectx: label, entry (upload), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
+#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
+#, kde-format
+msgid "Upload files to server"
+msgstr "सर्वर पर फ़ाइलें अपलोड करें"
+
+#. i18n: ectx: label, entry (url), group (general)
+#: audex.kcfg:59
+#, kde-format
+msgid "URL of server"
+msgstr "सर्वर का यूआरएल"
+
+#. i18n: ectx: Menu (file)
+#: audexui.rc:6
+#, kde-format
+msgid "&Audex"
+msgstr "&ऑडेक्स"
+
+#. i18n: ectx: Menu (metadata)
+#: audexui.rc:14
+#, kde-format
+msgid "&Metadata"
+msgstr "&मेटाडाटा"
+
+#. i18n: ectx: Menu (cddb)
+#: audexui.rc:16
+#, kde-format
+msgctxt "@title:menu"
+msgid "CDDB"
+msgstr "सीडीडीबी"
+
+#. i18n: ectx: Menu (titlecorrectiontools)
+#: audexui.rc:24
+#, kde-format
+msgctxt "@title:menu"
+msgid "Title Correction Tools"
+msgstr "शीर्षक सुधार उपकरण"
+
+#. i18n: ectx: Menu (settings)
+#: audexui.rc:32
+#, kde-format
+msgid "&Settings"
+msgstr "&सेटिंग्स"
+
+#: core/audex.cpp:100
+#, kde-format
+msgid "No profile selected. Operation abort."
+msgstr "कोई प्रोफ़ाइल चयनित नहीं है. ऑपरेशन निरस्त."
+
+#: core/audex.cpp:112
+#, kde-format
+msgid "Start ripping and encoding with profile \"%1\"..."
+msgstr "प्रोफ़ाइल \"%1\" के साथ रिपिंग और एनकोडिंग प्रारंभ करें..."
+
+#: core/audex.cpp:614 core/audex.cpp:674
+#, kde-format
+msgid "Can't find path \"%1\"."
+msgstr "पथ \"%1\" नहीं मिल सका."
+
+#: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
+#, kde-format
+msgid "Please check your path (write access?)"
+msgstr "कृपया अपना पथ जांचें (लेखन पहुंच?)"
+
+#: core/audex.cpp:627
+#, kde-format
+msgid "Free space on \"%1\" is less than 200 MiB."
+msgstr "\"%1\" पर खाली स्थान 200 MiB से कम है।"
+
+#: core/audex.cpp:633 core/audex.cpp:702
+#, kde-format
+msgid "Warning! File \"%1\" already exists. Overwriting."
+msgstr "चेतावनी! फ़ाइल \"%1\" पहले से मौजूद है। ओवरराइटिंग।"
+
+#: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
+#, kde-format
+msgid "Warning! File \"%1\" already exists. Skipping."
+msgstr "चेतावनी! फ़ाइल \"%1\" पहले से मौजूद है। छोड़ा जा रहा है।"
+
+#: core/audex.cpp:683 core/audex.cpp:1118
+#, kde-format
+msgid "Unable to create folder \"%1\"."
+msgstr "फ़ोल्डर \"%1\" बनाने में असमर्थ."
+
+#: core/audex.cpp:686 core/audex.cpp:1121
+#, kde-format
+msgid "Folder \"%1\" successfully created."
+msgstr "फ़ोल्डर \"%1\" सफलतापूर्वक बनाया गया."
+
+#: core/audex.cpp:689
+#, kde-format
+msgid "Folder \"%1\" already exists."
+msgstr "फ़ोल्डर \"%1\" पहले से मौजूद है."
+
+#: core/audex.cpp:696
+#, kde-format
+msgid "Free space on \"%1\" is less than 800 MiB."
+msgstr "\"%1\" पर खाली स्थान 800 MiB से कम है।"
+
+#: core/audex.cpp:719
+#, kde-format
+msgid "Temporary folder \"%1\" error (%2)."
+msgstr "अस्थायी फ़ोल्डर \"%1\" त्रुटि (%2)."
+
+#: core/audex.cpp:719
+#, kde-format
+msgid "Please check."
+msgstr "कृपया जांचें।"
+
+#: core/audex.cpp:727
+#, kde-format
+msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
+msgstr "अस्थायी फ़ोल्डर \"%1\" पर खाली स्थान 800 MiB से कम है।"
+
+#: core/audex.cpp:729
+#, kde-format
+msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
+msgstr "अस्थायी फ़ोल्डर \"%1\" को कम से कम 200 MiB रिक्त स्थान की आवश्यकता है।"
+
+#: core/audex.cpp:729
+#, kde-format
+msgid "Please free space or set another path."
+msgstr "कृपया स्थान खाली करें या कोई अन्य पथ निर्धारित करें।"
+
+#: core/audex.cpp:758
+#, kde-format
+msgid "Eject CD tray"
+msgstr "सीडी ट्रे निकालें"
+
+#: core/audex.cpp:806
+#, kde-format
+msgid "Cover \"%1\" successfully saved."
+msgstr "कवर \"%1\" सफलतापूर्वक सहेजा गया."
+
+#: core/audex.cpp:809
+#, kde-format
+msgid "Unable to save cover \"%1\"."
+msgstr "कवर \"%1\" सहेजने में असमर्थ."
+
+#: core/audex.cpp:809 core/audex.cpp:883 core/audex.cpp:923 core/audex.cpp:970
+#: core/audex.cpp:1011 core/audex.cpp:1039 core/audex.cpp:1086
+#: core/audex.cpp:1113
+#, kde-format
+msgid "Please check your path and permissions"
+msgstr "कृपया अपना पथ और अनुमतियाँ जांचें"
+
+#: core/audex.cpp:879
+#, kde-format
+msgid "Playlist \"%1\" successfully created."
+msgstr "प्लेलिस्ट \"%1\" सफलतापूर्वक बनाई गई."
+
+#: core/audex.cpp:883
+#, kde-format
+msgid "Unable to save playlist \"%1\"."
+msgstr "प्लेलिस्ट \"%1\" को सहेजने में असमर्थ."
+
+#: core/audex.cpp:920
+#, kde-format
+msgid "Info file \"%1\" successfully created."
+msgstr "जानकारी फ़ाइल \"%1\" सफलतापूर्वक बनाई गई."
+
+#: core/audex.cpp:923
+#, kde-format
+msgid "Unable to save info file \"%1\"."
+msgstr "जानकारी फ़ाइल \"%1\" सहेजने में असमर्थ."
+
+#: core/audex.cpp:967
+#, kde-format
+msgid "Hashlist \"%1\" successfully created."
+msgstr "हैशलिस्ट \"%1\" सफलतापूर्वक बनाई गई."
+
+#: core/audex.cpp:970
+#, kde-format
+msgid "Unable to save hashlist \"%1\"."
+msgstr "हैशलिस्ट \"%1\" को सहेजने में असमर्थ."
+
+#: core/audex.cpp:1008
+#, kde-format
+msgid "Cue sheet \"%1\" successfully created."
+msgstr "क्यू शीट \"%1\" सफलतापूर्वक बनाई गई."
+
+#: core/audex.cpp:1011
+#, kde-format
+msgid "Unable to save cue sheet \"%1\"."
+msgstr "क्यू शीट \"%1\" को सहेजने में असमर्थ."
+
+#: core/audex.cpp:1036
+#, kde-format
+msgid "Log file \"%1\" successfully stored."
+msgstr "लॉग फ़ाइल \"%1\" सफलतापूर्वक संग्रहीत."
+
+#: core/audex.cpp:1039
+#, kde-format
+msgid "Unable to save log file \"%1\"."
+msgstr "लॉग फ़ाइल \"%1\" सहेजने में असमर्थ."
+
+#: core/audex.cpp:1086 core/audex.cpp:1113
+#, kde-format
+msgid "Unable to open folder \"%1\"."
+msgstr "फ़ोल्डर \"%1\" खोलने में असमर्थ."
+
+#: dialogs/cddaheaderdatadialog.cpp:174
+#, kde-format
+msgid "Edit Data"
+msgstr "डेटा संपादित करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
+#, kde-format
+msgid "Various Artists"
+msgstr "विभिन्न कलाकारों"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
+#: dialogs/cddaheaderdatawidgetUI.ui:24
+#, kde-format
+msgid "Multi CD"
+msgstr "मल्टी सीडी"
+
+#. i18n: ectx: property (text), widget (QLabel, label_artist)
+#: dialogs/cddaheaderdatawidgetUI.ui:50
+#, kde-format
+msgid "Artist:"
+msgstr "कलाकार:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_title)
+#: dialogs/cddaheaderdatawidgetUI.ui:66
+#, kde-format
+msgid "Title:"
+msgstr "शीर्षक:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_cdnum)
+#: dialogs/cddaheaderdatawidgetUI.ui:76
+#, kde-format
+msgid "CD Number:"
+msgstr "सीडी संख्या:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/cddaheaderdatawidgetUI.ui:90
+#, kde-format
+msgid "Track Offset:"
+msgstr "ट्रैक ऑफसेट:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_genre)
+#: dialogs/cddaheaderdatawidgetUI.ui:110
+#, kde-format
+msgid "Genre:"
+msgstr "शैली:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_year)
+#: dialogs/cddaheaderdatawidgetUI.ui:133
+#, kde-format
+msgid "Year:"
+msgstr "वर्ष:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_extdata)
+#: dialogs/cddaheaderdatawidgetUI.ui:160
+#, kde-format
+msgid ""
+"Additional\n"
+"Information:"
+msgstr "अतिरिक्त जानकारी:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_discid)
+#: dialogs/cddaheaderdatawidgetUI.ui:176
+#, kde-format
+msgid "CDDB disc ID:"
+msgstr "सीडीडीबी डिस्क आईडी:"
+
+#. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
+#: dialogs/cddaheaderdatawidgetUI.ui:186
+#, kde-format
+msgid "0x00000000"
+msgstr "0x00000000"
+
+#: dialogs/commandwizarddialog.cpp:20
+#, kde-format
+msgid "Command Scheme Wizard"
+msgstr "कमांड स्कीम विज़ार्ड"
+
+#: dialogs/commandwizarddialog.cpp:39
+#, kde-format
+msgid "Command scheme help"
+msgstr "कमांड योजना सहायता"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
+#: dialogs/commandwizardwidgetUI.ui:17
+#, kde-format
+msgid "Please set a command scheme"
+msgstr "कृपया एक कमांड योजना निर्धारित करें"
+
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
+#, kde-format
+msgid "Album Example:"
+msgstr "एल्बम उदाहरण:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
+#: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
+#, kde-format
+msgid "Sampler Example:"
+msgstr "नमूना उदाहरण:"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
+#: dialogs/commandwizardwidgetUI.ui:273
+#: dialogs/filenameschemewizardwidgetUI.ui:54
+#: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
+#, kde-format
+msgid "Help"
+msgstr "मदद"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
+#: dialogs/commandwizardwidgetUI.ui:297
+#: dialogs/filenameschemewizardwidgetUI.ui:32
+#: dialogs/schemewizardwidgetUI.ui:290
+#, kde-format
+msgid "Album Artist"
+msgstr "एल्बम कलाकार"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
+#: dialogs/commandwizardwidgetUI.ui:319
+#: dialogs/filenameschemewizardwidgetUI.ui:182
+#: dialogs/schemewizardwidgetUI.ui:312
+#, kde-format
+msgid "Album Title"
+msgstr "एल्बम शीर्षक"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
+#: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
+#, kde-format
+msgid "Track Artist"
+msgstr "ट्रैक कलाकार"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
+#: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
+#, kde-format
+msgid "Track Title"
+msgstr "ट्रैक शीर्षक"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
+#: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
+#, kde-format
+msgid "Track #"
+msgstr "रास्ता #"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
+#: dialogs/commandwizardwidgetUI.ui:383
+#: dialogs/filenameschemewizardwidgetUI.ui:199
+#: dialogs/schemewizardwidgetUI.ui:376
+#, kde-format
+msgid "CD #"
+msgstr "सीडी #"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
+#: dialogs/commandwizardwidgetUI.ui:390
+#: dialogs/filenameschemewizardwidgetUI.ui:249
+#: dialogs/schemewizardwidgetUI.ui:426
+#, kde-format
+msgid "# of Tracks"
+msgstr "ट्रैक्स की संख्या"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
+#: dialogs/commandwizardwidgetUI.ui:400
+#: dialogs/filenameschemewizardwidgetUI.ui:242
+#: dialogs/schemewizardwidgetUI.ui:386
+#, kde-format
+msgid "Date"
+msgstr "तारीख"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
+#: dialogs/commandwizardwidgetUI.ui:410
+#: dialogs/filenameschemewizardwidgetUI.ui:225
+#: dialogs/schemewizardwidgetUI.ui:396
+#, kde-format
+msgid "Genre"
+msgstr "शैली"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
+#: dialogs/commandwizardwidgetUI.ui:420
+#, kde-format
+msgid "Cover File"
+msgstr "कवर फ़ाइल"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
+#: dialogs/commandwizardwidgetUI.ui:430
+#, kde-format
+msgid "Input File"
+msgstr "इनपुट फ़ाइल"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
+#: dialogs/commandwizardwidgetUI.ui:440
+#, kde-format
+msgid "Output File"
+msgstr "आउटपुट फ़ाइल"
+
+#: dialogs/extractingprogressdialog.cpp:13
+#, kde-format
+msgid "Rip And Encode"
+msgstr "रिप और एनकोड"
+
+#: dialogs/extractingprogressdialog.cpp:36
+#: dialogs/extractingprogressdialog.cpp:178
+#, kde-format
+msgid "Ripping whole CD as single track"
+msgstr "संपूर्ण CD को एकल ट्रैक के रूप में रिप करना"
+
+#: dialogs/extractingprogressdialog.cpp:37
+#, kde-format
+msgid "Encoding"
+msgstr "एन्कोडिंग"
+
+#: dialogs/extractingprogressdialog.cpp:40
+#, kde-format
+msgid "Ripping Track 0 of %1"
+msgstr "ट्रैक रिपिंग 0 में से %1"
+
+#: dialogs/extractingprogressdialog.cpp:41
+#, kde-format
+msgid "Encoding Track 0 of %1"
+msgstr "%1 में से ट्रैक 0 को एनकोड किया जा रहा है"
+
+#: dialogs/extractingprogressdialog.cpp:155
+#, kde-format
+msgid "Do you really want to cancel extraction?"
+msgstr "क्या आप सचमुच निष्कर्षण रद्द करना चाहते हैं?"
+
+#: dialogs/extractingprogressdialog.cpp:156
+#, kde-format
+msgid "Cancel"
+msgstr "रद्द करना"
+
+#: dialogs/extractingprogressdialog.cpp:172
+#, kde-format
+msgid "Ripping Track"
+msgstr "रिपिंग ट्रैक"
+
+#: dialogs/extractingprogressdialog.cpp:172
+#, kde-format
+msgid "Ripping Track %1 of %2"
+msgstr "ट्रैक %1 का %2 रिपिंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_overall)
+#: dialogs/extractingprogressdialog.cpp:173
+#: dialogs/extractingprogressdialog.cpp:179
+#: dialogs/extractingprogresswidgetUI.ui:180
+#, kde-format
+msgid "Overall Progress"
+msgstr "समग्र प्रगति"
+
+#: dialogs/extractingprogressdialog.cpp:173
+#, kde-format
+msgid "Overall Progress (Ripping Track %1 of %2)"
+msgstr "समग्र प्रगति (रिपिंग ट्रैक %1 में से %2)"
+
+#: dialogs/extractingprogressdialog.cpp:188
+#, kde-format
+msgid "Waiting for an encoding job..."
+msgstr "एनकोडिंग कार्य की प्रतीक्षा में..."
+
+#: dialogs/extractingprogressdialog.cpp:192
+#, kde-format
+msgid "Encoding Track"
+msgstr "ट्रैक एन्कोडिंग"
+
+#: dialogs/extractingprogressdialog.cpp:192
+#, kde-format
+msgid "Encoding Track %1 of %2"
+msgstr "%2 में से ट्रैक %1 को एनकोड किया जा रहा है"
+
+#: dialogs/extractingprogressdialog.cpp:234
+#: dialogs/extractingprogressdialog.cpp:240
+#, kde-format
+msgid "Speed: %1x"
+msgstr "गति: %1x"
+
+#: dialogs/extractingprogressdialog.cpp:258
+#, kde-format
+msgid "All jobs successfully done."
+msgstr "सभी कार्य सफलतापूर्वक पूरे हो गए।"
+
+#: dialogs/extractingprogressdialog.cpp:262
+#: dialogs/extractingprogressdialog.cpp:263
+#: dialogs/extractingprogressdialog.cpp:264
+#, kde-format
+msgid "Finished!"
+msgstr "खत्म!"
+
+#: dialogs/extractingprogressdialog.cpp:269
+#, kde-format
+msgid "At least one job failed."
+msgstr "कम से कम एक काम असफल हो गया।"
+
+#: dialogs/extractingprogressdialog.cpp:273
+#: dialogs/extractingprogressdialog.cpp:274
+#: dialogs/extractingprogressdialog.cpp:275
+#, kde-format
+msgid "Failed!"
+msgstr "असफल!"
+
+#: dialogs/extractingprogressdialog.cpp:278
+#, kde-format
+msgid "Show encoding log..."
+msgstr "एनकोडिंग लॉग दिखाएं..."
+
+#: dialogs/extractingprogressdialog.cpp:285
+#, kde-format
+msgid "Show rip log..."
+msgstr "रिप लॉग दिखाएं..."
+
+#: dialogs/extractingprogressdialog.cpp:332
+#, kde-format
+msgid ""
+"Ripping speed was extremely slow for the last 5 minutes.\n"
+"Do you want to continue extraction?"
+msgstr ""
+"पिछले 5 मिनट से चीरने की गति बहुत धीमी थी। क्या आप निष्कर्षण जारी रखना चाहते हैं?"
+
+#: dialogs/extractingprogressdialog.cpp:334
+#, kde-format
+msgid "Cancel extraction"
+msgstr "निष्कर्षण रद्द करें"
+
+#: dialogs/extractingprogressdialog.cpp:344
+#, kde-format
+msgid "Encoding log"
+msgstr "एनकोडिंग लॉग"
+
+#: dialogs/extractingprogressdialog.cpp:350
+#, kde-format
+msgid "Ripping log"
+msgstr "लॉग रिपिंग"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
+#: dialogs/extractingprogresswidgetUI.ui:30
+#, kde-format
+msgid "Show/hide details"
+msgstr "विवरण दिखाएं/छिपाएं"
+
+#. i18n: ectx: property (text), widget (QToolButton, details_button)
+#: dialogs/extractingprogresswidgetUI.ui:33
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QLabel, label_extracting)
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
+#: dialogs/extractingprogresswidgetUI.ui:82
+#: dialogs/extractingprogresswidgetUI.ui:198
+#, kde-format
+msgid "Ripping Track 8 of 12"
+msgstr "12 में से 8 ट्रैक रिपिंग"
+
+#. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
+#. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
+#: dialogs/extractingprogresswidgetUI.ui:95
+#: dialogs/extractingprogresswidgetUI.ui:144
+#, kde-format
+msgid "Speed: 0x"
+msgstr "गति: 0x"
+
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
+#. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
+#: dialogs/extractingprogresswidgetUI.ui:116
+#: dialogs/extractingprogresswidgetUI.ui:162
+#: dialogs/extractingprogresswidgetUI.ui:216
+#, no-c-format, kde-format
+msgid "%p%"
+msgstr "%पी%"
+
+#. i18n: ectx: property (text), widget (QLabel, label_encoding)
+#: dialogs/extractingprogresswidgetUI.ui:131
+#, kde-format
+msgid "Encoding Track 8 of 12"
+msgstr "12 में से ट्रैक 8 को एनकोड करना"
+
+#: dialogs/filenameschemewizarddialog.cpp:18
+#, kde-format
+msgid "Scheme Wizard"
+msgstr "योजना विज़ार्ड"
+
+#: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
+#, kde-format
+msgid "Filename scheme help"
+msgstr "फ़ाइल नाम योजना सहायता"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
+#: dialogs/filenameschemewizardwidgetUI.ui:189
+#: dialogs/schemewizardwidgetUI.ui:406
+#, kde-format
+msgid "Suffix"
+msgstr "प्रत्यय"
+
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/filenameschemewizardwidgetUI.ui:212
+#, kde-format
+msgid "Example:"
+msgstr "उदाहरण:"
+
+#. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_scheme)
+#: dialogs/filenameschemewizardwidgetUI.ui:232
+#: dialogs/profiledatacoverwidgetUI.ui:98
+#: dialogs/profiledatacuesheetwidgetUI.ui:17
+#: dialogs/profiledatahashlistwidgetUI.ui:46
+#: dialogs/profiledatainfowidgetUI.ui:112
+#: dialogs/profiledatalogfilewidgetUI.ui:17
+#: dialogs/profiledataplaylistwidgetUI.ui:46
+#: dialogs/profiledatasinglefilewidgetUI.ui:30
+#: dialogs/profiledatawidgetUI.ui:108
+#, kde-format
+msgid "Please set a scheme"
+msgstr "कृपया एक योजना निर्धारित करें"
+
+#: dialogs/logviewdialog.cpp:60
+#, kde-format
+msgid "Save %1"
+msgstr "%1 सहेजें"
+
+#: dialogs/logviewdialog.cpp:66
+#, kde-format
+msgid "created on "
+msgstr "पर बनाया "
+
+#: dialogs/profiledatacoverdialog.cpp:29
+#, kde-format
+msgid "Cover Settings"
+msgstr "कवर सेटिंग्स"
+
+#: dialogs/profiledatacoverdialog.cpp:68
+#, kde-format
+msgid "JPEG (Joint Photographic Experts Group)"
+msgstr "जेपीईजी (संयुक्त फोटोग्राफिक विशेषज्ञ समूह)"
+
+#: dialogs/profiledatacoverdialog.cpp:69
+#, kde-format
+msgid "PNG (Portable Network Graphics)"
+msgstr "पीएनजी (पोर्टेबल नेटवर्क ग्राफिक्स)"
+
+#: dialogs/profiledatacoverdialog.cpp:70
+#, kde-format
+msgid "BMP (Windows Bitmap)"
+msgstr "बीएमपी (विंडोज बिटमैप)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
+#: dialogs/profiledatacoverwidgetUI.ui:23
+#, kde-format
+msgid "Scale before store:"
+msgstr "स्टोर करने से पहले स्केल करें:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_x)
+#: dialogs/profiledatacoverwidgetUI.ui:49
+#, kde-format
+msgid "x"
+msgstr "एक्स"
+
+#. i18n: ectx: property (text), widget (QLabel, label_format)
+#: dialogs/profiledatacoverwidgetUI.ui:75
+#: dialogs/profiledatahashlistwidgetUI.ui:23
+#: dialogs/profiledataplaylistwidgetUI.ui:23
+#, kde-format
+msgid "Format:"
+msgstr "प्रारूप:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
+#: dialogs/profiledatacoverwidgetUI.ui:91
+#, kde-format
+msgid "Cover scheme:"
+msgstr "कवर योजना:"
+
+#: dialogs/profiledatacuesheetdialog.cpp:28
+#, kde-format
+msgid "Cue Sheet Settings"
+msgstr "क्यू शीट सेटिंग्स"
+
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
+#: dialogs/profiledatacuesheetwidgetUI.ui:33
+#: dialogs/profiledatahashlistwidgetUI.ui:39
+#: dialogs/profiledatalogfilewidgetUI.ui:33
+#: dialogs/profiledataplaylistwidgetUI.ui:39
+#: dialogs/profiledatasinglefilewidgetUI.ui:23
+#, kde-format
+msgid "Name/Scheme:"
+msgstr "नाम/योजना:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatalogfilewidgetUI.ui:56
+#, kde-format
+msgid ""
+"<html><head/><body><p>Write Media Catalog Number (MCN) and International "
+"Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet "
+"(if your drive have the capability).</p><p>Depending in your drive it could "
+"take a few seconds at the end of your ripping process to fetch those numbers "
+"and codes.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>क्यू शीट में ट्रैक्स के मीडिया कैटलॉग नंबर (MCN) और अंतर्राष्ट्रीय "
+"मानक रिकॉर्डिंग कोड (ISRC, ISO 3901) लिखें (यदि आपके ड्राइव में यह क्षमता है)।</p><p> "
+"आपकी ड्राइव के आधार पर, आपकी रिपिंग प्रक्रिया के अंत में उन नंबरों और कोडों को प्राप्त करने "
+"में कुछ सेकंड लग सकते हैं।</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
+#: dialogs/profiledatacuesheetwidgetUI.ui:62
+#, kde-format
+msgid "Add MCN and ISRC values (if available)"
+msgstr "MCN और ISRC मान जोड़ें (यदि उपलब्ध हो)"
+
+#: dialogs/profiledatadialog.cpp:113
+#, kde-format
+msgid "Modify Profile"
+msgstr "प्रोफ़ाइल संशोधित करें"
+
+#: dialogs/profiledatadialog.cpp:182
+#, kde-format
+msgid "Create Profile"
+msgstr "प्रोफ़ाइल बनाएं"
+
+#: dialogs/profiledatadialog.cpp:193
+#, kde-format
+msgid "New Profile"
+msgstr "नया प्रोफ़ाइल"
+
+#: dialogs/profiledatahashlistdialog.cpp:28
+#: dialogs/profiledataplaylistdialog.cpp:30
+#, kde-format
+msgid "Playlist Settings"
+msgstr "प्लेलिस्ट सेटिंग्स"
+
+#: dialogs/profiledatahashlistdialog.cpp:56
+#, kde-format
+msgid "SFV (Simple File Verification)"
+msgstr "एसएफवी (सरल फ़ाइल सत्यापन)"
+
+#: dialogs/profiledatahashlistdialog.cpp:57
+#, kde-format
+msgid "MD5 (Message-Digest Algorithm 5)"
+msgstr "MD5 (संदेश-डाइजेस्ट एल्गोरिथम 5)"
+
+#: dialogs/profiledatahashlistdialog.cpp:58
+#, kde-format
+msgid "SHA-256 (Secure Hash Algorithm)"
+msgstr "SHA-256 (सुरक्षित हैश एल्गोरिथ्म)"
+
+#: dialogs/profiledatainfodialog.cpp:31
+#, kde-format
+msgid "Info Settings"
+msgstr "जानकारी सेटिंग्स"
+
+#: dialogs/profiledatainfodialog.cpp:56
+#, kde-format
+msgid "Text info scheme help"
+msgstr "पाठ जानकारी योजना सहायता"
+
+#: dialogs/profiledatainfodialog.cpp:153
+#, kde-format
+msgid "Load Text Template"
+msgstr "टेक्स्ट टेम्पलेट लोड करें"
+
+#: dialogs/profiledatainfodialog.cpp:166
+#, kde-format
+msgid "Save Text Template"
+msgstr "टेक्स्ट टेम्पलेट सहेजें"
+
+#. i18n: ectx: property (text), widget (QLabel, label_text)
+#: dialogs/profiledatainfowidgetUI.ui:25
+#, kde-format
+msgid "Information text:"
+msgstr "सूचना पाठ:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
+#: widgets/faacwidgetUI.ui:125 widgets/flacwidgetUI.ui:115
+#: widgets/lamewidgetUI.ui:266 widgets/oggencwidgetUI.ui:296
+#: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
+#, kde-format
+msgid "Suffix:"
+msgstr "प्रत्यय:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_scheme)
+#: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
+#, kde-format
+msgid "Scheme:"
+msgstr "योजना:"
+
+#: dialogs/profiledatalogfiledialog.cpp:24
+#, kde-format
+msgid "Log Files Settings"
+msgstr "लॉग फ़ाइल सेटिंग्स"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
+#: dialogs/profiledatalogfilewidgetUI.ui:65
+#, kde-format
+msgid "Write timestamps"
+msgstr "टाइमस्टैम्प लिखें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
+#: dialogs/profiledataplaylistwidgetUI.ui:56
+#, kde-format
+msgid "Use absolute file paths in playlist"
+msgstr "प्लेलिस्ट में पूर्ण फ़ाइल पथ का उपयोग करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_utf8)
+#: dialogs/profiledataplaylistwidgetUI.ui:63
+#, kde-format
+msgid "UTF-8 coding in playlist"
+msgstr "प्लेलिस्ट में UTF-8 कोडिंग"
+
+#: dialogs/profiledatasinglefiledialog.cpp:24
+#, kde-format
+msgid "Single File Settings"
+msgstr "एकल फ़ाइल सेटिंग्स"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: dialogs/profiledatawidgetUI.ui:38
+#, kde-format
+msgid "Encoder"
+msgstr "एनकोडर"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: dialogs/profiledatawidgetUI.ui:72
+#, kde-format
+msgid "Filenames"
+msgstr "फ़ाइल नाम"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
+#: dialogs/profiledatawidgetUI.ui:133
+#, kde-format
+msgid "Create FAT32 compatible filenames"
+msgstr "FAT32 संगत फ़ाइल नाम बनाएँ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
+#: dialogs/profiledatawidgetUI.ui:146
+#, kde-format
+msgid "Replace spaces with underscores"
+msgstr "रिक्त स्थानों को अंडरस्कोर से बदलें"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
+#: dialogs/profiledatawidgetUI.ui:153
+#, kde-format
+msgid ""
+"This setting overrides any parameterized variable settings in the scheme"
+msgstr "यह सेटिंग स्कीम में किसी भी पैरामीटरयुक्त चर सेटिंग को ओवरराइड करती है"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
+#: dialogs/profiledatawidgetUI.ui:156
+#, kde-format
+msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+msgstr "2 अंकीय ट्रैक संख्या सेट करें (जैसे 01, 02, 03...)"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: dialogs/profiledatawidgetUI.ui:180
+#, kde-format
+msgid "Extra"
+msgstr "अतिरिक्त"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: dialogs/profiledatawidgetUI.ui:211
+#, kde-format
+msgid "Store cover file"
+msgstr "कवर फ़ाइल स्टोर करें"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cuesheet)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_hashlist)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_logfile)
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_singlefile)
+#: dialogs/profiledatawidgetUI.ui:224 dialogs/profiledatawidgetUI.ui:270
+#: dialogs/profiledatawidgetUI.ui:283 dialogs/profiledatawidgetUI.ui:290
+#: dialogs/profiledatawidgetUI.ui:316 dialogs/profiledatawidgetUI.ui:323
+#: dialogs/profiledatawidgetUI.ui:365
+#, kde-format
+msgid "Settings.."
+msgstr "सेटिंग्स.."
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
+#: dialogs/profiledatawidgetUI.ui:237
+#, kde-format
+msgid "Create hashlist"
+msgstr "हैशलिस्ट बनाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
+#: dialogs/profiledatawidgetUI.ui:244
+#, kde-format
+msgid "Create cue sheet"
+msgstr "क्यू शीट बनाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
+#: dialogs/profiledatawidgetUI.ui:257
+#, kde-format
+msgid "Create playlist"
+msgstr "प्लेलिस्ट बनाएं"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: dialogs/profiledatawidgetUI.ui:303
+#, kde-format
+msgid "Create info file"
+msgstr "जानकारी फ़ाइल बनाएँ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
+#: dialogs/profiledatawidgetUI.ui:330
+#, kde-format
+msgid "Save log file"
+msgstr "लॉग फ़ाइल सहेजें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
+#: dialogs/profiledatawidgetUI.ui:355
+#, kde-format
+msgid "Write single file"
+msgstr "एकल फ़ाइल लिखें"
+
+#: dialogs/schemewizarddialog.cpp:18
+#, kde-format
+msgid "Filename Scheme Wizard"
+msgstr "फ़ाइल नाम योजना विज़ार्ड"
+
+#: main.cpp:25
+#, kde-format
+msgid "Audex"
+msgstr "ऑडेक्स"
+
+#: main.cpp:25
+#, kde-format
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr "ऑडियो रिपिंग अनुप्रयोग"
+
+#: main.cpp:25
+#, kde-format
+msgid "Copyright © 2007-2023 Marco Nelles"
+msgstr "कॉपीराइट © 2007-2023 मार्को नेल्स"
+
+#: main.cpp:28
+#, kde-format
+msgid "Marco Nelles"
+msgstr "मार्को नेल्स"
+
+#: main.cpp:28
+#, kde-format
+msgid "Current maintainer, main developer"
+msgstr "वर्तमान अनुरक्षक, मुख्य डेवलपर"
+
+#: main.cpp:29
+#, kde-format
+msgid "Craig Drummond"
+msgstr "क्रेग ड्रमंड"
+
+#: main.cpp:29
+#, kde-format
+msgid "GUI improvements, development"
+msgstr "GUI सुधार, विकास"
+
+#: main.cpp:30
+#, kde-format
+msgid "Elson"
+msgstr "एल्सन"
+
+#: main.cpp:30
+#, kde-format
+msgid "development"
+msgstr "विकास"
+
+#: main.cpp:31
+#, kde-format
+msgid "credativ GmbH"
+msgstr "साख जीएमबीएच"
+
+#: main.cpp:31
+#, kde-format
+msgid "Special thanks to former credativ GmbH (Germany) for support"
+msgstr "समर्थन के लिए पूर्व क्रेडेटिव जीएमबीएच (जर्मनी) को विशेष धन्यवाद"
+
+#: main.cpp:32
+#, kde-format
+msgid "Xiph.Org Foundation"
+msgstr "Xiph.Org फाउंडेशन"
+
+#: main.cpp:33
+#, kde-format
+msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
+msgstr "कॉम्पैक्ट डिस्क रिपर उपलब्ध कराने के लिए Xiph.Org फाउंडेशन को विशेष धन्यवाद"
+
+#: main.cpp:36
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "तुम्हारे नाम"
+
+#: main.cpp:36
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "आपके ईमेल"
+
+#: mainwindow.cpp:39
+#, kde-format
+msgid "Unable to create ProfileModel object."
+msgstr "प्रोफाइल मॉडल ऑब्जेक्ट बनाने में असमर्थ."
+
+#: mainwindow.cpp:40 mainwindow.cpp:53
+#, kde-format
+msgid ""
+"Internal error. Check your hardware. If all okay please make bug report."
+msgstr "आंतरिक त्रुटि। अपने हार्डवेयर की जाँच करें। यदि सब ठीक है तो कृपया बग रिपोर्ट करें।"
+
+#: mainwindow.cpp:53
+#, kde-format
+msgid "Unable to create CDDAModel object."
+msgstr "CDDAModel ऑब्जेक्ट बनाने में असमर्थ."
+
+#: mainwindow.cpp:131
+#, kde-format
+msgid "No disc information set. Do you really want to continue?"
+msgstr "कोई डिस्क जानकारी सेट नहीं है। क्या आप वाकई जारी रखना चाहते हैं?"
+
+#: mainwindow.cpp:132
+#, kde-format
+msgid "Disc information not found"
+msgstr "डिस्क जानकारी नहीं मिली"
+
+#: mainwindow.cpp:143
+#, kde-format
+msgid ""
+"Single file rip selected but not all audio tracks to rip selected. Do you "
+"really want to continue?"
+msgstr ""
+"एकल फ़ाइल रिप चयनित है, लेकिन रिप करने के लिए सभी ऑडियो ट्रैक चयनित नहीं हैं। क्या आप "
+"वाकई जारी रखना चाहते हैं?"
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Not all audio tracks selected for single file rip"
+msgstr "सभी ऑडियो ट्रैक एकल फ़ाइल रिप के लिए चयनित नहीं हैं"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgid "No cover was set. Do you really want to continue?"
+msgstr "कोई कवर सेट नहीं किया गया। क्या आप वाकई जारी रखना चाहते हैं?"
+
+#: mainwindow.cpp:157
+#, kde-format
+msgid "Cover is empty"
+msgstr "कवर खाली है"
+
+#: mainwindow.cpp:181
+#, kde-format
+msgid "General settings"
+msgstr "सामान्य सेटिंग्स"
+
+#: mainwindow.cpp:185
+#, kde-format
+msgid "Device settings"
+msgstr "डिवाइस सेटिंग्स"
+
+#: mainwindow.cpp:196
+#, kde-format
+msgid "Profiles"
+msgstr "प्रोफाइल"
+
+#: mainwindow.cpp:205
+#, kde-format
+msgid "CDDB settings"
+msgstr "सीडीडीबी सेटिंग्स"
+
+#: mainwindow.cpp:208
+#, kde-format
+msgid "Remote Server"
+msgstr "रिमोट सर्वर"
+
+#: mainwindow.cpp:264
+#, kde-format
+msgid ""
+"CDDB lookup failed, with the following error:\n"
+"%1"
+msgstr ""
+"CDDB लुकअप विफल हुआ, निम्न त्रुटि के साथ:\n"
+"%1"
+
+#: mainwindow.cpp:266
+#, kde-format
+msgid "CDD Lookup Failure"
+msgstr "CDD लुकअप विफलता"
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Split titles"
+msgstr "विभाजित शीर्षक"
+
+#: mainwindow.cpp:372
+#, kde-format
+msgid ""
+"Please set a divider string. Be aware of empty spaces.\n"
+"\n"
+"Divider:"
+msgstr ""
+"कृपया एक विभाजक स्ट्रिंग सेट करें। खाली जगहों से सावधान रहें।\n"
+"\n"
+"विभाजक:"
+
+#: mainwindow.cpp:384
+#, kde-format
+msgid "Do you really want to swap all artists and titles?"
+msgstr "क्या आप सचमुच सभी कलाकारों और शीर्षकों की अदला-बदली करना चाहते हैं?"
+
+#: mainwindow.cpp:385
+#, kde-format
+msgid "Swap artists and titles"
+msgstr "कलाकारों और शीर्षकों की अदला-बदली करें"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Do you really want to capitalize all artists and titles?"
+msgstr "क्या आप सचमुच सभी कलाकारों और शीर्षकों को बड़े अक्षरों में लिखना चाहते हैं?"
+
+#: mainwindow.cpp:400
+#, kde-format
+msgid "Capitalize artists and titles"
+msgstr "कलाकारों और शीर्षकों को बड़े अक्षरों में लिखें"
+
+#: mainwindow.cpp:414
+#, kde-format
+msgid "Do you really want to autofill track artists?"
+msgstr "क्या आप सचमुच ट्रैक कलाकारों को स्वतः भरना चाहते हैं?"
+
+#: mainwindow.cpp:415
+#, kde-format
+msgid "Autofill artists"
+msgstr "स्वतः भरें कलाकार"
+
+#: mainwindow.cpp:442
+#, kde-format
+msgid "Eject"
+msgstr "निकालें"
+
+#: mainwindow.cpp:449
+#, kde-format
+msgid "Profile:"
+msgstr "प्रोफ़ाइल:"
+
+#: mainwindow.cpp:461
+#, kde-format
+msgid "&Profile:"
+msgstr "&प्रोफ़ाइल:"
+
+#: mainwindow.cpp:467
+#, kde-format
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: mainwindow.cpp:475
+#, kde-format
+msgid "Fetch"
+msgstr "लाना"
+
+#: mainwindow.cpp:482
+#, kde-format
+msgid "Submit"
+msgstr "जमा करना"
+
+#: mainwindow.cpp:488
+#, kde-format
+msgid "Edit"
+msgstr "संपादन करना"
+
+#: mainwindow.cpp:495
+#, kde-format
+msgid "Rip..."
+msgstr "फाड़ना..."
+
+#: mainwindow.cpp:504
+#, kde-format
+msgid "Split Titles..."
+msgstr "विभाजित शीर्षक..."
+
+#: mainwindow.cpp:509
+#, kde-format
+msgid "Swap Artists And Titles"
+msgstr "कलाकारों और शीर्षकों की अदला-बदली करें"
+
+#: mainwindow.cpp:514
+#, kde-format
+msgid "Capitalize"
+msgstr "मूल बनाना"
+
+#: mainwindow.cpp:519
+#, kde-format
+msgid "Auto Fill Artists"
+msgstr "ऑटो फिल आर्टिस्ट"
+
+#: mainwindow.cpp:524
+#, kde-format
+msgid "Select All Tracks"
+msgstr "सभी ट्रैक चुनें"
+
+#: mainwindow.cpp:529
+#, kde-format
+msgid "Deselect All Tracks"
+msgstr "सभी ट्रैक्स का चयन रद्द करें"
+
+#: mainwindow.cpp:534
+#, kde-format
+msgid "Invert Selection"
+msgstr "उलट चयन"
+
+#: models/cddamodel.cpp:21
+#, kde-format
+msgid "Unable to create devices object."
+msgstr "डिवाइस ऑब्जेक्ट बनाने में असमर्थ."
+
+#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
+#, kde-format
+msgid ""
+"This is an internal error. Check your hardware. If all okay please make bug "
+"report."
+msgstr ""
+"यह एक आंतरिक त्रुटि है। अपने हार्डवेयर की जाँच करें। यदि सब ठीक है तो कृपया बग रिपोर्ट करें।"
+
+#: models/cddamodel.cpp:33
+#, kde-format
+msgid "Unable to create KCDDB object."
+msgstr "KCDDB ऑब्जेक्ट बनाने में असमर्थ."
+
+#: models/cddamodel.cpp:122
+#, kde-format
+msgid "Track %1"
+msgstr "ट्रैक %1"
+
+#: models/cddamodel.cpp:526
+#, kde-format
+msgid "Common image formats"
+msgstr "सामान्य छवि प्रारूप"
+
+#: models/cddamodel.cpp:823
+#, kde-format
+msgid "CDDB transaction already in progress."
+msgstr "CDDB लेनदेन पहले से ही प्रगति पर है।"
+
+#: models/cddamodel.cpp:824
+#, kde-format
+msgid ""
+"A CDDB transaction is already in progress. Please wait until it has finished "
+"and try again."
+msgstr ""
+"CDDB ट्रांजेक्शन पहले से ही प्रगति पर है। कृपया इसके समाप्त होने तक प्रतीक्षा करें और पुनः "
+"प्रयास करें।"
+
+#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
+#, kde-format
+msgid ""
+"There is an error with the CDDB server. Please wait or contact the "
+"administrator of the CDDB server."
+msgstr ""
+"CDDB सर्वर में कोई त्रुटि है। कृपया प्रतीक्षा करें या CDDB सर्वर के व्यवस्थापक से संपर्क करें।"
+
+#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
+#, kde-format
+msgid ""
+"Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
+"offline."
+msgstr ""
+"CDDB सर्वर नहीं मिल रहा है। अपना नेटवर्क जांचें। हो सकता है कि CDDB सर्वर ऑफ़लाइन हो।"
+
+#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
+#, kde-format
+msgid ""
+"Please wait, maybe the server is busy, or contact the CDDB server "
+"administrator."
+msgstr ""
+"कृपया प्रतीक्षा करें, हो सकता है कि सर्वर व्यस्त हो, या CDDB सर्वर व्यवस्थापक से संपर्क करें।"
+
+#: models/cddamodel.cpp:860
+#, kde-format
+msgid "Please contact the CDDB server administrator."
+msgstr "कृपया CDDB सर्वर व्यवस्थापक से संपर्क करें।"
+
+#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
+#, kde-format
+msgid "This should not happen. Please make a bug report."
+msgstr "ऐसा नहीं होना चाहिए। कृपया बग रिपोर्ट करें।"
+
+#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
+#, kde-format
+msgid "Please make a bug report and contact the CDDB server administrator."
+msgstr "कृपया बग रिपोर्ट करें और CDDB सर्वर व्यवस्थापक से संपर्क करें।"
+
+#: models/cddamodel.cpp:903
+#, kde-format
+msgid "Unable to create CDIO object."
+msgstr "CDIO ऑब्जेक्ट बनाने में असमर्थ."
+
+#: models/cddamodel.cpp:983
+#, kde-format
+msgid "This means no data found in the CDDB database."
+msgstr "इसका अर्थ है कि CDDB डेटाबेस में कोई डेटा नहीं मिला।"
+
+#: models/cddamodel.cpp:1004
+#, kde-format
+msgid "Select CDDB Entry"
+msgstr "CDDB प्रविष्टि का चयन करें"
+
+#: models/cddamodel.cpp:1004
+#, kde-format
+msgid "Select a CDDB entry:"
+msgstr "CDDB प्रविष्टि चुनें:"
+
+#: models/cddamodel.h:34
+#, kde-format
+msgid "Rip"
+msgstr "फाड़ना"
+
+#: models/cddamodel.h:35
+#, kde-format
+msgid "Track"
+msgstr "रास्ता"
+
+#: models/cddamodel.h:36
+#, kde-format
+msgid "Artist"
+msgstr "कलाकार"
+
+#: models/cddamodel.h:37
+#, kde-format
+msgid "Title"
+msgstr "शीर्षक"
+
+#: models/cddamodel.h:38
+#, kde-format
+msgid "Length"
+msgstr "लंबाई"
+
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "Unknown error. No index found in profile model."
+msgstr "अज्ञात त्रुटि. प्रोफ़ाइल मॉडल में कोई अनुक्रमणिका नहीं मिली."
+
+#: models/profilemodel.cpp:302
+#, kde-format
+msgid "This is an internal error. Please report."
+msgstr "यह एक आंतरिक त्रुटि है। कृपया रिपोर्ट करें।"
+
+#: models/profilemodel.cpp:378
+#, kde-format
+msgid "Profile name must not be empty."
+msgstr "प्रोफ़ाइल नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:378
+#, kde-format
+msgid "You have given no name for the profile. Please set one."
+msgstr "आपने प्रोफ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
+
+#: models/profilemodel.cpp:392
+#, kde-format
+msgid "Profile name already exists."
+msgstr "प्रोफ़ाइल नाम पहले से मौजूद है."
+
+#: models/profilemodel.cpp:393
+#, kde-format
+msgid ""
+"Your profile name %1 already exists in the set of profiles. Please choose a "
+"unique one."
+msgstr ""
+"आपका प्रोफ़ाइल नाम %1 पहले से ही प्रोफ़ाइल के सेट में मौजूद है। कृपया एक अद्वितीय नाम चुनें।"
+
+#: models/profilemodel.cpp:404
+#, kde-format
+msgid "Profile encoder is not defined."
+msgstr "प्रोफ़ाइल एनकोडर परिभाषित नहीं है."
+
+#: models/profilemodel.cpp:404
+#, kde-format
+msgid "You have given no encoder for the profile. Please set one."
+msgstr "आपने प्रोफ़ाइल के लिए कोई एनकोडर नहीं दिया है। कृपया एक सेट करें।"
+
+#: models/profilemodel.cpp:411
+#, kde-format
+msgid "Profile filename scheme is not defined."
+msgstr "प्रोफ़ाइल फ़ाइल नाम योजना परिभाषित नहीं है."
+
+#: models/profilemodel.cpp:412
+#, kde-format
+msgid "You have given no filename scheme for the profile. Please set one."
+msgstr "आपने प्रोफ़ाइल के लिए कोई फ़ाइल नाम योजना नहीं दी है। कृपया एक सेट करें।"
+
+#: models/profilemodel.cpp:440
+#, kde-format
+msgid "The image file format is unknown."
+msgstr "छवि फ़ाइल का स्वरूप अज्ञात है."
+
+#: models/profilemodel.cpp:441
+#, kde-format
+msgid ""
+"Your given image file format is unknown. Please choose on of these formats: "
+"JPEG, PNG, TIFF or BMP."
+msgstr ""
+"आपके द्वारा दिया गया छवि फ़ाइल प्रारूप अज्ञात है। कृपया इनमें से कोई एक प्रारूप चुनें: JPEG, "
+"PNG, TIFF या BMP."
+
+#: models/profilemodel.cpp:450
+#, kde-format
+msgid "Cover name must not be empty."
+msgstr "कवर नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:450
+#, kde-format
+msgid "You have given no name for the cover. Please set one."
+msgstr "आपने कवर के लिए कोई नाम नहीं दिया है। कृपया एक नाम तय करें।"
+
+#: models/profilemodel.cpp:460
+#, kde-format
+msgid "The playlist file format is unknown."
+msgstr "प्लेलिस्ट फ़ाइल का स्वरूप अज्ञात है."
+
+#: models/profilemodel.cpp:461
+#, kde-format
+msgid ""
+"Your given playlist file format is unknown. Please choose on of these "
+"formats: M3U, PLS or XSPF."
+msgstr ""
+"आपका दिया गया प्लेलिस्ट फ़ाइल फ़ॉर्मेट अज्ञात है। कृपया इनमें से कोई एक फ़ॉर्मेट चुनें: M3U, "
+"PLS या XSPF."
+
+#: models/profilemodel.cpp:470
+#, kde-format
+msgid "Playlist name must not be empty."
+msgstr "प्लेलिस्ट का नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:470
+#, kde-format
+msgid "You have given no name for the playlist. Please set one."
+msgstr "आपने प्लेलिस्ट के लिए कोई नाम नहीं दिया है। कृपया कोई नाम निर्धारित करें।"
+
+#: models/profilemodel.cpp:490
+#, kde-format
+msgid "Info text name must not be empty."
+msgstr "जानकारी पाठ का नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:490
+#, kde-format
+msgid "You have given no name for the info text file. Please set one."
+msgstr "आपने जानकारी टेक्स्ट फ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
+
+#: models/profilemodel.cpp:497
+#, kde-format
+msgid "Info text file name suffix must not be empty."
+msgstr "जानकारी पाठ फ़ाइल नाम प्रत्यय रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:498
+#, kde-format
+msgid "You have given no suffix for the info text file. Please set one."
+msgstr "आपने जानकारी टेक्स्ट फ़ाइल के लिए कोई प्रत्यय नहीं दिया है। कृपया एक सेट करें।"
+
+#: models/profilemodel.cpp:509
+#, kde-format
+msgid "The hashlist file format is unknown."
+msgstr "हैशलिस्ट फ़ाइल का स्वरूप अज्ञात है."
+
+#: models/profilemodel.cpp:510
+#, kde-format
+msgid ""
+"Your given hashlist file format is unknown. Please choose one of these "
+"formats: SFV, MD5, SHA-256."
+msgstr ""
+"आपका दिया गया हैशलिस्ट फ़ाइल फ़ॉर्मेट अज्ञात है। कृपया इनमें से कोई एक फ़ॉर्मेट चुनें: SFV, "
+"MD5, SHA-256."
+
+#: models/profilemodel.cpp:519
+#, kde-format
+msgid "Hashlist name must not be empty."
+msgstr "हैशलिस्ट का नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:519
+#, kde-format
+msgid "You have given no name for the hashlist. Please set one."
+msgstr "आपने हैशलिस्ट के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
+
+#: models/profilemodel.cpp:530
+#, kde-format
+msgid "Cue filename name must not be empty."
+msgstr "क्यू फ़ाइल नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:530
+#, kde-format
+msgid "You have given no name for the cue sheet. Please set one."
+msgstr "आपने क्यू शीट के लिए कोई नाम नहीं दिया है। कृपया एक नाम निर्धारित करें।"
+
+#: models/profilemodel.cpp:543
+#, kde-format
+msgid "Log filename name must not be empty."
+msgstr "लॉग फ़ाइल नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:543
+#, kde-format
+msgid "You have given no name for the log file. Please set one."
+msgstr "आपने लॉग फ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
+
+#: models/profilemodel.cpp:557
+#, kde-format
+msgid "Filename name must not be empty."
+msgstr "फ़ाइल नाम रिक्त नहीं होना चाहिए."
+
+#: models/profilemodel.cpp:557
+#, kde-format
+msgid "You have given no name for the single audio file. Please set one."
+msgstr "आपने एकल ऑडियो फ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
+#: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
+#, kde-format
+msgid "Copy"
+msgstr "प्रतिलिपि"
+
+#: utils/cddacdio.cpp:45
+#, kde-format
+msgid "Device error (1)."
+msgstr "डिवाइस त्रुटि (1)."
+
+#: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
+#: utils/cddacdio.cpp:530
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? Also check your permissions on "
+"\"%1\"."
+msgstr ""
+"अपना डिवाइस जांचें। क्या यह वास्तव में \"%1\" है? \"%1\" पर अपनी अनुमतियां भी जांचें।"
+
+#: utils/cddacdio.cpp:52
+#, kde-format
+msgid "Device error (2)."
+msgstr "डिवाइस त्रुटि (2)."
+
+#: utils/cddacdio.cpp:60
+#, kde-format
+msgid "Device error (3)."
+msgstr "डिवाइस त्रुटि (3)."
+
+#: utils/cddacdio.cpp:446
+#, kde-format
+msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
+msgstr "ट्रैक --, आरंभ सेक्टर: 000000, सेक्टरों में आकार: 000150, प्रकार: लीड-इन"
+
+#: utils/cddacdio.cpp:473
+#, kde-format
+msgid "Audio"
+msgstr "ऑडियो"
+
+#: utils/cddacdio.cpp:476
+#, kde-format
+msgid "Non-Audio: CD-i"
+msgstr "गैर-ऑडियो: सीडी-आई"
+
+#: utils/cddacdio.cpp:479
+#, kde-format
+msgid "Non-Audio: Data mode 2"
+msgstr "गैर-ऑडियो: डेटा मोड 2"
+
+#: utils/cddacdio.cpp:481
+#, kde-format
+msgid ", form 1"
+msgstr ", फॉर्म 1"
+
+#: utils/cddacdio.cpp:483
+#, kde-format
+msgid ", form 2"
+msgstr ", फॉर्म 2"
+
+#: utils/cddacdio.cpp:486
+#, kde-format
+msgid "Non-Audio: Data mode 1"
+msgstr "गैर-ऑडियो: डेटा मोड 1"
+
+#: utils/cddacdio.cpp:489
+#, kde-format
+msgid "Non-Audio: Playstation 1"
+msgstr "गैर-ऑडियो: प्लेस्टेशन 1"
+
+#: utils/cddacdio.cpp:492
+#, kde-format
+msgid "Non-Audio: Unknown format"
+msgstr "गैर-ऑडियो: अज्ञात प्रारूप"
+
+#: utils/cddacdio.cpp:496
+#, kde-format
+msgid "Lead-out"
+msgstr "बाहर का नेतृत्व"
+
+#: utils/cddacdio.cpp:498
+#, kde-format
+msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
+msgstr "ट्रैक %1, आरंभ सेक्टर: %2, सेक्टरों में आकार: %3, प्रकार: %4"
+
+#: utils/cddacdio.cpp:529
+#, kde-format
+msgid ""
+"Could not get device hardware information (vendor, model and firmware "
+"revision)."
+msgstr ""
+"डिवाइस हार्डवेयर जानकारी (विक्रेता, मॉडल और फ़र्मवेयर संशोधन) प्राप्त नहीं की जा सकी."
+
+#: utils/cddadevices.cpp:86
+#, kde-format
+msgid "Audio Disc"
+msgstr "ऑडियो डिस्क"
+
+#: utils/cddaextractthread.cpp:27
+#, kde-format
+msgid "Internal device error."
+msgstr "आंतरिक डिवाइस त्रुटि."
+
+#: utils/cddaextractthread.cpp:27
+#, kde-format
+msgid "Check your device and make a bug report."
+msgstr "अपने डिवाइस की जांच करें और बग रिपोर्ट बनाएं."
+
+#: utils/cddaextractthread.cpp:71
+#, kde-format
+msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
+msgstr "ड्राइव विक्रेता: %1, ड्राइव मॉडल: %2, ड्राइव संशोधन: %3"
+
+#: utils/cddaextractthread.cpp:72
+#, kde-format
+msgid "TOC:"
+msgstr "विषय-सूची:"
+
+#: utils/cddaextractthread.cpp:86
+#, kde-format
+msgid "Extracting finished."
+msgstr "निष्कर्षण समाप्त हुआ।"
+
+#: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
+#, kde-format
+msgid "Error occured while seeking at sector %1: %2"
+msgstr "सेक्टर %1: %2 पर खोज करते समय त्रुटि हुई"
+
+#: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
+#, kde-format
+msgid "An error occured while ripping track %1. See log."
+msgstr "ट्रैक %1 को रिप करते समय त्रुटि हुई। लॉग देखें।"
+
+#: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
+#, kde-format
+msgid "An error occured while ripping. See log."
+msgstr "रिपिंग करते समय एक त्रुटि हुई। लॉग देखें।"
+
+#: utils/cddaextractthread.cpp:121
+#, kde-format
+msgid "Correction sample offset: %1"
+msgstr "सुधार नमूना ऑफ़सेट: %1"
+
+#: utils/cddaextractthread.cpp:129
+#, kde-format
+msgid "Fetching extra information from disc..."
+msgstr "डिस्क से अतिरिक्त जानकारी प्राप्त की जा रही है..."
+
+#: utils/cddaextractthread.cpp:131
+#, kde-format
+msgid "Fetching subchannel infos from disc"
+msgstr "डिस्क से उपचैनल जानकारी प्राप्त करना"
+
+#: utils/cddaextractthread.cpp:135
+#, kde-format
+msgid "Ripping track %1 (%2:%3)..."
+msgstr "ट्रैक %1 (%2:%3) रिप किया जा रहा है..."
+
+#: utils/cddaextractthread.cpp:136
+#, kde-format
+msgid "Start reading track %1 with %2 sectors"
+msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
+
+#: utils/cddaextractthread.cpp:138
+#, kde-format
+msgid "Ripping whole disc (%1:%2)..."
+msgstr "संपूर्ण डिस्क रिप की जा रही है (%1:%2)..."
+
+#: utils/cddaextractthread.cpp:139
+#, kde-format
+msgid "Start reading whole disc with %1 sectors"
+msgstr "%1 सेक्टर वाली पूरी डिस्क पढ़ना शुरू करें"
+
+#: utils/cddaextractthread.cpp:140
+#, kde-format
+msgid "Track %1 with start sector %2"
+msgstr "ट्रैक %1 आरंभ सेक्टर %2 के साथ"
+
+#: utils/cddaextractthread.cpp:143
+#, kde-format
+msgid "First sector: %1, Last sector: %2"
+msgstr "पहला सेक्टर: %1, अंतिम सेक्टर: %2"
+
+#: utils/cddaextractthread.cpp:164
+#, kde-format
+msgid "Error occured while reading sector %1 (track time pos %2): %3"
+msgstr "सेक्टर %1 (ट्रैक समय स्थिति %2) पढ़ते समय त्रुटि हुई: %3"
+
+#: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
+#, kde-format
+msgid "An error occured while ripping track %1 at position %2. See log."
+msgstr "ट्रैक %1 को %2 स्थान पर रिप करते समय त्रुटि हुई। लॉग देखें।"
+
+#: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
+#: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
+#, kde-format
+msgid "An error occured while ripping at position %1. See log."
+msgstr "स्थिति %1 पर रिपिंग करते समय त्रुटि हुई। लॉग देखें।"
+
+#: utils/cddaextractthread.cpp:189
+#, kde-format
+msgid "Error reading sector %1 (track time pos %2)"
+msgstr "सेक्टर %1 पढ़ने में त्रुटि (ट्रैक समय स्थिति %2)"
+
+#: utils/cddaextractthread.cpp:200
+#, kde-format
+msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
+msgstr "सेक्टर %1 (%2) पढ़ने में त्रुटि: **संपूर्ण सेक्टर मौन से भर रहा है**"
+
+#: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
+#, kde-format
+msgid "Ripping was canceled due to an error."
+msgstr "एक त्रुटि के कारण रिपिंग रद्द कर दी गई।"
+
+#: utils/cddaextractthread.cpp:254
+#, kde-format
+msgid "User canceled extracting."
+msgstr "उपयोगकर्ता ने निकालना रद्द कर दिया."
+
+#: utils/cddaextractthread.cpp:255
+#, kde-format
+msgid "Extraction interrupted"
+msgstr "निष्कर्षण बाधित"
+
+#: utils/cddaextractthread.cpp:258
+#, kde-format
+msgid "Ripping OK (Track %1)."
+msgstr "रिपिंग ठीक है (ट्रैक %1)."
+
+#: utils/cddaextractthread.cpp:260
+#, kde-format
+msgid "Ripping OK."
+msgstr "ठीक है."
+
+#: utils/cddaextractthread.cpp:262
+#, kde-format
+msgid "Ripping finished"
+msgstr "रिपिंग समाप्त"
+
+#: utils/encoderassistant.h:59
+#, kde-format
+msgid "MP3"
+msgstr "एमपी3"
+
+#: utils/encoderassistant.h:73
+#, kde-format
+msgid "Ogg Vorbis"
+msgstr "ऑग वॉर्बिस"
+
+#: utils/encoderassistant.h:87
+#, kde-format
+msgid "Opus"
+msgstr "ओपुस"
+
+#: utils/encoderassistant.h:98
+#, kde-format
+msgid "FLAC (Lossless)"
+msgstr "FLAC (दोषरहित)"
+
+#: utils/encoderassistant.h:108
+#, kde-format
+msgid "MP4 (AAC)"
+msgstr "एमपी4 (एएसी)"
+
+#: utils/encoderassistant.h:119
+#, kde-format
+msgid "WAVE (Raw Uncompressed)"
+msgstr "वेव (रॉ अनकंप्रेस्ड)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
+#: utils/encoderassistant.h:126 utils/encoderassistant.h:127
+#: widgets/lamewidgetUI.ui:130
+#, kde-format
+msgid "Custom"
+msgstr "रिवाज़"
+
+#: utils/encoderwrapper.cpp:61
+#, kde-format
+msgid "Command scheme is empty."
+msgstr "कमांड योजना रिक्त है."
+
+#: utils/encoderwrapper.cpp:92
+#, kde-format
+msgid "Encoding track %1..."
+msgstr "ट्रैक %1 एनकोड किया जा रहा है..."
+
+#: utils/encoderwrapper.cpp:110
+#, kde-format
+msgid "Deleted partial file \"%1\"."
+msgstr "आंशिक फ़ाइल \"%1\" हटा दी गई."
+
+#: utils/encoderwrapper.cpp:115
+#, kde-format
+msgid "User canceled encoding."
+msgstr "उपयोगकर्ता ने एनकोडिंग रद्द कर दी."
+
+#: utils/encoderwrapper.cpp:174
+#, kde-format
+msgid "Encoding OK (\"%1\")."
+msgstr "एनकोडिंग ठीक है (\"%1\")."
+
+#: utils/encoderwrapper.cpp:176
+#, kde-format
+msgid "An error occurred while encoding file \"%1\"."
+msgstr "फ़ाइल \"%1\" को एनकोड करते समय एक त्रुटि हुई."
+
+#: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:191
+#: utils/encoderwrapper.cpp:194 utils/encoderwrapper.cpp:204
+#, kde-format
+msgid "Please check your profile."
+msgstr "कृपया अपना प्रोफ़ाइल जांचें."
+
+#: utils/encoderwrapper.cpp:188
+#, kde-format
+msgid "%1 failed to start."
+msgstr "%1 प्रारंभ करने में विफल."
+
+#: utils/encoderwrapper.cpp:188
+#, kde-format
+msgid ""
+"Either it is missing, or you may have insufficient permissions to invoke the "
+"program."
+msgstr ""
+"या तो यह अनुपलब्ध है, या आपके पास प्रोग्राम को प्रारंभ करने के लिए अपर्याप्त अनुमतियाँ हैं।"
+
+#: utils/encoderwrapper.cpp:191
+#, kde-format
+msgid "%1 crashed some time after starting successfully."
+msgstr "%1 सफलतापूर्वक प्रारंभ होने के कुछ समय बाद क्रैश हो गया।"
+
+#: utils/encoderwrapper.cpp:194
+#, kde-format
+msgid "%1 timed out. This should not happen."
+msgstr "%1 का समय समाप्त हो गया। ऐसा नहीं होना चाहिए।"
+
+#: utils/encoderwrapper.cpp:197
+#, kde-format
+msgid "An error occurred when attempting to write to %1."
+msgstr "%1 पर लिखने का प्रयास करते समय एक त्रुटि हुई."
+
+#: utils/encoderwrapper.cpp:198
+#, kde-format
+msgid ""
+"For example, the process may not be running, or it may have closed its input "
+"channel."
+msgstr ""
+"उदाहरण के लिए, हो सकता है कि प्रक्रिया चल नहीं रही हो, या उसने अपना इनपुट चैनल बंद कर "
+"दिया हो।"
+
+#: utils/encoderwrapper.cpp:201
+#, kde-format
+msgid "An error occurred when attempting to read from %1."
+msgstr "%1 से पढ़ने का प्रयास करते समय एक त्रुटि हुई."
+
+#: utils/encoderwrapper.cpp:201
+#, kde-format
+msgid "For example, the process may not be running."
+msgstr "उदाहरण के लिए, हो सकता है कि प्रक्रिया चल नहीं रही हो।"
+
+#: utils/encoderwrapper.cpp:204
+#, kde-format
+msgid "An unknown error occurred to %1. This should not happen."
+msgstr "%1 में कोई अज्ञात त्रुटि हुई। ऐसा नहीं होना चाहिए।"
+
+#: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
+#: utils/parameters.cpp:110
+#, kde-format
+msgid "Illegal character found at index %1: '%2'"
+msgstr "सूचकांक %1: '%2' पर अवैध वर्ण पाया गया"
+
+#: utils/parameters.cpp:121
+#, kde-format
+msgid "Unclosed quote found"
+msgstr "खुला उद्धरण मिला"
+
+#: utils/schemeparser.cpp:77
+#, kde-format
+msgid "Illegal character found at index %1: %2"
+msgstr "सूचकांक %1: %2 पर अवैध वर्ण मिला"
+
+#: utils/schemeparser.cpp:128
+#, kde-format
+msgid ""
+"replace_char_list parameter needs two more parameters replace_char_list_from "
+"and replace_char_list_to with equal size."
+msgstr ""
+"replace_char_list पैरामीटर को समान आकार के दो और पैरामीटर "
+"replace_char_list_from और replace_char_list_to की आवश्यकता है।"
+
+#: utils/schemeparser.cpp:274
+#, kde-format
+msgid "Unclosed brace."
+msgstr "खुला ब्रेस."
+
+#: utils/schemeparser.cpp:428
+#, kde-format
+msgid "Could not create temporary cover file: %1"
+msgstr "अस्थायी कवर फ़ाइल नहीं बनाई जा सकी: %1"
+
+#: utils/schemeparser.h:155
+#, kde-format
+msgid ""
+"<p>The following placeholders will be replaced with their particular meaning:"
+"</p><table><tr><th>Placeholder</th><th>Description</th></tr><tr><td><tt>"
+"$artist</tt></td><td>The artist of the CD. If your CD is a compilation then "
+"this tag represents the title in most cases.</td></tr><tr><td><tt>$title</"
+"tt></td><td>The title of the CD. If your CD is a compilation then this tag "
+"represents the subtitle in most cases.</td></tr><tr><td><tt>$date</tt></"
+"td><td>The release date of the CD. In almost all cases this is the year.</"
+"td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD then this value will be empty.</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
+"the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
+"</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
+"table>"
+msgstr ""
+"<p>निम्नलिखित प्लेसहोल्डर्स को उनके विशेष अर्थ से प्रतिस्थापित किया जाएगा:</"
+"p><table><tr><th> प्लेसहोल्डर</th><th> विवरण</th></tr><tr><td> <tt>$कलाकार</"
+"tt></td><td> सीडी का कलाकार। यदि आपकी सीडी एक संकलन है तो यह टैग अधिकांश मामलों में "
+"शीर्षक का प्रतिनिधित्व करता है।</td></tr><tr><td> <tt>$शीर्षक</tt></td><td> सीडी "
+"का शीर्षक। यदि आपकी सीडी एक संकलन है तो यह टैग अधिकांश मामलों में उपशीर्षक का "
+"प्रतिनिधित्व करता है।</td></tr><tr><td> <tt>$दिनांक</tt></td><td> सीडी की रिलीज "
+"की तारीख। लगभग सभी मामलों में यह वर्ष होता है।</td></tr><tr><td> <tt>$शैली</tt></"
+"td><td> सीडी की शैली.</td></tr><tr><td> <tt>$सीडीएनओ</tt></td><td> मल्टी-सीडी "
+"एल्बम की सीडी संख्या। अक्सर संकलन में कई सीडी शामिल होती हैं। <i>नोट:</i> यदि वर्तमान "
+"सीडी के लिए मल्टी-सीडी फ़्लैग सेट <b>नहीं</b> किया गया है, तो यह मान रिक्त होगा।</"
+"td></tr><tr><td> <tt>$नोऑफट्रैक्स</tt></td><td> सीडी के ऑडियो ट्रैकों की कुल संख्या.</"
+"td></tr><tr><td> <tt>$एनकोडर</tt></td><td> एनकोडर का नाम और संस्करण.</td></"
+"tr><tr><td> <tt>$ऑडेक्स</tt></td><td> ऑडेक्स नाम और संस्करण.</td></tr></table>"
+
+#: utils/schemeparser.h:172
+#, kde-format
+msgid ""
+"<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
+"${title lowercase=true}</tt>. In this example the title will be lowercased. "
+"The following general parameters can be used with placeholders:</"
+"p><table><tr><th>Key</th><th>Value</th><th>Description</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>The placeholder "
+"value will be lowercased.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
+"false</td><td>The placeholder value will be uppercased.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Replace the "
+"spaces of the placeholder value with underscores.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Replace "
+"illegal filename characters of a FAT32 filesystem with underscores.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Replace "
+"characters. This parameter needs two additional keys of the same value size:"
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. These are "
+"lists of characters. The first character of<tt>replace_char_list_from</tt> "
+"will be replaced by the first character of <tt>replace_char_list_to</tt> and "
+"so on.</td></tr><tr><td><tt>left</tt></td><td>Number</td><td>Take nth "
+"characters from the left of the placeholder value.</td></"
+"tr><tr><td><tt>length</tt></td><td>Number</td><td>If the placeholder value "
+"is a number expand it to the given length. Furthermore you can define a fill "
+"character with the additional key <tt>fillchar</tt>. Default fillchar is '0'."
+"</td></tr><tr><td><tt>pre</tt></td><td>String</td><td>A string which will be "
+"placed <b>before</b> the value. Especially useful for command line "
+"parameters which should not be set at all if the value is empty.</td></"
+"tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
+"placed <b>after</b> the value.</td></tr></table>"
+msgstr ""
+"<p>ऑडेक्स में प्लेसहोल्डर्स में key=value के रूप में पैरामीटर हो सकते हैं। उदाहरण के लिए <tt>"
+"${title लोअरकेस=true}</tt> . इस उदाहरण में शीर्षक लोअरकेस में होगा। प्लेसहोल्डर्स के साथ "
+"निम्नलिखित सामान्य पैरामीटर का उपयोग किया जा सकता है:</p><table><tr><th> चाबी</"
+"th><th> कीमत</th><th> विवरण</th></tr><tr><td> <tt>छोटे</tt></td><td> सत्य/"
+"असत्य</td><td> प्लेसहोल्डर मान लोअरकेस में होगा.</td></tr><tr><td> <tt>अपरकेस</tt></"
+"td><td> सत्य/असत्य</td><td> प्लेसहोल्डर मान बड़े अक्षरों में लिखा जाएगा.</td></"
+"tr><tr><td> <tt>रेखांकित</tt></td><td> सत्य/असत्य</td><td> प्लेसहोल्डर मान के रिक्त "
+"स्थानों को अंडरस्कोर से बदलें।</td></tr><tr><td> <tt>fat32संगत</tt></td><td> सत्य/"
+"असत्य</td><td> FAT32 फ़ाइल सिस्टम के अवैध फ़ाइल नाम वर्णों को अंडरस्कोर से बदलें।</td></"
+"tr><tr><td> <tt>प्रतिस्थापित_अक्षर</tt></td><td> सत्य/असत्य</td><td> वर्ण बदलें। इस "
+"पैरामीटर को समान मान आकार की दो अतिरिक्त कुंजियों की आवश्यकता है: "
+"<tt>replace_char_list_from</tt> , <tt>replace_char_list_to</tt> । ये वर्णों की "
+"सूचियाँ हैं। <tt>replace_char_list_from</tt> के पहले वर्ण को "
+"<tt>replace_char_list_to</tt> के पहले वर्ण से बदल दिया जाएगा और इसी तरह आगे भी।</"
+"td></tr><tr><td> <tt>बाएं</tt></td><td> संख्या</td><td> प्लेसहोल्डर मान के बाईं ओर से "
+"nवां अक्षर लें।</td></tr><tr><td> <tt>लंबाई</tt></td><td> संख्या</td><td> यदि "
+"प्लेसहोल्डर मान एक संख्या है तो उसे दी गई लंबाई तक विस्तारित करें। इसके अलावा आप अतिरिक्त "
+"कुंजी <tt>fillchar</tt> के साथ एक भरण वर्ण परिभाषित कर सकते हैं। डिफ़ॉल्ट fillchar "
+"&#39;0&#39; है।</td></tr><tr><td> <tt>पूर्व</tt></td><td> डोरी</td><td> एक "
+"स्ट्रिंग जो मान से <b>पहले</b> रखी जाएगी। कमांड लाइन पैरामीटर के लिए विशेष रूप से "
+"उपयोगी है जिसे मान खाली होने पर बिल्कुल भी सेट नहीं किया जाना चाहिए।</td></"
+"tr><tr><td> <tt>डाक</tt></td><td> डोरी</td><td> एक स्ट्रिंग जो मान <b>के बाद</b> "
+"रखी जाएगी.</td></tr></table>"
+
+#: utils/schemeparser.h:193
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
+"td><td>This is the artist of every track. It is especially useful on "
+"compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. Normally "
+"each track on a CD has its own title, which is the name of the song.</td></"
+"tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></"
+"tr><tr><td><tt>$isrc</tt></td><td>The International Standard Recording Code "
+"(ISRC) of the track (only available if supported by your device).</td></tr></"
+"table>"
+msgstr ""
+"<table><tr><th>प्लेसहोल्डर</th><th> विवरण</th></tr><tr><td> $टार्टिस्ट</td><td> "
+"यह हर ट्रैक का कलाकार है। यह संकलन सीडी पर विशेष रूप से उपयोगी है।</td></tr><tr><td> "
+"$ttitle</td><td> ट्रैक का शीर्षक। सामान्यतः सीडी पर प्रत्येक ट्रैक का अपना शीर्षक होता "
+"है, जो गीत का नाम होता है।</td></tr><tr><td> $ट्रैकनो</td><td> ट्रैक संख्या: पहला "
+"ट्रैक 1 है।</td></tr><tr><td> <tt>$आईएसआरसी</tt></td><td> ट्रैक का अंतर्राष्ट्रीय "
+"मानक रिकॉर्डिंग कोड (ISRC) (केवल तभी उपलब्ध होगा जब आपका डिवाइस इसका समर्थन करता "
+"हो).</td></tr></table>"
+
+#: utils/schemeparser.h:205
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
+"th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"td><td>Filename of the cover file. If no cover is set, this will be empty. "
+"Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
+"scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
+"<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
+"LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
+msgstr ""
+"<table><tr><th>प्लेसहोल्डर</th><th> विशिष्ट पैरामीटर</th><th> विवरण</th></"
+"tr><tr><td> <tt>$आई</tt></td><td></td><td> CD ऑडियो ट्रैक से Audex द्वारा बनाई "
+"गई अस्थायी WAVE फ़ाइल (RIFF WAVE)। यह आपके कमांड लाइन एनकोडर के लिए इनपुट फ़ाइल है।</"
+"td></tr><tr><td> <tt>$ओ</tt></td><td></td><td> पूर्ण आउटपुट फ़ाइल नाम और पथ। इसे "
+"अपने कमांड लाइन एनकोडर के लिए आउटपुट के रूप में उपयोग करें।</td></tr><tr><td> <tt>"
+"$कवर</tt></td><td> <tt>प्रारूप, x, y</tt></td><td> कवर फ़ाइल का फ़ाइल नाम। यदि "
+"कोई कवर सेट नहीं है, तो यह खाली होगा। <tt>प्री</tt> पैरामीटर के साथ संयोजन में अधिकतर "
+"उपयोगी। छवि को <tt>x</tt> और <tt>y</tt> पैरामीटर के साथ स्केल किया जा सकता है। "
+"संभावित छवि <tt>प्रारूप</tt> JPEG, PNG, GIF या BMP (डिफ़ॉल्ट: JPEG) हैं। <i><b>नोट:"
+"</b> LAME 128 KiB से बड़ी कवर फ़ाइलों को हटा देता है।</i></td></tr></table>"
+
+#: utils/schemeparser.h:219
+#, kde-format
+msgid ""
+"<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
+"th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
+"overall size of all extracted (encoded) music files (incl. the cover image "
+"file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
+"tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
+"all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
+"td><td></td><td>Prints the total number of extracted tracks.</td></"
+"tr><tr><td>$discid</td><td>base</td><td>Prints the CDDB discid in "
+"hexadecimal format.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>The "
+"Media Catalog Number (MCN) of the CD (only available if supported by your "
+"device).</td></tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints "
+"the current date and/or time. The parameter format specifies the output. "
+"Please consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) for "
+"the supported specifiers within the format string. With the additional key "
+"<tt>locale</tt> you can specify a language setting. By default your system "
+"locales are used. The locale has the format <tt>language_TERRITORY</tt>, e."
+"g. <tt>en_EN</tt>. <tt>language</tt> is a lowercase, two-letter, ISO 639 "
+"language code and <tt>TERRITORY</tt> an uppercase, two-letter, ISO 3166 "
+"territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
+"td></tr></table>"
+msgstr ""
+"<table><tr><th>प्लेसहोल्डर</th><th> विशिष्ट पैरामीटर</th><th> विवरण</th></"
+"tr><tr><td> $आकार</td><td> <tt>आईईसी, परिशुद्धता</tt></td><td> सभी निकाले गए "
+"(एन्कोडेड) संगीत फ़ाइलों (कवर छवि फ़ाइल सहित) का समग्र आकार प्रिंट करता है। <tt>iec</"
+"tt> के साथ (k)ibi, (m)ebi या (g)ibi की गणना करें। अतिरिक्त पैरामीटर <tt>परिशुद्धता</"
+"tt> दशमलव स्थानों की संख्या को परिभाषित कर सकती है।</td></tr><tr><td> $लंबाई</"
+"td><td></td><td> सभी निकाले गए ट्रैक की प्रासंगिक समग्र लंबाई प्रिंट करता है। प्रारूप "
+"min:sec है।</td></tr><tr><td> $नोऑफट्रैक्स</td><td></td><td> निकाले गए ट्रैक्स की कुल "
+"संख्या प्रिंट करता है.</td></tr><tr><td> $डिस्किड</td><td> आधार</td><td> CDDB "
+"डिस्किड को हेक्साडेसिमल प्रारूप में प्रिंट करता है।</td></tr><tr><td> <tt>$एमसीएन</tt></"
+"td><td></td><td> सीडी का मीडिया कैटलॉग नंबर (MCN) (केवल तभी उपलब्ध होगा जब आपका "
+"डिवाइस इसका समर्थन करता हो)।</td></tr><tr><td> $अभी</td><td> <tt>प्रारूप,स्थान</"
+"tt></td><td> वर्तमान दिनांक और/या समय प्रिंट करता है। पैरामीटर प्रारूप आउटपुट निर्दिष्ट "
+"करता है। प्रारूप स्ट्रिंग के भीतर समर्थित विनिर्देशकों के लिए कृपया आधिकारिक qt दस्तावेज़ "
+"( <tt>https://doc.qt.io/qt-5/qtime.html#toString</tt> , <tt>https://doc.qt."
+"io/qt-6/qdate.html#toString</tt> ) देखें। अतिरिक्त कुंजी <tt>लोकेल</tt> के साथ आप एक "
+"भाषा सेटिंग निर्दिष्ट कर सकते हैं। डिफ़ॉल्ट रूप से आपके सिस्टम लोकेल का उपयोग किया जाता है। "
+"लोकेल का प्रारूप <tt>language_TERRITORY</tt> है, उदाहरण के लिए <tt>en_EN</tt> । "
+"<tt>language</tt> एक लोअरकेस, दो-अक्षर, ISO 639 भाषा कोड है और <tt>TERRITORY</"
+"tt> एक अपरकेस, दो-अक्षर, ISO 3166 क्षेत्र कोड है।</td></tr><tr><td> $बीआर</"
+"td><td></td><td> एक लाइनब्रेक प्रिंट करता है.</td></tr></table>"
+
+#: utils/upload.cpp:54
+#, kde-format
+msgid "Uploading file %1 to server. Please wait..."
+msgstr "फ़ाइल %1 को सर्वर पर अपलोड किया जा रहा है। कृपया प्रतीक्षा करें..."
+
+#: utils/upload.cpp:61
+#, kde-format
+msgid "Finished uploading file %1 to server."
+msgstr "फ़ाइल %1 को सर्वर पर अपलोड करना समाप्त."
+
+#: widgets/cddaheaderwidget.cpp:133
+#, kde-format
+msgid "CD Number: "
+msgstr "सीडी संख्या:"
+
+#: widgets/cddaheaderwidget.cpp:147
+#, kde-format
+msgid "No audio CD detected"
+msgstr "कोई ऑडियो सीडी नहीं मिली"
+
+#: widgets/cddaheaderwidget.cpp:260
+#, kde-format
+msgid "Load Cover"
+msgstr "लोड कवर"
+
+#: widgets/cddaheaderwidget.cpp:270 widgets/profilewidget.cpp:122
+#, kde-format
+msgid "Save Cover"
+msgstr "कवर सहेजें"
+
+#: widgets/cddaheaderwidget.cpp:350
+#, kde-format
+msgid "Set Custom Cover..."
+msgstr "कस्टम कवर सेट करें..."
+
+#: widgets/cddaheaderwidget.cpp:355
+#, kde-format
+msgid "Save Cover To File..."
+msgstr "कवर को फ़ाइल में सहेजें..."
+
+#: widgets/cddaheaderwidget.cpp:360
+#, kde-format
+msgid "Show Full Size Cover..."
+msgstr "पूर्ण आकार कवर दिखाएं..."
+
+#: widgets/cddaheaderwidget.cpp:365
+#, kde-format
+msgid "Remove Cover"
+msgstr "कवर हटाएँ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/customwidgetUI.ui:29
+#, kde-format
+msgid "Command Scheme:"
+msgstr "कमांड योजना:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_Model)
+#. i18n: ectx: property (text), widget (QLabel, label_Revision)
+#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
+#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
+#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
+#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
+#, kde-format
+msgid "(No disc detected)"
+msgstr "(कोई डिस्क नहीं मिली)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: widgets/devicewidgetUI.ui:36
+#, kde-format
+msgid "Device"
+msgstr "उपकरण"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
+#: widgets/devicewidgetUI.ui:42
+#, kde-format
+msgid ""
+"<html><head/><body><p>Use some special techniques to reduce the chance of "
+"unnoticed reading errors. Leads to a more secure reading process at the "
+"expense of ripping speed, so it might be also called \"secure mode\".</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>कुछ विशेष तकनीकों का उपयोग करें ताकि ध्यान न दिए जाने वाली "
+"पढ़ने की त्रुटियों की संभावना कम हो जाए। इससे रिपिंग गति की कीमत पर अधिक सुरक्षित पढ़ने "
+"की प्रक्रिया प्राप्त होती है, इसलिए इसे &quot;सुरक्षित मोड&quot; भी कहा जा सकता है।</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/devicewidgetUI.ui:54
+#, kde-format
+msgid "Sample offset:"
+msgstr "नमूना ऑफसेट:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
+#: widgets/devicewidgetUI.ui:86
+#, kde-format
+msgid ""
+"<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
+"1/75 second) after trying to read the sector again for at most 20 times. "
+"Usually broken sectors will be filled with silence.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>सेक्टर को दोबारा अधिकतम 20 बार पढ़ने की कोशिश करने के बाद "
+"सेक्टर की रीडिंग त्रुटियों को छोड़ें (सेक्टर की लंबाई: 1/75 सेकंड)। आमतौर पर टूटे हुए सेक्टर "
+"मौन से भरे होंगे।</p></body></html>"
+
+#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
+#: widgets/devicewidgetUI.ui:99
+#, kde-format
+msgid "Device information"
+msgstr "डिवाइस जानकारी"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: widgets/devicewidgetUI.ui:156
+#, kde-format
+msgid "Vendor:"
+msgstr "विक्रेता:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:179
+#, kde-format
+msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+msgstr "आपका डिवाइस डिस्क का मीडिया कैटलॉग नंबर (MCN) पढ़ सकता है।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
+#: widgets/devicewidgetUI.ui:182
+#, kde-format
+msgid "Can read Media Catalog Number (MCN)"
+msgstr "मीडिया कैटलॉग नंबर (MCN) पढ़ सकते हैं"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: widgets/devicewidgetUI.ui:214
+#, kde-format
+msgid "Revision:"
+msgstr "दोहराव:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
+#: widgets/devicewidgetUI.ui:224
+#, kde-format
+msgid "C2 error correction available"
+msgstr "C2 त्रुटि सुधार उपलब्ध है"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: widgets/devicewidgetUI.ui:246
+#, kde-format
+msgid "Model:"
+msgstr "नमूना:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:256
+#, kde-format
+msgid ""
+"Your device can read the International Standard Recording Code of every "
+"single track."
+msgstr "आपका डिवाइस प्रत्येक ट्रैक का अंतर्राष्ट्रीय मानक रिकॉर्डिंग कोड पढ़ सकता है।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
+#: widgets/devicewidgetUI.ui:259
+#, kde-format
+msgid "Can read Intern. Standard Recording Code (ISRC)"
+msgstr "इंटर्नल स्टैंडर्ड रिकॉर्डिंग कोड (आईएसआरसी) पढ़ सकते हैं"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
+#, kde-format
+msgid "Quality"
+msgstr "गुणवत्ता"
+
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
+#: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+#: widgets/opusencwidgetUI.ui:142
+#, kde-format
+msgid "Lowest"
+msgstr "निम्नतम"
+
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
+#: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+#: widgets/opusencwidgetUI.ui:156
+#, kde-format
+msgid "Highest"
+msgstr "उच्चतम"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
+#: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
+#, kde-format
+msgid "Embed cover in music file"
+msgstr "संगीत फ़ाइल में कवर एम्बेड करें"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/flacwidgetUI.ui:29
+#, kde-format
+msgid "Compression"
+msgstr "दबाव"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: widgets/generalsettingswidgetUI.ui:17
+#, kde-format
+msgid "Paths"
+msgstr "के रास्ते"
+
+#. i18n: ectx: property (text), widget (QLabel, label_basePath)
+#: widgets/generalsettingswidgetUI.ui:25
+#, kde-format
+msgid "Base path to store music files:"
+msgstr "संगीत फ़ाइलों को संग्रहीत करने का आधार पथ:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: widgets/generalsettingswidgetUI.ui:60
+#, kde-format
+msgid "Eject CD tray after finished extraction"
+msgstr "निष्कर्षण समाप्त होने के बाद सीडी ट्रे को बाहर निकालें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
+#: widgets/generalsettingswidgetUI.ui:77
+#, kde-format
+msgid "Perform cover lookup automatically"
+msgstr "कवर लुकअप स्वचालित रूप से निष्पादित करें"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/generalsettingswidgetUI.ui:95
+#, kde-format
+msgid "Number of covers to fetch:"
+msgstr "प्राप्त किये जाने वाले कवरों की संख्या:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/lamewidgetUI.ui:41
+#, kde-format
+msgid "Quality/Bitrate"
+msgstr "गुणवत्ता/बिटरेट"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
+#: widgets/lamewidgetUI.ui:53
+#, kde-format
+msgid "This preset should provide perceptual transparency to most people."
+msgstr "यह प्रीसेट अधिकांश लोगों को अवधारणात्मक पारदर्शिता प्रदान करेगा।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
+#: widgets/lamewidgetUI.ui:56
+#, kde-format
+msgid "Medium (140...185 kbit/s)"
+msgstr "मध्यम (140...185 kbit/s)"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
+#: widgets/lamewidgetUI.ui:69
+#, kde-format
+msgid ""
+"If you have extremely good hearing and similar equipment, this preset will "
+"generally provide slightly higher quality than the \"standard\" mode"
+msgstr ""
+"यदि आपकी सुनने की क्षमता बहुत अच्छी है और आपके पास समान उपकरण हैं, तो यह प्रीसेट आमतौर "
+"पर \"मानक\" मोड की तुलना में थोड़ी उच्च गुणवत्ता प्रदान करेगा"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
+#: widgets/lamewidgetUI.ui:72
+#, kde-format
+msgid "Extreme (220...260 kbits/s)"
+msgstr "चरम (220...260 kbits/s)"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
+#: widgets/lamewidgetUI.ui:98
+#, kde-format
+msgid "This preset should generally be transparent to most people."
+msgstr "यह प्रीसेट आमतौर पर अधिकांश लोगों के लिए पारदर्शी होना चाहिए।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
+#: widgets/lamewidgetUI.ui:101
+#, kde-format
+msgid "Standard (170...210 kbit/s)"
+msgstr "मानक (170...210 kbit/s)"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
+#: widgets/lamewidgetUI.ui:114
+#, kde-format
+msgid ""
+"This preset will usually be overkill, but if you want to have the absolute "
+"highest quality with no regard to filesize, this is the way to go."
+msgstr ""
+"यह प्रीसेट आमतौर पर जरूरत से ज्यादा होगा, लेकिन यदि आप फ़ाइल आकार की परवाह किए बिना "
+"पूर्णतया उच्चतम गुणवत्ता चाहते हैं, तो यही तरीका है।"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
+#: widgets/lamewidgetUI.ui:117
+#, kde-format
+msgid "Insane (320 kbit/s)"
+msgstr "पागल (320 kbit/s)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
+#: widgets/lamewidgetUI.ui:140
+#, kde-format
+msgid "Constant Bitrate"
+msgstr "स्थिर बिट दर"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
+#, kde-format
+msgid "Target bitrate (kbit/s)"
+msgstr "लक्ष्य बिटरेट (kbit/s)"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
+#: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
+#, kde-format
+msgid " kbit/s"
+msgstr "केबिट/एस"
+
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: widgets/oggencwidgetUI.ui:152
+#, kde-format
+msgid "Target bitrate ~"
+msgstr "लक्ष्य बिटरेट ~"
+
+#. i18n: ectx: property (text), widget (QLabel, label_kbits)
+#. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
+#. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
+#: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
+#: widgets/oggencwidgetUI.ui:347
+#, kde-format
+msgid "kbit/s"
+msgstr "केबिट/एस"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
+#: widgets/oggencwidgetUI.ui:209
+#, kde-format
+msgid "Set minimum bitrate"
+msgstr "न्यूनतम बिटरेट सेट करें"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
+#: widgets/oggencwidgetUI.ui:245
+#, kde-format
+msgid "Set maximum bitrate"
+msgstr "अधिकतम बिटरेट सेट करें"
+
+#: widgets/profilewidget.cpp:78
+#, kde-format
+msgid "Do you really want to delete profile \"%1\"?"
+msgstr "क्या आप सचमुच प्रोफ़ाइल \"%1\" हटाना चाहते हैं?"
+
+#: widgets/profilewidget.cpp:79
+#, kde-format
+msgid "Delete profile"
+msgstr "प्रोफ़ाइल हटाएं"
+
+#: widgets/profilewidget.cpp:130
+#, kde-format
+msgid "Load Profiles"
+msgstr "प्रोफाइल लोड करें"
+
+#: widgets/profilewidget.cpp:138
+#, kde-format
+msgid ""
+"<p>Do you wish to rescan your system for codecs (Lame, Opus, FLAC, etc.)?</"
+"p><p><font style=\"font-style:italic;\">This will attempt to create some "
+"sample profiles based upon any found codecs.</font></p>"
+msgstr ""
+"<p>क्या आप अपने सिस्टम को कोडेक्स (Lame, Opus, FLAC, आदि) के लिए पुनः स्कैन करना चाहते "
+"हैं?</p><p> <font style=\"font-style:italic;\">यह किसी भी पाए गए कोडेक्स के आधार "
+"पर कुछ नमूना प्रोफाइल बनाने का प्रयास करेगा।</font></p>"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
+#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
+#: widgets/profilewidgetUI.ui:65
+#, kde-format
+msgid "Codec Scan"
+msgstr "कोडेक स्कैन"
+
+#: widgets/profilewidget.cpp:144
+#, kde-format
+msgid "No new codecs found"
+msgstr "कोई नया कोडेक्स नहीं मिला"
+
+#: widgets/profilewidget.cpp:144
+#, kde-format
+msgid "1 new profile added"
+msgid_plural "%1 new profiles added"
+msgstr[0] "%1 नई प्रोफ़ाइल जोड़ी गईं"
+msgstr[1] "%1 नई प्रोफ़ाइल जोड़ी गईं"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_add)
+#: widgets/profilewidgetUI.ui:21
+#, kde-format
+msgid "Add..."
+msgstr "जोड़ना..."
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
+#: widgets/profilewidgetUI.ui:28
+#, kde-format
+msgid "Remove"
+msgstr "निकालना"
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
+#: widgets/profilewidgetUI.ui:35
+#, kde-format
+msgid "Modify..."
+msgstr "संशोधित करें..."
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
+#: widgets/profilewidgetUI.ui:85
+#, kde-format
+msgid "Load..."
+msgstr "भार..."
+
+#. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
+#: widgets/profilewidgetUI.ui:92
+#, kde-format
+msgid "Save..."
+msgstr "बचाना..."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/remoteserversettingswidgetUI.ui:51
+#, kde-format
+msgid "URL:"
+msgstr "यूआरएल:"
