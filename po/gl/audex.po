@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-12-13 22:36+0100\n"
+"PO-Revision-Date: 2024-12-16 22:47+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -261,11 +261,13 @@ msgstr "A lista de resumos «%1» creouse correctamente."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Non é posíbel gardar a lista de resumos «%1»."
 
+# skip-rule: trasno-file_reverse
 #: core/audex.cpp:1008
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "O ficheiro cue «%1» creouse correctamente."
 
+# skip-rule: trasno-file_reverse
 #: core/audex.cpp:1011
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
@@ -758,6 +760,7 @@ msgstr "Formato:"
 msgid "Cover scheme:"
 msgstr "Esquema da portada:"
 
+# skip-rule: trasno-file_reverse
 #: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
 msgid "Cue Sheet Settings"
@@ -818,6 +821,7 @@ msgstr "Novo perfil"
 msgid "Playlist Settings"
 msgstr "Configuración da lista de reprodución"
 
+# skip-rule: trasno-file
 #: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
@@ -974,6 +978,7 @@ msgstr "Configuración…"
 msgid "Create hashlist"
 msgstr "Crear unha lista de resumos"
 
+# skip-rule: trasno-file_reverse
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
@@ -1590,6 +1595,7 @@ msgstr "Non indicou ningún nome para a lista de resumos. Defina un."
 msgid "Cue filename name must not be empty."
 msgstr "A ruta do ficheiro cue non pode estar baleira."
 
+# skip-rule: trasno-file_reverse
 #: models/profilemodel.cpp:530
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
