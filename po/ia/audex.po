@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-08-01 15:18+0200\n"
+"PO-Revision-Date: 2024-12-18 17:50+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1124,7 +1124,7 @@ msgstr ""
 #: mainwindow.cpp:144
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr "Non tote tracia audio selegite per singule file a rippar"
+msgstr "Non tote tracia audio seligite per singule file a rippar"
 
 #: mainwindow.cpp:156
 #, kde-format
