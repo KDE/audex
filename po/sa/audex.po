@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-12-19 21:41+0530\n"
+"PO-Revision-Date: 2024-12-20 22:10+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -63,7 +63,7 @@ msgstr "आनेतुं आवरणस्य संख्या"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:45
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "पूर्ण व्यामोह मोड (सुरक्षित मोड) २."
+msgstr "पूर्ण व्यामोह मोड (सुरक्षित मोड)"
 
 #. i18n: ectx: label, entry (skipReadingErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
@@ -319,13 +319,13 @@ msgstr "शीर्षक:"
 #: dialogs/cddaheaderdatawidgetUI.ui:76
 #, kde-format
 msgid "CD Number:"
-msgstr "सीडी संख्या : १."
+msgstr "सीडी संख्या :"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
 #, kde-format
 msgid "Track Offset:"
-msgstr "ट्रैक ऑफसेट् : १."
+msgstr "ट्रैक ऑफसेट् :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
@@ -381,13 +381,13 @@ msgstr "कृपया आदेश योजनां सेट् कुर�
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
-msgstr "एल्बम उदाहरणम् : १."
+msgstr "एल्बम उदाहरणम् :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
-msgstr "नमूनाकार उदाहरणम् : १."
+msgstr "नमूनाकार उदाहरणम् :"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -655,7 +655,7 @@ msgstr "गतिः 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr "%प% ९."
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -718,7 +718,7 @@ msgstr "कवर सेटिंग्स्"
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
-msgstr "JPEG (संयुक्त छायाचित्रविशेषज्ञसमूहः) २."
+msgstr "JPEG (संयुक्त छायाचित्रविशेषज्ञसमूहः)"
 
 #: dialogs/profiledatacoverdialog.cpp:69
 #, kde-format
@@ -728,13 +728,13 @@ msgstr "PNG (पोर्टेबल नेटवर्क ग्राफि�
 #: dialogs/profiledatacoverdialog.cpp:70
 #, kde-format
 msgid "BMP (Windows Bitmap)"
-msgstr "BMP (विण्डोज बिटमैप) २."
+msgstr "BMP (विण्डोज बिटमैप)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: dialogs/profiledatacoverwidgetUI.ui:23
 #, kde-format
 msgid "Scale before store:"
-msgstr "भण्डारतः पूर्वं स्केलः : १."
+msgstr "भण्डारतः पूर्वं स्केलः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
@@ -748,13 +748,13 @@ msgstr "x"
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 #, kde-format
 msgid "Format:"
-msgstr "प्रारूपः : १."
+msgstr "प्रारूपः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
 #, kde-format
 msgid "Cover scheme:"
-msgstr "आवरण योजना : १."
+msgstr "आवरण योजना :"
 
 #: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
@@ -769,7 +769,7 @@ msgstr "Cue Sheet सेटिंग्स्"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr "नाम/योजना : १."
+msgstr "नाम/योजना :"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
@@ -818,7 +818,7 @@ msgstr "प्लेलिस्ट सेटिंग्स्"
 #: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
-msgstr "SFV (सरलसञ्चिकासत्यापनम्) २."
+msgstr "SFV (सरलसञ्चिकासत्यापनम्)"
 
 #: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
@@ -854,7 +854,7 @@ msgstr "पाठ टेम्पलेट रक्षतु"
 #: dialogs/profiledatainfowidgetUI.ui:25
 #, kde-format
 msgid "Information text:"
-msgstr "सूचनापाठः १."
+msgstr "सूचनापाठः"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -863,13 +863,13 @@ msgstr "सूचनापाठः १."
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
-msgstr "प्रत्ययः : १."
+msgstr "प्रत्ययः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr "योजना : १."
+msgstr "योजना :"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
 #, kde-format
@@ -1186,7 +1186,7 @@ msgid ""
 msgstr ""
 "कृपया विभाजकतारं सेट् कुर्वन्तु । रिक्तस्थानानां विषये सावधानाः भवन्तु।\n"
 "\n"
-"विभाजकः : १."
+"विभाजकः :"
 
 #: mainwindow.cpp:384
 #, kde-format
@@ -1852,7 +1852,7 @@ msgstr "ओपुस्"
 #: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
-msgstr "FLAC (हानिरहित) २."
+msgstr "FLAC (हानिरहित)"
 
 #: utils/encoderassistant.h:108
 #, kde-format
@@ -1862,7 +1862,7 @@ msgstr "MP4 (AAC) 1.1."
 #: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
-msgstr "WAVE (कच्चा असंपीडित) २."
+msgstr "WAVE (कच्चा असंपीडित)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:126 utils/encoderassistant.h:127
@@ -2228,7 +2228,7 @@ msgstr "आवरणं निष्कासयतु"
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Scheme:"
-msgstr "आदेश योजना : १."
+msgstr "आदेश योजना :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_Model)
 #. i18n: ectx: property (text), widget (QLabel, label_Revision)
@@ -2263,7 +2263,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample offset:"
-msgstr "नमूना ऑफसेटः : १."
+msgstr "नमूना ऑफसेटः :"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
 #: widgets/devicewidgetUI.ui:86
@@ -2379,7 +2379,7 @@ msgstr "पथाः"
 #: widgets/generalsettingswidgetUI.ui:25
 #, kde-format
 msgid "Base path to store music files:"
-msgstr "संगीतसञ्चिकानां संग्रहणार्थं आधारमार्गः : १."
+msgstr "संगीतसञ्चिकानां संग्रहणार्थं आधारमार्गः :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:60
@@ -2397,7 +2397,7 @@ msgstr "स्वयमेव कवर लुकअपं कुर्वन्
 #: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
-msgstr "आनेतुं आवरणस्य संख्या : १."
+msgstr "आनेतुं आवरणस्य संख्या :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
@@ -2415,7 +2415,7 @@ msgstr "एतत् पूर्वनिर्धारितं अधिक�
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr "मध्यम (१४०...१८५ केबीटी/सेकण्ड) २."
+msgstr "मध्यम (१४०...१८५ केबीटी/सेकण्ड)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2431,7 +2431,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr "अत्यन्त (२२०...२६० केबीटी/सेकण्ड्) २."
+msgstr "अत्यन्त (२२०...२६० केबीटी/सेकण्ड्)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2443,7 +2443,7 @@ msgstr "एतत् पूर्वनिर्धारितं सामा�
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "मानक (१७०...२१० केबीटी/सेकण्ड) २."
+msgstr "मानक (१७०...२१० केबीटी/सेकण्ड)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2459,7 +2459,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:117
 #, kde-format
 msgid "Insane (320 kbit/s)"
-msgstr "उन्मत्तः (३२० केबीटी/सेकण्ड्) २."
+msgstr "उन्मत्तः (३२० केबीटी/सेकण्ड्)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
