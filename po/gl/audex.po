@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-12-16 22:47+0100\n"
+"PO-Revision-Date: 2024-12-29 10:03+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2010,6 +2010,7 @@ msgstr "Atopáronse comiñas sen pechar."
 msgid "Illegal character found at index %1: %2"
 msgstr "Atopouse un carácter inaceptábel no índice %1: %2."
 
+# skip-rule: trasno-replace
 #: utils/schemeparser.cpp:128
 #, kde-format
 msgid ""
