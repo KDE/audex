@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Audex
+Name[ar]=أوديكس
 Name[ast]=Audex
 Name[bs]=Audex
 Name[ca]=Audex
@@ -39,6 +40,7 @@ Name[x-test]=xxAudexxx
 Name[zh_CN]=Audex
 Name[zh_TW]=Audex
 GenericName=CDDA Ripping
+GenericName[ar]=استخراج القرص الصوت الرقمي المضغوط
 GenericName[bs]=CDDA vađenje
 GenericName[ca]=Extractor de CDDA
 GenericName[ca@valencia]=Extractor de CDDA
@@ -84,6 +86,7 @@ Categories=Qt;KDE;AudioVideo;
 Terminal=false
 X-DocPath=https://userbase.kde.org/Audex
 Comment=Rip audio tracks from your audio CDs
+Comment[ar]=استخراج المسارات الصوتية من أقراص الصوت المضغوطة الخاصة بك
 Comment[bs]=Vađenje audio numera s audio CDa
 Comment[ca]=Extreu les pistes d'àudio des dels CD d'àudio
 Comment[ca@valencia]=Extrau les pistes d'àudio des dels CD d'àudio
