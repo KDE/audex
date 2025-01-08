@@ -1,6 +1,7 @@
 [Global]
 IconName=Audex
 Comment=Audex CDDA Ripping
+Comment[ar]=استخراج القرص الصوت الرقمي المضغوط أوديكس
 Comment[bs]=Audex CDDA izdvajanje
 Comment[ca]=Extractor de CDDA Audex
 Comment[ca@valencia]=Extractor de CDDA Audex
@@ -36,6 +37,7 @@ Comment[x-test]=xxAudex CDDA Rippingxx
 Comment[zh_CN]=Audex CDDA 翻录
 Comment[zh_TW]=Audex CDDA 翻錄機
 Name=Audex
+Name[ar]=أوديكس
 Name[ast]=Audex
 Name[bs]=Audex
 Name[ca]=Audex
@@ -75,6 +77,7 @@ Name[zh_TW]=Audex
 
 [Event/allTracksRipped]
 Name=All tracks ripped
+Name[ar]=استخرجت كافة المسارات
 Name[bs]=Izvađen sadržaj svih staza
 Name[ca]=S'han extret totes les pistes
 Name[ca@valencia]=S'han extret totes les pistes
@@ -110,6 +113,7 @@ Name[x-test]=xxAll tracks rippedxx
 Name[zh_CN]=翻录了所有音轨
 Name[zh_TW]=已翻錄全部音軌
 Comment=All tracks finished ripping
+Comment[ar]=انتهى استخراج كافة المسارات
 Comment[bs]=Završeno vađenje sadržaja svih staza
 Comment[ca]=L'extracció de totes les pistes ha acabat
 Comment[ca@valencia]=L'extracció de totes les pistes ha acabat
@@ -149,6 +153,7 @@ Sound=outcome-success
 
 [Event/trackRipped]
 Name=Track Ripped
+Name[ar]=استخرج المسار
 Name[bs]=Izvađen sadržaj staze
 Name[ca]=Pista extreta
 Name[ca@valencia]=Pista extreta
@@ -185,6 +190,7 @@ Name[x-test]=xxTrack Rippedxx
 Name[zh_CN]=音轨已经抓取
 Name[zh_TW]=已翻錄音軌
 Comment=Track finished ripping
+Comment[ar]=انتهى استخراج المسار
 Comment[bs]=Završeno vađenje sadržaja svih staze
 Comment[ca]=L'extracció de la pista ha acabat
 Comment[ca@valencia]=L'extracció de la pista ha acabat
