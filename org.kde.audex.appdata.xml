@@ -4,6 +4,7 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0</project_license>
   <name>Audex</name>
+  <name xml:lang="ar">أوديكس</name>
   <name xml:lang="ast">Audex</name>
   <name xml:lang="ca">Audex</name>
   <name xml:lang="ca-valencia">Audex</name>
@@ -40,6 +41,7 @@
   <name xml:lang="zh-CN">Audex</name>
   <name xml:lang="zh-TW">Audex</name>
   <summary>Grab the audio from your CD-ROMs</summary>
+  <summary xml:lang="ar">استخراج المسارات الصوتية من أقراص الصوت المضغوطة الخاصة بك</summary>
   <summary xml:lang="ca">Captura l'àudio dels CD-ROM</summary>
   <summary xml:lang="ca-valencia">Captura l'àudio dels CD-ROM</summary>
   <summary xml:lang="cs">Kopírovat hudbu ze svých CD-ROMů</summary>
@@ -74,6 +76,7 @@
       devices. It includes CDDB and MusicBrainz integrations to fetch the
       metadata and covers for your CDs if available.
     </p>
+    <p xml:lang="ar">أوديكس هو تطبيق لاستخراج الصوت من الأقراص المضغوطة. يتيح لك استخراج الصوت من الأقراص المضغوطة حتى تتمكن من الاستماع إليها على حاسوبك والأجهزة الأخرى. يتضمن تكاملات CDDB وMusicBrainz لجلب البيانات الوصفية وأغلفة الأقراص المضغوطة إذا كانت متوفرة.</p>
     <p xml:lang="ca">L'Audex és una aplicació d'extracció de CD. Permet extreure l'àudio dels CD per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb el CDDB i el MusicBrainz per a obtenir les metadades i caràtules dels CD si estan disponibles.</p>
     <p xml:lang="ca-valencia">Audex és una aplicació d'extracció de CD. Permet extraure l'àudio dels CD per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb CDDB i MusicBrainz per a obtindre les metadades i caràtules dels CD si estan disponibles.</p>
     <p xml:lang="en-GB">Audex is a CD ripper application. It lets you extract the audio from your CDs to let you listen to them on your computer and your other devices. It includes CDDB and MusicBrainz integrations to fetch the metadata and covers for your CDs if available.</p>
@@ -106,6 +109,7 @@
     <screenshot type="default">
       <image type="source">https://cdn.kde.org/screenshots/audex/audex.png</image>
       <caption>Main view</caption>
+      <caption xml:lang="ar">النافذة الرئيسة</caption>
       <caption xml:lang="ca">Vista principal</caption>
       <caption xml:lang="ca-valencia">Vista principal</caption>
       <caption xml:lang="cs">Hlavní pohled</caption>
