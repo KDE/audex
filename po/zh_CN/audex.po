@@ -598,7 +598,7 @@ msgstr "显示抓取日志..."
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
-msgstr "提取速度在最近5分钟内特别慢。您要继续提取吗？"
+msgstr "提取速度在最近 5 分钟内特别慢。您要继续提取吗？"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -1654,7 +1654,7 @@ msgstr "非音频：未知格式"
 #: utils/cddacdio.cpp:496
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "结尾部分"
 
 #: utils/cddacdio.cpp:498
 #, kde-format
@@ -1945,7 +1945,7 @@ msgstr "索引 %1中发现非法字符: '%2'"
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "发现未闭合的引号"
 
 #: utils/schemeparser.cpp:77
 #, kde-format
@@ -2064,6 +2064,12 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>占位符</th><th>描述</th></tr><tr><td>$tartist</td><td>这是每首"
+"曲目的艺术家。在合辑 CD 上特别有用。</td></tr><tr><td>$ttitle</td><td>曲目名"
+"称。通常 CD 上的每首曲目都有自己的名称，即歌曲名。</td></tr><tr><td>"
+"$trackno</td>曲目编号。第一首曲目编号为 1。<td></td></tr><tr><td><tt>$isrc</"
+"tt></td><td>曲目的国际标准录音代码（ISRC）（仅当您的设备支持时才可用）。</"
+"td></tr></table>"
 
 #: utils/schemeparser.h:205
 #, kde-format
@@ -2080,6 +2086,15 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>占位符</th><th>具体参数</th><th>描述</th></tr><tr><td><tt>$i</"
+"tt></td><td></td><td>由 Audex 从 CD 音轨创建的临时 WAVE 文件 (RIFF WAVE) 。这"
+"是命令行编码器的输入文件。</td></tr><tr><td><tt>$o</tt></td><td></td><td>完整"
+"的输出文件名和路径。将其用作命令行编码器的输出。</td></tr><tr><td><tt>"
+"$cover</tt></td><td><tt>format,x,y</tt></td><td>封面文件的文件名。如果未设置"
+"封面，则此项为空。通常与<tt>pre</tt>参数结合使用。可以使用<tt>x</tt>和<tt>y</"
+"tt>参数缩放图像。可能的图像<tt>格式</tt>有 JPEG 、 PNG 、 GIF 或 BMP  (默"
+"认： JPEG ) 。<i><b>注意：</b> LAME 会丢弃大于 128 KiB 的封面文件。</i></"
+"td></tr></table>"
 
 #: utils/schemeparser.h:219
 #, kde-format
@@ -2107,6 +2122,23 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table><tr><th>占位符</th><th>具体参数</th><th>描述</th></tr><tr><td>$size</"
+"td><td><tt>iec,precision</tt></td><td>打印所有提取 (编码) 的音乐文件 (包括封"
+"面图像文件) 的总体大小。使用 <tt>iec</tt> 计算 (k)ibi, (m)ebi 或 (g)ibi 。附"
+"加参数 <tt>precision</tt> 可以定义小数点后位数。</td></tr><tr><td>$length</"
+"td><td></td><td>打印所有提取轨道的相关总时长。格式是分：秒。</td></"
+"tr><tr><td>$nooftracks</td><td></td><td>打印提取的轨道总数。</td></"
+"tr><tr><td>$discid</td><td>base</td><td>以十六进制格式打印 CDDB 磁盘 ID。</"
+"td></tr><tr><td><tt>$mcn</tt></td><td></td><td> CD 的媒体目录号 (MCN)  (仅在"
+"设备支持时可用) 。</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
+"td><td>打印当前日期和/或时间。参数 format 指定输出格式。请查阅官方 Qt 文档"
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>)以了解格式字符串中支持的指定符。通过附加参数 "
+"<tt>locale</tt> ，可以指定语言设置。默认情况下使用系统区域设置。 locale 的格"
+"式是<tt>language_TERRITORY</tt>，例如<tt>en_EN</tt>。<tt>language</tt>是小写"
+"的、两位数的 ISO 639 语言代码，<tt>TERRITORY</tt>是大写的、两位数的 ISO 3166 "
+"地区代码。</td></tr><tr><td>$br</td><td></td><td>打印换行符。</td></tr></"
+"table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2264,7 +2296,7 @@ msgstr "您的设备可以读取每一首歌曲的国际标准记录代码。"
 #: widgets/devicewidgetUI.ui:259
 #, kde-format
 msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr ""
+msgstr "支持读取国际标准录音编码 (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
