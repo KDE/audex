@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2024-03-27 14:33+0300\n"
+"PO-Revision-Date: 2025-01-26 12:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -138,12 +138,12 @@ msgstr "Seçili profil yok. İşlem durduruldu."
 #: core/audex.cpp:112
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr "\"%1\" profiliyle dönüştürmeyi ve kodlamayı başlat..."
+msgstr "“%1” profiliyle dönüştürmeyi ve kodlamayı başlat…"
 
 #: core/audex.cpp:614 core/audex.cpp:674
 #, kde-format
 msgid "Can't find path \"%1\"."
-msgstr "\"%1\" yolu bulunamadı."
+msgstr "“%1” yolu bulunamıyor."
 
 #: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
@@ -153,42 +153,42 @@ msgstr "Lütfen dizini gözden geçirin (yazma hakkınız var mı?)"
 #: core/audex.cpp:627
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr "\"%1\" üzerindeki boş alan 200 MiB’tan daha az."
+msgstr "“%1” üzerindeki boş alan 200 MiB’tan daha az."
 
 #: core/audex.cpp:633 core/audex.cpp:702
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "Dikkat! \"%1\" dosyası halihazırda var. Üzerine yazılıyor."
+msgstr "Dikkat! “%1” dosyası halihazırda var. Üzerine yazılıyor."
 
 #: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "Dikkat! \"%1\" dosyası halihazırda var. Atlanıyor."
+msgstr "Dikkat! “%1” dosyası halihazırda var. Atlanıyor."
 
 #: core/audex.cpp:683 core/audex.cpp:1118
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr "\"%1\" klasörü oluşturulamadı."
+msgstr "“%1” klasörü oluşturulamıyor."
 
 #: core/audex.cpp:686 core/audex.cpp:1121
 #, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr "\"%1\" klasörü başarıyla oluşturuldu."
+msgstr "“%1” klasörü başarıyla oluşturuldu."
 
 #: core/audex.cpp:689
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr "\"%1\" klasörü halihazırda var."
+msgstr "“%1” klasörü halihazırda var."
 
 #: core/audex.cpp:696
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr "\"%1\" üzerindeki boş alan 800 MiB’tan daha az."
+msgstr "“%1” üzerindeki boş alan 800 MiB’tan daha az."
 
 #: core/audex.cpp:719
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Geçici klasör \"%1\" hatası (%2)."
+msgstr "Geçici klasör “%1” hatası (%2)."
 
 #: core/audex.cpp:719
 #, kde-format
@@ -198,12 +198,12 @@ msgstr "Lütfen denetleyin."
 #: core/audex.cpp:727
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
-msgstr "\"%1\" geçici klasöründeki boş alan 800 MiB’tan daha az."
+msgstr "“%1” geçici klasöründeki boş alan 800 MiB’tan daha az."
 
 #: core/audex.cpp:729
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr "\"%1\" geçici klasörü, en az 200 MiB boş alana gereksinim duyuyor."
+msgstr "“%1” geçici klasörü, en az 200 MiB boş alana gereksinim duyuyor."
 
 #: core/audex.cpp:729
 #, kde-format
@@ -218,12 +218,12 @@ msgstr "CD’yi çıkar"
 #: core/audex.cpp:806
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr "\"%1\" kapağı başarılı bir şekilde kaydedildi."
+msgstr "“%1” kapağı başarılı bir şekilde kaydedildi."
 
 #: core/audex.cpp:809
 #, kde-format
 msgid "Unable to save cover \"%1\"."
-msgstr "\"%1\" kapağı kaydedilemedi."
+msgstr "“%1” kapağı kaydedilemedi."
 
 #: core/audex.cpp:809 core/audex.cpp:883 core/audex.cpp:923 core/audex.cpp:970
 #: core/audex.cpp:1011 core/audex.cpp:1039 core/audex.cpp:1086
@@ -235,57 +235,57 @@ msgstr "Lütfen yolunuzu ve yetkilerinizi denetleyin"
 #: core/audex.cpp:879
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr "Çalma listesi \"%1\" başarıyla oluşturuldu."
+msgstr "Çalma listesi “%1” başarıyla oluşturuldu."
 
 #: core/audex.cpp:883
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
-msgstr "Çalma listesi \"%1\" kaydedilemedi."
+msgstr "Çalma listesi “%1” kaydedilemedi."
 
 #: core/audex.cpp:920
 #, kde-format
 msgid "Info file \"%1\" successfully created."
-msgstr "Bilgi dosyası \"%1\" başarıyla oluşturuldu."
+msgstr "Bilgi dosyası “%1” başarıyla oluşturuldu."
 
 #: core/audex.cpp:923
 #, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr "Bilgi dosyası \"%1\" kaydedilemedi."
+msgstr "Bilgi dosyası “%1” kaydedilemedi."
 
 #: core/audex.cpp:967
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr "Sağlama listesi \"%1\" başarıyla oluşturuldu."
+msgstr "Sağlama listesi “%1” başarıyla oluşturuldu."
 
 #: core/audex.cpp:970
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr "Sağlama listesi \"%1\" kaydedilemedi."
+msgstr "Sağlama listesi “%1” kaydedilemedi."
 
 #: core/audex.cpp:1008
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr "Ses çizelgesi \"%1\" başarıyla oluşturuldu."
+msgstr "Ses çizelgesi “%1” başarıyla oluşturuldu."
 
 #: core/audex.cpp:1011
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
-msgstr "Ses çizelgesi \"%1\" kaydedilemedi."
+msgstr "Ses çizelgesi “%1” kaydedilemedi."
 
 #: core/audex.cpp:1036
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "Günlük dosyası \"%1\" başarıyla depolandı."
+msgstr "Günlük dosyası “%1” başarıyla depolandı."
 
 #: core/audex.cpp:1039
 #, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Günlük dosyası \"%1\" kaydedilemedi."
+msgstr "Günlük dosyası “%1” kaydedilemedi."
 
 #: core/audex.cpp:1086 core/audex.cpp:1113
 #, kde-format
 msgid "Unable to open folder \"%1\"."
-msgstr "\"%1\" klasörü açılamadı."
+msgstr "“%1” klasörü açılamadı."
 
 #: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
@@ -544,7 +544,7 @@ msgstr "Toplam ilerleme (%1/%2 parça dönüştürülüyor)"
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
-msgstr "Bir kodlama işi bekleniyor..."
+msgstr "Bir kodlama işi bekleniyor…"
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
@@ -589,12 +589,12 @@ msgstr "Başarısız!"
 #: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
-msgstr "Kodlama günlüğünü göster..."
+msgstr "Kodlama günlüğünü göster…"
 
 #: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
-msgstr "Dönüştürme günlüğünü göster..."
+msgstr "Dönüştürme günlüğünü göster…"
 
 #: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
@@ -630,7 +630,7 @@ msgstr "Ayrıntıları Göster/Gizle"
 #: dialogs/extractingprogresswidgetUI.ui:33
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -938,7 +938,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "2 basamaklı parça numarasını ayarla (örn. 01, 02, 03...)"
+msgstr "2 basamaklı parça numarasını ayarla (örn. 01, 02, 03…)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1266,12 +1266,12 @@ msgstr "Düzen"
 #: mainwindow.cpp:495
 #, kde-format
 msgid "Rip..."
-msgstr "Dönüştür..."
+msgstr "Dönüştür…"
 
 #: mainwindow.cpp:504
 #, kde-format
 msgid "Split Titles..."
-msgstr "Başlıkları Ayır..."
+msgstr "Başlıkları Ayır…"
 
 #: mainwindow.cpp:509
 #, kde-format
@@ -1627,7 +1627,7 @@ msgid ""
 "Check your device. Is it really \"%1\"? Also check your permissions on "
 "\"%1\"."
 msgstr ""
-"Aygıtınızı denetleyin. Gerçekten şu mu: \"%1\"? Ayrıca \"%1\" üzerindeki "
+"Aygıtınızı denetleyin. Gerçekten şu mu: “%1”? Ayrıca “%1” üzerindeki "
 "izinlerinizi de denetleyin."
 
 #: utils/cddacdio.cpp:52
@@ -1758,7 +1758,7 @@ msgstr "Düzeltme örneği ofseti: %1"
 #: utils/cddaextractthread.cpp:129
 #, kde-format
 msgid "Fetching extra information from disc..."
-msgstr "Diskten ek bilgi getiriliyor..."
+msgstr "Diskten ek bilgi getiriliyor…"
 
 #: utils/cddaextractthread.cpp:131
 #, kde-format
@@ -1768,7 +1768,7 @@ msgstr "Diskten alt kanal bilgisi getiriliyor"
 #: utils/cddaextractthread.cpp:135
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr "Parça %1 dönüştürülüyor (%2:%3)..."
+msgstr "Parça %1 dönüştürülüyor (%2:%3)…"
 
 #: utils/cddaextractthread.cpp:136
 #, kde-format
@@ -1896,12 +1896,12 @@ msgstr "Komut şeması boş."
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr "Parça %1 kodlanıyor..."
+msgstr "Parça %1 kodlanıyor…"
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr "\"%1\" kısımsal dosyası silindi."
+msgstr "“%1” kısımsal dosyası silindi."
 
 #: utils/encoderwrapper.cpp:115
 #, kde-format
@@ -1911,12 +1911,12 @@ msgstr "Kullanıcı kodlamayı iptal etti."
 #: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr "Kodlama Tamam (\"%1\")."
+msgstr "Kodlama Tamam (“%1”)."
 
 #: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
-msgstr "\"%1\" dosyası kodlanırken bir hata oluştu."
+msgstr "“%1” dosyası kodlanırken bir hata oluştu."
 
 #: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:191
 #: utils/encoderwrapper.cpp:194 utils/encoderwrapper.cpp:204
@@ -1977,7 +1977,7 @@ msgstr "%1 üzerinde bilinmeyen bir hata oluştu. Bu olmamalı."
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr "%1 indeksinde izin verilmeyen karakter bulundu: '%2'"
+msgstr "%1 indeksinde izin verilmeyen karakter bulundu: “%2”"
 
 #: utils/parameters.cpp:121
 #, kde-format
@@ -2199,7 +2199,7 @@ msgstr ""
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr "%1 dosyası sunucuya yükleniyor. Lütfen bekleyin..."
+msgstr "%1 dosyası sunucuya yükleniyor. Lütfen bekleyin…"
 
 #: utils/upload.cpp:61
 #, kde-format
@@ -2229,17 +2229,17 @@ msgstr "Kapağı Kaydet"
 #: widgets/cddaheaderwidget.cpp:350
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr "Özel Kapak Ayarla..."
+msgstr "Özel Kapak Ayarla…"
 
 #: widgets/cddaheaderwidget.cpp:355
 #, kde-format
 msgid "Save Cover To File..."
-msgstr "Kapağı Dosyaya Kaydet..."
+msgstr "Kapağı Dosyaya Kaydet…"
 
 #: widgets/cddaheaderwidget.cpp:360
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr "Kapağı Tam Boyut Göster..."
+msgstr "Kapağı Tam Boyut Göster…"
 
 #: widgets/cddaheaderwidget.cpp:365
 #, kde-format
@@ -2279,8 +2279,8 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Fark edilmeyen okuma hataları olasılığını azaltmak "
 "için bazı özel teknikler kullanın. Kopyalama hızı pahasına daha güvenli bir "
-"okuma sürecine yol açtığından buna \"güvenli kip\" de denilebilir.</p></"
-"body></html>"
+"okuma sürecine yol açtığından buna “güvenli kip” de denilebilir.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2438,7 +2438,7 @@ msgstr "Bu önayar, birçok kişiye algısal saydamlık sağlamalıdır."
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr "Orta (140...185 kbit/sn)"
+msgstr "Orta (140…185 kbit/sn)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2448,13 +2448,13 @@ msgid ""
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
 "Son derece iyi işitiyorsanız ve yeterli ekipmana sahipseniz bu önayar "
-"genellikle \"standart\" kipten biraz daha yüksek kalite sağlar"
+"genellikle “standart” kipten biraz daha yüksek kalite sağlar"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr "Yüksek (220...260 kbits/sn)"
+msgstr "Yüksek (220…260 kbits/sn)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2466,7 +2466,7 @@ msgstr "Bu önayar, genellikle birçok kişiye saydam gelmelidir."
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "Standart (170...210 kbit/sn)"
+msgstr "Standart (170…210 kbit/sn)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2534,7 +2534,7 @@ msgstr "En fazla bit hızını ayarla"
 #: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr "\"%1\" profilini silmeyi gerçekten istiyor musunuz?"
+msgstr "“%1” profilini silmeyi gerçekten istiyor musunuz?"
 
 #: widgets/profilewidget.cpp:79
 #, kde-format
@@ -2581,7 +2581,7 @@ msgstr[1] "%1 yeni profil eklendi"
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr "Ekle..."
+msgstr "Ekle…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
@@ -2593,19 +2593,19 @@ msgstr "Kaldır"
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr "Değiştir..."
+msgstr "Değiştir…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr "Yükle..."
+msgstr "Yükle…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 #, kde-format
 msgid "Save..."
-msgstr "Kaydet..."
+msgstr "Kaydet…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
