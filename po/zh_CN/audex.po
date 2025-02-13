@@ -598,7 +598,9 @@ msgstr "显示抓取日志..."
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
-msgstr "提取速度在最近 5 分钟内特别慢。您要继续提取吗？"
+msgstr ""
+"提取速度在最近 5 分钟内特别慢。\n"
+"您要继续提取吗？"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -2415,8 +2417,8 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
-"这个预设通常有些过度。 但如果您必须拥有绝对最高的质量，而不考虑文件尺寸问题，"
-"那就可以选择它。"
+"这个预设通常会有些过度，但如果你想在完全不考虑文件大小的情况下获得绝对最高的"
+"质量，那么就选择这个预设。 "
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
