@@ -1098,13 +1098,13 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Markus Slopianka, Thomas Kamps"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "markus.s@kdemail.net, anubis1@linux-ecke.de"
+msgstr "kde-i18n-de@kde.org"
 
 #: mainwindow.cpp:39
 #, kde-format
