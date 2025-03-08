@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2025-01-26 12:59+0300\n"
+"PO-Revision-Date: 2025-03-08 00:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1032,7 +1032,7 @@ msgstr "Marco Nelles"
 #: main.cpp:28
 #, kde-format
 msgid "Current maintainer, main developer"
-msgstr "Mevcut yönetici, ana geliştirici"
+msgstr "Şu anki bakımcı, ana geliştirici"
 
 #: main.cpp:29
 #, kde-format
