@@ -1087,7 +1087,7 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Adrián Chaves Fernández"
+msgstr "Adrián Chaves"
 
 #: main.cpp:36
 #, kde-format
