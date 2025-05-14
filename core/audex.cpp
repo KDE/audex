@@ -473,7 +473,7 @@ void Audex::finish_encode()
 void Audex::calculate_speed_extract()
 {
     if ((last_measuring_point_sector > -1) && (cdda_extract_thread->isProcessing())) {
-        double new_value = (double)(current_sector - last_measuring_point_sector) / (2.0f * (double)SECTORS_PER_SECOND);
+        double new_value = (double)(current_sector - last_measuring_point_sector) / (4.0f * (double)SECTORS_PER_SECOND);
         if (new_value < 0.0f)
             new_value = 0.0f;
         if ((new_value < 0.2f) && (!timeout_done)) {
