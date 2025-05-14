@@ -12,8 +12,13 @@
 #include <QDockWidget>
 #include <QInputDialog>
 #include <QLabel>
+#include <QLineEdit>
+#include <QMenu>
 #include <QObject>
+#include <QPushButton>
+#include <QStatusBar>
 #include <QTreeView>
+#include <QWidgetAction>
 
 #include <KActionCollection>
 #include <KCDDB/CDInfo>
@@ -27,9 +32,6 @@
 #include <KStandardAction>
 #include <KTextEdit>
 #include <KXmlGuiWindow>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QStatusBar>
 
 #include "utils/cuesheetwriter.h"
 #include "utils/error.h"
@@ -120,8 +122,6 @@ private:
 
     int current_profile_index;
     void set_profile(int profile_index);
-
-    deviceWidget *device_widget;
 };
 
 #endif

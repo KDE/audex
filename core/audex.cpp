@@ -32,14 +32,14 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
         return;
     }
 
-    cdda_extract_thread = new CDDAExtractThread(this, cdda_model->cdio());
+    cdda_extract_thread = new CDDAExtractThread(cdda_model->paranoia());
     if (!cdda_extract_thread) {
         qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
         return;
     }
-    cdda_extract_thread->setParanoiaFullMode(Preferences::fullParanoiaMode());
-    cdda_extract_thread->setSkipReadingErrors(Preferences::skipReadingErrors());
-    cdda_extract_thread->setSampleOffset(Preferences::sampleOffset());
+    cdda_extract_thread->enableParanoiaMode(Preferences::fullParanoiaMode());
+    cdda_extract_thread->enableSkipReadErrors(Preferences::skipReadErrors());
+    cdda_extract_thread->setSampleShift(Preferences::sampleOffset());
 
     jobs = new AudexJobs();
     connect(jobs, SIGNAL(newJobAvailable()), this, SLOT(start_encode()));
@@ -209,7 +209,6 @@ void Audex::start_extract()
             QString ttitle = cdda_model->data(cdda_model->index(ex_track_index - 1, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString();
             QString year = cdda_model->year();
             QString genre = cdda_model->genre();
-            QString isrc = cdda_model->cdio()->getISRC(ex_track_index);
             QString suffix = p_suffix;
             QString basepath = Preferences::basePath();
             bool fat32_compatible =
@@ -240,7 +239,7 @@ void Audex::start_extract()
                                                ttitle,
                                                year,
                                                genre,
-                                               isrc,
+                                               QString(),
                                                suffix,
                                                basepath,
                                                fat32_compatible,
@@ -263,7 +262,7 @@ void Audex::start_extract()
                                                ttitle,
                                                year,
                                                genre,
-                                               isrc,
+                                               QString(),
                                                suffix,
                                                basepath,
                                                fat32_compatible,
@@ -364,7 +363,7 @@ void Audex::start_encode()
                                      title,
                                      genre,
                                      year,
-                                     cdda_model->cdio()->getISRC(job->trackNo()),
+                                     QString(),
                                      suffix,
                                      cdda_model->cover(),
                                      tmp_dir.path(),
@@ -417,7 +416,7 @@ void Audex::start_encode()
                                          ttitle,
                                          genre,
                                          year,
-                                         cdda_model->cdio()->getISRC(job->trackNo()),
+                                         QString(),
                                          suffix,
                                          cdda_model->cover(),
                                          tmp_dir.path(),
@@ -436,7 +435,7 @@ void Audex::start_encode()
                                          ttitle,
                                          genre,
                                          year,
-                                         cdda_model->cdio()->getISRC(job->trackNo()),
+                                         QString(),
                                          suffix,
                                          cdda_model->cover(),
                                          tmp_dir.path(),
@@ -510,10 +509,10 @@ void Audex::progress_extract(int percent_of_track, int sector, int overall_secto
         QSet<int> sel = cdda_model->selectedTracks();
         QSet<int>::ConstIterator it(sel.begin()), end(sel.end());
         for (; it != end; ++it) {
-            if ((*it < 0) || (*it > cdda_extract_thread->cdio()->numOfTracks()) || (!cdda_extract_thread->cdio()->isAudioTrack((*it)))) {
+            if ((*it < 0) || (*it > cdda_model->paranoia()->numOfTracks()) || (!cdda_model->paranoia()->isAudioTrack((*it)))) {
                 continue;
             }
-            overall_frames += cdda_extract_thread->cdio()->numOfFramesOfTrack((*it));
+            overall_frames += cdda_model->paranoia()->numOfFramesOfTrack((*it));
         }
     }
 
@@ -928,7 +927,7 @@ void Audex::execute_finish()
                                                  cdda_model->title(),
                                                  QString("%1").arg(cdda_model->year()),
                                                  cdda_model->genre(),
-                                                 cdda_model->cdio()->getMCN(),
+                                                 QString(),
                                                  DiscIDCalculator::CDDBId(cdda_model->discSignature()),
                                                  p_size_of_all_files(target_filename_list),
                                                  cdda_model->lengthOfAudioTracksInSelection(),
@@ -998,8 +997,8 @@ void Audex::execute_finish()
     if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool())
         && (((target_filename_list.count() > 0) && !p_single_file) || p_single_file)) {
         QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString();
-        bool writeMCNAndISRC =
-            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX)).toBool();
+        // bool writeMCNAndISRC =
+        //     profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX)).toBool();
 
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(scheme,
@@ -1024,11 +1023,9 @@ void Audex::execute_finish()
                 QTextStream out(&file);
                 CueSheetWriter cuesheetwriter(cdda_model);
                 if (p_single_file) {
-                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES, writeMCNAndISRC, writeMCNAndISRC)
-                               .join("\n");
+                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES).join("\n");
                 } else {
-                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES, writeMCNAndISRC, writeMCNAndISRC)
-                               .join("\n");
+                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES).join("\n");
                 }
                 file.close();
                 Q_EMIT info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));

@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CDDAEXTRACTTHREAD_HEADER
-#define CDDAEXTRACTTHREAD_HEADER
+#pragma once
 
 #include <QHash>
 #include <QString>
@@ -14,70 +13,70 @@
 
 #include <KLocalizedString>
 
-#include "cddacdio.h"
+#include "utils/samplearray.h"
+
+#include "cddaparanoia.h"
+
+#define SECTOR_SIZE_BYTES 2352
+#define SECTOR_SIZE_SAMPLES 588
 
 class CDDAExtractThread : public QThread
 {
     Q_OBJECT
 public:
-    CDDAExtractThread(QObject *parent, CDDACDIO *cdio);
+    CDDAExtractThread(CDDAParanoia *paranoia, QObject *parent = nullptr);
+    ~CDDAExtractThread() override;
 
 public Q_SLOTS:
+
     void start();
     void cancel();
-    void setParanoiaFullMode(const bool mode)
+
+    void enableParanoiaMode(const bool enable = true)
     {
-        paranoia_full_mode = mode;
+        if (!p_paranoia)
+            return;
+        p_paranoia->enableParanoiaMode(enable);
     }
-    void setParanoiaMaxRetries(const int max_retries)
+    void enableSkipReadErrors(const bool skip = true)
     {
-        paranoia_retries = max_retries;
+        skip_read_errors = skip;
     }
-    void setParanoiaNeverSkip(const bool never_skip)
+    void setParanoiaMaxRetriesOnReadError(int max_retries) // default: 20
     {
-        paranoia_never_skip = never_skip;
+        if (!p_paranoia)
+            return;
+        p_paranoia->setParanoiaMaxRetriesOnReadError(max_retries);
     }
-    void setSkipReadingErrors(const bool skip_reading_errors)
+
+    void setSampleShift(const int shift)
     {
-        this->skip_reading_errors = skip_reading_errors;
-    }
-    int setSampleOffset(const int offset)
-    {
-        if (offset == 0) {
-            sample_offset = 0;
-            sector_offset = 0;
+        sample_shift = shift;
+        sector_shift_left = 0;
+        sector_shift_right = 0;
+        // How many full sectors we do need to read at the beginning (left) and end (right) of the stream?
+        if (sample_shift > 0) {
+            sector_shift_left = sample_shift / SECTOR_SIZE_SAMPLES;
+            sector_shift_right = sector_shift_left + 1;
+        } else if (sample_shift < 0) {
+            sector_shift_right = sample_shift / SECTOR_SIZE_SAMPLES;
+            sector_shift_left = sector_shift_right - 1;
         }
-
-        sample_offset = offset;
-
-        // How many full sectors are sample offset?
-        sector_offset = sample_offset / CD_FRAMESIZE_SAMPLES;
-        sample_offset_fraction = sample_offset % CD_FRAMESIZE_SAMPLES;
-
-        if (sample_offset < 0) {
-            sample_offset_fraction -= CD_FRAMESIZE_SAMPLES;
-            --sector_offset;
-        }
-
-        return 0;
     }
+
     void setTrackToRip(const track_t t)
     {
         track = t;
     } // if t==0 rip whole cd
+
     void skipTrack(const track_t t)
     {
-        overall_sectors_read += p_cdio->numOfFramesOfTrack(t);
+        overall_sectors_read += p_paranoia->numOfFramesOfTrack(t);
     }
 
     bool isProcessing();
 
     const QStringList &log();
-
-    CDDACDIO *cdio()
-    {
-        return p_cdio;
-    }
 
     void reset();
 
@@ -94,32 +93,24 @@ Q_SIGNALS:
     void info(const QString &message);
 
 protected:
-    /** reimplemented from QThread. Does the work */
     void run() override;
 
 private:
-    CDDACDIO *p_cdio;
+    CDDAParanoia *p_paranoia;
+    bool skip_read_errors;
 
-    long first_sector;
-    long current_sector;
-    long last_sector;
     unsigned long sectors_read;
     unsigned long overall_sectors_read;
     unsigned long sectors_all;
 
-    bool paranoia_full_mode;
-    int paranoia_retries;
-    bool paranoia_never_skip;
-    bool skip_reading_errors;
     QMap<paranoia_cb_mode_t, int> paranoia_status_count;
     QHash<int, paranoia_cb_mode_t> paranoia_status_table;
 
-    QByteArray silence;
+    int sample_shift;
+    int sector_shift_left;
+    int sector_shift_right;
 
-    int sample_offset;
-    int sector_offset;
-    int sample_offset_fraction;
-    QByteArray sample_offset_fraction_buffer;
+    SampleArray silence;
 
     track_t track;
 
@@ -135,5 +126,3 @@ private:
     // this friend function will call create_status(long, paranoia_cb_mode_t)
     friend void paranoia_callback(long, paranoia_cb_mode_t);
 };
-
-#endif

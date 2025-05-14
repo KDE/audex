@@ -6,10 +6,6 @@
  */
 
 #include "mainwindow.h"
-#include "widgets/devicewidget.h"
-
-#include <QMenu>
-#include <QWidgetAction>
 
 class CDDATreeView : public QTreeView
 {
@@ -80,8 +76,6 @@ MainWindow::MainWindow(QWidget *parent)
         update();
         resize(650, 500);
     }
-
-    device_widget = nullptr;
 }
 
 bool MainWindow::firstStart()
@@ -115,10 +109,6 @@ void MainWindow::cddb_lookup()
 
 void MainWindow::cddb_submit()
 {
-    QStringList toc = cdda_model->cdio()->prettyTOC();
-    for (int i = 0; i < toc.size(); ++i)
-        qDebug() << toc.at(i);
-    return;
     if (!cdda_model->submitCDDB()) {
         ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
     }
@@ -181,17 +171,8 @@ void MainWindow::configure()
     KPageWidgetItem *generalPage = dialog->addPage(new generalSettingsWidget(), i18n("General settings"));
     generalPage->setIcon(QIcon(QApplication::windowIcon()));
 
-    device_widget = new deviceWidget();
-    KPageWidgetItem *devicePage = dialog->addPage(device_widget, i18n("Device settings"));
+    KPageWidgetItem *devicePage = dialog->addPage(new deviceWidget(), i18n("Device settings"));
     devicePage->setIcon(QIcon::fromTheme("drive-optical"));
-
-    if (cdda_model && cdda_model->cdio())
-        device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(),
-                                     cdda_model->cdio()->getModel(),
-                                     cdda_model->cdio()->getRevision(),
-                                     cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN),
-                                     cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
-                                     cdda_model->cdio()->getDriveCapabilities().contains(C2_ERRS));
 
     KPageWidgetItem *profilePage = dialog->addPage(new profileWidget(profile_model), i18n("Profiles"));
     profilePage->setIcon(QIcon::fromTheme("document-multiple"));
@@ -228,29 +209,12 @@ void MainWindow::new_audio_disc_detected()
     }
 
     update_layout();
-
-    if (device_widget) {
-        if (cdda_model && cdda_model->cdio()) {
-            device_widget->setDeviceInfo(cdda_model->cdio()->getVendor(),
-                                         cdda_model->cdio()->getModel(),
-                                         cdda_model->cdio()->getRevision(),
-                                         cdda_model->cdio()->getDriveCapabilities().contains(READ_MCN),
-                                         cdda_model->cdio()->getDriveCapabilities().contains(READ_ISRC),
-                                         cdda_model->cdio()->getDriveCapabilities().contains(C2_ERRS));
-        } else {
-            device_widget->clearDeviceInfo();
-        }
-    }
 }
 
 void MainWindow::audio_disc_removed()
 {
     enable_layout(false);
-
     update_layout();
-
-    if (device_widget)
-        device_widget->clearDeviceInfo();
 }
 
 void MainWindow::cddb_lookup_start()

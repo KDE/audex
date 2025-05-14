@@ -5,17 +5,15 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CDDACDIO_HEADER
-#define CDDACDIO_HEADER
+#pragma once
 
+#include <QDebug>
 #include <QObject>
 #include <QString>
 
 #include <KLocalizedString>
 
 extern "C" {
-#include <cdio/cdio.h>
-#include <cdio/mmc.h>
 #include <cdio/paranoia/paranoia.h>
 }
 
@@ -24,51 +22,25 @@ extern "C" {
 
 #define CD_FRAMESIZE_SAMPLES 588
 
-enum DriveCapability {
-    CLOSE_TRAY = 0,
-    EJECT,
-    LOCK,
-    SELECT_SPEED,
-    SELECT_DISC,
-    READ_MULTI_SESSION,
-    MEDIA_CHANGED,
-    READ_CDDA,
-    C2_ERRS,
-    READ_MODE2_FORM1,
-    READ_MODE2_FORM2,
-    READ_MCN,
-    READ_ISRC
-};
-
-typedef QSet<DriveCapability> DriveCapabilities;
-
-class CDDACDIO : public QObject
+class CDDAParanoia : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit CDDACDIO(QObject *parent = nullptr);
-    ~CDDACDIO() override;
+    explicit CDDAParanoia(const QString &deviceFile = "/dev/cdrom",
+                          const bool enableParanoiaMode = true,
+                          const int maxRetriesOnReadError = 20,
+                          QObject *parent = nullptr);
+    ~CDDAParanoia() override;
 
-    bool init(const QString &deviceFile = "/dev/cdrom");
-    void reset();
+    bool init();
 
-    const QString getDeviceFile() const;
-    const QString getVendor() const;
-    const QString getModel() const;
-    const QString getRevision() const;
-
-    const DriveCapabilities getDriveCapabilities() const;
-
-    void enableParanoiaFullMode(const bool enabled = true);
-    void enableParanoiaNeverSkip(const bool never_skip = true);
-    void setParanoiaMaxRetries(int max_retries); /* default: 20 */
+    void enableParanoiaMode(const bool enable = true);
+    void setParanoiaMaxRetriesOnReadError(int max_retries); // default: 20
 
     qint16 *paranoiaRead(void (*callback)(long, paranoia_cb_mode_t));
     int paranoiaSeek(const int sector, qint32 mode);
     bool paranoiaError(QString &errorMsg);
-
-    bool mediaChanged();
 
     int firstSectorOfTrack(const int track);
     int lastSectorOfTrack(const int track);
@@ -107,10 +79,6 @@ public:
 
     const QStringList prettyTOC();
 
-    const QString getMCN();
-    const QString getISRC(const int track);
-    void fetchAndCacheSubchannelInfo();
-
     bool isPreemphasis(const int track);
 
     const QString msfOfTrack(const int track);
@@ -130,25 +98,9 @@ Q_SIGNALS:
 private:
     cdrom_drive_t *drive;
     cdrom_paranoia_t *paranoia;
-    CdIo_t *cdio;
 
     QString device_file;
 
-    QString vendor;
-    QString model;
-    QString revision;
-
     int paranoia_mode;
-    bool paranoia_never_skip;
     int paranoia_max_retries;
-
-    DriveCapabilities capabilities;
-
-    QString mcn;
-    QMap<int, QString> track_isrcs;
-
-    void p_detect_hardware();
-    void p_free();
 };
-
-#endif

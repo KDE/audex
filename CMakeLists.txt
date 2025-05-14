@@ -4,7 +4,9 @@ cmake_minimum_required(VERSION 3.16.0)
 set(RELEASE_SERVICE_VERSION_MAJOR "25")
 set(RELEASE_SERVICE_VERSION_MINOR "07")
 set(RELEASE_SERVICE_VERSION_MICRO "70")
-set(RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
+set(RELEASE_SERVICE_VERSION
+    "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}"
+)
 
 project(Audex VERSION ${RELEASE_SERVICE_VERSION})
 
@@ -57,10 +59,8 @@ include_directories(
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
 
-ecm_setup_version(${PROJECT_VERSION}
-    VARIABLE_PREFIX AUDEX
-    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/audex-version.h
-)
+ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX AUDEX VERSION_HEADER
+                  ${CMAKE_CURRENT_BINARY_DIR}/audex-version.h)
 
 remove_definitions(
   -DQT_NO_CAST_FROM_ASCII -DQT_NO_URL_CAST_FROM_STRING
@@ -76,14 +76,15 @@ set(audex_SRCS
     utils/schemeparser.cpp
     utils/playlist.cpp
     utils/wavefilewriter.cpp
-    utils/cddacdio.cpp
+    utils/samplearray.cpp
+    utils/cddaparanoia.cpp
     utils/cddadevices.cpp
     utils/encoderwrapper.cpp
     utils/cddaextractthread.cpp
     utils/upload.cpp
     utils/encoderassistant.cpp
     utils/hashlist.cpp
-    utils/crc32hash.cpp
+    utils/crc.cpp
     utils/parameters.cpp
     utils/cuesheetwriter.cpp
     utils/discidcalculator.cpp
@@ -171,21 +172,23 @@ target_link_libraries(
   ${CDIO_CDDA_LIBRARIES}
   ${CDIO_PARANOIA_LIBRARIES})
 
-ecm_add_app_icon(audex ICONS
-    icons/sc-apps-org.kde.audex.svg
-    icons/16-apps-org.kde.audex.png
-    icons/32-apps-org.kde.audex.png
-    icons/48-apps-org.kde.audex.png
-    icons/64-apps-org.kde.audex.png
-    icons/128-apps-org.kde.audex.png
-)
+ecm_add_app_icon(
+  audex
+  ICONS
+  icons/sc-apps-org.kde.audex.svg
+  icons/16-apps-org.kde.audex.png
+  icons/32-apps-org.kde.audex.png
+  icons/48-apps-org.kde.audex.png
+  icons/64-apps-org.kde.audex.png
+  icons/128-apps-org.kde.audex.png)
 
 install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.audex.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES audex-rip-audiocd.desktop
         DESTINATION ${KDE_INSTALL_DATADIR}/solid/actions)
-install(FILES org.kde.audex.svg DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
+install(FILES org.kde.audex.svg
+        DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 
 add_subdirectory(images)
 

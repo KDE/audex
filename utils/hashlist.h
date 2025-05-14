@@ -15,11 +15,11 @@
 
 #include <QByteArray>
 #include <QCryptographicHash>
+#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>
-
-#include "utils/crc32hash.h"
+#include <QTime>
 
 #define HASHCALC_BUFSIZE 4 * 1024 * 1024
 

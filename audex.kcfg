@@ -37,9 +37,15 @@
       <label>Full paranoia mode (secure mode)</label>
       <default>true</default>
     </entry>
-    <entry name="skipReadingErrors" type="Bool">
-      <label>Skip reading errors</label>
+    <entry name="skipReadErrors" type="Bool">
+      <label>Skip read errors</label>
       <default>false</default>
+    </entry>
+    <entry name="retriesOnReadError" type="Int">
+      <label>Retries on read error</label>
+      <default>20</default>
+      <min>0</min>
+      <max>200</max>
     </entry>
     <entry name="sampleOffset" type="Int">
       <label>Sample offset</label>

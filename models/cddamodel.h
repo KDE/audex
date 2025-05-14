@@ -27,8 +27,8 @@
 #include <KCDDB/Client>
 #include <KCDDB/KCDDB>
 
-#include "utils/cddacdio.h"
 #include "utils/cddadevices.h"
+#include "utils/cddaparanoia.h"
 
 #include "utils/error.h"
 
@@ -50,7 +50,6 @@ enum CDDAColumms {
 
 #define CDDA_MODEL_INTERNAL_ROLE 1982
 
-/** kde audio disc model **/
 class CDDAModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -59,9 +58,9 @@ public:
     explicit CDDAModel(QObject *parent = nullptr);
     ~CDDAModel() override;
 
-    inline CDDACDIO *cdio() const
+    inline CDDAParanoia *paranoia() const
     {
-        return p_cdio;
+        return p_paranoia;
     }
     inline const QString deviceFile() const
     {
@@ -193,7 +192,7 @@ private Q_SLOTS:
 private:
     QString device_file;
     QString udi;
-    CDDACDIO *p_cdio;
+    CDDAParanoia *p_paranoia;
     CDDADevices *devices;
 
     KCDDB::Client *cddb;

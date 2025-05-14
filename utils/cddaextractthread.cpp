@@ -6,10 +6,10 @@
  */
 
 #include "cddaextractthread.h"
-#include "utils/cddacdio.h"
 
 #include <QDebug>
-#include <cdio/sector.h>
+
+#include "utils/cddaparanoia.h"
 
 static CDDAExtractThread *aet = nullptr;
 
@@ -18,30 +18,22 @@ void paranoia_callback(long sector, paranoia_cb_mode_t status)
     aet->create_status(sector, status);
 }
 
-CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDACDIO *cdio)
+CDDAExtractThread::CDDAExtractThread(CDDAParanoia *paranoia, QObject *parent)
     : QThread(parent)
 {
-    p_cdio = cdio;
-    if (!p_cdio) {
-        qDebug() << "Paranoia object not found. low mem?";
-        Q_EMIT error(i18n("Internal device error."), i18n("Check your device and make a bug report."));
-        return;
-    }
-    connect(p_cdio, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
+    p_paranoia = paranoia;
+    connect(p_paranoia, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
 
-    overall_sectors_read = 0;
-    paranoia_full_mode = true;
-    paranoia_retries = 20;
-    paranoia_never_skip = false;
-    skip_reading_errors = false;
-    sample_offset = 0;
-    track = 1;
-    b_first_run = true;
-    b_interrupt = false;
-    b_error = false;
-    status_previous_sector = -1;
+    reset();
 
-    silence.fill(0, CD_FRAMESIZE_RAW);
+    silence = SampleArray(SECTOR_SIZE_SAMPLES);
+
+    // let the global paranoia callback have access to this to emit signals
+    aet = this;
+}
+
+CDDAExtractThread::~CDDAExtractThread()
+{
 }
 
 void CDDAExtractThread::start()
@@ -49,9 +41,11 @@ void CDDAExtractThread::start()
     QThread::start();
 }
 
+#define CHUNK_SIZE 58800 // in samples
+
 void CDDAExtractThread::run()
 {
-    if (!p_cdio)
+    if (!p_paranoia)
         return;
 
     if (b_interrupt)
@@ -64,184 +58,182 @@ void CDDAExtractThread::run()
     paranoia_status_table.clear();
 
     if (b_first_run) {
-        p_log.append(i18n("Drive Vendor: %1, Drive Model: %2, Drive Revision: %3", p_cdio->getVendor(), p_cdio->getModel(), p_cdio->getRevision()));
+        qDebug() << p_paranoia->prettyTOC();
         p_log.append(i18n("TOC:"));
-        p_log.append(p_cdio->prettyTOC());
+        p_log.append(p_paranoia->prettyTOC());
         b_first_run = false;
     }
 
-    if (track == 0) {
-        first_sector = p_cdio->firstSectorOfDisc();
-        last_sector = p_cdio->lastSectorOfDisc();
-    } else {
-        first_sector = p_cdio->firstSectorOfTrack(track) + sector_offset;
-        last_sector = p_cdio->lastSectorOfTrack(track) + sector_offset;
-    }
+    const int first_sector = p_paranoia->firstSectorOfTrack(track);
+    const int last_sector = p_paranoia->lastSectorOfTrack(track);
 
-    if (first_sector < 0 || last_sector < 0) {
-        Q_EMIT info(i18n("Extracting finished."));
-        return;
-    }
+    const int first_sector_of_disc = p_paranoia->firstSectorOfDisc();
+    const int last_sector_of_disc = p_paranoia->lastSectorOfDisc();
 
     qDebug() << "Track:" << track;
-    qDebug() << "Sample offset:" << sample_offset;
-    qDebug() << "Sector offset:" << sector_offset;
-    qDebug() << "Sample offset fraction:" << sample_offset_fraction;
     qDebug() << "First sector:" << first_sector;
     qDebug() << "Last sector:" << last_sector;
 
-    // track length
-    sectors_all = last_sector - first_sector;
-    sectors_all += sector_offset;
+    qDebug() << "First sector of disc:" << first_sector_of_disc;
+    qDebug() << "Last sector of disc:" << last_sector_of_disc;
+
+    int start_sector = first_sector;
+    int end_sector = last_sector;
+
+    qDebug() << "Sample shift:" << sample_shift;
+    qDebug() << "Sector shift left:" << sector_shift_left;
+    qDebug() << "Sector shift right:" << sector_shift_right;
+
+    p_log.append(i18n("Start ripping track %1 with length %2...", track, CDDAParanoia::LSN2MSF(last_sector - first_sector, QChar('-'))));
+    p_log.append(i18n("Sample shift: %1", sample_shift));
+
+    SampleArray chunk;
+    bool overread = false;
+
+    /* Set the start and the end sector
+     *
+     *           |Sector 0 |Sector 1 |Sector 2 |Sector 3 |Sector 4 |
+     *           |*********|*********|*********|*********|*********|
+     *
+     * sample_shift == -3:
+     * |Sektor-1 |Sector 0 |Sector 1 |Sector 2 |Sector 3 |Sector 4 |
+     * |......***|*********|*********|*********|*********|******...|
+     *
+     * sample_shift == 3:
+     *           |Sector 0 |Sector 1 |Sector 2 |Sector 3 |Sector 4 |Sector 5 |
+     *           |...******|*********|*********|*********|*********|***......|
+     *
+     * "*": Samples to read, ".": samples to discard
+     *
+     * sample_shift == 0: If we do have no shift nothing will happen and start/end sector will be the same as the first and last sector of the track
+     *
+     * sample_shift < 0: If we have a shift to the left we must read sectors before the first sector recorded in the TOC for this track and may discard sectors
+     * at the end
+     *
+     * sample_shift > 0: If we have a shift to the right we must read sectors after the last sector recorded in the TOC for this track and may discard sectors
+     * at the beginning
+     *
+     * BUT if we cross the borders reported by firstSectorOfDisc()/lastSectorOfDisc() we fill up those areas with zero samples. Maybe in future we could check
+     * if the drive supports some kind of overraeding feature into the lead in/out area.
+     *
+     */
+    if (sample_shift < 0) {
+        start_sector = first_sector - qAbs(sector_shift_left);
+        // Check if we would read into lead in. If so, fill the chunk with zeros to avoid problems.
+        // Maybe in future we would check if the drive supports reading of sectors of the lead in area.
+        if (start_sector < first_sector_of_disc) {
+            start_sector = first_sector_of_disc;
+        } else {
+            overread = true;
+        }
+        end_sector -= qAbs(sector_shift_right);
+    } else if (sample_shift > 0) {
+        start_sector = first_sector + qAbs(sector_shift_left);
+        end_sector += qAbs(sector_shift_right);
+        // Check if we would read into lead out. If so, fill the chunk **finally at the end** with zeros to avoid problems.
+        // Maybe in future we would check if the drive supports reading of sectors of the lead out area.
+        if (end_sector > last_sector_of_disc) {
+            end_sector = last_sector_of_disc;
+        } else {
+            overread = true;
+        }
+    }
+
+    sectors_all = end_sector - start_sector;
     sectors_read = 0;
 
-    p_cdio->enableParanoiaFullMode(paranoia_full_mode);
-    p_cdio->enableParanoiaNeverSkip(paranoia_never_skip);
-    p_cdio->setParanoiaMaxRetries(paranoia_retries);
+    p_paranoia->paranoiaSeek(start_sector, SEEK_SET);
+
+    // prepend chunk with null samples to replace out of border samples in case of a left shift
+    // but only if we can't overread
+    if (sample_shift < 0 && !overread)
+        chunk.appendZeroSamples(qAbs(sample_shift));
+
+    // do we have a full sector shift?
+    const bool full_sector_shift = qAbs(sample_shift) % SECTOR_SIZE_SAMPLES == 0;
 
     QString paranoiaErrorMsg;
 
-    p_cdio->paranoiaSeek(first_sector, SEEK_SET);
-    if (p_cdio->paranoiaError(paranoiaErrorMsg)) {
-        p_log.append(i18n("Error occured while seeking at sector %1: %2", first_sector, paranoiaErrorMsg));
-        if (track > 0)
-            Q_EMIT error(i18n("An error occured while ripping track %1. See log.", track));
-        else
-            Q_EMIT error(i18n("An error occured while ripping. See log."));
-        return;
-    }
-
-    current_sector = first_sector;
-
-    if (sample_offset > 0)
-        p_log.append(i18n("Correction sample offset: %1", sample_offset));
-
-    QString min = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) / 60, 2, 10, QChar('0'));
-    QString sec = QString("%1").arg((sectors_all / SECTORS_PER_SECOND) % 60, 2, 10, QChar('0'));
-
-    // fetch subchannel infos
-
-    if (p_cdio->getDriveCapabilities().contains(READ_MCN) || p_cdio->getDriveCapabilities().contains(READ_ISRC)) {
-        Q_EMIT info(i18n("Fetching extra information from disc..."));
-        p_cdio->fetchAndCacheSubchannelInfo();
-        p_log.append(i18n("Fetching subchannel infos from disc"));
-    }
-
-    if (track > 0) {
-        Q_EMIT info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
-        p_log.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
-    } else {
-        Q_EMIT info(i18n("Ripping whole disc (%1:%2)...", min, sec));
-        p_log.append(i18n("Start reading whole disc with %1 sectors", sectors_all));
-        p_log.append(i18n("Track %1 with start sector %2", p_cdio->firstTrackNum(), p_cdio->firstSectorOfTrack(p_cdio->firstTrackNum()) + sector_offset));
-    }
-
-    p_log.append(i18n("First sector: %1, Last sector: %2", first_sector, last_sector));
-
-    p_cdio->mediaChanged();
-
-    bool overread = false;
-    while (current_sector <= last_sector || overread) {
+    // read the sectors
+    for (int i = start_sector; i <= end_sector; ++i) {
         if (b_interrupt) {
             qDebug() << "Interrupt ripping";
             break;
         }
 
-        // let the global paranoia callback have access to this to emit signals
-        aet = this;
-
-        if (p_cdio->mediaChanged()) {
-            b_interrupt = true;
-            continue;
-        }
-
-        int16_t *buf = p_cdio->paranoiaRead(paranoia_callback);
-        if (p_cdio->paranoiaError(paranoiaErrorMsg)) {
+        SampleArray samples(p_paranoia->paranoiaRead(paranoia_callback), SECTOR_SIZE_SAMPLES * 2); // we do have two channels
+        if (p_paranoia->paranoiaError(paranoiaErrorMsg)) {
             p_log.append(i18n("Error occured while reading sector %1 (track time pos %2): %3",
-                              current_sector,
-                              CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-')),
+                              i,
+                              CDDAParanoia::LSN2MSF(i - start_sector, QChar('-')),
                               paranoiaErrorMsg));
-            if (!skip_reading_errors) {
+            if (!skip_read_errors) {
                 if (track > 0)
-                    Q_EMIT error(i18n("An error occured while ripping track %1 at position %2. See log.",
-                                      track,
-                                      CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+                    Q_EMIT error(
+                        i18n("An error occured while ripping track %1 at position %2. See log.", track, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
                 else
-                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
                 b_error = true;
                 break;
             } else {
                 if (track > 0)
-                    Q_EMIT warning(i18n("An error occured while ripping track %1 at position %2. See log.",
-                                        track,
-                                        CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
-                else
                     Q_EMIT warning(
-                        i18n("An error occured while ripping at position %1. See log.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+                        i18n("An error occured while ripping track %1 at position %2. See log.", track, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                else
+                    Q_EMIT warning(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
             }
         }
-        if (!buf) {
+        if (samples.isEmpty()) {
             if (paranoiaErrorMsg.isEmpty()) {
-                p_log.append(i18n("Error reading sector %1 (track time pos %2)", current_sector, CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
-                if (paranoia_never_skip)
-                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+                p_log.append(i18n("Error reading sector %1 (track time pos %2)", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                if (!skip_read_errors)
+                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
                 else
-                    Q_EMIT warning(
-                        i18n("An error occured while ripping at position %1. See log.", CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
+                    Q_EMIT warning(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
             }
-            if (!skip_reading_errors) {
+            if (!skip_read_errors) {
                 b_error = true;
                 break;
             }
-            p_log.append(i18n("Error reading sector %1 (%2): **Filling whole sector with silence**",
-                              current_sector,
-                              CDDACDIO::LSN2MSF(current_sector - first_sector, QChar('-'))));
-            buf = reinterpret_cast<int16_t *>(silence.data());
+            p_log.append(i18n("Error reading sector %1 (%2): **Filling whole sector with silence**", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+            samples = silence;
         }
 
-        if (sample_offset_fraction > 0 && current_sector == first_sector && track > 0) {
-            Q_EMIT output(QByteArray((const char *)buf + (sample_offset_fraction * 4), CD_FRAMESIZE_RAW - (sample_offset_fraction * 4)));
-        } else if (sample_offset_fraction < 0 && current_sector == first_sector && track > 0) {
-            Q_EMIT output(QByteArray((const char *)buf + (CD_FRAMESIZE_RAW - (-sample_offset_fraction * 4)), (-sample_offset_fraction * 4)));
-        } else if (sample_offset_fraction < 0 && current_sector == last_sector && track > 0) {
-            Q_EMIT output(QByteArray((const char *)buf, CD_FRAMESIZE_RAW - (-sample_offset_fraction * 4)));
-        } else if (overread) {
-            Q_EMIT output(QByteArray((const char *)buf, sample_offset_fraction * 4));
-            overread = false;
+        if (sample_shift < 0 && overread && i == start_sector && !full_sector_shift) {
+            // take only the fraction of right samples out of the sector
+            chunk.append(samples.right(qAbs(sample_shift) % SECTOR_SIZE_SAMPLES));
+        } else if (sample_shift < 0 && i == end_sector) {
+            // take only the fraction of left samples out of the sector
+            chunk.append(samples.left(SECTOR_SIZE_SAMPLES - (qAbs(sample_shift) % SECTOR_SIZE_SAMPLES)));
+        } else if (sample_shift > 0 && i == start_sector) {
+            // take only the fraction of right samples out of the sector
+            chunk.append(samples.right(SECTOR_SIZE_SAMPLES - (qAbs(sample_shift) % SECTOR_SIZE_SAMPLES)));
+        } else if (sample_shift > 0 && overread && i == end_sector) {
+            // take only the fraction of left samples out of the sector
+            chunk.append(samples.left(qAbs(sample_shift) % SECTOR_SIZE_SAMPLES));
         } else {
-            Q_EMIT output(QByteArray((const char *)buf, CD_FRAMESIZE_RAW));
+            chunk.append(samples);
         }
 
-        // if we have a positive sample offset we need to overread at the end
-        if (sample_offset > 0 && current_sector == last_sector && track > 0) {
-            if (p_cdio->mediaChanged()) {
-                b_interrupt = true;
-                break;
-            }
-            if (p_cdio->isLastTrack(track)) { // if we read into the leadout at the end of the disc then..
-                p_cdio->paranoiaSeek(current_sector, SEEK_SET); // flush the buffer (paranoia internal)
-                if (p_cdio->paranoiaError(paranoiaErrorMsg)) {
-                    p_log.append(i18n("Error occured while seeking at sector %1: %2", current_sector, paranoiaErrorMsg));
-                    if (track > 0)
-                        Q_EMIT error(i18n("An error occured while ripping track %1. See log.", track));
-                    else
-                        Q_EMIT error(i18n("An error occured while ripping. See log."));
-                    b_error = true;
-                    break;
-                }
-            }
-            overread = true;
+        if (chunk.size() >= CHUNK_SIZE) {
+            Q_EMIT output(chunk.data());
+            chunk.clear();
         }
-
-        ++current_sector;
 
         ++sectors_read;
         ++overall_sectors_read;
         float fraction = 0.0f;
         if (sectors_all > 0)
             fraction = (float)sectors_read / (float)sectors_all;
-        Q_EMIT progress((int)(100.0f * fraction), current_sector, overall_sectors_read);
+        Q_EMIT progress((int)(100.0f * fraction), i, overall_sectors_read);
     }
+
+    // prepend chunk with null samples to replace out of border samples in case of a right shift
+    // but only if we can't overread
+    if (sample_shift > 0 && !overread)
+        chunk.appendZeroSamples(qAbs(sample_shift));
+
+    Q_EMIT output(chunk.data());
 
     if (b_error) {
         Q_EMIT error(i18n("Ripping was canceled due to an error."));
@@ -255,7 +247,7 @@ void CDDAExtractThread::run()
         } else {
             Q_EMIT info(i18n("Ripping OK."));
         }
-        p_log.append(i18n("Ripping finished"));
+        p_log.append(i18n("Ripping of track %1 successfully finished", track));
     }
 }
 
@@ -277,15 +269,15 @@ const QStringList &CDDAExtractThread::log()
 void CDDAExtractThread::reset()
 {
     overall_sectors_read = 0;
-    paranoia_full_mode = true;
-    paranoia_retries = 20;
-    paranoia_never_skip = true;
-    sample_offset = 0;
+    skip_read_errors = false;
+    sample_shift = 0;
+    sector_shift_left = 0;
+    sector_shift_right = 0;
     track = 1;
-    b_first_run = true;
     b_interrupt = false;
     b_error = false;
     status_previous_sector = -1;
+    b_first_run = true;
 }
 
 void CDDAExtractThread::slot_error(const QString &message, const QString &details)

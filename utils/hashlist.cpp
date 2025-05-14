@@ -7,8 +7,7 @@
 
 #include "hashlist.h"
 
-#include <QDebug>
-#include <QTime>
+#include "utils/crc.h"
 
 Hashlist::Hashlist()
 {
@@ -18,23 +17,12 @@ const QStringList Hashlist::getSFV(const QStringList &filenames)
 {
     QStringList list;
 
-    CRC32Hash checksum;
+    CRC::CRC32_Calculator checksum;
     for (int i = 0; i < filenames.count(); ++i) {
-        QFile file(filenames.at(i));
-        if (!file.exists())
-            continue;
-        if (!file.open(QFile::ReadOnly))
-            continue;
-
-        while (!file.atEnd())
-            checksum.addData(file.read(HASHCALC_BUFSIZE));
-
+        checksum.processFile(filenames.at(i));
         QFileInfo info(filenames.at(i));
         list << info.fileName() + ' ' + QString("%1").arg(checksum.result(), 8, 16, QLatin1Char('g')).toUpper();
-
-        checksum.clear();
-
-        file.close();
+        checksum.reset();
     }
 
     return list;

@@ -23,8 +23,8 @@ public:
     explicit CueSheetWriter(CDDAModel *model);
     ~CueSheetWriter() override;
 
-    QStringList cueSheet(const QString &binFilename, const int frameOffset = 0, const bool writeMCN = false, const bool writeISRC = false) const;
-    QStringList cueSheet(const QStringList &filenames, const int frameOffset = 0, const bool writeMCN = false, const bool writeISRC = false) const;
+    QStringList cueSheet(const QString &binFilename, const int frameOffset = 0 /*, const bool writeMCN = false, const bool writeISRC = false*/) const;
+    QStringList cueSheet(const QStringList &filenames, const int frameOffset = 0 /*, const bool writeMCN = false, const bool writeISRC = false*/) const;
 
 private:
     CDDAModel *model;
