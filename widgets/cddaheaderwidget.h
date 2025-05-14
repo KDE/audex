@@ -8,14 +8,14 @@
 #ifndef CDDAHEADERWIDGET_H
 #define CDDAHEADERWIDGET_H
 
-#include <cmath>
-
 #include <QApplication>
+#include <QDebug>
 #include <QDesktopServices>
+#include <QFileDialog>
 #include <QFont>
 #include <QFontMetrics>
 #include <QImage>
-#include <QMouseEvent>
+#include <QMenu>
 #include <QPainter>
 #include <QTemporaryDir>
 #include <QTimer>
@@ -25,9 +25,6 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 
-#include "preferences.h"
-
-#include "dialogs/cddaheaderdatadialog.h"
 #include "dialogs/errordialog.h"
 #include "models/cddamodel.h"
 
@@ -35,9 +32,19 @@
 #define FP_BITS 10
 #define FP_FACTOR (1 << FP_BITS)
 
-enum FadeStyle { NoFade, FadeDown, FadeRight, FadeUp, FadeLeft };
+enum FadeStyle {
+    NoFade,
+    FadeDown,
+    FadeRight,
+    FadeUp,
+    FadeLeft
+};
 
-enum MirrorStyle { NoMirror, MirrorOverX, MirrorOverY };
+enum MirrorStyle {
+    NoMirror,
+    MirrorOverX,
+    MirrorOverY
+};
 
 class CDDAHeaderWidget : public QWidget
 {
@@ -94,14 +101,8 @@ private:
     QRect cover_rect;
     bool cursor_on_cover;
 
-    QRect artist_label_rect;
-    bool cursor_on_artist_label;
-
-    QRect title_label_rect;
-    bool cursor_on_title_label;
-
-    QRect year_label_rect;
-    bool cursor_on_year_label;
+    QRect label_rect;
+    bool cursor_on_label;
 
     void setup_actions();
 

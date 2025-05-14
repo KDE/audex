@@ -7,10 +7,7 @@
 
 #include "cddaheaderwidget.h"
 
-#include <QDebug>
-#include <QFileDialog>
-#include <QMenu>
-#include <qnamespace.h>
+#include "dialogs/cddaheaderdatadialog.h"
 
 CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const int cover_size_min, const int cover_size_max, const int padding)
     : QWidget(parent)
@@ -30,9 +27,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
 
     setMouseTracking(true);
     cursor_on_cover = false;
-    cursor_on_artist_label = false;
-    cursor_on_title_label = false;
-    cursor_on_year_label = false;
+    cursor_on_label = false;
 
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(context_menu(const QPoint &)));
 
@@ -80,58 +75,66 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
                            Qt::KeepAspectRatio,
                            Qt::SmoothTransformation);
 
-        int xOffset = padding;
-        int yOffset = padding;
+        int xOffsetCover = padding;
+        int yOffsetCover = padding;
+
+        int x = xOffsetCover;
+        int y = yOffsetCover;
 
         // QImage scaled_cover = cover.scaled(cover_size, cover_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        cover_rect = QRect(xOffset, yOffset, scaled_cd_case.width(), scaled_cd_case.height());
-        painter.drawImage(QPoint(xOffset, yOffset), scaled_cd_case);
+        cover_rect = QRect(x, y, scaled_cd_case.width(), scaled_cd_case.height());
+        painter.drawImage(QPoint(x, y), scaled_cd_case);
 
-        if (vertical) {
-            xOffset += scaled_cd_case.width() + padding;
+        QFont artistFont;
+        artistFont.setBold(true);
+        if (artistFont.pixelSize() == -1) {
+            artistFont.setPointSizeF(artistFont.pointSizeF() * 1.2);
         } else {
-            yOffset += scaled_cd_case.height();
+            artistFont.setPixelSize(artistFont.pixelSize() * 1.2);
         }
 
-        painter.setBrush(palette().text());
+        QFont titleFont;
+        titleFont.setItalic(true);
+        if (titleFont.pixelSize() == -1) {
+            titleFont.setPointSizeF(titleFont.pointSizeF() * 1.6);
+        } else {
+            titleFont.setPixelSize(titleFont.pixelSize() * 1.6);
+        }
 
-        QFont font(QApplication::font());
+        QFont cdNumberFont;
 
-        int pixelSize = font.pixelSize() == -1 ? (font.pointSize() * qApp->devicePixelRatio() + 36) / 72 : font.pixelSize();
-        int width = rect().width() - (xOffset + 1);
-        font.setPixelSize((int)((((double)pixelSize) * 2) + 0.5));
-        font.setBold(true);
-        font.setUnderline(cursor_on_artist_label || cursor_on_title_label || cursor_on_year_label);
-        painter.setFont(font);
-        artist_label_rect = QRect(QPoint(xOffset, yOffset + 10), painter.fontMetrics().boundingRect(cdda_model->artist()).size());
-        yOffset += painter.fontMetrics().lineSpacing() + 10;
-        painter.drawText(xOffset, yOffset, painter.fontMetrics().elidedText(cdda_model->artist(), Qt::ElideRight, width));
+        painter.setRenderHint(QPainter::Antialiasing);
 
-        font.setPixelSize((int)((((double)pixelSize) * 1.6) + 0.5));
-        font.setBold(true);
-        font.setItalic(true);
-        painter.setFont(font);
-        title_label_rect = QRect(QPoint(xOffset, yOffset + 10), painter.fontMetrics().boundingRect(cdda_model->title()).size());
-        yOffset += (int)((((double)pixelSize) * 1.6) + 0.5) + 10;
-        painter.drawText(xOffset, yOffset, painter.fontMetrics().elidedText(cdda_model->title(), Qt::ElideRight, width));
+        y += scaled_cd_case.height() + padding * 2;
 
+        int xOffsetLabel = x;
+        int yOffsetLabel = y;
+
+        // Künstlername
+        painter.setFont(artistFont);
+        QFontMetrics fm1(artistFont);
+        painter.drawText(x, y, fm1.elidedText(cdda_model->artist(), Qt::ElideRight, width() - padding));
+        y += fm1.height() + 5;
+
+        painter.setFont(titleFont);
+        QFontMetrics fm2(titleFont);
+        QString fullTitle = cdda_model->title();
         if (!cdda_model->year().isEmpty()) {
-            font.setItalic(false);
-            font.setUnderline(false);
-            painter.setFont(font);
-            painter.drawText(xOffset + title_label_rect.width(), yOffset, QString(" (%1)").arg(cdda_model->year()));
-            year_label_rect = QRect(QPoint(xOffset + title_label_rect.width(), title_label_rect.y()),
-                                    painter.fontMetrics().boundingRect(QString(" (%1)").arg(cdda_model->year())).size());
+            fullTitle += QString(" (%1)").arg(cdda_model->year());
         }
+        painter.drawText(x, y, fm2.elidedText(fullTitle, Qt::ElideRight, width() - padding));
+        y += fm2.height();
 
         if (cdda_model->cdNum() > 0) {
-            font.setItalic(false);
-            font.setUnderline(false);
-            font.setPixelSize((int)((((double)pixelSize)) + 0.5));
-            painter.setFont(font);
-            yOffset += painter.fontMetrics().lineSpacing() + 10;
-            painter.drawText(xOffset, yOffset, QString("[%1%2]").arg(i18n("CD Number: ")).arg(cdda_model->cdNum()));
+            painter.setFont(cdNumberFont);
+            y += padding;
+            painter.drawText(x, y, QString("[%1%2]").arg(i18n("CD Number: ")).arg(cdda_model->cdNum()));
         }
+
+        label_rect = QRect(xOffsetLabel,
+                           yOffsetLabel - fm1.height(),
+                           qMax(fm1.horizontalAdvance(cdda_model->artist()), fm2.horizontalAdvance(fullTitle)),
+                           y - yOffsetLabel);
 
     } else { // disabled
 
@@ -184,37 +187,17 @@ void CDDAHeaderWidget::mouseMoveEvent(QMouseEvent *event)
             QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor));
             cursor_on_cover = true;
         }
-    } else if (artist_label_rect.contains(event->pos())) {
-        if (!cursor_on_artist_label) {
+    } else if (label_rect.contains(event->pos())) {
+        if (!cursor_on_label) {
             QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor));
-            cursor_on_artist_label = true;
-            repaint();
-        }
-    } else if (title_label_rect.contains(event->pos())) {
-        if (!cursor_on_title_label) {
-            QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor));
-            cursor_on_title_label = true;
-            repaint();
-        }
-    } else if (year_label_rect.contains(event->pos())) {
-        if (!cursor_on_year_label) {
-            QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor));
-            cursor_on_year_label = true;
-            repaint();
+            cursor_on_label = true;
         }
     } else {
         QApplication::restoreOverrideCursor();
         if (cursor_on_cover) {
             cursor_on_cover = false;
-        } else if (cursor_on_artist_label) {
-            cursor_on_artist_label = false;
-            repaint();
-        } else if (cursor_on_title_label) {
-            cursor_on_title_label = false;
-            repaint();
-        } else if (cursor_on_year_label) {
-            cursor_on_year_label = false;
-            repaint();
+        } else if (cursor_on_label) {
+            cursor_on_label = false;
         }
     }
 }
@@ -230,7 +213,7 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
                 view_cover();
             }
         }
-        if (cursor_on_artist_label || cursor_on_title_label || cursor_on_year_label) {
+        if (cursor_on_label) {
             QApplication::restoreOverrideCursor();
             edit_data();
         }
@@ -294,9 +277,7 @@ void CDDAHeaderWidget::remove()
 void CDDAHeaderWidget::edit_data()
 {
     QApplication::restoreOverrideCursor();
-    cursor_on_artist_label = false;
-    cursor_on_title_label = false;
-    cursor_on_year_label = false;
+    cursor_on_label = false;
 
     auto *dialog = new CDDAHeaderDataDialog(cdda_model, this);
 
@@ -324,7 +305,6 @@ void CDDAHeaderWidget::context_menu(const QPoint &point)
         QApplication::restoreOverrideCursor();
         cursor_on_cover = false;
         QMenu contextMenu(this);
-        auto *mevent = new QMouseEvent(QEvent::MouseButtonPress, point, Qt::RightButton, Qt::RightButton, Qt::NoModifier);
         contextMenu.clear();
         // contextMenu.addAction(action_collection->action("fetch"));
         contextMenu.addAction(action_collection->action("load"));
@@ -333,7 +313,7 @@ void CDDAHeaderWidget::context_menu(const QPoint &point)
         contextMenu.addAction(action_collection->action("view"));
         contextMenu.addSeparator();
         contextMenu.addAction(action_collection->action("remove"));
-        contextMenu.exec(mevent->globalPos());
+        contextMenu.exec(mapToGlobal(point));
     }
 }
 
