@@ -8,14 +8,12 @@
 #ifndef DISCIDCALCULATOR_H
 #define DISCIDCALCULATOR_H
 
-#include <QObject>
+#include <QList>
 
 #define FRAMES2SEC(frames) ((frames) / 75)
 
-class DiscIDCalculator : public QObject
+class DiscIDCalculator
 {
-    Q_OBJECT
-
 public:
     static quint32 CDDBId(const QList<quint32> &discSignature);
     static quint32 AccurateRipId1(const QList<quint32> &discSignature);

@@ -10,8 +10,6 @@
 
 #include "cddadevices.h"
 
-#include <QDebug>
-
 CDDADevices::CDDADevices(QObject *parent)
 {
     Q_UNUSED(parent);

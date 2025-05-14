@@ -15,6 +15,7 @@
 #include <QInputDialog>
 #include <QMimeDatabase>
 #include <QModelIndexList>
+#include <QRegularExpression>
 #include <QSet>
 #include <QString>
 #include <QTimer>

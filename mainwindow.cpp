@@ -442,7 +442,7 @@ void MainWindow::setup_actions()
     ejectAction->setText(i18n("Eject"));
     ejectAction->setIcon(QIcon::fromTheme("media-eject"));
     actionCollection()->addAction("eject", ejectAction);
-    actionCollection()->setDefaultShortcut(ejectAction, Qt::CTRL + Qt::Key_E);
+    actionCollection()->setDefaultShortcut(ejectAction, Qt::CTRL | Qt::Key_E);
     connect(ejectAction, SIGNAL(triggered(bool)), this, SLOT(eject()));
 
     profile_label = new QLabel(this);
@@ -475,27 +475,27 @@ void MainWindow::setup_actions()
     cddbLookupAction->setText(i18n("Fetch"));
     cddbLookupAction->setIcon(QIcon::fromTheme("view-list-text"));
     actionCollection()->addAction("cddbfetch", cddbLookupAction);
-    actionCollection()->setDefaultShortcut(cddbLookupAction, Qt::CTRL + Qt::Key_F);
+    actionCollection()->setDefaultShortcut(cddbLookupAction, Qt::CTRL | Qt::Key_F);
     connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
 
     auto *cddbSubmitAction = new QAction(this);
     cddbSubmitAction->setText(i18n("Submit"));
     actionCollection()->addAction("cddbsubmit", cddbSubmitAction);
-    actionCollection()->setDefaultShortcut(cddbSubmitAction, Qt::CTRL + Qt::Key_S);
+    actionCollection()->setDefaultShortcut(cddbSubmitAction, Qt::CTRL | Qt::Key_S);
     connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
 
     auto *editAction = new QAction(this);
     editAction->setText(i18n("Edit"));
     editAction->setIcon(QIcon::fromTheme("document-edit"));
     actionCollection()->addAction("edit", editAction);
-    actionCollection()->setDefaultShortcut(editAction, Qt::CTRL + Qt::Key_D);
+    actionCollection()->setDefaultShortcut(editAction, Qt::CTRL | Qt::Key_D);
     connect(editAction, SIGNAL(triggered(bool)), this, SLOT(edit()));
 
     auto *extractAction = new QAction(this);
     extractAction->setText(i18n("Rip..."));
     extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
     actionCollection()->addAction("rip", extractAction);
-    actionCollection()->setDefaultShortcut(extractAction, Qt::CTRL + Qt::Key_X);
+    actionCollection()->setDefaultShortcut(extractAction, Qt::CTRL | Qt::Key_X);
     connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(rip()));
 
     actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));

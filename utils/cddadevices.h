@@ -12,6 +12,7 @@
 #define CDDADEVICES_H
 
 #include <QAbstractTableModel>
+#include <QDebug>
 #include <QHash>
 #include <QString>
 #include <QStringList>
