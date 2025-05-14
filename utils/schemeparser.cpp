@@ -7,8 +7,6 @@
 
 #include "schemeparser.h"
 
-#include <QDebug>
-#include <QStandardPaths>
 #include "audex-version.h"
 
 #if QT_VERSION >= 0x060000
@@ -23,16 +21,6 @@
 #define IS_INT(val) (val.type() == QVariant::Int || val.type() == QVariant::UInt || val.type() == QVariant::LongLong || val.type() == QVariant::ULongLong)
 #define IS_DATETIME(val) (val.type() == QVariant::DateTime || val.type() == QVariant::Date || val.type() == QVariant::Time)
 #endif
-
-SchemeParser::SchemeParser(QObject *parent)
-    : QObject(parent)
-{
-    Q_UNUSED(parent);
-}
-
-SchemeParser::~SchemeParser()
-{
-}
 
 const QString SchemeParser::parseScheme(const QString &scheme, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters)
 {
@@ -110,19 +98,19 @@ const QString SchemeParser::parseScheme(const QString &scheme, const Placeholder
                             }
 
                             if (key == "underscores" && IS_TRUE(parameters.value("underscores")))
-                                value = replace_spaces_with_underscores(value.toString());
+                                value = replaceSpacesWithUnderscores(value.toString());
 
                             if (key == "fat32compatible" && IS_TRUE(parameters.value("fat32compatible")))
-                                value = make_fat32_compatible(value.toString());
+                                value = makeFAT32FilenameCompatible(value.toString());
 
                             if ((key == "replace_char_list" && IS_TRUE(parameters.value("replace_char_list")))
                                 || (key == "replace_chars" && IS_TRUE(parameters.value("replace_chars")))) {
                                 if (parameters.contains("replace_char_list_from") && parameters.contains("replace_char_list_to")
                                     && parameters.value("replace_char_list_from").toString().length()
                                         == parameters.value("replace_char_list_to").toString().length())
-                                    value = QVariant(replace_char_list(parameters.value("replace_char_list_from").toString(),
-                                                                       parameters.value("replace_char_list_to").toString(),
-                                                                       value.toString()));
+                                    value = QVariant(replaceCharList(parameters.value("replace_char_list_from").toString(),
+                                                                     parameters.value("replace_char_list_to").toString(),
+                                                                     value.toString()));
                                 else
                                     p_error_string = i18n(
                                                          "replace_char_list parameter needs two more parameters replace_char_list_from and "
@@ -291,19 +279,17 @@ const QString SchemeParser::parsePerTrackFilenameScheme(const QString &scheme,
                                                         const QString &genre,
                                                         const QString &isrc,
                                                         const QString &suffix,
-                                                        const bool fat32compatible,
-                                                        const bool replacespaceswithunderscores,
                                                         const bool twodigitstracknum)
 {
     Placeholders placeholders;
 
-    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible, replacespaceswithunderscores));
-    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible, replacespaceswithunderscores));
-    placeholders.insert(VAR_TRACK_ARTIST, customize_placeholder_value(tartist, fat32compatible, replacespaceswithunderscores));
-    placeholders.insert(VAR_TRACK_TITLE, customize_placeholder_value(ttitle, fat32compatible, replacespaceswithunderscores));
-    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible, replacespaceswithunderscores));
-    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible, replacespaceswithunderscores));
-    placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc, fat32compatible, replacespaceswithunderscores));
+    placeholders.insert(VAR_ALBUM_ARTIST, artist);
+    placeholders.insert(VAR_ALBUM_TITLE, title);
+    placeholders.insert(VAR_TRACK_ARTIST, tartist);
+    placeholders.insert(VAR_TRACK_TITLE, ttitle);
+    placeholders.insert(VAR_DATE, date);
+    placeholders.insert(VAR_GENRE, genre);
+    placeholders.insert(VAR_ISRC, isrc);
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -345,18 +331,18 @@ const QString SchemeParser::parsePerTrackCommandScheme(const QString &scheme,
     Placeholders placeholders;
 
     placeholders.insert(VAR_INPUT_FILE, input);
-    placeholders.insert(VAR_OUTPUT_FILE, mask_inner_quotes(output));
+    placeholders.insert(VAR_OUTPUT_FILE, output);
 
-    placeholders.insert(VAR_ALBUM_ARTIST, mask_inner_quotes(customize_placeholder_value(artist)));
-    placeholders.insert(VAR_ALBUM_TITLE, mask_inner_quotes(customize_placeholder_value(title)));
-    placeholders.insert(VAR_TRACK_ARTIST, mask_inner_quotes(customize_placeholder_value(tartist)));
-    placeholders.insert(VAR_TRACK_TITLE, mask_inner_quotes(customize_placeholder_value(ttitle)));
-    placeholders.insert(VAR_DATE, mask_inner_quotes(customize_placeholder_value(date)));
-    placeholders.insert(VAR_GENRE, mask_inner_quotes(customize_placeholder_value(genre)));
-    placeholders.insert(VAR_ISRC, customize_placeholder_value(isrc));
-    placeholders.insert(VAR_ENCODER, mask_inner_quotes(customize_placeholder_value(encoder)));
+    placeholders.insert(VAR_ALBUM_ARTIST, mask_inner_quotes(artist));
+    placeholders.insert(VAR_ALBUM_TITLE, mask_inner_quotes(title));
+    placeholders.insert(VAR_TRACK_ARTIST, mask_inner_quotes(tartist));
+    placeholders.insert(VAR_TRACK_TITLE, mask_inner_quotes(ttitle));
+    placeholders.insert(VAR_DATE, mask_inner_quotes(date));
+    placeholders.insert(VAR_GENRE, mask_inner_quotes(genre));
+    placeholders.insert(VAR_ISRC, isrc);
+    placeholders.insert(VAR_ENCODER, mask_inner_quotes(encoder));
 
-    placeholders.insert(VAR_AUDEX, customize_placeholder_value(AUDEX_VERSION_STRING));
+    placeholders.insert(VAR_AUDEX, AUDEX_VERSION_STRING);
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -447,15 +433,14 @@ const QString SchemeParser::parseFilenameScheme(const QString &text,
                                                 const QString &title,
                                                 const QString &date,
                                                 const QString &genre,
-                                                const QString &suffix,
-                                                const bool fat32compatible)
+                                                const QString &suffix)
 {
     Placeholders placeholders;
 
-    placeholders.insert(VAR_ALBUM_ARTIST, customize_placeholder_value(artist, fat32compatible));
-    placeholders.insert(VAR_ALBUM_TITLE, customize_placeholder_value(title, fat32compatible));
-    placeholders.insert(VAR_DATE, customize_placeholder_value(date, fat32compatible));
-    placeholders.insert(VAR_GENRE, customize_placeholder_value(genre, fat32compatible));
+    placeholders.insert(VAR_ALBUM_ARTIST, artist);
+    placeholders.insert(VAR_ALBUM_TITLE, title);
+    placeholders.insert(VAR_DATE, date);
+    placeholders.insert(VAR_GENRE, genre);
 
     placeholders.insert(VAR_SUFFIX, suffix);
 
@@ -494,74 +479,4 @@ void SchemeParser::parseInfoTextScheme(QStringList &text,
     placeholders.insert(VAR_LINEBREAK, QString("\n"));
 
     text = parseScheme(text.join('\n'), placeholders).split('\n');
-}
-
-const QString SchemeParser::make_compatible(const QString &string)
-{
-    QString s = string;
-    for (int i = 0; i < s.size(); i++) {
-        switch (s[i].unicode()) {
-        //case '/':
-        case '\\':
-            s[i] = '_';
-            break;
-        // case '"':
-        //     s[i] = '\'';
-        //     break;
-        default:
-            break;
-        }
-    }
-    return s;
-}
-
-// remove \ / : * ? " < > |
-const QString SchemeParser::make_fat32_compatible(const QString &string)
-{
-    QString s = string;
-    for (int i = 0; i < s.size(); i++) {
-        switch (s[i].unicode()) {
-        case '\\':
-        case '/':
-        case ':':
-        case '*':
-        case '?':
-        case '"':
-        case '<':
-        case '>':
-        case '|':
-            s[i] = '_';
-            break;
-
-        default:
-            break;
-        }
-    }
-    return s;
-}
-
-const QString SchemeParser::replace_spaces_with_underscores(const QString &string)
-{
-    QString s = string;
-    s.replace(' ', '_');
-    return s;
-}
-
-const QString SchemeParser::replace_char_list(const QString &from, const QString &to, const QString &string)
-{
-    qDebug() << "starting replacement for:" << string;
-
-    if (from.count() != to.count()) {
-        qDebug() << "Could not replace if list length are not equal";
-        return string;
-    }
-
-    QString result = string;
-    for (int i = 0; i < from.count(); i++) {
-        result = result.replace(from.at(i), to.at(i));
-    }
-
-    qDebug() << "finished:" << result;
-
-    return result;
 }

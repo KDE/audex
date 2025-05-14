@@ -274,6 +274,22 @@ private:
     bool p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite = false);
     bool p_mkdir(const QString &absoluteFilePath);
     qreal p_size_of_all_files(const QStringList &filenames) const;
+
+    const QString defuse_for_filename(const QString &string) const
+    {
+        QString result = string;
+        for (int i = 0; i < result.size(); i++) {
+            switch (result[i].unicode()) {
+            case '/':
+            case '\\':
+                result[i] = '_';
+                break;
+            default:
+                break;
+            }
+        }
+        return result;
+    }
 };
 
 #endif

@@ -21,7 +21,6 @@ class CDDAExtractThread : public QThread
     Q_OBJECT
 public:
     CDDAExtractThread(QObject *parent, CDDACDIO *cdio);
-    ~CDDAExtractThread() override;
 
 public Q_SLOTS:
     void start();

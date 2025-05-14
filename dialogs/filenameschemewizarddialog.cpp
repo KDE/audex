@@ -158,7 +158,7 @@ bool FilenameSchemeWizardDialog::save()
 void FilenameSchemeWizardDialog::update_example()
 {
     SchemeParser schemeparser;
-    QString filename = schemeparser.parseFilenameScheme(ui.qlineedit_scheme->text(), 1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, false);
+    QString filename = schemeparser.parseFilenameScheme(ui.qlineedit_scheme->text(), 1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix);
     ui.qlineedit_example->setText(filename);
     ui.qlineedit_example->setCursorPosition(0);
 }

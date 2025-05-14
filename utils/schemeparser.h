@@ -5,11 +5,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PLACEHOLDERPARSER_H
-#define PLACEHOLDERPARSER_H
+#ifndef SCHEMEPARSER_H
+#define SCHEMEPARSER_H
 
 #include <QDate>
 #include <QDateTime>
+#include <QDebug>
 #include <QDesktopServices>
 #include <QDialog>
 #include <QDir>
@@ -19,6 +20,7 @@
 #include <QLocale>
 #include <QMetaType>
 #include <QObject>
+#include <QStandardPaths>
 #include <QTemporaryFile>
 
 #include <KLocalizedString>
@@ -58,13 +60,9 @@
 typedef QMap<QString, QVariant> Placeholders;
 typedef QMap<QString, Parameters> PlaceholdersParameters;
 
-class SchemeParser : public QObject
+class SchemeParser
 {
-    Q_OBJECT
 public:
-    explicit SchemeParser(QObject *parent = nullptr);
-    ~SchemeParser() override;
-
     // placeholders_parameters: return the actually found placeholders with their parameters as QMap
     const QString parseScheme(const QString &scheme, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters = nullptr);
 
@@ -81,8 +79,6 @@ public:
                                               const QString &genre,
                                               const QString &isrc,
                                               const QString &suffix,
-                                              const bool fat32compatible,
-                                              const bool replacespaceswithunderscores,
                                               const bool twodigitstracknum);
 
     const QString parsePerTrackCommandScheme(const QString &scheme,
@@ -112,8 +108,7 @@ public:
                                       const QString &title,
                                       const QString &date,
                                       const QString &genre,
-                                      const QString &suffix,
-                                      const bool fat32compatible);
+                                      const QString &suffix);
 
     void parseInfoTextScheme(QStringList &text,
                              const QString &artist,
@@ -126,12 +121,12 @@ public:
                              const int length,
                              const int nooftracks);
 
-    inline bool error() const
+    bool error() const
     {
         return !p_error_string.isEmpty();
     }
 
-    inline const QString errorString() const
+    const QString errorString() const
     {
         return p_error_string;
     }
@@ -242,6 +237,53 @@ public:
         return result;
     }
 
+    static const QString makeFAT32FilenameCompatible(const QString &string)
+    {
+        const QString invalidChars = R"(<>:"/\|?*)";
+        QString result;
+
+        for (QChar ch : string) {
+            if (invalidChars.contains(ch) || ch.unicode() < 0x20) {
+                result += '_';
+            } else {
+                result += ch;
+            }
+        }
+
+        static const QStringList reservedNames = {"CON",  "PRN",  "AUX",  "NUL",  "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7",
+                                                  "COM8", "COM9", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9"};
+
+        QString baseName = result.section('.', 0, 0).toUpper();
+        if (reservedNames.contains(baseName)) {
+            result = "_" + result;
+        }
+
+        if (result.length() > 255)
+            result = result.left(255);
+
+        return result;
+    }
+
+    static const QString replaceSpacesWithUnderscores(const QString &string)
+    {
+        QString result = string;
+        result.replace(' ', '_');
+        return result;
+    }
+
+    static const QString replaceCharList(const QString &from, const QString &to, const QString &string)
+    {
+        if (from.length() != to.length()) {
+            qDebug() << "Could not replace if list length are not equal";
+            return string;
+        }
+        QString result = string;
+        for (int i = 0; i < from.length(); i++) {
+            result = result.replace(from.at(i), to.at(i));
+        }
+        return result;
+    }
+
 Q_SIGNALS:
     void error(const QString &message, const QString &details = QString());
 
@@ -250,30 +292,12 @@ private:
 
     QString p_error_string;
 
-    inline const QString
-    customize_placeholder_value(const QString &string, bool fat32compatible = false, bool replacespaceswithunderscores = false)
+    const QString mask_inner_quotes(const QString &string) const
     {
-        QString tmp = string;
-        if (fat32compatible)
-            tmp = make_fat32_compatible(tmp);
-        else
-            tmp = make_compatible(tmp);
-        if (replacespaceswithunderscores)
-            tmp = replace_spaces_with_underscores(tmp);
-        return tmp;
+        QString result = string;
+        result.replace('"', "\\\"");
+        return result;
     }
-
-    inline const QString mask_inner_quotes(const QString &string)
-    {
-        QString s = string;
-        s = s.replace('"', "\\\"");
-        return s;
-    }
-
-    const QString make_compatible(const QString &string);
-    const QString make_fat32_compatible(const QString &string);
-    const QString replace_spaces_with_underscores(const QString &string);
-    const QString replace_char_list(const QString &from, const QString &to, const QString &string);
 };
 
 #endif

@@ -44,10 +44,6 @@ CDDAExtractThread::CDDAExtractThread(QObject *parent, CDDACDIO *cdio)
     silence.fill(0, CD_FRAMESIZE_RAW);
 }
 
-CDDAExtractThread::~CDDAExtractThread()
-{
-}
-
 void CDDAExtractThread::start()
 {
     QThread::start();
