@@ -19,7 +19,7 @@ EncoderWrapper::EncoderWrapper(QObject *parent, const QString &commandScheme, co
     connect(&proc, SIGNAL(readyReadStandardError()), this, SLOT(parseOutput()));
     connect(&proc, SIGNAL(readyReadStandardOutput()), this, SLOT(parseOutput()));
     connect(&proc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(processFinished(int, QProcess::ExitStatus)));
-    connect(&proc, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
+    connect(&proc, SIGNAL(errorOccurred(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
 
     proc.setOutputChannelMode(KProcess::SeparateChannels);
     proc.setReadChannel(KProcess::StandardError);
