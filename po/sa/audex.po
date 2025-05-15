@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2025-05-15 00:42+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -60,39 +60,47 @@ msgstr "आनेतुं आवरणस्य संख्या"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: audex.kcfg:37 widgets/devicewidgetUI.ui:45
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
 msgstr "पूर्ण व्यामोह मोड (सुरक्षित मोड)"
 
-#. i18n: ectx: label, entry (skipReadingErrors), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
-#: audex.kcfg:41 widgets/devicewidgetUI.ui:89
-#, kde-format
-msgid "Skip reading errors"
+#. i18n: ectx: label, entry (skipReadErrors), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:42
+#, fuzzy, kde-format
+#| msgid "Skip reading errors"
+msgid "Skip read errors"
+msgstr "पठनदोषान् त्यजन्तु"
+
+#. i18n: ectx: label, entry (retriesOnReadError), group (general)
+#: audex.kcfg:45
+#, fuzzy, kde-format
+#| msgid "Skip reading errors"
+msgid "Retries on read error"
 msgstr "पठनदोषान् त्यजन्तु"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:45
+#: audex.kcfg:51
 #, kde-format
 msgid "Sample offset"
 msgstr "नमूना ऑफसेट"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:51
+#: audex.kcfg:57
 #, kde-format
 msgid "Base path to store music files"
 msgstr "संगीतसञ्चिकानां संग्रहणार्थं आधारमार्गः"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:61 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "सर्वरे सञ्चिकाः अपलोड् कुर्वन्तु"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:59
+#: audex.kcfg:65
 #, kde-format
 msgid "URL of server"
 msgstr "सर्वरस्य URL"
@@ -129,159 +137,159 @@ msgstr "शीर्षकशुद्धिकरणसाधनम्"
 msgid "&Settings"
 msgstr "&सेटिंग्स"
 
-#: core/audex.cpp:100
+#: core/audex.cpp:101
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "कोऽपि प्रोफाइल चयनितः नास्ति। ऑपरेशन गर्भपात।"
 
-#: core/audex.cpp:112
+#: core/audex.cpp:113
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "\"%1\" प्रोफाइलेन सह रिपिंग् एन्कोडिंग् च आरभत..."
 
-#: core/audex.cpp:614 core/audex.cpp:674
+#: core/audex.cpp:619 core/audex.cpp:678
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "\"%1\" इति मार्गः न प्राप्यते ।"
 
-#: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
+#: core/audex.cpp:619 core/audex.cpp:678 core/audex.cpp:687 core/audex.cpp:1146
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "कृपया स्वमार्गं पश्यन्तु (लेखनप्रवेशः?)"
 
-#: core/audex.cpp:627
+#: core/audex.cpp:632
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\" इत्यत्र मुक्तस्थानं २०० MiB इत्यस्मात् न्यूनम् अस्ति ।"
 
-#: core/audex.cpp:633 core/audex.cpp:702
+#: core/audex.cpp:638 core/audex.cpp:706
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "चेतवानी! \"%1\" सञ्चिका पूर्वमेव अस्ति । अधिलेखनम् ।"
 
-#: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
+#: core/audex.cpp:640 core/audex.cpp:708 core/audex.cpp:1126
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "चेतवानी! \"%1\" सञ्चिका पूर्वमेव अस्ति । लङ्घनम्।"
 
-#: core/audex.cpp:683 core/audex.cpp:1118
+#: core/audex.cpp:687 core/audex.cpp:1146
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "\"%1\" पुटं निर्मातुं असमर्थम् ।"
 
-#: core/audex.cpp:686 core/audex.cpp:1121
+#: core/audex.cpp:690 core/audex.cpp:1149
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "\"%1\" पुटं सफलतया निर्मितम् ।"
 
-#: core/audex.cpp:689
+#: core/audex.cpp:693
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "\"%1\" पुटं पूर्वमेव अस्ति ।"
 
-#: core/audex.cpp:696
+#: core/audex.cpp:700
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\" इत्यत्र मुक्तस्थानं 800 MiB इत्यस्मात् न्यूनम् अस्ति ।"
 
-#: core/audex.cpp:719
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "अस्थायी पुटे \"%1\" त्रुटिः (%2) ।"
 
-#: core/audex.cpp:719
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please check."
 msgstr "कृपया जाँच करें।"
 
-#: core/audex.cpp:727
+#: core/audex.cpp:731
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "अस्थायीपुटे \"%1\" मुक्तस्थानं 800 MiB इत्यस्मात् न्यूनम् अस्ति ।"
 
-#: core/audex.cpp:729
+#: core/audex.cpp:733
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "अस्थायीपुटस्य \"%1\" इत्यस्य न्यूनातिन्यूनं २०० MiB मुक्तस्थानस्य आवश्यकता वर्तते ।"
 
-#: core/audex.cpp:729
+#: core/audex.cpp:733
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "कृपया स्थानं मुक्तं कुर्वन्तु अन्यं मार्गं वा स्थापयन्तु।"
 
-#: core/audex.cpp:758
+#: core/audex.cpp:762
 #, kde-format
 msgid "Eject CD tray"
 msgstr "सीडी ट्रे बहिः निष्कासयन्तु"
 
-#: core/audex.cpp:806
+#: core/audex.cpp:814
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "आवरणं \"%1\" सफलतया रक्षितम् ।"
 
-#: core/audex.cpp:809
+#: core/audex.cpp:817
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "\"%1\" आवरणं रक्षितुं असमर्थम् ।"
 
-#: core/audex.cpp:809 core/audex.cpp:883 core/audex.cpp:923 core/audex.cpp:970
-#: core/audex.cpp:1011 core/audex.cpp:1039 core/audex.cpp:1086
-#: core/audex.cpp:1113
+#: core/audex.cpp:817 core/audex.cpp:895 core/audex.cpp:940 core/audex.cpp:991
+#: core/audex.cpp:1034 core/audex.cpp:1067 core/audex.cpp:1114
+#: core/audex.cpp:1141
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "कृपया स्वमार्गं अनुमतिं च पश्यन्तु"
 
-#: core/audex.cpp:879
+#: core/audex.cpp:891
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "प्लेलिस्ट् \"%1\" सफलतया निर्मितम् ।"
 
-#: core/audex.cpp:883
+#: core/audex.cpp:895
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "\"%1\" इति प्लेलिस्ट् रक्षितुं असमर्थः ।"
 
-#: core/audex.cpp:920
+#: core/audex.cpp:937
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "सूचनासञ्चिका \"%1\" सफलतया निर्मितवती ।"
 
-#: core/audex.cpp:923
+#: core/audex.cpp:940
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "\"%1\" इति सूचनासञ्चिकां रक्षितुं असमर्थः ।"
 
-#: core/audex.cpp:967
+#: core/audex.cpp:988
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "हैशलिस्ट् \"%1\" सफलतया निर्मितम् ।"
 
-#: core/audex.cpp:970
+#: core/audex.cpp:991
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "\"%1\" इति हैशलिस्ट् रक्षितुं असमर्थः ।"
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1031
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "संकेतपत्रं \"%1\" सफलतया निर्मितम् ।"
 
-#: core/audex.cpp:1011
+#: core/audex.cpp:1034
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "\"%1\" इति संकेतपत्रं रक्षितुं असमर्थम् ।"
 
-#: core/audex.cpp:1036
+#: core/audex.cpp:1064
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
 msgstr "लॉग् सञ्चिका \"%1\" सफलतया संगृहीता ।"
 
-#: core/audex.cpp:1039
+#: core/audex.cpp:1067
 #, kde-format
 msgid "Unable to save log file \"%1\"."
 msgstr "\"%1\" इति लॉग् सञ्चिकां रक्षितुं असमर्थः ।"
 
-#: core/audex.cpp:1086 core/audex.cpp:1113
+#: core/audex.cpp:1114 core/audex.cpp:1141
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "\"%1\" इति पुटं उद्घाटयितुं असमर्थम् ।"
@@ -292,7 +300,7 @@ msgid "Edit Data"
 msgstr "Data सम्पादयतु"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1027
 #, kde-format
 msgid "Various Artists"
 msgstr "विभिन्न कलाकार"
@@ -1004,112 +1012,104 @@ msgstr "एकं सञ्चिकां लिखत"
 msgid "Filename Scheme Wizard"
 msgstr "सञ्चिकानाम योजना विजार्ड"
 
-#: main.cpp:25
+#: main.cpp:26
 #, kde-format
 msgid "Audex"
 msgstr "औडेक्स"
 
-#: main.cpp:25
+#: main.cpp:28
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
 msgstr "ऑडियो रिपिंग अनुप्रयोग"
 
-#: main.cpp:25
-#, kde-format
-msgid "Copyright © 2007-2023 Marco Nelles"
+#: main.cpp:30
+#, fuzzy, kde-format
+#| msgid "Copyright © 2007-2023 Marco Nelles"
+msgid "Copyright © 2007-2025 Marco Nelles"
 msgstr "प्रतिलिपि अधिकार © 2007-2023 मार्को नेल्स"
 
-#: main.cpp:28
+#: main.cpp:33
 #, kde-format
 msgid "Marco Nelles"
 msgstr "मार्को नेल्स"
 
-#: main.cpp:28
+#: main.cpp:33
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "वर्तमान परिपालकः, मुख्यविकासकः"
 
-#: main.cpp:29
+#: main.cpp:34
 #, kde-format
 msgid "Craig Drummond"
 msgstr "क्रेग ड्रमण्ड्"
 
-#: main.cpp:29
+#: main.cpp:34
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "GUI सुधारः, विकासः"
 
-#: main.cpp:30
+#: main.cpp:35
 #, kde-format
 msgid "Elson"
 msgstr "एल्सनः"
 
-#: main.cpp:30
+#: main.cpp:35
 #, kde-format
 msgid "development"
 msgstr "विकासः"
 
-#: main.cpp:31
+#: main.cpp:36
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:31
-#, kde-format
-msgid "Special thanks to former credativ GmbH (Germany) for support"
+#: main.cpp:36
+#, fuzzy, kde-format
+#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr "समर्थनार्थं पूर्व credativ GmbH (जर्मनी) इत्यस्य विशेषं धन्यवादः"
 
-#: main.cpp:32
-#, kde-format
-msgid "Xiph.Org Foundation"
-msgstr "Xiph.Org फाउण्डेशन"
-
-#: main.cpp:33
-#, kde-format
-msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-msgstr "Compact disc ripper प्रदातुं Xiph.Org Foundation इत्यस्य विशेषं धन्यवादः"
-
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "श्रीकान्त् कलवार्"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "skkalwar999@gmail.com"
 
-#: mainwindow.cpp:39
+#: mainwindow.cpp:35
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "ProfileModel वस्तु निर्मातुं असमर्थः ।"
 
-#: mainwindow.cpp:40 mainwindow.cpp:53
+#: mainwindow.cpp:36 mainwindow.cpp:49
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
 "आन्तरिकदोषः । स्वस्य हार्डवेयरं पश्यन्तु। यदि सर्वं ठीकं तर्हि कृपया दोषप्रतिवेदनं कुर्वन्तु।"
 
-#: mainwindow.cpp:53
+#: mainwindow.cpp:49
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "CDDAModel वस्तु निर्मातुं असमर्थः ।"
 
-#: mainwindow.cpp:131
+#: mainwindow.cpp:121
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "डिस्कसूचनासमूहः नास्ति। किं भवन्तः तत्त्वतः अग्रे गन्तुं इच्छन्ति ?"
 
-#: mainwindow.cpp:132
+#: mainwindow.cpp:122
 #, kde-format
 msgid "Disc information not found"
 msgstr "डिस्कसूचना न प्राप्ता"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:133
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1118,47 +1118,47 @@ msgstr ""
 "एकः सञ्चिका रिप् चयनितः परन्तु रिप् कर्तुं सर्वे ऑडियो ट्रैक चयनिताः न। किं भवन्तः तत्त्वतः "
 "अग्रे गन्तुं इच्छन्ति ?"
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "एकसञ्चिका-रिप्-कृते सर्वे श्रव्य-पट्टिकाः न चयनिताः"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:146
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "न कश्चित् आवरणं स्थापितं आसीत् । किं भवन्तः तत्त्वतः अग्रे गन्तुं इच्छन्ति ?"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Cover is empty"
 msgstr "आवरणं शून्यम् अस्ति"
 
-#: mainwindow.cpp:181
+#: mainwindow.cpp:171
 #, kde-format
 msgid "General settings"
 msgstr "सामान्य सेटिंग्स्"
 
-#: mainwindow.cpp:185
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Device settings"
 msgstr "उपकरणसेटिंग्स्"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Profiles"
 msgstr "प्रोफाइल"
 
-#: mainwindow.cpp:205
+#: mainwindow.cpp:186
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB सेटिंग्स्"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:189
 #, kde-format
 msgid "Remote Server"
 msgstr "दूरस्थः सर्वरः"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:228
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1167,17 +1167,17 @@ msgstr ""
 "CDDB अन्वेषणं विफलम्, निम्नलिखितदोषेण सह:\n"
 "%1"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:230
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "CDD लुकअप विफलता"
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:335
 #, kde-format
 msgid "Split titles"
 msgstr "उपाधि विभक्त"
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:336
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1188,117 +1188,117 @@ msgstr ""
 "\n"
 "विभाजकः :"
 
-#: mainwindow.cpp:384
+#: mainwindow.cpp:348
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "किं भवान् वास्तवमेव सर्वान् कलाकारान् उपाधिनाञ्च अदला-बदली कर्तुम् इच्छति?"
 
-#: mainwindow.cpp:385
+#: mainwindow.cpp:349
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "कलाकाराः उपाधिः च अदला-बदली कुर्वन्तु"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:363
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "किं भवन्तः सर्वेषां कलाकारानां शीर्षकाणां च पूंजीकरणं कर्तुम् इच्छन्ति वा?"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:364
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "कलाकारान् शीर्षकान् च पूंजीकृत्य स्थापयन्तु"
 
-#: mainwindow.cpp:414
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "किं भवन्तः वास्तवमेव ट्रैक कलाकारान् स्वयमेव पूरयितुम् इच्छन्ति?"
 
-#: mainwindow.cpp:415
+#: mainwindow.cpp:379
 #, kde-format
 msgid "Autofill artists"
 msgstr "ऑटोफिल कलाकार"
 
-#: mainwindow.cpp:442
+#: mainwindow.cpp:406
 #, kde-format
 msgid "Eject"
 msgstr "निष्कासनम्"
 
-#: mainwindow.cpp:449
+#: mainwindow.cpp:413
 #, kde-format
 msgid "Profile:"
 msgstr "रूपरेखा:"
 
-#: mainwindow.cpp:461
+#: mainwindow.cpp:425
 #, kde-format
 msgid "&Profile:"
 msgstr "&रूपरेखा:"
 
-#: mainwindow.cpp:467
+#: mainwindow.cpp:431
 #, kde-format
 msgid "Profile"
 msgstr "रूपरेखा"
 
-#: mainwindow.cpp:475
+#: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
 msgstr "उपानी"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
 msgstr "उपस्थापयतु"
 
-#: mainwindow.cpp:488
+#: mainwindow.cpp:452
 #, kde-format
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: mainwindow.cpp:495
+#: mainwindow.cpp:459
 #, kde-format
 msgid "Rip..."
 msgstr "शल्क..."
 
-#: mainwindow.cpp:504
+#: mainwindow.cpp:468
 #, kde-format
 msgid "Split Titles..."
 msgstr "विभाजित शीर्षक..."
 
-#: mainwindow.cpp:509
+#: mainwindow.cpp:473
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "कलाकार एवं शीर्षक अदला-बदली"
 
-#: mainwindow.cpp:514
+#: mainwindow.cpp:478
 #, kde-format
 msgid "Capitalize"
 msgstr "कैपिटल कर"
 
-#: mainwindow.cpp:519
+#: mainwindow.cpp:483
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "ऑटो फिल कलाकार"
 
-#: mainwindow.cpp:524
+#: mainwindow.cpp:488
 #, kde-format
 msgid "Select All Tracks"
 msgstr "All Tracks इति चिनोतु"
 
-#: mainwindow.cpp:529
+#: mainwindow.cpp:493
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "All Tracks अचयनं कुर्वन्तु"
 
-#: mainwindow.cpp:534
+#: mainwindow.cpp:498
 #, kde-format
 msgid "Invert Selection"
 msgstr "चयनं विपर्यययतु"
 
-#: models/cddamodel.cpp:21
+#: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "उपकरणानि वस्तु निर्मातुं असमर्थः।"
 
-#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1307,27 +1307,27 @@ msgstr ""
 "एषः आन्तरिकदोषः अस्ति। स्वस्य हार्डवेयरं पश्यन्तु। यदि सर्वं ठीकं तर्हि कृपया दोषप्रतिवेदनं "
 "कुर्वन्तु।"
 
-#: models/cddamodel.cpp:33
+#: models/cddamodel.cpp:32
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "KCDDB वस्तु निर्मातुं असमर्थः ।"
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "%1 पटलः"
 
-#: models/cddamodel.cpp:526
+#: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
 msgstr "सामान्याः चित्रस्वरूपाः"
 
-#: models/cddamodel.cpp:823
+#: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB व्यवहारः पूर्वमेव प्रचलति।"
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1336,7 +1336,7 @@ msgstr ""
 "CDDB व्यवहारः पूर्वमेव प्रचलति । कृपया यावत् समाप्तं न भवति तावत् प्रतीक्ष्य पुनः प्रयासं "
 "कुर्वन्तु ।"
 
-#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
+#: models/cddamodel.cpp:842 models/cddamodel.cpp:955
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1345,7 +1345,7 @@ msgstr ""
 "CDDB सर्वरेण सह त्रुटिः अस्ति । कृपया प्रतीक्ष्यताम् अथवा CDDB सर्वरस्य प्रशासकेन सह सम्पर्कं "
 "कुर्वन्तु ।"
 
-#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
+#: models/cddamodel.cpp:848 models/cddamodel.cpp:961
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1353,7 +1353,7 @@ msgid ""
 msgstr ""
 "CDDB सर्वरं न प्राप्नोति । स्वस्य जालपुटं पश्यन्तु। भवतु नाम CDDB सर्वरः अफलाइनः अस्ति ।"
 
-#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
+#: models/cddamodel.cpp:854 models/cddamodel.cpp:967
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1361,62 +1361,62 @@ msgid ""
 msgstr ""
 "कृपया प्रतीक्ष्यताम्, भवतु सर्वरः व्यस्तः अस्ति, अथवा CDDB सर्वरप्रशासकेन सह सम्पर्कं कुर्वन्तु ।"
 
-#: models/cddamodel.cpp:860
+#: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "कृपया CDDB सर्वर प्रशासकेन सह सम्पर्कं कुर्वन्तु।"
 
-#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
+#: models/cddamodel.cpp:862 models/cddamodel.cpp:972
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "एतत् न भवितुमर्हति। कृपया दोषप्रतिवेदनं कुर्वन्तु।"
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
+#: models/cddamodel.cpp:869 models/cddamodel.cpp:975
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "कृपया दोषप्रतिवेदनं कृत्वा CDDB सर्वरप्रशासकेन सह सम्पर्कं कुर्वन्तु ।"
 
-#: models/cddamodel.cpp:903
+#: models/cddamodel.cpp:902
 #, kde-format
 msgid "Unable to create CDIO object."
 msgstr "CDIO वस्तु निर्मातुं असमर्थः ।"
 
-#: models/cddamodel.cpp:983
+#: models/cddamodel.cpp:981
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "अस्य अर्थः अस्ति यत् CDDB दत्तांशकोशे कोऽपि दत्तांशः न प्राप्यते ।"
 
-#: models/cddamodel.cpp:1004
+#: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "CDDB Entry इति चिनोतु"
 
-#: models/cddamodel.cpp:1004
+#: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "CDDB प्रविष्टिं चिनोतु:"
 
-#: models/cddamodel.h:34
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
 msgstr "शल्क"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
 msgstr "मार्ग"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
 msgstr "कलाकार"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
 msgstr "शीर्षक"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
 msgstr "दैर्घ्यम्‌"
@@ -1601,238 +1601,155 @@ msgstr "एकस्य श्रव्यसञ्चिकायाः ना�
 msgid "Copy"
 msgstr "प्रतिलिपि"
 
-#: utils/cddacdio.cpp:45
-#, kde-format
-msgid "Device error (1)."
-msgstr "यन्त्रदोषः (१)।"
-
-#: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
-#: utils/cddacdio.cpp:530
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? Also check your permissions on "
-"\"%1\"."
-msgstr ""
-"स्वस्य यन्त्रं पश्यन्तु। किं वस्तुतः \"%1\" अस्ति ? \"%1\" इत्यत्र अपि स्वस्य अनुमतिः "
-"परीक्ष्यताम् ।"
-
-#: utils/cddacdio.cpp:52
-#, kde-format
-msgid "Device error (2)."
-msgstr "यन्त्रदोषः (2)।"
-
-#: utils/cddacdio.cpp:60
-#, kde-format
-msgid "Device error (3)."
-msgstr "यन्त्रदोषः (3)।"
-
-#: utils/cddacdio.cpp:446
-#, kde-format
-msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
-msgstr "ट्रैक --, आरम्भ क्षेत्र: 000000, क्षेत्रेषु आकार: 000150, प्रकार: लीड-इन"
-
-#: utils/cddacdio.cpp:473
-#, kde-format
-msgid "Audio"
-msgstr "श्रव्यः"
-
-#: utils/cddacdio.cpp:476
-#, kde-format
-msgid "Non-Audio: CD-i"
-msgstr "अश्रव्यः सीडी-i"
-
-#: utils/cddacdio.cpp:479
-#, kde-format
-msgid "Non-Audio: Data mode 2"
-msgstr "अश्रव्यः : दत्तांशविधिः २"
-
-#: utils/cddacdio.cpp:481
-#, kde-format
-msgid ", form 1"
-msgstr ", रूपम् १"
-
-#: utils/cddacdio.cpp:483
-#, kde-format
-msgid ", form 2"
-msgstr ", रूपम् २"
-
-#: utils/cddacdio.cpp:486
-#, kde-format
-msgid "Non-Audio: Data mode 1"
-msgstr "गैर-श्रव्यः : आँकडा मोड 1"
-
-#: utils/cddacdio.cpp:489
-#, kde-format
-msgid "Non-Audio: Playstation 1"
-msgstr "गैर-श्रव्यः : प्लेस्टेशन 1"
-
-#: utils/cddacdio.cpp:492
-#, kde-format
-msgid "Non-Audio: Unknown format"
-msgstr "अश्रव्यः अज्ञातः प्रारूपः"
-
-#: utils/cddacdio.cpp:496
-#, kde-format
-msgid "Lead-out"
-msgstr "लीड-आउट्"
-
-#: utils/cddacdio.cpp:498
-#, kde-format
-msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr "%1 ट्रैक कुर्वन्तु, क्षेत्रं आरभत: %2, क्षेत्रेषु आकारः: %3, प्रकारः: %4"
-
-#: utils/cddacdio.cpp:529
-#, kde-format
-msgid ""
-"Could not get device hardware information (vendor, model and firmware "
-"revision)."
-msgstr "उपकरणहार्डवेयरसूचना (विक्रेता, मॉडलः, फर्मवेयरपुनरीक्षणं च) प्राप्तुं न शक्तवान् ।"
-
-#: utils/cddadevices.cpp:86
+#: utils/cddadevices.cpp:84
 #, kde-format
 msgid "Audio Disc"
 msgstr "ऑडियो डिस्क"
 
-#: utils/cddaextractthread.cpp:27
-#, kde-format
-msgid "Internal device error."
-msgstr "आन्तरिकयन्त्रदोषः।"
-
-#: utils/cddaextractthread.cpp:27
-#, kde-format
-msgid "Check your device and make a bug report."
-msgstr "स्वयन्त्रं पश्यन्तु, दोषप्रतिवेदनं च कुर्वन्तु ।"
-
-#: utils/cddaextractthread.cpp:71
-#, kde-format
-msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-msgstr "ड्राइव् विक्रेता: %1, ड्राइव् मॉडल्: %2, ड्राइव् पुनरीक्षणम्: %3"
-
-#: utils/cddaextractthread.cpp:72
+#: utils/cddaextractthread.cpp:62
 #, kde-format
 msgid "TOC:"
 msgstr "TOC: टी.ओ.सी."
 
-#: utils/cddaextractthread.cpp:86
-#, kde-format
-msgid "Extracting finished."
-msgstr "निष्कासनं समाप्तम्।"
-
-#: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
-#, kde-format
-msgid "Error occured while seeking at sector %1: %2"
-msgstr "%1: %2 इत्यत्र अन्वेषणकाले त्रुटिः अभवत्"
-
-#: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
-#, kde-format
-msgid "An error occured while ripping track %1. See log."
-msgstr "%1 इति ट्रैकं रिप् कुर्वन् त्रुटिः अभवत् । लॉग् पश्यन्तु।"
-
-#: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
-#, kde-format
-msgid "An error occured while ripping. See log."
-msgstr "रिपिंग् करणकाले त्रुटिः अभवत् । लॉग् पश्यन्तु।"
-
-#: utils/cddaextractthread.cpp:121
-#, kde-format
-msgid "Correction sample offset: %1"
-msgstr "सुधार नमूना ऑफसेट्: %1"
-
-#: utils/cddaextractthread.cpp:129
-#, kde-format
-msgid "Fetching extra information from disc..."
-msgstr "डिस्कतः अतिरिक्तसूचनाः आनयन्..."
-
-#: utils/cddaextractthread.cpp:131
-#, kde-format
-msgid "Fetching subchannel infos from disc"
-msgstr "डिस्कतः उपचैनल इन्फोस् आनयन्"
-
-#: utils/cddaextractthread.cpp:135
-#, kde-format
-msgid "Ripping track %1 (%2:%3)..."
-msgstr "रिपिंग ट्रैक %1 (%2:%3)..."
-
-#: utils/cddaextractthread.cpp:136
-#, kde-format
-msgid "Start reading track %1 with %2 sectors"
+#: utils/cddaextractthread.cpp:87
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping track %1 with length %2..."
 msgstr "%2 सेक्टर् इत्यनेन सह %1 इति ट्रैकं पठितुं आरभत"
 
-#: utils/cddaextractthread.cpp:138
-#, kde-format
-msgid "Ripping whole disc (%1:%2)..."
-msgstr "सम्पूर्ण डिस्क (%1:%2) रिपिंग..."
+#: utils/cddaextractthread.cpp:88
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Sample shift: %1"
+msgstr "नमूना ऑफसेटः :"
 
-#: utils/cddaextractthread.cpp:139
-#, kde-format
-msgid "Start reading whole disc with %1 sectors"
-msgstr "%1 सेक्टर् इत्यनेन सह सम्पूर्णं डिस्कं पठितुं आरभत"
-
-#: utils/cddaextractthread.cpp:140
-#, kde-format
-msgid "Track %1 with start sector %2"
-msgstr "%1 प्रारम्भक्षेत्र %2 इत्यनेन सह अनुसरणं कुर्वन्तु"
-
-#: utils/cddaextractthread.cpp:143
-#, kde-format
-msgid "First sector: %1, Last sector: %2"
-msgstr "प्रथमक्षेत्रम् : %1, अन्तिमक्षेत्रम् : %2"
-
-#: utils/cddaextractthread.cpp:164
+#: utils/cddaextractthread.cpp:166
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "सेक्टर %1 (track time pos %2) पठन् त्रुटिः अभवत्: %3"
 
-#: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
+#: utils/cddaextractthread.cpp:173 utils/cddaextractthread.cpp:181
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "%2 स्थाने %1 इति ट्रैकं रिप् कुर्वन् त्रुटिः अभवत् । लॉग् पश्यन्तु।"
 
-#: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
-#: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
+#: utils/cddaextractthread.cpp:175 utils/cddaextractthread.cpp:183
+#: utils/cddaextractthread.cpp:190 utils/cddaextractthread.cpp:192
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
 msgstr "%1 स्थाने रिप् करणकाले त्रुटिः अभवत् । लॉग् पश्यन्तु।"
 
-#: utils/cddaextractthread.cpp:189
+#: utils/cddaextractthread.cpp:188
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "क्षेत्र %1 पठने त्रुटिः (track time pos %2)"
 
-#: utils/cddaextractthread.cpp:200
+#: utils/cddaextractthread.cpp:198
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr "%1 (%2) इति क्षेत्रं पठने त्रुटिः: **समग्रं क्षेत्रं मौनेन पूरयति**"
 
-#: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
+#: utils/cddaextractthread.cpp:239 utils/cddaextractthread.cpp:240
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr "त्रुटिकारणात् रिपिङ्ग् रद्दं जातम् ।"
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:242
 #, kde-format
 msgid "User canceled extracting."
 msgstr "उपयोक्ता निष्कासनं रद्दं कृतवान्।"
 
-#: utils/cddaextractthread.cpp:255
+#: utils/cddaextractthread.cpp:243
 #, kde-format
 msgid "Extraction interrupted"
 msgstr "निष्कर्षणं बाधितम्"
 
-#: utils/cddaextractthread.cpp:258
+#: utils/cddaextractthread.cpp:246
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "रिपिंग ठीकम् (Track %1)।"
 
-#: utils/cddaextractthread.cpp:260
+#: utils/cddaextractthread.cpp:248
 #, kde-format
 msgid "Ripping OK."
 msgstr "रिपिंग ठीकम्।"
 
-#: utils/cddaextractthread.cpp:262
+#: utils/cddaextractthread.cpp:250
+#, fuzzy, kde-format
+#| msgid "Cover \"%1\" successfully saved."
+msgid "Ripping of track %1 successfully finished"
+msgstr "आवरणं \"%1\" सफलतया रक्षितम् ।"
+
+#: utils/cddaparanoia.cpp:20
+#, fuzzy, kde-format
+#| msgid "Device error (1)."
+msgid "Device error."
+msgstr "यन्त्रदोषः (१)।"
+
+#: utils/cddaparanoia.cpp:20
+#, fuzzy, kde-format
+#| msgid "Check your device and make a bug report."
+msgid "Check your device on \"%1\"."
+msgstr "स्वयन्त्रं पश्यन्तु, दोषप्रतिवेदनं च कुर्वन्तु ।"
+
+#: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
+#: utils/cddaparanoia.cpp:40
+#, fuzzy, kde-format
+#| msgid "Device error (1)."
+msgid "Disc error."
+msgstr "यन्त्रदोषः (१)।"
+
+#: utils/cddaparanoia.cpp:30
 #, kde-format
-msgid "Ripping finished"
-msgstr "रिपिंग् समाप्तम्"
+msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
+msgstr ""
+
+#: utils/cddaparanoia.cpp:34
+#, kde-format
+msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
+msgstr ""
+
+#: utils/cddaparanoia.cpp:40
+#, kde-format
+msgid "Unspecified drive error on \"%1\"."
+msgstr ""
+
+#: utils/cddaparanoia.cpp:47
+#, fuzzy, kde-format
+#| msgid "Device error (1)."
+msgid "Drive/Disc error."
+msgstr "यन्त्रदोषः (१)।"
+
+#: utils/cddaparanoia.cpp:47
+#, kde-format
+msgid "Unspecified drive or disc error on \"%1\"."
+msgstr ""
+
+#: utils/cddaparanoia.cpp:323
+#, kde-format
+msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
+msgstr "ट्रैक --, आरम्भ क्षेत्र: 000000, क्षेत्रेषु आकार: 000150, प्रकार: लीड-इन"
+
+#: utils/cddaparanoia.cpp:348
+#, kde-format
+msgid "Audio"
+msgstr "श्रव्यः"
+
+#: utils/cddaparanoia.cpp:350
+#, fuzzy, kde-format
+#| msgid "Non-Audio: CD-i"
+msgid "Non-Audio"
+msgstr "अश्रव्यः सीडी-i"
+
+#: utils/cddaparanoia.cpp:354
+#, kde-format
+msgid "Lead-out"
+msgstr "लीड-आउट्"
+
+#: utils/cddaparanoia.cpp:356
+#, kde-format
+msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
+msgstr "%1 ट्रैक कुर्वन्तु, क्षेत्रं आरभत: %2, क्षेत्रेषु आकारः: %3, प्रकारः: %4"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1969,12 +1886,12 @@ msgstr "%1 अनुक्रमणिकायां अवैधवर्ण�
 msgid "Unclosed quote found"
 msgstr "अनिमीलित उद्धरणं प्राप्तम्"
 
-#: utils/schemeparser.cpp:77
+#: utils/schemeparser.cpp:65
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "%1: %2 अनुक्रमणिकायां अवैधवर्णः प्राप्तः"
 
-#: utils/schemeparser.cpp:128
+#: utils/schemeparser.cpp:116
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -1983,17 +1900,17 @@ msgstr ""
 "replace_char_list पैरामीटर् इत्यस्य समानाकारेन replace_char_list_from तथा "
 "replace_char_list_to इत्येतयोः द्वयोः अपि पैरामीटर् आवश्यकम् ।"
 
-#: utils/schemeparser.cpp:274
+#: utils/schemeparser.cpp:262
 #, kde-format
 msgid "Unclosed brace."
 msgstr "अनिमीलित ब्रेसिज़।"
 
-#: utils/schemeparser.cpp:428
+#: utils/schemeparser.cpp:414
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "अस्थायी आवरणसञ्चिकां निर्मातुं न शक्तम्: %1"
 
-#: utils/schemeparser.h:155
+#: utils/schemeparser.h:150
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2026,7 +1943,7 @@ msgstr ""
 "td><td> एन्कोडरस्य नाम संस्करणं च ।</td></tr><tr><td> <tt>$audex</tt></td><td> "
 "औडेक्स नाम संस्करणं च।</td></tr></table>"
 
-#: utils/schemeparser.h:172
+#: utils/schemeparser.h:167
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2080,7 +1997,7 @@ msgstr ""
 "td><td> सूत्र</td><td> एकं स्ट्रिंग् यत् मूल्यस्य <b>अनन्तरं</b> स्थापितं भविष्यति ।</td></"
 "tr></table>"
 
-#: utils/schemeparser.h:193
+#: utils/schemeparser.h:188
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2100,7 +2017,7 @@ msgstr ""
 "ट्रैकस्य अन्तर्राष्ट्रीयमानक-अभिलेखन-सङ्केतः (ISRC) (केवलं उपलब्धः यदा भवतः उपकरणेन "
 "समर्थितः अस्ति) ।</td></tr></table>"
 
-#: utils/schemeparser.h:205
+#: utils/schemeparser.h:200
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2127,7 +2044,7 @@ msgstr ""
 "(पूर्वनिर्धारितम्: JPEG) सन्ति । <i><b>नोट्:</b> LAME 128 KiB इत्यस्मात् बृहत्तराणि "
 "कवरसञ्चिकाः परित्यजति ।</i></td></tr></table>"
 
-#: utils/schemeparser.h:219
+#: utils/schemeparser.h:214
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2184,42 +2101,42 @@ msgstr "%1 सञ्चिकां सर्वरे अपलोड् कर
 msgid "Finished uploading file %1 to server."
 msgstr "%1 सञ्चिकां सर्वरे अपलोड् करणं समाप्तम् ।"
 
-#: widgets/cddaheaderwidget.cpp:133
+#: widgets/cddaheaderwidget.cpp:131
 #, kde-format
 msgid "CD Number: "
 msgstr "सीडी संख्या : "
 
-#: widgets/cddaheaderwidget.cpp:147
+#: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "No audio CD detected"
 msgstr "कोऽपि श्रव्यसीडी न ज्ञाता"
 
-#: widgets/cddaheaderwidget.cpp:260
+#: widgets/cddaheaderwidget.cpp:243
 #, kde-format
 msgid "Load Cover"
 msgstr "भार आवरण"
 
-#: widgets/cddaheaderwidget.cpp:270 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:253 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "आवरणं रक्षतु"
 
-#: widgets/cddaheaderwidget.cpp:350
+#: widgets/cddaheaderwidget.cpp:330
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "कस्टम कवर सेट् करें..."
 
-#: widgets/cddaheaderwidget.cpp:355
+#: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "कवरं सञ्चिकायां रक्षन्तु..."
 
-#: widgets/cddaheaderwidget.cpp:360
+#: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "पूर्ण आकार आवरणं दर्शयतु..."
 
-#: widgets/cddaheaderwidget.cpp:365
+#: widgets/cddaheaderwidget.cpp:345
 #, kde-format
 msgid "Remove Cover"
 msgstr "आवरणं निष्कासयतु"
@@ -2230,24 +2147,14 @@ msgstr "आवरणं निष्कासयतु"
 msgid "Command Scheme:"
 msgstr "आदेश योजना :"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Model)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
-#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
-#, kde-format
-msgid "(No disc detected)"
-msgstr "(कोऽपि चक्रः न ज्ञातः)"
-
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:36
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "उपकरणम्‌"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: widgets/devicewidgetUI.ui:42
+#: widgets/devicewidgetUI.ui:29
 #, kde-format
 msgid ""
 "<html><head/><body><p>Use some special techniques to reduce the chance of "
@@ -2259,80 +2166,57 @@ msgstr ""
 "उपयोगं कुर्वन्तु। रिपिंगवेगस्य व्ययेन अधिकसुरक्षितपठनप्रक्रियायाः कृते नयति, अतः &quot;"
 "सुरक्षितमोड्&quot; इति अपि उच्यते ।</p></body></html>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
+#: widgets/devicewidgetUI.ui:39
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
+#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
+#| "times. Usually broken sectors will be filled with silence.</p></body></"
+#| "html>"
+msgid ""
+"<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
+"second) after retrying to read it. Please specify the number of retry "
+"attempts under <span style=\" font-style:italic;\">Retries on read error</"
+"span>. If skipped, null samples will be written for the faulty sectors.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>अधिकतमं २० वारं पुनः क्षेत्रं पठितुं प्रयत्नस्य अनन्तरं कस्यचित् "
+"क्षेत्रस्य (क्षेत्रस्य दीर्घता: १/७५ सेकण्ड्) पठनदोषान् त्यजन्तु । प्रायः भग्नक्षेत्राणि मौनेन "
+"पूरितानि भविष्यन्ति।</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
+#: widgets/devicewidgetUI.ui:51 widgets/devicewidgetUI.ui:61
+#, kde-format
+msgid ""
+"<html><head/><body><p>Some drives have a sample offset when reading audio "
+"CDs. To determine the correct offset for your drive model, you can check the "
+"<a href=\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
+"p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample offset:"
 msgstr "नमूना ऑफसेटः :"
 
-#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
-#: widgets/devicewidgetUI.ui:86
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
+#: widgets/devicewidgetUI.ui:91 widgets/devicewidgetUI.ui:101
 #, kde-format
 msgid ""
-"<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
-"1/75 second) after trying to read the sector again for at most 20 times. "
-"Usually broken sectors will be filled with silence.</p></body></html>"
+"<html><head/><body><p>Specify the maximum number of retry attempts when a "
+"faulty sector is encountered.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>अधिकतमं २० वारं पुनः क्षेत्रं पठितुं प्रयत्नस्य अनन्तरं कस्यचित् "
-"क्षेत्रस्य (क्षेत्रस्य दीर्घता: १/७५ सेकण्ड्) पठनदोषान् त्यजन्तु । प्रायः भग्नक्षेत्राणि मौनेन "
-"पूरितानि भविष्यन्ति।</p></body></html>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
-#: widgets/devicewidgetUI.ui:99
-#, kde-format
-msgid "Device information"
-msgstr "यन्त्रसूचना"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Vendor:"
-msgstr "व:"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
-#: widgets/devicewidgetUI.ui:179
-#, kde-format
-msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr "भवतः उपकरणं डिस्कस्य Media Catalog Number (MCN) पठितुं शक्नोति ।"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
-#: widgets/devicewidgetUI.ui:182
-#, kde-format
-msgid "Can read Media Catalog Number (MCN)"
-msgstr "मीडिया सूचीसङ्ख्या (MCN) पठितुं शक्नोति ।"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:214
+#: widgets/devicewidgetUI.ui:94
 #, kde-format
-msgid "Revision:"
-msgstr "कार्यदर्शन:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:224
-#, kde-format
-msgid "C2 error correction available"
-msgstr "C2 त्रुटिशुद्धिकरणं उपलब्धम्"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:246
-#, kde-format
-msgid "Model:"
-msgstr "प्रतिकृति:"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
-#: widgets/devicewidgetUI.ui:256
-#, kde-format
-msgid ""
-"Your device can read the International Standard Recording Code of every "
-"single track."
+msgid "Retries on read error:"
 msgstr ""
-"भवतः उपकरणं प्रत्येकस्य एकस्य पटलस्य अन्तर्राष्ट्रीयमानक-अभिलेखन-सङ्केतं पठितुं शक्नोति ।"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
-#: widgets/devicewidgetUI.ui:259
-#, kde-format
-msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr "पठितुं शक्नोति Intern. मानक अभिलेखन संहिता (ISRC) 1.1."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2587,3 +2471,124 @@ msgstr "रक्ष्..."
 #, kde-format
 msgid "URL:"
 msgstr "URL: 1.1."
+
+#~ msgid "Xiph.Org Foundation"
+#~ msgstr "Xiph.Org फाउण्डेशन"
+
+#~ msgid ""
+#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
+#~ msgstr "Compact disc ripper प्रदातुं Xiph.Org Foundation इत्यस्य विशेषं धन्यवादः"
+
+#~ msgid ""
+#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
+#~ "\"%1\"."
+#~ msgstr ""
+#~ "स्वस्य यन्त्रं पश्यन्तु। किं वस्तुतः \"%1\" अस्ति ? \"%1\" इत्यत्र अपि स्वस्य अनुमतिः "
+#~ "परीक्ष्यताम् ।"
+
+#~ msgid "Device error (2)."
+#~ msgstr "यन्त्रदोषः (2)।"
+
+#~ msgid "Device error (3)."
+#~ msgstr "यन्त्रदोषः (3)।"
+
+#~ msgid "Non-Audio: Data mode 2"
+#~ msgstr "अश्रव्यः : दत्तांशविधिः २"
+
+#~ msgid ", form 1"
+#~ msgstr ", रूपम् १"
+
+#~ msgid ", form 2"
+#~ msgstr ", रूपम् २"
+
+#~ msgid "Non-Audio: Data mode 1"
+#~ msgstr "गैर-श्रव्यः : आँकडा मोड 1"
+
+#~ msgid "Non-Audio: Playstation 1"
+#~ msgstr "गैर-श्रव्यः : प्लेस्टेशन 1"
+
+#~ msgid "Non-Audio: Unknown format"
+#~ msgstr "अश्रव्यः अज्ञातः प्रारूपः"
+
+#~ msgid ""
+#~ "Could not get device hardware information (vendor, model and firmware "
+#~ "revision)."
+#~ msgstr "उपकरणहार्डवेयरसूचना (विक्रेता, मॉडलः, फर्मवेयरपुनरीक्षणं च) प्राप्तुं न शक्तवान् ।"
+
+#~ msgid "Internal device error."
+#~ msgstr "आन्तरिकयन्त्रदोषः।"
+
+#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
+#~ msgstr "ड्राइव् विक्रेता: %1, ड्राइव् मॉडल्: %2, ड्राइव् पुनरीक्षणम्: %3"
+
+#~ msgid "Extracting finished."
+#~ msgstr "निष्कासनं समाप्तम्।"
+
+#~ msgid "Error occured while seeking at sector %1: %2"
+#~ msgstr "%1: %2 इत्यत्र अन्वेषणकाले त्रुटिः अभवत्"
+
+#~ msgid "An error occured while ripping track %1. See log."
+#~ msgstr "%1 इति ट्रैकं रिप् कुर्वन् त्रुटिः अभवत् । लॉग् पश्यन्तु।"
+
+#~ msgid "An error occured while ripping. See log."
+#~ msgstr "रिपिंग् करणकाले त्रुटिः अभवत् । लॉग् पश्यन्तु।"
+
+#~ msgid "Correction sample offset: %1"
+#~ msgstr "सुधार नमूना ऑफसेट्: %1"
+
+#~ msgid "Fetching extra information from disc..."
+#~ msgstr "डिस्कतः अतिरिक्तसूचनाः आनयन्..."
+
+#~ msgid "Fetching subchannel infos from disc"
+#~ msgstr "डिस्कतः उपचैनल इन्फोस् आनयन्"
+
+#~ msgid "Ripping track %1 (%2:%3)..."
+#~ msgstr "रिपिंग ट्रैक %1 (%2:%3)..."
+
+#~ msgid "Ripping whole disc (%1:%2)..."
+#~ msgstr "सम्पूर्ण डिस्क (%1:%2) रिपिंग..."
+
+#~ msgid "Start reading whole disc with %1 sectors"
+#~ msgstr "%1 सेक्टर् इत्यनेन सह सम्पूर्णं डिस्कं पठितुं आरभत"
+
+#~ msgid "Track %1 with start sector %2"
+#~ msgstr "%1 प्रारम्भक्षेत्र %2 इत्यनेन सह अनुसरणं कुर्वन्तु"
+
+#~ msgid "First sector: %1, Last sector: %2"
+#~ msgstr "प्रथमक्षेत्रम् : %1, अन्तिमक्षेत्रम् : %2"
+
+#~ msgid "Ripping finished"
+#~ msgstr "रिपिंग् समाप्तम्"
+
+#~ msgid "(No disc detected)"
+#~ msgstr "(कोऽपि चक्रः न ज्ञातः)"
+
+#~ msgid "Device information"
+#~ msgstr "यन्त्रसूचना"
+
+#~ msgid "Vendor:"
+#~ msgstr "व:"
+
+#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+#~ msgstr "भवतः उपकरणं डिस्कस्य Media Catalog Number (MCN) पठितुं शक्नोति ।"
+
+#~ msgid "Can read Media Catalog Number (MCN)"
+#~ msgstr "मीडिया सूचीसङ्ख्या (MCN) पठितुं शक्नोति ।"
+
+#~ msgid "Revision:"
+#~ msgstr "कार्यदर्शन:"
+
+#~ msgid "C2 error correction available"
+#~ msgstr "C2 त्रुटिशुद्धिकरणं उपलब्धम्"
+
+#~ msgid "Model:"
+#~ msgstr "प्रतिकृति:"
+
+#~ msgid ""
+#~ "Your device can read the International Standard Recording Code of every "
+#~ "single track."
+#~ msgstr ""
+#~ "भवतः उपकरणं प्रत्येकस्य एकस्य पटलस्य अन्तर्राष्ट्रीयमानक-अभिलेखन-सङ्केतं पठितुं शक्नोति ।"
+
+#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
+#~ msgstr "पठितुं शक्नोति Intern. मानक अभिलेखन संहिता (ISRC) 1.1."

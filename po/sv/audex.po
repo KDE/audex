@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2025-05-15 00:42+0000\n"
 "PO-Revision-Date: 2024-06-16 19:31+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -59,39 +59,47 @@ msgstr "Antal omslag att hämta"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: audex.kcfg:37 widgets/devicewidgetUI.ui:45
+#: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
 msgstr "Fullständigt paranoialäge (säkert läge)"
 
-#. i18n: ectx: label, entry (skipReadingErrors), group (general)
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadingErrors)
-#: audex.kcfg:41 widgets/devicewidgetUI.ui:89
-#, kde-format
-msgid "Skip reading errors"
+#. i18n: ectx: label, entry (skipReadErrors), group (general)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
+#: audex.kcfg:41 widgets/devicewidgetUI.ui:42
+#, fuzzy, kde-format
+#| msgid "Skip reading errors"
+msgid "Skip read errors"
+msgstr "Hoppa över läsfel"
+
+#. i18n: ectx: label, entry (retriesOnReadError), group (general)
+#: audex.kcfg:45
+#, fuzzy, kde-format
+#| msgid "Skip reading errors"
+msgid "Retries on read error"
 msgstr "Hoppa över läsfel"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
-#: audex.kcfg:45
+#: audex.kcfg:51
 #, kde-format
 msgid "Sample offset"
 msgstr "Samplingsposition"
 
 #. i18n: ectx: label, entry (basePath), group (general)
-#: audex.kcfg:51
+#: audex.kcfg:57
 #, kde-format
 msgid "Base path to store music files"
 msgstr "Grundsökväg för att lagra musikfiler"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#: audex.kcfg:55 widgets/remoteserversettingswidgetUI.ui:23
+#: audex.kcfg:61 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
 msgstr "Ladda upp filer till server"
 
 #. i18n: ectx: label, entry (url), group (general)
-#: audex.kcfg:59
+#: audex.kcfg:65
 #, kde-format
 msgid "URL of server"
 msgstr "Serverns webbadress"
@@ -128,159 +136,159 @@ msgstr "Verktyg för korrigering av titel"
 msgid "&Settings"
 msgstr "In&ställningar"
 
-#: core/audex.cpp:100
+#: core/audex.cpp:101
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "Ingen profil vald. Åtgärden avbryts."
 
-#: core/audex.cpp:112
+#: core/audex.cpp:113
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Börja lagra och koda med profilen \"%1\"..."
 
-#: core/audex.cpp:614 core/audex.cpp:674
+#: core/audex.cpp:619 core/audex.cpp:678
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Kan inte hitta sökvägen \"%1\"."
 
-#: core/audex.cpp:614 core/audex.cpp:674 core/audex.cpp:683 core/audex.cpp:1118
+#: core/audex.cpp:619 core/audex.cpp:678 core/audex.cpp:687 core/audex.cpp:1146
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Kontrollera sökvägen (skrivåtkomst?)"
 
-#: core/audex.cpp:627
+#: core/audex.cpp:632
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Ledigt utrymme på \"%1\" är mindre än 200 Mibyte."
 
-#: core/audex.cpp:633 core/audex.cpp:702
+#: core/audex.cpp:638 core/audex.cpp:706
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Varning: Filen \"%1\" finns redan. Skriver över den."
 
-#: core/audex.cpp:635 core/audex.cpp:704 core/audex.cpp:1098
+#: core/audex.cpp:640 core/audex.cpp:708 core/audex.cpp:1126
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Varning: Filen \"%1\" finns redan. Hoppar över den."
 
-#: core/audex.cpp:683 core/audex.cpp:1118
+#: core/audex.cpp:687 core/audex.cpp:1146
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Kunde inte skapa katalogen \"%1\"."
 
-#: core/audex.cpp:686 core/audex.cpp:1121
+#: core/audex.cpp:690 core/audex.cpp:1149
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Katalogen \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:689
+#: core/audex.cpp:693
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Katalogen \"%1\" finns redan."
 
-#: core/audex.cpp:696
+#: core/audex.cpp:700
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Ledigt utrymme på \"%1\" är mindre än 800 Mibyte."
 
-#: core/audex.cpp:719
+#: core/audex.cpp:723
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Fel för tillfällig katalog \"%1\" (%2)."
 
-#: core/audex.cpp:719
+#: core/audex.cpp:723
 #, kde-format
 msgid "Please check."
 msgstr "Kontrollera."
 
-#: core/audex.cpp:727
+#: core/audex.cpp:731
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "Ledigt utrymme i tillfällig katalog \"%1\" är mindre än 800 Mibyte."
 
-#: core/audex.cpp:729
+#: core/audex.cpp:733
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "Tillfällig katalog \"%1\" behöver minst 200 Mibyte ledigt utrymme."
 
-#: core/audex.cpp:729
+#: core/audex.cpp:733
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Frigör utrymme eller välj en annan sökväg."
 
-#: core/audex.cpp:758
+#: core/audex.cpp:762
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Mata ut cd"
 
-#: core/audex.cpp:806
+#: core/audex.cpp:814
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Omslaget \"%1\" sparades med lyckat resultat."
 
-#: core/audex.cpp:809
+#: core/audex.cpp:817
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Kunde inte spara omslaget \"%1\"."
 
-#: core/audex.cpp:809 core/audex.cpp:883 core/audex.cpp:923 core/audex.cpp:970
-#: core/audex.cpp:1011 core/audex.cpp:1039 core/audex.cpp:1086
-#: core/audex.cpp:1113
+#: core/audex.cpp:817 core/audex.cpp:895 core/audex.cpp:940 core/audex.cpp:991
+#: core/audex.cpp:1034 core/audex.cpp:1067 core/audex.cpp:1114
+#: core/audex.cpp:1141
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Kontrollera sökvägen och rättigheter"
 
-#: core/audex.cpp:879
+#: core/audex.cpp:891
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Spellistan \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:883
+#: core/audex.cpp:895
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Kunde inte spara spellistan \"%1\"."
 
-#: core/audex.cpp:920
+#: core/audex.cpp:937
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Informationsfilen \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:923
+#: core/audex.cpp:940
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Kunde inte spara informationsfilen \"%1\"."
 
-#: core/audex.cpp:967
+#: core/audex.cpp:988
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Checksummelistan \"%1\" skapad med lyckat resultat."
 
-#: core/audex.cpp:970
+#: core/audex.cpp:991
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Kunde inte spara checksummelistan \"%1\"."
 
-#: core/audex.cpp:1008
+#: core/audex.cpp:1031
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Indexbladet \"%1\" skapa med lyckat resultat."
 
-#: core/audex.cpp:1011
+#: core/audex.cpp:1034
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Kunde inte spara indexbladet \"%1\"."
 
-#: core/audex.cpp:1036
+#: core/audex.cpp:1064
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
 msgstr "Loggfilen \"%1\" lagrad med lyckat resultat."
 
-#: core/audex.cpp:1039
+#: core/audex.cpp:1067
 #, kde-format
 msgid "Unable to save log file \"%1\"."
 msgstr "Kunde inte spara loggfilen \"%1\"."
 
-#: core/audex.cpp:1086 core/audex.cpp:1113
+#: core/audex.cpp:1114 core/audex.cpp:1141
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Kunde inte öppna katalogen \"%1\"."
@@ -291,7 +299,7 @@ msgid "Edit Data"
 msgstr "Redigera data"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1029
+#: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1027
 #, kde-format
 msgid "Various Artists"
 msgstr "Diverse artister"
@@ -1006,114 +1014,104 @@ msgstr "Skriv enstaka filer"
 msgid "Filename Scheme Wizard"
 msgstr "Filnamnsmönsterguide"
 
-#: main.cpp:25
+#: main.cpp:26
 #, kde-format
 msgid "Audex"
 msgstr "Audex"
 
-#: main.cpp:25
+#: main.cpp:28
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
 msgstr "Ljudlagringsprogram"
 
-#: main.cpp:25
-#, kde-format
-msgid "Copyright © 2007-2023 Marco Nelles"
+#: main.cpp:30
+#, fuzzy, kde-format
+#| msgid "Copyright © 2007-2023 Marco Nelles"
+msgid "Copyright © 2007-2025 Marco Nelles"
 msgstr "Copyright © 2007-2023 Marco Nelles"
 
-#: main.cpp:28
+#: main.cpp:33
 #, kde-format
 msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
-#: main.cpp:28
+#: main.cpp:33
 #, kde-format
 msgid "Current maintainer, main developer"
 msgstr "Nuvarande underhåll, huvudutvecklare"
 
-#: main.cpp:29
+#: main.cpp:34
 #, kde-format
 msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
-#: main.cpp:29
+#: main.cpp:34
 #, kde-format
 msgid "GUI improvements, development"
 msgstr "Förbättringar av grafiskt användargränssnitt, utveckling"
 
-#: main.cpp:30
+#: main.cpp:35
 #, kde-format
 msgid "Elson"
 msgstr "Elson"
 
-#: main.cpp:30
+#: main.cpp:35
 #, kde-format
 msgid "development"
 msgstr "utveckling"
 
-#: main.cpp:31
+#: main.cpp:36
 #, kde-format
 msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
-#: main.cpp:31
-#, kde-format
-msgid "Special thanks to former credativ GmbH (Germany) for support"
+#: main.cpp:36
+#, fuzzy, kde-format
+#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr "Särskilt tack till före detta credativ GmbH (Tyskland) för stöd"
 
-#: main.cpp:32
-#, kde-format
-msgid "Xiph.Org Foundation"
-msgstr "Stiftelsen Xiph.Org"
-
-#: main.cpp:33
-#, kde-format
-msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-msgstr ""
-"Särskilt tack till stiftelsen Xiph.Org för att de tillhandahåller cd-"
-"lagringsprogram"
-
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Stefan Asserhäll"
 
-#: main.cpp:36
+#: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@gmail.com"
 
-#: mainwindow.cpp:39
+#: mainwindow.cpp:35
 #, kde-format
 msgid "Unable to create ProfileModel object."
 msgstr "Kunde inte skapa objektet ProfileModel."
 
-#: mainwindow.cpp:40 mainwindow.cpp:53
+#: mainwindow.cpp:36 mainwindow.cpp:49
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
 "Internt fel. Kontrollera hårdvaran. Om allt är ok, skapa gärna en felrapport."
 
-#: mainwindow.cpp:53
+#: mainwindow.cpp:49
 #, kde-format
 msgid "Unable to create CDDAModel object."
 msgstr "Kunde inte skapa objektet CDDAModel."
 
-#: mainwindow.cpp:131
+#: mainwindow.cpp:121
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
 msgstr "Ingen skivinformation inställd. Vill du verkligen fortsätta?"
 
-#: mainwindow.cpp:132
+#: mainwindow.cpp:122
 #, kde-format
 msgid "Disc information not found"
 msgstr "Skivinformation hittades inte"
 
-#: mainwindow.cpp:143
+#: mainwindow.cpp:133
 #, kde-format
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
@@ -1122,47 +1120,47 @@ msgstr ""
 "Lagring i en enstaka fil vald, men alla ljudspår att lagra är inte valda. "
 "Vill du verkligen fortsätta?"
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
 msgstr "Alla ljudspår inte valda vid lagring av ensam fil"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:146
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "Inget skivomslag inställd. Vill du verkligen fortsätta?"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:147
 #, kde-format
 msgid "Cover is empty"
 msgstr "Omslaget är tomt"
 
-#: mainwindow.cpp:181
+#: mainwindow.cpp:171
 #, kde-format
 msgid "General settings"
 msgstr "Allmänna inställningar"
 
-#: mainwindow.cpp:185
+#: mainwindow.cpp:174
 #, kde-format
 msgid "Device settings"
 msgstr "Enhetsinställningar"
 
-#: mainwindow.cpp:196
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Profiles"
 msgstr "Profiler"
 
-#: mainwindow.cpp:205
+#: mainwindow.cpp:186
 #, kde-format
 msgid "CDDB settings"
 msgstr "CDDB-inställningar"
 
-#: mainwindow.cpp:208
+#: mainwindow.cpp:189
 #, kde-format
 msgid "Remote Server"
 msgstr "Fjärrserver"
 
-#: mainwindow.cpp:264
+#: mainwindow.cpp:228
 #, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
@@ -1171,17 +1169,17 @@ msgstr ""
 "Uppslagning i CDDB misslyckades med följande fel:\n"
 "%1"
 
-#: mainwindow.cpp:266
+#: mainwindow.cpp:230
 #, kde-format
 msgid "CDD Lookup Failure"
 msgstr "Uppslagning i CDDB misslyckades"
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:335
 #, kde-format
 msgid "Split titles"
 msgstr "Dela titlar"
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:336
 #, kde-format
 msgid ""
 "Please set a divider string. Be aware of empty spaces.\n"
@@ -1192,117 +1190,117 @@ msgstr ""
 "\n"
 "Delning:"
 
-#: mainwindow.cpp:384
+#: mainwindow.cpp:348
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
 msgstr "Vill du verkligen växla alla artister och titlar?"
 
-#: mainwindow.cpp:385
+#: mainwindow.cpp:349
 #, kde-format
 msgid "Swap artists and titles"
 msgstr "Växla artister och titlar"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:363
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr "Vill du verkligen ändra alla artister och titlar till stora bokstäver?"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:364
 #, kde-format
 msgid "Capitalize artists and titles"
 msgstr "Ändra artister och titlar till stora bokstäver"
 
-#: mainwindow.cpp:414
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Do you really want to autofill track artists?"
 msgstr "Vill du verkligen fylla i spårens artister automatiskt?"
 
-#: mainwindow.cpp:415
+#: mainwindow.cpp:379
 #, kde-format
 msgid "Autofill artists"
 msgstr "Fyll i artister automatiskt"
 
-#: mainwindow.cpp:442
+#: mainwindow.cpp:406
 #, kde-format
 msgid "Eject"
 msgstr "Mata ut"
 
-#: mainwindow.cpp:449
+#: mainwindow.cpp:413
 #, kde-format
 msgid "Profile:"
 msgstr "Profil: "
 
-#: mainwindow.cpp:461
+#: mainwindow.cpp:425
 #, kde-format
 msgid "&Profile:"
 msgstr "&Profil: "
 
-#: mainwindow.cpp:467
+#: mainwindow.cpp:431
 #, kde-format
 msgid "Profile"
 msgstr "Profil"
 
-#: mainwindow.cpp:475
+#: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
 msgstr "Hämta"
 
-#: mainwindow.cpp:482
+#: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
 msgstr "Skicka"
 
-#: mainwindow.cpp:488
+#: mainwindow.cpp:452
 #, kde-format
 msgid "Edit"
 msgstr "Redigera"
 
-#: mainwindow.cpp:495
+#: mainwindow.cpp:459
 #, kde-format
 msgid "Rip..."
 msgstr "Lagra..."
 
-#: mainwindow.cpp:504
+#: mainwindow.cpp:468
 #, kde-format
 msgid "Split Titles..."
 msgstr "Dela titlar..."
 
-#: mainwindow.cpp:509
+#: mainwindow.cpp:473
 #, kde-format
 msgid "Swap Artists And Titles"
 msgstr "Byt artister och titlar"
 
-#: mainwindow.cpp:514
+#: mainwindow.cpp:478
 #, kde-format
 msgid "Capitalize"
 msgstr "Inledande stor bokstav"
 
-#: mainwindow.cpp:519
+#: mainwindow.cpp:483
 #, kde-format
 msgid "Auto Fill Artists"
 msgstr "Fyll i artister automatiskt"
 
-#: mainwindow.cpp:524
+#: mainwindow.cpp:488
 #, kde-format
 msgid "Select All Tracks"
 msgstr "Markera alla spår"
 
-#: mainwindow.cpp:529
+#: mainwindow.cpp:493
 #, kde-format
 msgid "Deselect All Tracks"
 msgstr "Avmarkera alla spår"
 
-#: mainwindow.cpp:534
+#: mainwindow.cpp:498
 #, kde-format
 msgid "Invert Selection"
 msgstr "Invertera markering"
 
-#: models/cddamodel.cpp:21
+#: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
 msgstr "Kunde inte skapa enhetsobjekt."
 
-#: models/cddamodel.cpp:22 models/cddamodel.cpp:34 models/cddamodel.cpp:904
+#: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
@@ -1311,27 +1309,27 @@ msgstr ""
 "Det här är ett internt fel. Kontrollera hårdvaran. Om allt är ok, skapa "
 "gärna en felrapport."
 
-#: models/cddamodel.cpp:33
+#: models/cddamodel.cpp:32
 #, kde-format
 msgid "Unable to create KCDDB object."
 msgstr "Kunde inte skapa objektet KCDDB."
 
-#: models/cddamodel.cpp:122
+#: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
 msgstr "Spår %1"
 
-#: models/cddamodel.cpp:526
+#: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
 msgstr "Vanliga bildformat"
 
-#: models/cddamodel.cpp:823
+#: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
 msgstr "CDDB-transaktion pågår redan."
 
-#: models/cddamodel.cpp:824
+#: models/cddamodel.cpp:823
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
@@ -1339,7 +1337,7 @@ msgid ""
 msgstr ""
 "En CDDB-transaktion pågår redan. Vänta tills den är klar och försök igen."
 
-#: models/cddamodel.cpp:843 models/cddamodel.cpp:957
+#: models/cddamodel.cpp:842 models/cddamodel.cpp:955
 #, kde-format
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
@@ -1348,7 +1346,7 @@ msgstr ""
 "Det finns ett fel i CDDB-servern. Vänta, eller kontakta ansvarig för CDDB-"
 "servern."
 
-#: models/cddamodel.cpp:849 models/cddamodel.cpp:963
+#: models/cddamodel.cpp:848 models/cddamodel.cpp:961
 #, kde-format
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
@@ -1357,7 +1355,7 @@ msgstr ""
 "Kan inte hitta CDDB-servern. Kontrollera nätverket. Kanske är CDDB-servern "
 "nerkopplad."
 
-#: models/cddamodel.cpp:855 models/cddamodel.cpp:969
+#: models/cddamodel.cpp:854 models/cddamodel.cpp:967
 #, kde-format
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
@@ -1365,62 +1363,62 @@ msgid ""
 msgstr ""
 "Vänta, kanske servern är upptagen, eller kontakta ansvarig för CDDB-servern."
 
-#: models/cddamodel.cpp:860
+#: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Kontakta ansvarig för CDDB-servern."
 
-#: models/cddamodel.cpp:863 models/cddamodel.cpp:974
+#: models/cddamodel.cpp:862 models/cddamodel.cpp:972
 #, kde-format
 msgid "This should not happen. Please make a bug report."
 msgstr "Det här ska inte kunna inträffa. Skapa gärna en felrapport."
 
-#: models/cddamodel.cpp:870 models/cddamodel.cpp:977
+#: models/cddamodel.cpp:869 models/cddamodel.cpp:975
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr "Skapa gärna en felrapport, och kontakta ansvarig för CDDB-servern."
 
-#: models/cddamodel.cpp:903
+#: models/cddamodel.cpp:902
 #, kde-format
 msgid "Unable to create CDIO object."
 msgstr "Kunde inte skapa CDIO-objekt."
 
-#: models/cddamodel.cpp:983
+#: models/cddamodel.cpp:981
 #, kde-format
 msgid "This means no data found in the CDDB database."
 msgstr "Det betyder att ingen data hittades i CDDB-databasen."
 
-#: models/cddamodel.cpp:1004
+#: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select CDDB Entry"
 msgstr "Välj CDDB-post"
 
-#: models/cddamodel.cpp:1004
+#: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Välj en CDDB-post:"
 
-#: models/cddamodel.h:34
+#: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
 msgstr "Lagra"
 
-#: models/cddamodel.h:35
+#: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
 msgstr "Spår"
 
-#: models/cddamodel.h:36
+#: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
 msgstr "Artist"
 
-#: models/cddamodel.h:37
+#: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
 msgstr "Titel"
 
-#: models/cddamodel.h:38
+#: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
 msgstr "Längd"
@@ -1606,241 +1604,156 @@ msgstr "Du har inte givit något namn på den enstaka ljudfilen. Ange ett."
 msgid "Copy"
 msgstr "Kopiera"
 
-#: utils/cddacdio.cpp:45
+#: utils/cddadevices.cpp:84
 #, kde-format
-msgid "Device error (1)."
+msgid "Audio Disc"
+msgstr "Ljudskiva"
+
+#: utils/cddaextractthread.cpp:62
+#, kde-format
+msgid "TOC:"
+msgstr "Innehållsförteckning:"
+
+#: utils/cddaextractthread.cpp:87
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping track %1 with length %2..."
+msgstr "Börja läsa spår %2 med %1 sektor"
+
+#: utils/cddaextractthread.cpp:88
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Sample shift: %1"
+msgstr "Samplingsposition:"
+
+#: utils/cddaextractthread.cpp:166
+#, kde-format
+msgid "Error occured while reading sector %1 (track time pos %2): %3"
+msgstr "Ett fel uppstod vid läsning av sektor %1 (spårets tidsposition %2): %3"
+
+#: utils/cddaextractthread.cpp:173 utils/cddaextractthread.cpp:181
+#, kde-format
+msgid "An error occured while ripping track %1 at position %2. See log."
+msgstr "Ett fel uppstod vid läsning av spår %1 med position %2. Se loggen."
+
+#: utils/cddaextractthread.cpp:175 utils/cddaextractthread.cpp:183
+#: utils/cddaextractthread.cpp:190 utils/cddaextractthread.cpp:192
+#, kde-format
+msgid "An error occured while ripping at position %1. See log."
+msgstr "Ett fel uppstod vid läsning av position %1. Se loggen."
+
+#: utils/cddaextractthread.cpp:188
+#, kde-format
+msgid "Error reading sector %1 (track time pos %2)"
+msgstr "Ett fel uppstod vid läsning av sektor %1 (spårets tidsposition %2)"
+
+#: utils/cddaextractthread.cpp:198
+#, kde-format
+msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
+msgstr "Fel vid läsning av sektor %1 (%2): **Fyller hela sektorn med tystnad**"
+
+#: utils/cddaextractthread.cpp:239 utils/cddaextractthread.cpp:240
+#, kde-format
+msgid "Ripping was canceled due to an error."
+msgstr "Lagring avbröts på grund av ett fel."
+
+#: utils/cddaextractthread.cpp:242
+#, kde-format
+msgid "User canceled extracting."
+msgstr "Användaren avbröt hämtning."
+
+#: utils/cddaextractthread.cpp:243
+#, kde-format
+msgid "Extraction interrupted"
+msgstr "Hämtning avbruten"
+
+#: utils/cddaextractthread.cpp:246
+#, kde-format
+msgid "Ripping OK (Track %1)."
+msgstr "Lagring ok (spår %1)."
+
+#: utils/cddaextractthread.cpp:248
+#, kde-format
+msgid "Ripping OK."
+msgstr "Lagring ok."
+
+#: utils/cddaextractthread.cpp:250
+#, fuzzy, kde-format
+#| msgid "Ripping of Track %1/%2 (%3 - %4) finished"
+msgid "Ripping of track %1 successfully finished"
+msgstr "Lagring av spår %1/ %2 (%3 - %4) klar."
+
+#: utils/cddaparanoia.cpp:20
+#, fuzzy, kde-format
+#| msgid "Device error (1)."
+msgid "Device error."
 msgstr "Enhetsfel (1)."
 
-#: utils/cddacdio.cpp:45 utils/cddacdio.cpp:52 utils/cddacdio.cpp:60
-#: utils/cddacdio.cpp:530
+#: utils/cddaparanoia.cpp:20
+#, fuzzy, kde-format
+#| msgid "Check your device and make a bug report."
+msgid "Check your device on \"%1\"."
+msgstr "Kontrollera enheten och skapa en felrapport."
+
+#: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
+#: utils/cddaparanoia.cpp:40
+#, fuzzy, kde-format
+#| msgid "Device error (1)."
+msgid "Disc error."
+msgstr "Enhetsfel (1)."
+
+#: utils/cddaparanoia.cpp:30
 #, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? Also check your permissions on "
-"\"%1\"."
+msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
 msgstr ""
-"Kontrollera enheten. Är den verkligen \"%1\"? Kontrollera också rättigheter "
-"för \"%1\"."
 
-#: utils/cddacdio.cpp:52
+#: utils/cddaparanoia.cpp:34
 #, kde-format
-msgid "Device error (2)."
-msgstr "Enhetsfel (2)."
+msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
+msgstr ""
 
-#: utils/cddacdio.cpp:60
+#: utils/cddaparanoia.cpp:40
 #, kde-format
-msgid "Device error (3)."
-msgstr "Enhetsfel (3)."
+msgid "Unspecified drive error on \"%1\"."
+msgstr ""
 
-#: utils/cddacdio.cpp:446
+#: utils/cddaparanoia.cpp:47
+#, fuzzy, kde-format
+#| msgid "Device error (1)."
+msgid "Drive/Disc error."
+msgstr "Enhetsfel (1)."
+
+#: utils/cddaparanoia.cpp:47
+#, kde-format
+msgid "Unspecified drive or disc error on \"%1\"."
+msgstr ""
+
+#: utils/cddaparanoia.cpp:323
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
 "Spår --, Startsektor: 000000, Storlek i sektorer: 000150, Typ: Inledning"
 
-#: utils/cddacdio.cpp:473
+#: utils/cddaparanoia.cpp:348
 #, kde-format
 msgid "Audio"
 msgstr "Ljud"
 
-#: utils/cddacdio.cpp:476
-#, kde-format
-msgid "Non-Audio: CD-i"
+#: utils/cddaparanoia.cpp:350
+#, fuzzy, kde-format
+#| msgid "Non-Audio: CD-i"
+msgid "Non-Audio"
 msgstr "Inte ljudskiva: cd-i"
 
-#: utils/cddacdio.cpp:479
-#, kde-format
-msgid "Non-Audio: Data mode 2"
-msgstr "Inte ljudskiva: dataläge 2"
-
-#: utils/cddacdio.cpp:481
-#, kde-format
-msgid ", form 1"
-msgstr ", formulär 1"
-
-#: utils/cddacdio.cpp:483
-#, kde-format
-msgid ", form 2"
-msgstr ", formulär 2"
-
-#: utils/cddacdio.cpp:486
-#, kde-format
-msgid "Non-Audio: Data mode 1"
-msgstr "Inte ljudskiva: dataläge 1"
-
-#: utils/cddacdio.cpp:489
-#, kde-format
-msgid "Non-Audio: Playstation 1"
-msgstr "Inte ljudskiva: Playstation 1"
-
-#: utils/cddacdio.cpp:492
-#, kde-format
-msgid "Non-Audio: Unknown format"
-msgstr "Inte ljudskiva: okänt format"
-
-#: utils/cddacdio.cpp:496
+#: utils/cddaparanoia.cpp:354
 #, kde-format
 msgid "Lead-out"
 msgstr "Avslutning"
 
-#: utils/cddacdio.cpp:498
+#: utils/cddaparanoia.cpp:356
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
 msgstr "Spår %1, Startsektor: %2, Storlek i sektorer: %3, Typ: %4"
-
-#: utils/cddacdio.cpp:529
-#, kde-format
-msgid ""
-"Could not get device hardware information (vendor, model and firmware "
-"revision)."
-msgstr ""
-"Kunde inte hämta enhetsinformation (tillverkare, modell, och revision av "
-"fast programvara)."
-
-#: utils/cddadevices.cpp:86
-#, kde-format
-msgid "Audio Disc"
-msgstr "Ljudskiva"
-
-#: utils/cddaextractthread.cpp:27
-#, kde-format
-msgid "Internal device error."
-msgstr "Internt enhetsfel."
-
-#: utils/cddaextractthread.cpp:27
-#, kde-format
-msgid "Check your device and make a bug report."
-msgstr "Kontrollera enheten och skapa en felrapport."
-
-#: utils/cddaextractthread.cpp:71
-#, kde-format
-msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-msgstr "Enhetstillverkare: %1, Enhetsmodell: %2, Enhetsrevision: %3"
-
-#: utils/cddaextractthread.cpp:72
-#, kde-format
-msgid "TOC:"
-msgstr "Innehållsförteckning:"
-
-#: utils/cddaextractthread.cpp:86
-#, kde-format
-msgid "Extracting finished."
-msgstr "Hämtning klar."
-
-#: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:228
-#, kde-format
-msgid "Error occured while seeking at sector %1: %2"
-msgstr "Ett fel uppstod vid sökning av sektor %1: %2"
-
-#: utils/cddaextractthread.cpp:112 utils/cddaextractthread.cpp:230
-#, kde-format
-msgid "An error occured while ripping track %1. See log."
-msgstr "Ett fel uppstod vid lagring av spår %1. See loggen."
-
-#: utils/cddaextractthread.cpp:114 utils/cddaextractthread.cpp:232
-#, kde-format
-msgid "An error occured while ripping. See log."
-msgstr "Ett fel uppstod vid lagring. Se loggen."
-
-#: utils/cddaextractthread.cpp:121
-#, kde-format
-msgid "Correction sample offset: %1"
-msgstr "Samplingsposition för korrigering: %1"
-
-#: utils/cddaextractthread.cpp:129
-#, kde-format
-msgid "Fetching extra information from disc..."
-msgstr "Hämtar extra information från skivan..."
-
-#: utils/cddaextractthread.cpp:131
-#, kde-format
-msgid "Fetching subchannel infos from disc"
-msgstr "Hämtar information om underkanaler från skivan"
-
-#: utils/cddaextractthread.cpp:135
-#, kde-format
-msgid "Ripping track %1 (%2:%3)..."
-msgstr "Lagrar spår %1 (%2:%3)..."
-
-#: utils/cddaextractthread.cpp:136
-#, kde-format
-msgid "Start reading track %1 with %2 sectors"
-msgstr "Börja läsa spår %2 med %1 sektor"
-
-#: utils/cddaextractthread.cpp:138
-#, kde-format
-msgid "Ripping whole disc (%1:%2)..."
-msgstr "Lagrar hela skivan (%1:%2)..."
-
-#: utils/cddaextractthread.cpp:139
-#, kde-format
-msgid "Start reading whole disc with %1 sectors"
-msgstr "Börja läsa hela skivan med %1 sektorer"
-
-#: utils/cddaextractthread.cpp:140
-#, kde-format
-msgid "Track %1 with start sector %2"
-msgstr "Spår %1 med startsektor %2"
-
-#: utils/cddaextractthread.cpp:143
-#, kde-format
-msgid "First sector: %1, Last sector: %2"
-msgstr "Första sektor: %1, Sista sektor: %2"
-
-#: utils/cddaextractthread.cpp:164
-#, kde-format
-msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr "Ett fel uppstod vid läsning av sektor %1 (spårets tidsposition %2): %3"
-
-#: utils/cddaextractthread.cpp:170 utils/cddaextractthread.cpp:179
-#, kde-format
-msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "Ett fel uppstod vid läsning av spår %1 med position %2. Se loggen."
-
-#: utils/cddaextractthread.cpp:174 utils/cddaextractthread.cpp:184
-#: utils/cddaextractthread.cpp:191 utils/cddaextractthread.cpp:194
-#, kde-format
-msgid "An error occured while ripping at position %1. See log."
-msgstr "Ett fel uppstod vid läsning av position %1. Se loggen."
-
-#: utils/cddaextractthread.cpp:189
-#, kde-format
-msgid "Error reading sector %1 (track time pos %2)"
-msgstr "Ett fel uppstod vid läsning av sektor %1 (spårets tidsposition %2)"
-
-#: utils/cddaextractthread.cpp:200
-#, kde-format
-msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
-msgstr "Fel vid läsning av sektor %1 (%2): **Fyller hela sektorn med tystnad**"
-
-#: utils/cddaextractthread.cpp:251 utils/cddaextractthread.cpp:252
-#, kde-format
-msgid "Ripping was canceled due to an error."
-msgstr "Lagring avbröts på grund av ett fel."
-
-#: utils/cddaextractthread.cpp:254
-#, kde-format
-msgid "User canceled extracting."
-msgstr "Användaren avbröt hämtning."
-
-#: utils/cddaextractthread.cpp:255
-#, kde-format
-msgid "Extraction interrupted"
-msgstr "Hämtning avbruten"
-
-#: utils/cddaextractthread.cpp:258
-#, kde-format
-msgid "Ripping OK (Track %1)."
-msgstr "Lagring ok (spår %1)."
-
-#: utils/cddaextractthread.cpp:260
-#, kde-format
-msgid "Ripping OK."
-msgstr "Lagring ok."
-
-#: utils/cddaextractthread.cpp:262
-#, kde-format
-msgid "Ripping finished"
-msgstr "Lagring klar"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1978,12 +1891,12 @@ msgstr "Illegalt tecken hittades på index %1: '%2'"
 msgid "Unclosed quote found"
 msgstr "Oavslutat citat hittades"
 
-#: utils/schemeparser.cpp:77
+#: utils/schemeparser.cpp:65
 #, kde-format
 msgid "Illegal character found at index %1: %2"
 msgstr "Illegalt tecken hittades på index %1: %2"
 
-#: utils/schemeparser.cpp:128
+#: utils/schemeparser.cpp:116
 #, kde-format
 msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
@@ -1992,17 +1905,17 @@ msgstr ""
 "Parametern replace_char_list kräver ytterligare två parametrar "
 "replace_char_list_from och replace_char_list_to med lika storlek."
 
-#: utils/schemeparser.cpp:274
+#: utils/schemeparser.cpp:262
 #, kde-format
 msgid "Unclosed brace."
 msgstr "Oavslutad klammerparentes."
 
-#: utils/schemeparser.cpp:428
+#: utils/schemeparser.cpp:414
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Kunde inte skapa tillfällig omslagsfil: %1"
 
-#: utils/schemeparser.h:155
+#: utils/schemeparser.h:150
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -2037,7 +1950,7 @@ msgstr ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex namn och version.</td></tr></"
 "table>"
 
-#: utils/schemeparser.h:172
+#: utils/schemeparser.h:167
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2094,7 +2007,7 @@ msgstr ""
 "td><td>sträng</td><td>En sträng som placeras <b>efter</b> värdet.</td></tr></"
 "table>"
 
-#: utils/schemeparser.h:193
+#: utils/schemeparser.h:188
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2114,7 +2027,7 @@ msgstr ""
 "td><td>Spårets internationella standardinspelningskod (ISRC) (bara "
 "tillgänglig om den stöds av enheten).</td></tr></table>"
 
-#: utils/schemeparser.h:205
+#: utils/schemeparser.h:200
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2142,7 +2055,7 @@ msgstr ""
 "<i><b>Observera:</b> LAME bortser från omslagsfiler större än 128 KiB.</i></"
 "td></tr></table>"
 
-#: utils/schemeparser.h:219
+#: utils/schemeparser.h:214
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2200,42 +2113,42 @@ msgstr "Laddar upp filen %1 till servern. Vänta..."
 msgid "Finished uploading file %1 to server."
 msgstr "Avslutade uppladdning av filen %1 till servern."
 
-#: widgets/cddaheaderwidget.cpp:133
+#: widgets/cddaheaderwidget.cpp:131
 #, kde-format
 msgid "CD Number: "
 msgstr "Skivnummer: "
 
-#: widgets/cddaheaderwidget.cpp:147
+#: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "No audio CD detected"
 msgstr "Ingen ljudskiva detekterades"
 
-#: widgets/cddaheaderwidget.cpp:260
+#: widgets/cddaheaderwidget.cpp:243
 #, kde-format
 msgid "Load Cover"
 msgstr "Läs in omslag"
 
-#: widgets/cddaheaderwidget.cpp:270 widgets/profilewidget.cpp:122
+#: widgets/cddaheaderwidget.cpp:253 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
 msgstr "Spara omslag"
 
-#: widgets/cddaheaderwidget.cpp:350
+#: widgets/cddaheaderwidget.cpp:330
 #, kde-format
 msgid "Set Custom Cover..."
 msgstr "Lägg till eget omslag..."
 
-#: widgets/cddaheaderwidget.cpp:355
+#: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
 msgstr "Spara omslag i fil..."
 
-#: widgets/cddaheaderwidget.cpp:360
+#: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
 msgstr "Visa omslag med verklig storlek..."
 
-#: widgets/cddaheaderwidget.cpp:365
+#: widgets/cddaheaderwidget.cpp:345
 #, kde-format
 msgid "Remove Cover"
 msgstr "Ta bort omslag"
@@ -2246,24 +2159,14 @@ msgstr "Ta bort omslag"
 msgid "Command Scheme:"
 msgstr "Kommandomönster:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_Model)
-#. i18n: ectx: property (text), widget (QLabel, label_Revision)
-#. i18n: ectx: property (text), widget (QLabel, label_Vendor)
-#: widgets/devicewidget.cpp:52 widgets/devicewidget.cpp:53
-#: widgets/devicewidget.cpp:54 widgets/devicewidgetUI.ui:111
-#: widgets/devicewidgetUI.ui:137 widgets/devicewidgetUI.ui:166
-#, kde-format
-msgid "(No disc detected)"
-msgstr "(Ingen skiva detekterades)"
-
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: widgets/devicewidgetUI.ui:36
+#: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
 msgstr "Enhet"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
-#: widgets/devicewidgetUI.ui:42
+#: widgets/devicewidgetUI.ui:29
 #, kde-format
 msgid ""
 "<html><head/><body><p>Use some special techniques to reduce the chance of "
@@ -2275,81 +2178,57 @@ msgstr ""
 "för obemärkta läsfel. Leder till en säkrare läsprocess på bekostnad av "
 "lagringshastighet, så det kan också kallas \"säkert läge\".</p></body></html>"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
+#: widgets/devicewidgetUI.ui:39
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
+#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
+#| "times. Usually broken sectors will be filled with silence.</p></body></"
+#| "html>"
+msgid ""
+"<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
+"second) after retrying to read it. Please specify the number of retry "
+"attempts under <span style=\" font-style:italic;\">Retries on read error</"
+"span>. If skipped, null samples will be written for the faulty sectors.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Hoppa över läsfel för en sektor (längden på en sektor: "
+"1/75 sekund) efter att ha försökt läsa sektorn igen högst 20 gånger. "
+"Vanligtvis kommer trasiga sektorer att fyllas med tystnad.</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
+#: widgets/devicewidgetUI.ui:51 widgets/devicewidgetUI.ui:61
+#, kde-format
+msgid ""
+"<html><head/><body><p>Some drives have a sample offset when reading audio "
+"CDs. To determine the correct offset for your drive model, you can check the "
+"<a href=\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
+"p></body></html>"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample offset:"
 msgstr "Samplingsposition:"
 
-#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadingErrors)
-#: widgets/devicewidgetUI.ui:86
+#. i18n: ectx: property (toolTip), widget (QLabel, label_4)
+#. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
+#: widgets/devicewidgetUI.ui:91 widgets/devicewidgetUI.ui:101
 #, kde-format
 msgid ""
-"<html><head/><body><p>Skip reading errors of a sector (length of a sector: "
-"1/75 second) after trying to read the sector again for at most 20 times. "
-"Usually broken sectors will be filled with silence.</p></body></html>"
+"<html><head/><body><p>Specify the maximum number of retry attempts when a "
+"faulty sector is encountered.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>Hoppa över läsfel för en sektor (längden på en sektor: "
-"1/75 sekund) efter att ha försökt läsa sektorn igen högst 20 gånger. "
-"Vanligtvis kommer trasiga sektorer att fyllas med tystnad.</p></body></html>"
-
-#. i18n: ectx: property (title), widget (QGroupBox, gridGroupBox)
-#: widgets/devicewidgetUI.ui:99
-#, kde-format
-msgid "Device information"
-msgstr "Enhetsinformation"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: widgets/devicewidgetUI.ui:156
-#, kde-format
-msgid "Vendor:"
-msgstr "Leverantör:"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadMCN)
-#: widgets/devicewidgetUI.ui:179
-#, kde-format
-msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-msgstr "Enheten kan läsa skivans mediekatalognummer (MCN)."
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadMCN)
-#: widgets/devicewidgetUI.ui:182
-#, kde-format
-msgid "Can read Media Catalog Number (MCN)"
-msgstr "Kan läsa mediekatalognummer (MCN)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:214
+#: widgets/devicewidgetUI.ui:94
 #, kde-format
-msgid "Revision:"
-msgstr "Revision:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_c2ErrorCorrection)
-#: widgets/devicewidgetUI.ui:224
-#, kde-format
-msgid "C2 error correction available"
-msgstr "C2 felkorrigering tillgänglig"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: widgets/devicewidgetUI.ui:246
-#, kde-format
-msgid "Model:"
-msgstr "Modell:"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_canReadISRC)
-#: widgets/devicewidgetUI.ui:256
-#, kde-format
-msgid ""
-"Your device can read the International Standard Recording Code of every "
-"single track."
+msgid "Retries on read error:"
 msgstr ""
-"Enheten kan läsa den internationella standardinspelningskoden för varenda "
-"spår."
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_canReadISRC)
-#: widgets/devicewidgetUI.ui:259
-#, kde-format
-msgid "Can read Intern. Standard Recording Code (ISRC)"
-msgstr "Kan läsa internationell standardinspelningskod (ISRC)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2608,6 +2487,132 @@ msgstr "Spara..."
 #, kde-format
 msgid "URL:"
 msgstr "Webbadress:"
+
+#~ msgid "Xiph.Org Foundation"
+#~ msgstr "Stiftelsen Xiph.Org"
+
+#~ msgid ""
+#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
+#~ msgstr ""
+#~ "Särskilt tack till stiftelsen Xiph.Org för att de tillhandahåller cd-"
+#~ "lagringsprogram"
+
+#~ msgid ""
+#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
+#~ "\"%1\"."
+#~ msgstr ""
+#~ "Kontrollera enheten. Är den verkligen \"%1\"? Kontrollera också "
+#~ "rättigheter för \"%1\"."
+
+#~ msgid "Device error (2)."
+#~ msgstr "Enhetsfel (2)."
+
+#~ msgid "Device error (3)."
+#~ msgstr "Enhetsfel (3)."
+
+#~ msgid "Non-Audio: Data mode 2"
+#~ msgstr "Inte ljudskiva: dataläge 2"
+
+#~ msgid ", form 1"
+#~ msgstr ", formulär 1"
+
+#~ msgid ", form 2"
+#~ msgstr ", formulär 2"
+
+#~ msgid "Non-Audio: Data mode 1"
+#~ msgstr "Inte ljudskiva: dataläge 1"
+
+#~ msgid "Non-Audio: Playstation 1"
+#~ msgstr "Inte ljudskiva: Playstation 1"
+
+#~ msgid "Non-Audio: Unknown format"
+#~ msgstr "Inte ljudskiva: okänt format"
+
+#~ msgid ""
+#~ "Could not get device hardware information (vendor, model and firmware "
+#~ "revision)."
+#~ msgstr ""
+#~ "Kunde inte hämta enhetsinformation (tillverkare, modell, och revision av "
+#~ "fast programvara)."
+
+#~ msgid "Internal device error."
+#~ msgstr "Internt enhetsfel."
+
+#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
+#~ msgstr "Enhetstillverkare: %1, Enhetsmodell: %2, Enhetsrevision: %3"
+
+#~ msgid "Extracting finished."
+#~ msgstr "Hämtning klar."
+
+#~ msgid "Error occured while seeking at sector %1: %2"
+#~ msgstr "Ett fel uppstod vid sökning av sektor %1: %2"
+
+#~ msgid "An error occured while ripping track %1. See log."
+#~ msgstr "Ett fel uppstod vid lagring av spår %1. See loggen."
+
+#~ msgid "An error occured while ripping. See log."
+#~ msgstr "Ett fel uppstod vid lagring. Se loggen."
+
+#~ msgid "Correction sample offset: %1"
+#~ msgstr "Samplingsposition för korrigering: %1"
+
+#~ msgid "Fetching extra information from disc..."
+#~ msgstr "Hämtar extra information från skivan..."
+
+#~ msgid "Fetching subchannel infos from disc"
+#~ msgstr "Hämtar information om underkanaler från skivan"
+
+#~ msgid "Ripping track %1 (%2:%3)..."
+#~ msgstr "Lagrar spår %1 (%2:%3)..."
+
+#~ msgid "Ripping whole disc (%1:%2)..."
+#~ msgstr "Lagrar hela skivan (%1:%2)..."
+
+#~ msgid "Start reading whole disc with %1 sectors"
+#~ msgstr "Börja läsa hela skivan med %1 sektorer"
+
+#~ msgid "Track %1 with start sector %2"
+#~ msgstr "Spår %1 med startsektor %2"
+
+#~ msgid "First sector: %1, Last sector: %2"
+#~ msgstr "Första sektor: %1, Sista sektor: %2"
+
+#~ msgid "Ripping finished"
+#~ msgstr "Lagring klar"
+
+#~ msgid "(No disc detected)"
+#~ msgstr "(Ingen skiva detekterades)"
+
+#~ msgid "Device information"
+#~ msgstr "Enhetsinformation"
+
+#~ msgid "Vendor:"
+#~ msgstr "Leverantör:"
+
+#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
+#~ msgstr "Enheten kan läsa skivans mediekatalognummer (MCN)."
+
+#~ msgid "Can read Media Catalog Number (MCN)"
+#~ msgstr "Kan läsa mediekatalognummer (MCN)"
+
+#~ msgid "Revision:"
+#~ msgstr "Revision:"
+
+#~ msgid "C2 error correction available"
+#~ msgstr "C2 felkorrigering tillgänglig"
+
+#~ msgid "Model:"
+#~ msgstr "Modell:"
+
+#~ msgid ""
+#~ "Your device can read the International Standard Recording Code of every "
+#~ "single track."
+#~ msgstr ""
+#~ "Enheten kan läsa den internationella standardinspelningskoden för varenda "
+#~ "spår."
+
+#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
+#~ msgstr "Kan läsa internationell standardinspelningskod (ISRC)"
 
 #~ msgid "KDE CDDA Extractor"
 #~ msgstr "CDDA-hämtning för KDE"
@@ -3738,9 +3743,6 @@ msgstr "Webbadress:"
 
 #~ msgid "Ripping of CD %1 - %2 finished"
 #~ msgstr "Lagring av cd %1 - %2 klar"
-
-#~ msgid "Ripping of Track %1/%2 (%3 - %4) finished"
-#~ msgstr "Lagring av spår %1/ %2 (%3 - %4) klar."
 
 #~ msgid "Title %1"
 #~ msgstr "Titel %1"
