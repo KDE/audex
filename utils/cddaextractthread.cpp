@@ -64,11 +64,16 @@ void CDDAExtractThread::run()
         b_first_run = false;
     }
 
-    const int first_sector = p_paranoia->firstSectorOfTrack(track);
-    const int last_sector = p_paranoia->lastSectorOfTrack(track);
+    int first_sector = p_paranoia->firstSectorOfTrack(track);
+    int last_sector = p_paranoia->lastSectorOfTrack(track);
 
     const int first_sector_of_disc = p_paranoia->firstSectorOfDisc();
     const int last_sector_of_disc = p_paranoia->lastSectorOfDisc();
+
+    if (track == 0) {
+        first_sector = first_sector_of_disc;
+        last_sector = last_sector_of_disc;
+    }
 
     qDebug() << "Track:" << track;
     qDebug() << "First sector:" << first_sector;
@@ -84,7 +89,13 @@ void CDDAExtractThread::run()
     qDebug() << "Sector shift left:" << sector_shift_left;
     qDebug() << "Sector shift right:" << sector_shift_right;
 
-    p_log.append(i18n("Start ripping track %1 with length %2...", track, CDDAParanoia::LSN2MSF(last_sector - first_sector, QChar('-'))));
+    if (track > 0) {
+        p_log.append(i18n("Start ripping track %1 with length %2...", track, CDDAParanoia::LSN2MSF(last_sector - first_sector, QChar('-'))));
+        Q_EMIT info(i18n("Start ripping track %1...", track));
+    } else {
+        p_log.append(i18n("Start ripping whole cd with length %1...", CDDAParanoia::LSN2MSF(last_sector - first_sector, QChar('-'))));
+        Q_EMIT info(i18n("Start ripping whole cd..."));
+    }
     p_log.append(i18n("Sample shift: %1", sample_shift));
 
     SampleArray chunk;
