@@ -151,6 +151,10 @@ void Audex::start_extract()
         QString year = cdda_model->year();
         QString genre = cdda_model->genre();
         QString suffix = p_suffix;
+        bool fat32_compatible =
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
+        bool replacespaceswithunderscores =
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool();
         QString basepath = Preferences::basePath();
         int cdnum;
         if (!cdda_model->isMultiCD())
@@ -161,7 +165,18 @@ void Audex::start_extract()
         bool overwrite = Preferences::overwriteExistingFiles();
 
         QString targetFilename;
-        if (!construct_target_filename_for_singlefile(targetFilename, cdnum, nooftracks, artist, title, year, genre, suffix, basepath, overwrite)) {
+        if (!construct_target_filename_for_singlefile(targetFilename,
+                                                      cdnum,
+                                                      nooftracks,
+                                                      artist,
+                                                      title,
+                                                      year,
+                                                      genre,
+                                                      suffix,
+                                                      basepath,
+                                                      overwrite,
+                                                      fat32_compatible,
+                                                      replacespaceswithunderscores)) {
             request_finish(false);
             return;
         }
@@ -604,13 +619,9 @@ bool Audex::construct_target_filename(QString &targetFilename,
         defuse_for_filename(genre),
         isrc,
         ext,
+        fat32_compatible,
+        replacespaceswithunderscores,
         _2digitstracknum);
-
-    if (fat32_compatible)
-        basename = SchemeParser::makeFAT32FilenameCompatible(basename);
-
-    if (replacespaceswithunderscores)
-        basename = SchemeParser::replaceSpacesWithUnderscores(basename);
 
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/") + basename;
 
@@ -659,6 +670,8 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
                                                      const QString &genre,
                                                      const QString &ext,
                                                      const QString &basepath,
+                                                     bool fat32_compatible,
+                                                     bool replacespaceswithunderscores,
                                                      bool overwrite_existing_files)
 {
     SchemeParser schemeparser;
@@ -671,7 +684,9 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
             defuse_for_filename(title),
             defuse_for_filename(date),
             defuse_for_filename(genre),
-            ext);
+            ext,
+            fat32_compatible,
+            replacespaceswithunderscores);
 
     int lastSlash = targetFilename.lastIndexOf("/", -1);
     if (lastSlash == -1) {
@@ -949,20 +964,17 @@ void Audex::execute_finish()
         QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString();
 
         SchemeParser schemeparser;
-        QString filename = schemeparser.parseFilenameScheme(scheme,
-                                                            cdda_model->cdNum(),
-                                                            cdda_model->numOfAudioTracks(),
-                                                            defuse_for_filename(cdda_model->artist()),
-                                                            defuse_for_filename(cdda_model->title()),
-                                                            QString("%1").arg(cdda_model->year()),
-                                                            defuse_for_filename(cdda_model->genre()),
-                                                            format.toLower());
-
-        if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool())
-            filename = SchemeParser::makeFAT32FilenameCompatible(filename);
-
-        if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool())
-            filename = SchemeParser::replaceSpacesWithUnderscores(filename);
+        QString filename = schemeparser.parseFilenameScheme(
+            scheme,
+            cdda_model->cdNum(),
+            cdda_model->numOfAudioTracks(),
+            defuse_for_filename(cdda_model->artist()),
+            defuse_for_filename(cdda_model->title()),
+            QString("%1").arg(cdda_model->year()),
+            defuse_for_filename(cdda_model->genre()),
+            format.toLower(),
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool(),
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
 
         if (p_prepare_dir(filename, target_dir, (overwrite && !cdda_model->isMultiCD() && (cdda_model->cdNum() < 1)))) {
             QFile file(filename);
@@ -1001,20 +1013,17 @@ void Audex::execute_finish()
         //     profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX)).toBool();
 
         SchemeParser schemeparser;
-        QString filename = schemeparser.parseFilenameScheme(scheme,
-                                                            cdda_model->cdNum(),
-                                                            cdda_model->numOfAudioTracks(),
-                                                            defuse_for_filename(cdda_model->artist()),
-                                                            defuse_for_filename(cdda_model->title()),
-                                                            QString("%1").arg(cdda_model->year()),
-                                                            defuse_for_filename(cdda_model->genre()),
-                                                            "cue");
-
-        if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool())
-            filename = SchemeParser::makeFAT32FilenameCompatible(filename);
-
-        if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool())
-            filename = SchemeParser::replaceSpacesWithUnderscores(filename);
+        QString filename = schemeparser.parseFilenameScheme(
+            scheme,
+            cdda_model->cdNum(),
+            cdda_model->numOfAudioTracks(),
+            defuse_for_filename(cdda_model->artist()),
+            defuse_for_filename(cdda_model->title()),
+            QString("%1").arg(cdda_model->year()),
+            defuse_for_filename(cdda_model->genre()),
+            "cue",
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool(),
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
 
         if (p_prepare_dir(filename, target_dir, overwrite)) {
             QFile file(filename);
@@ -1047,13 +1056,9 @@ void Audex::execute_finish()
             defuse_for_filename(cdda_model->title()),
             QString("%1").arg(cdda_model->year()),
             defuse_for_filename(cdda_model->genre()),
-            "log");
-
-        if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool())
-            filename = SchemeParser::makeFAT32FilenameCompatible(filename);
-
-        if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool())
-            filename = SchemeParser::replaceSpacesWithUnderscores(filename);
+            "log",
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool(),
+            profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
 
         if (p_prepare_dir(filename, target_dir, overwrite)) {
             QFile file(filename);

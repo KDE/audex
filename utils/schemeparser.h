@@ -79,7 +79,9 @@ public:
                                               const QString &genre,
                                               const QString &isrc,
                                               const QString &suffix,
-                                              const bool twodigitstracknum);
+                                              const bool fat32_compatible = false,
+                                              const bool replace_spaces_with_underscores = false,
+                                              const bool two_digits_tracknum = true);
 
     const QString parsePerTrackCommandScheme(const QString &scheme,
                                              const QString &input,
@@ -108,7 +110,9 @@ public:
                                       const QString &title,
                                       const QString &date,
                                       const QString &genre,
-                                      const QString &suffix);
+                                      const QString &suffix,
+                                      const bool fat32_compatible = false,
+                                      const bool replace_spaces_with_underscores = false);
 
     void parseInfoTextScheme(QStringList &text,
                              const QString &artist,

@@ -279,25 +279,58 @@ const QString SchemeParser::parsePerTrackFilenameScheme(const QString &scheme,
                                                         const QString &genre,
                                                         const QString &isrc,
                                                         const QString &suffix,
-                                                        const bool twodigitstracknum)
+                                                        const bool fat32_compatible,
+                                                        const bool replace_spaces_with_underscores,
+                                                        const bool two_digits_tracknum)
 {
     Placeholders placeholders;
 
-    placeholders.insert(VAR_ALBUM_ARTIST, artist);
-    placeholders.insert(VAR_ALBUM_TITLE, title);
-    placeholders.insert(VAR_TRACK_ARTIST, tartist);
-    placeholders.insert(VAR_TRACK_TITLE, ttitle);
-    placeholders.insert(VAR_DATE, date);
-    placeholders.insert(VAR_GENRE, genre);
-    placeholders.insert(VAR_ISRC, isrc);
+    QString fartist = artist;
+    QString ftitle = title;
+    QString ftartist = tartist;
+    QString fttitle = ttitle;
+    QString fdate = date;
+    QString fgenre = genre;
+    QString fisrc = isrc;
+    QString fsuffix = suffix;
 
-    placeholders.insert(VAR_SUFFIX, suffix);
+    if (fat32_compatible) {
+        fartist = makeFAT32FilenameCompatible(fartist);
+        ftitle = makeFAT32FilenameCompatible(ftitle);
+        ftartist = makeFAT32FilenameCompatible(ftartist);
+        fttitle = makeFAT32FilenameCompatible(fttitle);
+        fdate = makeFAT32FilenameCompatible(fdate);
+        fgenre = makeFAT32FilenameCompatible(fgenre);
+        fisrc = makeFAT32FilenameCompatible(fisrc);
+        fsuffix = makeFAT32FilenameCompatible(fsuffix);
+    }
+
+    if (replace_spaces_with_underscores) {
+        fartist = replaceSpacesWithUnderscores(fartist);
+        ftitle = replaceSpacesWithUnderscores(ftitle);
+        ftartist = replaceSpacesWithUnderscores(ftartist);
+        fttitle = replaceSpacesWithUnderscores(fttitle);
+        fdate = replaceSpacesWithUnderscores(fdate);
+        fgenre = replaceSpacesWithUnderscores(fgenre);
+        fisrc = replaceSpacesWithUnderscores(fisrc);
+        fsuffix = replaceSpacesWithUnderscores(fsuffix);
+    }
+
+    placeholders.insert(VAR_ALBUM_ARTIST, fartist);
+    placeholders.insert(VAR_ALBUM_TITLE, ftitle);
+    placeholders.insert(VAR_TRACK_ARTIST, ftartist);
+    placeholders.insert(VAR_TRACK_TITLE, fttitle);
+    placeholders.insert(VAR_DATE, fdate);
+    placeholders.insert(VAR_GENRE, fgenre);
+    placeholders.insert(VAR_ISRC, fisrc);
+
+    placeholders.insert(VAR_SUFFIX, fsuffix);
 
     int tn = trackno;
     if (trackoffset > 1)
         tn += trackoffset;
 
-    if (twodigitstracknum)
+    if (two_digits_tracknum)
         placeholders.insert(VAR_TRACK_NO, QString("%1").arg(tn, 2, 10, QChar('0')));
     else
         placeholders.insert(VAR_TRACK_NO, tn);
@@ -433,16 +466,39 @@ const QString SchemeParser::parseFilenameScheme(const QString &text,
                                                 const QString &title,
                                                 const QString &date,
                                                 const QString &genre,
-                                                const QString &suffix)
+                                                const QString &suffix,
+                                                const bool fat32_compatible,
+                                                const bool replace_spaces_with_underscores)
 {
     Placeholders placeholders;
 
-    placeholders.insert(VAR_ALBUM_ARTIST, artist);
-    placeholders.insert(VAR_ALBUM_TITLE, title);
-    placeholders.insert(VAR_DATE, date);
-    placeholders.insert(VAR_GENRE, genre);
+    QString fartist = artist;
+    QString ftitle = title;
+    QString fdate = date;
+    QString fgenre = genre;
+    QString fsuffix = suffix;
 
-    placeholders.insert(VAR_SUFFIX, suffix);
+    if (fat32_compatible) {
+        fartist = makeFAT32FilenameCompatible(fartist);
+        ftitle = makeFAT32FilenameCompatible(ftitle);
+        fdate = makeFAT32FilenameCompatible(fdate);
+        fgenre = makeFAT32FilenameCompatible(fgenre);
+        fsuffix = makeFAT32FilenameCompatible(fsuffix);
+    }
+
+    if (replace_spaces_with_underscores) {
+        fartist = replaceSpacesWithUnderscores(fartist);
+        ftitle = replaceSpacesWithUnderscores(ftitle);
+        fdate = replaceSpacesWithUnderscores(fdate);
+        fgenre = replaceSpacesWithUnderscores(fgenre);
+        fsuffix = replaceSpacesWithUnderscores(fsuffix);
+    }
+
+    placeholders.insert(VAR_ALBUM_ARTIST, fartist);
+    placeholders.insert(VAR_ALBUM_TITLE, ftitle);
+    placeholders.insert(VAR_DATE, fdate);
+    placeholders.insert(VAR_GENRE, fgenre);
+    placeholders.insert(VAR_SUFFIX, fsuffix);
 
     placeholders.insert(VAR_CD_NO, cdno);
     placeholders.insert(VAR_NO_OF_TRACKS, nooftracks);

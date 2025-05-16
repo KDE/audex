@@ -237,6 +237,8 @@ private:
                                                   const QString &genre,
                                                   const QString &ext,
                                                   const QString &basepath,
+                                                  bool fat32_compatible,
+                                                  bool replacespaceswithunderscores,
                                                   bool overwrite_existing_files);
 
     bool check();
