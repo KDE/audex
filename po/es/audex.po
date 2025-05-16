@@ -1,15 +1,15 @@
-# Translation of audex to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
+# Spanish translations for audex.po package.
+# Copyright (C) 2010-2025 This file is copyright:
 # This file is distributed under the same license as the audex package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2012, 2013 Rocio Gallego <traducciones@rociogallego.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:42+0000\n"
-"PO-Revision-Date: 2024-07-17 13:53+0100\n"
+"PO-Revision-Date: 2025-05-15 19:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -70,17 +70,15 @@ msgstr "Modo totalmente paranoico (modo seguro)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "Omitir errores de lectura"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Omitir errores de lectura"
+msgstr "Reintentos si hay errores de lectura"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -147,7 +145,7 @@ msgstr "Ningún perfil seleccionado. Operación interrumpida."
 #: core/audex.cpp:113
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr "Comenzar a extraer y codificar con el perfil «%1»..."
+msgstr "Comenzar a extraer y codificar con el perfil «%1»…"
 
 #: core/audex.cpp:619 core/audex.cpp:678
 #, kde-format
@@ -553,7 +551,7 @@ msgstr "Progreso total (extrayendo pista %1 de %2)"
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
-msgstr "Esperando por un trabajo de codificación..."
+msgstr "Esperando por un trabajo de codificación…"
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
@@ -598,12 +596,12 @@ msgstr "Error."
 #: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
-msgstr "Mostrar registro de la codificación..."
+msgstr "Mostrar registro de la codificación…"
 
 #: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
-msgstr "Mostrar registro de la extracción..."
+msgstr "Mostrar registro de la extracción…"
 
 #: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
@@ -640,7 +638,7 @@ msgstr "Mostrar/ocultar detalles"
 #: dialogs/extractingprogresswidgetUI.ui:33
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -948,7 +946,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "Establecer números de pista de dos dígitos (p. ej.,  01, 02, 03...)"
+msgstr "Establecer números de pista de dos dígitos (p. ej.,  01, 02, 03…)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -975,7 +973,7 @@ msgstr "Almacenar archivo de carátula"
 #: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
-msgstr "Preferencias..."
+msgstr "Preferencias…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
@@ -1030,10 +1028,9 @@ msgid "Audio ripping application"
 msgstr "Aplicación de extracción de sonido"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007–2023 por Marco Nelles"
+msgstr "Copyright © 2007–2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1071,11 +1068,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
-"Un agradecimiento especial al anterior credativ GmbH (Alemania) por su apoyo"
+msgstr "Un agradecimiento especial a credativ GmbH (Alemania) por su apoyo"
 
 #: main.cpp:37
 #, kde-format
@@ -1265,12 +1260,12 @@ msgstr "Editar"
 #: mainwindow.cpp:459
 #, kde-format
 msgid "Rip..."
-msgstr "Extraer..."
+msgstr "Extraer…"
 
 #: mainwindow.cpp:468
 #, kde-format
 msgid "Split Titles..."
-msgstr "Dividir títulos..."
+msgstr "Dividir títulos…"
 
 #: mainwindow.cpp:473
 #, kde-format
@@ -1636,16 +1631,14 @@ msgid "TOC:"
 msgstr "Tabla de contenido:"
 
 #: utils/cddaextractthread.cpp:87
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "Empezar a leer la pista %1 con %2 sectores"
+msgstr "Empezar a extraer la pista %1 con longitud %2…"
 
 #: utils/cddaextractthread.cpp:88
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Desplazamiento de la muestra:"
+msgstr "Desplazamiento de la muestra: %1"
 
 #: utils/cddaextractthread.cpp:166
 #, kde-format
@@ -1709,55 +1702,51 @@ msgid "Ripping OK."
 msgstr "Extracción correcta."
 
 #: utils/cddaextractthread.cpp:250
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "Carátula «%1» guardada con éxito."
+msgstr "Extracción de la pista %1 terminada correctamente"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Error de dispositivo (1)."
+msgstr "Error del dispositivo."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Compruebe su dispositivo y elabore un informe de fallo."
+msgstr "Compruebe el dispositivo de «%1x."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Error de dispositivo (1)."
+msgstr "Error de disco."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
 msgstr ""
+"No se ha podido abrir el disco. ¿Hay un disco de audio en la unidad «%1»?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "«cdparanoia» no ha conseguido leer sonido de la unidad «%1»."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Error desconocido de la unidad en «%1»."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Error de dispositivo (1)."
+msgstr "Error de unidad/disco."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Error no especificado de unidad o disco en «%1»."
 
 #: utils/cddaparanoia.cpp:323
 #, kde-format
@@ -1772,10 +1761,9 @@ msgid "Audio"
 msgstr "Audio"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Sin audio: CD-i"
+msgstr "Sin audio"
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -1832,7 +1820,7 @@ msgstr "El esquema de la orden está vacío."
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr "Codificando pista %1..."
+msgstr "Codificando pista %1…"
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
@@ -2147,7 +2135,7 @@ msgstr ""
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr "Enviando archivo %1 al servidor. Espere un momento..."
+msgstr "Enviando archivo %1 al servidor. Espere un momento…"
 
 #: utils/upload.cpp:61
 #, kde-format
@@ -2177,17 +2165,17 @@ msgstr "Guardar carátula"
 #: widgets/cddaheaderwidget.cpp:330
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr "Establecer carátula personalizada..."
+msgstr "Establecer carátula personalizada…"
 
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
-msgstr "Guardar carátula en archivo..."
+msgstr "Guardar carátula en archivo…"
 
 #: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr "Mostrar la carátula a tamaño completo..."
+msgstr "Mostrar la carátula a tamaño completo…"
 
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
@@ -2222,12 +2210,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2235,10 +2218,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Omitir los errores de lectura de un sector (tamaño de "
-"un sector: 1/75 segundos) tras intentar leer el sector de nuevo durante al "
-"menos 20 veces. Por lo general, los sectores dañados se rellenan con "
-"silencio.</p></body></html>"
+"<html><head/><body><p>Omitir los errores de lectura de los sectores "
+"(longitud de sector: 1/75 segundos) tras reintentar su lectura. Indique el "
+"número de reintentos en <span style=\" font-style:italic;\">Reintentos si "
+"hay errores de lectura</span>. Si se omiten, se escribirán muestras en "
+"blanco para los sectores defectuosos.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2251,6 +2235,11 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Algunas unidades tienen un desplazamiento de muestra "
+"cuando leen CD de audio. Para determinar el desplazamiento correcto de su "
+"modelo de unidad, puede comprobar la base de datos de <a href=\"https://www."
+"accuraterip.com/driveoffsets.htm\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">Accuraterip</span></a>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2266,12 +2255,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Indique el número máximo de reintentos cuando se "
+"encuentra un sector defectuoso.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:94
 #, kde-format
 msgid "Retries on read error:"
-msgstr ""
+msgstr "Reintentos si hay errores de lectura:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2356,7 +2347,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr "Media (140...185 kbit/s)"
+msgstr "Media (140…185 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2373,7 +2364,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr "Extrema (220...260 kbits/s)"
+msgstr "Extrema (220…260 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2386,7 +2377,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "Estándar (170...210 kbit/s)"
+msgstr "Estándar (170…210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2500,7 +2491,7 @@ msgstr[1] "%1 nuevos perfiles añadidos"
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
@@ -2512,846 +2503,22 @@ msgstr "Eliminar"
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr "Editar..."
+msgstr "Editar…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr "Cargar..."
+msgstr "Cargar…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 #, kde-format
 msgid "Save..."
-msgstr "Guardar..."
+msgstr "Guardar…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Xiph.Org Foundation"
-#~ msgstr "Xiph.Org Foundation"
-
-#~ msgid ""
-#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-#~ msgstr ""
-#~ "Un agradecimiento especial a la Fundación Xiph.Org por proporcionar un "
-#~ "extractor de CD"
-
-#~ msgid ""
-#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "Compruebe el dispositivo. ¿Seguro que es «%1»? Compruebe también los "
-#~ "permisos de «%1»."
-
-#~ msgid "Device error (2)."
-#~ msgstr "Error de dispositivo (2)."
-
-#~ msgid "Device error (3)."
-#~ msgstr "Error de dispositivo (3)."
-
-#~ msgid "Non-Audio: Data mode 2"
-#~ msgstr "Sin audio: Modo de datos 2"
-
-#~ msgid ", form 1"
-#~ msgstr ", forma 1"
-
-#~ msgid ", form 2"
-#~ msgstr ", forma 2"
-
-#~ msgid "Non-Audio: Data mode 1"
-#~ msgstr "Sin audio: Modo de datos 1"
-
-#~ msgid "Non-Audio: Playstation 1"
-#~ msgstr "Sin audio: Playstation 1"
-
-#~ msgid "Non-Audio: Unknown format"
-#~ msgstr "Sin audio: Formato desconocido"
-
-#~ msgid ""
-#~ "Could not get device hardware information (vendor, model and firmware "
-#~ "revision)."
-#~ msgstr ""
-#~ "No se ha podido obtener información del hardware del dispositivo "
-#~ "(fabricante, modelo y revisión del firmware)."
-
-#~ msgid "Internal device error."
-#~ msgstr "Error interno del dispositivo."
-
-#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-#~ msgstr "Fabricante del dispositivo: %1. Modelo: %2. Revisión: %3"
-
-#~ msgid "Extracting finished."
-#~ msgstr "Extracción terminada."
-
-#~ msgid "Error occured while seeking at sector %1: %2"
-#~ msgstr "Ha ocurrido un error de posicionamiento en la pista %1: %2"
-
-#~ msgid "An error occured while ripping track %1. See log."
-#~ msgstr ""
-#~ "Ha ocurrido un error durante la extracción de la pista %1. Consulte el "
-#~ "registro."
-
-#~ msgid "An error occured while ripping. See log."
-#~ msgstr "Ha ocurrido un error durante la extracción. Consulte el registro."
-
-#~ msgid "Correction sample offset: %1"
-#~ msgstr "Desplazamiento de la muestra de corrección: %1"
-
-#~ msgid "Fetching extra information from disc..."
-#~ msgstr "Obteniendo información adicional del disco..."
-
-#~ msgid "Fetching subchannel infos from disc"
-#~ msgstr "Obteniendo información de subcanales del disco"
-
-#~ msgid "Ripping track %1 (%2:%3)..."
-#~ msgstr "Extrayendo pista %1 (%2:%3)..."
-
-#~ msgid "Ripping whole disc (%1:%2)..."
-#~ msgstr "Extrayendo todo el disco (%1:%2)..."
-
-#~ msgid "Start reading whole disc with %1 sectors"
-#~ msgstr "Empezar a leer todo el disco con %1 sectores"
-
-#~ msgid "Track %1 with start sector %2"
-#~ msgstr "Pista %1 con sector inicial %2"
-
-#~ msgid "First sector: %1, Last sector: %2"
-#~ msgstr "Primer sector: %1. Último sector: %2"
-
-#~ msgid "Ripping finished"
-#~ msgstr "Extracción terminada"
-
-#~ msgid "(No disc detected)"
-#~ msgstr "(No se ha detectado ningún disco)"
-
-#~ msgid "Device information"
-#~ msgstr "Información del dispositivo"
-
-#~ msgid "Vendor:"
-#~ msgstr "Fabricante:"
-
-#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-#~ msgstr ""
-#~ "El dispositivo puede leer el número de catálogo del medio (MCN) del disco."
-
-#~ msgid "Can read Media Catalog Number (MCN)"
-#~ msgstr "Puede leer el número de catálogo del medio (MCN)"
-
-#~ msgid "Revision:"
-#~ msgstr "Revisión:"
-
-#~ msgid "C2 error correction available"
-#~ msgstr "Corrección de errores C2 disponible"
-
-#~ msgid "Model:"
-#~ msgstr "Modelo:"
-
-#~ msgid ""
-#~ "Your device can read the International Standard Recording Code of every "
-#~ "single track."
-#~ msgstr ""
-#~ "El dispositivo puede leer el código estándar internacional de grabación "
-#~ "de cada pista."
-
-#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
-#~ msgstr "Puede leer el código estándar internacional de grabación (ISRC)"
-
-#~ msgid "KDE CDDA Extractor"
-#~ msgstr "Extractor de CDDA para KDE"
-
-#~ msgid "Can read subchannel data (CD-Text, MCN, ISRC)"
-#~ msgstr "Puede leer datos de subcanal (CD-Text, MCN, ISRC)"
-
-#~ msgid "Full paranoia mode (reduce chance of read errors)"
-#~ msgstr ""
-#~ "Modo de paranoia total (reduce la posibilidad de errores de lectura)"
-
-#~ msgid ""
-#~ "Ripping speed was extremely slow for the last 5 minutes.\n"
-#~ "Due to extraction quality, audex is configured to never skip any detected "
-#~ "error. If your disc is really broken extraction may never end!\n"
-#~ "In some cases, it might be that only this drive has difficulty ripping "
-#~ "audio data from this disc. Maybe try another one.\n"
-#~ "\n"
-#~ "However, do you want to continue extraction?"
-#~ msgstr ""
-#~ "La velocidad de extracción ha sido extremadamente lenta durante los "
-#~ "últimos 5 minutos.\n"
-#~ "Debido a la calidad de extracción usada, audex está configurado para no "
-#~ "omitir nunca ningún error detectado. Si su disco está seriamente dañado, "
-#~ "la extracción puede durar de forma indefinida.\n"
-#~ "Es posible que en algunos casos esto se deba a que su lectora tenga "
-#~ "dificultades para extraer datos de audio de este disco. Se le recomienda "
-#~ "que pruebe con otra.\n"
-#~ "\n"
-#~ "No obstante, ¿desea continuar con la extracción?"
-
-#~ msgid "Encoding protocol"
-#~ msgstr "Protocolo de codificación"
-
-#~ msgid "Ripping protocol"
-#~ msgstr "Protocolo de conversión"
-
-#~ msgid "Profile index already exists."
-#~ msgstr "Ya existe el índice del perfil."
-
-#~ msgid ""
-#~ "Your profile index %1 already exists in the set of profiles. Please "
-#~ "choose a unique one."
-#~ msgstr ""
-#~ "El índice del perfil %1 ya existe en el conjunto de perfiles. Escoja uno "
-#~ "que sea único."
-
-#, fuzzy
-#~| msgid ""
-#~| "Fixed edge jitter (absolute sector %1, relative sector %2, track time "
-#~| "pos %3:%4)"
-#~ msgid "Fixed edge jitter (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "Oscilación de borde corregida (sector absoluto %1, sector relativo %2, "
-#~ "posición en el tiempo de la pista %3:%4)"
-
-#, fuzzy
-#~| msgid ""
-#~| "Fixed atom jitter (absolute sector %1, relative sector %2, track time "
-#~| "pos %3:%4)"
-#~ msgid "Fixed atom jitter (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "Oscilación atómica corregida (sector absoluto %1, sector relativo %2, "
-#~ "posición en el tiempo de la pista %3:%4)"
-
-#, fuzzy
-#~| msgid ""
-#~| "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos "
-#~| "%3:%4)"
-#~ msgid "SCRATCH DETECTED (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "DETECTADO ARAÑAZO (sector absoluto %1, sector relativo %2, posición en el "
-#~ "tiempo de la pista %3:%4)"
-
-#, fuzzy
-#~| msgid "First sector: %1, Last sector: %2"
-#~ msgid "Repair (sector %1, time pos %2)"
-#~ msgstr "Primer sector: %1. Último sector: %2"
-
-#, fuzzy
-#~| msgid "First sector: %1, Last sector: %2"
-#~ msgid "Drift (sector %1, time pos %2)"
-#~ msgstr "Primer sector: %1. Último sector: %2"
-
-#, fuzzy
-#~| msgid ""
-#~| "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgid "Backoff (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "Retroceso (sector absoluto %1, sector relativo %2, posición en el tiempo "
-#~ "de la pista %3:%4)"
-
-#, fuzzy
-#~| msgid ""
-#~| "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:"
-#~| "%4)"
-#~ msgid "Fixup dropped (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "Corregido descartado (sector absoluto %1, sector relativo %2, posición en "
-#~ "el tiempo de la pista %3:%4)"
-
-#, fuzzy
-#~| msgid ""
-#~| "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:"
-#~| "%4)"
-#~ msgid "Fixup duped (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "Corregido duplicado (sector absoluto %1, sector relativo %2, posición en "
-#~ "el tiempo de la pista %3:%4)"
-
-#, fuzzy
-#~| msgid ""
-#~| "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgid "READ ERROR (sector %1, time pos %2)"
-#~ msgstr ""
-#~ "ERROR DE LECTURA (sector absoluto %1, sector relativo %2, posición en el "
-#~ "tiempo de la pista %3:%4)"
-
-#~ msgid ""
-#~ "This preset should generally be transparent to most people on most music "
-#~ "and is already quite high in quality."
-#~ msgstr ""
-#~ "Este preajuste debería ser transparente para la mayoría de las personas "
-#~ "en casi todo tipo de música y tiene una calidad bastante alta."
-
-#~ msgid ""
-#~ "Scratch detected (absolute sector %1, relative sector %2, track time pos "
-#~ "%3:%4)"
-#~ msgstr ""
-#~ "Detectado arañazo (sector absoluto %1, sector relativo %2, posición en el "
-#~ "tiempo de la pista %3:%4)"
-
-#~ msgid ""
-#~ "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgstr ""
-#~ "Reparar (sector absoluto %1, sector relativo %2, posición en el tiempo de "
-#~ "la pista %3:%4)"
-
-#~ msgid ""
-#~ "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:"
-#~ "%4)"
-#~ msgstr ""
-#~ "Saltar sectores (sector absoluto %1, sector relativo %2, posición en el "
-#~ "tiempo de la pista %3:%4)"
-
-#~ msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
-#~ msgstr ""
-#~ "SALTAR (sector absoluto %1, sector relativo %2, posición en el tiempo de "
-#~ "la pista %3:%4)"
-
-#~ msgid ""
-#~ "Read error detected (absolute sector %1, relative sector %2, track time "
-#~ "pos %3:%4)"
-#~ msgstr ""
-#~ "Detectado error de lectura (sector absoluto %1, sector relativo %2, "
-#~ "posición en el tiempo de la pista %3:%4)"
-
-#~ msgid "Unable to create CDDA paranoia object."
-#~ msgstr "No se puede crear el objeto «CDDA paranoia»."
-
-#~ msgid "Wikipedia localization"
-#~ msgstr "Ubicación en Wikipedia"
-
-#~ msgid ""
-#~ "<p>The following variables will be replaced with their particular meaning "
-#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
-#~ "of the CD. If your CD is a compilation, then this tag represents the "
-#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
-#~ "If your CD is a compilation, then this tag represents the subtitle in "
-#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
-#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
-#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
-#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
-#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
-#~ "every individual track. It is especially useful on compilation CDs.</td></"
-#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
-#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
-#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
-#~ "$cover</td><td>The cover file.</td></tr><tr><td>$nooftracks</td><td>The "
-#~ "total number of audio tracks of the CD.</td></tr><tr><td>$i</td><td>The "
-#~ "temporary WAV file (input file) created by Audex from CD audio track. You "
-#~ "can use it as a normal input file for your command line encoder.</td></"
-#~ "tr><tr><td>$o</td><td>The full output filename and path (output file). "
-#~ "Use it as the output for your command line encoder.</td></tr><tr><td>"
-#~ "$encoder</td><td>Encoder name and version.</td></tr><tr><td>$audex</"
-#~ "td><td>Audex name and version.</td></tr></table></p>"
-#~ msgstr ""
-#~ "<p>Las siguientes variables se sustituirán por su nombre concreto en el "
-#~ "nombre de cada una de las pistas.</p><p><table border="
-#~ "\"1\"><tr><th><em>Variable</em></th><th><em>Descripción</em></th></"
-#~ "tr><tr><td>$artist</td><td>Intérprete del CD. Si su CD es una "
-#~ "recopilación, esta etiqueta representa el título en la mayoría de los "
-#~ "casos.</td></tr><tr><td>$title</td><td>Título del CD. Si su CD es una "
-#~ "recopilación, esta etiqueta representa el subtítulo en la mayoría de los "
-#~ "casos.</td></tr><tr><td>$date</td><td>Fecha de publicación del CD. En la "
-#~ "mayoría de los casos, se trata del año.</td></tr><tr><td>$genre</"
-#~ "td><td>Género del CD.</td></tr><tr><td>$cdno</td><td>Número de CD en un "
-#~ "álbum con varios CD. Con frecuencia, las recopilaciones contienen varios "
-#~ "CD. <i>Nota:</i> Si el indicador de varios CD <b>no</b> está marcado para "
-#~ "el CD actual, este valor quedará vacío.</td></tr><tr><td>$tartist</"
-#~ "td><td>Intérprete de cada una de las pistas. Es especialmente útil en los "
-#~ "CD de recopilaciones.</td></tr><tr><td>$ttitle</td><td>Título de la "
-#~ "pista. Normalmente, cada pista del CD tiene su propio título, que "
-#~ "corresponde al título de la canción.</td></tr><tr><td>$trackno</"
-#~ "td><td>Número de la pista. La primera pista tiene el número 1.</td></"
-#~ "tr><tr><td>$cover</td><td>Archivo de la carátula.</td></tr><tr><td>"
-#~ "$nooftracks</td><td>Número total de pistas del CD.</td></tr><tr><td>$i</"
-#~ "td><td>Archivo WAV temporal (archivo de entrada) creado por Audex a "
-#~ "partir de la pista de audio del CD. You can use it as a normal input file "
-#~ "for your command line encoder.</td></tr><tr><td>$o</td><td>Ruta y nombre "
-#~ "completos del archivo de salida. Úselo como salida para el codificador de "
-#~ "la línea de órdenes.</td></tr><tr><td>$encoder</td><td>Nombre y versión "
-#~ "del codificador.</td></tr><tr><td>$audex</td><td>Nombre y versión de "
-#~ "Audex.</td></tr></table></p>"
-
-#~ msgid ""
-#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format="
-#~ "\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>In this example a "
-#~ "temporary filename of a copy in jpeg format and sizeof 300x300 pixels of "
-#~ "the cover will be inserted.If no size is set, the size of the original "
-#~ "cover image file will be taken.If no cover is set, this variable will be "
-#~ "omitted.Possible formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG"
-#~ "\").</p>\n"
-#~ "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB.</i></"
-#~ "p><hr /><p>\"preparam\" and \"postparam\" define parameters inserted "
-#~ "before (pre) or behind (post) the variable. These values are <b>only</"
-#~ "b>shown if a value is set. Works with all commandline variables."
-#~ msgstr ""
-#~ "<p>Las variables de Audex pueden tener parámetros. Por ejemplo:</p><pre>"
-#~ "${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>En "
-#~ "este ejemplo se insertará un nombre de archivo temporal de una copia en "
-#~ "formato jpeg y un tamaño de 300x300 píxeles de la carátula. Si no se "
-#~ "define ningún tamaño, se usará el tamaño del archivo de imagen de la "
-#~ "carátula original. Si no se define ninguna carátula, esta variable se "
-#~ "omitirá. Los formatos posibles son «JPG», «PNG» y «GIF» (por omisión es "
-#~ "«JPG»).</p>\n"
-#~ "<p><i><b>Nota:</b> LAME descarta archivos de carátula mayores de 128 KiB."
-#~ "</i></p><hr /><p>«preparam» y «postparam» definen parámetros insertados "
-#~ "delante (pre) o detrás (post) de la variable. Estos valores se muestran "
-#~ "<b>solo</b> si se define un valor. Funciona con todas las variables de la "
-#~ "línea de órdenes."
-
-#~ msgid "About parameters"
-#~ msgstr "Sobre parámetros"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#~ "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#~ "by a special value and can even contain parameters.<br />For example the "
-#~ "variable <div style=\"font-family:monospace; background: #b3c1d6; color: "
-#~ "black\"><pre>$artist</pre></div>or the equivalent<div style=\"font-family:"
-#~ "monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
-#~ "div>will be replaced by the relevant artist of the cd. Variables may also "
-#~ "have attribute, for example:<div style=\"font-family:monospace; "
-#~ "background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</"
-#~ "pre></div>This would print the current date. Setting the format will "
-#~ "control how this is done. The example (above)would result int the date "
-#~ "being printed as 2010-10-07 (if this was the current date). See below for "
-#~ "more details.<br /><br />You can make use of the following variables:<br /"
-#~ "><table border=1><thead><tr><th>Variable</th><th>Parameter</"
-#~ "th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td>"
-#~ "$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</"
-#~ "td><td>${artist }</td></tr><tr><td>$title</td><td></td><td>Prints the "
-#~ "relevant title of the extracted cd.</td><td></td></tr><tr><td>$date</"
-#~ "td><td></td><td>Prints the relevant date (usually release year) of the "
-#~ "extracted cd.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Prints "
-#~ "the relevant genre of the extracted cd.</td><td></td></tr><tr><td>$size</"
-#~ "td><td>iec,precision</td><td>Prints the overall size of all extracted "
-#~ "(compressed) music files (incl. the cover). The attribute iec can be one "
-#~ "of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The "
-#~ "attribute precision gives the number of decimal places. Default "
-#~ "attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" "
-#~ "precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Prints the "
-#~ "relevant overall length of all extracted tracks. The format is min:sec.</"
-#~ "td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Prints the total "
-#~ "number of extracted tracks.</td><td></td></tr><tr><td>$discid</"
-#~ "td><td>base</td><td>Prints the discid of the current cd. The attribute "
-#~ "base is the base of the number. The default is 16 (hexadecimal).</td><td>"
-#~ "${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#~ "td><td>Prints the current date. The attribute format specifies the "
-#~ "output. <i>Please have a look at the official qt documentation for the "
-#~ "format variables.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
-#~ "tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or "
-#~ "time. The attribute format specifies the output. <i>Please have a look at "
-#~ "the official qt documentation for the format variables.</i></td><td>${now "
-#~ "format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$encoder</td><td></"
-#~ "td><td>Prints encoder name and version.</td></tr><tr><td>$audex</td><td></"
-#~ "td><td>Prints Audex name and version.</td></tr><tr><td>$br</td><td></"
-#~ "td><td>Prints a linebreak.</td><td></td></tr></tbody></table></body></"
-#~ "html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#~ "{ white-space: pre-wrap; }</style></head><body>Las variables se "
-#~ "sustituirán con un valor especial e incluso pueden contener parámetros."
-#~ "<br />Por ejemplo, la variable <div style=\"font-family:monospace; "
-#~ "background: #b3c1d6; color: black\"><pre>$artist</pre></div>o su "
-#~ "equivalente<div style=\"font-family:monospace; background: #b3c1d6; "
-#~ "color: black\"><pre>${artist}</pre></div>se  sustituirá por el artista "
-#~ "principal del CD. Las variables también pueden tener atributos, como:<div "
-#~ "style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-#~ "${today format=\"yyyy-MM-dd\"}</pre></div>Esto mostrará la fecha actual. "
-#~ "Al definir el formato se controlará cómo se muestra. El ejemplo anterior "
-#~ "generará una fecha semejante a «2010-10-07» (si esa era la fecha actual). "
-#~ "Consulte más abajo para más detalles.<br /><br />Puede usar las "
-#~ "siguientes variables:<br /><table border=1><thead><tr><th>Variable</"
-#~ "th><th>Parámetro</th><th>Descripción</th><th>Ejemplo</th></tr></"
-#~ "thead><tbody><tr><td>$artist</td><td></td><td>Muestra el artista "
-#~ "principal del CD extraído.</td><td>${artist }</td></tr><tr><td>$title</"
-#~ "td><td></td><td>Muestra el título principal del CD extraído.</td><td></"
-#~ "td></tr><tr><td>$date</td><td></td><td>Muestra la fecha principal (suele "
-#~ "ser el año de lanzamiento) del CD extraído.</td><td></td></tr><tr><td>"
-#~ "$genre;</td><td></td><td>Muestra el género principal del CD extraído.</"
-#~ "td><td></td></tr><tr><td>$size</td><td>iec,precision</td><td>Muestra el "
-#~ "tamaño medio de todos los archivos de música extraídos (comprimidos, "
-#~ "incluida la carátula). El atributo «iec» puede ser: b, k, m, g. «b» "
-#~ "significa byte; «k», KiB; «m», MiB; y «g», GiB. El atributo «precision» "
-#~ "proporciona el número de dígitos decimales. Los atributos predeterminados "
-#~ "son «iec=\"m\"» y «precision=\"2\"».</td><td>${size iec=\"k\" precision="
-#~ "\"2\"}</td></tr><tr><td>$length</td><td></td><td>Muestra la longitud "
-#~ "media de todas las pistas extraídas. El formato es min:seg.</td><td></"
-#~ "td></tr><tr><td>$nooftracks</td><td></td><td>Muestra el número total de "
-#~ "pistas extraídas.</td><td></td></tr><tr><td>$discid</td><td>base</"
-#~ "td><td>Muestra el identificador de disco del CD actual. El atributo "
-#~ "«base» es la base del número. El valor predeterminado es 16 (hexadecimal)."
-#~ "</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</td><td>format</"
-#~ "td><td>Muestra la fecha actual. El atributo «format» indica la salida. "
-#~ "<i>Consulte la documentación oficial de Qt para más información sobre las "
-#~ "variables del formato.</i></td><td>${today format=\"yyyy-MM-dddd\"}</td></"
-#~ "tr><tr><td>$now</td><td>format</td><td>Muestra la fecha y/o la hora "
-#~ "actual. El atributo «format» indica la salida. <i>Consulte la "
-#~ "documentación oficial de Qt para más información sobre las variables del "
-#~ "formato.</i></td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></"
-#~ "tr><tr><td>$encoder</td><td></td><td>Muestra el nombre y la versión del "
-#~ "codificador.</td></tr><tr><td>$audex</td><td></td><td>Muestra el nombre y "
-#~ "la versión de Audex.</td></tr><tr><td>$br</td><td></td><td>Muestra un "
-#~ "salto de línea.</td><td></td></tr></tbody></table></body></html>"
-
-#~ msgid "About variables"
-#~ msgstr "Sobre variables"
-
-#~ msgid ""
-#~ "<p>The following variables will be replaced with their particular meaning "
-#~ "in every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-#~ "th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist "
-#~ "of the CD. If your CD is a compilation, then this tag represents the "
-#~ "title in most cases.</td></tr><tr><td>$title</td><td>The title of the CD. "
-#~ "If your CD is a compilation, then this tag represents the subtitle in "
-#~ "most cases.</td></tr><tr><td>$date</td><td>The release date of the CD. In "
-#~ "almost all cases this is the year.</td></tr><tr><td>$genre</td><td>The "
-#~ "genre of the CD.</td></tr><tr><td>$cdno</td><td>The CD number of a multi-"
-#~ "CD album. Often compilations consist of several CDs. <i>Note:</i> If the "
-#~ "multi-CD flag is <b>not</b> set for the current CD, than this value will "
-#~ "be just empty.</td></tr><tr><td>$tartist</td><td>This is the artist of "
-#~ "every individual track. It is especially useful on compilation CDs.</td></"
-#~ "tr><tr><td>$ttitle</td><td>The track title. Normally each track on a CD "
-#~ "has its own title, which is the name of the song.</td></tr><tr><td>"
-#~ "$trackno</td><td>The track number. First track is 1.</td></tr><tr><td>"
-#~ "$nooftracks</td><td>The total number of audio tracks of the CD.</td></"
-#~ "tr><tr><td>$suffix</td><td>The filename extension.</td></tr><tr><td>"
-#~ "$audex</td><td>Audex name and version.</td></tr></table></p>"
-#~ msgstr ""
-#~ "<p>Las siguiente variables se sustituirán por su significado particular "
-#~ "en cada nombre de pista.</p><p><table border=\"1\"><tr><th><em>Variable</"
-#~ "em></th><th><em>Descripción</em></th></tr><tr><td>$artist</td><td>El "
-#~ "artista del CD. Si se trata de un CD recopilatorio, esta etiqueta "
-#~ "representa el título en la mayor parte de los casos.</td></tr><tr><td>"
-#~ "$title</td><td>El título del CD. Si se trata de un CD recopilatorio, esta "
-#~ "etiqueta representa el subtítulo del CD en la mayoría de los casos.</td></"
-#~ "tr><tr><td>$date</td><td>La fecha de lanzamiento del CD. En casi todos "
-#~ "los casos se refiere al año.</td></tr><tr><td>$genre</td><td>El género "
-#~ "del CD.</td></tr><tr><td>$cdno</td><td>El número de CD de un álbum que "
-#~ "consta de varios CD. Muchas recopilaciones consisten en varios CD. "
-#~ "<i>Nota:</i> Si <b>no</b> se ha activado el indicador de múltiples CD, "
-#~ "este valor estará vacío.</td></tr><tr><td>$tartist</td><td>El artista de "
-#~ "cada pista individual. Resulta especialmente útil en CD recopilatorios.</"
-#~ "td></tr><tr><td>$ttitle</td><td>El título de la pista. Normalmente, cada "
-#~ "pista de un CD tiene su propio título, que es el nombre de la canción.</"
-#~ "td></tr><tr><td>$trackno</td><td>El número de la pista. La primera pista "
-#~ "es la número 1.</td></tr><tr><td>$nooftracks</td><td>El número total de "
-#~ "pistas de audio del CD.</td></tr><tr><td>$suffix</td><td>La extensión del "
-#~ "nombre de archivo.</td></tr><tr><td>$audex</td><td>Nombre y versión de "
-#~ "Audex.</td></tr></table></p>"
-
-#~ msgid ""
-#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-#~ "${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This "
-#~ "means, that the tracknumber will be forced to a length of 2 digits. If "
-#~ "the number is less than 10, it will be filled up with \"0\".</p><pre>"
-#~ "$artist/${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />"
-#~ "$artist/${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>The "
-#~ "title will be uppercased or lowercased. This works with the other "
-#~ "variables, too.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - "
-#~ "$ttile.$suffix</pre><p>Take one character from the left, which is the "
-#~ "first one.</p><hr /><p><b><i>To have a complete overview of parameters go "
-#~ "to the Audex webpage.</i></b></p>"
-#~ msgstr ""
-#~ "<p>Las variables de Audex pueden tener parámetros. Por ejemplo,</p><pre>"
-#~ "$artist/$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</"
-#~ "pre><p>Esto significa que el número de pista deberá tener un tamaño de 2 "
-#~ "dígitos. Si el número es menor que 10, comenzará por «0».</p><pre>$artist/"
-#~ "${title lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/"
-#~ "${title uppercase=\"true\"}/$trackno - $ttile.$suffix</pre><p>El título "
-#~ "estará en minúsculas o en mayúsculas. Esto también funciona con las demás "
-#~ "variables.</p><pre>${artist left=\"1\"}/$artist/$title/$trackno - $ttile."
-#~ "$suffix</pre><p>Usar el primer carácter del nombre del artista.</p><hr /"
-#~ "><p><b><i>Visite la página web de Audex para obtener un resumen completo "
-#~ "de todos los parámetros.</i></b></p>"
-
-#~ msgid "About filename schemes"
-#~ msgstr "Sobre esquemas de nombres de archivos"
-
-#~ msgid ""
-#~ "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
-#~ "length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd "
-#~ "number will be forced to a length of 2 digits. If the number is less than "
-#~ "10, it will be filled up with \"0\".</p><pre>${title lowercase=\"true\"}."
-#~ "$suffix<br />${title uppercase=\"true\"}.$suffix</pre><p>The title will "
-#~ "be uppercased or lowercased. This works with the other variables, too.</"
-#~ "p><pre>${artist left=\"1\"} - $title.$suffix</pre><p>Take one character "
-#~ "from the left, which is the first one.</p><hr /><p><b><i>To have a "
-#~ "complete overview of parameters go to the Audex webpage.</i></b></p>"
-#~ msgstr ""
-#~ "<p>Las variables de Audex pueden tener parámetros. Por ejemplo:</p><pre>"
-#~ "$title (${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre><p>Esto "
-#~ "significa que el número de CD se forzará a una longitud de 2 dígitos. Si "
-#~ "el número es menor que 10, se rellenará con un «0».</p><pre>${title "
-#~ "lowercase=\"true\"}.$suffix<br />${title uppercase=\"true\"}.$suffix</"
-#~ "pre><p>El título se pondrá en letras mayúsculas o minúsculas. Esto "
-#~ "también funciona con el resto de variables.</p><pre>${artist left=\"1\"} "
-#~ "- $title.$suffix</pre><p>Eliminar un carácter de la izquierda, es es el "
-#~ "primero.</p><hr /><p><b><i>Para ver un resumen completo de los "
-#~ "parámetros, visite la página web de Audex.</i></b></p>"
-
-#~ msgid "About schemes"
-#~ msgstr "Sobre esquemas"
-
-#~ msgid "Cover pattern:"
-#~ msgstr "Patrón para la carátula:"
-
-#~ msgid "Name/Pattern:"
-#~ msgstr "Nombre/Patrón:"
-
-#~ msgid "Pattern:"
-#~ msgstr "Patrón:"
-
-#~ msgid "Pattern Wizard"
-#~ msgstr "Asistente de patrones"
-
-#~ msgid " (Mobile Quality)"
-#~ msgstr " (calidad para móvil)"
-
-#~ msgid " (Normal Quality)"
-#~ msgstr " (calidad normal)"
-
-#~ msgid " (Extreme Quality)"
-#~ msgstr " (calidad alta)"
-
-#~ msgid "File does not exist."
-#~ msgstr "El archivo no existe."
-
-#~ msgid "Please check if the file really exists."
-#~ msgstr "Compruebe si el archivo existe realmente."
-
-#~ msgid "Cannot open file."
-#~ msgstr "No se puede abrir el archivo."
-
-#~ msgid "Please check your file. Maybe you do not have proper permissions."
-#~ msgstr ""
-#~ "Compruebe el archivo. Puede que no disponga de los permisos necesarios."
-
-#~ msgid "Unsupported image format"
-#~ msgstr "Formato de imagen no soportado"
-
-#~ msgid ""
-#~ "Please check your file. Maybe it is corrupted. Otherwise try to convert "
-#~ "your cover image with an external program to a common file format like "
-#~ "JPEG."
-#~ msgstr ""
-#~ "Compruebe su archivo, puede que esté dañado. Si no, intente convertir la "
-#~ "imagen de la carátula con un programa externo, a un formato típico como "
-#~ "JPEG."
-
-#~ msgid "Cannot open file"
-#~ msgstr "No se puede abrir el archivo"
-
-#~ msgid "Please check your permissions."
-#~ msgstr "Compruebe sus permisos."
-
-#~ msgid "Cannot save file"
-#~ msgstr "No se puede guardar el archivo"
-
-#~ msgid "Please check your permissions. Do you have enough space?"
-#~ msgstr "Compruebe sus permisos. ¿Tiene suficiente espacio disponible?"
-
-#~ msgid ""
-#~ "Please use common image formats like JPEG or PNG as they are supported on "
-#~ "almost all systems."
-#~ msgstr ""
-#~ "Use formatos de imagen típicos como JPEG o PNG, ya que son admitidos por "
-#~ "casi todos los sistemas."
-
-#~ msgid "Cannot write on device"
-#~ msgstr "No se puede escribir en el dispositivo"
-
-#~ msgid ""
-#~ "Please check your permissions. Do you have enough space on your device?"
-#~ msgstr ""
-#~ "Compruebe sus permisos. ¿Tiene espacio suficiente en el dispositivo?"
-
-#~ msgid "&CDDB"
-#~ msgstr "&CDDB"
-
-#~ msgid "Searching for covers..."
-#~ msgstr "Buscando carátulas..."
-
-#~ msgid "Fetching Thumbnail %1 / %2..."
-#~ msgstr "Obteniendo miniatura %1 / %2..."
-
-#~ msgid "Found 1 Cover"
-#~ msgid_plural "Found %1 Covers"
-#~ msgstr[0] "1 carátula encontrada"
-#~ msgstr[1] "%1 carátulas encontradas"
-
-#~ msgid "No Covers Found"
-#~ msgstr "No se encontraron carátulas"
-
-#~ msgid "Fetch Cover From Google"
-#~ msgstr "Obtener carátula de Google"
-
-#~ msgid "Usable Variables For Text Template"
-#~ msgstr "Variables a usar en la plantilla de texto"
-
-#~ msgid "freedb.org"
-#~ msgstr "freedb.org"
-
-#~ msgid ""
-#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
-#~ msgstr ""
-#~ "Muchas gracias a freedb.org por proporcionar una base de datos de CD "
-#~ "gratuita y similar a CDDB"
-
-#~ msgid "There was an error communicating with Google."
-#~ msgstr "Ha ocurrido un error de comunicación con Google."
-
-#~ msgid "Try again later. Otherwise make a bug report."
-#~ msgstr ""
-#~ "Inténtelo de nuevo más tarde. Si el problema persiste, envíe un informe "
-#~ "de fallo."
-
-#~ msgid "Google server: Empty response."
-#~ msgstr "Servidor de Google: respuesta vacía."
-
-#~ msgid "Try again later. Make a bug report."
-#~ msgstr "Inténtelo de nuevo más tarde. Elabore un informe de fallo."
-
-#~ msgid "%1x%2"
-#~ msgstr "%1x%2"
-
-#~ msgid "Released: "
-#~ msgstr "Publicado: "
-
-#~ msgid "Genre: "
-#~ msgstr "Género: "
-
-#~ msgid "Wikipedia"
-#~ msgstr "Wikipedia"
-
-#~ msgid "No cover found."
-#~ msgstr "Ninguna carátula encontrada."
-
-#~ msgid ""
-#~ "Check your artist name and title. Otherwise you can load a custom cover "
-#~ "from an image file."
-#~ msgstr ""
-#~ "Compruebe el nombre del artista y el título. En caso contrario puede "
-#~ "cargar su propia carátula de un archivo de imagen."
-
-#~ msgid "Fetch cover from Google..."
-#~ msgstr "Buscar carátula en Google..."
-
-#~ msgid "English"
-#~ msgstr "Inglés"
-
-#~ msgid "Deutsch"
-#~ msgstr "Alemán"
-
-#~ msgid "Français"
-#~ msgstr "Francés"
-
-#~ msgid "Polski"
-#~ msgstr "Polaco"
-
-#~ msgid "日本語"
-#~ msgstr "Japonés"
-
-#~ msgid "Italiano"
-#~ msgstr "Italiano"
-
-#~ msgid "Nederlands"
-#~ msgstr "Neerlandés"
-
-#~ msgid "Español"
-#~ msgstr "Español"
-
-#~ msgid "Português"
-#~ msgstr "Portugués"
-
-#~ msgid "Svenska"
-#~ msgstr "Sueco"
-
-#~ msgid "Català"
-#~ msgstr "Catalán"
-
-#~ msgid "Localization:"
-#~ msgstr "Ubicación:"
-
-#~ msgid "CD Device"
-#~ msgstr "Dispositivo CD"
-
-#~ msgid "Save"
-#~ msgstr "Guardar"
-
-#~ msgid "No status information available"
-#~ msgstr "No hay información de estado disponible"
-
-#~ msgid "No disc in drive"
-#~ msgstr "No hay ningún disco en la unidad"
-
-#~ msgid "Audio disc in drive"
-#~ msgstr "Disco de audio en la unidad"
-
-#~ msgid "Drive tray open"
-#~ msgstr "Bandeja de disco abierta"
-
-#~ msgid "Drive not ready"
-#~ msgstr "El dispositivo no está listo"
-
-#~ msgid "Unable to create KCompactDisc object."
-#~ msgstr "No se puede crear el objeto «KCompactDisc»."
-
-#~ msgid "Disc in drive"
-#~ msgstr "Disco en la unidad"
-
-#~ msgid "No drive status available"
-#~ msgstr "Estado de la unidad no disponible"
-
-#~ msgid "Disc playing"
-#~ msgstr "Disco en reproducción"
-
-#~ msgid "Disc paused"
-#~ msgstr "Disco pausado"
-
-#~ msgid "Disc stopped"
-#~ msgstr "Disco parado"
-
-#~ msgid "No disc status available"
-#~ msgstr "Estado del disco no disponible"
-
-#~ msgid "Audio disc"
-#~ msgstr "Disco de audio"
-
-#~ msgid "No disc type information available"
-#~ msgstr "Información del tipo de disco no disponible"
-
-#~ msgid "CD-Text"
-#~ msgstr "CD-Text"
-
-#, fuzzy
-#~| msgid ""
-#~| "This means no data was found in the CDDB database. Please enter the data "
-#~| "manually, or maybe try another CDDB server."
-#~ msgid ""
-#~ "This means no data found in the CDDB database. Please enter the data "
-#~ "manually. Maybe try another CDDB server."
-#~ msgstr ""
-#~ "Esto significa que no se encontraron datos en la base de datos CDDB. Por "
-#~ "favor, introdúzcalos a mano o pruebe con otro servidor CDDB."
-
-#~ msgid "No CD in drive"
-#~ msgstr "No hay ningún CD en la unidad"
-
-#~ msgid "None detected"
-#~ msgstr "Ninguno detectado"
-
-#, fuzzy
-#~| msgid "Format:"
-#~ msgid "Form"
-#~ msgstr "Formato:"
-
-#~ msgid "%1x%2, %3 KiB"
-#~ msgstr "%1x%2, %3 KiB"

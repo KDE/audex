@@ -66,17 +66,15 @@ msgstr "完全默认模式 (安全模式)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
-msgstr "跳过读取错误"
+msgstr ""
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "跳过读取错误"
+msgstr ""
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -1593,16 +1591,14 @@ msgid "TOC:"
 msgstr "目录:"
 
 #: utils/cddaextractthread.cpp:87
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "开始读取音轨 %1 的 %2 个扇区"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:88
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "采样偏移"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:166
 #, kde-format
@@ -1656,29 +1652,25 @@ msgid "Ripping OK."
 msgstr "抓取成功。"
 
 #: utils/cddaextractthread.cpp:250
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "封面 \"%1\" 保存成功。"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "设备错误 (1) 。"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "检查您的设备并提交错误报告。"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "设备错误 (1) 。"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
@@ -1696,10 +1688,9 @@ msgid "Unspecified drive error on \"%1\"."
 msgstr ""
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "设备错误 (1) 。"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
@@ -1717,10 +1708,9 @@ msgid "Audio"
 msgstr "音频"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "非音频：CD-i"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -2135,12 +2125,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2148,8 +2133,6 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>尝试再次读取扇区（扇区长度：1/75秒）最多20次后，跳过该"
-"扇区的阅读错误。通常破碎的扇区会充满沉默。</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2432,122 +2415,3 @@ msgstr "保存..."
 #, kde-format
 msgid "URL:"
 msgstr "网址："
-
-#~ msgid "Xiph.Org Foundation"
-#~ msgstr "Xiph.Org 基金会"
-
-#~ msgid ""
-#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-#~ msgstr "特别感谢 Xiph.Org 基金会提供了光盘抓取器"
-
-#~ msgid ""
-#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "检查您的设备。确认是 \"%1\" 吗？如果是的话，请检查您在 \"%1\" 上的权限。"
-
-#~ msgid "Device error (2)."
-#~ msgstr "设备错误 (2) 。"
-
-#~ msgid "Device error (3)."
-#~ msgstr "设备错误 (3) 。"
-
-#~ msgid "Non-Audio: Data mode 2"
-#~ msgstr "非音频：数据模式 2"
-
-#~ msgid ", form 1"
-#~ msgstr "，表单1"
-
-#~ msgid ", form 2"
-#~ msgstr "，表单2"
-
-#~ msgid "Non-Audio: Data mode 1"
-#~ msgstr "非音频：数据模式 1"
-
-#~ msgid "Non-Audio: Playstation 1"
-#~ msgstr "非音频：Playstation 1"
-
-#~ msgid "Non-Audio: Unknown format"
-#~ msgstr "非音频：未知格式"
-
-#~ msgid ""
-#~ "Could not get device hardware information (vendor, model and firmware "
-#~ "revision)."
-#~ msgstr "无法获取设备硬件信息(供应商、模型和固件修改)。"
-
-#~ msgid "Internal device error."
-#~ msgstr "内部设备错误。"
-
-#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-#~ msgstr "驱动器销售商: %1, 驱动器模型: %2, 驱动器修订: %3"
-
-#~ msgid "Extracting finished."
-#~ msgstr "提取完成。"
-
-#~ msgid "Error occured while seeking at sector %1: %2"
-#~ msgstr "在扇区%1中查找时出错%2"
-
-#~ msgid "An error occured while ripping track %1. See log."
-#~ msgstr "抓取轨道 %1时发生错误。请参阅日志。"
-
-#~ msgid "An error occured while ripping. See log."
-#~ msgstr "抓取时出错。请参阅日志。"
-
-#~ msgid "Correction sample offset: %1"
-#~ msgstr "校正样本偏移: %1"
-
-#~ msgid "Fetching extra information from disc..."
-#~ msgstr "正在从光盘获取额外信息..."
-
-#~ msgid "Fetching subchannel infos from disc"
-#~ msgstr "正在从光盘获取子频道信息"
-
-#~ msgid "Ripping track %1 (%2:%3)..."
-#~ msgstr "抓取轨道 %1 (%2:%3)..."
-
-#~ msgid "Ripping whole disc (%1:%2)..."
-#~ msgstr "正在抓取整个光盘(%1:%2)..."
-
-#~ msgid "Start reading whole disc with %1 sectors"
-#~ msgstr "从 %1 扇区开始读取整个盘片"
-
-#~ msgid "Track %1 with start sector %2"
-#~ msgstr "音轨 %1 与起始扇区 %2"
-
-#~ msgid "First sector: %1, Last sector: %2"
-#~ msgstr "第一个扇区: %1, 最后一个扇区: %2"
-
-#~ msgid "Ripping finished"
-#~ msgstr "抓取完成"
-
-#~ msgid "(No disc detected)"
-#~ msgstr "(未检测到光盘)"
-
-#~ msgid "Device information"
-#~ msgstr "设备信息"
-
-#~ msgid "Vendor:"
-#~ msgstr "发行者："
-
-#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-#~ msgstr "您的设备可以读取磁盘的媒体目录号 (MCN)。"
-
-#~ msgid "Can read Media Catalog Number (MCN)"
-#~ msgstr "可以读取媒体目录号码 (MCN)"
-
-#~ msgid "Revision:"
-#~ msgstr "修订版本："
-
-#~ msgid "C2 error correction available"
-#~ msgstr "C2 错误校正可用"
-
-#~ msgid "Model:"
-#~ msgstr "模型："
-
-#~ msgid ""
-#~ "Your device can read the International Standard Recording Code of every "
-#~ "single track."
-#~ msgstr "您的设备可以读取每一首歌曲的国际标准记录代码。"
-
-#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
-#~ msgstr "支持读取国际标准录音编码 (ISRC)"

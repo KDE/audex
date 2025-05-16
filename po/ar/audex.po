@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:42+0000\n"
-"PO-Revision-Date: 2025-01-07 17:37+0400\n"
+"PO-Revision-Date: 2025-05-15 18:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -67,17 +67,15 @@ msgstr "وضع المرتاب (الوضع الآمن)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "تخطَ أخطاء القراءة"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "تخطَ أخطاء القراءة"
+msgstr "إعادة المحاولة عند حدوث خطأ في القراءة"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -1025,10 +1023,9 @@ msgid "Audio ripping application"
 msgstr "تطبيق استخراج الصوت"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "حقوق النشر © 2007-2023 ماركو نيليس"
+msgstr "حقوق النشر © 2007-2025 ماركو نيليس"
 
 #: main.cpp:33
 #, kde-format
@@ -1066,10 +1063,9 @@ msgid "credativ GmbH"
 msgstr "شركة كريدتيف جي إم بي إتش"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "شكر خاص لشركة Credativ GmbH (ألمانيا) السابقة على الدعم"
+msgstr "شكر خاص لشركة Credativ GmbH (ألمانيا) على الدعم"
 
 #: main.cpp:37
 #, kde-format
@@ -1625,10 +1621,9 @@ msgid "Start ripping track %1 with length %2..."
 msgstr "بدء قراءة المسار %1 مع %2 قطاعات"
 
 #: utils/cddaextractthread.cpp:88
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "إزاحة العينة:"
+msgstr "إزاحة العينة: %1"
 
 #: utils/cddaextractthread.cpp:166
 #, kde-format
@@ -1688,10 +1683,9 @@ msgid "Ripping of track %1 successfully finished"
 msgstr "حفظ الغلاف \"%1\" بنجاح."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "خطأ في الجهاز (1)."
+msgstr "خطأ في الجهاز."
 
 #: utils/cddaparanoia.cpp:20
 #, fuzzy, kde-format
@@ -1701,10 +1695,9 @@ msgstr "افحص جهازك وقم بعمل تقرير بالأخطاء."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "خطأ في الجهاز (1)."
+msgstr "خطأ في القرص."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
@@ -1722,10 +1715,9 @@ msgid "Unspecified drive error on \"%1\"."
 msgstr ""
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "خطأ في الجهاز (1)."
+msgstr "خطأ في محرك الأقراص/القرص."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
@@ -1744,10 +1736,9 @@ msgid "Audio"
 msgstr "صوت"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "غير صوتي: CD-i"
+msgstr "غير صوتي"
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -2227,7 +2218,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:94
 #, kde-format
 msgid "Retries on read error:"
-msgstr ""
+msgstr "إعادة المحاولة عند حدوث خطأ في القراءة:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

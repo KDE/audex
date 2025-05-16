@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:42+0000\n"
-"PO-Revision-Date: 2024-03-07 05:17+0100\n"
+"PO-Revision-Date: 2025-05-15 04:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.6\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -67,17 +67,15 @@ msgstr "სრული პარანოიდალური რეჟიმ�
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "კითხვის შეცდომების გამოტოვება"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "კითხვის შეცდომების გამოტოვება"
+msgstr "თავიდან ცდები წაკითხვის შეცდომისას"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -1023,10 +1021,9 @@ msgid "Audio ripping application"
 msgstr "აუდიო დისკიდან სიმღერების გადმოსაწერი აპლიკაცია"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "© 2007–2023 Marco Nellses, ყველა უფლება დაცულია"
+msgstr "© 2007–2025 Marco Nellses, ყველა უფლება დაცულია"
 
 #: main.cpp:33
 #, kde-format
@@ -1064,8 +1061,7 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr ""
 "განსაკუთრებული მადლობა ყოფილ credativ GmbH-ს (გერმანია) მხარდაჭერისთვის"
@@ -1617,16 +1613,14 @@ msgid "TOC:"
 msgstr "სარჩევი:"
 
 #: utils/cddaextractthread.cpp:87
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "%2 სექტორის მქონე %1 ტრეკის წაკითხვის დაწყება"
+msgstr "%2 სიგრძის მქონე %1-ე ტრეკის დარიპვის დაწყება..."
 
 #: utils/cddaextractthread.cpp:88
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "სემპლის წანაცვლება:"
+msgstr "სემპლის წანაცვლება: %1"
 
 #: utils/cddaextractthread.cpp:166
 #, kde-format
@@ -1683,55 +1677,52 @@ msgid "Ripping OK."
 msgstr "დარიპვა წარმატებულია."
 
 #: utils/cddaextractthread.cpp:250
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "ყდა \"%1\" წარმატებით შეინახა."
+msgstr "ტრეკის \"%1\" დარიპვა წარმატებით დასრულდა"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "მოწყობილობის შეცდომა (1)."
+msgstr "მოწყობილობის შეცდომა."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "შეამოწმეთ თქვენი მოწყობილობა და მოგვწერეთ შეცდომის ანგარიში."
+msgstr "შეამოწმეთ თქვენი მოწყობილობა \"%1\"-ზე\"."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "მოწყობილობის შეცდომა (1)."
+msgstr "დისკის შეცდომა."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
 msgstr ""
+"დისკის გახსნის შეცდომა. შეამოწმეთ, მართლა დევს თუ არა აუდიოდისკი ამძრავში "
+"\"%1\"."
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "cdparanoia-მა ვერ იპოვა გზა, რომ წაიკითხოს აუდიო ამძრავიდან \"%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "მიუთითებელი ამძრავის შეცდომა \"%1\"-ზე."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "მოწყობილობის შეცდომა (1)."
+msgstr "მოწყობილობის/დისკის შეცდომა."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "მიუთითებელი ამძრავის ან დისკის შეცდომა \"%1\"-ზე."
 
 #: utils/cddaparanoia.cpp:323
 #, kde-format
@@ -1745,10 +1736,9 @@ msgid "Audio"
 msgstr "აუდიო"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "არა-აუდიო: CD-i"
+msgstr "არა-აუდიო"
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -2184,12 +2174,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2197,9 +2182,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>20-მდე წარუმატებელი ცდის შემდეგ სექტორის (სექტორის "
-"სიგრძე: 1/75 წმ) წაკითხვის მცდელობების მიტოვება. ჩვეულებრივ, გაფუჭებული "
-"სექტორები სიჩუმით ივსება.</p></body></html>"
+"<html><head/><body><p>წარუმატებელი ცდის შემდეგ სექტორის (სექტორის სიგრძე: "
+"1/75 წმ) წაკითხვის მცდელობების მიტოვება. მიუთითეთ თავიდან ცდების რაოდენობა "
+"მენიუში <span style=\" font-style:italic;\">თავიდან ცდები წაკითხვის "
+"შეცდომისას</span>. გამოტოვების შემთხვევაში ჩავარდნილი სექტორების მაგიერ "
+"ნულოვანი ნიმუშები ჩაიწერება.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2212,6 +2199,11 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>ზოგიერთ ამძრავს აუდიოCD-ების წაკითხვისას ნიმუშის "
+"წანაცვლება გააჩნიათ. იმისათვის რომ თქვენი ამძრავის მოდელისთვის სწორი "
+"წანაცვლება დაადგინოთ, შეამოწმეთ <a href=\"https://www.accuraterip.com/"
+"driveoffsets.htm\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">Accuraterip</span></a>-ის მონაცემთა ბაზა.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2227,12 +2219,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>მიუთითეთ თავიდან ცდების მაქსიმალური რაოდენობა "
+"შეცდომიანი სექტორის აღმოჩენისას.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:94
 #, kde-format
 msgid "Retries on read error:"
-msgstr ""
+msgstr "თავიდან ცდები წაკითხვის შეცდომისას:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

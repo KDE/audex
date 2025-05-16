@@ -2,21 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Kenny Verstraete <verstraete_kenny@skynet.be>, 2009.
-# SPDX-FileCopyrightText: 2011, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2011, 2023, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2011, 2012, 2013, 2014, 2015, 2017, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:42+0000\n"
-"PO-Revision-Date: 2024-03-07 10:17+0100\n"
+"PO-Revision-Date: 2025-05-15 16:18+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -68,17 +68,15 @@ msgstr "Volledige paranoia-modus (veilige modus)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "Leesfouten overslaan"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Leesfouten overslaan"
+msgstr "Opnieuw proberen bij leesfouten"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -1028,10 +1026,9 @@ msgid "Audio ripping application"
 msgstr "Toepassing voor audio-rippen"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007–2023 door Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1069,11 +1066,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
-"Speciale dank aan voormalig credativ GmbH (Duitsland) voor ondersteuning"
+msgstr "Speciale dank aan credativ GmbH (Duitsland) voor ondersteuning"
 
 #: main.cpp:37
 #, kde-format
@@ -1634,16 +1629,14 @@ msgid "TOC:"
 msgstr "TOC:"
 
 #: utils/cddaextractthread.cpp:87
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "Start met het lezen van track %1 met %2 sectoren"
+msgstr "Start met rippen van track %1 met lengte %2..."
 
 #: utils/cddaextractthread.cpp:88
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Offset van sample:"
+msgstr "Verschuiving van sample: %1"
 
 #: utils/cddaextractthread.cpp:166
 #, kde-format
@@ -1701,55 +1694,51 @@ msgid "Ripping OK."
 msgstr "Rippen is OK."
 
 #: utils/cddaextractthread.cpp:250
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 / %2"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "Rippen van track %1 / %2"
+msgstr "Rippen van track %1  is net succes beëindigd"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Apparaatfout (1)."
+msgstr "Apparaatfout."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Controleer uw apparaat en maak een bugreport."
+msgstr "Controleer uw apparaat op \"%1\"."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Apparaatfout (1)."
+msgstr "Schijffout."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "Schijf openen lukt niet. Er is een audioschijf in het station \"%1\"."
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"cdparanoia kon geen manier vinden om audio te lezen van de schijf \"%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Ongespecificeerde stationsfout on \"%1\"."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Apparaatfout (1)."
+msgstr "Station/Apparaatfout."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Ongespecificeerd station of schijffout op \"%1\"."
 
 #: utils/cddaparanoia.cpp:323
 #, kde-format
@@ -1764,10 +1753,9 @@ msgid "Audio"
 msgstr "Audio"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Niet-audio: cd-i"
+msgstr "Niet-audio"
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -2213,12 +2201,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2226,10 +2209,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Leesfouten van een sector overslaan (lengte van een "
-"sector: 1/75 seconde) na het proberen de sector opnieuw te lezen voor niet "
-"meer dan 20 keer. Gewoonlijk worden gebroken sectoren gevuld met stilte.</"
-"p></body></html>"
+"<html><head/><body><p>Sla leesfouten voor een sector (sectorlengte: 1/75 "
+"seconde) over na opnieuw proberen het te lezen. Specificeer het aantal "
+"pogingen van opnieuw proberen onder <span style=\" font-style:italic;"
+"\">Opnieuw proberen bij leesfout</span>. Indien overgeslagen, zullen nul "
+"samples geschreven worden voor de foute sectoren.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2242,12 +2226,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Sommige station hebben een sample-offset bij lezen van "
+"audio-CD's. Om de juiste offset voor uw stationsmodel te bepalen, kunt u de "
+"database <a href=\"https://www.accuraterip.com/driveoffsets.htm\"><span "
+"style=\" text-decoration: underline; color:#2980b9;\">Accuraterip</span></a> "
+"raadplegen.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample offset:"
-msgstr "Offset van sample:"
+msgstr "Sample-offset:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2257,12 +2246,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Specificeer het maximum aantal pogingen van opnieuw "
+"proberen wanneer een foute sector wordt tegengekomen.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:94
 #, kde-format
 msgid "Retries on read error:"
-msgstr ""
+msgstr "Opnieuw proberen bij leesfouten:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:42+0000\n"
-"PO-Revision-Date: 2025-03-09 22:59+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"PO-Revision-Date: 2025-05-15 13:36+0300\n"
+"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -69,17 +69,15 @@ msgstr "Tam kuşku kipi (güvenli kip)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "Okuma hatalarını atla"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Okuma hatalarını atla"
+msgstr "Okuma hatasında yeniden dene"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -1028,10 +1026,9 @@ msgid "Audio ripping application"
 msgstr "Ses aktarma uygulaması"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Telif hakkı © 2007–2023 by Marco Nelles"
+msgstr "© 2007–2025, Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1069,10 +1066,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "Desteği için eski credativ GmbH’ye (Almanya) ayrıca teşekkürler ederiz"
+msgstr "Desteği için credativ GmbH’ye (Almanya) ayrıca teşekkürler"
 
 #: main.cpp:37
 #, kde-format
@@ -1624,16 +1620,14 @@ msgid "TOC:"
 msgstr "İçindekiler:"
 
 #: utils/cddaextractthread.cpp:87
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "Parça %1, %2 dilim ile okunmaya başlandı"
+msgstr "%2 uzunluğundaki %1 parçasını dönüştürme başlatılıyor…"
 
 #: utils/cddaextractthread.cpp:88
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Örnek ofset:"
+msgstr "Örnek kayma: %1"
 
 #: utils/cddaextractthread.cpp:166
 #, kde-format
@@ -1687,55 +1681,50 @@ msgid "Ripping OK."
 msgstr "Dönüştürme Tamam."
 
 #: utils/cddaextractthread.cpp:250
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "“%1” kapağı başarılı bir şekilde kaydedildi."
+msgstr "%1 parçasının dönüştürülmesi başarıyla bitti."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Aygıt hatası (1)."
+msgstr "Aygıt hatası."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Aygıtınızı denetleyin ve bir hata raporu oluşturun."
+msgstr "“%1” üzerindeki aygıtınızı denetleyin."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Aygıt hatası (1)."
+msgstr "Disk hatası."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "Disk açılamıyor. “%1” sürücüsünde bir ses diski var mı?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "cdparanoia, “%1” sürücüsünden ses okumak için bir yol bulamadı."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "“%1” üzerinde belirlenemeyen sürücü hatası."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Aygıt hatası (1)."
+msgstr "Sürücü/disk hatası."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "“%1” üzerinde belirlenemeyen sürücü veya disk hatası."
 
 #: utils/cddaparanoia.cpp:323
 #, kde-format
@@ -1749,10 +1738,9 @@ msgid "Audio"
 msgstr "Ses"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Ses dışı: CD-i"
+msgstr "Ses dışı"
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -2187,12 +2175,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2200,9 +2183,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Bir dilimi en fazla 20 kez yeniden okumayı denedikten "
-"sonra okuma hatalarını (bir dilimin uzunluğu: 1/75 saniye) atlayın. Bozuk "
-"dilimler genellikle sessizlikle doldurulur.</p></body></html>"
+"<html><head/><body><p>Bir dilim için olan okuma hatalarını onu okumayı "
+"yeniden denedikten sonra atlayın (dilim uzunluğu: 1/75 saniye). Lütfen "
+"yapılacak yeniden deneme sayısını <span style=\" font-style:italic;\">Okuma "
+"hatasında yeniden dene</span> bölümünde belirtin. Atlanırsa hatalı dilimler "
+"için boş örnekler yazılacaktır.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2215,6 +2200,11 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Bazı sürücülerde, ses CD’lerini okurken bir örnek "
+"ofset bulunur. Sürücünüz için olan doğru ofseti algılamak için <a href="
+"\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a> veritabanını "
+"kullanabilirsiniz.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2230,12 +2220,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Hatalı bir dilim algılandığında yapılacak en çok "
+"yeniden deneme sayısını belirtin.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:94
 #, kde-format
 msgid "Retries on read error:"
-msgstr ""
+msgstr "Okuma hatasında yeniden dene:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
