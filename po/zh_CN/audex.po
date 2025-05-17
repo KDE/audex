@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -143,149 +143,149 @@ msgstr "没有选中配置文件。操作中止。"
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
 
-#: core/audex.cpp:619 core/audex.cpp:678
+#: core/audex.cpp:630 core/audex.cpp:693
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "找不到路径“%1”。"
 
-#: core/audex.cpp:619 core/audex.cpp:678 core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:630 core/audex.cpp:693 core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "请检查您的路径 (写入访问权限？)"
 
-#: core/audex.cpp:632
+#: core/audex.cpp:643
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "“%1”中的空闲空间少于 200 MiB。"
 
-#: core/audex.cpp:638 core/audex.cpp:706
+#: core/audex.cpp:649 core/audex.cpp:721
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "警告！文件“%1”已经存在。覆盖。"
 
-#: core/audex.cpp:640 core/audex.cpp:708 core/audex.cpp:1126
+#: core/audex.cpp:651 core/audex.cpp:723 core/audex.cpp:1131
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "警告！文件“%1”已经存在。跳过。"
 
-#: core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "无法创建文件夹 \"%1\"."
 
-#: core/audex.cpp:690 core/audex.cpp:1149
+#: core/audex.cpp:705 core/audex.cpp:1154
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "文件夹 \"%1\" 已成功创建。"
 
-#: core/audex.cpp:693
+#: core/audex.cpp:708
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "文件夹 \"%1\" 已存在。"
 
-#: core/audex.cpp:700
+#: core/audex.cpp:715
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "“%1”中的空闲空间少于 800 MiB。"
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "临时文件夹 \"%1\" 错误 (%2)。"
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Please check."
 msgstr "请检查。"
 
-#: core/audex.cpp:731
+#: core/audex.cpp:746
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "临时文件夹“%1”中的空闲空间少于 800 MiB。"
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "临时文件夹“%1”需要至少 200 MiB 的空闲空间。"
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "请释放空间或选择另一条路径。"
 
-#: core/audex.cpp:762
+#: core/audex.cpp:777
 #, kde-format
 msgid "Eject CD tray"
 msgstr "弹出 CD 托盘"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:829
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "封面 \"%1\" 保存成功。"
 
-#: core/audex.cpp:817
+#: core/audex.cpp:832
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "无法保存封面 “%1”。"
 
-#: core/audex.cpp:817 core/audex.cpp:895 core/audex.cpp:940 core/audex.cpp:991
-#: core/audex.cpp:1034 core/audex.cpp:1067 core/audex.cpp:1114
-#: core/audex.cpp:1141
+#: core/audex.cpp:832 core/audex.cpp:910 core/audex.cpp:955 core/audex.cpp:1003
+#: core/audex.cpp:1043 core/audex.cpp:1072 core/audex.cpp:1119
+#: core/audex.cpp:1146
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "请检查您的路径和权限"
 
-#: core/audex.cpp:891
+#: core/audex.cpp:906
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "播放列表“%1”创建成功"
 
-#: core/audex.cpp:895
+#: core/audex.cpp:910
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "无法保存播放列表“%1”。"
 
-#: core/audex.cpp:937
+#: core/audex.cpp:952
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "信息文件“%1”创建成功。"
 
-#: core/audex.cpp:940
+#: core/audex.cpp:955
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "无法保存信息文件“%1”。"
 
-#: core/audex.cpp:988
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "哈希列表“%1”创建成功。"
 
-#: core/audex.cpp:991
+#: core/audex.cpp:1003
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "无法保存哈希列表“%1”。"
 
-#: core/audex.cpp:1031
+#: core/audex.cpp:1040
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "CUE 文件“%1”成功创建。"
 
-#: core/audex.cpp:1034
+#: core/audex.cpp:1043
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "无法保存 CUE 文件“%1”。"
 
-#: core/audex.cpp:1064
+#: core/audex.cpp:1069
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
 msgstr "日志文件 \"%1\" 存储成功。"
 
-#: core/audex.cpp:1067
+#: core/audex.cpp:1072
 #, kde-format
 msgid "Unable to save log file \"%1\"."
 msgstr "无法保存日志文件“%1”。"
 
-#: core/audex.cpp:1114 core/audex.cpp:1141
+#: core/audex.cpp:1119 core/audex.cpp:1146
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "无法打开文件夹“%1”。"
@@ -777,7 +777,7 @@ msgstr "名称/方案："
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatacuesheetwidgetUI.ui:56
 #: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
@@ -793,7 +793,7 @@ msgstr ""
 "码。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:62
+#: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
 msgstr "添加 MCN 和 ISRC 值 (如果可用) "
@@ -1590,68 +1590,86 @@ msgstr "音频盘片"
 msgid "TOC:"
 msgstr "目录:"
 
-#: utils/cddaextractthread.cpp:87
+#: utils/cddaextractthread.cpp:93
 #, kde-format
 msgid "Start ripping track %1 with length %2..."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:88
+#: utils/cddaextractthread.cpp:94
+#, fuzzy, kde-format
+#| msgid "Encoding track %1..."
+msgid "Start ripping track %1..."
+msgstr "编码音轨 %1..."
+
+#: utils/cddaextractthread.cpp:96
+#, fuzzy, kde-format
+#| msgid "Start ripping and encoding with profile \"%1\"..."
+msgid "Start ripping whole cd with length %1..."
+msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
+
+#: utils/cddaextractthread.cpp:97
+#, fuzzy, kde-format
+#| msgid "Start ripping and encoding with profile \"%1\"..."
+msgid "Start ripping whole cd..."
+msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
+
+#: utils/cddaextractthread.cpp:99
 #, kde-format
 msgid "Sample shift: %1"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:166
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "读取扇区时发生错误 %1 (音轨时间点 %2)： %3"
 
-#: utils/cddaextractthread.cpp:173 utils/cddaextractthread.cpp:181
+#: utils/cddaextractthread.cpp:184 utils/cddaextractthread.cpp:192
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "抓取扇区 %2 轨道 %1时发生错误。请参阅日志。"
 
-#: utils/cddaextractthread.cpp:175 utils/cddaextractthread.cpp:183
-#: utils/cddaextractthread.cpp:190 utils/cddaextractthread.cpp:192
+#: utils/cddaextractthread.cpp:186 utils/cddaextractthread.cpp:194
+#: utils/cddaextractthread.cpp:201 utils/cddaextractthread.cpp:203
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
 msgstr "抓取 %1时发生错误。请参阅日志。"
 
-#: utils/cddaextractthread.cpp:188
+#: utils/cddaextractthread.cpp:199
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "读取扇区时发生错误 %1 (音轨时间点 %2)： "
 
-#: utils/cddaextractthread.cpp:198
+#: utils/cddaextractthread.cpp:209
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr "读取扇区错误 %1 (%2)：**以默认值填充整个扇区**"
 
-#: utils/cddaextractthread.cpp:239 utils/cddaextractthread.cpp:240
+#: utils/cddaextractthread.cpp:250 utils/cddaextractthread.cpp:251
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr "抓取因为错误而被取消。"
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid "User canceled extracting."
 msgstr "用户取消了提取"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:254
 #, kde-format
 msgid "Extraction interrupted"
 msgstr "解压已中止"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:257
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "抓取 OK (音轨 %1)。"
 
-#: utils/cddaextractthread.cpp:248
+#: utils/cddaextractthread.cpp:259
 #, kde-format
 msgid "Ripping OK."
 msgstr "抓取成功。"
 
-#: utils/cddaextractthread.cpp:250
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid "Ripping of track %1 successfully finished"
 msgstr ""
@@ -1874,12 +1892,12 @@ msgstr ""
 msgid "Unclosed brace."
 msgstr "未闭合的括号。"
 
-#: utils/schemeparser.cpp:414
+#: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "无法创建临时封面文件： %1"
 
-#: utils/schemeparser.h:150
+#: utils/schemeparser.h:154
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -1910,7 +1928,7 @@ msgstr ""
 "$encoder</tt></td><td>编码器名称和版本。</td></tr><tr><td><tt>$audex</tt></"
 "td><td>Audex名称和版本。</td></tr></table>"
 
-#: utils/schemeparser.h:167
+#: utils/schemeparser.h:171
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -1960,7 +1978,7 @@ msgstr ""
 "设置这些参数。</td></tr><tr><td><tt>post</tt></td><td>String</td><td>一个字符"
 "串，将被放置<b>在</b>值之后。</td></tr></table>"
 
-#: utils/schemeparser.h:188
+#: utils/schemeparser.h:192
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -1979,7 +1997,7 @@ msgstr ""
 "tt></td><td>曲目的国际标准录音代码（ISRC）（仅当您的设备支持时才可用）。</"
 "td></tr></table>"
 
-#: utils/schemeparser.h:200
+#: utils/schemeparser.h:204
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2004,7 +2022,7 @@ msgstr ""
 "认： JPEG ) 。<i><b>注意：</b> LAME 会丢弃大于 128 KiB 的封面文件。</i></"
 "td></tr></table>"
 
-#: utils/schemeparser.h:214
+#: utils/schemeparser.h:218
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"

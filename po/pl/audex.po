@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2024-03-17 10:51+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -146,153 +146,153 @@ msgstr "Nie wybrano profilu. Przerywanie operacji."
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "Rozpocznij zgrywanie i kodowanie z profilem \"%1\"..."
 
-#: core/audex.cpp:619 core/audex.cpp:678
+#: core/audex.cpp:630 core/audex.cpp:693
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "Nie można znaleźć ścieżki \"%1\"."
 
-#: core/audex.cpp:619 core/audex.cpp:678 core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:630 core/audex.cpp:693 core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "Proszę sprawdzić swoją ścieżkę (prawa zapisu?)"
 
-#: core/audex.cpp:632
+#: core/audex.cpp:643
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "Jest mniej niż 200 MiB wolnej przestrzeni dyskowej na \"%1\"."
 
-#: core/audex.cpp:638 core/audex.cpp:706
+#: core/audex.cpp:649 core/audex.cpp:721
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "Ostrzeżenie! Plik \"%1\" już istnieje. Zastępowanie."
 
-#: core/audex.cpp:640 core/audex.cpp:708 core/audex.cpp:1126
+#: core/audex.cpp:651 core/audex.cpp:723 core/audex.cpp:1131
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Ostrzeżenie! Plik \"%1\" już istnieje. Pomijanie."
 
-#: core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "Nie można utworzyć katalogu \"%1\"."
 
-#: core/audex.cpp:690 core/audex.cpp:1149
+#: core/audex.cpp:705 core/audex.cpp:1154
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "Pomyślnie utworzono katalog \"%1\"."
 
-#: core/audex.cpp:693
+#: core/audex.cpp:708
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "Katalog \"%1\" już istnieje."
 
-#: core/audex.cpp:700
+#: core/audex.cpp:715
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "Jest mniej niż 800 MiB wolnej przestrzeni dyskowej na \"%1\"."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "Błąd katalogu tymczasowego \"%1\" (%2)."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Please check."
 msgstr "Proszę sprawdzić."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:746
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr ""
 "Jest mniej niż 800 MiB wolnej przestrzeni dyskowej w katalogu tymczasowym "
 "\"%1\"."
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
 "Katalog tymczasowy \"%1\" potrzebuje co najmniej 200 MiB wolnej przestrzeni "
 "dyskowej."
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "Proszę zwolnić przestrzeń dyskową lub ustawić inną ścieżkę."
 
-#: core/audex.cpp:762
+#: core/audex.cpp:777
 #, kde-format
 msgid "Eject CD tray"
 msgstr "Wysuń tackę płyt CD"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:829
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "Pomyślnie zapisano okładkę \"%1\"."
 
-#: core/audex.cpp:817
+#: core/audex.cpp:832
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "Nie można zapisać okładki \"%1\"."
 
-#: core/audex.cpp:817 core/audex.cpp:895 core/audex.cpp:940 core/audex.cpp:991
-#: core/audex.cpp:1034 core/audex.cpp:1067 core/audex.cpp:1114
-#: core/audex.cpp:1141
+#: core/audex.cpp:832 core/audex.cpp:910 core/audex.cpp:955 core/audex.cpp:1003
+#: core/audex.cpp:1043 core/audex.cpp:1072 core/audex.cpp:1119
+#: core/audex.cpp:1146
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "Proszę sprawdzić ścieżkę i uprawnienia"
 
-#: core/audex.cpp:891
+#: core/audex.cpp:906
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "Pomyślnie utworzono listę odtwarzania \"%1\"."
 
-#: core/audex.cpp:895
+#: core/audex.cpp:910
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "Nie można zapisać listy odtwarzania \"%1\"."
 
-#: core/audex.cpp:937
+#: core/audex.cpp:952
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "Pomyślnie utworzono plik informacyjny \"%1\"."
 
-#: core/audex.cpp:940
+#: core/audex.cpp:955
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "Nie można zapisać pliku informacyjnego \"%1\"."
 
-#: core/audex.cpp:988
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "Pomyślnie utworzono plik listę haszu \"%1\"."
 
-#: core/audex.cpp:991
+#: core/audex.cpp:1003
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "Nie można zapisać listy haszowanej \"%1\"."
 
-#: core/audex.cpp:1031
+#: core/audex.cpp:1040
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Pomyślnie utworzono arkusz cue \"%1\"."
 
-#: core/audex.cpp:1034
+#: core/audex.cpp:1043
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Nie można zapisać arkusza cue \"%1\"."
 
-#: core/audex.cpp:1064
+#: core/audex.cpp:1069
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
 msgstr "Pomyślnie zapisano plik dziennika \"%1\"."
 
-#: core/audex.cpp:1067
+#: core/audex.cpp:1072
 #, kde-format
 msgid "Unable to save log file \"%1\"."
 msgstr "Nie można zapisać pliku dziennika \"%1\"."
 
-#: core/audex.cpp:1114 core/audex.cpp:1141
+#: core/audex.cpp:1119 core/audex.cpp:1146
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "Nie można otworzyć katalogu \"%1\"."
@@ -784,7 +784,7 @@ msgstr "Nazwa/wzorzec:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatacuesheetwidgetUI.ui:56
 #: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
@@ -801,7 +801,7 @@ msgstr ""
 "kodów.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:62
+#: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
 msgstr "Dodaj wartości MCN oraz ISRC (jeśli dostępne)"
@@ -1627,72 +1627,90 @@ msgstr "Płyta z muzyką"
 msgid "TOC:"
 msgstr "Spis treści:"
 
-#: utils/cddaextractthread.cpp:87
+#: utils/cddaextractthread.cpp:93
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start ripping track %1 with length %2..."
 msgstr "Rozpocznij czytanie ścieżki %1 o %2 sektorach"
 
-#: utils/cddaextractthread.cpp:88
+#: utils/cddaextractthread.cpp:94
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping track %1..."
+msgstr "Rozpocznij czytanie ścieżki %1 o %2 sektorach"
+
+#: utils/cddaextractthread.cpp:96
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping whole cd with length %1..."
+msgstr "Rozpocznij czytanie ścieżki %1 o %2 sektorach"
+
+#: utils/cddaextractthread.cpp:97
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping whole cd..."
+msgstr "Rozpocznij czytanie ścieżki %1 o %2 sektorach"
+
+#: utils/cddaextractthread.cpp:99
 #, fuzzy, kde-format
 #| msgid "Sample offset:"
 msgid "Sample shift: %1"
 msgstr "Przesunięcie próbki:"
 
-#: utils/cddaextractthread.cpp:166
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "Nastąpił błąd podczas czytania sektora %1 (czas w ścieżce %2): %3"
 
-#: utils/cddaextractthread.cpp:173 utils/cddaextractthread.cpp:181
+#: utils/cddaextractthread.cpp:184 utils/cddaextractthread.cpp:192
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr ""
 "Wystąpił błąd podczas zgrywania ścieżki %1 w miejscu %2. Zajrzyj do "
 "dziennika."
 
-#: utils/cddaextractthread.cpp:175 utils/cddaextractthread.cpp:183
-#: utils/cddaextractthread.cpp:190 utils/cddaextractthread.cpp:192
+#: utils/cddaextractthread.cpp:186 utils/cddaextractthread.cpp:194
+#: utils/cddaextractthread.cpp:201 utils/cddaextractthread.cpp:203
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
 msgstr "Wystąpił błąd podczas zgrywania w miejscu %1. Zajrzyj do dziennika."
 
-#: utils/cddaextractthread.cpp:188
+#: utils/cddaextractthread.cpp:199
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "Wystąpił błąd podczas odczytywania sektora %1 (czas w ścieżce %2)"
 
-#: utils/cddaextractthread.cpp:198
+#: utils/cddaextractthread.cpp:209
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr "Błąd odczytu sektora %1 (%2): **Wypełnianie całego sektora ciszą**"
 
-#: utils/cddaextractthread.cpp:239 utils/cddaextractthread.cpp:240
+#: utils/cddaextractthread.cpp:250 utils/cddaextractthread.cpp:251
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr "Przerwano zgrywanie ze względu na błąd."
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid "User canceled extracting."
 msgstr "Użytkownik porzucił wydobywanie."
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:254
 #, kde-format
 msgid "Extraction interrupted"
 msgstr "Przerwano wydobywanie"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:257
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "Zgrywanie OK (Ścieżka %1)."
 
-#: utils/cddaextractthread.cpp:248
+#: utils/cddaextractthread.cpp:259
 #, kde-format
 msgid "Ripping OK."
 msgstr "Zgrywanie OK."
 
-#: utils/cddaextractthread.cpp:250
+#: utils/cddaextractthread.cpp:261
 #, fuzzy, kde-format
 #| msgid "Cover \"%1\" successfully saved."
 msgid "Ripping of track %1 successfully finished"
@@ -1925,12 +1943,12 @@ msgstr ""
 msgid "Unclosed brace."
 msgstr "Niezamknięta klamra."
 
-#: utils/schemeparser.cpp:414
+#: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "Nie można utworzyć pliku tymczasowego okładki: %1"
 
-#: utils/schemeparser.h:150
+#: utils/schemeparser.h:154
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -1966,7 +1984,7 @@ msgstr ""
 "tr><tr><td>$encoder</td><td>Nazwa i wersja enkodera.</td></tr><tr><td>"
 "$audex</td><td>Nazwa i wersja Audex.</td></tr></table>"
 
-#: utils/schemeparser.h:167
+#: utils/schemeparser.h:171
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2025,7 +2043,7 @@ msgstr ""
 "tr><tr><td><tt>post</tt></td><td>Łańcuch znaków</td><td>Łańcuch znaków do "
 "umieszczenia <b>po</b> wartości.</td></tr></table>"
 
-#: utils/schemeparser.h:188
+#: utils/schemeparser.h:192
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2046,7 +2064,7 @@ msgstr ""
 "Recording Code (ISRC) utworu (dostępne tylko, gdy obsługiwane przez twoje "
 "urządzenie).</td></tr></table>"
 
-#: utils/schemeparser.h:200
+#: utils/schemeparser.h:204
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2074,7 +2092,7 @@ msgstr ""
 "GIF lub BMP (Domyślnie: JPEG). <i><b>Pamiętaj:</b> LAME usuwa pliki okładek "
 "większe niż 128 KiB.</i></td></tr></table>"
 
-#: utils/schemeparser.h:214
+#: utils/schemeparser.h:218
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"

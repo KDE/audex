@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -151,17 +151,17 @@ msgstr "មិន​បាន​ជ្រើស​ទម្រង់ ។ បោ�
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "ចាប់​ផ្ដើម​បម្លែង​ និង​អ៊ិនកូដ​ជាមួយ​ទម្រង់​ \"%1\"..."
 
-#: core/audex.cpp:619 core/audex.cpp:678
+#: core/audex.cpp:630 core/audex.cpp:693
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "មិន​អាច​រក​ឃើញ​ផ្លូវ \"%1\" ។"
 
-#: core/audex.cpp:619 core/audex.cpp:678 core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:630 core/audex.cpp:693 core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "សូម​ពិនិត្យ​មើល​ផ្លូវ​របស់​អ្នក​ (ចូល​ដំណើរការ​សរសេរ​ឬ ?)"
 
-#: core/audex.cpp:632
+#: core/audex.cpp:643
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 200 MiB. Problems with low space "
@@ -169,32 +169,32 @@ msgstr "សូម​ពិនិត្យ​មើល​ផ្លូវ​រប
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:638 core/audex.cpp:706
+#: core/audex.cpp:649 core/audex.cpp:721
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "ការ​ព្រមាន​ ! ឯកសារ \"%1\" មាន​​រួច​ហើយ ។ សរសេរ​ជាន់​លើ ។"
 
-#: core/audex.cpp:640 core/audex.cpp:708 core/audex.cpp:1126
+#: core/audex.cpp:651 core/audex.cpp:723 core/audex.cpp:1131
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "ការ​ព្រមាន​ ! ឯកសារ \"%1\" មាន​រួច​ហើយ​ ។ ​រំលង ។"
 
-#: core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:690 core/audex.cpp:1149
+#: core/audex.cpp:705 core/audex.cpp:1154
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "ថត \"%1\" បាន​បង្កើត​ដោយ​ជោគជ័យ ។"
 
-#: core/audex.cpp:693
+#: core/audex.cpp:708
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "ថត \"%1\" មាន​រួច​ហើយ ។"
 
-#: core/audex.cpp:700
+#: core/audex.cpp:715
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 800 MiB. Problems with low space "
@@ -202,18 +202,18 @@ msgstr "ថត \"%1\" មាន​រួច​ហើយ ។"
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, fuzzy, kde-format
 #| msgid "Temporary folder \"%1\" error."
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "​ថត​បណ្ដោះ​អាសន្ន​ \"%1\" មាន​កំហុស ។"
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Please check."
 msgstr "សូម​ពិនិត្យ​មើល​ ។"
 
-#: core/audex.cpp:731
+#: core/audex.cpp:746
 #, fuzzy, kde-format
 #| msgid ""
 #| "Free space on \"%1\" is less than 800 MiB. Problems with low space "
@@ -221,98 +221,98 @@ msgstr "សូម​ពិនិត្យ​មើល​ ។"
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "ទំហំ​ទំនេរ​នៅ​លើ \"%1\" គឺ​តិច​ជាង​ ២​០​០ មេកាបៃ ។ អាច​មាន​បញ្ហា​ដោយសារ​​​​ទំហំ​ទំនេរ​តិច ។"
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "ថត​បណ្ដោះ​អាសន្ន​ \"%1\" ត្រូវ​ការ​ទំហំ​ទំនេរ​យ៉ាងហោចណាស់​ ២​០​០ មេកាបៃ ។"
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "សូម​ធ្វើ​ឲ្យ​មាន​ទំហំ​ទំនេរ ឬ​កំណត់​ផ្លូវ​ផ្សេង​ទៀត ។"
 
-#: core/audex.cpp:762
+#: core/audex.cpp:777
 #, kde-format
 msgid "Eject CD tray"
 msgstr "ច្រាន​ថាស​ស៊ីឌី​ចេញ"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:829
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "បាន​រក្សា​ទុក​គម្រប​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:817
+#: core/audex.cpp:832
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cover \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:817 core/audex.cpp:895 core/audex.cpp:940 core/audex.cpp:991
-#: core/audex.cpp:1034 core/audex.cpp:1067 core/audex.cpp:1114
-#: core/audex.cpp:1141
+#: core/audex.cpp:832 core/audex.cpp:910 core/audex.cpp:955 core/audex.cpp:1003
+#: core/audex.cpp:1043 core/audex.cpp:1072 core/audex.cpp:1119
+#: core/audex.cpp:1146
 #, fuzzy, kde-format
 #| msgid "Please check your permissions."
 msgid "Please check your path and permissions"
 msgstr "សូម​ពិនិត្យមើល​សិទ្ធិ​របស់​អ្នក​​ ។"
 
-#: core/audex.cpp:891
+#: core/audex.cpp:906
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "បាន​បង្កើត​បញ្ជី​ចាក់​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:895
+#: core/audex.cpp:910
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save playlist \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:937
+#: core/audex.cpp:952
 #, fuzzy, kde-format
 #| msgid "Infofile \"%1\" successfully created."
 msgid "Info file \"%1\" successfully created."
 msgstr "បាន​បង្កើត​ឯកសារ​ព័ត៌មាន​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:940
+#: core/audex.cpp:955
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save info file \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:988
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "បាន​បង្កើត​បញ្ជី​សញ្ញា​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:991
+#: core/audex.cpp:1003
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save hashlist \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:1031
+#: core/audex.cpp:1040
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "បាន​បង្កើត​សន្លឹក Cue \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:1034
+#: core/audex.cpp:1043
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:1064
+#: core/audex.cpp:1069
 #, fuzzy, kde-format
 #| msgid "Infofile \"%1\" successfully created."
 msgid "Log file \"%1\" successfully stored."
 msgstr "បាន​បង្កើត​ឯកសារ​ព័ត៌មាន​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
-#: core/audex.cpp:1067
+#: core/audex.cpp:1072
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to save log file \"%1\"."
 msgstr "មិន​អាច​បង្កើត​ថត \"%1\" ។"
 
-#: core/audex.cpp:1114 core/audex.cpp:1141
+#: core/audex.cpp:1119 core/audex.cpp:1146
 #, fuzzy, kde-format
 #| msgid "Unable to create folder \"%1\"."
 msgid "Unable to open folder \"%1\"."
@@ -813,7 +813,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatacuesheetwidgetUI.ui:56
 #: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
@@ -825,7 +825,7 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:62
+#: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
 msgstr ""
@@ -1664,75 +1664,93 @@ msgstr "ថាស​អូឌីយ៉ូ"
 msgid "TOC:"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:87
+#: utils/cddaextractthread.cpp:93
 #, fuzzy, kde-format
 #| msgid "Start reading track %1 with %2 sectors"
 msgid "Start ripping track %1 with length %2..."
 msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
 
-#: utils/cddaextractthread.cpp:88
+#: utils/cddaextractthread.cpp:94
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping track %1..."
+msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
+
+#: utils/cddaextractthread.cpp:96
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping whole cd with length %1..."
+msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
+
+#: utils/cddaextractthread.cpp:97
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping whole cd..."
+msgstr "ចាប់​ផ្ដើម​អាន​បទ​ %2 ជា​មួយ​ចម្រៀក​ %1"
+
+#: utils/cddaextractthread.cpp:99
 #, fuzzy, kde-format
 #| msgid "Sampler Example:"
 msgid "Sample shift: %1"
 msgstr "គំរូ​របស់​កម្មវិធី​ធ្វើ​គំរូ ៖"
 
-#: utils/cddaextractthread.cpp:166
+#: utils/cddaextractthread.cpp:177
 #, fuzzy, kde-format
 #| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "រសាត់​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2  pos ពេលវេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:173 utils/cddaextractthread.cpp:181
+#: utils/cddaextractthread.cpp:184 utils/cddaextractthread.cpp:192
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "កំហុស​បាន​កើត​ឡើង​ ខណៈ​ពេល​កំពុង​បម្លែង​បទ​ %1 ។"
 
-#: utils/cddaextractthread.cpp:175 utils/cddaextractthread.cpp:183
-#: utils/cddaextractthread.cpp:190 utils/cddaextractthread.cpp:192
+#: utils/cddaextractthread.cpp:186 utils/cddaextractthread.cpp:194
+#: utils/cddaextractthread.cpp:201 utils/cddaextractthread.cpp:203
 #, fuzzy, kde-format
 #| msgid "An error occured while ripping track %1."
 msgid "An error occured while ripping at position %1. See log."
 msgstr "កំហុស​បាន​កើត​ឡើង​ ខណៈ​ពេល​កំពុង​បម្លែង​បទ​ %1 ។"
 
-#: utils/cddaextractthread.cpp:188
+#: utils/cddaextractthread.cpp:199
 #, fuzzy, kde-format
 #| msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "រសាត់​ (ចម្រៀក​ដាច់​ខាត %1 ចម្រៀក​ទំនាក់​ទំនង %2  pos ពេលវេលា​របស់​បទ %3 ៖%4)"
 
-#: utils/cddaextractthread.cpp:198
+#: utils/cddaextractthread.cpp:209
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:239 utils/cddaextractthread.cpp:240
+#: utils/cddaextractthread.cpp:250 utils/cddaextractthread.cpp:251
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid "User canceled extracting."
 msgstr "អ្នក​ប្រើ​បាន​បោះ​បង់​ការ​ស្រង់​ចេញ ។​"
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:254
 #, fuzzy, kde-format
 #| msgid "Extracting finished."
 msgid "Extraction interrupted"
 msgstr "បាន​បញ្ចប់​ការ​ស្រង់​ចេញ ។"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:257
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង (បទ​ %1) ។"
 
-#: utils/cddaextractthread.cpp:248
+#: utils/cddaextractthread.cpp:259
 #, kde-format
 msgid "Ripping OK."
 msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង​ ។"
 
-#: utils/cddaextractthread.cpp:250
+#: utils/cddaextractthread.cpp:261
 #, fuzzy, kde-format
 #| msgid "Cover \"%1\" successfully saved."
 msgid "Ripping of track %1 successfully finished"
@@ -1963,12 +1981,12 @@ msgstr ""
 msgid "Unclosed brace."
 msgstr ""
 
-#: utils/schemeparser.cpp:414
+#: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr ""
 
-#: utils/schemeparser.h:150
+#: utils/schemeparser.h:154
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The following variables will be replaced with their particular meaning "
@@ -2016,7 +2034,7 @@ msgstr ""
 "td><td>ចំនួន​សរុប​នៃ​បទ​អូឌីយ៉ូ​របស់​ស៊ីឌី ។</td></tr><tr><td>$audex</td><td>ឈ្មោះ និង​កំណែ​របស់ "
 "Audex ។</td></tr></table></p>"
 
-#: utils/schemeparser.h:167
+#: utils/schemeparser.h:171
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -2047,7 +2065,7 @@ msgid ""
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
 
-#: utils/schemeparser.h:188
+#: utils/schemeparser.h:192
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2060,7 +2078,7 @@ msgid ""
 "table>"
 msgstr ""
 
-#: utils/schemeparser.h:200
+#: utils/schemeparser.h:204
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2076,7 +2094,7 @@ msgid ""
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
 
-#: utils/schemeparser.h:214
+#: utils/schemeparser.h:218
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"

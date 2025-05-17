@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-15 00:42+0000\n"
+"POT-Creation-Date: 2025-05-17 00:41+0000\n"
 "PO-Revision-Date: 2025-05-15 04:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -144,149 +144,149 @@ msgstr "პროფილი არჩეუი არაა. ოპერა�
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "რიპინგის და კოდირების \"%1\" პროფილით დაწყება..."
 
-#: core/audex.cpp:619 core/audex.cpp:678
+#: core/audex.cpp:630 core/audex.cpp:693
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "ბილიკი ვერ ვიპოვე \"%1\"."
 
-#: core/audex.cpp:619 core/audex.cpp:678 core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:630 core/audex.cpp:693 core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "შეამოწმეთ თქვენი ბილიკი (ჩაწერის უფლებები?)"
 
-#: core/audex.cpp:632
+#: core/audex.cpp:643
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 200 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:638 core/audex.cpp:706
+#: core/audex.cpp:649 core/audex.cpp:721
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. თავზე გადავაწერ."
 
-#: core/audex.cpp:640 core/audex.cpp:708 core/audex.cpp:1126
+#: core/audex.cpp:651 core/audex.cpp:723 core/audex.cpp:1131
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "გაფრთხილება! ფაილი სახელით '%1' უკვე არსებობს. გამოვტოვე."
 
-#: core/audex.cpp:687 core/audex.cpp:1146
+#: core/audex.cpp:702 core/audex.cpp:1151
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "საქაღალდის შექმნის შეცდომა: %1."
 
-#: core/audex.cpp:690 core/audex.cpp:1149
+#: core/audex.cpp:705 core/audex.cpp:1154
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "საქაღალდე წარმატებით შეიქმნა: \"%1\"."
 
-#: core/audex.cpp:693
+#: core/audex.cpp:708
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "საქაღალდე უკვე არსბეობს: \"%1\"."
 
-#: core/audex.cpp:700
+#: core/audex.cpp:715
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\"-ზე თავისუფალი ადგლი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "დროებითი საქაღალდის \"%1\" შეცდომა (%2)."
 
-#: core/audex.cpp:723
+#: core/audex.cpp:738
 #, kde-format
 msgid "Please check."
 msgstr "გთხოვთ, გადაამოწმოთ."
 
-#: core/audex.cpp:731
+#: core/audex.cpp:746
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "დროებით საქაღალდეში '%1' თავისუფალი ადგილი 800 მიბ-ზე ნაკლებია."
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "დროებით საქაღალდეს '%1' სულ ცოტა 200 მიბ ადგილი სჭირდება."
 
-#: core/audex.cpp:733
+#: core/audex.cpp:748
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "გაათავისუფლეთ ადგილი ან სხვა ბილიკი მიუთითეთ."
 
-#: core/audex.cpp:762
+#: core/audex.cpp:777
 #, kde-format
 msgid "Eject CD tray"
 msgstr "დისკის ჩასადების გამოყენება"
 
-#: core/audex.cpp:814
+#: core/audex.cpp:829
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "ყდა \"%1\" წარმატებით შეინახა."
 
-#: core/audex.cpp:817
+#: core/audex.cpp:832
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "ყდის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:817 core/audex.cpp:895 core/audex.cpp:940 core/audex.cpp:991
-#: core/audex.cpp:1034 core/audex.cpp:1067 core/audex.cpp:1114
-#: core/audex.cpp:1141
+#: core/audex.cpp:832 core/audex.cpp:910 core/audex.cpp:955 core/audex.cpp:1003
+#: core/audex.cpp:1043 core/audex.cpp:1072 core/audex.cpp:1119
+#: core/audex.cpp:1146
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "შეამოწმეთ ბილიკი და თქვენი წვდომები"
 
-#: core/audex.cpp:891
+#: core/audex.cpp:906
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "დასაკრავი სია %1 წარმატებით შეიქმნა."
 
-#: core/audex.cpp:895
+#: core/audex.cpp:910
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "დასაკრავი სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:937
+#: core/audex.cpp:952
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "ინფორმაციის ფაილი \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:940
+#: core/audex.cpp:955
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "ფაილში \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:988
+#: core/audex.cpp:1000
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "ჰეშების სია '%1' წარმატებით შეიქმნა."
 
-#: core/audex.cpp:991
+#: core/audex.cpp:1003
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "ჰეშების სიის \"%1\" შენახვის შეცდომა."
 
-#: core/audex.cpp:1031
+#: core/audex.cpp:1040
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "Cue sheet \"%1\" წარმატებით შეიქმნა."
 
-#: core/audex.cpp:1034
+#: core/audex.cpp:1043
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "Cue sheet \"%1\" -ის შენახვის შეცდომა."
 
-#: core/audex.cpp:1064
+#: core/audex.cpp:1069
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
 msgstr "ჟურნალის ფაილის \"%1\" შენახვა წარმატებულია."
 
-#: core/audex.cpp:1067
+#: core/audex.cpp:1072
 #, kde-format
 msgid "Unable to save log file \"%1\"."
 msgstr "ჟურნალის ფაილის \"%1\" შენახვა შეუძლებელია."
 
-#: core/audex.cpp:1114 core/audex.cpp:1141
+#: core/audex.cpp:1119 core/audex.cpp:1146
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "საქაღალდის \"%1\" გახსნის შეცდომა."
@@ -776,7 +776,7 @@ msgstr "სახელი/სქემა:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:53
+#: dialogs/profiledatacuesheetwidgetUI.ui:56
 #: dialogs/profiledatalogfilewidgetUI.ui:56
 #, kde-format
 msgid ""
@@ -793,7 +793,7 @@ msgstr ""
 "დასჭირდეს, რომ ეს რიცხვები და კოდები გამოვითხოვო</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
-#: dialogs/profiledatacuesheetwidgetUI.ui:62
+#: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
 msgstr "MCN და ISR მნიშვნელობების დამატება (თუ ხელმისაწვდომია)"
@@ -1612,71 +1612,89 @@ msgstr "აუდიო დისკი"
 msgid "TOC:"
 msgstr "სარჩევი:"
 
-#: utils/cddaextractthread.cpp:87
+#: utils/cddaextractthread.cpp:93
 #, kde-format
 msgid "Start ripping track %1 with length %2..."
 msgstr "%2 სიგრძის მქონე %1-ე ტრეკის დარიპვის დაწყება..."
 
-#: utils/cddaextractthread.cpp:88
+#: utils/cddaextractthread.cpp:94
+#, fuzzy, kde-format
+#| msgid "Start ripping track %1 with length %2..."
+msgid "Start ripping track %1..."
+msgstr "%2 სიგრძის მქონე %1-ე ტრეკის დარიპვის დაწყება..."
+
+#: utils/cddaextractthread.cpp:96
+#, fuzzy, kde-format
+#| msgid "Start ripping track %1 with length %2..."
+msgid "Start ripping whole cd with length %1..."
+msgstr "%2 სიგრძის მქონე %1-ე ტრეკის დარიპვის დაწყება..."
+
+#: utils/cddaextractthread.cpp:97
+#, fuzzy, kde-format
+#| msgid "Start ripping track %1 with length %2..."
+msgid "Start ripping whole cd..."
+msgstr "%2 სიგრძის მქონე %1-ე ტრეკის დარიპვის დაწყება..."
+
+#: utils/cddaextractthread.cpp:99
 #, kde-format
 msgid "Sample shift: %1"
 msgstr "სემპლის წანაცვლება: %1"
 
-#: utils/cddaextractthread.cpp:166
+#: utils/cddaextractthread.cpp:177
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr ""
 "აღმოჩენილია შეცდომა სექტორის %1 კითხვისას (ტრეკის დროის მდებარეობა %2): %3"
 
-#: utils/cddaextractthread.cpp:173 utils/cddaextractthread.cpp:181
+#: utils/cddaextractthread.cpp:184 utils/cddaextractthread.cpp:192
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "შეცდომა %1-ე ტრეკის დარიპვისას მდებარეობაზე %2. იხილეთ ჟურნალი."
 
-#: utils/cddaextractthread.cpp:175 utils/cddaextractthread.cpp:183
-#: utils/cddaextractthread.cpp:190 utils/cddaextractthread.cpp:192
+#: utils/cddaextractthread.cpp:186 utils/cddaextractthread.cpp:194
+#: utils/cddaextractthread.cpp:201 utils/cddaextractthread.cpp:203
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
 msgstr "აღმოჩენილია დარიპვის შეცდომა მდებარეობაზე %1. იხილეთ ჟურნალი."
 
-#: utils/cddaextractthread.cpp:188
+#: utils/cddaextractthread.cpp:199
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr ""
 "აღმოჩენილია კითხვის შეცდომა სექტორისთვის %1 (ტრეკის დროის მდებარეობა %2)"
 
-#: utils/cddaextractthread.cpp:198
+#: utils/cddaextractthread.cpp:209
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
 "კითხვის შეცდომა სექტორისთვის %1 (%2): **მთელი სექტორი სიჩუმით შეივსება**"
 
-#: utils/cddaextractthread.cpp:239 utils/cddaextractthread.cpp:240
+#: utils/cddaextractthread.cpp:250 utils/cddaextractthread.cpp:251
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr "რიპინგი გაუქმდა შეცდომის გამო."
 
-#: utils/cddaextractthread.cpp:242
+#: utils/cddaextractthread.cpp:253
 #, kde-format
 msgid "User canceled extracting."
 msgstr "გადმოტანა გაუქმებულია მომხმარებლის მიერ."
 
-#: utils/cddaextractthread.cpp:243
+#: utils/cddaextractthread.cpp:254
 #, kde-format
 msgid "Extraction interrupted"
 msgstr "გაშლა შეწყდა"
 
-#: utils/cddaextractthread.cpp:246
+#: utils/cddaextractthread.cpp:257
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "დარიპვა წარმატებულია (ტრეკი %1)."
 
-#: utils/cddaextractthread.cpp:248
+#: utils/cddaextractthread.cpp:259
 #, kde-format
 msgid "Ripping OK."
 msgstr "დარიპვა წარმატებულია."
 
-#: utils/cddaextractthread.cpp:250
+#: utils/cddaextractthread.cpp:261
 #, kde-format
 msgid "Ripping of track %1 successfully finished"
 msgstr "ტრეკის \"%1\" დარიპვა წარმატებით დასრულდა"
@@ -1903,12 +1921,12 @@ msgstr ""
 msgid "Unclosed brace."
 msgstr "დაუხურავი ფრჩხილი."
 
-#: utils/schemeparser.cpp:414
+#: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
 msgstr "ვერ შევქმენი დროებითი ყდის ფაილი: %1"
 
-#: utils/schemeparser.h:150
+#: utils/schemeparser.h:154
 #, kde-format
 msgid ""
 "<p>The following placeholders will be replaced with their particular meaning:"
@@ -1942,7 +1960,7 @@ msgstr ""
 "td><td>ენკოდერის სახელი და ვერსია.</td></tr><tr><td><tt>$audex</tt></"
 "td><td>Audex-ის სახელი და ვერსია.</td></tr></table>"
 
-#: utils/schemeparser.h:167
+#: utils/schemeparser.h:171
 #, kde-format
 msgid ""
 "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>"
@@ -1999,7 +2017,7 @@ msgstr ""
 "</td></tr><tr><td><tt>post</tt></td><td>სტრიქონი</td><td>სტრიქონი, რომელიც "
 "მნიშვნელობის <b>შემდეგ</b> მოთავსდება.</td></tr></table>"
 
-#: utils/schemeparser.h:188
+#: utils/schemeparser.h:192
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Description</th></tr><tr><td>$tartist</"
@@ -2020,7 +2038,7 @@ msgstr ""
 "სტანდარტული ჩანაწერის კოდი (ISRC) (ხელმისაწვდომია, მხოლოდ, თუ მხარდაჭერილია "
 "თქვენი მოწყობილობის მიერ).</td></tr></table>"
 
-#: utils/schemeparser.h:200
+#: utils/schemeparser.h:204
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
@@ -2048,7 +2066,7 @@ msgstr ""
 "PNG, GIF ან BMP (ნაგულისხმევი: JPEG). <i><b>შენიშვნა:</b> LAME ვერ აღიქვამს "
 "128 კიბ-ზე დიდ ყდის ფაილებს.</i></td></tr></table>"
 
-#: utils/schemeparser.h:214
+#: utils/schemeparser.h:218
 #, kde-format
 msgid ""
 "<table><tr><th>Placeholder</th><th>Specific parameter</th><th>Description</"
