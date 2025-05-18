@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 13:36+0300\n"
+"PO-Revision-Date: 2025-05-17 22:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1625,22 +1625,19 @@ msgid "Start ripping track %1 with length %2..."
 msgstr "%2 uzunluğundaki %1 parçasını dönüştürme başlatılıyor…"
 
 #: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "%2 uzunluğundaki %1 parçasını dönüştürme başlatılıyor…"
+msgstr "%1 parçasını dönüştürme başlatılıyor…"
 
 #: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd with length %1..."
-msgstr "%2 uzunluğundaki %1 parçasını dönüştürme başlatılıyor…"
+msgstr "%1 uzunluğundaki bütün CD’yi dönüştürme başlatılıyor…"
 
 #: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "%2 uzunluğundaki %1 parçasını dönüştürme başlatılıyor…"
+msgstr "Bütün CD’yi dönüştürme başlatılıyor…"
 
 #: utils/cddaextractthread.cpp:99
 #, kde-format

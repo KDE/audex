@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 07:42+0200\n"
+"PO-Revision-Date: 2025-05-17 07:13+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1616,25 +1616,22 @@ msgstr "Vsebina:"
 #: utils/cddaextractthread.cpp:93
 #, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "Berem sled %1 s sektorji %2..."
+msgstr "Začenjam zajemati sled %1 s sektorji %2..."
 
 #: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Berem sled %1 s sektorji %2..."
+msgstr "Začenjam zajemati sled %1..."
 
 #: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd with length %1..."
-msgstr "Berem sled %1 s sektorji %2..."
+msgstr "Začenjam zajemati celotni cd z dolžino %1..."
 
 #: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Berem sled %1 s sektorji %2..."
+msgstr "Začenjam zajemati celotni cd..."
 
 #: utils/cddaextractthread.cpp:99
 #, kde-format

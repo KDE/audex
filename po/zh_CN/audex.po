@@ -1596,22 +1596,19 @@ msgid "Start ripping track %1 with length %2..."
 msgstr ""
 
 #: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Encoding track %1..."
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "编码音轨 %1..."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start ripping and encoding with profile \"%1\"..."
+#, kde-format
 msgid "Start ripping whole cd with length %1..."
-msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start ripping and encoding with profile \"%1\"..."
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "开始抓取并使用配置文件 \"%1\" 进行编码..."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:99
 #, kde-format

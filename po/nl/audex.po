@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 16:18+0200\n"
+"PO-Revision-Date: 2025-05-17 17:26+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1634,22 +1634,19 @@ msgid "Start ripping track %1 with length %2..."
 msgstr "Start met rippen van track %1 met lengte %2..."
 
 #: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Start met rippen van track %1 met lengte %2..."
+msgstr "Start met rippen van track %1..."
 
 #: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd with length %1..."
-msgstr "Start met rippen van track %1 met lengte %2..."
+msgstr "Start met rippen van de gehele cd met lengte %1..."
 
 #: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Start met rippen van track %1 met lengte %2..."
+msgstr "Start met rippen van de gehele cd..."
 
 #: utils/cddaextractthread.cpp:99
 #, kde-format

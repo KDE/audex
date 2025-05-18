@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-04-23 17:30+0200\n"
+"PO-Revision-Date: 2025-05-16 09:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -77,17 +77,15 @@ msgstr "Mode paranoïaque complet (Mode sécurisé)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "Ignorer les erreurs de lecture"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Ignorer les erreurs de lecture"
+msgstr "Nouvelles tentatives lors d'une erreur de lecture"
 
 #. i18n: ectx: label, entry (sampleOffset), group (general)
 #: audex.kcfg:51
@@ -1040,10 +1038,9 @@ msgid "Audio ripping application"
 msgstr "Application de copie de CD Audio"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007-2023 Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1081,12 +1078,11 @@ msgid "credativ GmbH"
 msgstr "Credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr ""
-"Remerciements tout particulièrement à « Credativ GmbH » (Allemagne) pour son "
-"soutien"
+"Remerciements tout particulièrement à « Credativ GmbH » (Allemagne) pour "
+"leur aide"
 
 #: main.cpp:37
 #, kde-format
@@ -1520,7 +1516,7 @@ msgid ""
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Le format de fichier d'images que vous avez fourni est inconnu. Veuillez "
-"choisir l'un de ces formats : « JPG », « PNG », « TIFF  »ou « BMP »."
+"choisir l'un de ces formats : « JPEG », « PNG », « TIFF  »ou « BMP »."
 
 #: models/profilemodel.cpp:450
 #, kde-format
@@ -1663,10 +1659,9 @@ msgid "TOC:"
 msgstr "Table des matières :"
 
 #: utils/cddaextractthread.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "Commencer à lire la piste %1 avec %2 secteurs"
+msgstr "Démarrage de la copie de la piste %1 avec une durée de %2..."
 
 #: utils/cddaextractthread.cpp:94
 #, fuzzy, kde-format
@@ -1687,10 +1682,9 @@ msgid "Start ripping whole cd..."
 msgstr "Commencer à lire la piste %1 avec %2 secteurs"
 
 #: utils/cddaextractthread.cpp:99
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Décalage (« sample offset ») :"
+msgstr "Décalage d'échantillonnage : %1"
 
 #: utils/cddaextractthread.cpp:177
 #, kde-format
@@ -1753,55 +1747,54 @@ msgid "Ripping OK."
 msgstr "Extraction réussie."
 
 #: utils/cddaextractthread.cpp:261
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "Couverture « %1 » enregistrée avec succès."
+msgstr "La copie de la piste %1 a été réalisée avec succès."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Erreur du périphérique (1)."
+msgstr "Erreur du périphérique."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Vérifiez votre périphérique et rédigez un rapport de bogue."
+msgstr "Veuillez vérifier votre périphérique sur « %1 »."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Erreur du périphérique (1)."
+msgstr "Erreur disque."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
 msgstr ""
+"Impossible d'ouvrir le disque. Y a-t-il un disque audio dans le lecteur "
+"« %1 » ?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"Il a été impossible au module « cdparanoia » de trouver un moyen de lire "
+"l'audio à partir du lecteur « %1 »."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Erreur de lecteur non spécifiée sur « %1 »."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Erreur du périphérique (1)."
+msgstr "Erreur du lecteur /disque."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Erreur de lecteur ou de disque non spécifiée sur « %1 »."
 
 #: utils/cddaparanoia.cpp:323
 #, kde-format
@@ -1816,10 +1809,9 @@ msgid "Audio"
 msgstr "Audio"
 
 #: utils/cddaparanoia.cpp:350
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Non audio : CD-i"
+msgstr "Non audio"
 
 #: utils/cddaparanoia.cpp:354
 #, kde-format
@@ -2146,9 +2138,9 @@ msgstr ""
 "plupart du temps utile en conjonction avec le paramètre <tt>pre</tt>. "
 "L'image soit être dimensionnée selon les paramètres <tt>x</tt> et <tt>y</"
 "tt>. Les <tt>formats</tt> possibles d'images sont « JPEG », « PNG », « GIF » "
-"ou « BMP  » (Par par_defaut : « JPEG »). <i><b>Remarque : </b> l'encodeur "
-"LAME ignore les fichiers de couverture de taille supérieure à 128 Ko.</i></"
-"td></tr></table>"
+"ou « BMP  » (Par  défaut : « JPEG »). <i><b>Remarque : </b> l'encodeur "
+"« LAME » ignore les fichiers de couverture de taille supérieure à 128 Ko.</"
+"i></td></tr></table>"
 
 #: utils/schemeparser.h:218
 #, kde-format
@@ -2281,12 +2273,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2296,8 +2283,11 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Ignorer les erreurs de lecture sur un secteur "
 "(Longueur de secteur : 1 / 75 de seconde) après des tentatives "
-"supplémentaires de lecture de plus de vingt fois. En général, les secteurs "
-"endommagés seront remplis avec un bruit blanc.</p></body></html>"
+"supplémentaires de lecture. Veuillez spécifier le nombre de tentative de "
+"relecture dans <span style=\" font-style:italic;\">Nouvelles tentatives en "
+"cas erreur de lecture</span>. Si l'option est d'ignorer les erreurs de "
+"lecture, les secteurs endommagés seront remplis avec un bruit blanc.</p></"
+"body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2310,6 +2300,12 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Certains lecteurs ont un décalage d'échantillonnage "
+"lors de la lecture de CD audio. Pour déterminer le décalage correct pour "
+"votre modèle de lecteur, vous pouvez consulter la base de données <a href="
+"\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a>.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2325,12 +2321,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Veuillez spécifier le nombre maximum de tentatives de "
+"relance lorsqu'un secteur défectueux est rencontré.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:94
 #, kde-format
 msgid "Retries on read error:"
-msgstr ""
+msgstr "Nouvelles tentatives lors d'une erreur de lecture :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 22:47+0200\n"
+"PO-Revision-Date: 2025-05-17 13:12+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1643,22 +1643,19 @@ msgid "Start ripping track %1 with length %2..."
 msgstr "Comença l'extracció de la pista %1 amb longitud %2..."
 
 #: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Comença l'extracció de la pista %1 amb longitud %2..."
+msgstr "Comença l'extracció de la pista %1..."
 
 #: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd with length %1..."
-msgstr "Comença l'extracció de la pista %1 amb longitud %2..."
+msgstr "Comença l'extracció del CD sencer amb longitud %1..."
 
 #: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start ripping track %1 with length %2..."
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Comença l'extracció de la pista %1 amb longitud %2..."
+msgstr "Comença l'extracció del CD sencer..."
 
 #: utils/cddaextractthread.cpp:99
 #, kde-format

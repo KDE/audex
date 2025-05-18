@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-15 18:17+0400\n"
+"PO-Revision-Date: 2025-05-17 11:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1615,10 +1615,9 @@ msgid "TOC:"
 msgstr "جدول المحتويات:"
 
 #: utils/cddaextractthread.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1 with length %2..."
-msgstr "بدء قراءة المسار %1 مع %2 قطاعات"
+msgstr "ابدأ نسخ المسار %1 بطول %2…"
 
 #: utils/cddaextractthread.cpp:94
 #, fuzzy, kde-format
@@ -1695,10 +1694,9 @@ msgid "Ripping OK."
 msgstr "الاستخراج جيد."
 
 #: utils/cddaextractthread.cpp:261
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "حفظ الغلاف \"%1\" بنجاح."
+msgstr "انتهى نسخ المسار %1 بنجاح"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -1706,10 +1704,9 @@ msgid "Device error."
 msgstr "خطأ في الجهاز."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "افحص جهازك وقم بعمل تقرير بالأخطاء."
+msgstr "تحقق من جهازك على ”%1“."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
@@ -1720,17 +1717,18 @@ msgstr "خطأ في القرص."
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "تعذر فتح القرص. هل يوجد قرص صوتي في محرك الأقراص \"%1\"."
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"لم يتمكن cdparanoia من العثور على طريقة لقراءة الصوت من محرك الأقراص \"%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "خطأ محرك غير محدد على \"%1\"."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
@@ -1740,7 +1738,7 @@ msgstr "خطأ في محرك الأقراص/القرص."
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "خطأ غير محدد في محرك الأقراص أو القرص على \"%1\"."
 
 #: utils/cddaparanoia.cpp:323
 #, kde-format
@@ -2188,12 +2186,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2201,9 +2194,10 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>تخطي أخطاء القراءة لقطاع (طول القطاع:1/75 ثانية) بعد "
-"محاولة قراءة القطاع مرة أخرى 20 مرة على الأكثر.عادةً ما تمتلئ القطاعات "
-"المكسورة بالصمت.</p></body></html>"
+"<html><head/><body><p>تخطي أخطاء القراءة لقطاع (طول القطاع: 1/75 ثانية) بعد "
+"إعادة محاولة قراءته. يُرجى تحديد عدد محاولات إعادة المحاولة في <span style=\" "
+"font-style:italic;\">إعادة المحاولة عند خطأ القراءة</span>. في حال التخطي، "
+"ستُكتب عينات فارغة للقطاعات المعيبة.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
@@ -2216,6 +2210,11 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>تحتوي بعض محركات الأقراص على إزاحة عينة عند قراءة "
+"الأقراص الصوتية. لتحديد الإزاحة الصحيحة لطراز محرك الأقراص لديك، يمكنك "
+"مراجعة قاعدة بيانات <a href=\"https://www.accuraterip.com/driveoffsets.htm"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Accuraterip</"
+"span></a>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2231,6 +2230,8 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>حدد الحد الأقصى لعدد محاولات إعادة المحاولة عند مواجهة "
+"قطاع معيب.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:94
