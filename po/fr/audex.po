@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2025-04-23 17:30+0200\n"
+"PO-Revision-Date: 2025-05-16 09:54+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 "X-Text-Markup: kde4\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -1522,7 +1522,7 @@ msgid ""
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
 "Le format de fichier d'images que vous avez fourni est inconnu. Veuillez "
-"choisir l'un de ces formats : « JPG », « PNG », « TIFF  »ou « BMP »."
+"choisir l'un de ces formats : « JPEG », « PNG », « TIFF  »ou « BMP »."
 
 #: models/profilemodel.cpp:450
 #, kde-format
@@ -2219,9 +2219,9 @@ msgstr ""
 "plupart du temps utile en conjonction avec le paramètre <tt>pre</tt>. "
 "L'image soit être dimensionnée selon les paramètres <tt>x</tt> et <tt>y</"
 "tt>. Les <tt>formats</tt> possibles d'images sont « JPEG », « PNG », « GIF » "
-"ou « BMP  » (Par par_defaut : « JPEG »). <i><b>Remarque : </b> l'encodeur "
-"LAME ignore les fichiers de couverture de taille supérieure à 128 Ko.</i></"
-"td></tr></table>"
+"ou « BMP  » (Par  défaut : « JPEG »). <i><b>Remarque : </b> l'encodeur "
+"« LAME » ignore les fichiers de couverture de taille supérieure à 128 Ko.</"
+"i></td></tr></table>"
 
 #: utils/schemeparser.h:219
 #, kde-format
