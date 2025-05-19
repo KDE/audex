@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-17 00:41+0000\n"
-"PO-Revision-Date: 2025-05-17 11:05+0400\n"
+"PO-Revision-Date: 2025-05-18 21:18+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1620,22 +1620,19 @@ msgid "Start ripping track %1 with length %2..."
 msgstr "ابدأ نسخ المسار %1 بطول %2…"
 
 #: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "بدء قراءة المسار %1 مع %2 قطاعات"
+msgstr "ابدأ نسخ المسار %1…"
 
 #: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd with length %1..."
-msgstr "بدء قراءة المسار %1 مع %2 قطاعات"
+msgstr "ابدأ نسخ كامل القرص بطول %1…"
 
 #: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "بدء قراءة المسار %1 مع %2 قطاعات"
+msgstr "ابدأ نسخ كامل القرص…"
 
 #: utils/cddaextractthread.cpp:99
 #, kde-format
