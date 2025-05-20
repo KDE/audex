@@ -158,8 +158,10 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
     beginResetModel();
 
     if (role == Qt::EditRole) {
-        if (!validateData(index, value))
+        if (!validateData(index, value)) {
+            endResetModel();
             return false;
+        }
 
         switch (index.column()) {
         case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX:
@@ -294,6 +296,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         default:
             break;
         }
+        endResetModel();
         return true;
     }
 
@@ -952,8 +955,10 @@ void ProfileModel::revert()
 int ProfileModel::copy(const int profileRow)
 {
     beginResetModel();
-    if ((profileRow < 0) || (profileRow >= rowCount()))
+    if ((profileRow < 0) || (profileRow >= rowCount())) {
+        endResetModel();
         return -1;
+    }
 
     int key = getNewIndex();
     Profile p = p_cache[profileRow];
