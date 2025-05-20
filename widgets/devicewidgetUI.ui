@@ -51,12 +51,24 @@
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Some drives have a sample offset when reading audio CDs. To determine the correct offset for your drive model, you can check the &lt;a href=&quot;https://www.accuraterip.com/driveoffsets.htm&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;Accuraterip&lt;/span&gt;&lt;/a&gt; database.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Sample offset:</string>
+           <string>Sample shift:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="kcfg_sampleOffset">
+         <widget class="QSpinBox" name="kcfg_sampleShift">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="toolTip">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Some drives have a sample offset when reading audio CDs. To determine the correct offset for your drive model, you can check the &lt;a href=&quot;https://www.accuraterip.com/driveoffsets.htm&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;Accuraterip&lt;/span&gt;&lt;/a&gt; database.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -91,12 +103,33 @@
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify the maximum number of retry attempts when a faulty sector is encountered.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Retries on read error:</string>
+           <string>Max. read retries:</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QSpinBox" name="kcfg_retriesOnReadError">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="toolTip">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Specify the maximum number of retry attempts when a faulty sector is encountered.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -118,7 +151,7 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>20</width>
             <height>20</height>
            </size>
           </property>

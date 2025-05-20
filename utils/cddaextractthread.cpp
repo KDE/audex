@@ -7,7 +7,12 @@
 
 #include "cddaextractthread.h"
 
+#include "models/profilemodel.h"
+
+#include <QDateTime>
 #include <QDebug>
+
+#include <cdio/paranoia/paranoia.h>
 
 #include "utils/cddaparanoia.h"
 
@@ -27,6 +32,8 @@ CDDAExtractThread::CDDAExtractThread(CDDAParanoia *paranoia, QObject *parent)
     reset();
 
     silence = SampleArray(SECTOR_SIZE_SAMPLES);
+
+    set_timestamps_into_log = false;
 
     // let the global paranoia callback have access to this to emit signals
     aet = this;
@@ -59,8 +66,16 @@ void CDDAExtractThread::run()
 
     if (b_first_run) {
         qDebug() << p_paranoia->prettyTOC();
-        p_log.append(i18n("TOC:"));
-        p_log.append(p_paranoia->prettyTOC());
+        append_log_line(p_paranoia->prettyTOC().join(QChar('\n')));
+        append_log_line(i18n("Sample shift: %1", sample_shift));
+        if (sample_shift) {
+            Q_EMIT info(i18n("Ripping with shift of %1 samples", sample_shift));
+        }
+        if (p_paranoia->paranoiaModeEnabled()) {
+            append_log_line(i18n("Paranoia mode enabled"));
+        } else {
+            append_log_line(i18n("Paranoia mode disabled"));
+        }
         b_first_run = false;
     }
 
@@ -85,18 +100,19 @@ void CDDAExtractThread::run()
     int start_sector = first_sector;
     int end_sector = last_sector;
 
+    sector_start_pos = start_sector;
+
     qDebug() << "Sample shift:" << sample_shift;
     qDebug() << "Sector shift left:" << sector_shift_left;
     qDebug() << "Sector shift right:" << sector_shift_right;
 
     if (track > 0) {
-        p_log.append(i18n("Start ripping track %1 with length %2...", track, CDDAParanoia::LSN2MSF(last_sector - first_sector, QChar('-'))));
+        append_log_line(i18n("Start ripping track %1...", track));
         Q_EMIT info(i18n("Start ripping track %1...", track));
     } else {
-        p_log.append(i18n("Start ripping whole cd with length %1...", CDDAParanoia::LSN2MSF(last_sector - first_sector, QChar('-'))));
+        append_log_line(i18n("Start ripping whole cd..."));
         Q_EMIT info(i18n("Start ripping whole cd..."));
     }
-    p_log.append(i18n("Sample shift: %1", sample_shift));
 
     SampleArray chunk;
     bool overread = false;
@@ -174,10 +190,10 @@ void CDDAExtractThread::run()
 
         SampleArray samples(p_paranoia->paranoiaRead(paranoia_callback), SECTOR_SIZE_SAMPLES * 2); // we do have two channels
         if (p_paranoia->paranoiaError(paranoiaErrorMsg)) {
-            p_log.append(i18n("Error occured while reading sector %1 (track time pos %2): %3",
-                              i,
-                              CDDAParanoia::LSN2MSF(i - start_sector, QChar('-')),
-                              paranoiaErrorMsg));
+            append_log_line(i18n("Error occured while reading sector %1 (track time pos %2): %3",
+                                 i,
+                                 CDDAParanoia::LSN2MSF(i - start_sector, QChar('-')),
+                                 paranoiaErrorMsg));
             if (!skip_read_errors) {
                 if (track > 0)
                     Q_EMIT error(
@@ -196,7 +212,7 @@ void CDDAExtractThread::run()
         }
         if (samples.isEmpty()) {
             if (paranoiaErrorMsg.isEmpty()) {
-                p_log.append(i18n("Error reading sector %1 (track time pos %2)", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                append_log_line(i18n("Error reading sector %1 (track time pos %2)", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
                 if (!skip_read_errors)
                     Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
                 else
@@ -206,7 +222,8 @@ void CDDAExtractThread::run()
                 b_error = true;
                 break;
             }
-            p_log.append(i18n("Error reading sector %1 (%2): **Filling whole sector with silence**", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+            append_log_line(
+                i18n("Error reading sector %1 (%2): **Filling whole sector with silence**", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
             samples = silence;
         }
 
@@ -233,10 +250,6 @@ void CDDAExtractThread::run()
 
         ++sectors_read;
         ++overall_sectors_read;
-        float fraction = 0.0f;
-        if (sectors_all > 0)
-            fraction = (float)sectors_read / (float)sectors_all;
-        Q_EMIT progress((int)(100.0f * fraction), i, overall_sectors_read);
     }
 
     // prepend chunk with null samples to replace out of border samples in case of a right shift
@@ -246,19 +259,29 @@ void CDDAExtractThread::run()
 
     Q_EMIT output(chunk.data());
 
+    if (p_paranoia->paranoiaModeEnabled()) {
+        if (track > 0) {
+            append_log_line(i18n("Paranoia status report for track %1:", track));
+        } else {
+            append_log_line(i18n("Paranoia status report:"));
+        }
+        append_log_line(paranoia_status_table_to_string(paranoia_status_table));
+    }
+
     if (b_error) {
         Q_EMIT error(i18n("Ripping was canceled due to an error."));
-        p_log.append(i18n("Ripping was canceled due to an error."));
+        append_log_line(i18n("Ripping was canceled due to an error."));
     } else if (b_interrupt) {
         Q_EMIT error(i18n("User canceled extracting."));
-        p_log.append(i18n("Extraction interrupted"));
+        append_log_line(i18n("Extraction interrupted"));
     } else {
         if (track > 0) {
             Q_EMIT info(i18n("Ripping OK (Track %1).", track));
+            append_log_line(i18n("Ripping of track %2 successfully finished"));
         } else {
             Q_EMIT info(i18n("Ripping OK."));
+            append_log_line(i18n("Ripping successfully finished"));
         }
-        p_log.append(i18n("Ripping of track %1 successfully finished", track));
     }
 }
 
@@ -289,6 +312,8 @@ void CDDAExtractThread::reset()
     b_error = false;
     status_previous_sector = -1;
     b_first_run = true;
+    prev_sector_pos = 0;
+    sector_start_pos = 0;
 }
 
 void CDDAExtractThread::slot_error(const QString &message, const QString &details)
@@ -296,13 +321,71 @@ void CDDAExtractThread::slot_error(const QString &message, const QString &detail
     Q_EMIT error(message, details);
 }
 
-void CDDAExtractThread::create_status(long sector, paranoia_cb_mode_t status)
+const QString CDDAExtractThread::paranoia_status_to_string(paranoia_cb_mode_t status)
 {
-    if (status == PARANOIA_CB_READ || status == PARANOIA_CB_FINISHED)
+    switch (status) {
+    case PARANOIA_CB_READ:
+        return "READ: No error";
+    case PARANOIA_CB_VERIFY:
+        return "Verifying jitter";
+    case PARANOIA_CB_FIXUP_EDGE:
+        return "Fixed edge jitter";
+    case PARANOIA_CB_FIXUP_ATOM:
+        return "Fixed atom jitter";
+    case PARANOIA_CB_SKIP:
+        return "ERROR: Sector skipped";
+    case PARANOIA_CB_DRIFT:
+        return "DRIFT ERROR: Sector skipped";
+    case PARANOIA_CB_OVERLAP:
+        return "Dynamic overlap adjust";
+    case PARANOIA_CB_FIXUP_DROPPED:
+        return "Fixed dropped bytes";
+    case PARANOIA_CB_FIXUP_DUPED:
+        return "Fixed duplicate bytes";
+    case PARANOIA_CB_READERR:
+        return "ERROR: Read error";
+    case PARANOIA_CB_CACHEERR:
+        return "ERROR: Cache error";
+    default:
+        return "UNKNOWN Paranoia Status";
+    }
+}
+
+const QString CDDAExtractThread::paranoia_status_table_to_string(const QMap<int, paranoia_cb_mode_t> &status_table)
+{
+    QString result;
+    for (auto [key, value] : status_table.asKeyValueRange()) {
+        result += QString("Sector %1: %2\n").arg(key).arg(paranoia_status_to_string(value));
+    }
+    result.chop(1);
+    return result;
+}
+
+void CDDAExtractThread::append_log_line(const QString &line)
+{
+    if (set_timestamps_into_log) {
+        p_log.append(QString("[%1] %2").arg(line).arg(QDateTime::currentDateTime().toString(Qt::RFC2822Date)));
+    } else {
+        p_log.append(line);
+    }
+}
+
+void CDDAExtractThread::create_status(long in_pos, paranoia_cb_mode_t status)
+{
+    const qint32 sector_pos = (in_pos * 2) / SECTOR_SIZE_BYTES;
+
+    if (status == PARANOIA_CB_READ && sector_pos > prev_sector_pos) {
+        // qDebug() << "Current sector reading position:" << sector_pos;
+        const int percent = (int)(100.0f * (float)(sector_pos - sector_start_pos) / (float)sectors_all);
+        Q_EMIT progress(percent, sectors_read, overall_sectors_read);
+        prev_sector_pos = sector_pos;
+    }
+
+    if (status == PARANOIA_CB_READ || status == PARANOIA_CB_FINISHED || status == PARANOIA_CB_WROTE || status == PARANOIA_CB_OVERLAP)
         return;
 
     paranoia_status_count[status]++;
-    paranoia_status_table.insert(sector, status);
+    paranoia_status_table.insert(sector_pos, status);
 }
 
 /* Paranoia status explanations:
@@ -319,7 +402,7 @@ void CDDAExtractThread::create_status(long sector, paranoia_cb_mode_t status)
  * PARANOIA_CB_OVERLAP          : No error. Dynamic overlap adjust. Sector does not seem to contain the current sector but the amount of overlapped data.
  * PARANOIA_CB_FIXUP_DROPPED    : Recoverable error. Fixed dropped bytes.
  * PARANOIA_CB_FIXUP_DUPED      : Recoverable error. Fixed duplicate bytes.
- * PARANOIA_CB_READERR          : Error. Reading error.
+ * PARANOIA_CB_READERR          : Error. Read error.
  * PARANOIA_CB_CACHEERR         : Cache error?
  * PARANOIA_CB_WROTE            : No error.
  * PARANOIA_CB_FINISHED         : No error. Just finished ripping.

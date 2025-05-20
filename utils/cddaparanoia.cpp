@@ -80,9 +80,19 @@ void CDDAParanoia::enableParanoiaMode(const bool enable)
         paranoia_modeset(paranoia, paranoia_mode);
 }
 
+bool CDDAParanoia::paranoiaModeEnabled() const
+{
+    return paranoia_mode != PARANOIA_MODE_DISABLE;
+}
+
 void CDDAParanoia::setParanoiaMaxRetriesOnReadError(int max_retries)
 {
     paranoia_max_retries = max_retries;
+}
+
+int CDDAParanoia::paranoiaMaxRetriesOnReadError() const
+{
+    return paranoia_max_retries;
 }
 
 qint16 *CDDAParanoia::paranoiaRead(void (*callback)(long, paranoia_cb_mode_t))

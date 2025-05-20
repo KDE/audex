@@ -47,8 +47,8 @@
       <min>0</min>
       <max>200</max>
     </entry>
-    <entry name="sampleOffset" type="Int">
-      <label>Sample offset</label>
+    <entry name="sampleShift" type="Int">
+      <label>Sample shift</label>
       <default>0</default>
       <min>-10000</min>
       <max>10000</max>

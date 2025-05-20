@@ -6,6 +6,7 @@
  */
 
 #include "audex.h"
+#include "models/profilemodel.h"
 #include "utils/schemeparser.h"
 
 /* The heart of audex */
@@ -39,7 +40,7 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     }
     cdda_extract_thread->enableParanoiaMode(Preferences::fullParanoiaMode());
     cdda_extract_thread->enableSkipReadErrors(Preferences::skipReadErrors());
-    cdda_extract_thread->setSampleShift(Preferences::sampleOffset());
+    cdda_extract_thread->setSampleShift(Preferences::sampleShift());
 
     jobs = new AudexJobs();
     connect(jobs, SIGNAL(newJobAvailable()), this, SLOT(start_encode()));
@@ -68,6 +69,9 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     connect(cdda_extract_thread, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
     connect(cdda_extract_thread, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
     connect(cdda_extract_thread, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
+
+    cdda_extract_thread->setTimestampsIntoLog(
+        profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool());
 
     process_counter = 0;
     timeout_done = false;
@@ -1032,9 +1036,9 @@ void Audex::execute_finish()
                 QTextStream out(&file);
                 CueSheetWriter cuesheetwriter(cdda_model);
                 if (p_single_file) {
-                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES).join("\n");
+                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleShift() / CD_FRAMESIZE_SAMPLES).join("\n");
                 } else {
-                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleOffset() / CD_FRAMESIZE_SAMPLES).join("\n");
+                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleShift() / CD_FRAMESIZE_SAMPLES).join("\n");
                 }
                 file.close();
                 Q_EMIT info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));

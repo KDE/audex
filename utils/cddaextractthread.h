@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <QHash>
+#include <QMap>
 #include <QString>
 #include <QThread>
 
@@ -38,15 +38,31 @@ public Q_SLOTS:
             return;
         p_paranoia->enableParanoiaMode(enable);
     }
+    bool paranoiaMode() const
+    {
+        if (!p_paranoia)
+            return false;
+        return p_paranoia->paranoiaModeEnabled();
+    }
     void enableSkipReadErrors(const bool skip = true)
     {
         skip_read_errors = skip;
+    }
+    bool skipReadErrorsEnabled() const
+    {
+        return skip_read_errors;
     }
     void setParanoiaMaxRetriesOnReadError(int max_retries) // default: 20
     {
         if (!p_paranoia)
             return;
         p_paranoia->setParanoiaMaxRetriesOnReadError(max_retries);
+    }
+    int paranoiaMaxRetriesOnReadError() const
+    {
+        if (!p_paranoia)
+            return -1;
+        return p_paranoia->paranoiaMaxRetriesOnReadError();
     }
 
     void setSampleShift(const int shift)
@@ -62,6 +78,11 @@ public Q_SLOTS:
             sector_shift_right = sample_shift / SECTOR_SIZE_SAMPLES;
             sector_shift_left = sector_shift_right - 1;
         }
+    }
+
+    void setTimestampsIntoLog(const bool set)
+    {
+        set_timestamps_into_log = set;
     }
 
     void setTrackToRip(const track_t t)
@@ -103,8 +124,14 @@ private:
     unsigned long overall_sectors_read;
     unsigned long sectors_all;
 
+    long sector_start_pos;
+    long prev_sector_pos;
+
     QMap<paranoia_cb_mode_t, int> paranoia_status_count;
-    QHash<int, paranoia_cb_mode_t> paranoia_status_table;
+    QMap<int, paranoia_cb_mode_t> paranoia_status_table;
+
+    const QString paranoia_status_to_string(paranoia_cb_mode_t);
+    const QString paranoia_status_table_to_string(const QMap<int, paranoia_cb_mode_t> &);
 
     int sample_shift;
     int sector_shift_left;
@@ -118,7 +145,9 @@ private:
     bool b_interrupt;
     bool b_error;
 
+    void append_log_line(const QString &line);
     QStringList p_log;
+    bool set_timestamps_into_log;
 
     void create_status(long, paranoia_cb_mode_t);
     long status_previous_sector;

@@ -36,7 +36,9 @@ public:
     bool init();
 
     void enableParanoiaMode(const bool enable = true);
+    bool paranoiaModeEnabled() const;
     void setParanoiaMaxRetriesOnReadError(int max_retries); // default: 20
+    int paranoiaMaxRetriesOnReadError() const;
 
     qint16 *paranoiaRead(void (*callback)(long, paranoia_cb_mode_t));
     int paranoiaSeek(const int sector, qint32 mode);
