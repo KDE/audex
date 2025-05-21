@@ -41,7 +41,7 @@ public:
     explicit CDDADevices(QObject *parent = nullptr);
     ~CDDADevices() override;
 
-    const QString blockDevice(const QString &udi) const;
+    const QByteArray blockDevice(const QString &udi) const;
 
     const QStringList udiList() const;
     int discCount() const;
@@ -55,8 +55,8 @@ public Q_SLOTS:
     void setName(const QString &udi, const QString &name);
 
 Q_SIGNALS:
-    void audioDiscDetected(const QString &udi);
-    void audioDiscRemoved(const QString &udi);
+    void audioDiscDetected(const QString &driveUDI, const QString &discUDI);
+    void audioDiscRemoved(const QString &discUDI);
 
 private Q_SLOTS:
     void p_solid_device_added(const QString &udi);

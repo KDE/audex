@@ -23,11 +23,17 @@ void paranoia_callback(long sector, paranoia_cb_mode_t status)
     aet->create_status(sector, status);
 }
 
-CDDAExtractThread::CDDAExtractThread(CDDAParanoia *paranoia, QObject *parent)
+CDDAExtractThread::CDDAExtractThread(const QByteArray &blockDevice, const Audex::Toc::Toc toc, QObject *parent)
     : QThread(parent)
 {
-    p_paranoia = paranoia;
-    connect(p_paranoia, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
+    p_toc = toc;
+
+    p_paranoia = new Audex::CDDAParanoia(blockDevice);
+    if (!p_paranoia) {
+        qDebug() << "Unable to create paranoia object.";
+        Q_EMIT error(i18n("Unable to create paranoia object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."));
+        return;
+    }
 
     reset();
 
@@ -41,6 +47,8 @@ CDDAExtractThread::CDDAExtractThread(CDDAParanoia *paranoia, QObject *parent)
 
 CDDAExtractThread::~CDDAExtractThread()
 {
+    if (p_paranoia)
+        delete p_paranoia;
 }
 
 void CDDAExtractThread::start()
@@ -65,8 +73,8 @@ void CDDAExtractThread::run()
     paranoia_status_table.clear();
 
     if (b_first_run) {
-        qDebug() << p_paranoia->prettyTOC();
-        append_log_line(p_paranoia->prettyTOC().join(QChar('\n')));
+        qDebug() << p_toc.prettyTOC();
+        append_log_line(p_toc.prettyTOC().join(QChar('\n')));
         append_log_line(i18n("Sample shift: %1", sample_shift));
         if (sample_shift) {
             Q_EMIT info(i18n("Ripping with shift of %1 samples", sample_shift));
@@ -79,11 +87,11 @@ void CDDAExtractThread::run()
         b_first_run = false;
     }
 
-    int first_sector = p_paranoia->firstSectorOfTrack(track);
-    int last_sector = p_paranoia->lastSectorOfTrack(track);
+    int first_sector = p_toc.firstSectorOfTrack(track);
+    int last_sector = p_toc.lastSectorOfTrack(track);
 
-    const int first_sector_of_disc = p_paranoia->firstSectorOfDisc();
-    const int last_sector_of_disc = p_paranoia->lastSectorOfDisc();
+    const int first_sector_of_disc = p_toc.firstSectorOfDisc();
+    const int last_sector_of_disc = p_toc.lastSectorOfDisc();
 
     if (track == 0) {
         first_sector = first_sector_of_disc;
@@ -190,40 +198,37 @@ void CDDAExtractThread::run()
 
         SampleArray samples(p_paranoia->paranoiaRead(paranoia_callback), SECTOR_SIZE_SAMPLES * 2); // we do have two channels
         if (p_paranoia->paranoiaError(paranoiaErrorMsg)) {
-            append_log_line(i18n("Error occured while reading sector %1 (track time pos %2): %3",
-                                 i,
-                                 CDDAParanoia::LSN2MSF(i - start_sector, QChar('-')),
-                                 paranoiaErrorMsg));
+            append_log_line(
+                i18n("Error occured while reading sector %1 (track time pos %2): %3", i, Audex::Toc::Frames2MSFString(i - start_sector), paranoiaErrorMsg));
             if (!skip_read_errors) {
                 if (track > 0)
                     Q_EMIT error(
-                        i18n("An error occured while ripping track %1 at position %2. See log.", track, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                        i18n("An error occured while ripping track %1 at position %2. See log.", track, Audex::Toc::Frames2MSFString(i - start_sector)));
                 else
-                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", Audex::Toc::Frames2MSFString(i - start_sector)));
                 b_error = true;
                 break;
             } else {
                 if (track > 0)
                     Q_EMIT warning(
-                        i18n("An error occured while ripping track %1 at position %2. See log.", track, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                        i18n("An error occured while ripping track %1 at position %2. See log.", track, Audex::Toc::Frames2MSFString(i - start_sector)));
                 else
-                    Q_EMIT warning(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                    Q_EMIT warning(i18n("An error occured while ripping at position %1. See log.", Audex::Toc::Frames2MSFString(i - start_sector)));
             }
         }
         if (samples.isEmpty()) {
             if (paranoiaErrorMsg.isEmpty()) {
-                append_log_line(i18n("Error reading sector %1 (track time pos %2)", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                append_log_line(i18n("Error reading sector %1 (track time pos %2)", i, Audex::Toc::Frames2MSFString(i - start_sector)));
                 if (!skip_read_errors)
-                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                    Q_EMIT error(i18n("An error occured while ripping at position %1. See log.", Audex::Toc::Frames2MSFString(i - start_sector)));
                 else
-                    Q_EMIT warning(i18n("An error occured while ripping at position %1. See log.", CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+                    Q_EMIT warning(i18n("An error occured while ripping at position %1. See log.", Audex::Toc::Frames2MSFString(i - start_sector)));
             }
             if (!skip_read_errors) {
                 b_error = true;
                 break;
             }
-            append_log_line(
-                i18n("Error reading sector %1 (%2): **Filling whole sector with silence**", i, CDDAParanoia::LSN2MSF(i - start_sector, QChar('-'))));
+            append_log_line(i18n("Error reading sector %1 (%2): **Filling whole sector with silence**", i, Audex::Toc::Frames2MSFString(i - start_sector)));
             samples = silence;
         }
 
@@ -364,7 +369,7 @@ const QString CDDAExtractThread::paranoia_status_table_to_string(const QMap<int,
 void CDDAExtractThread::append_log_line(const QString &line)
 {
     if (set_timestamps_into_log) {
-        p_log.append(QString("[%1] %2").arg(line).arg(QDateTime::currentDateTime().toString(Qt::RFC2822Date)));
+        p_log.append(QString("[%1] %2").arg(QDateTime::currentDateTime().toString(Qt::RFC2822Date)).arg(line));
     } else {
         p_log.append(line);
     }

@@ -11,7 +11,7 @@
 
 /* The heart of audex */
 
-Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model)
+AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model)
     : QObject(parent)
 {
     Q_UNUSED(parent);
@@ -33,7 +33,7 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
         return;
     }
 
-    cdda_extract_thread = new CDDAExtractThread(cdda_model->paranoia());
+    cdda_extract_thread = new CDDAExtractThread(cdda_model->blockDevice(), cdda_model->getToc());
     if (!cdda_extract_thread) {
         qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
         return;
@@ -91,7 +91,7 @@ Audex::Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model
     overall_frames = 0;
 }
 
-Audex::~Audex()
+AudexManager::~AudexManager()
 {
     delete encoder_wrapper;
     delete cdda_extract_thread;
@@ -99,7 +99,7 @@ Audex::~Audex()
     delete jobs;
 }
 
-bool Audex::prepare()
+bool AudexManager::prepare()
 {
     if (profile_model->currentProfileIndex() < 0) {
         slot_error(i18n("No profile selected. Operation abort."));
@@ -111,7 +111,7 @@ bool Audex::prepare()
     return true;
 }
 
-void Audex::start()
+void AudexManager::start()
 {
     Q_EMIT changedEncodeTrack(0, 0, "");
     Q_EMIT info(i18n("Start ripping and encoding with profile \"%1\"...", p_profile_name));
@@ -121,22 +121,22 @@ void Audex::start()
         request_finish(false);
 }
 
-void Audex::cancel()
+void AudexManager::cancel()
 {
     request_finish(false);
 }
 
-const QStringList &Audex::extractLog()
+const QStringList &AudexManager::extractLog()
 {
     return cdda_extract_thread->log();
 }
 
-const QStringList &Audex::encoderLog()
+const QStringList &AudexManager::encoderLog()
 {
     return encoder_wrapper->log();
 }
 
-void Audex::start_extract()
+void AudexManager::start_extract()
 {
     if (p_finished)
         return;
@@ -322,7 +322,7 @@ void Audex::start_extract()
     }
 }
 
-void Audex::finish_extract()
+void AudexManager::finish_extract()
 {
     process_counter--;
 
@@ -338,7 +338,7 @@ void Audex::finish_extract()
     start_extract();
 }
 
-void Audex::start_encode()
+void AudexManager::start_encode()
 {
     if (p_finished)
         return;
@@ -467,7 +467,7 @@ void Audex::start_encode()
     }
 }
 
-void Audex::finish_encode()
+void AudexManager::finish_encode()
 {
     process_counter--;
     jobs->reportJobFinished();
@@ -488,7 +488,7 @@ void Audex::finish_encode()
     start_encode();
 }
 
-void Audex::calculate_speed_extract()
+void AudexManager::calculate_speed_extract()
 {
     if ((last_measuring_point_sector > -1) && (cdda_extract_thread->isProcessing())) {
         double new_value = (double)(current_sector - last_measuring_point_sector) / (4.0f * (double)SECTORS_PER_SECOND);
@@ -508,7 +508,7 @@ void Audex::calculate_speed_extract()
     last_measuring_point_sector = current_sector;
 }
 
-void Audex::calculate_speed_encode()
+void AudexManager::calculate_speed_encode()
 {
     if ((last_measuring_point_encoder_percent > -1) && (encoder_wrapper->isProcessing()) && (current_encoder_percent > 0)) {
         int song_length = cdda_model->data(cdda_model->index(en_track_index - 1, CDDA_MODEL_COLUMN_LENGTH_INDEX), CDDA_MODEL_INTERNAL_ROLE).toInt();
@@ -522,16 +522,16 @@ void Audex::calculate_speed_encode()
     last_measuring_point_encoder_percent = current_encoder_percent;
 }
 
-void Audex::progress_extract(int percent_of_track, int sector, int overall_sectors_read)
+void AudexManager::progress_extract(int percent_of_track, int sector, int overall_sectors_read)
 {
     if (overall_frames == 0) {
         QSet<int> sel = cdda_model->selectedTracks();
         QSet<int>::ConstIterator it(sel.begin()), end(sel.end());
         for (; it != end; ++it) {
-            if ((*it < 0) || (*it > cdda_model->paranoia()->numOfTracks()) || (!cdda_model->paranoia()->isAudioTrack((*it)))) {
+            if ((*it < 0) || (*it > cdda_model->numOfTracks()) || (!cdda_model->isAudioTrack((*it)))) {
                 continue;
             }
-            overall_frames += cdda_model->paranoia()->numOfFramesOfTrack((*it));
+            overall_frames += cdda_model->getToc().sectorCountTrack((*it));
         }
     }
 
@@ -545,7 +545,7 @@ void Audex::progress_extract(int percent_of_track, int sector, int overall_secto
     current_sector = sector;
 }
 
-void Audex::progress_encode(int percent)
+void AudexManager::progress_encode(int percent)
 {
     Q_EMIT progressEncodeTrack(percent);
     if (percent > 0) {
@@ -555,28 +555,28 @@ void Audex::progress_encode(int percent)
     current_encoder_percent = percent;
 }
 
-void Audex::write_to_wave(const QByteArray &data)
+void AudexManager::write_to_wave(const QByteArray &data)
 {
     wave_file_writer->write(data);
 }
 
-void Audex::slot_error(const QString &description, const QString &solution)
+void AudexManager::slot_error(const QString &description, const QString &solution)
 {
     Q_EMIT error(description, solution);
     request_finish(false);
 }
 
-void Audex::slot_warning(const QString &description)
+void AudexManager::slot_warning(const QString &description)
 {
     Q_EMIT warning(description);
 }
 
-void Audex::slot_info(const QString &description)
+void AudexManager::slot_info(const QString &description)
 {
     Q_EMIT info(description);
 }
 
-void Audex::check_if_thread_still_running()
+void AudexManager::check_if_thread_still_running()
 {
     if (cdda_extract_thread->isRunning()) {
         // this could happen if the thread is stuck in paranoia_read
@@ -586,25 +586,25 @@ void Audex::check_if_thread_still_running()
     }
 }
 
-bool Audex::construct_target_filename(QString &targetFilename,
-                                      int trackno,
-                                      int cdno,
-                                      int nooftracks,
-                                      int gindex,
-                                      const QString &artist,
-                                      const QString &title,
-                                      const QString &tartist,
-                                      const QString &ttitle,
-                                      const QString &year,
-                                      const QString &genre,
-                                      const QString &isrc,
-                                      const QString &ext,
-                                      const QString &basepath,
-                                      bool fat32_compatible,
-                                      bool replacespaceswithunderscores,
-                                      bool _2digitstracknum,
-                                      bool overwrite_existing_files,
-                                      bool is_first_track)
+bool AudexManager::construct_target_filename(QString &targetFilename,
+                                             int trackno,
+                                             int cdno,
+                                             int nooftracks,
+                                             int gindex,
+                                             const QString &artist,
+                                             const QString &title,
+                                             const QString &tartist,
+                                             const QString &ttitle,
+                                             const QString &year,
+                                             const QString &genre,
+                                             const QString &isrc,
+                                             const QString &ext,
+                                             const QString &basepath,
+                                             bool fat32_compatible,
+                                             bool replacespaceswithunderscores,
+                                             bool _2digitstracknum,
+                                             bool overwrite_existing_files,
+                                             bool is_first_track)
 {
     Q_UNUSED(is_first_track);
 
@@ -665,18 +665,18 @@ bool Audex::construct_target_filename(QString &targetFilename,
     return true;
 }
 
-bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
-                                                     int cdno,
-                                                     int nooftracks,
-                                                     const QString &artist,
-                                                     const QString &title,
-                                                     const QString &date,
-                                                     const QString &genre,
-                                                     const QString &ext,
-                                                     const QString &basepath,
-                                                     bool fat32_compatible,
-                                                     bool replacespaceswithunderscores,
-                                                     bool overwrite_existing_files)
+bool AudexManager::construct_target_filename_for_singlefile(QString &targetFilename,
+                                                            int cdno,
+                                                            int nooftracks,
+                                                            const QString &artist,
+                                                            const QString &title,
+                                                            const QString &date,
+                                                            const QString &genre,
+                                                            const QString &ext,
+                                                            const QString &basepath,
+                                                            bool fat32_compatible,
+                                                            bool replacespaceswithunderscores,
+                                                            bool overwrite_existing_files)
 {
     SchemeParser schemeparser;
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/")
@@ -736,7 +736,7 @@ bool Audex::construct_target_filename_for_singlefile(QString &targetFilename,
     return true;
 }
 
-bool Audex::check()
+bool AudexManager::check()
 {
     if (!tmp_dir.isValid()) {
         slot_error(i18n("Temporary folder \"%1\" error (%2).", tmp_dir.path(), tmp_dir.errorString()), i18n("Please check."));
@@ -756,7 +756,7 @@ bool Audex::check()
     return true;
 }
 
-void Audex::request_finish(bool successful)
+void AudexManager::request_finish(bool successful)
 {
     if (!p_finished) {
         p_finished = true;
@@ -775,7 +775,7 @@ void Audex::request_finish(bool successful)
     }
 }
 
-void Audex::execute_finish()
+void AudexManager::execute_finish()
 {
     if (Preferences::ejectCDTray()) {
         Q_EMIT info(i18n("Eject CD tray"));
@@ -1036,9 +1036,9 @@ void Audex::execute_finish()
                 QTextStream out(&file);
                 CueSheetWriter cuesheetwriter(cdda_model);
                 if (p_single_file) {
-                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleShift() / CD_FRAMESIZE_SAMPLES).join("\n");
+                    out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleShift() / SECTOR_SIZE_SAMPLES).join("\n");
                 } else {
-                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleShift() / CD_FRAMESIZE_SAMPLES).join("\n");
+                    out << cuesheetwriter.cueSheet(target_filename_list, Preferences::sampleShift() / SECTOR_SIZE_SAMPLES).join("\n");
                 }
                 file.close();
                 Q_EMIT info(i18n("Cue sheet \"%1\" successfully created.", QFileInfo(filename).fileName()));
@@ -1105,7 +1105,7 @@ void Audex::execute_finish()
     Q_EMIT finished(p_finished_successful);
 }
 
-bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
+bool AudexManager::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
 {
     QString result;
 
@@ -1142,7 +1142,7 @@ bool Audex::p_prepare_dir(QString &filename, const QString &targetDirIfRelative,
     return true;
 }
 
-bool Audex::p_mkdir(const QString &absoluteFilePath)
+bool AudexManager::p_mkdir(const QString &absoluteFilePath)
 {
     QDir dir(absoluteFilePath);
     if (dir.exists()) {
@@ -1162,7 +1162,7 @@ bool Audex::p_mkdir(const QString &absoluteFilePath)
     return true;
 }
 
-qreal Audex::p_size_of_all_files(const QStringList &filenames) const
+qreal AudexManager::p_size_of_all_files(const QStringList &filenames) const
 {
     qreal size = .0f;
     for (int i = 0; i < filenames.count(); ++i) {

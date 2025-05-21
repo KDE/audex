@@ -7,6 +7,7 @@
 
 #include "cuesheetwriter.h"
 #include "audex-version.h"
+#include "datatypes/toc.h"
 #include "utils/discidcalculator.h"
 
 CueSheetWriter::CueSheetWriter(CDDAModel *model)
@@ -37,7 +38,7 @@ QStringList CueSheetWriter::cueSheet(const QString &binFilename, const int frame
     QFileInfo info(binFilename);
     result << QString("FILE \"%1\" %2").arg(info.fileName(), p_filetype(binFilename));
 
-    for (int i = 0; i < model->paranoia()->numOfTracks(); ++i) {
+    for (int i = 0; i < model->getToc().trackCount(); ++i) {
         if (!model->isAudioTrack(i + 1))
             continue;
         result << QString("  TRACK %1 AUDIO").arg(i + 1, 2, 10, QChar('0'));
@@ -49,11 +50,11 @@ QStringList CueSheetWriter::cueSheet(const QString &binFilename, const int frame
         result << QString("    PERFORMER \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
         result << QString("    TITLE \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
 
-        if (i == 0 && model->paranoia()->firstSectorOfDisc() < model->paranoia()->firstSectorOfTrack(1) + frameOffset) {
-            result << QString("    INDEX 00 %1").arg(CDDAParanoia::LSN2MSF(model->paranoia()->firstSectorOfDisc()));
+        if (i == 0 && model->getToc().firstSectorOfDisc() < model->getToc().firstSectorOfTrack(1) + frameOffset) {
+            result << QString("    INDEX 00 %1").arg(Audex::Toc::Frames2MSFString(model->getToc().firstSectorOfDisc()));
         }
 
-        result << QString("    INDEX 01 %1").arg(model->paranoia()->msfOfTrack(i + 1));
+        result << QString("    INDEX 01 %1").arg(Audex::Toc::Frames2MSFString(model->getToc().firstSectorOfTrack(i + 1)));
     }
 
     return result;

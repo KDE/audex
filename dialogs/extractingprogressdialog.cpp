@@ -41,24 +41,24 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
         ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
     }
 
-    audex = new Audex(this, profile_model, cdda_model);
+    manager = new AudexManager(this, profile_model, cdda_model);
 
-    connect(audex, SIGNAL(error(const QString &, const QString &)), this, SLOT(show_error(const QString &, const QString &)));
-    connect(audex, SIGNAL(warning(const QString &)), this, SLOT(show_warning(const QString &)));
-    connect(audex, SIGNAL(info(const QString &)), this, SLOT(show_info(const QString &)));
-    connect(audex, SIGNAL(finished(bool)), this, SLOT(conclusion(bool)));
-    connect(audex, SIGNAL(speedEncode(double)), this, SLOT(show_speed_encode(double)));
-    connect(audex, SIGNAL(speedExtract(double)), this, SLOT(show_speed_extract(double)));
-    connect(audex, SIGNAL(progressExtractTrack(int)), this, SLOT(show_progress_extract_track(int)));
-    connect(audex, SIGNAL(progressExtractOverall(int)), this, SLOT(show_progress_extract_overall(int)));
-    connect(audex, SIGNAL(progressEncodeTrack(int)), this, SLOT(show_progress_encode_track(int)));
-    connect(audex, SIGNAL(progressEncodeOverall(int)), this, SLOT(show_progress_encode_overall(int)));
-    connect(audex,
+    connect(manager, SIGNAL(error(const QString &, const QString &)), this, SLOT(show_error(const QString &, const QString &)));
+    connect(manager, SIGNAL(warning(const QString &)), this, SLOT(show_warning(const QString &)));
+    connect(manager, SIGNAL(info(const QString &)), this, SLOT(show_info(const QString &)));
+    connect(manager, SIGNAL(finished(bool)), this, SLOT(conclusion(bool)));
+    connect(manager, SIGNAL(speedEncode(double)), this, SLOT(show_speed_encode(double)));
+    connect(manager, SIGNAL(speedExtract(double)), this, SLOT(show_speed_extract(double)));
+    connect(manager, SIGNAL(progressExtractTrack(int)), this, SLOT(show_progress_extract_track(int)));
+    connect(manager, SIGNAL(progressExtractOverall(int)), this, SLOT(show_progress_extract_overall(int)));
+    connect(manager, SIGNAL(progressEncodeTrack(int)), this, SLOT(show_progress_encode_track(int)));
+    connect(manager, SIGNAL(progressEncodeOverall(int)), this, SLOT(show_progress_encode_overall(int)));
+    connect(manager,
             SIGNAL(changedExtractTrack(int, int, const QString &, const QString &)),
             this,
             SLOT(show_changed_extract_track(int, int, const QString &, const QString &)));
-    connect(audex, SIGNAL(changedEncodeTrack(int, int, const QString &)), this, SLOT(show_changed_encode_track(int, int, const QString &)));
-    connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
+    connect(manager, SIGNAL(changedEncodeTrack(int, int, const QString &)), this, SLOT(show_changed_encode_track(int, int, const QString &)));
+    connect(manager, SIGNAL(timeout()), this, SLOT(ask_timeout()));
     connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
 
     finished = false;
@@ -70,7 +70,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
 
 ExtractingProgressDialog::~ExtractingProgressDialog()
 {
-    delete audex;
+    delete manager;
 }
 
 int ExtractingProgressDialog::exec()
@@ -84,8 +84,8 @@ int ExtractingProgressDialog::exec()
     toggle_details();
     show();
     setModal(true);
-    if (audex->prepare()) {
-        audex->start();
+    if (manager->prepare()) {
+        manager->start();
     }
     int rv = QDialog::exec();
 
@@ -158,7 +158,7 @@ void ExtractingProgressDialog::cancel()
                                            KStandardGuiItem::cont())
             == KMessageBox::PrimaryAction) {
             cancelButton->setEnabled(false);
-            audex->cancel();
+            manager->cancel();
         }
     }
 }
@@ -273,14 +273,14 @@ void ExtractingProgressDialog::conclusion(bool successful)
         ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
-        if (audex->encoderLog().count() > 0) {
+        if (manager->encoderLog().count() > 0) {
             auto *encoderLogButton = new QPushButton();
             encoderLogButton->setText(i18n("Show encoding log..."));
             encoderLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
             buttonBox->addButton(encoderLogButton, QDialogButtonBox::HelpRole);
             connect(encoderLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderLog);
         }
-        if (audex->extractLog().count() > 0) {
+        if (manager->extractLog().count() > 0) {
             auto *extractLogButton = new QPushButton();
             extractLogButton->setText(i18n("Show rip log..."));
             extractLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
@@ -335,19 +335,19 @@ void ExtractingProgressDialog::ask_timeout()
                                         KStandardGuiItem::cont(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::SecondaryAction) {
-        audex->cancel();
+        manager->cancel();
     }
 }
 
 void ExtractingProgressDialog::open_encoder_log_view_dialog()
 {
-    LogViewDialog logViewDialog(audex->encoderLog(), i18n("Encoding log"), this);
+    LogViewDialog logViewDialog(manager->encoderLog(), i18n("Encoding log"), this);
     logViewDialog.exec();
 }
 
 void ExtractingProgressDialog::open_extract_log_view_dialog()
 {
-    LogViewDialog logViewDialog(audex->extractLog(), i18n("Ripping log"), this);
+    LogViewDialog logViewDialog(manager->extractLog(), i18n("Ripping log"), this);
     logViewDialog.exec();
 }
 

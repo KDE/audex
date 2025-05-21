@@ -71,6 +71,10 @@ set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
 set(audex_SRCS
     main.cpp
     mainwindow.cpp
+    datatypes/dataset.cpp
+    datatypes/toc.cpp
+    device/scsi.cpp
+    device/tocreader.cpp
     models/cddamodel.cpp
     models/profilemodel.cpp
     utils/schemeparser.cpp

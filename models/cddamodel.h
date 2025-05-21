@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CDDAMODEL_H
-#define CDDAMODEL_H
+#pragma once
 
 #include <QAbstractTableModel>
 #include <QBuffer>
@@ -27,8 +26,9 @@
 #include <KCDDB/Client>
 #include <KCDDB/KCDDB>
 
+#include "datatypes/toc.h"
+#include "device/tocreader.h"
 #include "utils/cddadevices.h"
-#include "utils/cddaparanoia.h"
 
 #include "utils/error.h"
 
@@ -58,13 +58,13 @@ public:
     explicit CDDAModel(QObject *parent = nullptr);
     ~CDDAModel() override;
 
-    inline CDDAParanoia *paranoia() const
+    inline const QByteArray blockDevice() const
     {
-        return p_paranoia;
+        return block_device;
     }
-    inline const QString deviceFile() const
+    inline const Audex::Toc::Toc getToc() const
     {
-        return device_file;
+        return toc;
     }
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -182,7 +182,7 @@ Q_SIGNALS:
     void selectionChanged(const int num_selected);
 
 private Q_SLOTS:
-    void new_audio_disc_available(const QString &udi);
+    void new_audio_disc_available(const QString &driveUDI, const QString &discUDI);
     void audio_disc_removed(const QString &udi);
 
     void disc_information_modified();
@@ -190,9 +190,10 @@ private Q_SLOTS:
     void lookup_cddb_done(KCDDB::Result result);
 
 private:
-    QString device_file;
+    Audex::Toc::Toc toc;
+
+    QByteArray block_device;
     QString udi;
-    CDDAParanoia *p_paranoia;
     CDDADevices *devices;
 
     KCDDB::Client *cddb;
@@ -212,5 +213,3 @@ private:
 
     void modify();
 };
-
-#endif

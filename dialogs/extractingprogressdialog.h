@@ -81,7 +81,7 @@ private:
 private:
     Ui::ExtractingProgressWidgetUI ui;
 
-    Audex *audex;
+    AudexManager *manager;
     ProfileModel *profile_model;
     CDDAModel *cdda_model;
 

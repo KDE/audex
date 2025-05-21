@@ -6,12 +6,12 @@
  */
 
 #include "cddamodel.h"
+#include "device/tocreader.h"
 
 CDDAModel::CDDAModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
-    p_paranoia = nullptr;
-    device_file.clear();
+    block_device.clear();
     udi.clear();
 
     devices = new CDDADevices(this);
@@ -23,7 +23,7 @@ CDDAModel::CDDAModel(QObject *parent)
                       this);
         return;
     }
-    connect(devices, SIGNAL(audioDiscDetected(const QString &)), this, SLOT(new_audio_disc_available(const QString &)));
+    connect(devices, SIGNAL(audioDiscDetected(const QString &, const QString &)), this, SLOT(new_audio_disc_available(const QString &, const QString &)));
     connect(devices, SIGNAL(audioDiscRemoved(const QString &)), this, SLOT(audio_disc_removed(const QString &)));
 
     cddb = new KCDDB::Client();
@@ -50,16 +50,11 @@ CDDAModel::~CDDAModel()
 {
     delete cddb;
     delete devices;
-
-    if (p_paranoia)
-        delete p_paranoia;
 }
 
 int CDDAModel::rowCount(const QModelIndex &parent) const
 {
-    if (!p_paranoia)
-        return 0;
-    return parent.isValid() ? 0 : p_paranoia->numOfTracks();
+    return parent.isValid() ? 0 : toc.trackCount();
 }
 
 int CDDAModel::columnCount(const QModelIndex &parent) const
@@ -70,7 +65,7 @@ int CDDAModel::columnCount(const QModelIndex &parent) const
 
 QVariant CDDAModel::data(const QModelIndex &index, int role) const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QVariant();
 
     if (!index.isValid())
@@ -131,7 +126,7 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const
 
 bool CDDAModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return false;
 
     if (!index.isValid())
@@ -215,7 +210,7 @@ Qt::ItemFlags CDDAModel::flags(const QModelIndex &index) const
 
 void CDDAModel::setArtist(const QString &a)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (a != cd_info.get(KCDDB::Artist).toString()) {
         beginResetModel();
@@ -227,7 +222,7 @@ void CDDAModel::setArtist(const QString &a)
 
 const QString CDDAModel::artist() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QString();
     QString a = cd_info.get(KCDDB::Artist).toString();
     return a;
@@ -235,7 +230,7 @@ const QString CDDAModel::artist() const
 
 void CDDAModel::setTitle(const QString &t)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (t != cd_info.get(KCDDB::Title).toString()) {
         beginResetModel();
@@ -247,7 +242,7 @@ void CDDAModel::setTitle(const QString &t)
 
 const QString CDDAModel::title() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QString();
     QString t = cd_info.get(KCDDB::Title).toString();
     return t;
@@ -255,7 +250,7 @@ const QString CDDAModel::title() const
 
 void CDDAModel::setCategory(const QString &c)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     QStringList validCategories;
@@ -283,14 +278,14 @@ void CDDAModel::setCategory(const QString &c)
 
 const QString CDDAModel::category() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QString();
     return cd_info.get(KCDDB::Category).toString();
 }
 
 void CDDAModel::setGenre(const QString &g)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (g != cd_info.get(KCDDB::Genre).toString()) {
         beginResetModel();
@@ -302,14 +297,14 @@ void CDDAModel::setGenre(const QString &g)
 
 const QString CDDAModel::genre() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QString();
     return cd_info.get(KCDDB::Genre).toString();
 }
 
 void CDDAModel::setYear(const QString &year)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (year != cd_info.get(KCDDB::Year).toString()) {
         beginResetModel();
@@ -321,14 +316,14 @@ void CDDAModel::setYear(const QString &year)
 
 const QString CDDAModel::year() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QString();
     return cd_info.get(KCDDB::Year).toString();
 }
 
 void CDDAModel::setExtendedData(const QStringList &e)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (e != cd_info.get(KCDDB::Comment).toStringList()) {
         beginResetModel();
@@ -340,14 +335,14 @@ void CDDAModel::setExtendedData(const QStringList &e)
 
 const QStringList CDDAModel::extendedData() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QStringList();
     return cd_info.get(KCDDB::Comment).toStringList();
 }
 
 void CDDAModel::setCDNum(const int n)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (n != cd_info.get("DNO").toInt()) {
         beginResetModel();
@@ -359,7 +354,7 @@ void CDDAModel::setCDNum(const int n)
 
 int CDDAModel::cdNum() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return -1;
     if (!isMultiCD())
         return 0;
@@ -368,7 +363,7 @@ int CDDAModel::cdNum() const
 
 void CDDAModel::setTrackOffset(const int n)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (n != cd_info.get("DTRACKOFFSET").toInt()) {
         beginResetModel();
@@ -380,14 +375,14 @@ void CDDAModel::setTrackOffset(const int n)
 
 int CDDAModel::trackOffset() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return -1;
     return cd_info.get("DTRACKOFFSET").toInt();
 }
 
 int CDDAModel::guessMultiCD(QString &newTitle) const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return -1;
 
     QString t = cd_info.get(KCDDB::Title).toString();
@@ -413,7 +408,7 @@ int CDDAModel::guessMultiCD(QString &newTitle) const
 
 void CDDAModel::setMultiCD(const bool multi)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (multi != cd_info.get("DMULTICD").toBool()) {
         beginResetModel();
@@ -425,14 +420,14 @@ void CDDAModel::setMultiCD(const bool multi)
 
 bool CDDAModel::isMultiCD() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return false;
     return cd_info.get("DMULTICD").toBool();
 }
 
 void CDDAModel::setCustomData(const QString &type, const QVariant &data)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (data != cd_info.get(type)) {
         beginResetModel();
@@ -444,14 +439,14 @@ void CDDAModel::setCustomData(const QString &type, const QVariant &data)
 
 const QVariant CDDAModel::customData(const QString &type) const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QVariant();
     return cd_info.get(type);
 }
 
 void CDDAModel::setCustomDataPerTrack(const int n, const QString &type, const QVariant &data)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (data != cd_info.track(n).get(type)) {
         beginResetModel();
@@ -463,7 +458,7 @@ void CDDAModel::setCustomDataPerTrack(const int n, const QString &type, const QV
 
 const QVariant CDDAModel::getCustomDataPerTrack(const int n, const QString &type)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QVariant();
     return cd_info.track(n).get(type);
 }
@@ -540,7 +535,7 @@ const QString CDDAModel::coverSupportedMimeTypeList() const
 
 bool CDDAModel::guessVarious() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return false;
     QString a;
     for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
@@ -553,7 +548,7 @@ bool CDDAModel::guessVarious() const
 
 void CDDAModel::setVarious(bool various)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     if (various != cd_info.get("DVARIOUS").toBool()) {
         cd_info.set("DVARIOUS", various);
@@ -563,14 +558,14 @@ void CDDAModel::setVarious(bool various)
 
 bool CDDAModel::isVarious()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return false;
     return cd_info.get("DVARIOUS").toBool();
 }
 
 void CDDAModel::swapArtistAndTitleOfTracks()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     beginResetModel();
@@ -586,7 +581,7 @@ void CDDAModel::swapArtistAndTitleOfTracks()
 
 void CDDAModel::swapArtistAndTitle()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
     QVariant tmp = cd_info.get(KCDDB::Title);
     beginResetModel();
@@ -599,7 +594,7 @@ void CDDAModel::swapArtistAndTitle()
 
 void CDDAModel::splitTitleOfTracks(const QString &divider)
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     beginResetModel();
@@ -620,7 +615,7 @@ void CDDAModel::splitTitleOfTracks(const QString &divider)
 
 void CDDAModel::capitalizeTracks()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     beginResetModel();
@@ -635,7 +630,7 @@ void CDDAModel::capitalizeTracks()
 
 void CDDAModel::capitalizeHeader()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     beginResetModel();
@@ -648,7 +643,7 @@ void CDDAModel::capitalizeHeader()
 
 void CDDAModel::setTitleArtistsFromHeader()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     beginResetModel();
@@ -662,9 +657,9 @@ void CDDAModel::setTitleArtistsFromHeader()
 
 int CDDAModel::numOfTracks() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return 0;
-    return p_paranoia->numOfTracks();
+    return toc.trackCount();
 }
 
 int CDDAModel::numOfAudioTracks() const
@@ -684,9 +679,9 @@ int CDDAModel::numOfAudioTracksInSelection() const
 
 int CDDAModel::length() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return 0;
-    return p_paranoia->length();
+    return toc.lengthOfAudioTracks();
 }
 
 int CDDAModel::lengthOfAudioTracks() const
@@ -712,23 +707,23 @@ int CDDAModel::lengthOfAudioTracksInSelection() const
 
 int CDDAModel::lengthOfTrack(int n) const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return 0;
-    return p_paranoia->lengthOfTrack(n);
+    return toc.lengthOfTrack(n);
 }
 
 const QList<quint32> CDDAModel::discSignature() const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return QList<quint32>();
-    return p_paranoia->discSignature();
+    return toc.trackOffsetList();
 }
 
 bool CDDAModel::isAudioTrack(int n) const
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return false;
-    return p_paranoia->isAudioTrack(n);
+    return toc.isAudioTrack(n);
 }
 
 void CDDAModel::clear()
@@ -792,7 +787,7 @@ Error CDDAModel::lastError() const
 
 void CDDAModel::lookupCDDB()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return;
 
     qDebug() << "lookupCDDB called";
@@ -807,12 +802,12 @@ void CDDAModel::lookupCDDB()
 
     cddb->config().reparse();
     cddb->setBlockingMode(false);
-    cddb->lookup(p_paranoia->discSignature());
+    cddb->lookup(toc.trackOffsetList());
 }
 
 bool CDDAModel::submitCDDB()
 {
-    if (!p_paranoia)
+    if (toc.isEmpty())
         return true;
 
     qDebug() << "submitCDDB called";
@@ -833,7 +828,7 @@ bool CDDAModel::submitCDDB()
     if (category().isEmpty()) {
         setCategory("rock");
     }
-    KCDDB::Result result = cddb->submit(cd_info, p_paranoia->discSignature());
+    KCDDB::Result result = cddb->submit(cd_info, toc.trackOffsetList());
 
     if (result != KCDDB::Success) {
         switch (result) {
@@ -888,31 +883,29 @@ void CDDAModel::eject()
     devices->eject(udi);
 }
 
-void CDDAModel::new_audio_disc_available(const QString &udi)
+void CDDAModel::new_audio_disc_available(const QString &driveUDI, const QString &discUDI)
 {
-    if (p_paranoia)
-        return;
+    block_device = devices->blockDevice(discUDI);
+    this->udi = discUDI;
 
-    device_file = devices->blockDevice(udi);
-    this->udi = udi;
+    QString terror;
+    toc = Audex::Device::readToc(driveUDI, terror);
 
-    p_paranoia = new CDDAParanoia(device_file);
-    if (!p_paranoia) {
-        qDebug() << "Unable to create cdio class. low mem?";
-        error = Error(i18n("Unable to create CDIO object."),
+    if (!terror.isEmpty()) {
+        error = Error(i18n("Unable to read TOC: %1", terror),
                       i18n("This is an internal error. Check your hardware. If all okay please make bug report."),
                       Error::ERROR,
                       this);
         return;
     }
 
-    qDebug() << "new audio disc detected (" << udi << ", " << device_file << ")";
+    qDebug() << "new audio disc detected (" << udi << ", " << block_device << ")";
 
     clear();
     confirm();
 
     sel_tracks.clear();
-    for (int i = 1; i <= p_paranoia->numOfTracks(); ++i) {
+    for (int i = 1; i <= toc.trackCount(); ++i) {
         if (isAudioTrack(i))
             sel_tracks.insert(i);
     }
@@ -926,12 +919,10 @@ void CDDAModel::audio_disc_removed(const QString &udi)
 {
     qDebug() << "audio disc removed (" << udi << ")";
 
-    device_file.clear();
+    block_device.clear();
     this->udi.clear();
 
-    if (p_paranoia)
-        delete p_paranoia;
-    p_paranoia = nullptr;
+    toc.clear();
 
     Q_EMIT audioDiscRemoved();
 }

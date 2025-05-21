@@ -137,13 +137,13 @@ private:
     bool job_in_progress;
 };
 
-class Audex : public QObject
+class AudexManager : public QObject
 {
     Q_OBJECT
 
 public:
-    Audex(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model);
-    ~Audex() override;
+    AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model);
+    ~AudexManager() override;
 
     bool prepare();
 

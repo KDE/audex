@@ -23,17 +23,17 @@ CDDADevices::~CDDADevices()
     p_clear();
 }
 
-const QString CDDADevices::blockDevice(const QString &udi) const
+const QByteArray CDDADevices::blockDevice(const QString &udi) const
 {
     OpticalAudioDisc *disc = p_discs.value(udi, NULL);
     if (!disc)
-        return QString();
+        return QByteArray();
 
     Solid::Device device(disc->device.parentUdi());
     if (device.is<Solid::Block>())
-        return device.as<Solid::Block>()->device();
+        return device.as<Solid::Block>()->device().toLatin1();
 
-    return QString();
+    return QByteArray();
 }
 
 int CDDADevices::discCount() const
@@ -84,7 +84,7 @@ void CDDADevices::p_solid_device_added(const QString &udi)
         disc->name = i18n("Audio Disc");
         disc->device = device;
         p_discs.insert(udi, disc);
-        Q_EMIT audioDiscDetected(udi);
+        Q_EMIT audioDiscDetected(device.parentUdi(), udi);
     }
 }
 

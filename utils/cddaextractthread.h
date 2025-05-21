@@ -15,6 +15,8 @@
 
 #include "utils/samplearray.h"
 
+#include "datatypes/toc.h"
+
 #include "cddaparanoia.h"
 
 #define SECTOR_SIZE_BYTES 2352
@@ -24,7 +26,7 @@ class CDDAExtractThread : public QThread
 {
     Q_OBJECT
 public:
-    CDDAExtractThread(CDDAParanoia *paranoia, QObject *parent = nullptr);
+    CDDAExtractThread(const QByteArray &blockDevice, const Audex::Toc::Toc toc, QObject *parent = nullptr);
     ~CDDAExtractThread() override;
 
 public Q_SLOTS:
@@ -92,7 +94,7 @@ public Q_SLOTS:
 
     void skipTrack(const track_t t)
     {
-        overall_sectors_read += p_paranoia->numOfFramesOfTrack(t);
+        overall_sectors_read += p_toc.sectorCountTrack(t);
     }
 
     bool isProcessing();
@@ -117,7 +119,8 @@ protected:
     void run() override;
 
 private:
-    CDDAParanoia *p_paranoia;
+    Audex::CDDAParanoia *p_paranoia;
+    Audex::Toc::Toc p_toc;
     bool skip_read_errors;
 
     unsigned long sectors_read;
