@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-17 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:04+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -79,11 +79,12 @@ msgstr "पढ़ने में त्रुटियाँ छोड़ें
 msgid "Retries on read error"
 msgstr "पढ़ने में त्रुटियाँ छोड़ें"
 
-#. i18n: ectx: label, entry (sampleOffset), group (general)
+#. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, kde-format
-msgid "Sample offset"
-msgstr "नमूना ऑफसेट"
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Sample shift"
+msgstr "नमूना ऑफसेट:"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -136,159 +137,159 @@ msgstr "शीर्षक सुधार उपकरण"
 msgid "&Settings"
 msgstr "&सेटिंग्स"
 
-#: core/audex.cpp:101
+#: core/audex.cpp:105
 #, kde-format
 msgid "No profile selected. Operation abort."
 msgstr "कोई प्रोफ़ाइल चयनित नहीं है. ऑपरेशन निरस्त."
 
-#: core/audex.cpp:113
+#: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr "प्रोफ़ाइल \"%1\" के साथ रिपिंग और एनकोडिंग प्रारंभ करें..."
 
-#: core/audex.cpp:630 core/audex.cpp:693
+#: core/audex.cpp:634 core/audex.cpp:697
 #, kde-format
 msgid "Can't find path \"%1\"."
 msgstr "पथ \"%1\" नहीं मिल सका."
 
-#: core/audex.cpp:630 core/audex.cpp:693 core/audex.cpp:702 core/audex.cpp:1151
+#: core/audex.cpp:634 core/audex.cpp:697 core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
 msgid "Please check your path (write access?)"
 msgstr "कृपया अपना पथ जांचें (लेखन पहुंच?)"
 
-#: core/audex.cpp:643
+#: core/audex.cpp:647
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
 msgstr "\"%1\" पर खाली स्थान 200 MiB से कम है।"
 
-#: core/audex.cpp:649 core/audex.cpp:721
+#: core/audex.cpp:653 core/audex.cpp:725
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
 msgstr "चेतावनी! फ़ाइल \"%1\" पहले से मौजूद है। ओवरराइटिंग।"
 
-#: core/audex.cpp:651 core/audex.cpp:723 core/audex.cpp:1131
+#: core/audex.cpp:655 core/audex.cpp:727 core/audex.cpp:1135
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "चेतावनी! फ़ाइल \"%1\" पहले से मौजूद है। छोड़ा जा रहा है।"
 
-#: core/audex.cpp:702 core/audex.cpp:1151
+#: core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
 msgid "Unable to create folder \"%1\"."
 msgstr "फ़ोल्डर \"%1\" बनाने में असमर्थ."
 
-#: core/audex.cpp:705 core/audex.cpp:1154
+#: core/audex.cpp:709 core/audex.cpp:1158
 #, kde-format
 msgid "Folder \"%1\" successfully created."
 msgstr "फ़ोल्डर \"%1\" सफलतापूर्वक बनाया गया."
 
-#: core/audex.cpp:708
+#: core/audex.cpp:712
 #, kde-format
 msgid "Folder \"%1\" already exists."
 msgstr "फ़ोल्डर \"%1\" पहले से मौजूद है."
 
-#: core/audex.cpp:715
+#: core/audex.cpp:719
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
 msgstr "\"%1\" पर खाली स्थान 800 MiB से कम है।"
 
-#: core/audex.cpp:738
+#: core/audex.cpp:742
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
 msgstr "अस्थायी फ़ोल्डर \"%1\" त्रुटि (%2)."
 
-#: core/audex.cpp:738
+#: core/audex.cpp:742
 #, kde-format
 msgid "Please check."
 msgstr "कृपया जांचें।"
 
-#: core/audex.cpp:746
+#: core/audex.cpp:750
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
 msgstr "अस्थायी फ़ोल्डर \"%1\" पर खाली स्थान 800 MiB से कम है।"
 
-#: core/audex.cpp:748
+#: core/audex.cpp:752
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr "अस्थायी फ़ोल्डर \"%1\" को कम से कम 200 MiB रिक्त स्थान की आवश्यकता है।"
 
-#: core/audex.cpp:748
+#: core/audex.cpp:752
 #, kde-format
 msgid "Please free space or set another path."
 msgstr "कृपया स्थान खाली करें या कोई अन्य पथ निर्धारित करें।"
 
-#: core/audex.cpp:777
+#: core/audex.cpp:781
 #, kde-format
 msgid "Eject CD tray"
 msgstr "सीडी ट्रे निकालें"
 
-#: core/audex.cpp:829
+#: core/audex.cpp:833
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
 msgstr "कवर \"%1\" सफलतापूर्वक सहेजा गया."
 
-#: core/audex.cpp:832
+#: core/audex.cpp:836
 #, kde-format
 msgid "Unable to save cover \"%1\"."
 msgstr "कवर \"%1\" सहेजने में असमर्थ."
 
-#: core/audex.cpp:832 core/audex.cpp:910 core/audex.cpp:955 core/audex.cpp:1003
-#: core/audex.cpp:1043 core/audex.cpp:1072 core/audex.cpp:1119
-#: core/audex.cpp:1146
+#: core/audex.cpp:836 core/audex.cpp:914 core/audex.cpp:959 core/audex.cpp:1007
+#: core/audex.cpp:1047 core/audex.cpp:1076 core/audex.cpp:1123
+#: core/audex.cpp:1150
 #, kde-format
 msgid "Please check your path and permissions"
 msgstr "कृपया अपना पथ और अनुमतियाँ जांचें"
 
-#: core/audex.cpp:906
+#: core/audex.cpp:910
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
 msgstr "प्लेलिस्ट \"%1\" सफलतापूर्वक बनाई गई."
 
-#: core/audex.cpp:910
+#: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
 msgstr "प्लेलिस्ट \"%1\" को सहेजने में असमर्थ."
 
-#: core/audex.cpp:952
+#: core/audex.cpp:956
 #, kde-format
 msgid "Info file \"%1\" successfully created."
 msgstr "जानकारी फ़ाइल \"%1\" सफलतापूर्वक बनाई गई."
 
-#: core/audex.cpp:955
+#: core/audex.cpp:959
 #, kde-format
 msgid "Unable to save info file \"%1\"."
 msgstr "जानकारी फ़ाइल \"%1\" सहेजने में असमर्थ."
 
-#: core/audex.cpp:1000
+#: core/audex.cpp:1004
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
 msgstr "हैशलिस्ट \"%1\" सफलतापूर्वक बनाई गई."
 
-#: core/audex.cpp:1003
+#: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
 msgstr "हैशलिस्ट \"%1\" को सहेजने में असमर्थ."
 
-#: core/audex.cpp:1040
+#: core/audex.cpp:1044
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
 msgstr "क्यू शीट \"%1\" सफलतापूर्वक बनाई गई."
 
-#: core/audex.cpp:1043
+#: core/audex.cpp:1047
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
 msgstr "क्यू शीट \"%1\" को सहेजने में असमर्थ."
 
-#: core/audex.cpp:1069
+#: core/audex.cpp:1073
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
 msgstr "लॉग फ़ाइल \"%1\" सफलतापूर्वक संग्रहीत."
 
-#: core/audex.cpp:1072
+#: core/audex.cpp:1076
 #, kde-format
 msgid "Unable to save log file \"%1\"."
 msgstr "लॉग फ़ाइल \"%1\" सहेजने में असमर्थ."
 
-#: core/audex.cpp:1119 core/audex.cpp:1146
+#: core/audex.cpp:1123 core/audex.cpp:1150
 #, kde-format
 msgid "Unable to open folder \"%1\"."
 msgstr "फ़ोल्डर \"%1\" खोलने में असमर्थ."
@@ -1414,32 +1415,32 @@ msgstr "शीर्षक"
 msgid "Length"
 msgstr "लंबाई"
 
-#: models/profilemodel.cpp:302
+#: models/profilemodel.cpp:305
 #, kde-format
 msgid "Unknown error. No index found in profile model."
 msgstr "अज्ञात त्रुटि. प्रोफ़ाइल मॉडल में कोई अनुक्रमणिका नहीं मिली."
 
-#: models/profilemodel.cpp:302
+#: models/profilemodel.cpp:305
 #, kde-format
 msgid "This is an internal error. Please report."
 msgstr "यह एक आंतरिक त्रुटि है। कृपया रिपोर्ट करें।"
 
-#: models/profilemodel.cpp:378
+#: models/profilemodel.cpp:381
 #, kde-format
 msgid "Profile name must not be empty."
 msgstr "प्रोफ़ाइल नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:378
+#: models/profilemodel.cpp:381
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr "आपने प्रोफ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
 
-#: models/profilemodel.cpp:392
+#: models/profilemodel.cpp:395
 #, kde-format
 msgid "Profile name already exists."
 msgstr "प्रोफ़ाइल नाम पहले से मौजूद है."
 
-#: models/profilemodel.cpp:393
+#: models/profilemodel.cpp:396
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
@@ -1447,32 +1448,32 @@ msgid ""
 msgstr ""
 "आपका प्रोफ़ाइल नाम %1 पहले से ही प्रोफ़ाइल के सेट में मौजूद है। कृपया एक अद्वितीय नाम चुनें।"
 
-#: models/profilemodel.cpp:404
+#: models/profilemodel.cpp:407
 #, kde-format
 msgid "Profile encoder is not defined."
 msgstr "प्रोफ़ाइल एनकोडर परिभाषित नहीं है."
 
-#: models/profilemodel.cpp:404
+#: models/profilemodel.cpp:407
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr "आपने प्रोफ़ाइल के लिए कोई एनकोडर नहीं दिया है। कृपया एक सेट करें।"
 
-#: models/profilemodel.cpp:411
+#: models/profilemodel.cpp:414
 #, kde-format
 msgid "Profile filename scheme is not defined."
 msgstr "प्रोफ़ाइल फ़ाइल नाम योजना परिभाषित नहीं है."
 
-#: models/profilemodel.cpp:412
+#: models/profilemodel.cpp:415
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
 msgstr "आपने प्रोफ़ाइल के लिए कोई फ़ाइल नाम योजना नहीं दी है। कृपया एक सेट करें।"
 
-#: models/profilemodel.cpp:440
+#: models/profilemodel.cpp:443
 #, kde-format
 msgid "The image file format is unknown."
 msgstr "छवि फ़ाइल का स्वरूप अज्ञात है."
 
-#: models/profilemodel.cpp:441
+#: models/profilemodel.cpp:444
 #, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
@@ -1481,22 +1482,22 @@ msgstr ""
 "आपके द्वारा दिया गया छवि फ़ाइल प्रारूप अज्ञात है। कृपया इनमें से कोई एक प्रारूप चुनें: JPEG, "
 "PNG, TIFF या BMP."
 
-#: models/profilemodel.cpp:450
+#: models/profilemodel.cpp:453
 #, kde-format
 msgid "Cover name must not be empty."
 msgstr "कवर नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:450
+#: models/profilemodel.cpp:453
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
 msgstr "आपने कवर के लिए कोई नाम नहीं दिया है। कृपया एक नाम तय करें।"
 
-#: models/profilemodel.cpp:460
+#: models/profilemodel.cpp:463
 #, kde-format
 msgid "The playlist file format is unknown."
 msgstr "प्लेलिस्ट फ़ाइल का स्वरूप अज्ञात है."
 
-#: models/profilemodel.cpp:461
+#: models/profilemodel.cpp:464
 #, kde-format
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
@@ -1505,42 +1506,42 @@ msgstr ""
 "आपका दिया गया प्लेलिस्ट फ़ाइल फ़ॉर्मेट अज्ञात है। कृपया इनमें से कोई एक फ़ॉर्मेट चुनें: M3U, "
 "PLS या XSPF."
 
-#: models/profilemodel.cpp:470
+#: models/profilemodel.cpp:473
 #, kde-format
 msgid "Playlist name must not be empty."
 msgstr "प्लेलिस्ट का नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:470
+#: models/profilemodel.cpp:473
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr "आपने प्लेलिस्ट के लिए कोई नाम नहीं दिया है। कृपया कोई नाम निर्धारित करें।"
 
-#: models/profilemodel.cpp:490
+#: models/profilemodel.cpp:493
 #, kde-format
 msgid "Info text name must not be empty."
 msgstr "जानकारी पाठ का नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:490
+#: models/profilemodel.cpp:493
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr "आपने जानकारी टेक्स्ट फ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
 
-#: models/profilemodel.cpp:497
+#: models/profilemodel.cpp:500
 #, kde-format
 msgid "Info text file name suffix must not be empty."
 msgstr "जानकारी पाठ फ़ाइल नाम प्रत्यय रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:498
+#: models/profilemodel.cpp:501
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr "आपने जानकारी टेक्स्ट फ़ाइल के लिए कोई प्रत्यय नहीं दिया है। कृपया एक सेट करें।"
 
-#: models/profilemodel.cpp:509
+#: models/profilemodel.cpp:512
 #, kde-format
 msgid "The hashlist file format is unknown."
 msgstr "हैशलिस्ट फ़ाइल का स्वरूप अज्ञात है."
 
-#: models/profilemodel.cpp:510
+#: models/profilemodel.cpp:513
 #, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
@@ -1549,48 +1550,48 @@ msgstr ""
 "आपका दिया गया हैशलिस्ट फ़ाइल फ़ॉर्मेट अज्ञात है। कृपया इनमें से कोई एक फ़ॉर्मेट चुनें: SFV, "
 "MD5, SHA-256."
 
-#: models/profilemodel.cpp:519
+#: models/profilemodel.cpp:522
 #, kde-format
 msgid "Hashlist name must not be empty."
 msgstr "हैशलिस्ट का नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:519
+#: models/profilemodel.cpp:522
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr "आपने हैशलिस्ट के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
 
-#: models/profilemodel.cpp:530
+#: models/profilemodel.cpp:533
 #, kde-format
 msgid "Cue filename name must not be empty."
 msgstr "क्यू फ़ाइल नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:530
+#: models/profilemodel.cpp:533
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr "आपने क्यू शीट के लिए कोई नाम नहीं दिया है। कृपया एक नाम निर्धारित करें।"
 
-#: models/profilemodel.cpp:543
+#: models/profilemodel.cpp:546
 #, kde-format
 msgid "Log filename name must not be empty."
 msgstr "लॉग फ़ाइल नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:543
+#: models/profilemodel.cpp:546
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
 msgstr "आपने लॉग फ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
 
-#: models/profilemodel.cpp:557
+#: models/profilemodel.cpp:560
 #, kde-format
 msgid "Filename name must not be empty."
 msgstr "फ़ाइल नाम रिक्त नहीं होना चाहिए."
 
-#: models/profilemodel.cpp:557
+#: models/profilemodel.cpp:560
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr "आपने एकल ऑडियो फ़ाइल के लिए कोई नाम नहीं दिया है। कृपया एक नाम सेट करें।"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
-#: models/profilemodel.cpp:939 widgets/profilewidgetUI.ui:42
+#: models/profilemodel.cpp:942 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
 msgstr "प्रतिलिपि"
@@ -1600,96 +1601,111 @@ msgstr "प्रतिलिपि"
 msgid "Audio Disc"
 msgstr "ऑडियो डिस्क"
 
-#: utils/cddaextractthread.cpp:62
-#, kde-format
-msgid "TOC:"
-msgstr "विषय-सूची:"
-
-#: utils/cddaextractthread.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
-msgid "Start ripping track %1 with length %2..."
-msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
-
-#: utils/cddaextractthread.cpp:94
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
-msgid "Start ripping track %1..."
-msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
-
-#: utils/cddaextractthread.cpp:96
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
-msgid "Start ripping whole cd with length %1..."
-msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
-
-#: utils/cddaextractthread.cpp:97
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
-msgid "Start ripping whole cd..."
-msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
-
-#: utils/cddaextractthread.cpp:99
+#: utils/cddaextractthread.cpp:70
 #, fuzzy, kde-format
 #| msgid "Sample offset:"
 msgid "Sample shift: %1"
 msgstr "नमूना ऑफसेट:"
 
-#: utils/cddaextractthread.cpp:177
+#: utils/cddaextractthread.cpp:72
+#, kde-format
+msgid "Ripping with shift of %1 samples"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:75
+#, fuzzy, kde-format
+#| msgid "Full paranoia mode (secure mode)"
+msgid "Paranoia mode enabled"
+msgstr "पूर्ण व्यामोह मोड (सुरक्षित मोड)"
+
+#: utils/cddaextractthread.cpp:77
+#, kde-format
+msgid "Paranoia mode disabled"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping track %1..."
+msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
+
+#: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
+#, fuzzy, kde-format
+#| msgid "Start reading track %1 with %2 sectors"
+msgid "Start ripping whole cd..."
+msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
+
+#: utils/cddaextractthread.cpp:193
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr "सेक्टर %1 (ट्रैक समय स्थिति %2) पढ़ते समय त्रुटि हुई: %3"
 
-#: utils/cddaextractthread.cpp:184 utils/cddaextractthread.cpp:192
+#: utils/cddaextractthread.cpp:200 utils/cddaextractthread.cpp:208
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr "ट्रैक %1 को %2 स्थान पर रिप करते समय त्रुटि हुई। लॉग देखें।"
 
-#: utils/cddaextractthread.cpp:186 utils/cddaextractthread.cpp:194
-#: utils/cddaextractthread.cpp:201 utils/cddaextractthread.cpp:203
+#: utils/cddaextractthread.cpp:202 utils/cddaextractthread.cpp:210
+#: utils/cddaextractthread.cpp:217 utils/cddaextractthread.cpp:219
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
 msgstr "स्थिति %1 पर रिपिंग करते समय त्रुटि हुई। लॉग देखें।"
 
-#: utils/cddaextractthread.cpp:199
+#: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
 msgstr "सेक्टर %1 पढ़ने में त्रुटि (ट्रैक समय स्थिति %2)"
 
-#: utils/cddaextractthread.cpp:209
+#: utils/cddaextractthread.cpp:226
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr "सेक्टर %1 (%2) पढ़ने में त्रुटि: **संपूर्ण सेक्टर मौन से भर रहा है**"
 
-#: utils/cddaextractthread.cpp:250 utils/cddaextractthread.cpp:251
+#: utils/cddaextractthread.cpp:264
+#, kde-format
+msgid "Paranoia status report for track %1:"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:266
+#, kde-format
+msgid "Paranoia status report:"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "Ripping was canceled due to an error."
 msgstr "एक त्रुटि के कारण रिपिंग रद्द कर दी गई।"
 
-#: utils/cddaextractthread.cpp:253
+#: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "User canceled extracting."
 msgstr "उपयोगकर्ता ने निकालना रद्द कर दिया."
 
-#: utils/cddaextractthread.cpp:254
+#: utils/cddaextractthread.cpp:276
 #, kde-format
 msgid "Extraction interrupted"
 msgstr "निष्कर्षण बाधित"
 
-#: utils/cddaextractthread.cpp:257
+#: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Ripping OK (Track %1)."
 msgstr "रिपिंग ठीक है (ट्रैक %1)."
 
-#: utils/cddaextractthread.cpp:259
+#: utils/cddaextractthread.cpp:280
+#, fuzzy, kde-format
+#| msgid "Cover \"%1\" successfully saved."
+msgid "Ripping of track %2 successfully finished"
+msgstr "कवर \"%1\" सफलतापूर्वक सहेजा गया."
+
+#: utils/cddaextractthread.cpp:282
 #, kde-format
 msgid "Ripping OK."
 msgstr "ठीक है."
 
-#: utils/cddaextractthread.cpp:261
+#: utils/cddaextractthread.cpp:283
 #, fuzzy, kde-format
 #| msgid "Cover \"%1\" successfully saved."
-msgid "Ripping of track %1 successfully finished"
+msgid "Ripping successfully finished"
 msgstr "कवर \"%1\" सफलतापूर्वक सहेजा गया."
 
 #: utils/cddaparanoia.cpp:20
@@ -1737,28 +1753,28 @@ msgstr "डिवाइस त्रुटि (1)."
 msgid "Unspecified drive or disc error on \"%1\"."
 msgstr ""
 
-#: utils/cddaparanoia.cpp:323
+#: utils/cddaparanoia.cpp:333
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr "ट्रैक --, आरंभ सेक्टर: 000000, सेक्टरों में आकार: 000150, प्रकार: लीड-इन"
 
-#: utils/cddaparanoia.cpp:348
+#: utils/cddaparanoia.cpp:358
 #, kde-format
 msgid "Audio"
 msgstr "ऑडियो"
 
-#: utils/cddaparanoia.cpp:350
+#: utils/cddaparanoia.cpp:360
 #, fuzzy, kde-format
 #| msgid "Non-Audio: CD-i"
 msgid "Non-Audio"
 msgstr "गैर-ऑडियो: सीडी-आई"
 
-#: utils/cddaparanoia.cpp:354
+#: utils/cddaparanoia.cpp:364
 #, kde-format
 msgid "Lead-out"
 msgstr "बाहर का नेतृत्व"
 
-#: utils/cddaparanoia.cpp:356
+#: utils/cddaparanoia.cpp:366
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
 msgstr "ट्रैक %1, आरंभ सेक्टर: %2, सेक्टरों में आकार: %3, प्रकार: %4"
@@ -2199,8 +2215,8 @@ msgstr ""
 "मौन से भरे होंगे।</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
-#. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleOffset)
-#: widgets/devicewidgetUI.ui:51 widgets/devicewidgetUI.ui:61
+#. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
+#: widgets/devicewidgetUI.ui:51 widgets/devicewidgetUI.ui:73
 #, kde-format
 msgid ""
 "<html><head/><body><p>Some drives have a sample offset when reading audio "
@@ -2212,13 +2228,14 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, kde-format
-msgid "Sample offset:"
+#, fuzzy, kde-format
+#| msgid "Sample offset:"
+msgid "Sample shift:"
 msgstr "नमूना ऑफसेट:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
-#: widgets/devicewidgetUI.ui:91 widgets/devicewidgetUI.ui:101
+#: widgets/devicewidgetUI.ui:103 widgets/devicewidgetUI.ui:134
 #, kde-format
 msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
@@ -2226,9 +2243,9 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: widgets/devicewidgetUI.ui:94
+#: widgets/devicewidgetUI.ui:106
 #, kde-format
-msgid "Retries on read error:"
+msgid "Max. read retries:"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
@@ -2484,6 +2501,25 @@ msgstr "बचाना..."
 #, kde-format
 msgid "URL:"
 msgstr "यूआरएल:"
+
+#~ msgid "Sample offset"
+#~ msgstr "नमूना ऑफसेट"
+
+#~ msgid "TOC:"
+#~ msgstr "विषय-सूची:"
+
+#, fuzzy
+#~| msgid "Start reading track %1 with %2 sectors"
+#~ msgid "Start ripping track %1 with length %2..."
+#~ msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
+
+#, fuzzy
+#~| msgid "Start reading track %1 with %2 sectors"
+#~ msgid "Start ripping whole cd with length %1..."
+#~ msgstr "%2 सेक्टरों के साथ ट्रैक %1 को पढ़ना शुरू करें"
+
+#~ msgid "Sample offset:"
+#~ msgstr "नमूना ऑफसेट:"
 
 #~ msgid "Xiph.Org Foundation"
 #~ msgstr "Xiph.Org फाउंडेशन"
