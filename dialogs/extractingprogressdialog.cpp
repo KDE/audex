@@ -41,7 +41,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
         ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
     }
 
-    manager = new AudexManager(this, profile_model, cdda_model);
+    manager = new Audex::AudexManager(this, profile_model, cdda_model);
 
     connect(manager, SIGNAL(error(const QString &, const QString &)), this, SLOT(show_error(const QString &, const QString &)));
     connect(manager, SIGNAL(warning(const QString &)), this, SLOT(show_warning(const QString &)));

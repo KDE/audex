@@ -21,9 +21,9 @@
 #include <KConfigGroup>
 #include <KMessageBox>
 
-#include "core/audex.h"
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
+#include "utils/audex.h"
 
 #include "logviewdialog.h"
 
@@ -81,7 +81,7 @@ private:
 private:
     Ui::ExtractingProgressWidgetUI ui;
 
-    AudexManager *manager;
+    Audex::AudexManager *manager;
     ProfileModel *profile_model;
     CDDAModel *cdda_model;
 

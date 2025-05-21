@@ -9,7 +9,8 @@
 #include "models/profilemodel.h"
 #include "utils/schemeparser.h"
 
-/* The heart of audex */
+namespace Audex
+{
 
 AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model)
     : QObject(parent)
@@ -33,14 +34,14 @@ AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAMod
         return;
     }
 
-    cdda_extract_thread = new CDDAExtractThread(cdda_model->blockDevice(), cdda_model->getToc());
-    if (!cdda_extract_thread) {
+    cdda_rip_thread = new CDDARipThread(cdda_model->blockDevice(), cdda_model->getToc());
+    if (!cdda_rip_thread) {
         qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
         return;
     }
-    cdda_extract_thread->enableParanoiaMode(Preferences::fullParanoiaMode());
-    cdda_extract_thread->enableSkipReadErrors(Preferences::skipReadErrors());
-    cdda_extract_thread->setSampleShift(Preferences::sampleShift());
+    cdda_rip_thread->enableParanoiaMode(Preferences::fullParanoiaMode());
+    cdda_rip_thread->enableSkipReadErrors(Preferences::skipReadErrors());
+    cdda_rip_thread->setSampleShift(Preferences::sampleShift());
 
     jobs = new AudexJobs();
     connect(jobs, SIGNAL(newJobAvailable()), this, SLOT(start_encode()));
@@ -63,14 +64,14 @@ AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAMod
     connect(encoder_wrapper, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
     connect(encoder_wrapper, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
 
-    connect(cdda_extract_thread, SIGNAL(progress(int, int, int)), this, SLOT(progress_extract(int, int, int)));
-    connect(cdda_extract_thread, SIGNAL(output(const QByteArray &)), this, SLOT(write_to_wave(const QByteArray &)));
-    connect(cdda_extract_thread, SIGNAL(finished()), this, SLOT(finish_extract()));
-    connect(cdda_extract_thread, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
-    connect(cdda_extract_thread, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
-    connect(cdda_extract_thread, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
+    connect(cdda_rip_thread, SIGNAL(progress(int, int, int)), this, SLOT(progress_extract(int, int, int)));
+    connect(cdda_rip_thread, SIGNAL(output(const QByteArray &)), this, SLOT(write_to_wave(const QByteArray &)));
+    connect(cdda_rip_thread, SIGNAL(finished()), this, SLOT(finish_extract()));
+    connect(cdda_rip_thread, SIGNAL(info(const QString &)), this, SLOT(slot_info(const QString &)));
+    connect(cdda_rip_thread, SIGNAL(warning(const QString &)), this, SLOT(slot_warning(const QString &)));
+    connect(cdda_rip_thread, SIGNAL(error(const QString &, const QString &)), this, SLOT(slot_error(const QString &, const QString &)));
 
-    cdda_extract_thread->setTimestampsIntoLog(
+    cdda_rip_thread->setTimestampsIntoLog(
         profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool());
 
     process_counter = 0;
@@ -94,7 +95,7 @@ AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAMod
 AudexManager::~AudexManager()
 {
     delete encoder_wrapper;
-    delete cdda_extract_thread;
+    delete cdda_rip_thread;
     delete wave_file_writer;
     delete jobs;
 }
@@ -128,7 +129,7 @@ void AudexManager::cancel()
 
 const QStringList &AudexManager::extractLog()
 {
-    return cdda_extract_thread->log();
+    return cdda_rip_thread->log();
 }
 
 const QStringList &AudexManager::encoderLog()
@@ -196,8 +197,8 @@ void AudexManager::start_extract()
             ex_track_source_filename = sourceFilename;
             wave_file_writer->open(sourceFilename);
 
-            cdda_extract_thread->setTrackToRip(0);
-            cdda_extract_thread->start();
+            cdda_rip_thread->setTrackToRip(0);
+            cdda_rip_thread->start();
             process_counter++;
 
             ex_track_count++;
@@ -303,8 +304,8 @@ void AudexManager::start_extract()
                 ex_track_source_filename = sourceFilename;
                 wave_file_writer->open(sourceFilename);
 
-                cdda_extract_thread->setTrackToRip(ex_track_index);
-                cdda_extract_thread->start();
+                cdda_rip_thread->setTrackToRip(ex_track_index);
+                cdda_rip_thread->start();
                 process_counter++;
 
                 ex_track_count++;
@@ -312,7 +313,7 @@ void AudexManager::start_extract()
             } else {
                 en_track_count++;
                 ex_track_count++; // important to check for finish
-                cdda_extract_thread->skipTrack(ex_track_index);
+                cdda_rip_thread->skipTrack(ex_track_index);
                 start_extract();
             }
 
@@ -490,7 +491,7 @@ void AudexManager::finish_encode()
 
 void AudexManager::calculate_speed_extract()
 {
-    if ((last_measuring_point_sector > -1) && (cdda_extract_thread->isProcessing())) {
+    if ((last_measuring_point_sector > -1) && (cdda_rip_thread->isProcessing())) {
         double new_value = (double)(current_sector - last_measuring_point_sector) / (4.0f * (double)SECTORS_PER_SECOND);
         if (new_value < 0.0f)
             new_value = 0.0f;
@@ -578,10 +579,10 @@ void AudexManager::slot_info(const QString &description)
 
 void AudexManager::check_if_thread_still_running()
 {
-    if (cdda_extract_thread->isRunning()) {
+    if (cdda_rip_thread->isRunning()) {
         // this could happen if the thread is stuck in paranoia_read
         // because of an unreadable cd
-        cdda_extract_thread->terminate();
+        cdda_rip_thread->terminate();
         qDebug() << "Terminate extracting thread.";
     }
 }
@@ -767,7 +768,7 @@ void AudexManager::request_finish(bool successful)
 
     if (process_counter > 0) {
         encoder_wrapper->cancel();
-        cdda_extract_thread->cancel();
+        cdda_rip_thread->cancel();
         QTimer::singleShot(2000, this, SLOT(check_if_thread_still_running()));
 
     } else {
@@ -1068,7 +1069,7 @@ void AudexManager::execute_finish()
             QFile file(filename);
             if (file.open(QFile::WriteOnly | QFile::Truncate)) {
                 QTextStream out(&file);
-                out << cdda_extract_thread->log().join("\n");
+                out << cdda_rip_thread->log().join("\n");
                 file.close();
                 Q_EMIT info(i18n("Log file \"%1\" successfully stored.", QFileInfo(filename).fileName()));
                 info_file = filename;
@@ -1170,4 +1171,6 @@ qreal AudexManager::p_size_of_all_files(const QStringList &filenames) const
         size += info.size();
     }
     return size;
+}
+
 }

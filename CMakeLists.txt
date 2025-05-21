@@ -77,6 +77,7 @@ set(audex_SRCS
     device/tocreader.cpp
     models/cddamodel.cpp
     models/profilemodel.cpp
+    utils/audex.cpp
     utils/schemeparser.cpp
     utils/playlist.cpp
     utils/wavefilewriter.cpp
@@ -84,7 +85,7 @@ set(audex_SRCS
     utils/cddaparanoia.cpp
     utils/cddadevices.cpp
     utils/encoderwrapper.cpp
-    utils/cddaextractthread.cpp
+    utils/cddaripthread.cpp
     utils/upload.cpp
     utils/encoderassistant.cpp
     utils/hashlist.cpp
@@ -119,8 +120,7 @@ set(audex_SRCS
     dialogs/extractingprogressdialog.cpp
     dialogs/logviewdialog.cpp
     dialogs/textviewdialog.cpp
-    dialogs/errordialog.cpp
-    core/audex.cpp)
+    dialogs/errordialog.cpp)
 
 ki18n_wrap_ui(
   audex_SRCS

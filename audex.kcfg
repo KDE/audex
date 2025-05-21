@@ -23,16 +23,6 @@
       <label>Perform CDDB lookup automatically</label>
       <default>true</default>
     </entry>
-    <entry name="coverLookupAuto" type="Bool">
-      <label>Perform cover lookup (amazon) automatically</label>
-      <default>true</default>
-    </entry>
-    <entry name="fetchCount" type="Int">
-      <label>Number of covers to fetch</label>
-      <default>8</default>
-      <min>1</min>
-      <max>99</max>
-    </entry>
     <entry name="fullParanoiaMode" type="Bool">
       <label>Full paranoia mode (secure mode)</label>
       <default>true</default>

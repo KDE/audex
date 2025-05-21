@@ -22,12 +22,15 @@
 #define SECTOR_SIZE_BYTES 2352
 #define SECTOR_SIZE_SAMPLES 588
 
-class CDDAExtractThread : public QThread
+namespace Audex
+{
+
+class CDDARipThread : public QThread
 {
     Q_OBJECT
 public:
-    CDDAExtractThread(const QByteArray &blockDevice, const Audex::Toc::Toc toc, QObject *parent = nullptr);
-    ~CDDAExtractThread() override;
+    CDDARipThread(const QByteArray &blockDevice, const Toc::Toc toc, QObject *parent = nullptr);
+    ~CDDARipThread() override;
 
 public Q_SLOTS:
 
@@ -119,8 +122,8 @@ protected:
     void run() override;
 
 private:
-    Audex::CDDAParanoia *p_paranoia;
-    Audex::Toc::Toc p_toc;
+    CDDAParanoia *p_paranoia;
+    Toc::Toc p_toc;
     bool skip_read_errors;
 
     unsigned long sectors_read;
@@ -158,3 +161,5 @@ private:
     // this friend function will call create_status(long, paranoia_cb_mode_t)
     friend void paranoia_callback(long, paranoia_cb_mode_t);
 };
+
+}

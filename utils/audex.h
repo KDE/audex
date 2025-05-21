@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef AUDEX_HEADER
-#define AUDEX_HEADER
+#pragma once
 
 #include <QDir>
 #include <QQueue>
@@ -19,7 +18,7 @@
 
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
-#include "utils/cddaextractthread.h"
+#include "utils/cddaripthread.h"
 #include "utils/cuesheetwriter.h"
 #include "utils/discidcalculator.h"
 #include "utils/encoderwrapper.h"
@@ -31,6 +30,9 @@
 #include "utils/wavefilewriter.h"
 
 #include "preferences.h"
+
+namespace Audex
+{
 
 class AudexJob : public QObject
 {
@@ -199,7 +201,7 @@ private:
     ProfileModel *profile_model;
     CDDAModel *cdda_model;
     EncoderWrapper *encoder_wrapper;
-    CDDAExtractThread *cdda_extract_thread;
+    CDDARipThread *cdda_rip_thread;
     AudexJobs *jobs;
     WaveFileWriter *wave_file_writer;
     QTemporaryDir tmp_dir;
@@ -294,4 +296,4 @@ private:
     }
 };
 
-#endif
+}
