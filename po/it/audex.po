@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the audex package.
 # Michele Ganz <lilarcor89@gmail.com>, 2009.
-# SPDX-FileCopyrightText: 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023, 2024 Valter Mura <valtermura@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011, 2014, 2015, 2017, 2019, 2022, 2023, 2024, 2025 Valter Mura <valtermura@gmail.com>
 # SPDX-FileCopyrightText: 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
