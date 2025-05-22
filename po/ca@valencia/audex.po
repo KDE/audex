@@ -1,16 +1,16 @@
 # Translation of audex.po to Catalan (Valencian)
-# Copyright (C) 2017-2024 This_file_is_part_of_KDE
+# Copyright (C) 2017-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
+# SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020, 2022.
-# SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2024-07-31 11:35+0200\n"
+"PO-Revision-Date: 2025-05-21 11:39+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -69,24 +69,21 @@ msgstr "Mode de paranoia completa (mode segur)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
-msgstr "Saltar els errors de lectura"
+msgstr "Omet els errors de lectura"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Saltar els errors de lectura"
+msgstr "Reintents en errors de lectura"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Desplaçament de la mostra:"
+msgstr "Desplaçament de la mostra"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1032,10 +1029,9 @@ msgid "Audio ripping application"
 msgstr "Aplicació d'extracció d'àudio"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007-2023 Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1073,10 +1069,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "Un agraïment especial a l'antic credativ GmbH (Alemanya) pel suport"
+msgstr "Un agraïment especial a credativ GmbH (Alemanya) pel suport"
 
 #: main.cpp:37
 #, kde-format
@@ -1503,8 +1498,8 @@ msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"El format d'imatge que heu indicat és desconegut. Escolliu-ne un dels "
-"següents: JPEG, PNG, TIFF o BMP."
+"El format d'imatge que heu indicat és desconegut. Trieu-ne un dels següents: "
+"JPEG, PNG, TIFF o BMP."
 
 #: models/profilemodel.cpp:453
 #, kde-format
@@ -1527,8 +1522,8 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"El format de fitxer de la llista de reproducció és desconegut. Escolliu-ne "
-"un dels següents: M3U, PLS o XSPF."
+"El format de fitxer de la llista de reproducció és desconegut. Trieu-ne un "
+"dels següents: M3U, PLS o XSPF."
 
 #: models/profilemodel.cpp:473
 #, kde-format
@@ -1575,7 +1570,7 @@ msgid ""
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "El format de fitxer de la llista de resum que heu indicat és desconegut. "
-"Escolliu-ne un dels següents: SFV, MD5, SHA-256."
+"Trieu-ne un dels següents: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:522
 #, kde-format
@@ -1629,38 +1624,34 @@ msgid "Audio Disc"
 msgstr "Disc d'àudio"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Desplaçament de la mostra:"
+msgstr "Desplaçament de la mostra: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Extracció amb desplaçament de %1 mostres"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Mode de paranoia completa (mode segur)"
+msgstr "Mode de paranoia activat"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Mode de paranoia desactivat"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Es comença a llegir la pista %1 amb %2 sectors"
+msgstr "Comença l'extracció de la pista %1…"
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Es comença a llegir la pista %1 amb %2 sectors"
+msgstr "Comença l'extracció del CD sencer…"
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1697,12 +1688,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Informe de l'estat de paranoia de la pista %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Informe de l'estat de paranoia:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1725,10 +1716,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Extracció correcta (pista %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "La caràtula «%1» s'ha guardat correctament."
+msgstr "L'extracció de la pista %2 ha finalitzat correctament"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1736,55 +1726,52 @@ msgid "Ripping OK."
 msgstr "Extracció correcta."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "La caràtula «%1» s'ha guardat correctament."
+msgstr "L'extracció ha finalitzat correctament"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "S'ha produït un error de dispositiu (1)."
+msgstr "S'ha produït un error del dispositiu."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Comproveu el dispositiu i elaboreu un informe d'error."
+msgstr "Comproveu el dispositiu a «%1»."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "S'ha produït un error de dispositiu (1)."
+msgstr "S'ha produït un error del disc."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "No s'ha pogut obrir el disc. Hi ha un disc d'àudio a la unitat «%1»."
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"El «cdparanoia» no ha pogut trobar una manera de llegir l'àudio de la unitat "
+"«%1»."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "S'ha produït un error d'unitat no especificat a «%1»."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "S'ha produït un error de dispositiu (1)."
+msgstr "S'ha produït un error de la unitat/disc."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "S'ha produït un error de disc o unitat no especificat a «%1»."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1798,10 +1785,9 @@ msgid "Audio"
 msgstr "Àudio"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "No àudio: CD-i"
+msgstr "No àudio"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2249,12 +2235,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2263,9 +2244,10 @@ msgid ""
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Salta els errors de lectura d'un sector (llargària "
-"d'un sector: 1/75 segon) després d'intentar tornar a llegir el sector durant "
-"un màxim de 20 vegades. Normalment, els sectors trencats s'ompliran amb "
-"silenci.</p></body></html>"
+"d'un sector: 1/75 segon) després d'intentar tornar a llegir-lo. Especifiqueu "
+"el nombre d'intents de reintent a <span style=\" font-style:italic;"
+"\">Reintents en errors de lectura</span>. Si s'omet, s'escriuran mostres "
+"nul·les dels sectors defectuosos.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2278,11 +2260,15 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Algunes unitats tenen un desplaçament de mostreig quan "
+"es lligen els CD d'àudio. Per a determinar el desplaçament correcte del "
+"vostre model d'unitat, podeu revisar la base de dades <a href=\"https://www."
+"accuraterip.com/driveoffsets.htm\"><span style=\" text-decoration: "
+"underline; color:#2980b9;\">Accuraterip</span></a>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
 msgstr "Desplaçament de la mostra:"
 
@@ -2294,12 +2280,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Especifica el nombre màxim de reintents de lectura "
+"quan es trobar un sector defectuós.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "Màx. de reintents de lectura:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2559,158 +2547,3 @@ msgstr "Guarda…"
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Sample offset"
-#~ msgstr "Desplaçament de la mostra"
-
-#~ msgid "TOC:"
-#~ msgstr "TOC:"
-
-#, fuzzy
-#~| msgid "Start reading track %1 with %2 sectors"
-#~ msgid "Start ripping track %1 with length %2..."
-#~ msgstr "Es comença a llegir la pista %1 amb %2 sectors"
-
-#, fuzzy
-#~| msgid "Start reading track %1 with %2 sectors"
-#~ msgid "Start ripping whole cd with length %1..."
-#~ msgstr "Es comença a llegir la pista %1 amb %2 sectors"
-
-#~ msgid "Sample offset:"
-#~ msgstr "Desplaçament de la mostra:"
-
-#~ msgid "Xiph.Org Foundation"
-#~ msgstr "Fundació Xiph.Org"
-
-#~ msgid ""
-#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-#~ msgstr ""
-#~ "Un agraïment especial a la Xiph.Org Foundation per proporcionar un "
-#~ "extractor de discs compactes"
-
-#~ msgid ""
-#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "Comproveu el dispositiu. Segur que és «%1»? Comproveu també els permisos "
-#~ "de «%1»."
-
-#~ msgid "Device error (2)."
-#~ msgstr "S'ha produït un error de dispositiu (2)."
-
-#~ msgid "Device error (3)."
-#~ msgstr "S'ha produït un error de dispositiu (3)."
-
-#~ msgid "Non-Audio: Data mode 2"
-#~ msgstr "No àudio: Dades mode 2"
-
-#~ msgid ", form 1"
-#~ msgstr ", form 1"
-
-#~ msgid ", form 2"
-#~ msgstr ", form 2"
-
-#~ msgid "Non-Audio: Data mode 1"
-#~ msgstr "No àudio: Dades mode 1"
-
-#~ msgid "Non-Audio: Playstation 1"
-#~ msgstr "No àudio: Playstation 1"
-
-#~ msgid "Non-Audio: Unknown format"
-#~ msgstr "No àudio: Format desconegut"
-
-#~ msgid ""
-#~ "Could not get device hardware information (vendor, model and firmware "
-#~ "revision)."
-#~ msgstr ""
-#~ "No s'ha pogut obtindre la informació del maquinari del dispositiu "
-#~ "(fabricant, model i revisió del microprogramari)."
-
-#~ msgid "Internal device error."
-#~ msgstr "S'ha produït un error intern en el dispositiu."
-
-#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-#~ msgstr ""
-#~ "Fabricant de la unitat: %1, model de la unitat: %2, revisió de la unitat: "
-#~ "%3"
-
-#~ msgid "Extracting finished."
-#~ msgstr "L'extracció ha finalitzat."
-
-#~ msgid "Error occured while seeking at sector %1: %2"
-#~ msgstr "S'ha produït un error durant la busca al sector %1: %2"
-
-#~ msgid "An error occured while ripping track %1. See log."
-#~ msgstr ""
-#~ "S'ha produït un error durant l'extracció de la pista %1. Vegeu el "
-#~ "registre."
-
-#~ msgid "An error occured while ripping. See log."
-#~ msgstr "S'ha produït un error durant l'extracció. Vegeu el registre."
-
-#~ msgid "Correction sample offset: %1"
-#~ msgstr "Correcció del desplaçament de la mostra: %1"
-
-#~ msgid "Fetching extra information from disc..."
-#~ msgstr "S'està recuperant informació extra del disc…"
-
-#~ msgid "Fetching subchannel infos from disc"
-#~ msgstr "S'està recuperant informació del subcanal del disc"
-
-#~ msgid "Ripping track %1 (%2:%3)..."
-#~ msgstr "S'extrau la pista %1 (%2:%3)…"
-
-#~ msgid "Ripping whole disc (%1:%2)..."
-#~ msgstr "S'extrau el disc sencer (%1:%2)…"
-
-#~ msgid "Start reading whole disc with %1 sectors"
-#~ msgstr "Es comença a llegir tot el disc amb %1 sectors"
-
-#~ msgid "Track %1 with start sector %2"
-#~ msgstr "Pista %1 amb el sector d'inici %2"
-
-#~ msgid "First sector: %1, Last sector: %2"
-#~ msgstr "Primer sector: %1, últim sector: %2"
-
-#~ msgid "Ripping finished"
-#~ msgstr "Extracció finalitzada"
-
-#~ msgid "(No disc detected)"
-#~ msgstr "(No s'ha detectat cap disc)"
-
-#~ msgid "Device information"
-#~ msgstr "Informació del dispositiu"
-
-#~ msgid "Vendor:"
-#~ msgstr "Fabricant:"
-
-#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-#~ msgstr ""
-#~ "El dispositiu pot llegir dades del Número de Catàleg Multimèdia («Media "
-#~ "Catalog Number», MCN) del disc."
-
-#~ msgid "Can read Media Catalog Number (MCN)"
-#~ msgstr ""
-#~ "Pot llegir el Número de Catàleg Multimèdia («Media Catalog Number», MCN)"
-
-#~ msgid "Revision:"
-#~ msgstr "Revisió:"
-
-#~ msgid "C2 error correction available"
-#~ msgstr "Està disponible l'esmena d'errors C2"
-
-#~ msgid "Model:"
-#~ msgstr "Model:"
-
-#~ msgid ""
-#~ "Your device can read the International Standard Recording Code of every "
-#~ "single track."
-#~ msgstr ""
-#~ "El dispositiu pot llegir dades del Codi internacional estàndard de "
-#~ "gravació («International Standard Recording Code», ISRC) de cada pista "
-#~ "individual."
-
-#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
-#~ msgstr ""
-#~ "Pot llegir el Codi internacional estàndard de gravació («International "
-#~ "Standard Recording Code», ISRC)"

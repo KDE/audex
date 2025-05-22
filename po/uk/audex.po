@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 08:58+0300\n"
+"PO-Revision-Date: 2025-05-21 22:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -81,10 +81,9 @@ msgstr "Повторні спроби при помилці читання"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift"
-msgstr "Зсув семпла: %1"
+msgstr "Зсув семпла"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1638,18 +1637,17 @@ msgstr "Зсув семпла: %1"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Видобування зі зсувом %1 семплів"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Режим повної параної (безпечний режим)"
+msgstr "Режим Paranoia увімкнено"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Режим Paranoia вимкнено"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1694,12 +1692,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Звіт щодо стану Paranoia для доріжки %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Звіт щодо стану Paranoia:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1722,10 +1720,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Успішне видобування (доріжка %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Видобування доріжки %1 успішно завершено"
+msgstr "Видобування доріжки %2 успішно завершено"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1733,10 +1730,9 @@ msgid "Ripping OK."
 msgstr "Успішне видобування."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Видобування доріжки %1 успішно завершено"
+msgstr "Видобування успішно завершено"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -2274,10 +2270,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Зсув семпла: %1"
+msgstr "Зсув семпла:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2292,10 +2287,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
-#, fuzzy, kde-format
-#| msgid "max. Read Speed:"
+#, kde-format
 msgid "Max. read retries:"
-msgstr "Макс. швидкість читання:"
+msgstr "Макс. к-ть повторних читань:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

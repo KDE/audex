@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-18 21:18+0400\n"
+"PO-Revision-Date: 2025-05-21 17:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -79,10 +79,9 @@ msgstr "إعادة المحاولة عند حدوث خطأ في القراءة"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift"
-msgstr "إزاحة العينة: %1"
+msgstr "إزاحة العينة:"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1618,18 +1617,17 @@ msgstr "إزاحة العينة: %1"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "انسخ مع إزاحة %1 عينات"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "وضع المرتاب (الوضع الآمن)"
+msgstr "وضع المرتاب ممكن"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "وضع المرتاب معطل"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1670,12 +1668,12 @@ msgstr "خطأ في قراءة القطاع %1 (%2): **ملء القطاع بأ�
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "تقرير حالة المرتاب للمسار %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr ": تقرير حالة المرتاب:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1698,10 +1696,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "الاستخراج جيد (المسار %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "انتهى نسخ المسار %1 بنجاح"
+msgstr "انتهى نسخ المسار %2 بنجاح"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1709,10 +1706,9 @@ msgid "Ripping OK."
 msgstr "الاستخراج جيد."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "انتهى نسخ المسار %1 بنجاح"
+msgstr "انتهى نسخ المسار بنجاح"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -2234,10 +2230,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift:"
-msgstr "إزاحة العينة: %1"
+msgstr "إزاحة العينة:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2254,7 +2249,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "أقصى عدد المحاولات:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

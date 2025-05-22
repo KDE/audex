@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 11:44+0100\n"
+"PO-Revision-Date: 2025-05-21 12:39+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -65,7 +65,7 @@ msgstr "Número de carátulas a consultar"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "Modo totalmente paranoico (modo seguro)"
+msgstr "Modo paranoia completo (modo seguro)"
 
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
@@ -82,10 +82,9 @@ msgstr "Reintentos si hay errores de lectura"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift"
-msgstr "Desplazamiento de la muestra: %1"
+msgstr "Desplazamiento de la muestra"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1634,18 +1633,17 @@ msgstr "Desplazamiento de la muestra: %1"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Extracción con desplazamiento de %1 muestras"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Modo totalmente paranoico (modo seguro)"
+msgstr "Modo paranoia activado"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Modo paranoia desactivado"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1696,12 +1694,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Informe de estado de paranoia para la pista %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Informe de estado de paranoia:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1724,10 +1722,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Extracción correcta (Pista %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Extracción de la pista %1 terminada correctamente"
+msgstr "Extracción de la pista %2 terminado correctamente"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1735,10 +1732,9 @@ msgid "Ripping OK."
 msgstr "Extracción correcta."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Extracción de la pista %1 terminada correctamente"
+msgstr "Extracción terminada correctamente"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -2277,10 +2273,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Desplazamiento de la muestra: %1"
+msgstr "Desplazamiento de la muestra:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2297,7 +2292,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "Reintentos de lectura máximos:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2557,21 +2552,3 @@ msgstr "Guardar…"
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Sample offset"
-#~ msgstr "Desplazamiento de la muestra"
-
-#~ msgid "TOC:"
-#~ msgstr "Tabla de contenido:"
-
-#~ msgid "Start ripping track %1 with length %2..."
-#~ msgstr "Empezar a extraer la pista %1 con longitud %2…"
-
-#~ msgid "Start ripping whole cd with length %1..."
-#~ msgstr "Empezar a extraer todo el CD con longitud %1…"
-
-#~ msgid "Sample offset:"
-#~ msgstr "Desplazamiento de la muestra:"
-
-#~ msgid "Retries on read error:"
-#~ msgstr "Reintentos si hay errores de lectura:"

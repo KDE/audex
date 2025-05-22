@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-17 04:25+0200\n"
+"PO-Revision-Date: 2025-05-21 03:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -79,10 +79,9 @@ msgstr "თავიდან ცდები წაკითხვის შე
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift"
-msgstr "სემპლის წანაცვლება: %1"
+msgstr "სემპლის წანაცვლება"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1616,18 +1615,17 @@ msgstr "სემპლის წანაცვლება: %1"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "დარიპვა %1 სემპლის წანაცვლებით"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "სრული პარანოიდალური რეჟიმი (დაცული რეჟიმი)"
+msgstr "პარანოიის რეჟიმი ჩართულია"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "პარანოიის რეჟიმი გამორთულია"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1671,12 +1669,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "პარანოიის სტატუსის ანგარიში ტრეკისთვის %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "პარანოიის სტატუსის ანგარიში:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1699,10 +1697,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "დარიპვა წარმატებულია (ტრეკი %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "ტრეკის \"%1\" დარიპვა წარმატებით დასრულდა"
+msgstr "ტრეკის \"%2\" დარიპვა წარმატებით დასრულდა"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1710,10 +1707,9 @@ msgid "Ripping OK."
 msgstr "დარიპვა წარმატებულია."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Ripping of track %1 successfully finished"
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "ტრეკის \"%1\" დარიპვა წარმატებით დასრულდა"
+msgstr "დარიპვა წარმატებით დასრულდა"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -2241,10 +2237,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample shift: %1"
+#, kde-format
 msgid "Sample shift:"
-msgstr "სემპლის წანაცვლება: %1"
+msgstr "სემპლის წანაცვლება:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2261,7 +2256,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "მაქს. წაკითხვის თავიდან ცდები:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
