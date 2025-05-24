@@ -1,16 +1,16 @@
 # Translation for audex.po to Euskara/Basque (eu).
-# Copyright (C) 2021-2024 This file is copyright:
+# Copyright (C) 2021-2025 This file is copyright:
 # This file is distributed under the same license as the audex package.
-# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2021, 2022, 2023, 2024.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2024-03-07 19:03+0100\n"
+"PO-Revision-Date: 2025-05-24 00:05+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -69,17 +69,15 @@ msgstr "Paranoia modu osoa (modu segurua)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
-msgstr "Saltatu irakurketa-errorean"
+msgstr "Saltatu irakurketa-erroreak"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Saltatu irakurketa-errorean"
+msgstr "Berriz saiatzen da irakurketa erroreen aurrean"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
@@ -1031,10 +1029,9 @@ msgid "Audio ripping application"
 msgstr "Audioa erauzteko aplikazioa"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007–2023 Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1072,10 +1069,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "Esker bereziak «credativ GmbH» (Alemania) zenari, babesagatik"
+msgstr "Esker bereziak «credativ GmbH»ri (Alemania) babesagatik"
 
 #: main.cpp:37
 #, kde-format
@@ -1638,27 +1634,24 @@ msgid "Ripping with shift of %1 samples"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Paranoia modu osoa (modu segurua)"
+msgstr "Paranoia modu osoa gaituta"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Paranoia modua ezgaituta"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Hasi %2 sektoreko %1 pista irakurtzen"
+msgstr "Hasi %1 pista erauzten..."
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Hasi %2 sektoreko %1 pista irakurtzen"
+msgstr "Hasi CD osoa erauzten..."
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1692,12 +1685,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "%1 pistaren Paranoiaren egoerari buruzko txostena:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Paranoiaren egoerari buruzko txostena:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1720,10 +1713,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Erauztea ZUZEN (%1 pista)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "«%1» disko-azala ondo gorde da."
+msgstr "%2 pista erauztea ondo bukatu da"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1731,55 +1723,53 @@ msgid "Ripping OK."
 msgstr "Erauztea ZUZEN."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "«%1» disko-azala ondo gorde da."
+msgstr "Erauztea ondo bukatu da"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Gailuaren errorea (1)."
+msgstr "Gailuaren errorea."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Ikuskatu zure gailua eta egin akats txosten bat."
+msgstr "Egiaztatu zure gailua \"%1\"(e)n."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Gailuaren errorea (1)."
+msgstr "Diskoaren errorea."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
 msgstr ""
+"Ez da diskoa irekitzeko gai. \"%1\" unitatean audio-disko bat sartuta al "
+"dago."
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"cdparanoia-k ez du aurkitu \"%1\" unitatetik audioa irakurtzeko modurik."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Unitatearen zehaztu gabeko errorea \"%1\"(e)an."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Gailuaren errorea (1)."
+msgstr "Unitatearen/Diskoaren errorea."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Unitatearen edo diskoaren zehatu gabeko errorea \"%1\"(e)an."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1793,10 +1783,9 @@ msgid "Audio"
 msgstr "Audioa"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Ez-audioa: CD-i"
+msgstr "Ez-audioa"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2289,7 +2278,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "Irakurketa saiakerak gehienez:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
