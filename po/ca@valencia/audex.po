@@ -1504,8 +1504,8 @@ msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"El format d'imatge que heu indicat és desconegut. Escolliu-ne un dels "
-"següents: JPEG, PNG, TIFF o BMP."
+"El format d'imatge que heu indicat és desconegut. Trieu-ne un dels següents: "
+"JPEG, PNG, TIFF o BMP."
 
 #: models/profilemodel.cpp:450
 #, kde-format
@@ -1528,8 +1528,8 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"El format de fitxer de la llista de reproducció és desconegut. Escolliu-ne "
-"un dels següents: M3U, PLS o XSPF."
+"El format de fitxer de la llista de reproducció és desconegut. Trieu-ne un "
+"dels següents: M3U, PLS o XSPF."
 
 #: models/profilemodel.cpp:470
 #, kde-format
@@ -1576,7 +1576,7 @@ msgid ""
 "formats: SFV, MD5, SHA-256."
 msgstr ""
 "El format de fitxer de la llista de resum que heu indicat és desconegut. "
-"Escolliu-ne un dels següents: SFV, MD5, SHA-256."
+"Trieu-ne un dels següents: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:519
 #, kde-format
