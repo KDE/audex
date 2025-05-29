@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-18 19:23+0200\n"
+"PO-Revision-Date: 2025-05-25 11:07+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -80,10 +80,9 @@ msgstr "Tentativi sull'errore di lettura"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Compensazione campione:"
+msgstr "Variazione campione"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1632,18 +1631,17 @@ msgstr "Variazione campione: %1"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Estrazione con variazione di %1 campioni"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Modalità paranoia completa (modalità sicurezza)"
+msgstr "Modalità paranoia abilitata"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Modalità paranoia disabilitata"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1692,12 +1690,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Rapporto stato paranoia per la traccia %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Rapporto stato paranoia:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1720,10 +1718,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Estrazione della traccia %1 completata correttamente."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of Track %1/%2 (%3 - %4) finished"
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Estrazione della traccia %1/%2 (%3 - %4) terminata"
+msgstr "Estrazione della traccia %2 terminata correttamente"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1731,10 +1728,9 @@ msgid "Ripping OK."
 msgstr "Estrazione completata correttamente."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Ripping of Track %1/%2 (%3 - %4) finished"
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Estrazione della traccia %1/%2 (%3 - %4) terminata"
+msgstr "Estrazione terminata correttamente"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -2279,10 +2275,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Compensazione campione:"
+msgstr "Variazione campione:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2297,10 +2292,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
-#, fuzzy, kde-format
-#| msgid "max. Read Speed:"
+#, kde-format
 msgid "Max. read retries:"
-msgstr "Velocità di lettura max:"
+msgstr "Nuovi tentativi max. di lettura:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29

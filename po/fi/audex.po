@@ -2,14 +2,14 @@
 # Author: Artnay
 # Author: Lliehu
 # Author: Luksi
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2024-03-11 15:13+0200\n"
+"PO-Revision-Date: 2025-05-28 10:41+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -67,24 +68,21 @@ msgstr "Täysi paranoia-tila (turvallinen tila)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
-msgstr "Ohita lukuvirheet"
+msgstr "Sivuuta lukuvirheet"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Ohita lukuvirheet"
+msgstr "Uudelleenyrityksiä lukuvirheen jälkeen"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Näytesiirtymä:"
+msgstr "Näytesiirtymä"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1022,10 +1020,9 @@ msgid "Audio ripping application"
 msgstr "Äänenpurkusovellus"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Tekijänoikeudet © 2007–2023 Marco Nelles"
+msgstr "Tekijänoikeudet © 2007–2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1063,8 +1060,7 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr "Erityiskiitokset tuesta credativ GmbH:lle (Saksa)"
 
@@ -1610,38 +1606,34 @@ msgid "Audio Disc"
 msgstr "Äänilevy"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Näytesiirtymä:"
+msgstr "Näytesiirtymä: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Puretaan %1 näytteen siirtymällä"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Täysi paranoia-tila (turvallinen tila)"
+msgstr "Paranoia-tila käytössä"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Paranoia-tila ei käytössä"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Ala lukea raitaa %1, jolla %2 sektoria"
+msgstr "Aletaan purkaa raitaa %1…"
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Ala lukea raitaa %1, jolla %2 sektoria"
+msgstr "Aletaan purkaa koko levyä…"
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1673,12 +1665,12 @@ msgstr ""
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Paranoian tilaraportti raidalle %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Paranoian tilaraportti:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1701,10 +1693,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Purku onnistui (raita %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Kansikuvan ”%1” tallennus onnistui."
+msgstr "Raidan %2 purkaminen onnistui"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1712,55 +1703,50 @@ msgid "Ripping OK."
 msgstr "Purku onnistui."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Kansikuvan ”%1” tallennus onnistui."
+msgstr "Purkaminen päättyi onnistuneesti"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Laitevirhe (1)."
+msgstr "Laitevirhe."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Tarkista laitteesi ja tee vikailmoitus."
+msgstr "Tarkista laite: ”%1”."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Laitevirhe (1)."
+msgstr "Levyvirhe."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "Levyä ei voi avata. Onko asemassa ”%1” äänilevyä?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "cdparanoia ei löytänyt tapaa lukea ääntä asemasta ”%1”."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Määrittämätön asemavirhe: ”%1”."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Laitevirhe (1)."
+msgstr "Asema- tai levyvirhe."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Määrittämätön asema- tai levyvirhe: ”%1”."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1774,10 +1760,9 @@ msgid "Audio"
 msgstr "Ääni"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Ei-ääni: CD-i"
+msgstr "Ei-ääni"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2210,12 +2195,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2224,8 +2204,10 @@ msgid ""
 "body></html>"
 msgstr ""
 "<html><head/><body><p>Sivuuta sektorin lukuvirheet (sektorin kesto: 1/75 "
-"sekuntia) enintään 20 lukuyrityskerran jälkeen. Virheelliset sektorit "
-"täytetään yleensä hiljaisuudella.</p></body></html>"
+"sekuntia) uudelleenlukuyritysten jälkeen. Aseta uudelleenyritysten määrä "
+"kohdassa <span style=\" font-style: italic;\">Uudelleenyrityksiä lukuvirheen "
+"jälkeen</span>. Virheelliset sektorit täytetään tyhjillä näytteillä.</p></"
+"body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2238,11 +2220,15 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Joissakin asemissa on ääni-CD:itä luettaessa "
+"näytesiirtymä. Aseman oikean mallikohtaisen siirtymän voi etsiä <a href="
+"\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a>-tietokannasta."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
 msgstr "Näytesiirtymä:"
 
@@ -2254,6 +2240,8 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Aseta uudelleenlukuyritysten määrä kohdattaessa "
+"virheellinen sektori.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
