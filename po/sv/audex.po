@@ -1,21 +1,21 @@
 # Copyright (C) 2011 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2017, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2024-06-16 19:31+0200\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"PO-Revision-Date: 2025-05-31 09:01+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -67,24 +67,21 @@ msgstr "Fullständigt paranoialäge (säkert läge)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "Hoppa över läsfel"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Hoppa över läsfel"
+msgstr "Återförsök vid läsfel"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Samplingsposition:"
+msgstr "Samplingsskiftning"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1027,10 +1024,9 @@ msgid "Audio ripping application"
 msgstr "Ljudlagringsprogram"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007-2023 Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1068,10 +1064,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "Särskilt tack till före detta credativ GmbH (Tyskland) för stöd"
+msgstr "Särskilt tack till credativ GmbH (Tyskland) för stöd"
 
 #: main.cpp:37
 #, kde-format
@@ -1611,38 +1606,34 @@ msgid "Audio Disc"
 msgstr "Ljudskiva"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Samplingsposition:"
+msgstr "Samplingsskiftning: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Lagring med skiftning av %1 samplingar"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Fullständigt paranoialäge (säkert läge)"
+msgstr "Paranoialäge aktiverat"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Paranoialäge inaktiverat"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Börja läsa spår %2 med %1 sektor"
+msgstr "Börja läsa spår %1..."
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Börja läsa spår %2 med %1 sektor"
+msgstr "Börja läsa spår hela ljudskivan..."
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1673,12 +1664,12 @@ msgstr "Fel vid läsning av sektor %1 (%2): **Fyller hela sektorn med tystnad**"
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Paranoiastatusrapport för spår %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Paranoiastatusrapport:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1701,10 +1692,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Lagring ok (spår %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of Track %1/%2 (%3 - %4) finished"
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Lagring av spår %1/ %2 (%3 - %4) klar."
+msgstr "Lagring av spår %2 avslutades med lyckat resultat"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1712,55 +1702,51 @@ msgid "Ripping OK."
 msgstr "Lagring ok."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Ripping of Track %1/%2 (%3 - %4) finished"
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Lagring av spår %1/ %2 (%3 - %4) klar."
+msgstr "Lagring avslutades med lyckat resultat"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Enhetsfel (1)."
+msgstr "Enhetsfel."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Kontrollera enheten och skapa en felrapport."
+msgstr "Kontrollera enheten på \"%1\"."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Enhetsfel (1)."
+msgstr "Skivfel."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "Kan inte öppna skivan. Finns en ljudskiva i enheten \"%1\"?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"cdparanoia kunde inte hitta ett sätt att läsa ljud från enheten \"%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Ospecificerat enhetsfel på \"%1\"."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Enhetsfel (1)."
+msgstr "Enhets- eller diskfel."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Ospecificerat enhets- eller diskfel på \"%1\"."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1774,10 +1760,9 @@ msgid "Audio"
 msgstr "Ljud"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Inte ljudskiva: cd-i"
+msgstr "Inte ljudskiva"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2214,12 +2199,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2227,9 +2207,10 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Hoppa över läsfel för en sektor (längden på en sektor: "
-"1/75 sekund) efter att ha försökt läsa sektorn igen högst 20 gånger. "
-"Vanligtvis kommer trasiga sektorer att fyllas med tystnad.</p></body></html>"
+"<html><head/><body><p>Hoppa över läsfel för en sektor (sektorlängd: 1/75 "
+"sekund) efter försök att läsa den igen. Ange antalet återförsök under <span "
+"style=\" font-style:italic;\">Återförsök vid läsfel</span>. Om det hoppas "
+"över skrivs tomma samplingar för de felaktiga sektorerna.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2242,13 +2223,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Vissa enheter har en samplingsposition vid läsning av "
+"ljudskivor. För att fastställa rätt position för din enhetsmodell kan du "
+"titta i databasen <a href=\"https://www.accuraterip.com/driveoffsets.htm"
+"\"><span style=\" text-decoration: underline; color:#2980b9;\">Accuraterip</"
+"span></a>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Samplingsposition:"
+msgstr "Samplingsskiftning:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2258,13 +2243,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Ange det maximala antalet återförsök när en felaktig "
+"sektor påträffas.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
-#, fuzzy, kde-format
-#| msgid "max. Read Speed:"
+#, kde-format
 msgid "Max. read retries:"
-msgstr "maximal läshastighet:"
+msgstr "Maximalt antal återförsök:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
