@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,6 +9,9 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+namespace Audex
+{
 
 ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
@@ -29,25 +32,25 @@ ProfileDataSingleFileDialog::ProfileDataSingleFileDialog(ProfileModel *profile_m
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
+    auto *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     applyButton = buttonBox->button(QDialogButtonBox::Apply);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataSingleFileDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataSingleFileDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &ProfileDataSingleFileDialog::slotApplied);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataSingleFileDialog::slotAccepted);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataSingleFileDialog::reject);
+    QObject::connect(applyButton, &QPushButton::clicked, this, &ProfileDataSingleFileDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    QObject::connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -120,4 +123,6 @@ bool ProfileDataSingleFileDialog::save()
     }
 
     return false;
+}
+
 }

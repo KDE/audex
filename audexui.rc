@@ -15,7 +15,10 @@
       <Menu name="cddb">
         <text context="@title:menu">CDDB</text>
         <Action name="cddbfetch"/>
-        <Action name="cddbsubmit"/>
+      </Menu>
+      <Menu name="cdtext">
+        <text context="@title:menu">CD-Text</text>
+        <Action name="cdtextread"/>
       </Menu>
       <Separator/>
       <Action name="edit"/>
@@ -35,6 +38,8 @@
     </Menu>
   </MenuBar>
   <ToolBar name="mainToolBar" hidden="false" noMerge="1">
+    <Action name="disc_label"/>
+    <Action name="disc"/>
     <Action name="eject"/>
     <Separator lineSeparator="true"/>
     <Action name="profile_label"/>

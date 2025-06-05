@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,8 @@
 // This code is strongly inspired by K3B, 1998-2009 Sebastian Trueg <trueg@k3b.org>
 
 #include "tocreader.h"
+
+#include "scsi.h"
 
 namespace Audex
 {
@@ -21,12 +23,12 @@ namespace Device
 // POINT a1h gices us the last track number in the session in PMIN
 // POINT a2h gives the start of the session lead-out in PMIN,PSEC,PFRAME
 
-const Toc::Toc readToc(const QString &driveUDI, QString &error)
+const Toc::Toc readTOC(const QString &discUDI, QString &error)
 {
-    Solid::Device device(driveUDI);
+    Solid::Device device(discUDI);
     const QByteArray block_device = device.as<Solid::Block>()->device().toLatin1();
 
-    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << block_device;
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << discUDI << block_device;
 
     int deviceHandle = ::open(block_device.constData(), O_RDONLY | O_NONBLOCK);
     if (deviceHandle == -1) {

@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef ENCODERWRAPPER_HEADER
-#define ENCODERWRAPPER_HEADER
+#pragma once
 
 #include <QImage>
 #include <QRegularExpression>
@@ -16,6 +15,9 @@
 #include <KProcess>
 
 #include "utils/schemeparser.h"
+
+namespace Audex
+{
 
 class EncoderWrapper : public QObject
 {
@@ -81,4 +83,4 @@ private:
     int not_found_counter;
 };
 
-#endif
+}

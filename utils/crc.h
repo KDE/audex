@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CRC_H
-#define CRC_H
+#pragma once
 
 #include <QByteArray>
 #include <QDataStream>
@@ -14,6 +13,9 @@
 #include <QFile>
 
 #include <KLocalizedString>
+
+namespace Audex
+{
 
 typedef QMap<int, quint16> Checksum16Map;
 typedef QMap<int, quint32> Checksum32Map;
@@ -130,4 +132,4 @@ private:
 
 }
 
-#endif
+}

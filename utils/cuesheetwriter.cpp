@@ -1,108 +1,130 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "cuesheetwriter.h"
+
+#include "discidcalculator.h"
+
 #include "audex-version.h"
-#include "datatypes/toc.h"
-#include "utils/discidcalculator.h"
 
-CueSheetWriter::CueSheetWriter(CDDAModel *model)
+namespace Audex
 {
-    this->model = model;
+
+CUESheetWriter::CUESheetWriter(const CDDA &cdda)
+{
+    this->cdda = cdda;
 }
 
-CueSheetWriter::~CueSheetWriter()
+CUESheetWriter::~CUESheetWriter()
 {
 }
 
-QStringList CueSheetWriter::cueSheet(const QString &binFilename, const int frameOffset /*, const bool writeMCN, const bool writeISRC*/) const
+QStringList CUESheetWriter::cueSheet(const QString &binFilename, const int frameOffset, const bool writeMCN, const bool writeISRC) const
 {
     QStringList result;
 
-    result << "REM cue file written by Audex Version " AUDEX_VERSION_STRING;
-    result << QString("REM DISCID %1").arg(DiscIDCalculator::CDDBId(model->discSignature()), 8, 16, QLatin1Char('g')).toUpper();
-    result << QString("REM GENRE \"%1\"").arg(model->genre());
-    result << QString("REM DATE \"%1\"").arg(model->year());
-    // if (writeMCN) {
-    //     QString mcn = model->cdio()->getMCN();
-    //     if (!mcn.isEmpty() && mcn != "0")
-    //         result << QString("CATALOG %1").arg(mcn);
-    // }
-    result << QString("PERFORMER \"%1\"").arg(model->artist());
-    result << QString("TITLE \"%1\"").arg(model->title());
+    result << QStringLiteral("REM cue file written by Audex Version %1").arg(AUDEX_VERSION_STRING);
+    result << QStringLiteral("REM DISCID %1").arg(DiscIDCalculator::CDDBId(cdda.toc().discSignature()), 8, 16, QChar(u'0'));
+    QString genre = cdda.metadata().get(Metadata::Genre).toString();
+    if (!genre.isEmpty())
+        result << QStringLiteral(u"REM GENRE \"%1\"").arg(genre);
+    QString date = cdda.metadata().get(Metadata::Year).toString();
+    if (!date.isEmpty())
+        result << QStringLiteral(u"REM DATE \"%1\"").arg(date);
+    if (writeMCN) {
+        QString mcn = QString::fromLatin1(cdda.metadata().get(Metadata::MCN).toByteArray());
+        if (!mcn.isEmpty() && mcn != QStringLiteral(u"0"))
+            result << QStringLiteral("CATALOG %1").arg(mcn);
+    }
+    QString performer = cdda.metadata().get(Metadata::Artist).toString();
+    if (!performer.isEmpty())
+        result << QStringLiteral(u"PERFORMER \"%1\"").arg(performer);
+    QString title = cdda.metadata().get(Metadata::Album).toString();
+    if (!title.isEmpty())
+        result << QStringLiteral(u"TITLE \"%1\"").arg(title);
 
     QFileInfo info(binFilename);
-    result << QString("FILE \"%1\" %2").arg(info.fileName(), p_filetype(binFilename));
+    result << QStringLiteral(u"FILE \"%1\" %2").arg(info.fileName(), filetype(binFilename));
 
-    for (int i = 0; i < model->getToc().trackCount(); ++i) {
-        if (!model->isAudioTrack(i + 1))
+    for (int i = 1; i <= cdda.toc().trackCount(); ++i) {
+        if (!cdda.toc().isAudioTrack(i))
             continue;
-        result << QString("  TRACK %1 AUDIO").arg(i + 1, 2, 10, QChar('0'));
-        // if (writeISRC) {
-        //     QString isrc = model->paranoia()->getISRC(i + 1);
-        //     if (!isrc.isEmpty() && isrc != "0")
-        //         result << QString("    ISRC %1").arg(isrc);
-        // }
-        result << QString("    PERFORMER \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
-        result << QString("    TITLE \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
+        result << QStringLiteral("  TRACK %1 AUDIO").arg(i, 2, 10, QChar(u'0'));
+        if (writeISRC) {
+            QString isrc = QString::fromLatin1(cdda.metadata().track(i).get(Metadata::ISRC).toByteArray());
+            if (!isrc.isEmpty() && isrc != QStringLiteral(u"0"))
+                result << QStringLiteral("    ISRC %1").arg(isrc);
+        }
+        result << QStringLiteral(u"    PERFORMER \"%1\"").arg(cdda.metadata().track(i).get(Metadata::Artist).toString());
+        result << QStringLiteral(u"    TITLE \"%1\"").arg(cdda.metadata().track(i).get(Metadata::Title).toString());
 
-        if (i == 0 && model->getToc().firstSectorOfDisc() < model->getToc().firstSectorOfTrack(1) + frameOffset) {
-            result << QString("    INDEX 00 %1").arg(Audex::Toc::Frames2MSFString(model->getToc().firstSectorOfDisc()));
+        if (i == 0 && cdda.toc().firstSectorOfDisc() < cdda.toc().firstSectorOfTrack(1) + frameOffset) {
+            result << QString("    INDEX 00 %1").arg(Toc::Frames2MSFString(cdda.toc().firstSectorOfDisc()));
         }
 
-        result << QString("    INDEX 01 %1").arg(Audex::Toc::Frames2MSFString(model->getToc().firstSectorOfTrack(i + 1)));
+        result << QString("    INDEX 01 %1").arg(Toc::Frames2MSFString(cdda.toc().firstSectorOfTrack(i)));
     }
 
     return result;
 }
 
-QStringList CueSheetWriter::cueSheet(const QStringList &filenames, const int frameOffset /*, const bool writeMCN, const bool writeISRC*/) const
+QStringList CUESheetWriter::cueSheet(const QStringList &filenames, const int frameOffset, const bool writeMCN, const bool writeISRC) const
 {
     Q_UNUSED(frameOffset);
 
     QStringList result;
-    result << "REM cue file written by Audex Version " AUDEX_VERSION_STRING;
-    result << QString("REM DISCID %1").arg(DiscIDCalculator::CDDBId(model->discSignature()), 8, 16, QLatin1Char('g')).toUpper();
-    result << QString("REM GENRE \"%1\"").arg(model->genre());
-    result << QString("REM DATE \"%1\"").arg(model->year());
-    // if (writeMCN) {
-    //     QString mcn = model->cdio()->getMCN();
-    //     if (!mcn.isEmpty() && mcn != "0")
-    //         result << QString("CATALOG %1").arg(mcn);
-    // }
-    result << QString("PERFORMER \"%1\"").arg(model->artist());
-    result << QString("TITLE \"%1\"").arg(model->title());
+    result << QStringLiteral("REM cue file written by Audex Version %1").arg(AUDEX_VERSION_STRING);
+    result << QString("REM DISCID %1").arg(DiscIDCalculator::CDDBId(cdda.toc().discSignature()), 8, 16, QLatin1Char('g')).toUpper();
+    QString genre = cdda.metadata().get(Metadata::Genre).toString();
+    if (!genre.isEmpty())
+        result << QStringLiteral(u"REM GENRE \"%1\"").arg(genre);
+    QString date = cdda.metadata().get(Metadata::Year).toString();
+    if (!date.isEmpty())
+        result << QStringLiteral(u"REM DATE \"%1\"").arg(date);
+    if (writeMCN) {
+        QString mcn = QString::fromLatin1(cdda.metadata().get(Metadata::MCN).toByteArray());
+        if (!mcn.isEmpty() && mcn != QStringLiteral(u"0"))
+            result << QStringLiteral("CATALOG %1").arg(mcn);
+    }
+    QString performer = cdda.metadata().get(Metadata::Artist).toString();
+    if (!performer.isEmpty())
+        result << QStringLiteral(u"PERFORMER \"%1\"").arg(performer);
+    QString title = cdda.metadata().get(Metadata::Album).toString();
+    if (!title.isEmpty())
+        result << QStringLiteral(u"TITLE \"%1\"").arg(title);
 
     for (int i = 0; i < filenames.count(); ++i) {
         QFileInfo info(filenames.at(i));
-        result << QString("FILE \"%1\" %2").arg(info.fileName(), p_filetype(filenames.at(i)));
+        result << QString(u"FILE \"%1\" %2").arg(info.fileName(), filetype(filenames.at(i)));
 
         result << QString("  TRACK %1 AUDIO").arg(i + 1, 2, 10, QChar('0'));
-        // if (writeISRC) {
-        //     QString isrc = model->cdio()->getISRC(i + 1);
-        //     if (!isrc.isEmpty() && isrc != "0")
-        //         result << QString("    ISRC %1").arg(isrc);
-        // }
-        result << QString("    PERFORMER \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
-        result << QString("    TITLE \"%1\"").arg(model->data(model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
-        result << QString("    INDEX 01 00:00:00");
+        if (writeISRC) {
+            QString isrc = QString::fromLatin1(cdda.metadata().track(i + 1).get(Metadata::ISRC).toByteArray());
+            if (!isrc.isEmpty() && isrc != QStringLiteral(u"0"))
+                result << QStringLiteral("    ISRC %1").arg(isrc);
+        }
+        result << QStringLiteral(u"    PERFORMER \"%1\"").arg(cdda.metadata().track(i + 1).get(Metadata::Artist).toString());
+        result << QStringLiteral(u"    TITLE \"%1\"").arg(cdda.metadata().track(i + 1).get(Metadata::Title).toString());
+        result << QStringLiteral("    INDEX 01 00:00:00");
     }
 
     return result;
 }
 
-QString CueSheetWriter::p_filetype(const QString &filename) const
+QString CUESheetWriter::filetype(const QString &filename) const
 {
-    QString result = "WAVE";
-    if ((filename.endsWith(QLatin1String("aiff"), Qt::CaseInsensitive)) || (filename.endsWith(QLatin1String("aif"), Qt::CaseInsensitive))) {
-        result = "AIFF";
+    QString result = QStringLiteral(u"WAVE");
+    if ((filename.endsWith(QStringLiteral("aiff"), Qt::CaseInsensitive)) || (filename.endsWith(QStringLiteral("aif"), Qt::CaseInsensitive))) {
+        result = QStringLiteral("AIFF");
     } else if (filename.endsWith(QLatin1String("mp3"), Qt::CaseInsensitive)) {
-        result = "MP3";
+        result = QStringLiteral("MP3");
     }
 
     return result;
+}
+
 }

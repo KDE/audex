@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CUESHEETWRITER_H
-#define CUESHEETWRITER_H
+#pragma once
 
 #include <QFileInfo>
 #include <QString>
@@ -14,22 +13,25 @@
 
 #include <KLocalizedString>
 
-#include "models/cddamodel.h"
+#include "datatypes/cdda.h"
 
-class CueSheetWriter : public QObject
+namespace Audex
+{
+
+class CUESheetWriter : public QObject
 {
     Q_OBJECT
 public:
-    explicit CueSheetWriter(CDDAModel *model);
-    ~CueSheetWriter() override;
+    explicit CUESheetWriter(const CDDA &cdda);
+    ~CUESheetWriter() override;
 
-    QStringList cueSheet(const QString &binFilename, const int frameOffset = 0 /*, const bool writeMCN = false, const bool writeISRC = false*/) const;
-    QStringList cueSheet(const QStringList &filenames, const int frameOffset = 0 /*, const bool writeMCN = false, const bool writeISRC = false*/) const;
+    QStringList cueSheet(const QString &binFilename, const int frameOffset = 0, const bool writeMCN = false, const bool writeISRC = false) const;
+    QStringList cueSheet(const QStringList &filenames, const int frameOffset = 0, const bool writeMCN = false, const bool writeISRC = false) const;
 
 private:
-    CDDAModel *model;
+    CDDA cdda;
 
-    QString p_filetype(const QString &filename) const;
+    QString filetype(const QString &filename) const;
 };
 
-#endif
+}

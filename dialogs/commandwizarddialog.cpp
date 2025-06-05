@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -11,6 +11,9 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+namespace Audex
+{
 
 CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent)
     : QDialog(parent)
@@ -27,11 +30,11 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
     applyButton = buttonBox->button(QDialogButtonBox::Apply);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CommandWizardDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &CommandWizardDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &CommandWizardDialog::slotApplied);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &CommandWizardDialog::slotAccepted);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &CommandWizardDialog::reject);
+    QObject::connect(applyButton, &QPushButton::clicked, this, &CommandWizardDialog::slotApplied);
 
-    QWidget *widget = new QWidget(this);
+    auto *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
@@ -39,24 +42,24 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
     help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(2), i18n("Command scheme help"), this);
 
     ui.qlineedit_command->setText(command);
-    connect(ui.qlineedit_command, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    connect(ui.qlineedit_command, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
+    QObject::connect(ui.qlineedit_command, &QLineEdit::textEdited, this, &CommandWizardDialog::trigger_changed);
+    QObject::connect(ui.qlineedit_command, &QLineEdit::textChanged, this, &CommandWizardDialog::update_example);
     ui.qlineedit_command->setCursorPosition(0);
 
-    connect(ui.kurllabel_help, SIGNAL(leftClickedUrl()), this, SLOT(help()));
+    QObject::connect(ui.kurllabel_help, &KUrlLabel::leftClickedUrl, this, &CommandWizardDialog::help);
 
-    connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
-    connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
-    connect(ui.kpushbutton_trackartist, SIGNAL(clicked()), this, SLOT(insTrackArtist()));
-    connect(ui.kpushbutton_tracktitle, SIGNAL(clicked()), this, SLOT(insTrackTitle()));
-    connect(ui.kpushbutton_trackno, SIGNAL(clicked()), this, SLOT(insTrackNo()));
-    connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
-    connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
-    connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
-    connect(ui.kpushbutton_cover_file, SIGNAL(clicked()), this, SLOT(insCoverFile()));
-    connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
-    connect(ui.kpushbutton_input_file, SIGNAL(clicked()), this, SLOT(insInFile()));
-    connect(ui.kpushbutton_output_file, SIGNAL(clicked()), this, SLOT(insOutFile()));
+    QObject::connect(ui.kpushbutton_albumartist, &QPushButton::clicked, this, &CommandWizardDialog::insAlbumArtist);
+    QObject::connect(ui.kpushbutton_albumtitle, &QPushButton::clicked, this, &CommandWizardDialog::insAlbumTitle);
+    QObject::connect(ui.kpushbutton_trackartist, &QPushButton::clicked, this, &CommandWizardDialog::insTrackArtist);
+    QObject::connect(ui.kpushbutton_tracktitle, &QPushButton::clicked, this, &CommandWizardDialog::insTrackTitle);
+    QObject::connect(ui.kpushbutton_trackno, &QPushButton::clicked, this, &CommandWizardDialog::insTrackNo);
+    QObject::connect(ui.kpushbutton_cdno, &QPushButton::clicked, this, &CommandWizardDialog::insCDNo);
+    QObject::connect(ui.kpushbutton_date, &QPushButton::clicked, this, &CommandWizardDialog::insDate);
+    QObject::connect(ui.kpushbutton_genre, &QPushButton::clicked, this, &CommandWizardDialog::insGenre);
+    QObject::connect(ui.kpushbutton_cover_file, &QPushButton::clicked, this, &CommandWizardDialog::insCoverFile);
+    QObject::connect(ui.kpushbutton_nooftracks, &QPushButton::clicked, this, &CommandWizardDialog::insNoOfTracks);
+    QObject::connect(ui.kpushbutton_input_file, &QPushButton::clicked, this, &CommandWizardDialog::insInFile);
+    QObject::connect(ui.kpushbutton_output_file, &QPushButton::clicked, this, &CommandWizardDialog::insOutFile);
 
     this->command = command;
 
@@ -67,10 +70,8 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
 
 CommandWizardDialog::~CommandWizardDialog()
 {
-    if (help_dialog != nullptr) {
+    if (help_dialog) {
         help_dialog->close();
-        delete help_dialog;
-        help_dialog = nullptr;
     }
 }
 
@@ -248,4 +249,6 @@ void CommandWizardDialog::update_example()
                                                 true);
     ui.qlineedit_sampler_example->setText(filename);
     ui.qlineedit_sampler_example->setCursorPosition(0);
+}
+
 }

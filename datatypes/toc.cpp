@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -241,9 +241,9 @@ bool Toc::isPureAudioDisc() const
     return true;
 }
 
-TrackOffsetList Toc::trackOffsetList(const bool leadin, const bool skipDataTracks) const
+DiscSignature Toc::discSignature(const bool leadin, const bool skipDataTracks) const
 {
-    TrackOffsetList result;
+    DiscSignature result;
     for (int t = firstTracknumber(); t <= lastTracknumber(); ++t) {
         if (skipDataTracks && !isAudioTrack(t))
             continue;

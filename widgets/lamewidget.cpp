@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #include "lamewidget.h"
 
 #include <QDebug>
+
+namespace Audex
+{
 
 lameWidget::lameWidget(Parameters *parameters, QWidget *parent)
     : lameWidgetUI(parent)
@@ -52,29 +55,33 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent)
     checkBox_embedcover->setChecked(parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool());
     qlineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
-    connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(enable_medium(bool)));
-    connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_standard, SIGNAL(toggled(bool)), this, SLOT(enable_standard(bool)));
-    connect(radioButton_standard, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_extreme, SIGNAL(toggled(bool)), this, SLOT(enable_extreme(bool)));
-    connect(radioButton_extreme, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_insane, SIGNAL(toggled(bool)), this, SLOT(enable_insane(bool)));
-    connect(radioButton_insane, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_custom, SIGNAL(toggled(bool)), this, SLOT(enable_custom(bool)));
-    connect(radioButton_custom, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(radioButton_medium, &QRadioButton::toggled, this, &lameWidget::enable_medium);
+    QObject::connect(radioButton_medium, &QRadioButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(checkBox_cbr, SIGNAL(toggled(bool)), this, SLOT(enable_CBR(bool)));
-    connect(checkBox_cbr, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(radioButton_standard, &QRadioButton::toggled, this, &lameWidget::enable_standard);
+    QObject::connect(radioButton_standard, &QRadioButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_slider(int)));
-    connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(radioButton_extreme, &QRadioButton::toggled, this, &lameWidget::enable_extreme);
+    QObject::connect(radioButton_extreme, &QRadioButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_spinbox(int)));
-    connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(radioButton_insane, &QRadioButton::toggled, this, &lameWidget::enable_insane);
+    QObject::connect(radioButton_insane, &QRadioButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(radioButton_custom, &QRadioButton::toggled, this, &lameWidget::enable_custom);
+    QObject::connect(radioButton_custom, &QRadioButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(checkBox_cbr, &QCheckBox::toggled, this, &lameWidget::enable_CBR);
+    QObject::connect(checkBox_cbr, &QCheckBox::toggled, this, &lameWidget::trigger_changed);
+
+    QObject::connect(horizontalSlider_bitrate, &QSlider::valueChanged, this, &lameWidget::bitrate_changed_by_slider);
+    QObject::connect(horizontalSlider_bitrate, &QSlider::valueChanged, this, &lameWidget::trigger_changed);
+
+    QObject::connect(kintspinbox_bitrate, &QSpinBox::valueChanged, this, &lameWidget::bitrate_changed_by_spinbox);
+    QObject::connect(kintspinbox_bitrate, &QSpinBox::valueChanged, this, &lameWidget::trigger_changed);
+
+    QObject::connect(checkBox_embedcover, &QCheckBox::toggled, this, &lameWidget::trigger_changed);
+
+    QObject::connect(qlineedit_suffix, &QLineEdit::textEdited, this, &lameWidget::trigger_changed);
 
     changed = false;
 }
@@ -240,4 +247,6 @@ void lameWidget::trigger_changed()
                || qlineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
+}
+
 }

@@ -1,18 +1,20 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef WAVEFILEWRITER_HEADER
-#define WAVEFILEWRITER_HEADER
+#pragma once
 
 #include <QDataStream>
 #include <QFile>
 #include <QString>
 
 #include <KLocalizedString>
+
+namespace Audex
+{
 
 class WaveFileWriter : public QObject
 {
@@ -21,7 +23,10 @@ public:
     WaveFileWriter();
     ~WaveFileWriter() override;
 
-    enum Endianess { BigEndian, LittleEndian };
+    enum Endianess {
+        BigEndian,
+        LittleEndian
+    };
 
     /**
      * open a new wave file.
@@ -64,4 +69,4 @@ private:
     long p_data_written;
 };
 
-#endif
+}

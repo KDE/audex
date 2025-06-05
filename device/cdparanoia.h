@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -19,11 +19,14 @@ extern "C" {
 namespace Audex
 {
 
-class CDDAParanoia
+namespace Device
+{
+
+class Cdparanoia
 {
 public:
-    explicit CDDAParanoia(const QByteArray &blockDevice, const bool enableParanoiaMode = true, const int maxRetriesOnReadError = 20);
-    ~CDDAParanoia();
+    explicit Cdparanoia(const QByteArray &blockDevice, const bool enableParanoiaMode = true, const int maxRetriesOnReadError = 20);
+    ~Cdparanoia();
 
     bool init();
 
@@ -45,5 +48,7 @@ private:
     int paranoia_mode;
     int paranoia_max_retries;
 };
+
+}
 
 }

@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROFILEDATADIALOG_H
-#define PROFILEDATADIALOG_H
+#pragma once
 
 #include <QStackedWidget>
 #include <QWidget>
@@ -36,6 +35,9 @@
 #include "dialogs/schemewizarddialog.h"
 
 #include "ui_profiledatawidgetUI.h"
+
+namespace Audex
+{
 
 class ProfileDataDialog : public QDialog
 {
@@ -81,24 +83,24 @@ private:
     Ui::ProfileDataWidgetUI ui;
     ProfileModel *profile_model;
 
-    QPushButton *applyButton;
+    QPointer<QPushButton> applyButton;
 
     int profile_row;
     bool new_profile_mode;
 
-    lameWidget *lame_widget;
+    QPointer<lameWidget> lame_widget;
     Parameters lame_parameters;
-    oggencWidget *oggenc_widget;
+    QPointer<oggencWidget> oggenc_widget;
     Parameters oggenc_parameters;
-    opusencWidget *opusenc_widget;
+    QPointer<opusencWidget> opusenc_widget;
     Parameters opusenc_parameters;
-    flacWidget *flac_widget;
+    QPointer<flacWidget> flac_widget;
     Parameters flac_parameters;
-    faacWidget *faac_widget;
+    QPointer<faacWidget> faac_widget;
     Parameters faac_parameters;
-    waveWidget *wave_widget;
+    QPointer<waveWidget> wave_widget;
     Parameters wave_parameters;
-    customWidget *custom_widget;
+    QPointer<customWidget> custom_widget;
     Parameters custom_parameters;
     void set_encoder_widget(const EncoderAssistant::Encoder encoder);
 
@@ -132,4 +134,4 @@ private:
     Error error;
 };
 
-#endif
+}

@@ -1,13 +1,16 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "samplearray.h"
 
-#include "crc.h"
+#include "utils/crc.h"
+
+namespace Audex
+{
 
 SampleArray::SampleArray(qsizetype size)
     : p_data(size * sizeof(int16_t), 0) // initialize with zero bytes
@@ -107,4 +110,6 @@ SampleArray SampleArray::left(const qsizetype len) const
 quint32 SampleArray::crc32() const
 {
     return CRC::CRC32_Calculator::calc(p_data);
+}
+
 }

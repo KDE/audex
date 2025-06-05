@@ -1,11 +1,14 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "parameters.h"
+
+namespace Audex
+{
 
 Parameters::Parameters()
 {
@@ -27,10 +30,6 @@ Parameters &Parameters::operator=(const Parameters &other)
     return *this;
 }
 
-Parameters::~Parameters()
-{
-}
-
 void Parameters::fromString(const QString &string, const QChar &sep)
 {
     p_error_string.clear();
@@ -47,11 +46,9 @@ void Parameters::fromString(const QString &string, const QChar &sep)
     bool is_in_value_quote = false;
     int i = 0;
     while (i < string.length()) {
-
         QChar c = string.at(i);
 
         if (is_in_key) {
-
             if (c.isLetterOrNumber() || c == QChar('_')) {
                 key.append(c);
             } else if (c == QChar('=')) {
@@ -63,9 +60,7 @@ void Parameters::fromString(const QString &string, const QChar &sep)
             }
 
         } else if (is_in_value) {
-
             if (is_in_value_quote) {
-
                 if (c == QChar('\'') || c == QChar('"')) {
                     is_in_value_quote = false;
                     is_in_value = false;
@@ -74,7 +69,6 @@ void Parameters::fromString(const QString &string, const QChar &sep)
                 }
 
             } else {
-
                 if (c == QChar('\'') || c == QChar('"')) {
                     if (value.isEmpty()) {
                         is_in_value_quote = true;
@@ -93,11 +87,9 @@ void Parameters::fromString(const QString &string, const QChar &sep)
                 } else {
                     value.append(c);
                 }
-
             }
 
         } else {
-
             if (c == sep) {
                 p_insert_value(key, value, value_is_quoted);
                 key.clear();
@@ -110,11 +102,9 @@ void Parameters::fromString(const QString &string, const QChar &sep)
                 p_error_string = i18n("Illegal character found at index %1: '%2'").arg(i).arg(c);
                 return;
             }
-
         }
 
         ++i;
-
     }
 
     if (is_in_value_quote) {
@@ -123,19 +113,18 @@ void Parameters::fromString(const QString &string, const QChar &sep)
     }
 
     p_insert_value(key, value, value_is_quoted);
-
 }
 
 const QString Parameters::toString(const QChar &sep)
 {
     QString string;
 
-    for (auto i = p_parameters.cbegin(), end = p_parameters.cend(); i != end; ++i) {
+    for (auto i = p_parameters.constBegin(), end = p_parameters.constEnd(); i != end; ++i) {
         QVariant value = i.value();
         if (i != p_parameters.cbegin())
             string.append(sep);
-        //qt6: if (value.metaType() == QMetaType::QString || value.metaType() == QMetaType::QDateTime || value.metaType() == QMetaType::QDate || value.metaType() == QMetaType::QTime)
-        if (value.type() == QVariant::String || value.type() == QVariant::DateTime || value.type() == QVariant::Date || value.type() == QVariant::Time)
+        if (value.typeId() == QMetaType::QString || value.typeId() == QMetaType::QDateTime || value.typeId() == QMetaType::QDate
+            || value.typeId() == QMetaType::QTime)
             string.append(i.key() + "='" + value.toString() + "'");
         else
             string.append(i.key() + "=" + value.toString());
@@ -171,14 +160,13 @@ bool Parameters::isEmpty() const
     return p_parameters.isEmpty();
 }
 
-void Parameters::p_insert_value(const QString& key, const QString& value, const bool is_quoted) {
-
+void Parameters::p_insert_value(const QString &key, const QString &value, const bool is_quoted)
+{
     if (key.isEmpty())
         return;
 
     // an quoted value is expected to be alway a string
     if (is_quoted) {
-
         p_parameters.insert(key, QVariant(value));
 
     } else { // not quoted -> the case is more complicated
@@ -192,17 +180,15 @@ void Parameters::p_insert_value(const QString& key, const QString& value, const 
             if (ok) {
                 p_parameters.insert(key, QVariant(number_double));
             } else {
-
                 if (value.toLower() == "false")
                     p_parameters.insert(key, QVariant(false));
                 else if (value.toLower() == "true")
                     p_parameters.insert(key, QVariant(true));
                 else
                     p_parameters.insert(key, QVariant(value));
-
             }
         }
-
     }
+}
 
 }

@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef COMMANDWIZARDDIALOG_H
-#define COMMANDWIZARDDIALOG_H
+#pragma once
 
 #include <QWidget>
 
@@ -20,6 +19,9 @@
 #include "utils/schemeparser.h"
 
 #include "ui_commandwizardwidgetUI.h"
+
+namespace Audex
+{
 
 class CommandWizardDialog : public QDialog
 {
@@ -59,10 +61,10 @@ private:
 
     bool save();
 
-    QPushButton *okButton;
-    QPushButton *applyButton;
+    QPointer<QPushButton> okButton;
+    QPointer<QPushButton> applyButton;
 
-    TextViewDialog *help_dialog;
+    QPointer<TextViewDialog> help_dialog;
 };
 
-#endif
+}

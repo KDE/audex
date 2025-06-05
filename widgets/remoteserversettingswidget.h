@@ -1,17 +1,19 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef REMOTESERVERSETTINGSWIDGET_H
-#define REMOTESERVERSETTINGSWIDGET_H
+#pragma once
 
 #include <QDir>
 #include <QWidget>
 
 #include "ui_remoteserversettingswidgetUI.h"
+
+namespace Audex
+{
 
 class remoteServerSettingsWidgetUI : public QWidget, public Ui::RemoteServerSettingsWidgetUI
 {
@@ -33,4 +35,4 @@ private Q_SLOTS:
     void toggle_upload(bool enabled);
 };
 
-#endif
+}

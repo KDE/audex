@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -12,6 +12,9 @@
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+namespace Audex
+{
 
 TextViewDialog::TextViewDialog(const QString &text, const QString &title, QWidget *parent)
     : QDialog(parent)
@@ -25,7 +28,7 @@ TextViewDialog::TextViewDialog(const QString &text, const QString &title, QWidge
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &TextViewDialog::slotClosed);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &TextViewDialog::slotClosed);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
@@ -43,4 +46,6 @@ TextViewDialog::~TextViewDialog()
 void TextViewDialog::slotClosed()
 {
     hide();
+}
+
 }

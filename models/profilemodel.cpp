@@ -1,13 +1,14 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "profilemodel.h"
 
-#include <QIcon>
+namespace Audex
+{
 
 ProfileModel::ProfileModel(QObject *parent)
 {
@@ -1119,4 +1120,6 @@ void ProfileModel::p_load(KConfig *config)
             p_current_profile_index = 0;
         Q_EMIT profilesRemovedOrInserted();
     }
+}
+
 }

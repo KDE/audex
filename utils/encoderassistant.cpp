@@ -1,11 +1,14 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "encoderassistant.h"
+
+namespace Audex
+{
 
 long makeVersionNumber(int major, int minor, int patch)
 {
@@ -293,7 +296,21 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         if (embed_cover)
             cmd += QStringLiteral(u" --ti \"${%1}\"").arg(VAR_COVER_FILE);
 
-        cmd += QStringLiteral(u" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$%1\" --ta \"$%2\" --tl \"$%3\" --ty \"$%4\" --tn \"$%5/$%6\" --tc \"$%7 / Encoder $%8\" --tg \"$%9\"  --tv TPOS=\"$%10\" \"$%11\" \"$%12\"").arg(VAR_TRACK_TITLE).arg(VAR_TRACK_ARTIST).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_NO_OF_TRACKS).arg(VAR_AUDEX).arg(VAR_ENCODER).arg(VAR_GENRE).arg(VAR_CD_NO).arg(VAR_INPUT_FILE).arg(VAR_OUTPUT_FILE);
+        cmd += QStringLiteral(
+                   u" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$%1\" --ta \"$%2\" --tl \"$%3\" --ty \"$%4\" --tn \"$%5/$%6\" --tc \"$%7 / Encoder "
+                   u"$%8\" --tg \"$%9\"  --tv TPOS=\"$%10\" \"$%11\" \"$%12\"")
+                   .arg(VAR_TRACK_TITLE)
+                   .arg(VAR_TRACK_ARTIST)
+                   .arg(VAR_ALBUM_TITLE)
+                   .arg(VAR_DATE)
+                   .arg(VAR_TRACK_NO)
+                   .arg(VAR_NO_OF_TRACKS)
+                   .arg(VAR_AUDEX)
+                   .arg(VAR_ENCODER)
+                   .arg(VAR_GENRE)
+                   .arg(VAR_CD_NO)
+                   .arg(VAR_INPUT_FILE)
+                   .arg(VAR_OUTPUT_FILE);
 
         return cmd;
     }
@@ -313,7 +330,18 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         if (max_bitrate)
             cmd += QStringLiteral(u" -M %1").arg(max_bitrate_value);
 
-        cmd += QStringLiteral(u" -c \"Artist=$%1\" -c \"Title=$%2\" -c \"Album=$%3\" -c \"Date=$%4\" -c \"Tracknumber=$%5\" -c \"Genre=$%6\" -c \"Discnumber=$%7\" -o \"$%8\" \"$%9\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_GENRE).arg(VAR_CD_NO).arg(VAR_OUTPUT_FILE).arg(VAR_INPUT_FILE);
+        cmd += QStringLiteral(
+                   u" -c \"Artist=$%1\" -c \"Title=$%2\" -c \"Album=$%3\" -c \"Date=$%4\" -c \"Tracknumber=$%5\" -c \"Genre=$%6\" -c \"Discnumber=$%7\" -o "
+                   u"\"$%8\" \"$%9\" ")
+                   .arg(VAR_TRACK_ARTIST)
+                   .arg(VAR_TRACK_TITLE)
+                   .arg(VAR_ALBUM_TITLE)
+                   .arg(VAR_DATE)
+                   .arg(VAR_TRACK_NO)
+                   .arg(VAR_GENRE)
+                   .arg(VAR_CD_NO)
+                   .arg(VAR_OUTPUT_FILE)
+                   .arg(VAR_INPUT_FILE);
 
         return cmd;
     }
@@ -327,7 +355,15 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         if (embed_cover)
             cmd += QStringLiteral(u" --picture \"3||||${%1}\"").arg(VAR_COVER_FILE);
 
-        cmd += QStringLiteral(" --artist \"$%1\" --title \"$%2\" --album \"$%3\" --date \"$%4\" --tracknumber \"$%5\" --genre \"$%6\" \"$%7\" \"$%8\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_GENRE).arg(VAR_INPUT_FILE).arg(VAR_OUTPUT_FILE);
+        cmd += QStringLiteral(" --artist \"$%1\" --title \"$%2\" --album \"$%3\" --date \"$%4\" --tracknumber \"$%5\" --genre \"$%6\" \"$%7\" \"$%8\" ")
+                   .arg(VAR_TRACK_ARTIST)
+                   .arg(VAR_TRACK_TITLE)
+                   .arg(VAR_ALBUM_TITLE)
+                   .arg(VAR_DATE)
+                   .arg(VAR_TRACK_NO)
+                   .arg(VAR_GENRE)
+                   .arg(VAR_INPUT_FILE)
+                   .arg(VAR_OUTPUT_FILE);
 
         return cmd;
     }
@@ -345,7 +381,16 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
 
         cmd += QStringLiteral(u" -%1").arg(compression);
 
-        cmd += QStringLiteral(u" -T Artist=\"$%1\" -T Title=\"$%2\" -T Album=\"$%3\" -T Date=\"$%4\" -T Tracknumber=\"$%5\" -T Genre=\"$%6\" -o \"$%7\" \"$%8\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_GENRE).arg(VAR_OUTPUT_FILE).arg(VAR_INPUT_FILE);
+        cmd +=
+            QStringLiteral(u" -T Artist=\"$%1\" -T Title=\"$%2\" -T Album=\"$%3\" -T Date=\"$%4\" -T Tracknumber=\"$%5\" -T Genre=\"$%6\" -o \"$%7\" \"$%8\" ")
+                .arg(VAR_TRACK_ARTIST)
+                .arg(VAR_TRACK_TITLE)
+                .arg(VAR_ALBUM_TITLE)
+                .arg(VAR_DATE)
+                .arg(VAR_TRACK_NO)
+                .arg(VAR_GENRE)
+                .arg(VAR_OUTPUT_FILE)
+                .arg(VAR_INPUT_FILE);
 
         return cmd;
     }
@@ -359,7 +404,17 @@ const QString EncoderAssistant::scheme(const EncoderAssistant::Encoder encoder, 
         if (embed_cover)
             cmd += QStringLiteral(u" --cover-art \"${%1}\"").arg(VAR_COVER_FILE);
 
-        cmd += QStringLiteral(u" --artist \"$%1\" --title \"$%2\" --album \"$%3\" --year \"$%4\" --track \"$%5\" --disc \"$%6\" --genre \"$%7\" -o \"$%8\" \"$%9\" ").arg(VAR_TRACK_ARTIST).arg(VAR_TRACK_TITLE).arg(VAR_ALBUM_TITLE).arg(VAR_DATE).arg(VAR_TRACK_NO).arg(VAR_CD_NO).arg(VAR_GENRE).arg(VAR_OUTPUT_FILE).arg(VAR_INPUT_FILE);
+        cmd += QStringLiteral(
+                   u" --artist \"$%1\" --title \"$%2\" --album \"$%3\" --year \"$%4\" --track \"$%5\" --disc \"$%6\" --genre \"$%7\" -o \"$%8\" \"$%9\" ")
+                   .arg(VAR_TRACK_ARTIST)
+                   .arg(VAR_TRACK_TITLE)
+                   .arg(VAR_ALBUM_TITLE)
+                   .arg(VAR_DATE)
+                   .arg(VAR_TRACK_NO)
+                   .arg(VAR_CD_NO)
+                   .arg(VAR_GENRE)
+                   .arg(VAR_OUTPUT_FILE)
+                   .arg(VAR_INPUT_FILE);
 
         return cmd;
     }
@@ -487,4 +542,6 @@ const QMap<int, QString> EncoderAssistant::availableEncoderNameListWithVersions(
         encoders[(int)EncoderAssistant::CUSTOM] = ENCODER_CUSTOM_NAME + ' ' + version(CUSTOM);
 
     return encoders;
+}
+
 }

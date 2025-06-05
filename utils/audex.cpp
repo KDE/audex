@@ -1,24 +1,25 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "audex.h"
+#include "datatypes/metadata.h"
 #include "models/profilemodel.h"
 #include "utils/schemeparser.h"
 
 namespace Audex
 {
 
-AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model)
+AudexRipManager::AudexRipManager(QWidget *parent, ProfileModel *profile_model, const Audex::CDDA &cdda, const QByteArray &blockDevice)
     : QObject(parent)
 {
     Q_UNUSED(parent);
 
     this->profile_model = profile_model;
-    this->cdda_model = cdda_model;
+    this->cdda = cdda;
 
     p_profile_name = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_NAME_INDEX)).toString();
     p_suffix = profile_model->getSelectedEncoderSuffixFromCurrentIndex();
@@ -30,13 +31,13 @@ AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAMod
                                          Preferences::deletePartialFiles());
 
     if (!encoder_wrapper) {
-        qDebug() << "PANIC ERROR. Could not load object EncoderWrapper. Low mem?";
+        qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "CRITICAL ERROR: Could not create object EncoderWrapper.";
         return;
     }
 
-    cdda_rip_thread = new CDDARipThread(cdda_model->blockDevice(), cdda_model->getToc());
+    cdda_rip_thread = new CDDARipThread(blockDevice, cdda.toc());
     if (!cdda_rip_thread) {
-        qDebug() << "PANIC ERROR. Could not load object CDDAExtractThread. Low mem?";
+        qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "CRITICAL ERROR: Could not create object CDDAExtractThread.";
         return;
     }
     cdda_rip_thread->enableParanoiaMode(Preferences::fullParanoiaMode());
@@ -92,28 +93,24 @@ AudexManager::AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAMod
     overall_frames = 0;
 }
 
-AudexManager::~AudexManager()
+bool AudexRipManager::prepare(const TracknumberSet &selectedTracks)
 {
-    delete encoder_wrapper;
-    delete cdda_rip_thread;
-    delete wave_file_writer;
-    delete jobs;
-}
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << profile_model->currentProfileIndex();
 
-bool AudexManager::prepare()
-{
     if (profile_model->currentProfileIndex() < 0) {
         slot_error(i18n("No profile selected. Operation abort."));
         return false;
     }
 
-    qDebug() << "Using profile with index" << profile_model->currentProfileIndex();
+    selected_tracks = selectedTracks;
 
     return true;
 }
 
-void AudexManager::start()
+void AudexRipManager::start()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     Q_EMIT changedEncodeTrack(0, 0, "");
     Q_EMIT info(i18n("Start ripping and encoding with profile \"%1\"...", p_profile_name));
     if (check())
@@ -122,23 +119,31 @@ void AudexManager::start()
         request_finish(false);
 }
 
-void AudexManager::cancel()
+void AudexRipManager::cancel()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     request_finish(false);
 }
 
-const QStringList &AudexManager::extractLog()
+const QStringList &AudexRipManager::extractLog()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     return cdda_rip_thread->log();
 }
 
-const QStringList &AudexManager::encoderLog()
+const QStringList &AudexRipManager::encoderLog()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     return encoder_wrapper->log();
 }
 
-void AudexManager::start_extract()
+void AudexRipManager::start_extract()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     if (p_finished)
         return;
 
@@ -151,10 +156,10 @@ void AudexManager::start_extract()
 
         ex_track_index++;
 
-        QString artist = cdda_model->artist();
-        QString title = cdda_model->title();
-        QString year = cdda_model->year();
-        QString genre = cdda_model->genre();
+        QString artist = cdda.metadata().get(Metadata::Artist).toString();
+        QString title = cdda.metadata().get(Metadata::Album).toString();
+        QString year = cdda.metadata().get(Metadata::Year).toString();
+        QString genre = cdda.metadata().get(Metadata::Genre).toString();
         QString suffix = p_suffix;
         bool fat32_compatible =
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
@@ -162,11 +167,11 @@ void AudexManager::start_extract()
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool();
         QString basepath = Preferences::basePath();
         int cdnum;
-        if (!cdda_model->isMultiCD())
+        if (!cdda.metadata().isMultiDisc())
             cdnum = 0;
         else
-            cdnum = cdda_model->cdNum();
-        int nooftracks = cdda_model->numOfAudioTracks();
+            cdnum = cdda.metadata().discNum();
+        int nooftracks = cdda.toc().audioTrackCount();
         bool overwrite = Preferences::overwriteExistingFiles();
 
         QString targetFilename;
@@ -187,7 +192,7 @@ void AudexManager::start_extract()
         }
         ex_track_target_filename = targetFilename;
 
-        cdda_model->setCustomData("filename", targetFilename);
+        cdda.metadata().setCustom("filename", targetFilename);
 
         // if empty (maybe because it already exists) skip
         if (!targetFilename.isEmpty()) {
@@ -209,7 +214,7 @@ void AudexManager::start_extract()
         }
 
     } else {
-        if (ex_track_count >= cdda_model->numOfAudioTracksInSelection()) {
+        if (ex_track_count >= selected_tracks.count()) {
             if (!jobs->jobInProgress() && !jobs->pendingJobs())
                 request_finish(true);
             return;
@@ -217,18 +222,18 @@ void AudexManager::start_extract()
 
         ex_track_index++;
 
-        bool skip = !cdda_model->isTrackInSelection(ex_track_index);
+        bool skip = !selected_tracks.contains(ex_track_index);
 
-        if (!cdda_model->isAudioTrack(ex_track_index))
+        if (!cdda.toc().isAudioTrack(ex_track_index))
             skip = true;
 
         if (!skip) {
-            QString artist = cdda_model->artist();
-            QString title = cdda_model->title();
-            QString tartist = cdda_model->data(cdda_model->index(ex_track_index - 1, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString();
-            QString ttitle = cdda_model->data(cdda_model->index(ex_track_index - 1, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString();
-            QString year = cdda_model->year();
-            QString genre = cdda_model->genre();
+            QString artist = cdda.metadata().get(Metadata::Artist).toString();
+            QString title = cdda.metadata().get(Metadata::Album).toString();
+            QString tartist = cdda.metadata().track(ex_track_index).get(Metadata::Artist).toString();
+            QString ttitle = cdda.metadata().track(ex_track_index).get(Metadata::Title).toString();
+            QString year = cdda.metadata().get(Metadata::Year).toString();
+            QString genre = cdda.metadata().get(Metadata::Genre).toString();
             QString suffix = p_suffix;
             QString basepath = Preferences::basePath();
             bool fat32_compatible =
@@ -238,16 +243,16 @@ void AudexManager::start_extract()
             bool _2digitstracknum =
                 profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX)).toBool();
             int cdnum;
-            if (!cdda_model->isMultiCD())
+            if (!cdda.metadata().isMultiDisc())
                 cdnum = 0;
             else
-                cdnum = cdda_model->cdNum();
-            int trackoffset = cdda_model->trackOffset();
-            int nooftracks = cdda_model->numOfAudioTracks();
+                cdnum = cdda.metadata().discNum();
+            int trackoffset = cdda.metadata().get(Metadata::TrackNumberOffset).toInt();
+            int nooftracks = cdda.toc().audioTrackCount();
             bool overwrite = Preferences::overwriteExistingFiles();
 
             QString targetFilename;
-            if (cdda_model->isVarious()) {
+            if (cdda.metadata().isVarious()) {
                 if (!construct_target_filename(targetFilename,
                                                ex_track_index,
                                                cdnum,
@@ -298,7 +303,7 @@ void AudexManager::start_extract()
 
             // if empty (maybe because it already exists) skip
             if (!targetFilename.isEmpty()) {
-                Q_EMIT changedExtractTrack(ex_track_index, cdda_model->numOfAudioTracks(), tartist, ttitle);
+                Q_EMIT changedExtractTrack(ex_track_index, cdda.toc().audioTrackCount(), tartist, ttitle);
 
                 QString sourceFilename = tmp_dir.path() + '/' + QString("track-%1").arg(ex_track_index) + ".wav";
                 ex_track_source_filename = sourceFilename;
@@ -323,8 +328,10 @@ void AudexManager::start_extract()
     }
 }
 
-void AudexManager::finish_extract()
+void AudexRipManager::finish_extract()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     process_counter--;
 
     wave_file_writer->close();
@@ -339,8 +346,10 @@ void AudexManager::finish_extract()
     start_extract();
 }
 
-void AudexManager::start_encode()
+void AudexRipManager::start_encode()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     if (p_finished)
         return;
 
@@ -357,12 +366,12 @@ void AudexManager::start_encode()
         if (!job)
             return;
 
-        int cdnum = cdda_model->cdNum();
-        int nooftracks = cdda_model->numOfAudioTracks();
-        QString artist = cdda_model->artist();
-        QString title = cdda_model->title();
-        QString year = cdda_model->year();
-        QString genre = cdda_model->genre();
+        int cdnum = cdda.metadata().discNum();
+        int nooftracks = cdda.toc().audioTrackCount();
+        QString artist = cdda.metadata().get(Metadata::Artist).toString();
+        QString title = cdda.metadata().get(Metadata::Album).toString();
+        QString year = cdda.metadata().get(Metadata::Year).toString();
+        QString genre = cdda.metadata().get(Metadata::Genre).toString();
         QString suffix = p_suffix;
 
         QString targetFilename = job->targetFilename();
@@ -385,7 +394,7 @@ void AudexManager::start_encode()
                                      year,
                                      QString(),
                                      suffix,
-                                     cdda_model->cover(),
+                                     cdda.metadata().cover(),
                                      tmp_dir.path(),
                                      job->sourceFilename(),
                                      targetFilename)) {
@@ -394,7 +403,7 @@ void AudexManager::start_encode()
         process_counter++;
 
     } else {
-        if (en_track_count >= cdda_model->numOfAudioTracksInSelection()) {
+        if (en_track_count >= selected_tracks.count()) {
             request_finish(true);
             return;
         }
@@ -406,26 +415,26 @@ void AudexManager::start_encode()
         if (!job)
             return;
 
-        int cdnum = cdda_model->cdNum();
-        int trackoffset = cdda_model->trackOffset();
-        int nooftracks = cdda_model->numOfAudioTracks();
-        QString artist = cdda_model->artist();
-        QString title = cdda_model->title();
-        QString tartist = cdda_model->data(cdda_model->index(job->trackNo() - 1, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString();
-        QString ttitle = cdda_model->data(cdda_model->index(job->trackNo() - 1, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString();
-        QString year = cdda_model->year();
-        QString genre = cdda_model->genre();
+        int cdnum = cdda.metadata().discNum();
+        int trackoffset = cdda.metadata().get(Metadata::TrackNumberOffset).toInt();
+        int nooftracks = cdda.toc().audioTrackCount();
+        QString artist = cdda.metadata().get(Metadata::Artist).toString();
+        QString title = cdda.metadata().get(Metadata::Album).toString();
+        QString tartist = cdda.metadata().track(ex_track_index).get(Metadata::Artist).toString();
+        QString ttitle = cdda.metadata().track(ex_track_index).get(Metadata::Title).toString();
+        QString year = cdda.metadata().get(Metadata::Year).toString();
+        QString genre = cdda.metadata().get(Metadata::Genre).toString();
         QString suffix = p_suffix;
 
         QString targetFilename = job->targetFilename();
         en_track_target_filename = targetFilename;
 
-        Q_EMIT changedEncodeTrack(job->trackNo(), cdda_model->numOfAudioTracks(), targetFilename);
+        Q_EMIT changedEncodeTrack(job->trackNo(), cdda.toc().audioTrackCount(), targetFilename);
         en_track_count++;
 
         en_track_filename = job->sourceFilename();
         en_track_index = job->trackNo();
-        if (cdda_model->isVarious()) {
+        if (cdda.metadata().isVarious()) {
             if (!encoder_wrapper->encode(job->trackNo(),
                                          cdnum,
                                          trackoffset,
@@ -438,7 +447,7 @@ void AudexManager::start_encode()
                                          year,
                                          QString(),
                                          suffix,
-                                         cdda_model->cover(),
+                                         cdda.metadata().cover(),
                                          tmp_dir.path(),
                                          job->sourceFilename(),
                                          targetFilename)) {
@@ -457,7 +466,7 @@ void AudexManager::start_encode()
                                          year,
                                          QString(),
                                          suffix,
-                                         cdda_model->cover(),
+                                         cdda.metadata().cover(),
                                          tmp_dir.path(),
                                          job->sourceFilename(),
                                          targetFilename)) {
@@ -468,13 +477,15 @@ void AudexManager::start_encode()
     }
 }
 
-void AudexManager::finish_encode()
+void AudexRipManager::finish_encode()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     process_counter--;
     jobs->reportJobFinished();
 
-    cdda_model->setCustomDataPerTrack(en_track_index, "filename", en_track_target_filename);
-    cdda_model->setCustomDataPerTrack(en_track_index, "ripped", true);
+    cdda.metadata().track(en_track_index).setCustom("filename", en_track_target_filename);
+    cdda.metadata().track(en_track_index).setCustom("ripped", true);
 
     QFile file(en_track_filename);
     file.remove();
@@ -489,7 +500,7 @@ void AudexManager::finish_encode()
     start_encode();
 }
 
-void AudexManager::calculate_speed_extract()
+void AudexRipManager::calculate_speed_extract()
 {
     if ((last_measuring_point_sector > -1) && (cdda_rip_thread->isProcessing())) {
         double new_value = (double)(current_sector - last_measuring_point_sector) / (4.0f * (double)SECTORS_PER_SECOND);
@@ -509,11 +520,11 @@ void AudexManager::calculate_speed_extract()
     last_measuring_point_sector = current_sector;
 }
 
-void AudexManager::calculate_speed_encode()
+void AudexRipManager::calculate_speed_encode()
 {
     if ((last_measuring_point_encoder_percent > -1) && (encoder_wrapper->isProcessing()) && (current_encoder_percent > 0)) {
-        int song_length = cdda_model->data(cdda_model->index(en_track_index - 1, CDDA_MODEL_COLUMN_LENGTH_INDEX), CDDA_MODEL_INTERNAL_ROLE).toInt();
-        double new_value = (double)((double)song_length / 100.0f) * ((double)current_encoder_percent - (double)last_measuring_point_encoder_percent);
+        double new_value = (double)((double)cdda.toc().lengthOfTrack(en_track_index) / 100.0f)
+            * ((double)current_encoder_percent - (double)last_measuring_point_encoder_percent);
         if (new_value < 0.0f)
             new_value = 0.0f;
         Q_EMIT speedEncode(new_value);
@@ -523,17 +534,10 @@ void AudexManager::calculate_speed_encode()
     last_measuring_point_encoder_percent = current_encoder_percent;
 }
 
-void AudexManager::progress_extract(int percent_of_track, int sector, int overall_sectors_read)
+void AudexRipManager::progress_extract(int percent_of_track, int sector, int overall_sectors_read)
 {
     if (overall_frames == 0) {
-        QSet<int> sel = cdda_model->selectedTracks();
-        QSet<int>::ConstIterator it(sel.begin()), end(sel.end());
-        for (; it != end; ++it) {
-            if ((*it < 0) || (*it > cdda_model->numOfTracks()) || (!cdda_model->isAudioTrack((*it)))) {
-                continue;
-            }
-            overall_frames += cdda_model->getToc().sectorCountTrack((*it));
-        }
+        overall_frames = cdda.toc().sectorCountTracknumbers(selected_tracks, true);
     }
 
     float fraction = 0.0f;
@@ -546,67 +550,70 @@ void AudexManager::progress_extract(int percent_of_track, int sector, int overal
     current_sector = sector;
 }
 
-void AudexManager::progress_encode(int percent)
+void AudexRipManager::progress_encode(int percent)
 {
     Q_EMIT progressEncodeTrack(percent);
     if (percent > 0) {
-        Q_EMIT progressEncodeOverall(((en_track_count > 0 ? ((en_track_count - 1) * 100.0f) : 0) + (percent * 1.0f))
-                                     / (float)cdda_model->numOfAudioTracksInSelection());
+        Q_EMIT progressEncodeOverall(((en_track_count > 0 ? ((en_track_count - 1) * 100.0f) : 0) + (percent * 1.0f)) / (float)selected_tracks.count());
     }
     current_encoder_percent = percent;
 }
 
-void AudexManager::write_to_wave(const QByteArray &data)
+void AudexRipManager::write_to_wave(const QByteArray &data)
 {
     wave_file_writer->write(data);
 }
 
-void AudexManager::slot_error(const QString &description, const QString &solution)
+void AudexRipManager::slot_error(const QString &description, const QString &solution)
 {
     Q_EMIT error(description, solution);
     request_finish(false);
 }
 
-void AudexManager::slot_warning(const QString &description)
+void AudexRipManager::slot_warning(const QString &description)
 {
     Q_EMIT warning(description);
 }
 
-void AudexManager::slot_info(const QString &description)
+void AudexRipManager::slot_info(const QString &description)
 {
     Q_EMIT info(description);
 }
 
-void AudexManager::check_if_thread_still_running()
+void AudexRipManager::check_if_thread_still_running()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     if (cdda_rip_thread->isRunning()) {
         // this could happen if the thread is stuck in paranoia_read
         // because of an unreadable cd
         cdda_rip_thread->terminate();
-        qDebug() << "Terminate extracting thread.";
+        qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Terminate extracting thread.";
     }
 }
 
-bool AudexManager::construct_target_filename(QString &targetFilename,
-                                             int trackno,
-                                             int cdno,
-                                             int nooftracks,
-                                             int gindex,
-                                             const QString &artist,
-                                             const QString &title,
-                                             const QString &tartist,
-                                             const QString &ttitle,
-                                             const QString &year,
-                                             const QString &genre,
-                                             const QString &isrc,
-                                             const QString &ext,
-                                             const QString &basepath,
-                                             bool fat32_compatible,
-                                             bool replacespaceswithunderscores,
-                                             bool _2digitstracknum,
-                                             bool overwrite_existing_files,
-                                             bool is_first_track)
+bool AudexRipManager::construct_target_filename(QString &targetFilename,
+                                                int trackno,
+                                                int cdno,
+                                                int nooftracks,
+                                                int gindex,
+                                                const QString &artist,
+                                                const QString &title,
+                                                const QString &tartist,
+                                                const QString &ttitle,
+                                                const QString &year,
+                                                const QString &genre,
+                                                const QString &isrc,
+                                                const QString &ext,
+                                                const QString &basepath,
+                                                bool fat32_compatible,
+                                                bool replacespaceswithunderscores,
+                                                bool _2digitstracknum,
+                                                bool overwrite_existing_files,
+                                                bool is_first_track)
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     Q_UNUSED(is_first_track);
 
     SchemeParser schemeparser;
@@ -655,8 +662,8 @@ bool AudexManager::construct_target_filename(QString &targetFilename,
         } else {
             Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
 
-            cdda_model->setCustomDataPerTrack(trackno, "filename", targetFilename);
-            cdda_model->setCustomDataPerTrack(trackno, "ripped", true);
+            cdda.metadata().track(trackno).setCustom("filename", targetFilename);
+            cdda.metadata().track(trackno).setCustom("ripped", true);
 
             targetFilename.clear();
         }
@@ -666,19 +673,21 @@ bool AudexManager::construct_target_filename(QString &targetFilename,
     return true;
 }
 
-bool AudexManager::construct_target_filename_for_singlefile(QString &targetFilename,
-                                                            int cdno,
-                                                            int nooftracks,
-                                                            const QString &artist,
-                                                            const QString &title,
-                                                            const QString &date,
-                                                            const QString &genre,
-                                                            const QString &ext,
-                                                            const QString &basepath,
-                                                            bool fat32_compatible,
-                                                            bool replacespaceswithunderscores,
-                                                            bool overwrite_existing_files)
+bool AudexRipManager::construct_target_filename_for_singlefile(QString &targetFilename,
+                                                               int cdno,
+                                                               int nooftracks,
+                                                               const QString &artist,
+                                                               const QString &title,
+                                                               const QString &date,
+                                                               const QString &genre,
+                                                               const QString &ext,
+                                                               const QString &basepath,
+                                                               bool fat32_compatible,
+                                                               bool replacespaceswithunderscores,
+                                                               bool overwrite_existing_files)
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     SchemeParser schemeparser;
     targetFilename = ((basepath.right(1) == "/") ? basepath : basepath + "/")
         + schemeparser.parseFilenameScheme(
@@ -727,7 +736,7 @@ bool AudexManager::construct_target_filename_for_singlefile(QString &targetFilen
         } else {
             Q_EMIT warning(i18n("Warning! File \"%1\" already exists. Skipping.", targetStrippedFilename));
 
-            cdda_model->setCustomData("filename", targetFilename);
+            cdda.metadata().setCustom("filename", targetFilename);
 
             targetFilename.clear();
         }
@@ -737,8 +746,10 @@ bool AudexManager::construct_target_filename_for_singlefile(QString &targetFilen
     return true;
 }
 
-bool AudexManager::check()
+bool AudexRipManager::check()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     if (!tmp_dir.isValid()) {
         slot_error(i18n("Temporary folder \"%1\" error (%2).", tmp_dir.path(), tmp_dir.errorString()), i18n("Please check."));
         return false;
@@ -757,7 +768,7 @@ bool AudexManager::check()
     return true;
 }
 
-void AudexManager::request_finish(bool successful)
+void AudexRipManager::request_finish(bool successful)
 {
     if (!p_finished) {
         p_finished = true;
@@ -776,51 +787,48 @@ void AudexManager::request_finish(bool successful)
     }
 }
 
-void AudexManager::execute_finish()
+void AudexRipManager::execute_finish()
 {
-    if (Preferences::ejectCDTray()) {
-        Q_EMIT info(i18n("Eject CD tray"));
-        cdda_model->eject();
-    }
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
 
     bool overwrite = Preferences::overwriteExistingFiles();
 
     QStringList target_filename_list;
-    for (int i = 0; i < cdda_model->rowCount(); ++i) {
-        if (!cdda_model->isAudioTrack(i + 1))
+    for (int i = 1; i <= cdda.toc().trackCount(); ++i) {
+        if (!cdda.toc().isAudioTrack(i))
             continue;
-        if (!cdda_model->isTrackInSelection(i + 1))
+        if (!selected_tracks.contains(i))
             continue;
-        if (!cdda_model->getCustomDataPerTrack(i + 1, "ripped").toBool())
+        if (!cdda.metadata().track(i).getCustom("ripped").toBool())
             continue;
-        target_filename_list.append(cdda_model->getCustomDataPerTrack(i + 1, "filename").toString());
+        target_filename_list.append(cdda.metadata().track(i).getCustom("filename").toString());
     }
     QString target_single_filename;
     if (p_single_file) {
-        target_single_filename = cdda_model->customData("filename").toString();
+        target_single_filename = cdda.metadata().getCustom("filename").toString();
     }
 
     QString cover_file;
     if ((p_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
         // store the cover
-        if (!cdda_model->isCoverEmpty()) {
-            QImage image(cdda_model->cover());
+        if (!cdda.metadata().cover().isNull()) {
+            QImage image(cdda.metadata().cover());
             if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()) {
                 QSize size = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
                 image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-                qDebug() << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
+                qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << QString("Cover scaled to %1x%2.").arg(size.width()).arg(size.height());
             }
             QString scheme = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
             QString format = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
 
             SchemeParser schemeparser;
             QString filename = schemeparser.parseFilenameScheme(scheme,
-                                                                cdda_model->cdNum(),
-                                                                cdda_model->numOfAudioTracks(),
-                                                                defuse_for_filename(cdda_model->artist()),
-                                                                defuse_for_filename(cdda_model->title()),
-                                                                QString("%1").arg(cdda_model->year()),
-                                                                defuse_for_filename(cdda_model->genre()),
+                                                                cdda.metadata().discNum(),
+                                                                cdda.toc().audioTrackCount(),
+                                                                defuse_for_filename(cdda.metadata().get(Metadata::Artist).toString()),
+                                                                defuse_for_filename(cdda.metadata().get(Metadata::Album).toString()),
+                                                                QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+                                                                defuse_for_filename(cdda.metadata().get(Metadata::Genre).toString()),
                                                                 format.toLower());
 
             if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool())
@@ -854,12 +862,12 @@ void AudexManager::execute_finish()
 
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(scheme,
-                                                            cdda_model->cdNum(),
-                                                            cdda_model->numOfAudioTracks(),
-                                                            defuse_for_filename(cdda_model->artist()),
-                                                            defuse_for_filename(cdda_model->title()),
-                                                            QString("%1").arg(cdda_model->year()),
-                                                            defuse_for_filename(cdda_model->genre()),
+                                                            cdda.metadata().discNum(),
+                                                            cdda.toc().audioTrackCount(),
+                                                            defuse_for_filename(cdda.metadata().get(Metadata::Artist).toString()),
+                                                            defuse_for_filename(cdda.metadata().get(Metadata::Album).toString()),
+                                                            QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+                                                            defuse_for_filename(cdda.metadata().get(Metadata::Genre).toString()),
                                                             format.toLower());
 
         if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool())
@@ -868,10 +876,10 @@ void AudexManager::execute_finish()
         if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool())
             filename = SchemeParser::replaceSpacesWithUnderscores(filename);
 
-        if (p_prepare_dir(filename, target_dir, (overwrite && !cdda_model->isMultiCD() && (cdda_model->cdNum() < 1)))) {
+        if (p_prepare_dir(filename, target_dir, (overwrite && !cdda.metadata().isMultiDisc() && (cdda.metadata().discNum() < 1)))) {
             QFile file(filename);
 
-            if (file.exists() && cdda_model->isMultiCD() && (cdda_model->cdNum() > 0)) {
+            if (file.exists() && cdda.metadata().isMultiDisc() && (cdda.metadata().discNum() > 0)) {
                 if (file.open(QFile::ReadOnly)) {
                     QByteArray ba = file.readAll();
                     playlist.addPlaylist(ba);
@@ -880,18 +888,18 @@ void AudexManager::execute_finish()
             }
 
             if (file.open(QFile::WriteOnly | QFile::Truncate)) {
-                for (int i = 0; i < cdda_model->rowCount(); ++i) {
-                    if (!cdda_model->isAudioTrack(i + 1))
+                for (int i = 1; i <= cdda.toc().trackCount(); ++i) {
+                    if (!cdda.toc().isAudioTrack(i))
                         continue;
-                    if (!cdda_model->isTrackInSelection(i + 1))
+                    if (!selected_tracks.contains(i))
                         continue;
-                    if (!cdda_model->getCustomDataPerTrack(i + 1, "ripped").toBool())
+                    if (!cdda.metadata().track(i).getCustom("ripped").toBool())
                         continue;
                     PlaylistItem item;
-                    item.setFilename(cdda_model->getCustomDataPerTrack(i + 1, "filename").toString());
-                    item.setArtist(cdda_model->data(cdda_model->index(i, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString());
-                    item.setTitle(cdda_model->data(cdda_model->index(i, CDDA_MODEL_COLUMN_TITLE_INDEX)).toString());
-                    item.setLength(cdda_model->lengthOfTrack(i + 1));
+                    item.setFilename(cdda.metadata().track(i).getCustom("filename").toString());
+                    item.setArtist(cdda.metadata().track(i).get(Metadata::Artist).toString());
+                    item.setArtist(cdda.metadata().track(i).get(Metadata::Title).toString());
+                    item.setLength(cdda.toc().lengthOfTrack(i));
                     playlist.appendItem(item);
                 }
 
@@ -922,12 +930,12 @@ void AudexManager::execute_finish()
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
-            cdda_model->cdNum(),
-            cdda_model->numOfAudioTracks(),
-            defuse_for_filename(cdda_model->artist()),
-            defuse_for_filename(cdda_model->title()),
-            QString("%1").arg(cdda_model->year()),
-            defuse_for_filename(cdda_model->genre()),
+            cdda.metadata().discNum(),
+            cdda.toc().audioTrackCount(),
+            defuse_for_filename(cdda.metadata().get(Metadata::Artist).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Album).toString()),
+            QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Genre).toString()),
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString());
 
         if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool())
@@ -943,15 +951,15 @@ void AudexManager::execute_finish()
                 QStringList text =
                     profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList();
                 schemeparser.parseInfoTextScheme(text,
-                                                 cdda_model->artist(),
-                                                 cdda_model->title(),
-                                                 QString("%1").arg(cdda_model->year()),
-                                                 cdda_model->genre(),
+                                                 cdda.metadata().get(Metadata::Artist).toString(),
+                                                 cdda.metadata().get(Metadata::Album).toString(),
+                                                 QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+                                                 cdda.metadata().get(Metadata::Genre).toString(),
                                                  QString(),
-                                                 DiscIDCalculator::CDDBId(cdda_model->discSignature()),
+                                                 DiscIDCalculator::CDDBId(cdda.toc().discSignature()),
                                                  p_size_of_all_files(target_filename_list),
-                                                 cdda_model->lengthOfAudioTracksInSelection(),
-                                                 cdda_model->numOfAudioTracksInSelection());
+                                                 cdda.toc().lengthOfTracknumbers(selected_tracks),
+                                                 selected_tracks.count());
                 out << text.join("\n");
                 file.close();
                 Q_EMIT info(i18n("Info file \"%1\" successfully created.", QFileInfo(filename).fileName()));
@@ -971,19 +979,19 @@ void AudexManager::execute_finish()
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
             scheme,
-            cdda_model->cdNum(),
-            cdda_model->numOfAudioTracks(),
-            defuse_for_filename(cdda_model->artist()),
-            defuse_for_filename(cdda_model->title()),
-            QString("%1").arg(cdda_model->year()),
-            defuse_for_filename(cdda_model->genre()),
+            cdda.metadata().discNum(),
+            cdda.toc().audioTrackCount(),
+            defuse_for_filename(cdda.metadata().get(Metadata::Artist).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Album).toString()),
+            QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Genre).toString()),
             format.toLower(),
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool(),
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
 
-        if (p_prepare_dir(filename, target_dir, (overwrite && !cdda_model->isMultiCD() && (cdda_model->cdNum() < 1)))) {
+        if (p_prepare_dir(filename, target_dir, (overwrite && !cdda.metadata().isMultiDisc() && (cdda.metadata().discNum() < 1)))) {
             QFile file(filename);
-            bool fexists = file.exists() && cdda_model->isMultiCD() && (cdda_model->cdNum() > 0);
+            bool fexists = file.exists() && cdda.metadata().isMultiDisc() && (cdda.metadata().discNum() > 0);
             bool success;
             if (fexists)
                 success = file.open(QFile::WriteOnly | QFile::Append);
@@ -1020,12 +1028,12 @@ void AudexManager::execute_finish()
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
             scheme,
-            cdda_model->cdNum(),
-            cdda_model->numOfAudioTracks(),
-            defuse_for_filename(cdda_model->artist()),
-            defuse_for_filename(cdda_model->title()),
-            QString("%1").arg(cdda_model->year()),
-            defuse_for_filename(cdda_model->genre()),
+            cdda.metadata().discNum(),
+            cdda.toc().audioTrackCount(),
+            defuse_for_filename(cdda.metadata().get(Metadata::Artist).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Album).toString()),
+            QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Genre).toString()),
             "cue",
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool(),
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
@@ -1035,7 +1043,7 @@ void AudexManager::execute_finish()
             bool success = file.open(QFile::WriteOnly | QFile::Truncate);
             if (success) {
                 QTextStream out(&file);
-                CueSheetWriter cuesheetwriter(cdda_model);
+                Audex::CUESheetWriter cuesheetwriter(cdda);
                 if (p_single_file) {
                     out << cuesheetwriter.cueSheet(target_single_filename, Preferences::sampleShift() / SECTOR_SIZE_SAMPLES).join("\n");
                 } else {
@@ -1055,12 +1063,12 @@ void AudexManager::execute_finish()
         SchemeParser schemeparser;
         QString filename = schemeparser.parseFilenameScheme(
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString(),
-            cdda_model->cdNum(),
-            cdda_model->numOfAudioTracks(),
-            defuse_for_filename(cdda_model->artist()),
-            defuse_for_filename(cdda_model->title()),
-            QString("%1").arg(cdda_model->year()),
-            defuse_for_filename(cdda_model->genre()),
+            cdda.metadata().discNum(),
+            cdda.toc().audioTrackCount(),
+            defuse_for_filename(cdda.metadata().get(Metadata::Artist).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Album).toString()),
+            QString("%1").arg(cdda.metadata().get(Metadata::Year).toString()),
+            defuse_for_filename(cdda.metadata().get(Metadata::Genre).toString()),
             "log",
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool(),
             profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
@@ -1106,8 +1114,10 @@ void AudexManager::execute_finish()
     Q_EMIT finished(p_finished_successful);
 }
 
-bool AudexManager::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
+bool AudexRipManager::p_prepare_dir(QString &filename, const QString &targetDirIfRelative, const bool overwrite)
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     QString result;
 
     QFileInfo fileinfo(filename);
@@ -1143,8 +1153,10 @@ bool AudexManager::p_prepare_dir(QString &filename, const QString &targetDirIfRe
     return true;
 }
 
-bool AudexManager::p_mkdir(const QString &absoluteFilePath)
+bool AudexRipManager::p_mkdir(const QString &absoluteFilePath)
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     QDir dir(absoluteFilePath);
     if (dir.exists()) {
         if (!dir.isReadable()) {
@@ -1163,7 +1175,7 @@ bool AudexManager::p_mkdir(const QString &absoluteFilePath)
     return true;
 }
 
-qreal AudexManager::p_size_of_all_files(const QStringList &filenames) const
+qreal AudexRipManager::p_size_of_all_files(const QStringList &filenames) const
 {
     qreal size = .0f;
     for (int i = 0; i < filenames.count(); ++i) {

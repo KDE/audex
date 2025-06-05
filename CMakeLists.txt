@@ -10,7 +10,11 @@ set(RELEASE_SERVICE_VERSION
 
 project(Audex VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF6_MIN_VERSION "5.245.0")
+set(QT_MIN_VERSION "6.5.0")
+set(KF6_MIN_VERSION "6.0.0")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
@@ -73,17 +77,22 @@ set(audex_SRCS
     mainwindow.cpp
     datatypes/dataset.cpp
     datatypes/toc.cpp
+    datatypes/samplearray.cpp
+    datatypes/metadata.cpp
+    datatypes/cdda.cpp
+    datatypes/driveinfo.cpp
     device/scsi.cpp
+    device/cdparanoia.cpp
     device/tocreader.cpp
+    device/manager.cpp
+    device/cdtextreader.cpp
+    device/driveinforetriever.cpp
     models/cddamodel.cpp
     models/profilemodel.cpp
     utils/audex.cpp
     utils/schemeparser.cpp
     utils/playlist.cpp
     utils/wavefilewriter.cpp
-    utils/samplearray.cpp
-    utils/cddaparanoia.cpp
-    utils/cddadevices.cpp
     utils/encoderwrapper.cpp
     utils/cddaripthread.cpp
     utils/upload.cpp
@@ -176,6 +185,10 @@ target_link_libraries(
   ${CDIO_CDDA_LIBRARIES}
   ${CDIO_PARANOIA_LIBRARIES})
 
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+  target_compile_definitions(audex PRIVATE QT_NO_DEBUG_OUTPUT)
+endif()
+
 ecm_add_app_icon(
   audex
   ICONS
@@ -195,11 +208,6 @@ install(FILES org.kde.audex.svg
         DESTINATION ${KDE_INSTALL_FULL_ICONDIR}/hicolor/scalable/apps)
 
 add_subdirectory(images)
-
-if(BUILD_TESTING)
-  find_package(Qt6Test REQUIRED)
-  add_subdirectory(test)
-endif()
 
 # Install translations
 ki18n_install(po)

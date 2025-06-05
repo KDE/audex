@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,6 +9,9 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+namespace Audex
+{
 
 ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
@@ -35,35 +38,35 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, cons
     if (!new_profile_mode)
         buttons |= QDialogButtonBox::Apply;
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(buttons);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    auto *buttonBox = new QDialogButtonBox(buttons);
+    auto *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     if (!new_profile_mode)
         applyButton = buttonBox->button(QDialogButtonBox::Apply);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataCoverDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataCoverDialog::reject);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataCoverDialog::slotAccepted);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataCoverDialog::reject);
     if (!new_profile_mode)
-        connect(applyButton, &QPushButton::clicked, this, &ProfileDataCoverDialog::slotApplied);
+        QObject::connect(applyButton, &QPushButton::clicked, this, &ProfileDataCoverDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    QObject::connect(ui.kpushbutton_scheme, &QPushButton::clicked, this, &ProfileDataCoverDialog::scheme_wizard);
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.checkBox_scale->setChecked(scale);
     enable_scale(ui.checkBox_scale->isChecked());
-    connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(enable_scale(bool)));
+    QObject::connect(ui.checkBox_scale, &QCheckBox::toggled, this, &ProfileDataCoverDialog::trigger_changed);
+    QObject::connect(ui.checkBox_scale, &QCheckBox::toggled, this, &ProfileDataCoverDialog::enable_scale);
 
     ui.kintspinbox_x->setValue(size.width());
-    connect(ui.kintspinbox_x, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.kintspinbox_x, &QSpinBox::valueChanged, this, &ProfileDataCoverDialog::trigger_changed);
 
     ui.kintspinbox_y->setValue(size.height());
-    connect(ui.kintspinbox_y, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.kintspinbox_y, &QSpinBox::valueChanged, this, &ProfileDataCoverDialog::trigger_changed);
 
     ui.kcombobox_format->addItem(i18n("JPEG (Joint Photographic Experts Group)"), "JPEG");
     ui.kcombobox_format->addItem(i18n("PNG (Portable Network Graphics)"), "PNG");
@@ -72,10 +75,10 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, cons
         int i = ui.kcombobox_format->findData(format);
         ui.kcombobox_format->setCurrentIndex(i);
     }
-    connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.kcombobox_format, &KComboBox::currentIndexChanged, this, &ProfileDataCoverDialog::trigger_changed);
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataCoverDialog::trigger_changed);
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -186,4 +189,6 @@ bool ProfileDataCoverDialog::save()
     }
 
     return false;
+}
+
 }

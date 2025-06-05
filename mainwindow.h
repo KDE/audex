@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QComboBox>
 #include <QDockWidget>
@@ -15,6 +14,7 @@
 #include <QLineEdit>
 #include <QMenu>
 #include <QObject>
+#include <QPointer>
 #include <QPushButton>
 #include <QStatusBar>
 #include <QTreeView>
@@ -33,8 +33,9 @@
 #include <KTextEdit>
 #include <KXmlGuiWindow>
 
-#include "utils/cuesheetwriter.h"
-#include "utils/error.h"
+#include "device/manager.h"
+
+#include "datatypes/error.h"
 
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
@@ -57,7 +58,6 @@ class MainWindow : public KXmlGuiWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow() override;
 
 private:
     bool firstStart();
@@ -65,63 +65,50 @@ private:
 private Q_SLOTS:
     void eject();
     void cddb_lookup();
-    void cddb_submit();
+    void cdtext_read();
+
     void rip();
     void configure();
     void edit();
 
-    void new_audio_disc_detected();
-    void audio_disc_removed();
-
-    void cddb_lookup_start();
-    void cddb_lookup_done(const bool successful);
-
     void update_layout();
 
     void enable_layout(bool enabled);
-    void enable_cddb_submit(bool enabled = true);
-    void disable_cddb_submit();
 
     void configuration_updated(const QString &dialog_name);
 
+    void update_disc_action();
+
     void current_profile_updated_from_ui(int row);
-    void update_profile_action(int index);
+    void update_profile_action_by_index(int index);
     void update_profile_action();
 
     void split_titles();
     void swap_artists_and_titles();
     void capitalize();
     void auto_fill_artists();
-    void toggle(const QModelIndex &idx);
     void resizeColumns();
 
-    void select_all();
-    void select_none();
-    void invert_selection();
-
-    void cdda_context_menu(const QPoint &pos);
-
-    void selection_changed(const int num_selected);
-
 private:
-    CDDAModel *cdda_model;
-    ProfileModel *profile_model;
+    Audex::Device::Manager manager;
+    Audex::CDDAModel cdda_model;
+    Audex::ProfileModel profile_model;
 
-    QLabel *profile_label;
-    KComboBox *profile_combobox;
+    QPointer<QLabel> disc_label;
+    QPointer<KComboBox> disc_combobox;
+    QPointer<QLabel> profile_label;
+    QPointer<KComboBox> profile_combobox;
 
     void setup_actions();
     void setup_layout();
 
-    QTreeView *cdda_tree_view;
+    QPointer<QTreeView> cdda_tree_view;
 
-    QDockWidget *cdda_header_dock;
-    CDDAHeaderWidget *cdda_header_widget;
+    QPointer<QDockWidget> cdda_header_dock;
+    QPointer<Audex::CDDAHeaderWidget> cdda_header_widget;
 
     bool layout_enabled;
 
     int current_profile_index;
     void set_profile(int profile_index);
 };
-
-#endif

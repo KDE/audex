@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #include "wavefilewriter.h"
 
 #include <QDebug>
+
+namespace Audex
+{
 
 WaveFileWriter::WaveFileWriter()
 {
@@ -112,7 +115,7 @@ void WaveFileWriter::p_write_empty_header()
         0x10, 0xb1, 0x02, 0x00, // 28
         0x04, 0x00, 0x10, 0x00, // 32
         0x64, 0x61, 0x74, 0x61, // 36 "data"
-        0x00, 0x00, 0x00, 0x00  // 40 byteCount
+        0x00, 0x00, 0x00, 0x00 // 40 byteCount
     };
     p_output_file.write((char *)riffHeader, 44);
 }
@@ -144,4 +147,6 @@ void WaveFileWriter::p_update_header()
         // jump back to the end
         p_output_file.seek(p_output_file.size());
     }
+}
+
 }

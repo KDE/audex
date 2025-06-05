@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -16,6 +16,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+namespace Audex
+{
+
 LogViewDialog::LogViewDialog(const QStringList &log, const QString &title, QWidget *parent)
     : QDialog(parent)
 {
@@ -27,8 +30,8 @@ LogViewDialog::LogViewDialog(const QStringList &log, const QString &title, QWidg
     setLayout(mainLayout);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Close);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &LogViewDialog::slotSaveLog);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &LogViewDialog::slotClosed);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &LogViewDialog::slotSaveLog);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &LogViewDialog::slotClosed);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
@@ -70,4 +73,6 @@ void LogViewDialog::save()
             }
         }
     }
+}
+
 }

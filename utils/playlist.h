@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PLAYLIST_HEADER
-#define PLAYLIST_HEADER
+#pragma once
 
 #include <QDir>
 #include <QDomDocument>
@@ -16,6 +15,9 @@
 #include <QTextStream>
 
 #include <KLocalizedString>
+
+namespace Audex
+{
 
 class PlaylistItem
 {
@@ -129,4 +131,4 @@ private:
     const PlaylistItem p_parse_m3u_metadata_line(const QString &line);
 };
 
-#endif
+}

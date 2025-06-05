@@ -1,24 +1,22 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "cddaheaderwidget.h"
 
+#include <QImageReader>
+
 #include "dialogs/cddaheaderdatadialog.h"
 
-CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const int cover_size_min, const int cover_size_max, const int padding)
+namespace Audex
+{
+
+CDDAHeaderWidget ::CDDAHeaderWidget(QWidget *parent, const int cover_size_min, const int cover_size_max, const int padding)
     : QWidget(parent)
 {
-    cdda_model = cddaModel;
-    if (!cdda_model) {
-        qDebug() << "CDDAModel is NULL!";
-        return;
-    }
-    connect(cdda_model, SIGNAL(modelReset()), this, SLOT(update()));
-
     setup_actions();
 
     this->cover_size_min = cover_size_min;
@@ -29,7 +27,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
     cursor_on_cover = false;
     cursor_on_label = false;
 
-    connect(this, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(context_menu(const QPoint &)));
+    QObject::connect(this, &CDDAHeaderWidget::customContextMenuRequested, this, &CDDAHeaderWidget::context_menu);
 
     setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -40,7 +38,6 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget *parent, const
 
 CDDAHeaderWidget::~CDDAHeaderWidget()
 {
-    delete action_collection;
 }
 
 QSize CDDAHeaderWidget::sizeHint() const
@@ -57,6 +54,36 @@ void CDDAHeaderWidget::setEnabled(bool enabled)
 {
     this->enabled = enabled;
     repaint();
+}
+
+void CDDAHeaderWidget::editData()
+{
+    QApplication::restoreOverrideCursor();
+    cursor_on_label = false;
+
+    auto dialog = new CDDAHeaderDataDialog(metadata, toc, this);
+    if (dialog->exec() != QDialog::Accepted) {
+        delete dialog;
+        return;
+    }
+    metadata = dialog->metadata();
+    delete dialog;
+
+    update();
+    Q_EMIT headerDataChanged();
+}
+
+void CDDAHeaderWidget::updateMetadata(const Audex::Metadata::Metadata &metadata)
+{
+    this->metadata = metadata;
+    update();
+}
+
+void CDDAHeaderWidget::update(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc)
+{
+    this->metadata = metadata;
+    this->toc = toc;
+    update();
 }
 
 void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
@@ -110,30 +137,30 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         int xOffsetLabel = x;
         int yOffsetLabel = y;
 
-        // Künstlername
+        // artist name
         painter.setFont(artistFont);
         QFontMetrics fm1(artistFont);
-        painter.drawText(x, y, fm1.elidedText(cdda_model->artist(), Qt::ElideRight, width() - padding));
+        painter.drawText(x, y, fm1.elidedText(metadata.get(Audex::Metadata::Type::Artist).toString(), Qt::ElideRight, width() - padding));
         y += fm1.height() + 5;
 
         painter.setFont(titleFont);
         QFontMetrics fm2(titleFont);
-        QString fullTitle = cdda_model->title();
-        if (!cdda_model->year().isEmpty()) {
-            fullTitle += QString(" (%1)").arg(cdda_model->year());
+        QString fullTitle = metadata.get(Audex::Metadata::Type::Title).toString();
+        if (metadata.contains(Audex::Metadata::Type::Year)) {
+            fullTitle += QString(" (%1)").arg(metadata.get(Audex::Metadata::Type::Year).toString());
         }
         painter.drawText(x, y, fm2.elidedText(fullTitle, Qt::ElideRight, width() - padding));
         y += fm2.height();
 
-        if (cdda_model->cdNum() > 0) {
+        if (metadata.get(Audex::Metadata::Type::DiscNumber).toInt() > 0) {
             painter.setFont(cdNumberFont);
             y += padding;
-            painter.drawText(x, y, QString("[%1%2]").arg(i18n("CD Number: ")).arg(cdda_model->cdNum()));
+            painter.drawText(x, y, QString("[%1%2]").arg(i18n("CD Number: ")).arg(metadata.get(Audex::Metadata::Type::DiscNumber).toInt()));
         }
 
         label_rect = QRect(xOffsetLabel,
                            yOffsetLabel - fm1.height(),
-                           qMax(fm1.horizontalAdvance(cdda_model->artist()), fm2.horizontalAdvance(fullTitle)),
+                           qMax(fm1.horizontalAdvance(metadata.get(Audex::Metadata::Type::Artist).toString()), fm2.horizontalAdvance(fullTitle)),
                            y - yOffsetLabel);
 
     } else { // disabled
@@ -169,8 +196,8 @@ void CDDAHeaderWidget::construct_cd_case()
     cover_painter.drawImage(0, 0, cdcase_wo_latches);
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    if (!cdda_model->cover().isNull())
-        cover_painter.drawImage(125, 15, cdda_model->cover().scaled(QSize(1110, 1080), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    if (!metadata.cover().isNull())
+        cover_painter.drawImage(125, 15, metadata.cover().scaled(QSize(1110, 1080), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
     cover_painter.drawImage(259, 0, latches);
@@ -207,7 +234,7 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
     if (event->button() == Qt::LeftButton) {
         if (cursor_on_cover) {
             QApplication::restoreOverrideCursor();
-            if (cdda_model->isCoverEmpty()) {
+            if (metadata.cover().isNull()) {
                 load();
             } else {
                 view_cover();
@@ -215,17 +242,17 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
         }
         if (cursor_on_label) {
             QApplication::restoreOverrideCursor();
-            edit_data();
+            editData();
         }
     }
 }
 
 void CDDAHeaderWidget::update()
 {
-    // action_collection->action("fetch")->setEnabled(!cdda_model->empty());
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
 
     bool activate = false;
-    if (!cdda_model->cover().isNull()) {
+    if (!metadata.cover().isNull()) {
         activate = true;
     }
 
@@ -239,29 +266,39 @@ void CDDAHeaderWidget::update()
 
 void CDDAHeaderWidget::load()
 {
-    qDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
-    QString filename = QFileDialog::getOpenFileName(this, i18n("Load Cover"), QDir::homePath(), cdda_model->coverSupportedMimeTypeList());
+    QStringList filters;
+    QList<QByteArray> formats = QImageReader::supportedImageFormats();
+
+    QStringList extensions;
+    for (const QByteArray &format : formats) {
+        extensions << "*." + QString::fromLatin1(format).toLower();
+    }
+
+    QString filter = QString("Supported Images (%1)").arg(extensions.join(' '));
+
+    QString filename = QFileDialog::getOpenFileName(this, i18n("Load Cover"), QDir::homePath(), filter);
     if (!filename.isEmpty()) {
-        if (!cdda_model->setCover(filename)) {
-            ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+        if (!metadata.loadCoverFromFile(filename)) {
+            // ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
         }
     }
 }
 
 void CDDAHeaderWidget::save()
 {
-    QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath() + '/' + cdda_model->title() + ".jpg");
+    QString filename =
+        QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath() + '/' + metadata.get(Audex::Metadata::Type::Title).toString() + ".jpg");
     if (!filename.isEmpty()) {
-        if (!cdda_model->saveCoverToFile(filename)) {
-            ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+        if (!metadata.saveCoverToFile(filename)) {
+            // ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
         }
     }
 }
 
 void CDDAHeaderWidget::view_cover()
 {
-    QString filename = tmp_dir.path() + QString("%1.jpeg").arg(cdda_model->cover().cacheKey(), 8, 16);
-    cdda_model->saveCoverToFile(filename);
+    QString filename = tmp_dir.path() + QString("%1.jpeg").arg(metadata.cover().cacheKey(), 8, 16);
+    metadata.saveCoverToFile(filename);
 
     qDebug() << "Open" << filename;
 
@@ -270,31 +307,14 @@ void CDDAHeaderWidget::view_cover()
 
 void CDDAHeaderWidget::remove()
 {
-    cdda_model->clearCover();
+    metadata.setCover(QImage());
     update();
-}
-
-void CDDAHeaderWidget::edit_data()
-{
-    QApplication::restoreOverrideCursor();
-    cursor_on_label = false;
-
-    auto *dialog = new CDDAHeaderDataDialog(cdda_model, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-    delete dialog;
-    update();
-    Q_EMIT headerDataChanged();
 }
 
 void CDDAHeaderWidget::set_cover(const QByteArray &cover)
 {
     if (!cover.isEmpty())
-        cdda_model->setCover(cover);
-    // action_collection->action("fetch")->setEnabled(true);
+        metadata.setCover(QImage(cover));
     update();
 }
 
@@ -321,28 +341,25 @@ void CDDAHeaderWidget::setup_actions()
 {
     action_collection = new KActionCollection(this);
 
-    // auto *fetchCoverAction = new QAction(this);
-    // fetchCoverAction->setText(i18n("Fetch cover from Google..."));
-    // action_collection->addAction("fetch", fetchCoverAction);
-    // connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(google()));
-
-    auto *loadCoverAction = new QAction(this);
+    auto loadCoverAction = new QAction(this);
     loadCoverAction->setText(i18n("Set Custom Cover..."));
     action_collection->addAction("load", loadCoverAction);
     connect(loadCoverAction, SIGNAL(triggered(bool)), this, SLOT(load()));
 
-    auto *saveCoverAction = new QAction(this);
+    auto saveCoverAction = new QAction(this);
     saveCoverAction->setText(i18n("Save Cover To File..."));
     action_collection->addAction("save", saveCoverAction);
     connect(saveCoverAction, SIGNAL(triggered(bool)), this, SLOT(save()));
 
-    auto *viewCoverAction = new QAction(this);
+    auto viewCoverAction = new QAction(this);
     viewCoverAction->setText(i18n("Show Full Size Cover..."));
     action_collection->addAction("view", viewCoverAction);
     connect(viewCoverAction, SIGNAL(triggered(bool)), this, SLOT(view_cover()));
 
-    auto *removeCoverAction = new QAction(this);
+    auto removeCoverAction = new QAction(this);
     removeCoverAction->setText(i18n("Remove Cover"));
     action_collection->addAction("remove", removeCoverAction);
     connect(removeCoverAction, SIGNAL(triggered(bool)), this, SLOT(remove()));
+}
+
 }

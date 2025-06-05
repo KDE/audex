@@ -1,18 +1,18 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef EXTRACTINGPROGRESSDIALOG_H
-#define EXTRACTINGPROGRESSDIALOG_H
+#pragma once
 
 #include <QAbstractButton>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDialog>
 #include <QDialogButtonBox>
+#include <QPointer>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWidget>
@@ -21,6 +21,7 @@
 #include <KConfigGroup>
 #include <KMessageBox>
 
+#include "datatypes/toc.h"
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
 #include "utils/audex.h"
@@ -29,13 +30,19 @@
 
 #include "ui_extractingprogresswidgetUI.h"
 
+namespace Audex
+{
+
 class ExtractingProgressDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent = nullptr);
-    ~ExtractingProgressDialog() override;
+    ExtractingProgressDialog(QPointer<ProfileModel> profile_model,
+                             const Audex::CDDA &cdda,
+                             const Audex::TracknumberSet &selectedTracks,
+                             const QByteArray &blockDevice,
+                             QWidget *parent = nullptr);
 
 public Q_SLOTS:
     int exec() override;
@@ -81,9 +88,11 @@ private:
 private:
     Ui::ExtractingProgressWidgetUI ui;
 
-    Audex::AudexManager *manager;
-    ProfileModel *profile_model;
-    CDDAModel *cdda_model;
+    QPointer<Audex::AudexRipManager> audex_rip_manager;
+    QPointer<ProfileModel> profile_model;
+    Audex::CDDA cdda;
+
+    Audex::TracknumberSet selected_tracks;
 
     bool finished;
 
@@ -97,4 +106,4 @@ private:
     QDBusMessage unity_message;
 };
 
-#endif
+}

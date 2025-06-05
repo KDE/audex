@@ -1,14 +1,13 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "cddaheaderdatadialog.h"
 
-#include <QDialogButtonBox>
-#include <QVBoxLayout>
+#include "utils/discidcalculator.h"
 
 #define GENRE_MAX 148
 static const char *ID3_GENRES[GENRE_MAX] = {"Blues",
@@ -160,32 +159,31 @@ static const char *ID3_GENRES[GENRE_MAX] = {"Blues",
                                             "JPop",
                                             "Synthpop"};
 
-CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent)
+namespace Audex
+{
+
+CDDAHeaderDataDialog::CDDAHeaderDataDialog(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
-    cdda_model = cddaModel;
-    if (!cdda_model) {
-        qDebug() << "CDDAModel is NULL!";
-        return;
-    }
+    p_metadata = metadata;
+    p_toc = toc;
 
     setWindowTitle(i18n("Edit Data"));
 
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Apply | QDialogButtonBox::Cancel);
+    auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     okButton = buttonBox->button(QDialogButtonBox::Ok);
-    applyButton = buttonBox->button(QDialogButtonBox::Apply);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &CDDAHeaderDataDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &CDDAHeaderDataDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &CDDAHeaderDataDialog::slotApplied);
 
-    QWidget *widget = new QWidget(this);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &CDDAHeaderDataDialog::accept);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &CDDAHeaderDataDialog::reject);
+
+    auto *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
@@ -197,115 +195,74 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
     KCompletion *comp = ui.kcombobox_genre->completionObject();
     comp->insertItems(genres);
     ui.kcombobox_genre->addItems(genres);
-    connect(ui.kcombobox_genre, SIGNAL(returnPressed(const QString &)), comp, SLOT(addItem(const QString &)));
+    QObject::connect(ui.kcombobox_genre->lineEdit(), &QLineEdit::returnPressed, this, [=]() {
+        comp->addItem(ui.kcombobox_genre->lineEdit()->text());
+    });
 
-    ui.checkBox_various->setChecked(cdda_model->isVarious());
-    connect(ui.checkBox_various, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    ui.checkBox_multicd->setChecked(cdda_model->isMultiCD());
-    connect(ui.checkBox_multicd, SIGNAL(toggled(bool)), this, SLOT(enable_checkbox_multicd(bool)));
-    connect(ui.checkBox_multicd, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    ui.qlineedit_artist->setText(cdda_model->artist());
-    connect(ui.qlineedit_artist, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    ui.qlineedit_title->setText(cdda_model->title());
-    connect(ui.qlineedit_title, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    ui.kintspinbox_cdnum->setValue(cdda_model->cdNum());
-    connect(ui.kintspinbox_cdnum, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    ui.kintspinbox_trackoffset->setValue(cdda_model->trackOffset());
-    connect(ui.kintspinbox_trackoffset, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    ui.kcombobox_genre->lineEdit()->setText(cdda_model->genre());
-    connect(ui.kcombobox_genre->lineEdit(), SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    ui.checkBox_various->setChecked(p_metadata.isVarious());
+    QObject::connect(ui.checkBox_various, &QCheckBox::toggled, [=](bool checked) {
+        p_metadata.setVarious(checked);
+    });
+
+    ui.checkBox_multicd->setChecked(p_metadata.isMultiDisc());
+    QObject::connect(ui.checkBox_multicd, &QCheckBox::toggled, [=](bool checked) {
+        p_metadata.setMultiDisc(checked);
+        ui.kintspinbox_cdnum->setEnabled(checked);
+        ui.label_cdnum->setEnabled(checked);
+    });
+
+    ui.qlineedit_artist->setText(metadata.get(Audex::Metadata::Type::Artist).toString());
+    QObject::connect(ui.qlineedit_artist, &QLineEdit::textEdited, [=](const QString &text) {
+        p_metadata.set(Audex::Metadata::Type::Artist, text);
+    });
+
+    ui.qlineedit_title->setText(metadata.get(Audex::Metadata::Type::Title).toString());
+    QObject::connect(ui.qlineedit_title, &QLineEdit::textEdited, [=](const QString &text) {
+        p_metadata.set(Audex::Metadata::Type::Title, text);
+    });
+
+    ui.kintspinbox_cdnum->setValue(metadata.discNum());
+    QObject::connect(ui.kintspinbox_cdnum, &QSpinBox::valueChanged, [=](int i) {
+        p_metadata.setDiscNum(i);
+    });
+
+    ui.kintspinbox_trackoffset->setValue(metadata.get(Audex::Metadata::Type::TrackNumberOffset).toInt());
+    QObject::connect(ui.kintspinbox_trackoffset, &QSpinBox::valueChanged, [=](int i) {
+        p_metadata.set(Audex::Metadata::Type::TrackNumberOffset, i);
+    });
+
+    ui.kcombobox_genre->lineEdit()->setText(metadata.get(Audex::Metadata::Type::Genre).toString());
+    QObject::connect(ui.kcombobox_genre->lineEdit(), &QLineEdit::textEdited, [=](const QString &text) {
+        p_metadata.set(Audex::Metadata::Type::Genre, text);
+    });
+
     {
         bool ok;
-        int year = cdda_model->year().toInt(&ok);
+        int year = metadata.get(Audex::Metadata::Type::Year).toInt(&ok);
         if (ok)
             ui.kintspinbox_year->setValue(year);
         else
             ui.kintspinbox_year->setValue(QDate::currentDate().year());
     }
-    connect(ui.kintspinbox_year, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    ui.ktextedit_extdata->setText(cdda_model->extendedData().join("\n"));
-    connect(ui.ktextedit_extdata, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
-    ui.qlineedit_cddbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::CDDBId(cdda_model->discSignature()), 0, 16));
+    ui.kintspinbox_cdnum->setValue(metadata.discNum());
+    QObject::connect(ui.kintspinbox_year, &QSpinBox::valueChanged, [=](int i) {
+        p_metadata.set(Audex::Metadata::Type::Year, i);
+    });
 
-    enable_checkbox_multicd(cdda_model->isMultiCD());
+    ui.ktextedit_extdata->setText(metadata.get(Audex::Metadata::Type::Comment).toString());
+    QObject::connect(ui.ktextedit_extdata, &KTextEdit::textChanged, [=]() {
+        p_metadata.set(Audex::Metadata::Type::Comment, ui.ktextedit_extdata->toPlainText());
+    });
 
-    applyButton->setEnabled(false);
+    ui.qlineedit_cddbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::CDDBId(p_toc.discSignature()), 0, 16));
+
+    ui.kintspinbox_cdnum->setEnabled(metadata.isMultiDisc());
+    ui.label_cdnum->setEnabled(metadata.isMultiDisc());
 }
 
-CDDAHeaderDataDialog::~CDDAHeaderDataDialog()
+const Audex::Metadata::Metadata &CDDAHeaderDataDialog::metadata() const
 {
+    return p_metadata;
 }
 
-void CDDAHeaderDataDialog::slotAccepted()
-{
-    save();
-    accept();
-}
-
-void CDDAHeaderDataDialog::slotApplied()
-{
-    save();
-}
-
-void CDDAHeaderDataDialog::save()
-{
-    cdda_model->setVarious(ui.checkBox_various->isChecked());
-    cdda_model->setMultiCD(ui.checkBox_multicd->isChecked());
-    cdda_model->setArtist(ui.qlineedit_artist->text());
-    cdda_model->setTitle(ui.qlineedit_title->text());
-    cdda_model->setCDNum(ui.kintspinbox_cdnum->value());
-    cdda_model->setTrackOffset(ui.kintspinbox_trackoffset->value());
-    cdda_model->setGenre(ui.kcombobox_genre->lineEdit()->text());
-    cdda_model->setYear(QString("%1").arg(ui.kintspinbox_year->value()));
-    cdda_model->setExtendedData(ui.ktextedit_extdata->toPlainText().split('\n'));
-    applyButton->setEnabled(false);
-}
-
-void CDDAHeaderDataDialog::trigger_changed()
-{
-    if (ui.checkBox_various->isChecked() != cdda_model->isVarious()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.checkBox_multicd->isChecked() != cdda_model->isMultiCD()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.qlineedit_artist->text() != cdda_model->artist()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.qlineedit_title->text() != cdda_model->title()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.checkBox_various->isChecked())
-        if (ui.kintspinbox_cdnum->value() != cdda_model->cdNum()) {
-            applyButton->setEnabled(true);
-            return;
-        }
-    if (ui.kintspinbox_trackoffset->value() != cdda_model->trackOffset()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.kcombobox_genre->lineEdit()->text() != cdda_model->genre()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.kintspinbox_year->value() != cdda_model->year().toInt()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-    if (ui.ktextedit_extdata->toPlainText().split('\n') != cdda_model->extendedData()) {
-        applyButton->setEnabled(true);
-        return;
-    }
-
-    applyButton->setEnabled(false);
-}
-
-void CDDAHeaderDataDialog::enable_checkbox_multicd(bool enabled)
-{
-    ui.kintspinbox_cdnum->setEnabled(enabled);
-    ui.label_cdnum->setEnabled(enabled);
 }

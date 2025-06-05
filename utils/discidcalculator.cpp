@@ -1,11 +1,14 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "discidcalculator.h"
+
+namespace Audex
+{
 
 quint32 DiscIDCalculator::CDDBId(const QList<quint32> &discSignature)
 {
@@ -30,4 +33,6 @@ quint32 DiscIDCalculator::AccurateRipId2(const QList<quint32> &discSignature)
     for (int i = 1; i < discSignature.count(); ++i)
         result += ((discSignature[i] - discSignature.first()) * (i + 1));
     return result;
+}
+
 }

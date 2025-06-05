@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,6 +9,9 @@
 
 #include <QDebug>
 
+namespace Audex
+{
+
 EncoderWrapper::EncoderWrapper(QObject *parent, const QString &commandScheme, const QString &encoderName, const bool deleteFractionFiles)
     : QObject(parent)
 {
@@ -16,10 +19,10 @@ EncoderWrapper::EncoderWrapper(QObject *parent, const QString &commandScheme, co
     encoder_name = encoderName;
     delete_fraction_files = deleteFractionFiles;
 
-    connect(&proc, SIGNAL(readyReadStandardError()), this, SLOT(parseOutput()));
-    connect(&proc, SIGNAL(readyReadStandardOutput()), this, SLOT(parseOutput()));
-    connect(&proc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(processFinished(int, QProcess::ExitStatus)));
-    connect(&proc, SIGNAL(errorOccurred(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
+    connect(&proc, &QProcess::readyReadStandardError, this, &EncoderWrapper::parseOutput);
+    connect(&proc, &QProcess::readyReadStandardOutput, this, &EncoderWrapper::parseOutput);
+    connect(&proc, &QProcess::finished, this, &EncoderWrapper::processFinished);
+    connect(&proc, &QProcess::errorOccurred, this, &EncoderWrapper::processError);
 
     proc.setOutputChannelMode(KProcess::SeparateChannels);
     proc.setReadChannel(KProcess::StandardError);
@@ -82,7 +85,7 @@ bool EncoderWrapper::encode(int n,
                                                               tmppath,
                                                               encoder_name);
 
-    qDebug() << "executing command " << command;
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "executing command " << command;
     proc.setShellCommand(command);
     proc.start();
     proc.waitForStarted();
@@ -108,12 +111,12 @@ void EncoderWrapper::cancel()
         if (file.exists()) {
             file.remove();
             Q_EMIT warning(i18n("Deleted partial file \"%1\".", processing_filename.mid(processing_filename.lastIndexOf("/") + 1)));
-            qDebug() << "deleted partial file" << processing_filename;
+            qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "deleted partial file" << processing_filename;
         }
     }
 
     Q_EMIT error(i18n("User canceled encoding."));
-    qDebug() << "Interrupt encoding.";
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "Interrupt encoding.";
 }
 
 bool EncoderWrapper::isProcessing()
@@ -176,7 +179,7 @@ void EncoderWrapper::processFinished(int exitCode, QProcess::ExitStatus exitStat
         Q_EMIT error(i18n("An error occurred while encoding file \"%1\".", processing_filename), i18n("Please check your profile."));
     }
     Q_EMIT finished();
-    qDebug() << "encoding finished.";
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "encoding finished.";
 }
 
 void EncoderWrapper::processError(QProcess::ProcessError err)
@@ -205,5 +208,7 @@ void EncoderWrapper::processError(QProcess::ProcessError err)
         break;
     }
     Q_EMIT finished();
-    qDebug() << "encoding finished.";
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "encoding finished.";
+}
+
 }

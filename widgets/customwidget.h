@@ -1,23 +1,25 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CUSTOMWIDGET_H
-#define CUSTOMWIDGET_H
+#pragma once
 
 #include <QDir>
 #include <QWidget>
 
+#include "datatypes//error.h"
 #include "utils/encoderassistant.h"
-#include "utils/error.h"
 #include "utils/parameters.h"
 
 #include "dialogs/commandwizarddialog.h"
 
 #include "ui_customwidgetUI.h"
+
+namespace Audex
+{
 
 class customWidgetUI : public QWidget, public Ui::CustomWidgetUI
 {
@@ -57,4 +59,4 @@ private:
     bool changed;
 };
 
-#endif
+}

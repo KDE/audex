@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #include "flacwidget.h"
 
 #include <QDebug>
+
+namespace Audex
+{
 
 flacWidget::flacWidget(Parameters *parameters, QWidget *parent)
     : flacWidgetUI(parent)
@@ -26,14 +29,14 @@ flacWidget::flacWidget(Parameters *parameters, QWidget *parent)
     checkBox_embedcover->setChecked(parameters->value(ENCODER_FLAC_EMBED_COVER_KEY).toBool());
     qlineedit_suffix->setText(parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
-    connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_slider(int)));
-    connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(horizontalSlider_compression, &QSlider::valueChanged, this, &flacWidget::compression_changed_by_slider);
+    QObject::connect(horizontalSlider_compression, &QSlider::valueChanged, this, &flacWidget::trigger_changed);
 
-    connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_spinbox(int)));
-    connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(kintspinbox_compression, &QSpinBox::valueChanged, this, &flacWidget::compression_changed_by_spinbox);
+    QObject::connect(kintspinbox_compression, &QSpinBox::valueChanged, this, &flacWidget::trigger_changed);
 
-    connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(checkBox_embedcover, &QCheckBox::toggled, this, &flacWidget::trigger_changed);
+    QObject::connect(qlineedit_suffix, &QLineEdit::textEdited, this, &flacWidget::trigger_changed);
 
     changed = false;
 }
@@ -76,4 +79,6 @@ void flacWidget::trigger_changed()
                || qlineedit_suffix->text() != parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
+}
+
 }

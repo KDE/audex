@@ -1,21 +1,23 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef OPUSENCWIDGET_H
-#define OPUSENCWIDGET_H
+#pragma once
 
 #include <QDir>
 #include <QWidget>
 
+#include "datatypes/error.h"
 #include "utils/encoderassistant.h"
-#include "utils/error.h"
 #include "utils/parameters.h"
 
 #include "ui_opusencwidgetUI.h"
+
+namespace Audex
+{
 
 class opusencWidgetUI : public QWidget, public Ui::OpusEncWidgetUI
 {
@@ -56,4 +58,4 @@ private:
     bool changed;
 };
 
-#endif
+}

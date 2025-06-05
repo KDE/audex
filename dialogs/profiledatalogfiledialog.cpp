@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,6 +9,9 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+namespace Audex
+{
 
 ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
@@ -35,23 +38,23 @@ ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, 
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     applyButton = buttonBox->button(QDialogButtonBox::Apply);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataLogFileDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataLogFileDialog::reject);
-    connect(applyButton, &QPushButton::clicked, this, &ProfileDataLogFileDialog::slotApplied);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataLogFileDialog::slotAccepted);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataLogFileDialog::reject);
+    QObject::connect(applyButton, &QPushButton::clicked, this, &ProfileDataLogFileDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    QObject::connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
 
     ui.checkBox_timestamps->setChecked(write_timestamps);
-    connect(ui.checkBox_timestamps, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.checkBox_timestamps, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -133,4 +136,6 @@ bool ProfileDataLogFileDialog::save()
     }
 
     return false;
+}
+
 }

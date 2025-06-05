@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,13 +8,11 @@
 #pragma once
 
 #include <QAbstractTableModel>
-#include <QBuffer>
 #include <QImage>
 #include <QImageReader>
 #include <QInputDialog>
 #include <QMimeDatabase>
 #include <QModelIndexList>
-#include <QRegularExpression>
 #include <QSet>
 #include <QString>
 #include <QTimer>
@@ -22,50 +20,33 @@
 
 #include <KLocalizedString>
 
-#include <KCDDB/CDInfo>
-#include <KCDDB/Client>
-#include <KCDDB/KCDDB>
+#include "datatypes/cdda.h"
 
-#include "datatypes/toc.h"
-#include "device/tocreader.h"
-#include "utils/cddadevices.h"
+#define CDINFO_MODEL_COLUMN_RIP_LABEL i18n("Rip")
+#define CDINFO_MODEL_COLUMN_TRACKNUMBER_LABEL i18n("#")
+#define CDINFO_MODEL_COLUMN_ARTIST_LABEL i18n("Artist")
+#define CDINFO_MODEL_COLUMN_TITLE_LABEL i18n("Title")
+#define CDINFO_MODEL_COLUMN_LENGTH_LABEL i18n("Length")
 
-#include "utils/error.h"
-
-#define CDDA_MODEL_COLUMN_RIP_LABEL i18n("Rip")
-#define CDDA_MODEL_COLUMN_TRACK_LABEL i18n("Track")
-#define CDDA_MODEL_COLUMN_ARTIST_LABEL i18n("Artist")
-#define CDDA_MODEL_COLUMN_TITLE_LABEL i18n("Title")
-#define CDDA_MODEL_COLUMN_LENGTH_LABEL i18n("Length")
-
-enum CDDAColumms {
-    CDDA_MODEL_COLUMN_RIP_INDEX = 0,
-    CDDA_MODEL_COLUMN_TRACK_INDEX,
-    CDDA_MODEL_COLUMN_ARTIST_INDEX,
-    CDDA_MODEL_COLUMN_TITLE_INDEX,
-    CDDA_MODEL_COLUMN_LENGTH_INDEX,
-
-    CDDA_MODEL_COLUMN_COUNT
-};
-
-#define CDDA_MODEL_INTERNAL_ROLE 1982
+namespace Audex
+{
 
 class CDDAModel : public QAbstractTableModel
 {
     Q_OBJECT
 
 public:
+    enum Columms {
+        COLUMN_RIP_INDEX = 0,
+        COLUMN_TRACKNUMBER_INDEX,
+        COLUMN_ARTIST_INDEX,
+        COLUMN_TITLE_INDEX,
+        COLUMN_LENGTH_INDEX,
+        COLUMN_COUNT
+    };
+
     explicit CDDAModel(QObject *parent = nullptr);
     ~CDDAModel() override;
-
-    inline const QByteArray blockDevice() const
-    {
-        return block_device;
-    }
-    inline const Audex::Toc::Toc getToc() const
-    {
-        return toc;
-    }
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -75,84 +56,54 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    void setArtist(const QString &a);
+    void setArtist(const QString &artist);
     const QString artist() const;
-    void setTitle(const QString &t);
-    const QString title() const;
-
-    // category must be cddb compatible
-    //(blues, classical, country, data,
-    // folk, jazz, misc, newage, reggae,
-    // rock, soundtrack)
-    void setCategory(const QString &c);
-    const QString category() const;
-
-    void setGenre(const QString &g);
+    void setAlbum(const QString &album);
+    const QString album() const;
+    void setCDDBCategory(const QString &cat);
+    const QString cddbCategory() const;
+    void setGenre(const QString &genre);
     const QString genre() const;
     void setYear(const QString &year);
     const QString year() const;
-    void setExtendedData(const QStringList &e);
-    const QStringList extendedData() const;
-    void setCDNum(const int n);
-    int cdNum() const;
-    void setTrackOffset(const int n);
-    int trackOffset() const;
-
-    int guessMultiCD(QString &newTitle) const;
-    void setMultiCD(const bool multi);
-    bool isMultiCD() const;
-
+    void setComment(const QStringList &comment);
+    const QStringList comment() const;
+    void setDiscNumber(const int number);
+    int discNumber() const;
+    void setDiscCount(const int count);
+    int discCount() const;
+    void setTrackNumberOffset(const int offset);
+    int trackNumberOffset() const;
+    int guessMultiDisc(QString &newTitle) const;
+    void setMultiDisc(const bool multi);
+    bool isMultiDisc() const;
+    bool guessVarious() const;
+    void setVarious(const bool various);
+    bool isVarious() const;
+    bool isValidAudioTrack(const int tracknumber) const;
     void setCustomData(const QString &type, const QVariant &data);
     const QVariant customData(const QString &type) const;
-
-    void setCustomDataPerTrack(const int n, const QString &type, const QVariant &data);
-    const QVariant getCustomDataPerTrack(const int n, const QString &type);
-
-    const QImage &cover() const;
-    bool setCover(const QByteArray &data);
-    bool setCover(const QString &filename);
+    void setCustomTrackData(const int tracknumber, const QString &type, const QVariant &data);
+    const QVariant customTrackData(const int tracknumber, const QString &type) const;
+    void setCover(const QImage &cover);
+    const QImage cover() const;
+    bool loadCoverFromFile(const QString &filename);
     bool saveCoverToFile(const QString &filename);
-    bool isCoverEmpty() const;
-    void clearCover();
-    const QString coverSupportedMimeTypeList() const;
-
-    bool guessVarious() const;
-    void setVarious(bool various);
-    bool isVarious();
-
+    bool coverExists() const;
+    void removeCover();
     void swapArtistAndTitleOfTracks();
-    void swapArtistAndTitle();
+    void swapArtistAndAlbum();
     void splitTitleOfTracks(const QString &divider);
     void capitalizeTracks();
     void capitalizeHeader();
     void setTitleArtistsFromHeader();
 
-    int numOfTracks() const;
-    int numOfAudioTracks() const;
-    int numOfAudioTracksInSelection() const;
-
-    int length() const;
-    int lengthOfAudioTracks() const;
-    int lengthOfAudioTracksInSelection() const;
-    int lengthOfTrack(int n) const;
-
-    const QList<quint32> discSignature() const;
-
-    bool isAudioTrack(int n) const;
-
-    void clear();
-
-    inline bool empty()
-    {
-        return p_empty;
-    }
-
-    inline const QSet<int> &selectedTracks() const
+    inline const TracknumberSet &selectedTracks() const
     {
         return sel_tracks;
     }
     void toggle(int row);
-    bool isTrackInSelection(int n) const;
+    bool isTrackInSelection(int tracknumber) const;
     void invertSelection();
     void selectAll();
     void selectNone();
@@ -160,56 +111,23 @@ public:
     bool isModified() const;
     void confirm();
 
-    Error lastError() const;
+    bool hasMetadata() const;
 
 public Q_SLOTS:
-    void lookupCDDB();
-    bool submitCDDB();
-
-    void eject();
+    void update(const CDDA &cdda);
+    void clear();
 
 Q_SIGNALS:
-    void audioDiscDetected();
-    void audioDiscRemoved();
-
-    void cddbLookupStarted();
-    void cddbLookupDone(const bool successful);
-
-    void cddbDataModified();
-    void cddbDataSubmited(const bool successful);
+    void metadataChanged(const Metadata::Metadata &metadata);
 
     void hasSelection(bool has_selection);
     void selectionChanged(const int num_selected);
 
-private Q_SLOTS:
-    void new_audio_disc_available(const QString &driveUDI, const QString &discUDI);
-    void audio_disc_removed(const QString &udi);
-
-    void disc_information_modified();
-
-    void lookup_cddb_done(KCDDB::Result result);
-
 private:
-    Audex::Toc::Toc toc;
-
-    QByteArray block_device;
-    QString udi;
-    CDDADevices *devices;
-
-    KCDDB::Client *cddb;
-    KCDDB::CDInfo cd_info;
-    QImage p_cover;
-    bool modified;
-    bool p_empty; // no metadata available yet
-    Error error;
-    bool cddb_transaction_pending;
+    CDDA cdda;
 
     QSet<int> sel_tracks;
-    void p_toggle(const unsigned int track);
-
-    const QString capitalize(const QString &s);
-
-    void set_default_values();
-
-    void modify();
+    void p_toggle(const int track);
 };
+
+}

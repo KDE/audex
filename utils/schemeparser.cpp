@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,18 +9,13 @@
 
 #include "audex-version.h"
 
-#if QT_VERSION >= 0x060000
 #define IS_TRUE(val) (val.typeId() == QMetaType::Bool && val.toBool())
 #define IS_INT(val)                                                                                                                                            \
     (val.typeId() == QMetaType::Int || val.typeId() == QMetaType::UInt || val.typeId() == QMetaType::LongLong || val.typeId() == QMetaType::ULongLong)
 #define IS_DATETIME(val) (val.typeId() == QMetaType::QDateTime || val.typeId() == QMetaType::QDate || val.typeId() == QMetaType::QTime)
-#endif
 
-#if QT_VERSION < 0x060000
-#define IS_TRUE(val) (val.type() == QVariant::Bool && val.toBool())
-#define IS_INT(val) (val.type() == QVariant::Int || val.type() == QVariant::UInt || val.type() == QVariant::LongLong || val.type() == QVariant::ULongLong)
-#define IS_DATETIME(val) (val.type() == QVariant::DateTime || val.type() == QVariant::Date || val.type() == QVariant::Time)
-#endif
+namespace Audex
+{
 
 const QString SchemeParser::parseScheme(const QString &scheme, const Placeholders &placeholders, PlaceholdersParameters *placeholders_parameters)
 {
@@ -535,4 +530,6 @@ void SchemeParser::parseInfoTextScheme(QStringList &text,
     placeholders.insert(VAR_LINEBREAK, QString("\n"));
 
     text = parseScheme(text.join('\n'), placeholders).split('\n');
+}
+
 }

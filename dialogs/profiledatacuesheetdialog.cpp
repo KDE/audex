@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -9,6 +9,9 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+
+namespace Audex
+{
 
 ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
@@ -34,30 +37,30 @@ ProfileDataCueSheetDialog::ProfileDataCueSheetDialog(ProfileModel *profile_model
     if (!new_profile_mode)
         buttons |= QDialogButtonBox::Apply;
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(buttons);
-    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    auto *buttonBox = new QDialogButtonBox(buttons);
+    auto *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
     okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
     if (!new_profile_mode)
         applyButton = buttonBox->button(QDialogButtonBox::Apply);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataCueSheetDialog::slotAccepted);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataCueSheetDialog::reject);
+    QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataCueSheetDialog::slotAccepted);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataCueSheetDialog::reject);
     if (!new_profile_mode)
-        connect(applyButton, &QPushButton::clicked, this, &ProfileDataCueSheetDialog::slotApplied);
+        QObject::connect(applyButton, &QPushButton::clicked, this, &ProfileDataCueSheetDialog::slotApplied);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    QObject::connect(ui.kpushbutton_scheme, &QPushButton::clicked, this, &ProfileDataCueSheetDialog::scheme_wizard);
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataCueSheetDialog::trigger_changed);
 
     ui.checkBox_add_mcn_and_isrc->setChecked(add_mcn_and_isrc);
-    connect(ui.checkBox_add_mcn_and_isrc, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(ui.checkBox_add_mcn_and_isrc, &QCheckBox::toggled, this, &ProfileDataCueSheetDialog::trigger_changed);
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -139,4 +142,6 @@ bool ProfileDataCueSheetDialog::save()
     }
 
     return false;
+}
+
 }

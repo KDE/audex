@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #include "opusencwidget.h"
 
 #include <QDebug>
+
+namespace Audex
+{
 
 opusencWidget::opusencWidget(Parameters *parameters, QWidget *parent)
     : opusencWidgetUI(parent)
@@ -25,15 +28,15 @@ opusencWidget::opusencWidget(Parameters *parameters, QWidget *parent)
     checkBox_embedcover->setChecked(parameters->value(ENCODER_OPUSENC_EMBED_COVER_KEY).toBool());
     qlineedit_suffix->setText(parameters->value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString());
 
-    connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_slider(int)));
-    connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(horizontalSlider_bitrate, &QSlider::valueChanged, this, &opusencWidget::bitrate_changed_by_slider);
+    QObject::connect(horizontalSlider_bitrate, &QSlider::valueChanged, this, &opusencWidget::trigger_changed);
 
-    connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_spinbox(int)));
-    connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(kintspinbox_bitrate, &QSpinBox::valueChanged, this, &opusencWidget::bitrate_changed_by_spinbox);
+    QObject::connect(kintspinbox_bitrate, &QSpinBox::valueChanged, this, &opusencWidget::trigger_changed);
 
-    connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(checkBox_embedcover, &QCheckBox::toggled, this, &opusencWidget::trigger_changed);
 
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(qlineedit_suffix, &QLineEdit::textEdited, this, &opusencWidget::trigger_changed);
 
     changed = false;
 }
@@ -76,4 +79,6 @@ void opusencWidget::trigger_changed()
                || qlineedit_suffix->text() != parameters->value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
+}
+
 }

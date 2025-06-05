@@ -1,13 +1,20 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "extractingprogressdialog.h"
 
-ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent)
+namespace Audex
+{
+
+ExtractingProgressDialog::ExtractingProgressDialog(QPointer<ProfileModel> profile_model,
+                                                   const Audex::CDDA &cdda,
+                                                   const Audex::TracknumberSet &selectedTracks,
+                                                   const QByteArray &blockDevice,
+                                                   QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18n("Rip And Encode"));
@@ -17,7 +24,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
 
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel);
     cancelButton = buttonBox->button(QDialogButtonBox::Cancel);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotCancel);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotCancel);
 
     QWidget *widget = new QWidget(this);
     mainLayout->addWidget(widget);
@@ -25,9 +32,10 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
     ui.setupUi(widget);
 
     this->profile_model = profile_model;
-    this->cdda_model = cdda_model;
+    this->cdda = cdda;
+    this->selected_tracks = selectedTracks;
 
-    QString title = QString("%1 - %2").arg(cdda_model->artist(), cdda_model->title());
+    QString title = QString("%1 - %2").arg(cdda.metadata().get(Audex::Metadata::Artist).toString(), cdda.metadata().get(Audex::Metadata::Title).toString());
     ui.label_header->setText(title);
 
     p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
@@ -37,29 +45,26 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
         ui.label_encoding->setText(i18n("Encoding"));
 
     } else {
-        ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->numOfAudioTracks()));
-        ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
+        ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda.toc().audioTrackCount()));
+        ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda.toc().audioTrackCount()));
     }
 
-    manager = new Audex::AudexManager(this, profile_model, cdda_model);
+    audex_rip_manager = new Audex::AudexRipManager(this, profile_model, cdda, blockDevice);
 
-    connect(manager, SIGNAL(error(const QString &, const QString &)), this, SLOT(show_error(const QString &, const QString &)));
-    connect(manager, SIGNAL(warning(const QString &)), this, SLOT(show_warning(const QString &)));
-    connect(manager, SIGNAL(info(const QString &)), this, SLOT(show_info(const QString &)));
-    connect(manager, SIGNAL(finished(bool)), this, SLOT(conclusion(bool)));
-    connect(manager, SIGNAL(speedEncode(double)), this, SLOT(show_speed_encode(double)));
-    connect(manager, SIGNAL(speedExtract(double)), this, SLOT(show_speed_extract(double)));
-    connect(manager, SIGNAL(progressExtractTrack(int)), this, SLOT(show_progress_extract_track(int)));
-    connect(manager, SIGNAL(progressExtractOverall(int)), this, SLOT(show_progress_extract_overall(int)));
-    connect(manager, SIGNAL(progressEncodeTrack(int)), this, SLOT(show_progress_encode_track(int)));
-    connect(manager, SIGNAL(progressEncodeOverall(int)), this, SLOT(show_progress_encode_overall(int)));
-    connect(manager,
-            SIGNAL(changedExtractTrack(int, int, const QString &, const QString &)),
-            this,
-            SLOT(show_changed_extract_track(int, int, const QString &, const QString &)));
-    connect(manager, SIGNAL(changedEncodeTrack(int, int, const QString &)), this, SLOT(show_changed_encode_track(int, int, const QString &)));
-    connect(manager, SIGNAL(timeout()), this, SLOT(ask_timeout()));
-    connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::error, this, &ExtractingProgressDialog::show_error);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::warning, this, &ExtractingProgressDialog::show_warning);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::info, this, &ExtractingProgressDialog::show_info);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::finished, this, &ExtractingProgressDialog::conclusion);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::speedEncode, this, &ExtractingProgressDialog::show_speed_encode);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::speedExtract, this, &ExtractingProgressDialog::show_speed_extract);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::progressExtractTrack, this, &ExtractingProgressDialog::show_progress_extract_track);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::progressExtractOverall, this, &ExtractingProgressDialog::show_progress_extract_overall);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::progressEncodeTrack, this, &ExtractingProgressDialog::show_progress_encode_track);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::progressEncodeOverall, this, &ExtractingProgressDialog::show_progress_encode_overall);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::changedExtractTrack, this, &ExtractingProgressDialog::show_changed_extract_track);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::changedEncodeTrack, this, &ExtractingProgressDialog::show_changed_encode_track);
+    QObject::connect(audex_rip_manager, &Audex::AudexRipManager::timeout, this, &ExtractingProgressDialog::ask_timeout);
+    QObject::connect(ui.details_button, &QPushButton::pressed, this, &ExtractingProgressDialog::toggle_details);
 
     finished = false;
 
@@ -68,13 +73,10 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
     unity_message = QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
 }
 
-ExtractingProgressDialog::~ExtractingProgressDialog()
-{
-    delete manager;
-}
-
 int ExtractingProgressDialog::exec()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     KConfigGroup grp(KSharedConfig::openConfig(), "ExtractingProgressDialog");
 
     resize(600, 400);
@@ -84,8 +86,8 @@ int ExtractingProgressDialog::exec()
     toggle_details();
     show();
     setModal(true);
-    if (manager->prepare()) {
-        manager->start();
+    if (audex_rip_manager->prepare(selected_tracks)) {
+        audex_rip_manager->start();
     }
     int rv = QDialog::exec();
 
@@ -115,7 +117,7 @@ void ExtractingProgressDialog::toggle_details()
         ui.details->setVisible(true);
         ui.label_overall_track->setVisible(false);
 
-        if (cdda_model->numOfAudioTracksInSelection() < 2) {
+        if (selected_tracks.count() < 2) {
             ui.label_overall->setVisible(false);
             ui.progressBar_overall->setVisible(false);
         } else {
@@ -147,6 +149,8 @@ void ExtractingProgressDialog::slotExtractLog()
 
 void ExtractingProgressDialog::cancel()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     if (finished) {
         close();
 
@@ -158,7 +162,7 @@ void ExtractingProgressDialog::cancel()
                                            KStandardGuiItem::cont())
             == KMessageBox::PrimaryAction) {
             cancelButton->setEnabled(false);
-            manager->cancel();
+            audex_rip_manager->cancel();
         }
     }
 }
@@ -242,11 +246,13 @@ void ExtractingProgressDialog::show_speed_extract(double speed)
 
 void ExtractingProgressDialog::conclusion(bool successful)
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     // Remove the cancel button
     buttonBox->clear();
     // Add the new close button
     buttonBox->addButton(QDialogButtonBox::Close);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotClose);
+    QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotClose);
 
     finished = true;
 
@@ -273,19 +279,19 @@ void ExtractingProgressDialog::conclusion(bool successful)
         ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
-        if (manager->encoderLog().count() > 0) {
+        if (audex_rip_manager->encoderLog().count() > 0) {
             auto *encoderLogButton = new QPushButton();
             encoderLogButton->setText(i18n("Show encoding log..."));
             encoderLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
             buttonBox->addButton(encoderLogButton, QDialogButtonBox::HelpRole);
-            connect(encoderLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderLog);
+            QObject::connect(encoderLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderLog);
         }
-        if (manager->extractLog().count() > 0) {
+        if (audex_rip_manager->extractLog().count() > 0) {
             auto *extractLogButton = new QPushButton();
             extractLogButton->setText(i18n("Show rip log..."));
             extractLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
             buttonBox->addButton(extractLogButton, QDialogButtonBox::HelpRole);
-            connect(extractLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractLog);
+            QObject::connect(extractLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractLog);
         }
     }
 
@@ -328,6 +334,8 @@ void ExtractingProgressDialog::show_error(const QString &message, const QString 
 
 void ExtractingProgressDialog::ask_timeout()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     if (KMessageBox::questionTwoActions(this,
                                         i18n("Ripping speed was extremely slow for the last 5 minutes.\n"
                                              "Do you want to continue extraction?"),
@@ -335,24 +343,30 @@ void ExtractingProgressDialog::ask_timeout()
                                         KStandardGuiItem::cont(),
                                         KStandardGuiItem::cancel())
         == KMessageBox::SecondaryAction) {
-        manager->cancel();
+        audex_rip_manager->cancel();
     }
 }
 
 void ExtractingProgressDialog::open_encoder_log_view_dialog()
 {
-    LogViewDialog logViewDialog(manager->encoderLog(), i18n("Encoding log"), this);
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
+    LogViewDialog logViewDialog(audex_rip_manager->encoderLog(), i18n("Encoding log"), this);
     logViewDialog.exec();
 }
 
 void ExtractingProgressDialog::open_extract_log_view_dialog()
 {
-    LogViewDialog logViewDialog(manager->extractLog(), i18n("Ripping log"), this);
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
+    LogViewDialog logViewDialog(audex_rip_manager->extractLog(), i18n("Ripping log"), this);
     logViewDialog.exec();
 }
 
 void ExtractingProgressDialog::update_unity()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     QList<QVariant> args;
     int progress = ui.progressBar_overall->value();
     bool show_progress = progress > -1 && progress < 100 && !finished;
@@ -365,4 +379,6 @@ void ExtractingProgressDialog::update_unity()
     args.append(props);
     unity_message.setArguments(args);
     QDBusConnection::sessionBus().send(unity_message);
+}
+
 }

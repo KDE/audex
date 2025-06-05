@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #include "wavewidget.h"
 
 #include <QDebug>
+
+namespace Audex
+{
 
 waveWidget::waveWidget(Parameters *parameters, QWidget *parent)
     : waveWidgetUI(parent)
@@ -22,7 +25,7 @@ waveWidget::waveWidget(Parameters *parameters, QWidget *parent)
 
     qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
 
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(qlineedit_suffix, &QLineEdit::textEdited, this, &waveWidget::trigger_changed);
 
     changed = false;
 }
@@ -47,4 +50,6 @@ void waveWidget::trigger_changed()
     changed = (qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
+}
+
 }

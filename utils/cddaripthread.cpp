@@ -1,20 +1,16 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "cddaripthread.h"
 
-#include "models/profilemodel.h"
-
 #include <QDateTime>
 #include <QDebug>
 
 #include <cdio/paranoia/paranoia.h>
-
-#include "utils/cddaparanoia.h"
 
 namespace Audex
 {
@@ -31,7 +27,7 @@ CDDARipThread::CDDARipThread(const QByteArray &blockDevice, const Toc::Toc toc, 
 {
     p_toc = toc;
 
-    p_paranoia = new CDDAParanoia(blockDevice);
+    p_paranoia = new Device::Cdparanoia(blockDevice);
     if (!p_paranoia) {
         qDebug() << "Unable to create paranoia object.";
         Q_EMIT error(i18n("Unable to create paranoia object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."));

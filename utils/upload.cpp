@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -10,16 +10,15 @@
 #include <QDebug>
 #include <QUrl>
 
+namespace Audex
+{
+
 Upload::Upload(const QUrl &url, QObject *parent)
     : QObject(parent)
 {
     Q_UNUSED(parent);
 
     base_url = url;
-}
-
-Upload::~Upload()
-{
 }
 
 void Upload::upload(const QString &targetpath, const QStringList &filelist)
@@ -60,4 +59,6 @@ void Upload::upload(const QString &targetpath, const QStringList &filelist)
         }
         Q_EMIT info(i18n("Finished uploading file %1 to server.", fi.fileName()));
     }
+}
+
 }

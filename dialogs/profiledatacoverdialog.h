@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROFILEDATACOVERDIALOG_H
-#define PROFILEDATACOVERDIALOG_H
+#pragma once
 
 #include <QWidget>
 
@@ -19,6 +18,9 @@
 #include "filenameschemewizarddialog.h"
 
 #include "ui_profiledatacoverwidgetUI.h"
+
+namespace Audex
+{
 
 class ProfileDataCoverDialog : public QDialog
 {
@@ -40,7 +42,7 @@ private Q_SLOTS:
 
 private:
     Ui::ProfileDataCoverWidgetUI ui;
-    QPushButton *applyButton;
+    QPointer<QPushButton> applyButton;
 
     ProfileModel *profile_model;
     int profile_row;
@@ -51,4 +53,4 @@ private:
     Error error;
 };
 
-#endif
+}

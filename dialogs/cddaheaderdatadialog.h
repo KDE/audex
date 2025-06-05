@@ -1,45 +1,45 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CDDAHEADERDATADIALOG_H
-#define CDDAHEADERDATADIALOG_H
+#pragma once
 
 #include <QDate>
 #include <QDialog>
+#include <QDialogButtonBox>
+#include <QLineEdit>
+#include <QPointer>
 #include <QPushButton>
+#include <QVBoxLayout>
 #include <QWidget>
 
-#include "models/cddamodel.h"
+#include <KComboBox>
 
-#include "utils/discidcalculator.h"
+#include "datatypes/metadata.h"
+#include "datatypes/toc.h"
 
 #include "ui_cddaheaderdatawidgetUI.h"
+
+namespace Audex
+{
 
 class CDDAHeaderDataDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent = nullptr);
-    ~CDDAHeaderDataDialog() override;
+    explicit CDDAHeaderDataDialog(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc, QWidget *parent = nullptr);
 
-private Q_SLOTS:
-    void save();
-    void trigger_changed();
-    void enable_checkbox_multicd(bool enabled);
-
-    void slotAccepted();
-    void slotApplied();
+    const Audex::Metadata::Metadata &metadata() const;
 
 private:
     Ui::CDDAHeaderDataWidgetUI ui;
-    CDDAModel *cdda_model;
-    QPushButton *okButton;
-    QPushButton *applyButton;
+    Audex::Metadata::Metadata p_metadata;
+    Audex::Toc::Toc p_toc;
+    QPointer<QPushButton> okButton;
 };
 
-#endif
+}

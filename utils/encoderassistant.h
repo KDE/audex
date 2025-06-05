@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef ENCODERASSISTANT_H
-#define ENCODERASSISTANT_H
+#pragma once
 
 #include <QMap>
 #include <QString>
@@ -133,9 +132,21 @@
 
 #define ENCODER_NUM 6
 
+namespace Audex
+{
+
 namespace EncoderAssistant
 {
-enum Encoder { LAME = 0, OGGENC, OPUSENC, FLAC, FAAC, WAVE, CUSTOM, NUM };
+enum Encoder {
+    LAME = 0,
+    OGGENC,
+    OPUSENC,
+    FLAC,
+    FAAC,
+    WAVE,
+    CUSTOM,
+    NUM
+};
 
 const QString name(const Encoder encoder);
 const QString encoderName(const Encoder encoder);
@@ -155,4 +166,4 @@ const QMap<int, QString> availableEncoderNameListWithVersions();
 
 };
 
-#endif
+}

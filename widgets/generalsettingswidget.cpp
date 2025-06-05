@@ -10,6 +10,9 @@
 #include <KLocalizedString>
 #include <QStandardPaths>
 
+namespace Audex
+{
+
 generalSettingsWidget::generalSettingsWidget(QWidget *parent)
     : generalSettingsWidgetUI(parent)
 {
@@ -19,4 +22,6 @@ generalSettingsWidget::generalSettingsWidget(QWidget *parent)
 
 generalSettingsWidget::~generalSettingsWidget()
 {
+}
+
 }

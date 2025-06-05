@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #pragma once
 
 #include <QByteArray>
+
+namespace Audex
+{
 
 // Signed Little-Endian 16bit-Integer, stereo interleaved, first left channel, second right channel
 class SampleArray
@@ -45,3 +48,5 @@ public:
 private:
     QByteArray p_data;
 };
+
+}

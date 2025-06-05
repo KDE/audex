@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROFILEWIDGET_H
-#define PROFILEWIDGET_H
+#pragma once
 
 #include <QDir>
 #include <QWidget>
@@ -17,6 +16,9 @@
 #include "models/profilemodel.h"
 
 #include "ui_profilewidgetUI.h"
+
+namespace Audex
+{
 
 class profileWidgetUI : public QWidget, public Ui::ProfileWidgetUI
 {
@@ -35,10 +37,10 @@ public:
     explicit profileWidget(ProfileModel *profileModel, QWidget *parent = nullptr);
     ~profileWidget() override;
 private Q_SLOTS:
-    void _update();
+    void p_update();
     void add_profile();
     void rem_profile();
-    void mod_profile(const QModelIndex &index);
+    void mod_profile_index(const QModelIndex &index);
     void mod_profile();
     void copy_profile();
     void save_profiles();
@@ -49,4 +51,4 @@ private:
     ProfileModel *profile_model;
 };
 
-#endif
+}

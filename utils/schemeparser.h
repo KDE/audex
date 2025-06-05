@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef SCHEMEPARSER_H
-#define SCHEMEPARSER_H
+#pragma once
 
 #include <QDate>
 #include <QDateTime>
@@ -56,6 +55,9 @@
 
 #define STANDARD_EMBED_COVER_FORMAT "jpeg"
 #define STANDARD_EMBED_COVER_WIDTH 600
+
+namespace Audex
+{
 
 typedef QMap<QString, QVariant> Placeholders;
 typedef QMap<QString, Parameters> PlaceholdersParameters;
@@ -304,4 +306,4 @@ private:
     }
 };
 
-#endif
+}

@@ -1,74 +1,64 @@
-Audex
-=====
+# Audex
 
-Audex is an audio grabber tool for CD-ROM drives built with KDE Frameworks.
+**Audex** is an advanced audio ripping tool for CD-ROM drives, built using KDE Frameworks.
 
-*Note: There is an active branch "kf5" containing a Qt5/KF5 supported version 0.96.X.*
+## Features
 
-### Features
+- Native support for encoder binaries: FLAC, LAME (MP3), Opus, Ogg Vorbis, and FAAC (MP4/AAC)
+- Custom encoder binary support
+- CDDB and MusicBrainz integration
+- CD-Text support
+- Album cover support
+- Sample offset correction
+- Single-file ripping with cue sheet generation
 
-* Native encoder binary support for FLAC, LAME (MP3), Opus, Ogg Vorbis and FAAC (MP4/AAC)
-* Custom encoder binary support
-* CDDB and MusicBrainz support
-* Cover integration
-* Offset correction
-* Single file ripping with cue sheet writing
+## Requirements
 
-### Prerequisites
+- Qt6 / KDE Frameworks 6 (KF6)
+- `libkcddb`
+- `libcdio-paranoia`
 
-* libkcddb
-* libcdio
-* libcdio-paranoia
+## Optional Requirements
 
-### Prerequisites (optional)
+For native encoder support, the following binaries are required:
 
-Native supported encoder binaries:
+- **FLAC** – for `.flac` files  
+- **LAME** – for `.mp3` files  
+- **Opus** – for `.opus` files  
+- **Ogg Vorbis** – for `.ogg` files  
+- **FAAC** – for `.mp4` / `.aac` files  
 
-* FLAC (flac files)
-* LAME (mp3 files)
-* Opus (opus files)
-* Ogg Vorbis (ogg files)
-* FAAC (mp4/aac files)
+Additionally, you can define custom profiles to support virtually any encoding binary.
 
-Beyond these you can define custom profiles for nearly any encoding binary support.
+## Building and Installing
 
-### Build and install
+To configure and build Audex:
 
-```
-cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/usr -B build/
+```bash
+cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -B build/
 cmake --build build/
 ```
 
-For buildung and installation in one step:
+To build and install in one step:
 
-```
+```bash
 (sudo) cmake --build build/ --target install
 ```
 
-To uninstall either use classical way:
+To uninstall, use the traditional method:
 
-```
+```bash
 (sudo) make uninstall
 ```
 
-Or remove all files listed in `install_manifest.txt` in your `build/` directory manually:
+Or manually remove all installed files listed in the `install_manifest.txt`:
 
-```
+```bash
 (sudo) xargs rm < build/install_manifest.txt
 ```
 
-### Further information
+## Roadmap / TODO
 
-These files make Audex libcdio/libcdio-paranoia dependent:
-
-* utils/cddacdio.h
-* utils/cddacdio.cpp
-
-### TODO
-
-* Cover auto search
-* Replay Gain
-* Add device selector widget
-* Accurate ripping with auto detecting offset correction
-* CD-Text
-* Check for bugs in KF6 porting effort
+- Automatic cover art search
+- ReplayGain support
+- Accurate ripping with automatic offset detection

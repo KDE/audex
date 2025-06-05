@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -13,6 +13,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
+namespace Audex
+{
+
 ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent)
     : QDialog(parent)
 {
@@ -20,7 +23,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     profile_model = profileModel;
     if (!profile_model) {
-        qDebug() << "ProfileModel is NULL!";
+        qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << "ERROR: ProfileModel is not set.";
         return;
     }
 
@@ -56,19 +59,19 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     }
 
     lame_widget = new lameWidget(&lame_parameters, this);
-    connect(lame_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(lame_widget, &lameWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     oggenc_widget = new oggencWidget(&oggenc_parameters, this);
-    connect(oggenc_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(oggenc_widget, &oggencWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     opusenc_widget = new opusencWidget(&opusenc_parameters, this);
-    connect(opusenc_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(opusenc_widget, &opusencWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     flac_widget = new flacWidget(&flac_parameters, this);
-    connect(flac_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(flac_widget, &flacWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     faac_widget = new faacWidget(&faac_parameters, this);
-    connect(faac_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(faac_widget, &faacWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     wave_widget = new waveWidget(&wave_parameters, this);
-    connect(wave_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(wave_widget, &waveWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     custom_widget = new customWidget(&custom_parameters, this);
-    connect(custom_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    QObject::connect(custom_widget, &customWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
 
     ui.stackedWidget_encoder->addWidget(lame_widget);
     ui.stackedWidget_encoder->addWidget(oggenc_widget);
@@ -84,94 +87,94 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         ui.kcombobox_encoder->addItem(i.value(), i.key());
         ++i;
     }
-    connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(set_encoder_by_combobox(int)));
+    QObject::connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(set_encoder_by_combobox(int)));
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    QObject::connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
-    connect(ui.kpushbutton_cover, SIGNAL(clicked()), this, SLOT(cover_settings()));
-    connect(ui.kpushbutton_playlist, SIGNAL(clicked()), this, SLOT(playlist_settings()));
-    connect(ui.kpushbutton_info, SIGNAL(clicked()), this, SLOT(info_settings()));
-    connect(ui.kpushbutton_hashlist, SIGNAL(clicked()), this, SLOT(hashlist_settings()));
-    connect(ui.kpushbutton_cuesheet, SIGNAL(clicked()), this, SLOT(cuesheet_settings()));
-    connect(ui.kpushbutton_logfile, SIGNAL(clicked()), this, SLOT(logfile_settings()));
-    connect(ui.kpushbutton_singlefile, SIGNAL(clicked()), this, SLOT(singlefile_settings()));
+    QObject::connect(ui.kpushbutton_cover, SIGNAL(clicked()), this, SLOT(cover_settings()));
+    QObject::connect(ui.kpushbutton_playlist, SIGNAL(clicked()), this, SLOT(playlist_settings()));
+    QObject::connect(ui.kpushbutton_info, SIGNAL(clicked()), this, SLOT(info_settings()));
+    QObject::connect(ui.kpushbutton_hashlist, SIGNAL(clicked()), this, SLOT(hashlist_settings()));
+    QObject::connect(ui.kpushbutton_cuesheet, SIGNAL(clicked()), this, SLOT(cuesheet_settings()));
+    QObject::connect(ui.kpushbutton_logfile, SIGNAL(clicked()), this, SLOT(logfile_settings()));
+    QObject::connect(ui.kpushbutton_singlefile, SIGNAL(clicked()), this, SLOT(singlefile_settings()));
 
-    connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cover(bool)));
-    connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_playlist(bool)));
-    connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(enable_settings_info(bool)));
-    connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_hashlist(bool)));
-    connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cuesheet(bool)));
-    connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_logfile(bool)));
-    connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_singlefile(bool)));
-    connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_filenames(bool)));
-    connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_playlist(bool)));
+    QObject::connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cover(bool)));
+    QObject::connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_playlist(bool)));
+    QObject::connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(enable_settings_info(bool)));
+    QObject::connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_hashlist(bool)));
+    QObject::connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cuesheet(bool)));
+    QObject::connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_logfile(bool)));
+    QObject::connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_singlefile(bool)));
+    QObject::connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_filenames(bool)));
+    QObject::connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_playlist(bool)));
 
-    connect(this, SIGNAL(rejected()), this, SLOT(slotRejected()));
+    QObject::connect(this, SIGNAL(rejected()), this, SLOT(slotRejected()));
 
     if (!new_profile_mode) {
         setWindowTitle(i18n("Modify Profile"));
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
-        QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+        auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
+        auto *okButton = buttonBox->button(QDialogButtonBox::Ok);
         okButton->setDefault(true);
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
         applyButton = buttonBox->button(QDialogButtonBox::Apply);
-        connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
-        connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
-        connect(applyButton, &QPushButton::clicked, this, &ProfileDataDialog::slotApplied);
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+        QObject::connect(applyButton, &QPushButton::clicked, this, &ProfileDataDialog::slotApplied);
         mainLayout->addWidget(buttonBox);
 
         ui.qlineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
-        connect(ui.qlineedit_name, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.qlineedit_name, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
         ui.qlineedit_name->setCursorPosition(0);
 
         ui.kiconbutton_icon->setIcon(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString());
-        connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString &)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString &)), this, SLOT(trigger_changed()));
 
         set_encoder(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toInt());
-        connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
 
         ui.qlineedit_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString());
-        connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
         ui.qlineedit_scheme->setCursorPosition(0);
 
         ui.checkBox_fat32compatible->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-        connect(ui.checkBox_fat32compatible, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_fat32compatible, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_underscore->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
-        connect(ui.checkBox_underscore, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_underscore, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_2digitstracknum->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX)).toBool());
-        connect(ui.checkBox_2digitstracknum, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_2digitstracknum, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_cover->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool());
         enable_settings_cover(ui.checkBox_cover->isChecked());
-        connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_playlist->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX)).toBool());
         enable_settings_playlist(ui.checkBox_playlist->isChecked());
-        connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_info->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX)).toBool());
         enable_settings_info(ui.checkBox_info->isChecked());
-        connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_hashlist->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool());
         enable_settings_hashlist(ui.checkBox_hashlist->isChecked());
-        connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_cuesheet->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool());
         enable_settings_cuesheet(ui.checkBox_cuesheet->isChecked());
-        connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_logfile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool());
         enable_settings_logfile(ui.checkBox_logfile->isChecked());
-        connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         ui.checkBox_singlefile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool());
         enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
-        connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        QObject::connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
         if (ui.checkBox_singlefile->isChecked())
             disable_playlist(true);
@@ -181,12 +184,12 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     } else {
         setWindowTitle(i18n("Create Profile"));
 
-        QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-        QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+        auto *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+        auto *okButton = buttonBox->button(QDialogButtonBox::Ok);
         okButton->setDefault(true);
         okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-        connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
-        connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
+        QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &ProfileDataDialog::slotAccepted);
+        QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &ProfileDataDialog::reject);
 
         mainLayout->addWidget(buttonBox);
 
@@ -243,13 +246,6 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
 ProfileDataDialog::~ProfileDataDialog()
 {
-    delete lame_widget;
-    delete oggenc_widget;
-    delete opusenc_widget;
-    delete flac_widget;
-    delete faac_widget;
-    delete wave_widget;
-    delete custom_widget;
 }
 
 void ProfileDataDialog::slotAccepted()
@@ -374,103 +370,75 @@ void ProfileDataDialog::disable_filenames(bool disabled)
 
 void ProfileDataDialog::scheme_wizard()
 {
-    SchemeWizardDialog *dialog = new SchemeWizardDialog(ui.qlineedit_scheme->text(), this);
+    QPointer<SchemeWizardDialog> dialog = new SchemeWizardDialog(ui.qlineedit_scheme->text(), this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
 
     ui.qlineedit_scheme->setText(dialog->scheme);
-
-    delete dialog;
-
     trigger_changed();
 }
 
 void ProfileDataDialog::cover_settings()
 {
-    ProfileDataCoverDialog *dialog = new ProfileDataCoverDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataCoverDialog> dialog = new ProfileDataCoverDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
+    trigger_changed();
 }
 
 void ProfileDataDialog::playlist_settings()
 {
-    ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataPlaylistDialog> dialog = new ProfileDataPlaylistDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
+    trigger_changed();
 }
 
 void ProfileDataDialog::info_settings()
 {
-    ProfileDataInfoDialog *dialog = new ProfileDataInfoDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataInfoDialog> dialog = new ProfileDataInfoDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
+    trigger_changed();
 }
 
 void ProfileDataDialog::hashlist_settings()
 {
-    ProfileDataHashlistDialog *dialog = new ProfileDataHashlistDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataHashlistDialog> dialog = new ProfileDataHashlistDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
+    trigger_changed();
 }
 
 void ProfileDataDialog::cuesheet_settings()
 {
-    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataCueSheetDialog> dialog = new ProfileDataCueSheetDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
+    trigger_changed();
 }
 
 void ProfileDataDialog::logfile_settings()
 {
-    ProfileDataLogFileDialog *dialog = new ProfileDataLogFileDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataLogFileDialog> dialog = new ProfileDataLogFileDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
+    trigger_changed();
 }
 
 void ProfileDataDialog::singlefile_settings()
 {
-    ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(profile_model, profile_row, new_profile_mode, this);
+    QPointer<ProfileDataSingleFileDialog> dialog = new ProfileDataSingleFileDialog(profile_model, profile_row, new_profile_mode, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog->exec() != QDialog::Accepted)
         return;
-    }
-
-    delete dialog;
-
     trigger_changed();
 }
 
@@ -607,4 +575,6 @@ bool ProfileDataDialog::save()
     }
 
     return false;
+}
+
 }

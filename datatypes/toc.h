@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -22,7 +22,7 @@
 namespace Audex
 {
 
-typedef QList<quint32> TrackOffsetList; // sector offsets
+typedef QList<quint32> DiscSignature; // sector offsets
 typedef QSet<int> TracknumberSet;
 
 typedef QList<QVariant> TrackIndicesList;
@@ -113,7 +113,7 @@ public:
 
     // First element is offset sector of first track after lead-in, list of sector offsets per track, last element sector offset of lead-out
     // lead-in: +150 sectors
-    TrackOffsetList trackOffsetList(const bool leadin = true, const bool skipDataTracks = false) const;
+    DiscSignature discSignature(const bool leadin = true, const bool skipDataTracks = false) const;
 
     const QStringList prettyTOC() const;
 

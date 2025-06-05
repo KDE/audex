@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -13,11 +13,11 @@
 
 #include <KLocalizedString>
 
-#include "utils/samplearray.h"
+#include "datatypes/samplearray.h"
 
 #include "datatypes/toc.h"
 
-#include "cddaparanoia.h"
+#include "device/cdparanoia.h"
 
 #define SECTOR_SIZE_BYTES 2352
 #define SECTOR_SIZE_SAMPLES 588
@@ -122,7 +122,7 @@ protected:
     void run() override;
 
 private:
-    CDDAParanoia *p_paranoia;
+    Device::Cdparanoia *p_paranoia;
     Toc::Toc p_toc;
     bool skip_read_errors;
 

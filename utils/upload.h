@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef UPLOAD_H
-#define UPLOAD_H
+#pragma once
 
 #include <QByteArray>
 #include <QFile>
@@ -19,12 +18,14 @@
 #include <KIO/SimpleJob>
 #include <KLocalizedString>
 
+namespace Audex
+{
+
 class Upload : public QObject
 {
     Q_OBJECT
 public:
     explicit Upload(const QUrl &url, QObject *parent = nullptr);
-    ~Upload() override;
 
     void upload(const QString &targetpath, const QStringList &filelist);
 
@@ -37,4 +38,4 @@ private:
     QUrl base_url;
 };
 
-#endif
+}

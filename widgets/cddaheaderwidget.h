@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CDDAHEADERWIDGET_H
-#define CDDAHEADERWIDGET_H
+#pragma once
 
 #include <QApplication>
 #include <QDebug>
@@ -17,6 +16,7 @@
 #include <QImage>
 #include <QMenu>
 #include <QPainter>
+#include <QPointer>
 #include <QTemporaryDir>
 #include <QTimer>
 #include <QWidget>
@@ -25,12 +25,16 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 
+#include "datatypes/metadata.h"
+#include "datatypes/toc.h"
 #include "dialogs/errordialog.h"
-#include "models/cddamodel.h"
 
 // fixed point defines
 #define FP_BITS 10
 #define FP_FACTOR (1 << FP_BITS)
+
+namespace Audex
+{
 
 enum FadeStyle {
     NoFade,
@@ -51,20 +55,17 @@ class CDDAHeaderWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CDDAHeaderWidget(CDDAModel *cddaModel,
-                              QWidget *parent = nullptr,
-                              const int cover_size_min = 200,
-                              const int cover_size_max = 400,
-                              const int padding = 20);
+    explicit CDDAHeaderWidget(QWidget *parent = nullptr, const int cover_size_min = 200, const int cover_size_max = 400, const int padding = 20);
     ~CDDAHeaderWidget() override;
     QSize sizeHint() const override;
-    // void setCover(const QImage &cover);
 
     bool isEnabled() const;
 
 public Q_SLOTS:
     void setEnabled(bool enabled);
-    void edit_data();
+    void editData();
+    void updateMetadata(const Audex::Metadata::Metadata &metadata);
+    void update(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc);
 
 Q_SIGNALS:
     void headerDataChanged();
@@ -76,7 +77,6 @@ protected:
     void fetchCoverFinished(bool showDialog);
 
 private Q_SLOTS:
-
     void update();
 
     void load();
@@ -89,8 +89,10 @@ private Q_SLOTS:
     void context_menu(const QPoint &point);
 
 private:
-    CDDAModel *cdda_model;
-    KActionCollection *action_collection;
+    Audex::Metadata::Metadata metadata;
+    Audex::Toc::Toc toc;
+
+    QPointer<KActionCollection> action_collection;
     int cover_size_min;
     int cover_size_max;
     int padding;
@@ -111,4 +113,4 @@ private:
     QTemporaryDir tmp_dir;
 };
 
-#endif
+}

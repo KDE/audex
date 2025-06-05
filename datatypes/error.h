@@ -1,20 +1,25 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef ERROR_H
-#define ERROR_H
+#pragma once
 
 #include <QObject>
 #include <QString>
 
+namespace Audex
+{
+
 class Error
 {
 public:
-    enum ErrorType { ERROR, WARNING };
+    enum ErrorType {
+        ERROR,
+        WARNING
+    };
 
     explicit Error(const QString &message = "", const QString &details = "", const ErrorType errorType = Error::ERROR, QObject *parent = nullptr)
     {
@@ -84,4 +89,4 @@ private:
 
 typedef QList<Error> ErrorList;
 
-#endif
+}

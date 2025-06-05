@@ -1,12 +1,15 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "playlist.h"
 #include <QRegularExpression>
+
+namespace Audex
+{
 
 Playlist::Playlist()
 {
@@ -256,11 +259,7 @@ void Playlist::p_add_PLS(const QByteArray &playlist)
 void Playlist::p_add_XSPF(const QByteArray &playlist)
 {
     QDomDocument doc;
-    QString errorMsg;
-    int errorCol;
-    int errorRow;
-
-    if (!doc.setContent(QString(playlist), &errorMsg, &errorRow, &errorCol))
+    if (!doc.setContent(playlist))
         return;
 
     QDomElement rootElement = doc.firstChildElement("playlist");
@@ -327,4 +326,6 @@ const PlaylistItem Playlist::p_parse_m3u_metadata_line(const QString &line)
     pi.setArtist(list[0].trimmed());
     pi.setTitle(list[1].trimmed());
     return pi;
+}
+
 }

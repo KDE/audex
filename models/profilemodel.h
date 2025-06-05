@@ -1,16 +1,14 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROFILEMODEL_HEADER
-#define PROFILEMODEL_HEADER
-
-#include <climits>
+#pragma once
 
 #include <QAbstractTableModel>
+#include <QIcon>
 #include <QString>
 #include <QVariant>
 
@@ -18,8 +16,8 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 
+#include "datatypes/error.h"
 #include "utils/encoderassistant.h"
-#include "utils/error.h"
 
 #define DEFAULT_PROFILEINDEX -1
 #define DEFAULT_NAME ""
@@ -67,8 +65,10 @@
 #define DEFAULT_SF false
 #define DEFAULT_SF_NAME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
 
-enum ProfileColumns {
+namespace Audex
+{
 
+enum ProfileColumns {
     PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX = 0,
     PROFILE_MODEL_COLUMN_NAME_INDEX,
     PROFILE_MODEL_COLUMN_ICON_INDEX,
@@ -122,7 +122,6 @@ enum ProfileColumns {
     PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX,
 
     PROFILE_MODEL_COLUMN_NUM
-
 };
 
 #define PROFILE_MODEL_PROFILEINDEX_KEY "profile_key"
@@ -248,4 +247,4 @@ private:
     void p_load(KConfig *config);
 };
 
-#endif
+}

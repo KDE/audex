@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -139,15 +139,14 @@ private:
     bool job_in_progress;
 };
 
-class AudexManager : public QObject
+class AudexRipManager : public QObject
 {
     Q_OBJECT
 
 public:
-    AudexManager(QWidget *parent, ProfileModel *profile_model, CDDAModel *cdda_model);
-    ~AudexManager() override;
+    AudexRipManager(QWidget *parent, ProfileModel *profile_model, const Audex::CDDA &cdda, const QByteArray &blockDevice);
 
-    bool prepare();
+    bool prepare(const TracknumberSet &selectedTracks);
 
 public Q_SLOTS:
     void start();
@@ -199,12 +198,15 @@ Q_SIGNALS:
 private:
     QWidget *parent;
     ProfileModel *profile_model;
-    CDDAModel *cdda_model;
-    EncoderWrapper *encoder_wrapper;
-    CDDARipThread *cdda_rip_thread;
-    AudexJobs *jobs;
-    WaveFileWriter *wave_file_writer;
+    Audex::CDDA cdda;
+
+    QPointer<EncoderWrapper> encoder_wrapper;
+    QPointer<CDDARipThread> cdda_rip_thread;
+    QPointer<AudexJobs> jobs;
+    QPointer<WaveFileWriter> wave_file_writer;
     QTemporaryDir tmp_dir;
+
+    TracknumberSet selected_tracks;
 
     QString p_profile_name;
     QString p_suffix;

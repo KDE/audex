@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
- * <https://userbase.kde.org/Audex>
+ * SPDX-FileCopyrightText: 2007-2025 Marco Nelles <marco.nelles@kdemail.net>
+ * <https://apps.kde.org/audex/>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -8,6 +8,9 @@
 #include "oggencwidget.h"
 
 #include <QDebug>
+
+namespace Audex
+{
 
 oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent)
     : oggencWidgetUI(parent)
@@ -36,23 +39,25 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent)
     set_maxbitrate(parameters->value(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE).toInt());
     qlineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX).toString());
 
-    connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
-    connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    QObject::connect(horizontalSlider_quality, &QSlider::valueChanged, this, &oggencWidget::quality_changed_by_slider);
+    QObject::connect(horizontalSlider_quality, &QSlider::valueChanged, this, &oggencWidget::trigger_changed);
 
-    connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(quality_changed_by_spinbox(double)));
-    connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(trigger_changed()));
+    QObject::connect(kdoublenuminput_quality, &QDoubleSpinBox::valueChanged, this, &oggencWidget::quality_changed_by_spinbox);
+    QObject::connect(kdoublenuminput_quality, &QDoubleSpinBox::valueChanged, this, &oggencWidget::trigger_changed);
 
-    connect(checkBox_minbitrate, SIGNAL(toggled(bool)), this, SLOT(enable_min_bitrate(bool)));
-    connect(checkBox_minbitrate, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(checkBox_maxbitrate, SIGNAL(toggled(bool)), this, SLOT(enable_max_bitrate(bool)));
-    connect(checkBox_maxbitrate, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    QObject::connect(checkBox_minbitrate, &QCheckBox::toggled, this, &oggencWidget::enable_min_bitrate);
+    QObject::connect(checkBox_minbitrate, &QCheckBox::toggled, this, &oggencWidget::trigger_changed);
 
-    connect(kintspinbox_minbitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    connect(kintspinbox_minbitrate, SIGNAL(valueChanged(int)), this, SLOT(set_minbitrate(int)));
-    connect(kintspinbox_maxbitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    connect(kintspinbox_maxbitrate, SIGNAL(valueChanged(int)), this, SLOT(set_maxbitrate(int)));
+    QObject::connect(checkBox_maxbitrate, &QCheckBox::toggled, this, &oggencWidget::enable_max_bitrate);
+    QObject::connect(checkBox_maxbitrate, &QCheckBox::toggled, this, &oggencWidget::trigger_changed);
 
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    QObject::connect(kintspinbox_minbitrate, &QSpinBox::valueChanged, this, &oggencWidget::trigger_changed);
+    QObject::connect(kintspinbox_minbitrate, &QSpinBox::valueChanged, this, &oggencWidget::set_minbitrate);
+
+    QObject::connect(kintspinbox_maxbitrate, &QSpinBox::valueChanged, this, &oggencWidget::trigger_changed);
+    QObject::connect(kintspinbox_maxbitrate, &QSpinBox::valueChanged, this, &oggencWidget::set_maxbitrate);
+
+    QObject::connect(qlineedit_suffix, &QLineEdit::textEdited, this, &oggencWidget::trigger_changed);
 
     changed = false;
 }
@@ -179,4 +184,6 @@ void oggencWidget::trigger_changed()
                || qlineedit_suffix->text() != parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
+}
+
 }
