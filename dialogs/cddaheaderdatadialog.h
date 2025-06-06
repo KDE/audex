@@ -17,6 +17,8 @@
 #include <QWidget>
 
 #include <KComboBox>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include "datatypes/metadata.h"
 #include "datatypes/toc.h"
@@ -32,6 +34,7 @@ class CDDAHeaderDataDialog : public QDialog
 
 public:
     explicit CDDAHeaderDataDialog(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc, QWidget *parent = nullptr);
+    ~CDDAHeaderDataDialog();
 
     const Audex::Metadata::Metadata &metadata() const;
 

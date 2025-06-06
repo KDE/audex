@@ -332,6 +332,11 @@ void Manager::add_drive(const QString &drive_udi)
 {
     qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << drive_udi;
 
+    if (p_drives.contains(drive_udi)) {
+        qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << drive_udi << "already enlisted";
+        return;
+    }
+
     auto drive = QSharedPointer<OpticalDiscDrive>(new OpticalDiscDrive);
 
     Solid::Device device(drive_udi);
@@ -348,6 +353,11 @@ void Manager::add_drive(const QString &drive_udi)
 void Manager::add_disc(const QString &disc_udi)
 {
     qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << disc_udi;
+
+    if (p_audio_discs.contains(disc_udi)) {
+        qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__ << disc_udi << "already enlisted";
+        return;
+    }
 
     Solid::Device device(disc_udi);
     if (is_optical_audio_disc(device)) {

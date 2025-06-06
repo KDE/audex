@@ -9,156 +9,6 @@
 
 #include "utils/discidcalculator.h"
 
-#define GENRE_MAX 148
-static const char *ID3_GENRES[GENRE_MAX] = {"Blues",
-                                            "Classic Rock",
-                                            "Country",
-                                            "Dance",
-                                            "Disco",
-                                            "Funk",
-                                            "Grunge",
-                                            "Hip-Hop",
-                                            "Jazz",
-                                            "Metal",
-                                            "New Age",
-                                            "Oldies",
-                                            "Other",
-                                            "Pop",
-                                            "R&B",
-                                            "Rap",
-                                            "Reggae",
-                                            "Rock",
-                                            "Techno",
-                                            "Industrial",
-                                            "Alternative",
-                                            "Ska",
-                                            "Death Metal",
-                                            "Pranks",
-                                            "Soundtrack",
-                                            "Euro-Techno",
-                                            "Ambient",
-                                            "Trip-Hop",
-                                            "Vocal",
-                                            "Jazz+Funk",
-                                            "Fusion",
-                                            "Trance",
-                                            "Classical",
-                                            "Instrumental",
-                                            "Acid",
-                                            "House",
-                                            "Game",
-                                            "Sound Clip",
-                                            "Gospel",
-                                            "Noise",
-                                            "Alt",
-                                            "Bass",
-                                            "Soul",
-                                            "Punk",
-                                            "Space",
-                                            "Meditative",
-                                            "Instrumental Pop",
-                                            "Instrumental Rock",
-                                            "Ethnic",
-                                            "Gothic",
-                                            "Darkwave",
-                                            "Techno-Industrial",
-                                            "Electronic",
-                                            "Pop-Folk",
-                                            "Eurodance",
-                                            "Dream",
-                                            "Southern Rock",
-                                            "Comedy",
-                                            "Cult",
-                                            "Gangsta Rap",
-                                            "Top 40",
-                                            "Christian Rap",
-                                            "Pop/Funk",
-                                            "Jungle",
-                                            "Native American",
-                                            "Cabaret",
-                                            "New Wave",
-                                            "Psychedelic",
-                                            "Rave",
-                                            "Showtunes",
-                                            "Trailer",
-                                            "Lo-Fi",
-                                            "Tribal",
-                                            "Acid Punk",
-                                            "Acid Jazz",
-                                            "Polka",
-                                            "Retro",
-                                            "Musical",
-                                            "Rock & Roll",
-                                            "Hard Rock",
-                                            "Folk",
-                                            "Folk/Rock",
-                                            "National Folk",
-                                            "Swing",
-                                            "Fast-Fusion",
-                                            "Bebob",
-                                            "Latin",
-                                            "Revival",
-                                            "Celtic",
-                                            "Bluegrass",
-                                            "Avantgarde",
-                                            "Gothic Rock",
-                                            "Progressive Rock",
-                                            "Psychedelic Rock",
-                                            "Symphonic Rock",
-                                            "Slow Rock",
-                                            "Big Band",
-                                            "Chorus",
-                                            "Easy Listening",
-                                            "Acoustic",
-                                            "Humour",
-                                            "Speech",
-                                            "Chanson",
-                                            "Opera",
-                                            "Chamber Music",
-                                            "Sonata",
-                                            "Symphony",
-                                            "Booty Bass",
-                                            "Primus",
-                                            "Porn Groove",
-                                            "Satire",
-                                            "Slow Jam",
-                                            "Club",
-                                            "Tango",
-                                            "Samba",
-                                            "Folklore",
-                                            "Ballad",
-                                            "Power Ballad",
-                                            "Rhythmic Soul",
-                                            "Freestyle",
-                                            "Duet",
-                                            "Punk Rock",
-                                            "Drum Solo",
-                                            "A Cappella",
-                                            "Euro-House",
-                                            "Dance Hall",
-                                            "Goa",
-                                            "Drum & Bass",
-                                            "Club-House",
-                                            "Hardcore",
-                                            "Terror",
-                                            "Indie",
-                                            "BritPop",
-                                            "Negerpunk",
-                                            "Polsk Punk",
-                                            "Beat",
-                                            "Christian Gangsta Rap",
-                                            "Heavy Metal",
-                                            "Black Metal",
-                                            "Crossover",
-                                            "Contemporary Christian",
-                                            "Christian Rock",
-                                            "Merengue",
-                                            "Salsa",
-                                            "Thrash Metal",
-                                            "Anime",
-                                            "JPop",
-                                            "Synthpop"};
-
 namespace Audex
 {
 
@@ -188,15 +38,29 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(const Audex::Metadata::Metadata &meta
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    QStringList genres;
-    for (int i = 0; i < GENRE_MAX; ++i)
-        genres.append(QString().fromLatin1(ID3_GENRES[i]));
-    genres.sort();
+    KConfig config;
+    KConfigGroup group = config.group("Genres");
+    config.sync();
+
     KCompletion *comp = ui.kcombobox_genre->completionObject();
-    comp->insertItems(genres);
-    ui.kcombobox_genre->addItems(genres);
-    QObject::connect(ui.kcombobox_genre->lineEdit(), &QLineEdit::returnPressed, this, [=]() {
-        comp->addItem(ui.kcombobox_genre->lineEdit()->text());
+    comp->setOrder(KCompletion::Sorted);
+    comp->setIgnoreCase(true);
+
+    {
+        QStringList genres = group.readEntry("genres", QStringList());
+        genres.sort();
+        comp->insertItems(genres);
+        ui.kcombobox_genre->addItems(genres);
+    }
+
+    ui.kcombobox_genre->setAutoCompletion(true);
+    ui.kcombobox_genre->setEditable(true);
+    QObject::connect(ui.kcombobox_genre->lineEdit(), &QLineEdit::editingFinished, this, [=]() {
+        const QString genre = ui.kcombobox_genre->lineEdit()->text();
+        if (!comp->items().contains(genre, Qt::CaseInsensitive)) {
+            comp->addItem(genre);
+            ui.kcombobox_genre->addItem(genre);
+        }
     });
 
     ui.checkBox_various->setChecked(p_metadata.isVarious());
@@ -216,9 +80,9 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(const Audex::Metadata::Metadata &meta
         p_metadata.set(Audex::Metadata::Type::Artist, text);
     });
 
-    ui.qlineedit_title->setText(metadata.get(Audex::Metadata::Type::Title).toString());
+    ui.qlineedit_title->setText(metadata.get(Audex::Metadata::Type::Album).toString());
     QObject::connect(ui.qlineedit_title, &QLineEdit::textEdited, [=](const QString &text) {
-        p_metadata.set(Audex::Metadata::Type::Title, text);
+        p_metadata.set(Audex::Metadata::Type::Album, text);
     });
 
     ui.kintspinbox_cdnum->setValue(metadata.discNum());
@@ -258,6 +122,14 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(const Audex::Metadata::Metadata &meta
 
     ui.kintspinbox_cdnum->setEnabled(metadata.isMultiDisc());
     ui.label_cdnum->setEnabled(metadata.isMultiDisc());
+}
+
+CDDAHeaderDataDialog::~CDDAHeaderDataDialog()
+{
+    KConfig config;
+    KConfigGroup group = config.group("Genres");
+    group.writeEntry("genres", ui.kcombobox_genre->completionObject()->items());
+    config.sync();
 }
 
 const Audex::Metadata::Metadata &CDDAHeaderDataDialog::metadata() const

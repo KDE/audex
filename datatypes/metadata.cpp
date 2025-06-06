@@ -13,6 +13,12 @@ namespace Audex
 namespace Metadata
 {
 
+Metadata::Metadata()
+    : Dataset()
+{
+    set(DiscNumber, 1);
+}
+
 const Track &Metadata::track(const int tracknumber) const
 {
     if (tracknumber == 0)

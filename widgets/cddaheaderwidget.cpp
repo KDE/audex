@@ -58,31 +58,37 @@ void CDDAHeaderWidget::setEnabled(bool enabled)
 
 void CDDAHeaderWidget::editData()
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     QApplication::restoreOverrideCursor();
     cursor_on_label = false;
 
-    auto dialog = new CDDAHeaderDataDialog(metadata, toc, this);
+    QPointer<CDDAHeaderDataDialog> dialog = new CDDAHeaderDataDialog(metadata, toc, this);
     if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
         return;
     }
-    metadata = dialog->metadata();
-    delete dialog;
 
-    update();
-    Q_EMIT headerDataChanged();
+    if (metadata != dialog->metadata()) {
+        metadata = dialog->metadata();
+        update();
+        Q_EMIT metadataChanged(metadata);
+    }
 }
 
-void CDDAHeaderWidget::updateMetadata(const Audex::Metadata::Metadata &metadata)
+void CDDAHeaderWidget::setMetadata(const Metadata::Metadata &metadata)
 {
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
     this->metadata = metadata;
     update();
 }
 
-void CDDAHeaderWidget::update(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc)
+void CDDAHeaderWidget::setCDDA(const CDDA &cdda)
 {
-    this->metadata = metadata;
-    this->toc = toc;
+    qDebug() << "DEBUG:" << __FILE__ << __PRETTY_FUNCTION__;
+
+    this->metadata = cdda.metadata();
+    this->toc = cdda.toc();
     update();
 }
 
@@ -140,27 +146,27 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         // artist name
         painter.setFont(artistFont);
         QFontMetrics fm1(artistFont);
-        painter.drawText(x, y, fm1.elidedText(metadata.get(Audex::Metadata::Type::Artist).toString(), Qt::ElideRight, width() - padding));
+        painter.drawText(x, y, fm1.elidedText(metadata.get(Metadata::Type::Artist).toString(), Qt::ElideRight, width() - padding));
         y += fm1.height() + 5;
 
         painter.setFont(titleFont);
         QFontMetrics fm2(titleFont);
-        QString fullTitle = metadata.get(Audex::Metadata::Type::Title).toString();
-        if (metadata.contains(Audex::Metadata::Type::Year)) {
-            fullTitle += QString(" (%1)").arg(metadata.get(Audex::Metadata::Type::Year).toString());
+        QString fullTitle = metadata.get(Metadata::Type::Album).toString();
+        if (metadata.contains(Metadata::Type::Year)) {
+            fullTitle += QStringLiteral(" (%1)").arg(metadata.get(Metadata::Type::Year).toString());
         }
         painter.drawText(x, y, fm2.elidedText(fullTitle, Qt::ElideRight, width() - padding));
         y += fm2.height();
 
-        if (metadata.get(Audex::Metadata::Type::DiscNumber).toInt() > 0) {
+        if (metadata.isMultiDisc()) {
             painter.setFont(cdNumberFont);
             y += padding;
-            painter.drawText(x, y, QString("[%1%2]").arg(i18n("CD Number: ")).arg(metadata.get(Audex::Metadata::Type::DiscNumber).toInt()));
+            painter.drawText(x, y, QStringLiteral("[%1%2]").arg(i18n("CD Number: ")).arg(metadata.get(Metadata::Type::DiscNumber).toInt()));
         }
 
         label_rect = QRect(xOffsetLabel,
                            yOffsetLabel - fm1.height(),
-                           qMax(fm1.horizontalAdvance(metadata.get(Audex::Metadata::Type::Artist).toString()), fm2.horizontalAdvance(fullTitle)),
+                           qMax(fm1.horizontalAdvance(metadata.get(Metadata::Type::Artist).toString()), fm2.horizontalAdvance(fullTitle)),
                            y - yOffsetLabel);
 
     } else { // disabled
@@ -280,14 +286,16 @@ void CDDAHeaderWidget::load()
     if (!filename.isEmpty()) {
         if (!metadata.loadCoverFromFile(filename)) {
             // ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+        } else {
+            update();
+            Q_EMIT metadataChanged(metadata);
         }
     }
 }
 
 void CDDAHeaderWidget::save()
 {
-    QString filename =
-        QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath() + '/' + metadata.get(Audex::Metadata::Type::Title).toString() + ".jpg");
+    QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath() + '/' + metadata.get(Metadata::Type::Title).toString() + ".jpg");
     if (!filename.isEmpty()) {
         if (!metadata.saveCoverToFile(filename)) {
             // ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
@@ -309,6 +317,7 @@ void CDDAHeaderWidget::remove()
 {
     metadata.setCover(QImage());
     update();
+    Q_EMIT metadataChanged(metadata);
 }
 
 void CDDAHeaderWidget::set_cover(const QByteArray &cover)

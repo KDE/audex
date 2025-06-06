@@ -53,7 +53,6 @@ set_package_properties(
   URL "https://commits.kde.org/libkcddb"
   TYPE REQUIRED
   PURPOSE "libkcddb is used to retrieve audio CD meta data from the internet.")
-find_package(cdio REQUIRED)
 find_package(cdio_cdda REQUIRED)
 find_package(cdio_paranoia REQUIRED)
 

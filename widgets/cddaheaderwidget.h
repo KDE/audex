@@ -25,8 +25,8 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 
+#include "datatypes/cdda.h"
 #include "datatypes/metadata.h"
-#include "datatypes/toc.h"
 #include "dialogs/errordialog.h"
 
 // fixed point defines
@@ -64,11 +64,11 @@ public:
 public Q_SLOTS:
     void setEnabled(bool enabled);
     void editData();
-    void updateMetadata(const Audex::Metadata::Metadata &metadata);
-    void update(const Audex::Metadata::Metadata &metadata, const Audex::Toc::Toc &toc);
+    void setMetadata(const Metadata::Metadata &metadata);
+    void setCDDA(const CDDA &cdda);
 
 Q_SIGNALS:
-    void headerDataChanged();
+    void metadataChanged(const Metadata::Metadata &metadata);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
@@ -89,8 +89,8 @@ private Q_SLOTS:
     void context_menu(const QPoint &point);
 
 private:
-    Audex::Metadata::Metadata metadata;
-    Audex::Toc::Toc toc;
+    Metadata::Metadata metadata;
+    Toc::Toc toc;
 
     QPointer<KActionCollection> action_collection;
     int cover_size_min;

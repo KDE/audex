@@ -59,6 +59,7 @@ typedef QList<Track> TrackList;
 class Metadata : public Dataset
 {
 public:
+    Metadata();
     const Track &track(const int tracknumber) const;
     Track &track(const int tracknumber);
     const Track &firstTrack() const;

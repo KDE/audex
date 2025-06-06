@@ -63,10 +63,13 @@ MainWindow::MainWindow(QWidget *parent)
                      [this](const QString &discUDI, const bool successful, const Audex::Metadata::Metadata &metadata) {
                          if (successful && manager.currentDisc() == discUDI) {
                              Audex::CDDA cdda = manager.cdda(discUDI);
+                             // Keep the cover
+                             const QImage cover = cdda.metadata().cover();
                              cdda.setMetadata(metadata);
+                             cdda.metadata().setCover(cover);
                              cdda_model.update(cdda);
-                             cdda_header_widget->updateMetadata(metadata);
-                             update();
+                             cdda_header_widget->setCDDA(cdda);
+                             update_layout();
                          }
                      });
     QObject::connect(&manager,
@@ -74,10 +77,13 @@ MainWindow::MainWindow(QWidget *parent)
                      [this](const QString &discUDI, const bool successful, const Audex::Metadata::Metadata &metadata) {
                          if (successful && manager.currentDisc() == discUDI) {
                              Audex::CDDA cdda = manager.cdda(discUDI);
+                             const QImage cover = cdda.metadata().cover();
+                             // Keep the cover
                              cdda.setMetadata(metadata);
+                             cdda.metadata().setCover(cover);
                              cdda_model.update(cdda);
-                             cdda_header_widget->updateMetadata(metadata);
-                             update();
+                             cdda_header_widget->setCDDA(cdda);
+                             update_layout();
                          }
                      });
 
@@ -232,10 +238,10 @@ void MainWindow::edit()
 
 void MainWindow::update_layout()
 {
-    if (!cdda_model.isVarious()) {
-        cdda_tree_view->hideColumn(Audex::CDDAModel::COLUMN_ARTIST_INDEX);
-    } else {
+    if (cdda_model.isVarious()) {
         cdda_tree_view->showColumn(Audex::CDDAModel::COLUMN_ARTIST_INDEX);
+    } else {
+        cdda_tree_view->hideColumn(Audex::CDDAModel::COLUMN_ARTIST_INDEX);
     }
     resizeColumns();
 }
@@ -391,7 +397,7 @@ void MainWindow::setup_actions()
             manager.setCurrentDisc(discUDI);
             Audex::CDDA cdda = manager.currentCDDA();
             cdda_model.update(cdda);
-            cdda_header_widget->updateMetadata(cdda.metadata());
+            cdda_header_widget->setCDDA(cdda);
             update_layout();
         }
     });
@@ -546,8 +552,15 @@ void MainWindow::setup_layout()
 
     setCentralWidget(cdda_tree_view);
     cdda_header_widget = new Audex::CDDAHeaderWidget(cdda_header_dock);
-    QObject::connect(&cdda_model, &Audex::CDDAModel::metadataChanged, cdda_header_widget, &Audex::CDDAHeaderWidget::updateMetadata);
-    QObject::connect(cdda_header_widget, &Audex::CDDAHeaderWidget::headerDataChanged, this, &MainWindow::update_layout);
+    QObject::connect(&cdda_model, &Audex::CDDAModel::metadataChanged, cdda_header_widget, &Audex::CDDAHeaderWidget::setMetadata);
+    QObject::connect(cdda_header_widget, &Audex::CDDAHeaderWidget::metadataChanged, [this](const Audex::Metadata::Metadata &metadata) {
+        Audex::CDDA cdda = manager.currentCDDA();
+        cdda.setMetadata(metadata);
+        cdda_model.update(cdda);
+        cdda_header_widget->setCDDA(cdda);
+        update_layout();
+    });
+    QObject::connect(cdda_header_widget, &Audex::CDDAHeaderWidget::metadataChanged, &manager, &Audex::Device::Manager::setMetadataInCurrentDisc);
     cdda_header_dock->setWidget(cdda_header_widget);
     addDockWidget(Qt::LeftDockWidgetArea, cdda_header_dock);
 

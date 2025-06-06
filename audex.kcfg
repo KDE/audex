@@ -3,7 +3,7 @@
   <include>QtCore/qdir.h</include>
   <include>QDesktopServices</include>
   <kcfgfile name="audexrc"/>
-  <group name="general">
+  <group name="General">
     <entry name="firstStart" type="Bool">
       <default>true</default>
     </entry>
