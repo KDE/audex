@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-24 00:05+0200\n"
+"PO-Revision-Date: 2025-06-25 21:28+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -77,14 +77,13 @@ msgstr "Saltatu irakurketa-erroreak"
 #: audex.kcfg:45
 #, kde-format
 msgid "Retries on read error"
-msgstr "Berriz saiatzen da irakurketa erroreen aurrean"
+msgstr "Saiakera-kopurua irakurketa erroreetan"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Laginaren jatorri-aldaketa:"
+msgstr "Laginaren desplazamendua:"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1623,15 +1622,14 @@ msgid "Audio Disc"
 msgstr "Audio diskoa"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Laginaren jatorri-aldaketa:"
+msgstr "Laginaren desplazamendua: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Erauzketa %1 lagineko desplazamenduarekin"
 
 #: utils/cddaextractthread.cpp:75
 #, kde-format
@@ -2229,12 +2227,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2242,9 +2235,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Saltatu sektore baten irakurketa-erroreak (sektore "
-"baten luzera: 1/75 segundo) sektorea gehienez 20 aldiz irakurtzen saiatu "
-"ondoren. Oro har, sektore hautsiak isiltasunez beteko dira.</p></body></html>"
+"<html><head/><body><p>Sektore (sektorearen luzera: 1/75 segundo) baten "
+"erroreak irakurtzeari utzi, berriz irakurtzen saiatu ondoren. Mesedez, "
+"zehaztu saiakera kopurua <span style=\" font-style:italic;\">Saiakera-"
+"kopurua irakurketa erroreetan</span> eremuan. Jauzi egiten bada, sektore "
+"akastunen lagin hutsak idatziko dira.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2257,13 +2252,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Unitate batzuek audio-CDak irakurtzean lagin "
+"desplazamendu bat dute. Zure unitate-ereduaren desplazamendu zuzena "
+"zehazteko, <a href=\"https://www.accuraterip.com/driveoffsets.htm\"><span "
+"style=\" text-decoration: underline; color:#2980b9;\">Accuraterip</span></a> "
+"datu-basean egiaztatu dezakezu.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Laginaren jatorri-aldaketa:"
+msgstr "Laginaren desplazamendua:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2273,6 +2272,8 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Zehaztu, sektore akastun bat aurkitzean, gehienez "
+"egingo den saiakera kopurua.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
