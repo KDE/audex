@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/audex/audex.pot\n"
-"X-Crowdin-File-ID: 49100\n"
+"X-Crowdin-File: /kf6-stable/messages/audex/audex.pot\n"
+"X-Crowdin-File-ID: 53382\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -61,26 +61,26 @@ msgstr "获取的封面个数"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "完全默认模式 (安全模式)"
+msgstr "完全精确模式 (安全模式)"
 
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
 #, kde-format
 msgid "Skip read errors"
-msgstr ""
+msgstr "跳过读取错误"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
 #, kde-format
 msgid "Retries on read error"
-msgstr ""
+msgstr "发生读取错误时重试"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
 #, kde-format
 msgid "Sample shift"
-msgstr ""
+msgstr "采样偏移"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1022,7 +1022,7 @@ msgstr "音频抓取应用程序"
 #: main.cpp:30
 #, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr ""
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1062,7 +1062,7 @@ msgstr "credativ GmbH"
 #: main.cpp:36
 #, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "特别感谢 credativ GmbH（德国）的支持"
 
 #: main.cpp:37
 #, kde-format
@@ -1588,32 +1588,32 @@ msgstr "音频盘片"
 #: utils/cddaextractthread.cpp:70
 #, kde-format
 msgid "Sample shift: %1"
-msgstr ""
+msgstr "采样偏移： %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "抓轨时出现 %1 个样本的采样偏移"
 
 #: utils/cddaextractthread.cpp:75
 #, kde-format
 msgid "Paranoia mode enabled"
-msgstr ""
+msgstr "精准抓取模式已启用"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "精准抓取模式已禁用"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
 msgid "Start ripping track %1..."
-msgstr ""
+msgstr "开始抓取音轨 %1 ..."
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start ripping whole cd..."
-msgstr ""
+msgstr "开始抓取整个 CD..."
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1644,12 +1644,12 @@ msgstr "读取扇区错误 %1 (%2)：**以默认值填充整个扇区**"
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "音轨 %1 的精准抓取状态报告："
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "精准抓取状态报告："
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1674,7 +1674,7 @@ msgstr "抓取 OK (音轨 %1)。"
 #: utils/cddaextractthread.cpp:280
 #, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr ""
+msgstr "音轨 %2 抓轨已完成"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1684,48 +1684,48 @@ msgstr "抓取成功。"
 #: utils/cddaextractthread.cpp:283
 #, kde-format
 msgid "Ripping successfully finished"
-msgstr ""
+msgstr "抓轨已完成"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Device error."
-msgstr ""
+msgstr "媒体设备错误。"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Check your device on \"%1\"."
-msgstr ""
+msgstr "请检查设备“%1”"
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Disc error."
-msgstr ""
+msgstr "光盘错误。"
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "无法打开光盘。驱动器“%1”中是否插入了音频光盘？ "
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "cdparanoia 无法从驱动器“%1”读取音频。"
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "驱动器“%1”发生未知错误。"
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Drive/Disc error."
-msgstr ""
+msgstr "驱动器/光盘错误。"
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "驱动器或光盘“%1”发生未知错误。"
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1740,7 +1740,7 @@ msgstr "音频"
 #: utils/cddaparanoia.cpp:360
 #, kde-format
 msgid "Non-Audio"
-msgstr ""
+msgstr "无声"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2163,6 +2163,9 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>在重试读取后跳过扇区的读取错误 (扇区长度：1/75 秒) 。请"
+"在 <span style=\" font-style:italic;\">读取错误时重试次数</span> 中指定重试次"
+"数。若选择跳过，错误扇区将写入空样本。</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
