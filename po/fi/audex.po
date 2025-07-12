@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-28 10:41+0300\n"
+"PO-Revision-Date: 2025-07-11 09:55+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -1767,7 +1767,7 @@ msgstr "Ei-ääni"
 #: utils/cddaparanoia.cpp:364
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "Jälkitietue"
 
 #: utils/cddaparanoia.cpp:366
 #, kde-format
@@ -2247,7 +2247,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "Lukuyrityksiä enintään:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
