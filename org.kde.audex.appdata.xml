@@ -107,7 +107,7 @@
     <p xml:lang="tr">Audeks bir ses CD’si aktarıcısı uygulamadır. CD’lerinizden sesleri çıkarmanıza ve onları bilgisayarınızda veya başka bir aygıtınızda dinlemenize olanak tanır. Kullanılabiliyorsa CD’lerinizin kapak bilgisini ve sanatçı/şarkı üst verisini almanızı sağlamak için CDDB ve MusicBrainz tümleştirmesi sunar.</p>
     <p xml:lang="uk">Audex — програма для видобування звукових даних з компакт-дисків. За її допомогою ви можете видобувати звукові дані з компакт-дисків для прослуховування на комп'ютері та інших ваших пристроях. Програму інтегровано з CDDB та MusicBrainz для отримання метаданих та зображень обкладинок компакт-дисків, якщо такі доступні.</p>
     <p xml:lang="x-test">xxAudex is a CD ripper application. It lets you extract the audio from your CDs to let you listen to them on your computer and your other devices. It includes CDDB and MusicBrainz integrations to fetch the metadata and covers for your CDs if available.xx</p>
-    <p xml:lang="zh-CN">Audex是一款 CD 抓轨应用程序。您可以使用它提取 CD 音频，以便在电脑或者其他设备上欣赏。它集成了 CDDB 和 MusicBrainz，可以为您的 CD 获取元数据和封面 (如果可用)。</p>
+    <p xml:lang="zh-CN">Audex 是一款 CD 抓轨应用程序。您可以使用它提取 CD 音频，以便在电脑或者其他设备上欣赏。该软件集成了 CDDB 和 MusicBrainz，可以为您的 CD 获取元数据和封面 (如果可用)。</p>
     <p xml:lang="zh-TW">Audex 是一個 CD 擷取器應用程式。Audex 讓您從 CD 光碟取出音訊資料，讓您能在自己的電腦與其他裝置上不需要光碟也能繼續聆聽。Audex 提供與 CDDB 及 MusicBrainz 的整合，來取得 CD 的中繼資料與封面（如果有的話）。</p>
   </description>
   <content_rating type="oars-1.1"/>
