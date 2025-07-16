@@ -1,349 +1,348 @@
-# Copyright (C) 2024 This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the audex package.
-# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-21 17:45+0400\n"
-"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: ar\n"
-"Language: ar\n"
+"PO-Revision-Date: 2025-07-15 08:14+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
-msgstr "اكتب فوق الملفات الموجودة"
+msgstr ""
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #: audex.kcfg:15 widgets/generalsettingswidgetUI.ui:53
 #, kde-format
 msgid "Delete partial files after cancel"
-msgstr "احذف الملفات الجزئية بعد الإلغاء"
+msgstr ""
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
-msgstr "أخرج درج القرص المضغوط بعد الانتهاء من الاستخراج"
+msgstr ""
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
-msgstr "بحث في قاعدة بيانات الأقراص المضغوطة CDDB تلقائيًا"
+msgstr ""
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
-msgstr "ابحث عن الغلاف (أمازون) تلقائيًا"
+msgstr ""
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:31
 #, kde-format
 msgid "Number of covers to fetch"
-msgstr "عدد الأغلفة المطلوب إحضارها"
+msgstr ""
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "وضع المرتاب (الوضع الآمن)"
+msgstr ""
 
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
 #, kde-format
 msgid "Skip read errors"
-msgstr "تخطَ أخطاء القراءة"
+msgstr ""
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
 #, kde-format
 msgid "Retries on read error"
-msgstr "إعادة المحاولة عند حدوث خطأ في القراءة"
+msgstr ""
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
 #, kde-format
 msgid "Sample shift"
-msgstr "إزاحة العينة:"
+msgstr ""
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
 #, kde-format
 msgid "Base path to store music files"
-msgstr "المسار الأساسي لتخزين ملفات الموسيقى"
+msgstr ""
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
 #: audex.kcfg:61 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
-msgstr "ارفع الملفات إلى خادم"
+msgstr ""
 
 #. i18n: ectx: label, entry (url), group (general)
 #: audex.kcfg:65
 #, kde-format
 msgid "URL of server"
-msgstr "رابط الخادم"
+msgstr ""
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
 #, kde-format
 msgid "&Audex"
-msgstr "أو&ديكس"
+msgstr ""
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr "البيانات ال&وصفية"
+msgstr ""
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
 #, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr "قاعدة بيانات الأقراص المضغوطة"
+msgstr ""
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
 #, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr "أدوات تصحيح العنوان"
+msgstr ""
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:32
 #, kde-format
 msgid "&Settings"
-msgstr "إ&عدادات"
+msgstr ""
 
 #: core/audex.cpp:105
 #, kde-format
 msgid "No profile selected. Operation abort."
-msgstr "لم تحدد تشكيلة. أجهضت العملية."
+msgstr ""
 
 #: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr "ابدأ الاستخراج والترميز باستخدام التشكيلة \"%1\"..."
+msgstr ""
 
 #: core/audex.cpp:634 core/audex.cpp:697
 #, kde-format
 msgid "Can't find path \"%1\"."
-msgstr "لا يمكن العثور على المسار \"%1\"."
+msgstr ""
 
 #: core/audex.cpp:634 core/audex.cpp:697 core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
 msgid "Please check your path (write access?)"
-msgstr "يرجى التحقق من مسارك (حق الوصول للكتابة؟)"
+msgstr ""
 
 #: core/audex.cpp:647
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr "المساحة الحرة على \"%1\" أقل من 200 ميجا بايت."
+msgstr ""
 
 #: core/audex.cpp:653 core/audex.cpp:725
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "تحذير! الملف \"%1\" موجود بالفعل. الكتابة فوقه."
+msgstr ""
 
 #: core/audex.cpp:655 core/audex.cpp:727 core/audex.cpp:1135
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "تحذير! الملف \"%1\" موجود بالفعل. تخطي."
+msgstr ""
 
 #: core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr "غير قادر على إنشاء المجلد \"%1\"."
+msgstr ""
 
 #: core/audex.cpp:709 core/audex.cpp:1158
 #, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr "المجلد \"%1\" أنشئ بنجاح."
+msgstr ""
 
 #: core/audex.cpp:712
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr "المجلد \"%1\" موجود بالفعل."
+msgstr ""
 
 #: core/audex.cpp:719
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr "المساحة الحرة على \"%1\" أقل من 800 ميجا بايت."
+msgstr ""
 
 #: core/audex.cpp:742
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "خطأ المجلد المؤقت \"%1\" (%2)."
+msgstr ""
 
 #: core/audex.cpp:742
 #, kde-format
 msgid "Please check."
-msgstr "يرجى التحقق."
+msgstr ""
 
 #: core/audex.cpp:750
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
-msgstr "المساحة الحرة في المجلد المؤقت \"%1\" أقل من 800 ميجا بايت."
+msgstr ""
 
 #: core/audex.cpp:752
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
 msgstr ""
-"يحتاج المجلد المؤقت \"%1\" إلى 200 ميجا بايت من المساحة الحرة على الأقل."
 
 #: core/audex.cpp:752
 #, kde-format
 msgid "Please free space or set another path."
-msgstr "يرجى تحرير مساحة أو تعيين مسارًا آخرًا."
+msgstr ""
 
 #: core/audex.cpp:781
 #, kde-format
 msgid "Eject CD tray"
-msgstr "أخرج القرص المضغوط"
+msgstr ""
 
 #: core/audex.cpp:833
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr "حفظ الغلاف \"%1\" بنجاح."
+msgstr ""
 
 #: core/audex.cpp:836
 #, kde-format
 msgid "Unable to save cover \"%1\"."
-msgstr "غير قادر على حفظ الغلاف\"%1\"."
+msgstr ""
 
 #: core/audex.cpp:836 core/audex.cpp:914 core/audex.cpp:959 core/audex.cpp:1007
 #: core/audex.cpp:1047 core/audex.cpp:1076 core/audex.cpp:1123
 #: core/audex.cpp:1150
 #, kde-format
 msgid "Please check your path and permissions"
-msgstr "يرجى التحقق من المسار وأذوناتك."
+msgstr ""
 
 #: core/audex.cpp:910
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr "أنشئت قائمة التّشغيل \"%1\" بنجاح."
+msgstr ""
 
 #: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
-msgstr "غير قادر على حفظ قائمة التشغيل \"%1\""
+msgstr ""
 
 #: core/audex.cpp:956
 #, kde-format
 msgid "Info file \"%1\" successfully created."
-msgstr "ملف المعلومات \"%1\" أنشئ بنجاح."
+msgstr ""
 
 #: core/audex.cpp:959
 #, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr "غير قادر على حفظ ملف المعلومات \"%1\"."
+msgstr ""
 
 #: core/audex.cpp:1004
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr "قائمة التجزئة \"%1\" أنشئت بنجاح."
+msgstr ""
 
 #: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr "غير قادر على حفظ رمز تلبيدة القائمة \"%1\"."
+msgstr ""
 
 #: core/audex.cpp:1044
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr "ورقة الإشارات \"%1\" أنشئت بنجاح."
+msgstr ""
 
 #: core/audex.cpp:1047
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
-msgstr "غير قادر على حفظ ورقة الإشارات \"%1\"."
+msgstr ""
 
 #: core/audex.cpp:1073
 #, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "ملف السجل \"%1\" خُزّن بنجاح."
+msgstr ""
 
 #: core/audex.cpp:1076
 #, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "غير قادر على حفظ ملف السجل \"%1\"."
+msgstr ""
 
 #: core/audex.cpp:1123 core/audex.cpp:1150
 #, kde-format
 msgid "Unable to open folder \"%1\"."
-msgstr "غير قادر على فتح المجلد \"%1\"."
+msgstr ""
 
 #: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
 msgid "Edit Data"
-msgstr "حرّر البيانات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1027
 #, kde-format
 msgid "Various Artists"
-msgstr "عدة الفنّانون"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:24
 #, kde-format
 msgid "Multi CD"
-msgstr "أقراص مضغوطة متعددة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:50
 #, kde-format
 msgid "Artist:"
-msgstr "الفنّان:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:66
 #, kde-format
 msgid "Title:"
-msgstr "العنوان:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:76
 #, kde-format
 msgid "CD Number:"
-msgstr "رقم القرص المضغوط:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
 #, kde-format
 msgid "Track Offset:"
-msgstr "إزاحة المسار:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
 #, kde-format
 msgid "Genre:"
-msgstr "النّوع:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:133
 #, kde-format
 msgid "Year:"
-msgstr "السّنة:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:160
@@ -352,48 +351,46 @@ msgid ""
 "Additional\n"
 "Information:"
 msgstr ""
-"معلومات\n"
-"إضافية:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
 #, kde-format
 msgid "CDDB disc ID:"
-msgstr "معرف قرص في قاعدة بيانات الأقراص المضغوطة:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
 #, kde-format
 msgid "0x00000000"
-msgstr "0x00000000"
+msgstr ""
 
 #: dialogs/commandwizarddialog.cpp:20
 #, kde-format
 msgid "Command Scheme Wizard"
-msgstr "معالج مخطط الأوامر"
+msgstr ""
 
 #: dialogs/commandwizarddialog.cpp:39
 #, kde-format
 msgid "Command scheme help"
-msgstr "مساعدة في مخطط الأوامر"
+msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
 #, kde-format
 msgid "Please set a command scheme"
-msgstr "الرجاء ضبط مخطط الأوامر"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
-msgstr "مثال الألبوم:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
-msgstr "مثال لأخذ العينات:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -401,7 +398,7 @@ msgstr "مثال لأخذ العينات:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr "مساعدة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -409,7 +406,7 @@ msgstr "مساعدة"
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
 msgid "Album Artist"
-msgstr "فنّان الألبوم"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:319
@@ -417,25 +414,25 @@ msgstr "فنّان الألبوم"
 #: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
 msgid "Album Title"
-msgstr "عنوان الالبوم"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
-msgstr "فنّان المقطوعة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
-msgstr "عنوان المقطوعة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
-msgstr "المقطوعة #"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:383
@@ -443,7 +440,7 @@ msgstr "المقطوعة #"
 #: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "CD #"
-msgstr "القرص المدمج #"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:390
@@ -451,7 +448,7 @@ msgstr "القرص المدمج #"
 #: dialogs/schemewizardwidgetUI.ui:426
 #, kde-format
 msgid "# of Tracks"
-msgstr "# المقطوعات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
 #: dialogs/commandwizardwidgetUI.ui:400
@@ -459,7 +456,7 @@ msgstr "# المقطوعات"
 #: dialogs/schemewizardwidgetUI.ui:386
 #, kde-format
 msgid "Date"
-msgstr "التاريخ"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:410
@@ -467,71 +464,71 @@ msgstr "التاريخ"
 #: dialogs/schemewizardwidgetUI.ui:396
 #, kde-format
 msgid "Genre"
-msgstr "النوع"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:420
 #, kde-format
 msgid "Cover File"
-msgstr "ملف الغلاف"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:430
 #, kde-format
 msgid "Input File"
-msgstr "ملفّ الدّخل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:440
 #, kde-format
 msgid "Output File"
-msgstr "ملف الاخراج"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
 msgid "Rip And Encode"
-msgstr "استخرج ورمّز"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:36
 #: dialogs/extractingprogressdialog.cpp:178
 #, kde-format
 msgid "Ripping whole CD as single track"
-msgstr "يستخرج كامل القرص المضغوط كمسار واحد"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:37
 #, kde-format
 msgid "Encoding"
-msgstr "التّرميز"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:40
 #, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr "يستخرج المسار  0 من %1"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:41
 #, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr "يرمز المسار 0 من %1"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:155
 #, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "هل تريد حقًا إلغاء الاستخراج؟"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
 msgid "Cancel"
-msgstr "ألغِ"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track"
-msgstr "يستخرج المسار"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr "يستخرج المسار  %1 من %2"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:173
@@ -539,67 +536,67 @@ msgstr "يستخرج المسار  %1 من %2"
 #: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
-msgstr "التّقدّم الكلّيّ"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:173
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr "التقدم الإجمالي (استخراج المسار %1 من %2)"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
-msgstr "ينتظر مهمة الترميز..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track"
-msgstr "يرمز المسار"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track %1 of %2"
-msgstr "يرمز المسار %1 من %2"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:234
 #: dialogs/extractingprogressdialog.cpp:240
 #, kde-format
 msgid "Speed: %1x"
-msgstr "السرعة: %1x"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:258
 #, kde-format
 msgid "All jobs successfully done."
-msgstr "انتهت جميع المهام بنجاح."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:262
 #: dialogs/extractingprogressdialog.cpp:263
 #: dialogs/extractingprogressdialog.cpp:264
 #, kde-format
 msgid "Finished!"
-msgstr "انتهى!"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:269
 #, kde-format
 msgid "At least one job failed."
-msgstr "فشلت مهمة واحدة على الأقل."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:273
 #: dialogs/extractingprogressdialog.cpp:274
 #: dialogs/extractingprogressdialog.cpp:275
 #, kde-format
 msgid "Failed!"
-msgstr "فشل!"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
-msgstr "أظهر سجل الترميز..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
-msgstr "أظهر سجل الاستخراج..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
@@ -607,36 +604,33 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
-"كانت سرعة الاستخراج من القرص المضغوط بطيئة للغاية خلال الدقائق الخمس "
-"الأخيرة.\n"
-"هل تريد متابعة الاستخراج؟"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
-msgstr "ألغ الاستخراج"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding log"
-msgstr "سجل الترميز"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:350
 #, kde-format
 msgid "Ripping log"
-msgstr "سجل الاستخراج"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
 #, kde-format
 msgid "Show/hide details"
-msgstr "أظهر/أخف التفاصيل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -644,7 +638,7 @@ msgstr "..."
 #: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr "يستخرج المسار  8 من 12"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
@@ -652,7 +646,7 @@ msgstr "يستخرج المسار  8 من 12"
 #: dialogs/extractingprogresswidgetUI.ui:144
 #, kde-format
 msgid "Speed: 0x"
-msgstr "السرعة: 0x"
+msgstr ""
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -662,36 +656,36 @@ msgstr "السرعة: 0x"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr "%p٪"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
-msgstr "يرمز المسار 8 من 12"
+msgstr ""
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr "معالج المخطط"
+msgstr ""
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
 #, kde-format
 msgid "Filename scheme help"
-msgstr "مساعد مخطط اسم الملف"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
 #: dialogs/schemewizardwidgetUI.ui:406
 #, kde-format
 msgid "Suffix"
-msgstr "اللاحقة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/filenameschemewizardwidgetUI.ui:212
 #, kde-format
 msgid "Example:"
-msgstr "مثال:"
+msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_scheme)
 #: dialogs/filenameschemewizardwidgetUI.ui:232
@@ -705,49 +699,49 @@ msgstr "مثال:"
 #: dialogs/profiledatawidgetUI.ui:108
 #, kde-format
 msgid "Please set a scheme"
-msgstr "الرجاء ضبط مخطط"
+msgstr ""
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
 msgid "Save %1"
-msgstr "احفظ %1"
+msgstr ""
 
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr "أُنشئت في "
+msgstr ""
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
 msgid "Cover Settings"
-msgstr "إعدادات الغلاف"
+msgstr ""
 
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
-msgstr "JPEG (هيئة مجموعة خبراء الفوتوغرافية)"
+msgstr ""
 
 #: dialogs/profiledatacoverdialog.cpp:69
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
-msgstr "PNG (رسوميات شبكية محمولة)"
+msgstr ""
 
 #: dialogs/profiledatacoverdialog.cpp:70
 #, kde-format
 msgid "BMP (Windows Bitmap)"
-msgstr "BMP (صورة ويندوز نقطيّة)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: dialogs/profiledatacoverwidgetUI.ui:23
 #, kde-format
 msgid "Scale before store:"
-msgstr "تغيير الحجم قبل الحفظ:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "x"
-msgstr "×"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -755,18 +749,18 @@ msgstr "×"
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 #, kde-format
 msgid "Format:"
-msgstr "النّسق:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
 #, kde-format
 msgid "Cover scheme:"
-msgstr "مخطط الغلاف:"
+msgstr ""
 
 #: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
 msgid "Cue Sheet Settings"
-msgstr "إعدادات ورقة الإشارات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:33
@@ -776,7 +770,7 @@ msgstr "إعدادات ورقة الإشارات"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr "الاسم/المخطط:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
@@ -790,78 +784,74 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>اكتب رقم كتالوج الوسائط (MCN) وأكواد التسجيل القياسية "
-"الدولية (ISRC، ISO 3901) للمسارات في ورقة الإشارة (إذا كان محرك الأقراص لديك "
-"يتمتع بالقدرة على ذلك).</p><p>اعتمادًا على محرك الأقراص لديك، قد يستغرق الأمر "
-"بضع ثوانٍ في نهاية عملية النسخ لجلب هذه الأرقام والأكواد.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr "أضف قيم MCN وISRC (إن وجدت)"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
-msgstr "عدّل التشكيلة"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
-msgstr "أنشئ تشكيلة"
+msgstr ""
 
 #: dialogs/profiledatadialog.cpp:193
 #, kde-format
 msgid "New Profile"
-msgstr "تشكيلة جديدة"
+msgstr ""
 
 #: dialogs/profiledatahashlistdialog.cpp:28
 #: dialogs/profiledataplaylistdialog.cpp:30
 #, kde-format
 msgid "Playlist Settings"
-msgstr "إعدادات قائمة التشغيل"
+msgstr ""
 
 #: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
-msgstr "SFV (التحقق البسيط من الملف)"
+msgstr ""
 
 #: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr "MD5 (خوارزمية ملخص الرسائل 5)"
+msgstr ""
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr "SHA-256 (خوارزمية التجزئة الآمنة)"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
 msgid "Info Settings"
-msgstr "إعدادات المعلومات"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
-msgstr "مساعدة في نظام المعلومات النصية"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
 msgid "Load Text Template"
-msgstr "حمّل قالب النص"
+msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:166
 #, kde-format
 msgid "Save Text Template"
-msgstr "حفظ قالب النص"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
 #, kde-format
 msgid "Information text:"
-msgstr "نص المعلومات:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -870,90 +860,90 @@ msgstr "نص المعلومات:"
 #: widgets/opusencwidgetUI.ui:31 widgets/wavewidgetUI.ui:31
 #, kde-format
 msgid "Suffix:"
-msgstr "اللاحقة:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr "المخطّط:"
+msgstr ""
 
 #: dialogs/profiledatalogfiledialog.cpp:24
 #, kde-format
 msgid "Log Files Settings"
-msgstr "إعدادات ملفات السجل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr "اكتب الطوابع الزمنية"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
 #, kde-format
 msgid "Use absolute file paths in playlist"
-msgstr "استخدام مسارات الملفات المطلقة في قائمة التشغيل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_utf8)
 #: dialogs/profiledataplaylistwidgetUI.ui:63
 #, kde-format
 msgid "UTF-8 coding in playlist"
-msgstr "ترميز UTF-8 في قائمة التشغيل"
+msgstr ""
 
 #: dialogs/profiledatasinglefiledialog.cpp:24
 #, kde-format
 msgid "Single File Settings"
-msgstr "إعدادات الملف المفرد"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
 #, kde-format
 msgid "Encoder"
-msgstr "مرمِز"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
 #, kde-format
 msgid "Filenames"
-msgstr "أسماء الملفات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
-msgstr "إنشاء أسماء ملفات متوافقة مع FAT32"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:146
 #, kde-format
 msgid "Replace spaces with underscores"
-msgstr "استبدل المسافات بشرطات تحتيّة"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
 #, kde-format
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
-msgstr "يتجاوز هذا الإعداد أي إعدادات متغيرة ذات معلمات في النظام"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "عيّن رقم المسار المكون من رقمين (على سبيل المثال 01، 02، 03...)"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
 #, kde-format
 msgid "Extra"
-msgstr "اضافية"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:211
 #, kde-format
 msgid "Store cover file"
-msgstr "احفظ ملف غلاف"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
@@ -968,144 +958,142 @@ msgstr "احفظ ملف غلاف"
 #: dialogs/profiledatawidgetUI.ui:365
 #, kde-format
 msgid "Settings.."
-msgstr "إعدادات.."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
 #, kde-format
 msgid "Create hashlist"
-msgstr "أنشئ رمز تلبيدة القائمة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
 msgid "Create cue sheet"
-msgstr "أنشئ ورقة إشارات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:257
 #, kde-format
 msgid "Create playlist"
-msgstr "أنشئ قائمة تشغيل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:303
 #, kde-format
 msgid "Create info file"
-msgstr "أنشئ ملف معلومات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
 #, kde-format
 msgid "Save log file"
-msgstr "احفظ ملف السجل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
 #, kde-format
 msgid "Write single file"
-msgstr "اكتب ملفًا واحدًا"
+msgstr ""
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "معالج مخطط اسم الملف"
+msgstr ""
 
 #: main.cpp:26
 #, kde-format
 msgid "Audex"
-msgstr "أوديكس"
+msgstr ""
 
 #: main.cpp:28
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr "تطبيق استخراج الصوت"
+msgstr ""
 
 #: main.cpp:30
 #, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "حقوق النشر © 2007-2025 ماركو نيليس"
+msgstr ""
 
 #: main.cpp:33
 #, kde-format
 msgid "Marco Nelles"
-msgstr "ماركو نيليس"
+msgstr ""
 
 #: main.cpp:33
 #, kde-format
 msgid "Current maintainer, main developer"
-msgstr "الصائن الحالي، المطور الرئيس"
+msgstr ""
 
 #: main.cpp:34
 #, kde-format
 msgid "Craig Drummond"
-msgstr "كريج دروموند"
+msgstr ""
 
 #: main.cpp:34
 #, kde-format
 msgid "GUI improvements, development"
-msgstr "تحسينات واجهة المستخدم الرسومية وتطويرها"
+msgstr ""
 
 #: main.cpp:35
 #, kde-format
 msgid "Elson"
-msgstr "إلسون"
+msgstr ""
 
 #: main.cpp:35
 #, kde-format
 msgid "development"
-msgstr "التطوير"
+msgstr ""
 
 #: main.cpp:36
 #, kde-format
 msgid "credativ GmbH"
-msgstr "شركة كريدتيف جي إم بي إتش"
+msgstr ""
 
 #: main.cpp:36
 #, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "شكر خاص لشركة Credativ GmbH (ألمانيا) على الدعم"
+msgstr ""
 
 #: main.cpp:37
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "زايد السعيدي"
+msgstr ""
 
 #: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "zayed.alsaidi@gmail.com"
+msgstr ""
 
 #: mainwindow.cpp:35
 #, kde-format
 msgid "Unable to create ProfileModel object."
-msgstr "غير قادر على إنشاء كائن ProfileModel."
+msgstr ""
 
 #: mainwindow.cpp:36 mainwindow.cpp:49
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
-"خطأ داخلي. تحقق من جهازك. إذا كان كل شيء على ما يرام، يرجى تقديم تقرير عن "
-"الخطأ."
 
 #: mainwindow.cpp:49
 #, kde-format
 msgid "Unable to create CDDAModel object."
-msgstr "غير قادر على إنشاء كائن CDDAModel."
+msgstr ""
 
 #: mainwindow.cpp:121
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
-msgstr "لم يضبط معلومات القرص. هل تريد الاستمرار؟"
+msgstr ""
 
 #: mainwindow.cpp:122
 #, kde-format
 msgid "Disc information not found"
-msgstr "لم يعثر على معلومات القرص"
+msgstr ""
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -1113,48 +1101,46 @@ msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
-"حُدد استخراج ملف واحد ولكن لم يحدد جميع مسارات الصوت المراد استخراجها. هل "
-"تريد حقًا الاستمرار؟"
 
 #: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr "لم تُحدد كافة المسارات الصوتية لاستخراج ملف واحد"
+msgstr ""
 
 #: mainwindow.cpp:146
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "لم يضبط غلاف القرص. هل تريد الاستمرار؟"
+msgstr ""
 
 #: mainwindow.cpp:147
 #, kde-format
 msgid "Cover is empty"
-msgstr "الغلاف فارغ"
+msgstr ""
 
 #: mainwindow.cpp:171
 #, kde-format
 msgid "General settings"
-msgstr "إعدادات عامّة"
+msgstr ""
 
 #: mainwindow.cpp:174
 #, kde-format
 msgid "Device settings"
-msgstr "إعدادات الجهاز"
+msgstr ""
 
 #: mainwindow.cpp:177
 #, kde-format
 msgid "Profiles"
-msgstr "التّشكيلات"
+msgstr ""
 
 #: mainwindow.cpp:186
 #, kde-format
 msgid "CDDB settings"
-msgstr "إعدادات قاعدة بيانات الأقراص المضغوطة"
+msgstr ""
 
 #: mainwindow.cpp:189
 #, kde-format
 msgid "Remote Server"
-msgstr "الخادم البعيد"
+msgstr ""
 
 #: mainwindow.cpp:228
 #, kde-format
@@ -1162,18 +1148,16 @@ msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
-"فشل بحث في قاعدة بيانات الأقراص المضغوطة CDDB، مع الخطأ التالي:\n"
-"%1"
 
 #: mainwindow.cpp:230
 #, kde-format
 msgid "CDD Lookup Failure"
-msgstr "فشل البحث في قاعدة بيانات الأقراص المضغوطة"
+msgstr ""
 
 #: mainwindow.cpp:335
 #, kde-format
 msgid "Split titles"
-msgstr "قسّم العناوين"
+msgstr ""
 
 #: mainwindow.cpp:336
 #, kde-format
@@ -1182,119 +1166,116 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
-"يرجى تعيين سلسلة فاصلة. كن حذرًا من المساحات الفارغة.\n"
-"\n"
-"الفاصل:"
 
 #: mainwindow.cpp:348
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
-msgstr "هل تريد حقًا تبديل جميع الفنانين والألقاب؟"
+msgstr ""
 
 #: mainwindow.cpp:349
 #, kde-format
 msgid "Swap artists and titles"
-msgstr "بدّل الفنانين والألقاب"
+msgstr ""
 
 #: mainwindow.cpp:363
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
-msgstr "هل تريد حقًا تكبير حروف جميع الفنانين والألقاب؟"
+msgstr ""
 
 #: mainwindow.cpp:364
 #, kde-format
 msgid "Capitalize artists and titles"
-msgstr "تكبير حروف الفنانين والألقاب"
+msgstr ""
 
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Do you really want to autofill track artists?"
-msgstr "هل تريد حقًا الملء التلقائي للفنانين؟"
+msgstr ""
 
 #: mainwindow.cpp:379
 #, kde-format
 msgid "Autofill artists"
-msgstr "فنانو الملء التلقائي"
+msgstr ""
 
 #: mainwindow.cpp:406
 #, kde-format
 msgid "Eject"
-msgstr "أخرِج"
+msgstr ""
 
 #: mainwindow.cpp:413
 #, kde-format
 msgid "Profile:"
-msgstr "التّشكيلة:"
+msgstr ""
 
 #: mainwindow.cpp:425
 #, kde-format
 msgid "&Profile:"
-msgstr "ال&تّشكيلة:"
+msgstr ""
 
 #: mainwindow.cpp:431
 #, kde-format
 msgid "Profile"
-msgstr "التشكيلة"
+msgstr ""
 
 #: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
-msgstr "اجلب"
+msgstr ""
 
 #: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
-msgstr "أرسل"
+msgstr ""
 
 #: mainwindow.cpp:452
 #, kde-format
 msgid "Edit"
-msgstr "حرّر"
+msgstr ""
 
 #: mainwindow.cpp:459
 #, kde-format
 msgid "Rip..."
-msgstr "نسخ..."
+msgstr ""
 
 #: mainwindow.cpp:468
 #, kde-format
 msgid "Split Titles..."
-msgstr "قسّم العناوين..."
+msgstr ""
 
 #: mainwindow.cpp:473
 #, kde-format
 msgid "Swap Artists And Titles"
-msgstr "بدّل الفنانين والألقاب"
+msgstr ""
 
 #: mainwindow.cpp:478
 #, kde-format
 msgid "Capitalize"
-msgstr "كبّر أوّل حرف"
+msgstr ""
 
 #: mainwindow.cpp:483
 #, kde-format
 msgid "Auto Fill Artists"
-msgstr "فنانو الملء التلقائي"
+msgstr ""
 
 #: mainwindow.cpp:488
 #, kde-format
 msgid "Select All Tracks"
-msgstr "حدد كافة المسارات"
+msgstr ""
 
 #: mainwindow.cpp:493
 #, kde-format
 msgid "Deselect All Tracks"
-msgstr "ألغ تحديد كافة المسارات"
+msgstr ""
 
 #: mainwindow.cpp:498
 #, kde-format
 msgid "Invert Selection"
-msgstr "اعكس التّحديد"
+msgstr ""
 
 #: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
-msgstr "غير قادر على إنشاء كائن الأجهزة."
+msgstr ""
 
 #: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
@@ -1302,28 +1283,26 @@ msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
-"هذا خطأ داخلي. تحقق من جهازك. إذا كان كل شيء على ما يرام، يرجى تقديم تقرير "
-"عن الخطأ."
 
 #: models/cddamodel.cpp:32
 #, kde-format
 msgid "Unable to create KCDDB object."
-msgstr "غير قادر على إنشاء كائن KCDDB."
+msgstr ""
 
 #: models/cddamodel.cpp:121
 #, kde-format
 msgid "Track %1"
-msgstr "المقطوعة %1"
+msgstr ""
 
 #: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
-msgstr "تنسيقات الصور الشائعة"
+msgstr ""
 
 #: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr "يجري بحث في قاعدة بيانات الأقراص المضغوطة الآن."
+msgstr ""
 
 #: models/cddamodel.cpp:823
 #, kde-format
@@ -1331,8 +1310,6 @@ msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
-"يجري البحث في قاعدة بيانات الأقراص المضغوطة الآن. يرجى الانتظار حتى الانتهاء "
-"ثم حاول مرة أخرى."
 
 #: models/cddamodel.cpp:842 models/cddamodel.cpp:955
 #, kde-format
@@ -1340,8 +1317,6 @@ msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
-"يوجد خطأ في خادم قاعدة بيانات الأقراص المضغوطة CDDB. يرجى الانتظار أو "
-"الاتصال بمسؤول خادم قاعدة بيانات الأقراص المضغوطة CDDB."
 
 #: models/cddamodel.cpp:848 models/cddamodel.cpp:961
 #, kde-format
@@ -1349,8 +1324,6 @@ msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
-"لا يمكن العثور على خادم قاعدة بيانات الأقراص المضغوطة CDDB. تحقق من الشبكة. "
-"ربما يكون خادم قاعدة بيانات الأقراص المضغوطة CDDB غير متصل بالإنترنت."
 
 #: models/cddamodel.cpp:854 models/cddamodel.cpp:967
 #, kde-format
@@ -1358,95 +1331,91 @@ msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
-"يرجى الانتظار، ربما يكون الخادم مشغولاً، أو اتصل بمسؤول خادم قاعدة بيانات "
-"الأقراص المضغوطة CDDB."
 
 #: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
-msgstr "يرجى الاتصال بمسؤول خادم قاعدة بيانات الأقراص المضغوطة CDDB."
+msgstr ""
 
 #: models/cddamodel.cpp:862 models/cddamodel.cpp:972
 #, kde-format
 msgid "This should not happen. Please make a bug report."
-msgstr "لا ينبغي أن يحدث هذا. يرجى تقديم تقرير عن الخطأ."
+msgstr ""
 
 #: models/cddamodel.cpp:869 models/cddamodel.cpp:975
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
-"يرجى تقديم تقرير عن الخطأ والاتصال بمسؤول خادم قاعدة بيانات الأقراص المضغوطة "
-"CDDB."
 
 #: models/cddamodel.cpp:902
 #, kde-format
 msgid "Unable to create CDIO object."
-msgstr "غير قادر على إنشاء كائن CDIO."
+msgstr ""
 
 #: models/cddamodel.cpp:981
 #, kde-format
 msgid "This means no data found in the CDDB database."
-msgstr "هذا يعني عدم العثور على بيانات في قاعدة بيانات الأقراص المضغوطة CDDB."
+msgstr ""
 
 #: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select CDDB Entry"
-msgstr "حدد مدخلة قاعدة بيانات الأقراص المضغوطة CDDB"
+msgstr ""
 
 #: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select a CDDB entry:"
-msgstr "حدد مدخلة قاعدة بيانات الأقراص المضغوطة CDDB:"
+msgstr ""
 
 #: models/cddamodel.h:35
 #, kde-format
 msgid "Rip"
-msgstr "نسخ"
+msgstr ""
 
 #: models/cddamodel.h:36
 #, kde-format
 msgid "Track"
-msgstr "المقطوعة"
+msgstr ""
 
 #: models/cddamodel.h:37
 #, kde-format
 msgid "Artist"
-msgstr "الفنّان"
+msgstr ""
 
 #: models/cddamodel.h:38
 #, kde-format
 msgid "Title"
-msgstr "العنوان"
+msgstr ""
 
 #: models/cddamodel.h:39
 #, kde-format
 msgid "Length"
-msgstr "الطول"
+msgstr ""
 
 #: models/profilemodel.cpp:305
 #, kde-format
 msgid "Unknown error. No index found in profile model."
-msgstr "خطأ غير معروف. لم يعثر على أي فهرس في نموذج التشكيلة."
+msgstr ""
 
 #: models/profilemodel.cpp:305
 #, kde-format
 msgid "This is an internal error. Please report."
-msgstr "هذا خطأ داخلي. الرجاء التبليغ عنه."
+msgstr ""
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "Profile name must not be empty."
-msgstr "يجب ألا يكون اسم ملف التعريف فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
-msgstr "لم تدخل اسم للتشكيلة. يرجى تعيين اسمًا."
+msgstr ""
 
 #: models/profilemodel.cpp:395
 #, kde-format
 msgid "Profile name already exists."
-msgstr "اسم التشكيلة موجود بالفعل."
+msgstr ""
 
 #: models/profilemodel.cpp:396
 #, kde-format
@@ -1454,32 +1423,31 @@ msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
-"اسم تشكيلتك %1 موجود بالفعل في مجموعة التشكيلات. يرجى اختيار اسمًا فريدًا."
 
 #: models/profilemodel.cpp:407
 #, kde-format
 msgid "Profile encoder is not defined."
-msgstr "لم يعرف برنامج ترميز التشكيلة."
+msgstr ""
 
 #: models/profilemodel.cpp:407
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
-msgstr "لم تدخل اسم برنامج الترميز للتشكيلة. يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:414
 #, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "لم تُعرف مخطط اسم ملف للتشكيلة."
+msgstr ""
 
 #: models/profilemodel.cpp:415
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr "لم تدخل مخطط اسم الملف للتشكيلة. يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:443
 #, kde-format
 msgid "The image file format is unknown."
-msgstr "تنسيق ملف الصورة غير معروف."
+msgstr ""
 
 #: models/profilemodel.cpp:444
 #, kde-format
@@ -1487,23 +1455,21 @@ msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"تنسيق ملف الصورة الذي قدمته غير معروف. يرجى اختيار أحد التنسيقات التالية:"
-"JPEG، PNG، TIFF أو BMP."
 
 #: models/profilemodel.cpp:453
 #, kde-format
 msgid "Cover name must not be empty."
-msgstr "يجب ألا يكون اسم الغلاف فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:453
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
-msgstr "لم تعط أي اسم للغلاف. يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:463
 #, kde-format
 msgid "The playlist file format is unknown."
-msgstr "تنسيق ملف قائمة التشغيل غير معروف."
+msgstr ""
 
 #: models/profilemodel.cpp:464
 #, kde-format
@@ -1511,43 +1477,41 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
-"تنسيق ملف قائمة التشغيل الخاص بك غير معروف. يُرجى اختيار أحد التنسيقات "
-"التالية: M3U أو PLS أو XSPF."
 
 #: models/profilemodel.cpp:473
 #, kde-format
 msgid "Playlist name must not be empty."
-msgstr "يجب ألا يكون اسم قائمة التشغيل فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:473
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
-msgstr "لم تقم بإعطاء أي اسم لقائمة التشغيل. يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:493
 #, kde-format
 msgid "Info text name must not be empty."
-msgstr "يجب ألا يكون اسم ملف المعلومات النصي فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:493
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
-msgstr "لم تعطي أي اسم لملف المعلومات النصي. يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:500
 #, kde-format
 msgid "Info text file name suffix must not be empty."
-msgstr "يجب ألا تكون لاحقة اسم الملف المعلومات النصي فارغة."
+msgstr ""
 
 #: models/profilemodel.cpp:501
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
-msgstr "لم تعطي أي لاحقة لملف المعلومات النصي. يرجى تعيين واحدة."
+msgstr ""
 
 #: models/profilemodel.cpp:512
 #, kde-format
 msgid "The hashlist file format is unknown."
-msgstr "تنسيق ملف رمز تلبيدة القائمة مجهول"
+msgstr ""
 
 #: models/profilemodel.cpp:513
 #, kde-format
@@ -1555,328 +1519,324 @@ msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
-"تنسيق ملف تلبيدة القائمة الذي قدمته غير معروف. يُرجى اختيار أحد التنسيقات "
-"التالية: SFV، MD5، SHA-256."
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "Hashlist name must not be empty."
-msgstr "يجب ألا تكون تلبيدة القائمة فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
-msgstr "لم تعط أي تلبيدة قائمة يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:533
 #, kde-format
 msgid "Cue filename name must not be empty."
-msgstr "يجب ألا يكون اسم ملف الإشارات فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:533
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
-msgstr "لم تعط أي ورقة إشارات يرجى تعيين واحدة."
+msgstr ""
 
 #: models/profilemodel.cpp:546
 #, kde-format
 msgid "Log filename name must not be empty."
-msgstr "يجب ألا يكون اسم ملف السجل فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:546
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr "لم تعطي أي اسم لملف السجل. يرجى تعيين واحدًا."
+msgstr ""
 
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "Filename name must not be empty."
-msgstr "يجب ألا يكون اسم الملف فارغًا."
+msgstr ""
 
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
-msgstr "لم تعطي أي اسم لملف الصوت الفردي. يرجى تعيين واحدًا."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:942 widgets/profilewidgetUI.ui:42
 #, kde-format
 msgid "Copy"
-msgstr "انسخ"
+msgstr ""
 
 #: utils/cddadevices.cpp:84
 #, kde-format
 msgid "Audio Disc"
-msgstr "قرص صوتي"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:70
 #, kde-format
 msgid "Sample shift: %1"
-msgstr "إزاحة العينة: %1"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr "انسخ مع إزاحة %1 عينات"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:75
 #, kde-format
 msgid "Paranoia mode enabled"
-msgstr "وضع المرتاب ممكن"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr "وضع المرتاب معطل"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
 msgid "Start ripping track %1..."
-msgstr "ابدأ نسخ المسار %1…"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start ripping whole cd..."
-msgstr "ابدأ نسخ كامل القرص…"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr "حدث خطأ أثناء قراءة القطاع %1 (نقطة تتبع الوقت %2): %3"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:200 utils/cddaextractthread.cpp:208
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "حدث خطأ أثناء استخراج المسار %1 في الموضع %2. انظر السجل."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:202 utils/cddaextractthread.cpp:210
 #: utils/cddaextractthread.cpp:217 utils/cddaextractthread.cpp:219
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "حدث خطأ أثناء النسخ من القرص المضغوط في الموضع %1. انظر السجل."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
-msgstr "خطأ في قراءة القطاع %1 (نقطة تتبع الوقت %2)"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:226
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
-msgstr "خطأ في قراءة القطاع %1 (%2): **ملء القطاع بأكمله بالصمت**"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr "تقرير حالة المرتاب للمسار %1:"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ": تقرير حالة المرتاب:"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr "ألغي الاستخراج من القرص المضغوط بسبب حدوث خطأ."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "User canceled extracting."
-msgstr "ألغى المستخدم الاستخراج."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:276
 #, kde-format
 msgid "Extraction interrupted"
-msgstr "توقف الاستخراج"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Ripping OK (Track %1)."
-msgstr "الاستخراج جيد (المسار %1)."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:280
 #, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "انتهى نسخ المسار %2 بنجاح"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
 msgid "Ripping OK."
-msgstr "الاستخراج جيد."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:283
 #, kde-format
 msgid "Ripping successfully finished"
-msgstr "انتهى نسخ المسار بنجاح"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Device error."
-msgstr "خطأ في الجهاز."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "تحقق من جهازك على ”%1“."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Disc error."
-msgstr "خطأ في القرص."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr "تعذر فتح القرص. هل يوجد قرص صوتي في محرك الأقراص \"%1\"."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
-"لم يتمكن cdparanoia من العثور على طريقة لقراءة الصوت من محرك الأقراص \"%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr "خطأ محرك غير محدد على \"%1\"."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Drive/Disc error."
-msgstr "خطأ في محرك الأقراص/القرص."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr "خطأ غير محدد في محرك الأقراص أو القرص على \"%1\"."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
-"المسار --، قطاع البداية: 000000، الحجم في القطاعات: 000150، النوع: مقدمة"
 
 #: utils/cddaparanoia.cpp:358
 #, kde-format
 msgid "Audio"
-msgstr "صوت"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:360
 #, kde-format
 msgid "Non-Audio"
-msgstr "غير صوتي"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
 msgid "Lead-out"
-msgstr "خارج"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:366
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr "المسار %1، قطاع البداية: %2، الحجم في القطاعات: %3، النوع: %4"
+msgstr ""
 
 #: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
-msgstr "إم بي 3"
+msgstr ""
 
 #: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
-msgstr "Ogg/Vorbis"
+msgstr ""
 
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr "أوبوس"
+msgstr ""
 
 #: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
-msgstr "FLAC (بدون فقدان)"
+msgstr ""
 
 #: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
-msgstr "MP4 (AAC)"
+msgstr ""
 
 #: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
-msgstr "موجة (خام غير مضغوط)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:126 utils/encoderassistant.h:127
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
-msgstr "مخصّص"
+msgstr ""
 
 #: utils/encoderwrapper.cpp:61
 #, kde-format
 msgid "Command scheme is empty."
-msgstr "مخطط الأوامر فارغ."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr "يرمز المسار %1..."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr "ملف جزئي محذوف \"%1\"."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:115
 #, kde-format
 msgid "User canceled encoding."
-msgstr "ألغ المستخدم الترميز."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr "انتهى الترميز (\"%1\")."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
-msgstr "حدث خطأ أثناء ترميز الملف \"%1\"."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:191
 #: utils/encoderwrapper.cpp:194 utils/encoderwrapper.cpp:204
 #, kde-format
 msgid "Please check your profile."
-msgstr "يرجى التحقق من تشكيلتك."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:188
 #, kde-format
 msgid "%1 failed to start."
-msgstr "فشل بدء %1"
+msgstr ""
 
 #: utils/encoderwrapper.cpp:188
 #, kde-format
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
-msgstr "إما أنه مفقود، أو قد لا يكون لديك أذونات كافية لاستدعاء البرنامج."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:191
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
-msgstr "%1 إنهار بعد فترة من بدء التشغيل بنجاح."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:194
 #, kde-format
 msgid "%1 timed out. This should not happen."
-msgstr "%1 انتهت المهلة. لا ينبغي أن يحدث هذا."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:197
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr "حدث خطأ أثناء محاولة الكتابة إلى %1."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:198
 #, kde-format
@@ -1884,39 +1844,37 @@ msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
 msgstr ""
-"على سبيل المثال، قد لا تكون العملية قيد التشغيل، أو ربما تكون قد أغلقت قناة "
-"الإدخال الخاصة بها."
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
-msgstr "حدث خطأ أثناء محاولة القراءة من %1."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "For example, the process may not be running."
-msgstr "على سبيل المثال، قد لا تكون العملية قيد التشغيل."
+msgstr ""
 
 #: utils/encoderwrapper.cpp:204
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
-msgstr "حدث خطأ غير معروف لـ %1. لا ينبغي أن يحدث هذا."
+msgstr ""
 
 #: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr "عثر على حرف غير قانوني في الفهرس %1: '%2'"
+msgstr ""
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr "عثر على اقتباس غير مغلق"
+msgstr ""
 
 #: utils/schemeparser.cpp:65
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr "عثر على حرف غير قانوني في الفهرس %1: %2"
+msgstr ""
 
 #: utils/schemeparser.cpp:116
 #, kde-format
@@ -1924,18 +1882,16 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
-"تحتاج المعلمة replace_char_list إلى معلمتين إضافيتين استبدال_char_list_from "
-"و replace_char_list_to بحجم متساوٍ."
 
 #: utils/schemeparser.cpp:262
 #, kde-format
 msgid "Unclosed brace."
-msgstr "اقتباس غير مغلق."
+msgstr ""
 
 #: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr "تعذر إنشاء ملف الغلاف المؤقت: %1"
+msgstr ""
 
 #: utils/schemeparser.h:154
 #, kde-format
@@ -1956,22 +1912,6 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
-"<p>سيستبدل بالعناصر النائبة التالية ما تمثله:</p><table><tr><th>العنصر "
-"النائب</th><th>الوصف</th></tr><tr><td><tt>$artist</tt></td><td>الفنان الذي "
-"ألف القرص المضغوط. إذا كان القرص المضغوط الخاص بك عبارة عن مجموعة من "
-"الأغاني، فإن هذه العلامة تمثل العنوان في معظم الحالات.</td></tr><tr><td><tt>"
-"$title</tt></td><td>عنوان القرص المضغوط. إذا كان القرص المضغوط الخاص بك "
-"عبارة عن مجموعة من الأغاني، فإن هذه العلامة تمثل العنوان الفرعي في معظم "
-"الحالات.</td></tr><tr><td><tt>$date</tt></td><td>تاريخ إصدار القرص المضغوط. "
-"في أغلب الأحوال، يكون هذا هو العام.</td></tr><tr><td><tt>$genre</tt></"
-"td><td>نوع القرص المضغوط.</td></tr><tr><td><tt>$cdno</tt></td><td>رقم القرص "
-"المضغوط لألبوم يحتوي على أقراص مضغوطة متعددة. غالبًا ما تتكون التجميعات من "
-"أقراص مضغوطة متعددة. <i>ملاحظة:</i> إذا لم يتم تعيين علامة الأقراص المضغوطة "
-"المتعددة للقرص المضغوط الحالي، فستكون هذه القيمة فارغة.</td></tr><tr><td><tt>"
-"$nooftracks</tt></td><td>إجمالي عدد المسارات الصوتية للقرص المضغوط.</td></"
-"tr><tr><td><tt>$encoder</tt></td><td>اسم وإصدار برنامج التشفير.</td></"
-"tr><tr><td><tt>$audex</tt></td><td>اسم وإصدار برنامج أوديكس.</td></tr></"
-"table>"
 
 #: utils/schemeparser.h:171
 #, kde-format
@@ -2003,30 +1943,6 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
-"<p>يمكن أن تحتوي العناصر النائبة في Audex على معلمات في هيئة key=value. على "
-"سبيل المثال <tt>${title lowercase=true} . في هذا المثال، سيكون العنوان بأحرف "
-"صغيرة.يمكن استخدام المعلمات العامة التالية مع العناصر النائبة:</"
-"p><table><tr><th>المفتاح</th><th>القيمة</th><th>الوصف</th></"
-"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>ستكون قيمة العنصر "
-"النائب مكتوبة بأحرف صغيرة.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
-"false</td><td>ستكون قيمة العنصر النائب مكتوبة بأحرف كبيرة.</td></"
-"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>استبدل مسافات "
-"قيمة العنصر النائب بعلامات سفلية.</td></tr><tr><td><tt>fat32compatible</tt></"
-"td><td>true/false</td><td>استبدلأحرف اسم الملف غير القانونية لنظام الملفات "
-"FAT32 مع الشرطة السفلية.</td></tr><tr><td><tt>replace_chars</tt></"
-"td><td>true/false</td><td>استبدالالأحرف. تحتاج هذه المعلمة إلى مفتاحين "
-"إضافيين بنفس حجم القيمة:<tt>replace_char_list_from</tt>, "
-"<tt>replace_char_list_to</tt>. هذه قوائم من الأحرف. سيتم استبدال الحرف الأول "
-"من <tt>replace_char_list_from</tt>بالحرف الأول من <tt>replace_char_list_to</"
-"tt> وهكذا.</td></tr><tr><td><tt>left</tt></td><td>Number</td><td>خذ n من "
-"الأحرف من يسار قيمة العنصر النائب.</td></tr><tr><td><tt>length</tt></"
-"td><td>Number</td><td>إذا كانت قيمة العنصر النائبرقمًا، فقم بتوسيعه إلى الطول "
-"المحدد. علاوة على ذلك، يمكنك تعريف حرف تعبئة بالمفتاح الإضافي <tt>fillchar</"
-"tt>. حرف التعبئة الافتراضي هو '0'.</td></tr><tr><td><tt>pre</tt></"
-"td><td>String</td><td>سلسلة سيتم وضعها <b>قبل</b> القيمة. مفيد بشكل خاص "
-"لمعلمات سطر الأوامر التي لا ينبغي تعيينها على الإطلاق إذا كانت القيمة فارغة."
-"</td></tr><tr><td><tt>post</tt></td><td>String</td><td>سلسلة سيتم وضعها "
-"<b>بعد</b> القيمة.</td></tr></table>"
 
 #: utils/schemeparser.h:192
 #, kde-format
@@ -2040,12 +1956,6 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
-"<table><tr><th>العنصر النائب</th><th>الوصف</th></tr><tr><td>$tartist</"
-"td><td>هذا هو الفنان لكل مسار. وهو مفيد بشكل خاص فيأقراص التجميع.</td></"
-"tr><tr><td>$ttitle</td><td>عنوان المسار. عادةً ما يكون لكل مسار على قرص مضغوط "
-"عنوانه الخاص، وهو اسم الأغنية.</td></tr><tr><td>$trackno</td><td>رقم المسار. "
-"المسار الأول هو 1.</td></tr><tr><td><tt>$isrc</tt></td><td>رمز التسجيل "
-"القياسي الدولي(ISRC) للمسار (متاح فقط إذا كان جهازك يدعمه).</td></tr></table>"
 
 #: utils/schemeparser.h:204
 #, kde-format
@@ -2062,17 +1972,6 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
-"<table><tr><th>العنصر النائب</th><th>المعاملات المحددة</th><th>الوصف</th></"
-"tr><tr><td><tt>$i</tt></td><td></td><td>ملف WAVE المؤقت (RIFFWAVE) الذي تم "
-"إنشاؤه بواسطة Audex من مسار الصوت على القرص المضغوط. هذا هو ملف الإدخال "
-"لبرنامج ترميز سطر الأوامر الخاص بك.</td></tr><tr><td><tt>$o</tt></td><td></"
-"td><td>اسم ملف الإخراج والمسار الكاملين. استخدمه كمخرج لبرنامج ترميز سطر "
-"الأوامر الخاص بك.</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</"
-"tt></td><td>اسم ملف الغلاف. إذا لم يتم تعيين غلاف، فسيكون فارغًا.مفيد بشكل "
-"خاص بالتزامن مع معلمة <tt>pre</tt>. يمكن تغيير حجم الصورة باستخدام المعلمات "
-"<tt>x</tt> و<tt>y</tt>. التنسيقات المحتملة للصورة هي JPEG أو PNG أو GIF أو "
-"BMP (الإعداد الافتراضي: JPEG). <i><b>ملاحظة:</b>تتجاهل LAME ملفات الغلاف "
-"التي يزيد حجمها عن 128 كيلوبايت.</i></td></tr></table>"
 
 #: utils/schemeparser.h:218
 #, kde-format
@@ -2100,88 +1999,68 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
-"<table><tr><th>العنصر النائب</th><th>المعاملات المحددة</h><th>الوصف</th></"
-"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>يطبع الحجم الإجمالي "
-"لجميع ملفات الموسيقى المستخرجة (المشفرة) (بما في ذلك ملف صورة الغلاف). "
-"باستخدام <tt>iec</tt>، احسب (k)ibi أو (m)ebi أو (g)ibi. يمكن للمعلمة "
-"الإضافية <tt>precision</tt> تحديد عدد الأماكن العشرية.</td></tr><tr><td>"
-"$length</td><td></td><td>يطبع الطول الإجمالي ذي الصلة لجميع المسارات "
-"المستخرجة. التنسيق هو min:sec.</td></tr><tr><td>$nooftracks</td><td></"
-"td><td>يطبع العدد الإجمالي للمسارات المستخرجة.</td></tr><tr><td>$discid</"
-"td><td>base</td><td>يطبع قرص CDDB بتنسيق سداسي عشري.</td></tr><tr><td><tt>"
-"$mcn</tt></td><td></td><td>رقم كتالوج الوسائط (MCN) للقرص المضغوط (متاح فقط "
-"إذا كان الجهاز يدعمه).</td></tr><tr><td>$now</td><td><tt>format,locale</tt></"
-"td><td>يطبع التاريخ و/أو الوقت الحاليين. يحدد تنسيق المعلمة الناتج.يرجى "
-"الرجوع إلى وثائق qt الرسمية (https://doc.qt.io/qt-5/qtime.html#toString</"
-"tt>، وhttps://doc.qt.io/qt-6/qdate.html#toString</tt>) للتعرف على المواصفات "
-"المدعومة ضمن سلسلة التنسيق. باستخدام المفتاح الإضافي <tt>locale</tt>، يمكنك "
-"تحديد إعداد اللغة. بشكل افتراضي، يتم استخدام إعدادات نظامك المحلية. يكون "
-"الإعداد المحلي بتنسيق <tt>language_TERRITORY</tt>، على سبيل المثال "
-"<tt>en_EN</tt>. <tt>language</tt> هو رمز لغة ISO 639 مكون من حرفين وأحرف "
-"صغيرة و<tt>TERRITORY</tt> هو رمز منطقة ISO 3166 مكون من حرفين وأحرف كبيرة.</"
-"td></tr><tr><td>$br</td><td></td><td>يطبع فاصلًا للأسطر.</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr "يرفع الملف %1 إلى الخادم. الرجاء الانتظار..."
+msgstr ""
 
 #: utils/upload.cpp:61
 #, kde-format
 msgid "Finished uploading file %1 to server."
-msgstr "انتهى رفع الملف %1 إلى الخادم."
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:131
 #, kde-format
 msgid "CD Number: "
-msgstr "رقم القرص المضغوط: "
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "No audio CD detected"
-msgstr "لم يكتشف قرص صوتي مضغوط"
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:243
 #, kde-format
 msgid "Load Cover"
-msgstr "حمّل الغلاف"
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:253 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
-msgstr "احفظ الغلاف"
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:330
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr "عيّن غلافًا مخصّصًا..."
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
-msgstr "احفظ الغلاف في ملف..."
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr "اعرض الغلاف بالحجم الكامل..."
+msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
 msgid "Remove Cover"
-msgstr "أزل الغلاف"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Scheme:"
-msgstr "مخطط الأوامر:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
-msgstr "الجهاز"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: widgets/devicewidgetUI.ui:29
@@ -2192,9 +2071,6 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>استخدم بعض التقنيات الخاصة لتقليل احتمالية حدوث أخطاء "
-"قراءة غير ملحوظة. يؤدي ذلك إلى عملية قراءة أكثر أمانًا على حساب سرعة "
-"الاستخراج، لذا يمكن أيضًا تسميتها \"الوضع الآمن\".</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
@@ -2206,10 +2082,6 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>تخطي أخطاء القراءة لقطاع (طول القطاع: 1/75 ثانية) بعد "
-"إعادة محاولة قراءته. يُرجى تحديد عدد محاولات إعادة المحاولة في <span style=\" "
-"font-style:italic;\">إعادة المحاولة عند خطأ القراءة</span>. في حال التخطي، "
-"ستُكتب عينات فارغة للقطاعات المعيبة.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2222,17 +2094,12 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
-"<html><head/><body><p>تحتوي بعض محركات الأقراص على إزاحة عينة عند قراءة "
-"الأقراص الصوتية. لتحديد الإزاحة الصحيحة لطراز محرك الأقراص لديك، يمكنك "
-"مراجعة قاعدة بيانات <a href=\"https://www.accuraterip.com/driveoffsets.htm"
-"\"><span style=\" text-decoration: underline; color:#2980b9;\">Accuraterip</"
-"span></a>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample shift:"
-msgstr "إزاحة العينة:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2242,20 +2109,18 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
-"<html><head/><body><p>حدد الحد الأقصى لعدد محاولات إعادة المحاولة عند مواجهة "
-"قطاع معيب.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr "أقصى عدد المحاولات:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 #, kde-format
 msgid "Quality"
-msgstr "الجودة"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
@@ -2263,7 +2128,7 @@ msgstr "الجودة"
 #: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
-msgstr "الاقل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
@@ -2271,68 +2136,68 @@ msgstr "الاقل"
 #: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
-msgstr "الأقصى"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
 #: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
 #: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
 #, kde-format
 msgid "Embed cover in music file"
-msgstr "تضمين الغلاف في ملف الموسيقى"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
-msgstr "الضغط"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
 #, kde-format
 msgid "Paths"
-msgstr "مسارات"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:25
 #, kde-format
 msgid "Base path to store music files:"
-msgstr "المسار الأساسي لتخزين ملفات الموسيقى:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:60
 #, kde-format
 msgid "Eject CD tray after finished extraction"
-msgstr "أخرج علبة القرص المضغوط بعد الانتهاء من الاستخراج"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
 #: widgets/generalsettingswidgetUI.ui:77
 #, kde-format
 msgid "Perform cover lookup automatically"
-msgstr "ابحث عن الغلاف تلقائيًا"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
-msgstr "عدد الأغلفة المطلوب إحضارها:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
 #, kde-format
 msgid "Quality/Bitrate"
-msgstr "الجودة/معدل البت"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
-msgstr "يجب أن يوفر هذا الإعداد المسبق شفافية إدراكية لمعظم الأشخاص."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr "متوسط ​​(140...185 كيلوبت/ثانية)"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2341,26 +2206,24 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
-"إذا كان لديك سمع جيد للغاية ومعدات مماثلة، فسيوفر هذا الإعداد المسبق بشكل "
-"عام جودة أعلى قليلاً من الوضع \"القياسي\""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr "الأقصى (220...260 كيلوبت/ثانية)"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
 #, kde-format
 msgid "This preset should generally be transparent to most people."
-msgstr "يجب أن يكون هذا الإعداد المسبق شفافًا بشكل عام لمعظم الأشخاص."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "قياسي (170...210 كيلوبت/ثانية)"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2369,39 +2232,37 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
-"عادةً ما يكون هذا الإعداد المسبق مبالغًا فيه، ولكن إذا كنت تريد الحصول على "
-"أعلى جودة مطلقة بغض النظر عن حجم الملف، فهذا هو الطريق الصحيح."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
 #, kde-format
 msgid "Insane (320 kbit/s)"
-msgstr "مجنون (320 كيلوبت/ثانية)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 #, kde-format
 msgid "Constant Bitrate"
-msgstr "معدل البت الثابت"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "معدل البت المستهدف (كيلوبت/ثانية)"
+msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
-msgstr " كيلوبت/ثانية"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr "معدل البت المستهدف ~"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2410,34 +2271,34 @@ msgstr "معدل البت المستهدف ~"
 #: widgets/oggencwidgetUI.ui:347
 #, kde-format
 msgid "kbit/s"
-msgstr "كيلوبت/ثانية"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
 #, kde-format
 msgid "Set minimum bitrate"
-msgstr "عيّن الحد الأدنى لمعدل البت"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
 #: widgets/oggencwidgetUI.ui:245
 #, kde-format
 msgid "Set maximum bitrate"
-msgstr "عيّن الحد الأقصى لمعدل البت"
+msgstr ""
 
 #: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr "هل تريد حقًا حذف التشكيلة \"%1\"؟"
+msgstr ""
 
 #: widgets/profilewidget.cpp:79
 #, kde-format
 msgid "Delete profile"
-msgstr "احذف التشكيلة"
+msgstr "מחיקת פרופיל"
 
 #: widgets/profilewidget.cpp:130
 #, kde-format
 msgid "Load Profiles"
-msgstr "حمّل التشكيلات"
+msgstr ""
 
 #: widgets/profilewidget.cpp:138
 #, kde-format
@@ -2446,207 +2307,60 @@ msgid ""
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>هل ترغب في إعادة فحص نظامك بحثًا عن برامج الترميز (Lame، وOpus، وFLAC، وما "
-"إلى ذلك)؟</p><p><font style=\"font-style:italic;\">سيؤدي هذا إلى محاولة "
-"إنشاء بعض التشكيلات النموذجية استنادًا إلى أي برامج ترميز تم العثور عليها.</"
-"font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
-msgstr "مسح الترميز"
+msgstr ""
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
-msgstr "لم يعثر على أي برامج ترميز جديدة"
+msgstr ""
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] "تشكيلة أضيفت"
-msgstr[1] "تشكيلة واحدة أضيفت"
-msgstr[2] "تشكيلاتان أضيفتا"
-msgstr[3] "%1 تشكيلات أضيفت"
-msgstr[4] "%1 تشكيلة أضيفت"
-msgstr[5] "%1 تشكيلة أضيفت"
+msgstr[0] "נוסף פרופיל חדש"
+msgstr[1] "נוספו שני פרופילים חדשים"
+msgstr[2] "נוספו %1 פרופילים חדשים"
+msgstr[3] "נוספו %1 פרופילים חדשים"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr "أضف..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 #, kde-format
 msgid "Remove"
-msgstr "أزل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr "عدّل..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr "حمّل..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 #, kde-format
 msgid "Save..."
-msgstr "احفظ..."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
-msgstr "الرابط:"
-
-#~ msgid "Sample offset"
-#~ msgstr "إزاحة العينة"
-
-#~ msgid "TOC:"
-#~ msgstr "جدول المحتويات:"
-
-#~ msgid "Start ripping track %1 with length %2..."
-#~ msgstr "ابدأ نسخ المسار %1 بطول %2…"
-
-#~ msgid "Start ripping whole cd with length %1..."
-#~ msgstr "ابدأ نسخ كامل القرص بطول %1…"
-
-#~ msgid "Sample offset:"
-#~ msgstr "إزاحة العينة:"
-
-#~ msgid "Retries on read error:"
-#~ msgstr "إعادة المحاولة عند حدوث خطأ في القراءة:"
-
-#~ msgid "Xiph.Org Foundation"
-#~ msgstr "مؤسسة Xiph.Org"
-
-#~ msgid ""
-#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-#~ msgstr "شكر خاص لمؤسسة Xiph.Org لتوفير برنامج نسخ الأقراص المضغوطة"
-
-#~ msgid ""
-#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "تحقق من جهازك. هل هو حقًا \"%1\"؟ تحقق أيضًا من الأذونات الخاصة بك على "
-#~ "\"%1\"."
-
-#~ msgid "Device error (2)."
-#~ msgstr "خطأ في الجهاز (2)."
-
-#~ msgid "Device error (3)."
-#~ msgstr "خطأ في الجهاز (3)."
-
-#~ msgid "Non-Audio: Data mode 2"
-#~ msgstr "غير صوتي: وضع البيانات 2"
-
-#~ msgid ", form 1"
-#~ msgstr "، النموذج 1"
-
-#~ msgid ", form 2"
-#~ msgstr "، النموذج 2"
-
-#~ msgid "Non-Audio: Data mode 1"
-#~ msgstr "غير صوتي: وضع البيانات 1"
-
-#~ msgid "Non-Audio: Playstation 1"
-#~ msgstr "غير صوتي: بلاي ستيشن 1"
-
-#~ msgid "Non-Audio: Unknown format"
-#~ msgstr "غير صوتي: تنسيق غير معروف"
-
-#~ msgid ""
-#~ "Could not get device hardware information (vendor, model and firmware "
-#~ "revision)."
-#~ msgstr ""
-#~ "تعذر الحصول على معلومات أجهزة الجهاز (مراجعة البائع والطراز والبرامج "
-#~ "الثابتة)."
-
-#~ msgid "Internal device error."
-#~ msgstr "خطأ داخلي في الجهاز."
-
-#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-#~ msgstr ""
-#~ "بائع محرك الأقراص: %1، طراز محرك الأقراص: %2، مراجعة محرك الأقراص: %3"
-
-#~ msgid "Extracting finished."
-#~ msgstr "انتهى الاستخراج."
-
-#~ msgid "Error occured while seeking at sector %1: %2"
-#~ msgstr "حدث خطأ أثناء البحث في القطاع %1: %2"
-
-#~ msgid "An error occured while ripping track %1. See log."
-#~ msgstr "حدث خطأ أثناء استخراج المسار %1. انظر السجل."
-
-#~ msgid "An error occured while ripping. See log."
-#~ msgstr "حدث خطأ أثناء الاستخراج المسار. انظر السجل."
-
-#~ msgid "Correction sample offset: %1"
-#~ msgstr "إزاحة عينة التصحيح: %1"
-
-#~ msgid "Fetching extra information from disc..."
-#~ msgstr "يجلب الآن معلومات إضافية من القرص..."
-
-#~ msgid "Fetching subchannel infos from disc"
-#~ msgstr "يجلب معلومات القناة الفرعية من القرص"
-
-#~ msgid "Ripping track %1 (%2:%3)..."
-#~ msgstr "يستخرج المسار %1 (%2:%3)..."
-
-#~ msgid "Ripping whole disc (%1:%2)..."
-#~ msgstr "يستخرج القرص بالكامل (%1:%2)..."
-
-#~ msgid "Start reading whole disc with %1 sectors"
-#~ msgstr "بدء قراءة القرص بالكامل مع %1 قطاعات"
-
-#~ msgid "Track %1 with start sector %2"
-#~ msgstr "المسار %1 مع قطاع البداية %2"
-
-#~ msgid "First sector: %1, Last sector: %2"
-#~ msgstr "القطاع الأول: %1، القطاع الأخير: %2"
-
-#~ msgid "Ripping finished"
-#~ msgstr "انتهى الاستخراج"
-
-#~ msgid "(No disc detected)"
-#~ msgstr "(لم يكتشف أي قرص)"
-
-#~ msgid "Device information"
-#~ msgstr "معلومات الجهاز"
-
-#~ msgid "Vendor:"
-#~ msgstr "البائع:"
-
-#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-#~ msgstr "يمكن لجهازك قراءة رقم كتالوج الوسائط (MCN) الخاص بالقرص."
-
-#~ msgid "Can read Media Catalog Number (MCN)"
-#~ msgstr "يمكن قراءة رقم كتالوج الوسائط (MCN)"
-
-#~ msgid "Revision:"
-#~ msgstr "المراجعة:"
-
-#~ msgid "C2 error correction available"
-#~ msgstr "تصحيح الخطأ C2 متاح"
-
-#~ msgid "Model:"
-#~ msgstr "الطّراز:"
-
-#~ msgid ""
-#~ "Your device can read the International Standard Recording Code of every "
-#~ "single track."
-#~ msgstr "يستطيع جهازك قراءة رمز التسجيل القياسي الدولي لكل مسار على حدة."
-
-#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
-#~ msgstr "يمكن قراءة رمز التسجيل القياسي الداخلي (ISRC)"
+msgstr ""
