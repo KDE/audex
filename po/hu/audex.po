@@ -3,13 +3,13 @@
 #
 # Balázs Úr <urbalazs@gmail.com>, 2012.
 # Kristóf Kiszel <kiszel.kristof@gmail.com>, 2021.
-# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2024-05-12 22:59+0200\n"
+"PO-Revision-Date: 2025-08-12 22:00+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -37,20 +37,20 @@ msgstr "Részleges fájlok törlése megszakítás után"
 #: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
-msgstr "A CD-tálca kiadása a kinyerés befejezésekor"
+msgstr "Lemeztálca kiadása a rippelés után"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
 #, kde-format
 msgid "Perform CDDB lookup automatically"
-msgstr "CDDB keresés automatikus végrehajtása"
+msgstr "CDDB-adatok automatikus lekérése"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:27
 #, kde-format
 msgid "Perform cover lookup (amazon) automatically"
-msgstr "Borítókeresés (Amazon) automatikus végrehajtása"
+msgstr "Borítók automatikus keresése (Amazon)"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:31
@@ -68,30 +68,27 @@ msgstr "Teljes paranoia mód (biztonságos mód)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "Olvasási hibák kihagyása"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Olvasási hibák kihagyása"
+msgstr "Újrapróbálkozások hibánál"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset"
+#, kde-format
 msgid "Sample shift"
-msgstr "Mintavételezés eltolása"
+msgstr "Mintaeltolás"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
 #, kde-format
 msgid "Base path to store music files"
-msgstr "Zenefájlok tárolásának alap elérési útja"
+msgstr "Zenefájlok alapmappája"
 
 #. i18n: ectx: label, entry (upload), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
@@ -116,7 +113,7 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr "&Metaadat"
+msgstr "&Metaadatok"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
@@ -201,7 +198,7 @@ msgstr "Hiba a(z) „%1” átmeneti mappában (%2)."
 #: core/audex.cpp:742
 #, kde-format
 msgid "Please check."
-msgstr "Kérjük, ellenőrizze."
+msgstr "Ellenőrizze."
 
 #: core/audex.cpp:750
 #, kde-format
@@ -216,12 +213,12 @@ msgstr "A(z) „%1” átmeneti mappának legalább 200 MiB szabad hely kell."
 #: core/audex.cpp:752
 #, kde-format
 msgid "Please free space or set another path."
-msgstr "Kérjük, szabadítson fel helyet, vagy adjon meg másik útvonalat."
+msgstr "Szabadítson fel helyet, vagy adjon meg másik útvonalat."
 
 #: core/audex.cpp:781
 #, kde-format
 msgid "Eject CD tray"
-msgstr "CD-tálca kiadása"
+msgstr "Lemeztálca kiadása"
 
 #: core/audex.cpp:833
 #, kde-format
@@ -238,7 +235,7 @@ msgstr "Nem lehet menteni a(z) „%1” borítót."
 #: core/audex.cpp:1150
 #, kde-format
 msgid "Please check your path and permissions"
-msgstr "Kérjük, ellenőrizze az útvonalat és a jogosultságokat"
+msgstr "Ellenőrizze az útvonalat és a jogosultságokat"
 
 #: core/audex.cpp:910
 #, kde-format
@@ -273,12 +270,12 @@ msgstr "Nem lehet menteni a(z) „%1” kivonatlistát."
 #: core/audex.cpp:1044
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr ""
+msgstr "A(z) „%1” CUE-fájl sikeresen létrehozva."
 
 #: core/audex.cpp:1047
 #, kde-format
 msgid "Unable to save cue sheet \"%1\"."
-msgstr ""
+msgstr "Nem lehet menteni a(z) „%1” CUE-fájlt."
 
 #: core/audex.cpp:1073
 #, kde-format
@@ -288,7 +285,7 @@ msgstr "A(z) „%1” naplófájl sikeresen tárolva."
 #: core/audex.cpp:1076
 #, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Nem lehet menteni a(z) „%1” naplófájlt"
+msgstr "Nem lehet menteni a(z) „%1” naplófájlt."
 
 #: core/audex.cpp:1123 core/audex.cpp:1150
 #, kde-format
@@ -310,7 +307,7 @@ msgstr "Különböző előadók"
 #: dialogs/cddaheaderdatawidgetUI.ui:24
 #, kde-format
 msgid "Multi CD"
-msgstr ""
+msgstr "Multi CD"
 
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:50
@@ -328,13 +325,13 @@ msgstr "Cím:"
 #: dialogs/cddaheaderdatawidgetUI.ui:76
 #, kde-format
 msgid "CD Number:"
-msgstr ""
+msgstr "CD szám:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
 #, kde-format
 msgid "Track Offset:"
-msgstr ""
+msgstr "Számeltolás:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
@@ -362,7 +359,7 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:176
 #, kde-format
 msgid "CDDB disc ID:"
-msgstr ""
+msgstr "CDDB lemezazonosító:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -1019,10 +1016,9 @@ msgid "Audio ripping application"
 msgstr "Hangbeolvasó alkalmazás"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © Marco Nelles, 2007-2023."
+msgstr "Copyright © Marco Nelles, 2007-2025."
 
 #: main.cpp:33
 #, kde-format
@@ -1579,10 +1575,9 @@ msgid "Audio Disc"
 msgstr "Hanglemez"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Mintavételezés eltolása"
+msgstr "Mintaeltolás: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
@@ -1590,10 +1585,9 @@ msgid "Ripping with shift of %1 samples"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Teljes paranoia mód (biztonságos mód)"
+msgstr "Paranoia mód bekapcsolva"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
@@ -1686,10 +1680,9 @@ msgid "Ripping successfully finished"
 msgstr "A(z) „%1” borító sikeresen mentve."
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Eszközhiba (1)."
+msgstr "Eszközhiba."
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -1758,27 +1751,27 @@ msgstr ""
 #: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
-msgstr ""
+msgstr "FLAC (veszteségmentes)"
 
 #: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
-msgstr ""
+msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:119
 #, kde-format
@@ -1790,7 +1783,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
-msgstr ""
+msgstr "Egyéni"
 
 #: utils/encoderwrapper.cpp:61
 #, kde-format
@@ -2040,44 +2033,44 @@ msgstr "Nem található audió CD"
 #: widgets/cddaheaderwidget.cpp:243
 #, kde-format
 msgid "Load Cover"
-msgstr ""
+msgstr "Borító betöltése"
 
 #: widgets/cddaheaderwidget.cpp:253 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
-msgstr ""
+msgstr "Borító mentése"
 
 #: widgets/cddaheaderwidget.cpp:330
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "Saját borító beállítása…"
 
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "Borító mentése fájlba…"
 
 #: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "Teljes méretű borító megjelenítése…"
 
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
 msgid "Remove Cover"
-msgstr ""
+msgstr "Borító eltávolítása"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Scheme:"
-msgstr ""
+msgstr "Parancsséma:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
-msgstr ""
+msgstr "Eszköz"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: widgets/devicewidgetUI.ui:29
@@ -2138,7 +2131,7 @@ msgstr ""
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 #, kde-format
 msgid "Quality"
-msgstr ""
+msgstr "Minőség"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
@@ -2146,7 +2139,7 @@ msgstr ""
 #: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
-msgstr ""
+msgstr "Legalacsonyabb"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
@@ -2154,7 +2147,7 @@ msgstr ""
 #: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
-msgstr ""
+msgstr "Legmagasabb"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
 #: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
@@ -2167,13 +2160,13 @@ msgstr ""
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
-msgstr ""
+msgstr "Tömörítés"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
 #, kde-format
 msgid "Paths"
-msgstr ""
+msgstr "Útvonalak"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:25
@@ -2203,7 +2196,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:41
 #, kde-format
 msgid "Quality/Bitrate"
-msgstr ""
+msgstr "Minőség/bitráta"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
@@ -2215,7 +2208,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr ""
+msgstr "Közepes (140…185 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2229,7 +2222,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr ""
+msgstr "Extrém (220…260 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2241,7 +2234,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr ""
+msgstr "Standard (170…210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2255,13 +2248,13 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:117
 #, kde-format
 msgid "Insane (320 kbit/s)"
-msgstr ""
+msgstr "Őrült (320 kbit/s)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 #, kde-format
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "Állandó bitráta"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
@@ -2274,7 +2267,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
-msgstr ""
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
@@ -2289,7 +2282,7 @@ msgstr ""
 #: widgets/oggencwidgetUI.ui:347
 #, kde-format
 msgid "kbit/s"
-msgstr ""
+msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
@@ -2311,12 +2304,12 @@ msgstr ""
 #: widgets/profilewidget.cpp:79
 #, kde-format
 msgid "Delete profile"
-msgstr ""
+msgstr "Profil törlése"
 
 #: widgets/profilewidget.cpp:130
 #, kde-format
 msgid "Load Profiles"
-msgstr ""
+msgstr "Profilok betöltése"
 
 #: widgets/profilewidget.cpp:138
 #, kde-format
@@ -2331,55 +2324,55 @@ msgstr ""
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
-msgstr ""
+msgstr "Kodekkeresés"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
-msgstr ""
+msgstr "Nem találhatók új kodekek"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 új profil hozzáadva"
+msgstr[1] "%1 új profil hozzáadva"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr ""
+msgstr "Hozzáadás…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "Eltávolítás"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr ""
+msgstr "Módosítás…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr ""
+msgstr "Betöltés…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 #, kde-format
 msgid "Save..."
-msgstr ""
+msgstr "Mentés…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #~ msgid "Sample offset"
 #~ msgstr "Mintavételezés eltolása"
