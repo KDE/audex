@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-08-12 22:00+0200\n"
+"PO-Revision-Date: 2025-08-13 21:58+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -37,7 +37,7 @@ msgstr "Részleges fájlok törlése megszakítás után"
 #: audex.kcfg:19
 #, kde-format
 msgid "Eject CD tray after extraction finished"
-msgstr "Lemeztálca kiadása a rippelés után"
+msgstr "Lemeztálca kiadása a beolvasás után"
 
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
@@ -370,30 +370,30 @@ msgstr "0x00000000"
 #: dialogs/commandwizarddialog.cpp:20
 #, kde-format
 msgid "Command Scheme Wizard"
-msgstr ""
+msgstr "Parancsséma varázsló"
 
 #: dialogs/commandwizarddialog.cpp:39
 #, kde-format
 msgid "Command scheme help"
-msgstr ""
+msgstr "Parancsséma súgó"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
 #, kde-format
 msgid "Please set a command scheme"
-msgstr ""
+msgstr "Adjon meg egy parancssémát"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
 #, kde-format
 msgid "Album Example:"
-msgstr ""
+msgstr "Albumpélda:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
-msgstr ""
+msgstr "Mintavételező példa:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -409,7 +409,7 @@ msgstr "Súgó"
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
 msgid "Album Artist"
-msgstr ""
+msgstr "Album előadó"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:319
@@ -417,25 +417,25 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
 msgid "Album Title"
-msgstr ""
+msgstr "Albumcím"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
-msgstr ""
+msgstr "Szám előadó"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
 #, kde-format
 msgid "Track Title"
-msgstr ""
+msgstr "Számcím"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
 #, kde-format
 msgid "Track #"
-msgstr ""
+msgstr "Szám #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:383
@@ -443,7 +443,7 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:376
 #, kde-format
 msgid "CD #"
-msgstr ""
+msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:390
@@ -451,7 +451,7 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:426
 #, kde-format
 msgid "# of Tracks"
-msgstr ""
+msgstr "Zeneszámok száma"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_date)
 #: dialogs/commandwizardwidgetUI.ui:400
@@ -473,30 +473,30 @@ msgstr "Műfaj"
 #: dialogs/commandwizardwidgetUI.ui:420
 #, kde-format
 msgid "Cover File"
-msgstr ""
+msgstr "Borítófájl"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:430
 #, kde-format
 msgid "Input File"
-msgstr ""
+msgstr "Bemeneti fájl"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:440
 #, kde-format
 msgid "Output File"
-msgstr ""
+msgstr "Kimeneti fájl"
 
 #: dialogs/extractingprogressdialog.cpp:13
 #, kde-format
 msgid "Rip And Encode"
-msgstr ""
+msgstr "Beolvasás és kódolás"
 
 #: dialogs/extractingprogressdialog.cpp:36
 #: dialogs/extractingprogressdialog.cpp:178
 #, kde-format
 msgid "Ripping whole CD as single track"
-msgstr ""
+msgstr "Teljes CD beolvasása egyetlen számként"
 
 #: dialogs/extractingprogressdialog.cpp:37
 #, kde-format
@@ -506,17 +506,17 @@ msgstr "Kódolás"
 #: dialogs/extractingprogressdialog.cpp:40
 #, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr ""
+msgstr "0 / %1 szám beolvasása"
 
 #: dialogs/extractingprogressdialog.cpp:41
 #, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr ""
+msgstr "0 / %1 szám beolvasása"
 
 #: dialogs/extractingprogressdialog.cpp:155
 #, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr ""
+msgstr "Biztosan megszakítja a beolvasást?"
 
 #: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
@@ -526,12 +526,12 @@ msgstr "Mégse"
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track"
-msgstr ""
+msgstr "Szám beolvasása"
 
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr ""
+msgstr "%1 / %2 szám beolvasása"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:173
@@ -539,27 +539,27 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:180
 #, kde-format
 msgid "Overall Progress"
-msgstr ""
+msgstr "Összesített előrehaladás"
 
 #: dialogs/extractingprogressdialog.cpp:173
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr ""
+msgstr "Összesített előrehaladás (%1 / %2 szám beolvasása)"
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Waiting for an encoding job..."
-msgstr ""
+msgstr "Várakozás egy kódoló feladatra…"
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track"
-msgstr ""
+msgstr "Szám kódolása"
 
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track %1 of %2"
-msgstr ""
+msgstr "%1 / %2 szám kódolása"
 
 #: dialogs/extractingprogressdialog.cpp:234
 #: dialogs/extractingprogressdialog.cpp:240
@@ -570,7 +570,7 @@ msgstr "Sebesség: %1x"
 #: dialogs/extractingprogressdialog.cpp:258
 #, kde-format
 msgid "All jobs successfully done."
-msgstr ""
+msgstr "Minden feladat sikeresen befejeződött."
 
 #: dialogs/extractingprogressdialog.cpp:262
 #: dialogs/extractingprogressdialog.cpp:263
@@ -582,7 +582,7 @@ msgstr "Befejezve!"
 #: dialogs/extractingprogressdialog.cpp:269
 #, kde-format
 msgid "At least one job failed."
-msgstr ""
+msgstr "Legalább egy feladat sikertelen."
 
 #: dialogs/extractingprogressdialog.cpp:273
 #: dialogs/extractingprogressdialog.cpp:274
@@ -594,12 +594,12 @@ msgstr "Sikertelen!"
 #: dialogs/extractingprogressdialog.cpp:278
 #, kde-format
 msgid "Show encoding log..."
-msgstr ""
+msgstr "Kódolási napló megjelenítése…"
 
 #: dialogs/extractingprogressdialog.cpp:285
 #, kde-format
 msgid "Show rip log..."
-msgstr ""
+msgstr "Beolvasási napló megjelenítése…"
 
 #: dialogs/extractingprogressdialog.cpp:332
 #, kde-format
@@ -607,27 +607,29 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
+"A beolvasási sebesség az utolsó 5 percben különösen alacsony volt.\n"
+"Szeretné folytatni a beolvasást?"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid "Cancel extraction"
-msgstr ""
+msgstr "Beolvasás megszakítása"
 
 #: dialogs/extractingprogressdialog.cpp:344
 #, kde-format
 msgid "Encoding log"
-msgstr ""
+msgstr "Kódolási napló"
 
 #: dialogs/extractingprogressdialog.cpp:350
 #, kde-format
 msgid "Ripping log"
-msgstr ""
+msgstr "Beolvasási napló"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
 #, kde-format
 msgid "Show/hide details"
-msgstr ""
+msgstr "Részletek megjelenítése/elrejtése"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
@@ -641,7 +643,7 @@ msgstr "…"
 #: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr ""
+msgstr "8 / 12 szám beolvasása"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
@@ -665,17 +667,17 @@ msgstr "%p%"
 #: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
-msgstr ""
+msgstr "8 / 12 szám kódolása"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Sémavarázsló"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
 #, kde-format
 msgid "Filename scheme help"
-msgstr ""
+msgstr "Fájlnév-séma súgó"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -702,7 +704,7 @@ msgstr "Példa:"
 #: dialogs/profiledatawidgetUI.ui:108
 #, kde-format
 msgid "Please set a scheme"
-msgstr ""
+msgstr "Adjon meg egy sémát"
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -722,23 +724,23 @@ msgstr "Borítóbeállítások"
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
 msgid "JPEG (Joint Photographic Experts Group)"
-msgstr ""
+msgstr "JPEG (Joint Photographic Experts Group)"
 
 #: dialogs/profiledatacoverdialog.cpp:69
 #, kde-format
 msgid "PNG (Portable Network Graphics)"
-msgstr ""
+msgstr "PNG (Portable Network Graphics)"
 
 #: dialogs/profiledatacoverdialog.cpp:70
 #, kde-format
 msgid "BMP (Windows Bitmap)"
-msgstr ""
+msgstr "BMP (Windows Bitmap)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: dialogs/profiledatacoverwidgetUI.ui:23
 #, kde-format
 msgid "Scale before store:"
-msgstr ""
+msgstr "Méretezés tárolás előtt:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
@@ -758,12 +760,12 @@ msgstr "Formátum:"
 #: dialogs/profiledatacoverwidgetUI.ui:91
 #, kde-format
 msgid "Cover scheme:"
-msgstr ""
+msgstr "Borítóséma:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:28
 #, kde-format
 msgid "Cue Sheet Settings"
-msgstr ""
+msgstr "CUE-fájl beállításai"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:33
@@ -773,7 +775,7 @@ msgstr ""
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Név/séma:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
@@ -813,7 +815,7 @@ msgstr "Új profil"
 #: dialogs/profiledataplaylistdialog.cpp:30
 #, kde-format
 msgid "Playlist Settings"
-msgstr ""
+msgstr "Lejátszólista-beállítások"
 
 #: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
@@ -973,7 +975,7 @@ msgstr "Kivonatlista létrehozása"
 #: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
 msgid "Create cue sheet"
-msgstr ""
+msgstr "CUE-fájl létrehozása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:257
