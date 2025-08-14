@@ -2445,7 +2445,7 @@ msgid ""
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
-"<p>هل ترغب في إعادة فحص نظامك بحثًا عن برامج الترميز (Lame، وOpus، ، وما إلى "
+"<p>هل ترغب في إعادة فحص نظامك بحثًا عن برامج الترميز (Lame، وOpus،، وما إلى "
 "ذلك)؟</p><p><font style=\"font-style:italic;\">سيؤدي هذا إلى محاولة إنشاء "
 "بعض التشكيلات النموذجية استنادًا إلى أي برامج ترميز التي عثر عليها.</font></p>"
 
