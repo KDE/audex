@@ -162,12 +162,12 @@ msgstr "المساحة الحرة على \"%1\" أقل من 200 ميجا باي�
 #: core/audex.cpp:653 core/audex.cpp:725
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "تحذير! الملف \"%1\" موجود بالفعل. الكتابة فوقه."
+msgstr "تحذير! الملف \"%1\" موجود فعلًا. الكتابة فوقه."
 
 #: core/audex.cpp:655 core/audex.cpp:727 core/audex.cpp:1135
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "تحذير! الملف \"%1\" موجود بالفعل. تخطي."
+msgstr "تحذير! الملف \"%1\" موجود فعلًا. تخطي."
 
 #: core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
@@ -182,7 +182,7 @@ msgstr "المجلد \"%1\" أنشئ بنجاح."
 #: core/audex.cpp:712
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr "المجلد \"%1\" موجود بالفعل."
+msgstr "المجلد \"%1\" موجود فعلًا."
 
 #: core/audex.cpp:719
 #, kde-format
@@ -1446,15 +1446,14 @@ msgstr "لم تدخل اسم للتشكيلة. يرجى تعيين اسمًا."
 #: models/profilemodel.cpp:395
 #, kde-format
 msgid "Profile name already exists."
-msgstr "اسم التشكيلة موجود بالفعل."
+msgstr "اسم التشكيلة موجود فعلًا."
 
 #: models/profilemodel.cpp:396
 #, kde-format
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
-msgstr ""
-"اسم تشكيلتك %1 موجود بالفعل في مجموعة التشكيلات. يرجى اختيار اسمًا فريدًا."
+msgstr "اسم تشكيلتك %1 موجود فعلًا في مجموعة التشكيلات. يرجى اختيار اسمًا فريدًا."
 
 #: models/profilemodel.cpp:407
 #, kde-format
