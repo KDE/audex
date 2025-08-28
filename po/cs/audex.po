@@ -70,24 +70,21 @@ msgstr "Úplný režim paranoia (bezpečný režim)"
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
-msgstr "Chyba při čtení chyb"
+msgstr ""
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Chyba při čtení chyb"
+msgstr ""
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Posun vzorku:"
+msgstr ""
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -1033,10 +1030,9 @@ msgid "Audio ripping application"
 msgstr "Program pro ripování zvukových dat z CD"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Autorská práva © 2007-2023 Marco Nelles"
+msgstr ""
 
 #: main.cpp:33
 #, kde-format
@@ -1628,10 +1624,9 @@ msgid "Audio Disc"
 msgstr "Audio disk"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Posun vzorku:"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
@@ -1639,10 +1634,9 @@ msgid "Ripping with shift of %1 samples"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "Úplný režim paranoia (bezpečný režim)"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
@@ -1650,16 +1644,14 @@ msgid "Paranoia mode disabled"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Začíná se se čtením skladby %1 s %2 sektory"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Začíná se se čtením skladby %1 s %2 sektory"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1719,10 +1711,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Ripování zvukových dat proběhlo v pořádku (stopa %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Obal \"%1\" byl úspěšně uložen."
+msgstr ""
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1730,29 +1721,25 @@ msgid "Ripping OK."
 msgstr "Ripování proběhlo v pořádku."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Obal \"%1\" byl úspěšně uložen."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "Chyba zařízení (1)."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "Prověřte své zařízení a vytvořte zprávu o programové chybě."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "Chyba zařízení (1)."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
@@ -1770,10 +1757,9 @@ msgid "Unspecified drive error on \"%1\"."
 msgstr ""
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Chyba zařízení (1)."
+msgstr ""
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
@@ -1793,10 +1779,9 @@ msgid "Audio"
 msgstr "Audio"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Ne-Audio: CD-i"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2151,12 +2136,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2164,9 +2144,6 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Přeskočit chyby čtení sektoru (délka sektoru: 1/75 "
-"sekundy) po nanejvýš 20 pokusech o opětovné čtení sektoru. Obvykle se "
-"poškozené sektory vyplní tichem.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2182,10 +2159,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Posun vzorku:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2457,148 +2433,3 @@ msgstr "Uložit..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Sample offset"
-#~ msgstr "Posun vzorku"
-
-#~ msgid "TOC:"
-#~ msgstr "Obsah:"
-
-#, fuzzy
-#~| msgid "Start reading track %1 with %2 sectors"
-#~ msgid "Start ripping track %1 with length %2..."
-#~ msgstr "Začíná se se čtením skladby %1 s %2 sektory"
-
-#, fuzzy
-#~| msgid "Start reading track %1 with %2 sectors"
-#~ msgid "Start ripping whole cd with length %1..."
-#~ msgstr "Začíná se se čtením skladby %1 s %2 sektory"
-
-#~ msgid "Sample offset:"
-#~ msgstr "Posun vzorku:"
-
-#~ msgid "Xiph.Org Foundation"
-#~ msgstr "Nadace Xiph.Org"
-
-#~ msgid ""
-#~ "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-#~ msgstr ""
-#~ "Zvláštní poděkování nadaci Xiph.Org za poskytnutí zařízení pro ripování "
-#~ "dat z kompaktních disků"
-
-#~ msgid ""
-#~ "Check your device. Is it really \"%1\"? Also check your permissions on "
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "Zkontrolujte své zařízení. Je to skutečně \"%1\"? Zkontrolujte také svá "
-#~ "oprávnění k \"%1\"."
-
-#~ msgid "Device error (2)."
-#~ msgstr "Chyba zařízení (2)."
-
-#~ msgid "Device error (3)."
-#~ msgstr "Chyba zařízení (3)."
-
-#~ msgid "Non-Audio: Data mode 2"
-#~ msgstr "Ne-Audio: Datový režim 2"
-
-#~ msgid ", form 1"
-#~ msgstr ", formulář 1"
-
-#~ msgid ", form 2"
-#~ msgstr ", formulář 2"
-
-#~ msgid "Non-Audio: Data mode 1"
-#~ msgstr "Ne-Audio: Datový režim 1"
-
-#~ msgid "Non-Audio: Playstation 1"
-#~ msgstr "Ne-Audio: Playstation 1"
-
-#~ msgid "Non-Audio: Unknown format"
-#~ msgstr "Ne-Audio: Neznámý formát"
-
-#~ msgid ""
-#~ "Could not get device hardware information (vendor, model and firmware "
-#~ "revision)."
-#~ msgstr ""
-#~ "Nepodařilo se získat informace o hardwaru zařízení (výrobce, model a "
-#~ "revize firmwaru)."
-
-#~ msgid "Internal device error."
-#~ msgstr "Vnitřní chyba na zařízení"
-
-#~ msgid "Drive Vendor: %1, Drive Model: %2, Drive Revision: %3"
-#~ msgstr "Výrobce jednotky: %1, Model jednotky: %2, Revize jednotky: %3"
-
-#~ msgid "Extracting finished."
-#~ msgstr "Získávání bylo dokončeno."
-
-#~ msgid "Error occured while seeking at sector %1: %2"
-#~ msgstr "Při vyhledávání v sektoru %1 došlo k chybě: %2"
-
-#~ msgid "An error occured while ripping track %1. See log."
-#~ msgstr "Při ripování stopy %1 došlo k chybě. Podívejte se na záznam."
-
-#~ msgid "An error occured while ripping. See log."
-#~ msgstr "Při ripování stopy došlo k chybě. Podívejte se na záznam."
-
-#~ msgid "Correction sample offset: %1"
-#~ msgstr "Posun korekčního vzorku: %1"
-
-#~ msgid "Fetching extra information from disc..."
-#~ msgstr "Získání dalších informací z disku..."
-
-#~ msgid "Fetching subchannel infos from disc"
-#~ msgstr "Získání informací o dílčích kanálech z disku"
-
-#~ msgid "Ripping track %1 (%2:%3)..."
-#~ msgstr "Ripuje se stopa %1 (%2:%3)..."
-
-#~ msgid "Ripping whole disc (%1:%2)..."
-#~ msgstr "Ripuje se celý disk (%1:%2)..."
-
-#~ msgid "Start reading whole disc with %1 sectors"
-#~ msgstr "Spustit čtení celého disku s %1 sektory"
-
-#~ msgid "Track %1 with start sector %2"
-#~ msgstr "Stopa %1 s počátečním sektorem %2"
-
-#~ msgid "First sector: %1, Last sector: %2"
-#~ msgstr "První sektor: %1, Poslední sektor: %2"
-
-#~ msgid "Ripping finished"
-#~ msgstr "Ripování bylo dokončeno"
-
-#~ msgid "(No disc detected)"
-#~ msgstr "(Nebyl zjištěn žádný disk)"
-
-#~ msgid "Device information"
-#~ msgstr "Informace o zařízení"
-
-#~ msgid "Vendor:"
-#~ msgstr "Výrobce:"
-
-#~ msgid "Your device can read the Media Catalog Number (MCN) of the disc."
-#~ msgstr "Zařízení dokáže přečíst katalogové číslo média (MCN) disku."
-
-#~ msgid "Can read Media Catalog Number (MCN)"
-#~ msgstr "Umí číst katalogové číslo média (MCN)"
-
-#~ msgid "Revision:"
-#~ msgstr "Revize:"
-
-#~ msgid "C2 error correction available"
-#~ msgstr "Je dostupná oprava chyb C2"
-
-#~ msgid "Model:"
-#~ msgstr "Model:"
-
-#~ msgid ""
-#~ "Your device can read the International Standard Recording Code of every "
-#~ "single track."
-#~ msgstr ""
-#~ "Zařízení dokáže přečíst mezinárodní standardní kód záznamu každé "
-#~ "jednotlivé stopy."
-
-#~ msgid "Can read Intern. Standard Recording Code (ISRC)"
-#~ msgstr "Umí číst Intern. Standardní kód záznamu (ISRC)"
