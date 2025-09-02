@@ -1288,7 +1288,7 @@ msgstr "Emplena automàticament els artistes"
 #: mainwindow.cpp:488
 #, kde-format
 msgid "Select All Tracks"
-msgstr "Selecciona totes les pistes"
+msgstr "Tria totes les pistes"
 
 #: mainwindow.cpp:493
 #, kde-format
@@ -1398,12 +1398,12 @@ msgstr "Açò vol dir que no s'han trobat dades en la base de dades de la CDDB."
 #: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select CDDB Entry"
-msgstr "Seleccioneu l'entrada de la CDDB"
+msgstr "Trieu l'entrada de la CDDB"
 
 #: models/cddamodel.cpp:1002
 #, kde-format
 msgid "Select a CDDB entry:"
-msgstr "Seleccioneu una entrada de la CDDB:"
+msgstr "Trieu una entrada de la CDDB:"
 
 #: models/cddamodel.h:35
 #, kde-format
@@ -1463,8 +1463,7 @@ msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
-"El nom de perfil %1 ja existix en el conjunt de perfils. Seleccioneu un nom "
-"únic."
+"El nom de perfil %1 ja existix en el conjunt de perfils. Trieu un nom únic."
 
 #: models/profilemodel.cpp:407
 #, kde-format
