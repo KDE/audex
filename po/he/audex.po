@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-07-15 08:14+0300\n"
+"PO-Revision-Date: 2025-09-22 22:53+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1706,7 +1706,7 @@ msgstr ""
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Drive/Disc error."
-msgstr ""
+msgstr "שגיאת כונן/תקליטור."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
@@ -1741,49 +1741,49 @@ msgstr ""
 #: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
-msgstr ""
+msgstr "FLAC (ללא אובדן איכות)"
 
 #: utils/encoderassistant.h:108
 #, kde-format
 msgid "MP4 (AAC)"
-msgstr ""
+msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
-msgstr ""
+msgstr "WAVE (גולמי לא דחוס)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:126 utils/encoderassistant.h:127
 #: widgets/lamewidgetUI.ui:130
 #, kde-format
 msgid "Custom"
-msgstr ""
+msgstr "מותאם אישית"
 
 #: utils/encoderwrapper.cpp:61
 #, kde-format
 msgid "Command scheme is empty."
-msgstr ""
+msgstr "תבנית הפקודה ריקה."
 
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr ""
+msgstr "רצועה %1 מקודדת…"
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
@@ -2013,54 +2013,54 @@ msgstr ""
 #: widgets/cddaheaderwidget.cpp:131
 #, kde-format
 msgid "CD Number: "
-msgstr ""
+msgstr "מספר תקליטור:"
 
 #: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "No audio CD detected"
-msgstr ""
+msgstr "לא זוהה תקליטור שמע"
 
 #: widgets/cddaheaderwidget.cpp:243
 #, kde-format
 msgid "Load Cover"
-msgstr ""
+msgstr "טעינת עטיפה"
 
 #: widgets/cddaheaderwidget.cpp:253 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
-msgstr ""
+msgstr "שמירת עטיפה"
 
 #: widgets/cddaheaderwidget.cpp:330
 #, kde-format
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "הגדרת עטיפה משלך…"
 
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "שמירת עטיפה לקובץ…"
 
 #: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "הצגת עטיפה בגודל מלא…"
 
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
 msgid "Remove Cover"
-msgstr ""
+msgstr "הסרת עטיפה"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
 #, kde-format
 msgid "Command Scheme:"
-msgstr ""
+msgstr "תבנית פקודה:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
 #, kde-format
 msgid "Device"
-msgstr ""
+msgstr "התקן"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: widgets/devicewidgetUI.ui:29
@@ -2109,18 +2109,20 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>לציין את מספר הניסיונות המרבי בעת היתקלות "
+"במגזרים/סקטורים פגומים.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "כמות ניסיונות קריאה מרבית:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 #, kde-format
 msgid "Quality"
-msgstr ""
+msgstr "איכות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
@@ -2128,7 +2130,7 @@ msgstr ""
 #: widgets/opusencwidgetUI.ui:142
 #, kde-format
 msgid "Lowest"
-msgstr ""
+msgstr "הנמוכה ביותר"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
@@ -2136,68 +2138,68 @@ msgstr ""
 #: widgets/opusencwidgetUI.ui:156
 #, kde-format
 msgid "Highest"
-msgstr ""
+msgstr "הגבוהה ביותר"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
 #: widgets/faacwidgetUI.ui:110 widgets/flacwidgetUI.ui:166
 #: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
 #, kde-format
 msgid "Embed cover in music file"
-msgstr ""
+msgstr "הטמעת העטיפה בקובץ המוזיקה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
-msgstr ""
+msgstr "דחיסה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
 #, kde-format
 msgid "Paths"
-msgstr ""
+msgstr "נתיבים"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:25
 #, kde-format
 msgid "Base path to store music files:"
-msgstr ""
+msgstr "נתיב הבסיס לאחסון קובצי מוזיקה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:60
 #, kde-format
 msgid "Eject CD tray after finished extraction"
-msgstr ""
+msgstr "לשלוף את מגש התקליטורים לאחר סיום החילוץ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
 #: widgets/generalsettingswidgetUI.ui:77
 #, kde-format
 msgid "Perform cover lookup automatically"
-msgstr ""
+msgstr "ביצוע איתור עטיפות אוטומטי"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/generalsettingswidgetUI.ui:95
 #, kde-format
 msgid "Number of covers to fetch:"
-msgstr ""
+msgstr "מספר העטיפות למשיכה:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
 #, kde-format
 msgid "Quality/Bitrate"
-msgstr ""
+msgstr "איכות/קצב סיביות"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
-msgstr ""
+msgstr "הערכה הזאת אמורה לספק שקיפות תפיסתית עבור רוב האנשים."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
 #, kde-format
 msgid "Medium (140...185 kbit/s)"
-msgstr ""
+msgstr "בינונית (140...185 קסל״ש)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2206,24 +2208,26 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"אם יש לך שמיעה טובה בצורה קיצונית וציוד תואם, הערכה הזאת בדרך כלל תספק איכות "
+"מעט טובה יותר מהערכה ה„רגילה”"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
 #, kde-format
 msgid "Extreme (220...260 kbits/s)"
-msgstr ""
+msgstr "קיצונית (220...260 קסל״ש)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
 #, kde-format
 msgid "This preset should generally be transparent to most people."
-msgstr ""
+msgstr "הערכה הזאת אמורה בדרך כלל להיות שקופה לרוב האנשים."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr ""
+msgstr "רגילה (170…210 קסל״ש)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2232,37 +2236,39 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
+"הערכה הזאת בדרך כלל מוגזמת אבל אם חייבת להיות לך האיכות הטובה ביותר ואין "
+"מגבלת גודל לקובץ, זאת אפשרות לא רעה."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
 #, kde-format
 msgid "Insane (320 kbit/s)"
-msgstr ""
+msgstr "מטורפת (320 קסל״ש)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 #, kde-format
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "קצב סיביות קבוע"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr ""
+msgstr "קצב סיביות יעד (קסל״ש)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
-msgstr ""
+msgstr " קסל״ש"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr ""
+msgstr "קצב סיביות יעד ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2271,24 +2277,24 @@ msgstr ""
 #: widgets/oggencwidgetUI.ui:347
 #, kde-format
 msgid "kbit/s"
-msgstr ""
+msgstr "קסל״ש"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
 #, kde-format
 msgid "Set minimum bitrate"
-msgstr ""
+msgstr "הגדרת קצב סיביות מזערי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
 #: widgets/oggencwidgetUI.ui:245
 #, kde-format
 msgid "Set maximum bitrate"
-msgstr ""
+msgstr "הגדרת קצב סיביות מרבי"
 
 #: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "למחוק את הפרופיל „%1”?"
 
 #: widgets/profilewidget.cpp:79
 #, kde-format
@@ -2298,7 +2304,7 @@ msgstr "מחיקת פרופיל"
 #: widgets/profilewidget.cpp:130
 #, kde-format
 msgid "Load Profiles"
-msgstr ""
+msgstr "טעינת פרופילים"
 
 #: widgets/profilewidget.cpp:138
 #, kde-format
@@ -2313,12 +2319,12 @@ msgstr ""
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
-msgstr ""
+msgstr "סריקת מפענחים"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
-msgstr ""
+msgstr "לא נמצאו מפענחים חדשים"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
@@ -2333,34 +2339,34 @@ msgstr[3] "נוספו %1 פרופילים חדשים"
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr ""
+msgstr "הוספה…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "הסרה"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr ""
+msgstr "שינוי…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr ""
+msgstr "טעינה…"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 #, kde-format
 msgid "Save..."
-msgstr ""
+msgstr "שמירה…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
-msgstr ""
+msgstr "כתובת:"
