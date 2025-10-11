@@ -1,9 +1,9 @@
-# Marco Nelles <marco@maniatek.de>, 2009.
-# Burkhard Lück <lueck@hube-lueck.de>, 2009, 2011, 2012, 2013, 2014, 2015, 2017, 2019, 2021.
-# Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2023.
-# Markus Slopianka <markus.s@kdemail.net>, 2010.
-# Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
+# SPDX-FileCopyrightText: 2009 Marco Nelles <marco@maniatek.de>
+# SPDX-FileCopyrightText: 2009, 2011, 2012, 2013, 2014, 2015, 2017, 2019, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2010 Panagiotis Papadopoulos <pano_90@gmx.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2023 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2010 Markus Slopianka <markus.s@kdemail.net>
+# SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
