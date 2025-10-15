@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-09-01 21:25+0200\n"
+"PO-Revision-Date: 2025-09-04 11:03+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -789,12 +789,17 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Írja be a műsorszámok médiakatalógus-számát (MCN) és "
+"nemzetközi standard felvételi kódjait (ISRC, ISO 3901) a CUE-fájlba (ha a "
+"meghajtója rendelkezik ezzel a képességgel).</p><p>A meghajtótól függően a "
+"másolás folyamatának végén néhány másodpercbe telhet, amíg a számok és kódok "
+"beolvasásra kerülnek.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "MCN és ISRC értékek hozzáadása (ha elérhetők)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -820,27 +825,27 @@ msgstr "Lejátszólista-beállítások"
 #: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
 msgid "SFV (Simple File Verification)"
-msgstr ""
+msgstr "SFV (egyszerű fájlellenőrzés)"
 
 #: dialogs/profiledatahashlistdialog.cpp:57
 #, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
-msgstr ""
+msgstr "MD5 (Message-Digest Algorithm 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Secure Hash Algorithm)"
 
 #: dialogs/profiledatainfodialog.cpp:31
 #, kde-format
 msgid "Info Settings"
-msgstr ""
+msgstr "Információbeállítások"
 
 #: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Szöveges információséma súgó"
 
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
@@ -899,7 +904,7 @@ msgstr "UTF-8 kódolás a lejátszólistában"
 #: dialogs/profiledatasinglefiledialog.cpp:24
 #, kde-format
 msgid "Single File Settings"
-msgstr ""
+msgstr "Egyfájlos beállítások"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
@@ -917,13 +922,13 @@ msgstr "Fájlnevek"
 #: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
-msgstr ""
+msgstr "FAT32 kompatibilis fájlnevek létrehozása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:146
 #, kde-format
 msgid "Replace spaces with underscores"
-msgstr ""
+msgstr "Szóközök cseréje aláhúzásra"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
@@ -931,12 +936,14 @@ msgstr ""
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
+"Ez a beállítás felülírja a sémában szereplő paraméterezett "
+"változóbeállításokat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr ""
+msgstr "Két számjegyű sorszámok beállítása (például 01, 02, 03…)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -948,7 +955,7 @@ msgstr "Extra"
 #: dialogs/profiledatawidgetUI.ui:211
 #, kde-format
 msgid "Store cover file"
-msgstr ""
+msgstr "Borítófájl tárolása"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
@@ -999,12 +1006,12 @@ msgstr "Naplófájl mentése"
 #: dialogs/profiledatawidgetUI.ui:355
 #, kde-format
 msgid "Write single file"
-msgstr ""
+msgstr "Egyetlen fájl írása"
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
 msgid "Filename Scheme Wizard"
-msgstr ""
+msgstr "Fájlnévséma varázsló"
 
 #: main.cpp:26
 #, kde-format
@@ -1040,7 +1047,7 @@ msgstr "Craig Drummond"
 #: main.cpp:34
 #, kde-format
 msgid "GUI improvements, development"
-msgstr ""
+msgstr "Felhasználói felület finomítása, fejlesztés"
 
 #: main.cpp:35
 #, kde-format
@@ -1060,7 +1067,7 @@ msgstr "credativ GmbH"
 #: main.cpp:36
 #, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "Külön köszönet a credativ GmbH (Németország) támogatásáért"
 
 #: main.cpp:37
 #, kde-format
@@ -1077,28 +1084,29 @@ msgstr "ulysses@fsf.hu"
 #: mainwindow.cpp:35
 #, kde-format
 msgid "Unable to create ProfileModel object."
-msgstr ""
+msgstr "Nem hozható létre ProfileModel objektum."
 
 #: mainwindow.cpp:36 mainwindow.cpp:49
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
+"Belső hiba. Ellenőrizze a hardvert. Ha minden rendben, küldjön hibajelentést."
 
 #: mainwindow.cpp:49
 #, kde-format
 msgid "Unable to create CDDAModel object."
-msgstr ""
+msgstr "Nem lehet létrehozni CDDAModel objektumot."
 
 #: mainwindow.cpp:121
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
-msgstr ""
+msgstr "Nincs lemezadat megadva. Biztosan folytatja?"
 
 #: mainwindow.cpp:122
 #, kde-format
 msgid "Disc information not found"
-msgstr ""
+msgstr "A lemez adatai nem találhatóak"
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -1106,6 +1114,8 @@ msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
+"Egyfájlos beolvasás lett kiválasztva, de nem az összes hangsáv került "
+"kiválasztásra beolvasáshoz. Biztosan folytatja?"
 
 #: mainwindow.cpp:134
 #, kde-format
