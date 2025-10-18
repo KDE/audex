@@ -4,7 +4,7 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020, 2022.
+# SPDX-FileCopyrightText: 2017, 2020, 2022 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
@@ -1350,7 +1350,7 @@ msgid ""
 "administrator of the CDDB server."
 msgstr ""
 "S'ha produït un error amb el servidor de la CDDB. Espereu o poseu-vos en "
-"contacte amb l'administrador del servidor de la CDDB."
+"contacte amb l'administrador de la CDDB."
 
 #: models/cddamodel.cpp:848 models/cddamodel.cpp:961
 #, kde-format
@@ -1367,8 +1367,8 @@ msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
-"Espereu, potser el servidor està ocupat, o contacteu amb l'administrador del "
-"servidor de la CDDB."
+"Espereu, potser el servidor està ocupat, o contacteu amb l'administrador de "
+"la CDDB."
 
 #: models/cddamodel.cpp:859
 #, kde-format
