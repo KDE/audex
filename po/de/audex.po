@@ -1043,10 +1043,9 @@ msgid "Audio ripping application"
 msgstr ""
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2015 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007–2015 Marco Nelles"
+msgstr "© 2007–2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
