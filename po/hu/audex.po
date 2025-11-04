@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-09-04 11:03+0200\n"
+"PO-Revision-Date: 2025-11-03 22:36+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1120,17 +1120,17 @@ msgstr ""
 #: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr ""
+msgstr "Nem minden hangsáv van kiválasztva az egyfájlos beolvasáshoz"
 
 #: mainwindow.cpp:146
 #, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr ""
+msgstr "Nincs beállítva borító. Biztosan folytatja?"
 
 #: mainwindow.cpp:147
 #, kde-format
 msgid "Cover is empty"
-msgstr ""
+msgstr "A borító üres"
 
 #: mainwindow.cpp:171
 #, kde-format
@@ -1150,7 +1150,7 @@ msgstr "Profilok"
 #: mainwindow.cpp:186
 #, kde-format
 msgid "CDDB settings"
-msgstr ""
+msgstr "CDDB beállítások"
 
 #: mainwindow.cpp:189
 #, kde-format
@@ -1163,16 +1163,18 @@ msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
+"Sikertelen CDDB-keresés a következő hibával:\n"
+"%1"
 
 #: mainwindow.cpp:230
 #, kde-format
 msgid "CDD Lookup Failure"
-msgstr ""
+msgstr "CDDB-keresési hiba"
 
 #: mainwindow.cpp:335
 #, kde-format
 msgid "Split titles"
-msgstr ""
+msgstr "Címek felosztása"
 
 #: mainwindow.cpp:336
 #, kde-format
@@ -1181,36 +1183,39 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
+"Adjon meg egy elválasztó karakterláncot. Ügyeljen az üres helyekre.\n"
+"\n"
+"Elválasztó:"
 
 #: mainwindow.cpp:348
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
-msgstr ""
+msgstr "Biztosan felcseréli az összes előadót és címet?"
 
 #: mainwindow.cpp:349
 #, kde-format
 msgid "Swap artists and titles"
-msgstr ""
+msgstr "Előadók és címek felcserélése"
 
 #: mainwindow.cpp:363
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
-msgstr ""
+msgstr "Biztosan nagy kezdőbetűssé teszi az összes előadót és címet?"
 
 #: mainwindow.cpp:364
 #, kde-format
 msgid "Capitalize artists and titles"
-msgstr ""
+msgstr "Előadók és címek nagy kezdőbetűssé alakítása"
 
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Do you really want to autofill track artists?"
-msgstr ""
+msgstr "Biztosan automatikusan ki szeretné tölteni a számok előadóit?"
 
 #: mainwindow.cpp:379
 #, kde-format
 msgid "Autofill artists"
-msgstr ""
+msgstr "Előadók automatikus kitöltése"
 
 #: mainwindow.cpp:406
 #, kde-format
@@ -1255,32 +1260,32 @@ msgstr "Beolvasás…"
 #: mainwindow.cpp:468
 #, kde-format
 msgid "Split Titles..."
-msgstr ""
+msgstr "Címek felosztása…"
 
 #: mainwindow.cpp:473
 #, kde-format
 msgid "Swap Artists And Titles"
-msgstr ""
+msgstr "Előadók és címek felcserélése"
 
 #: mainwindow.cpp:478
 #, kde-format
 msgid "Capitalize"
-msgstr ""
+msgstr "Nagy kezdőbetűk"
 
 #: mainwindow.cpp:483
 #, kde-format
 msgid "Auto Fill Artists"
-msgstr ""
+msgstr "Előadók automatikus kitöltése"
 
 #: mainwindow.cpp:488
 #, kde-format
 msgid "Select All Tracks"
-msgstr ""
+msgstr "Összes szám kijelölése"
 
 #: mainwindow.cpp:493
 #, kde-format
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "Kijelölés megszüntetése"
 
 #: mainwindow.cpp:498
 #, kde-format
@@ -1290,7 +1295,7 @@ msgstr "Kijelölés megfordítása"
 #: models/cddamodel.cpp:20
 #, kde-format
 msgid "Unable to create devices object."
-msgstr ""
+msgstr "Nem hozható létre eszközobjektum."
 
 #: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
@@ -1298,11 +1303,13 @@ msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
+"Ez egy belső hiba. Ellenőrizze a hardvert. Ha minden rendben, küldjön "
+"hibajelentést."
 
 #: models/cddamodel.cpp:32
 #, kde-format
 msgid "Unable to create KCDDB object."
-msgstr ""
+msgstr "Nem hozható létre KCDDB objektum."
 
 #: models/cddamodel.cpp:121
 #, kde-format
@@ -1312,12 +1319,12 @@ msgstr "%1. szám"
 #: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
-msgstr ""
+msgstr "Gyakori képformátumok"
 
 #: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr ""
+msgstr "CDDB művelet már folyamatban."
 
 #: models/cddamodel.cpp:823
 #, kde-format
@@ -1325,6 +1332,8 @@ msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
+"Egy CDDB-művelet már folyamatban van. Várjon, amíg befejeződik, majd "
+"próbálja újra."
 
 #: models/cddamodel.cpp:842 models/cddamodel.cpp:955
 #, kde-format
@@ -1332,6 +1341,8 @@ msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
+"Hiba a CDDB kiszolgálóval. Várjon, vagy vegye fel a kapcsolatot a CDDB "
+"kiszolgáló rendszergazdájával."
 
 #: models/cddamodel.cpp:848 models/cddamodel.cpp:961
 #, kde-format
@@ -1339,6 +1350,8 @@ msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
+"A CDDB kiszolgáló nem található. Ellenőrizze a hálózatot. Talán a CDDB "
+"kiszolgáló offline."
 
 #: models/cddamodel.cpp:854 models/cddamodel.cpp:967
 #, kde-format
@@ -1346,31 +1359,35 @@ msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
+"Várjon, talán a kiszolgáló foglalt, vagy lépjen kapcsolatba a CDDB "
+"kiszolgáló rendszergazdájával."
 
 #: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
-msgstr ""
+msgstr "Lépjen kapcsolatba a CDDB kiszolgáló rendszergazdájával."
 
 #: models/cddamodel.cpp:862 models/cddamodel.cpp:972
 #, kde-format
 msgid "This should not happen. Please make a bug report."
-msgstr ""
+msgstr "Ez nem történhetne meg. Küldjön hibabejelentést."
 
 #: models/cddamodel.cpp:869 models/cddamodel.cpp:975
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
+"Küldjön hibabejelentést, és lépjen kapcsolatba a CDDB kiszolgáló "
+"rendszergazdájával."
 
 #: models/cddamodel.cpp:902
 #, kde-format
 msgid "Unable to create CDIO object."
-msgstr ""
+msgstr "Nem hozható létre CDIO objektum."
 
 #: models/cddamodel.cpp:981
 #, kde-format
 msgid "This means no data found in the CDDB database."
-msgstr ""
+msgstr "Ez azt jelenti, hogy nem található adat a CDDB adatbázisban."
 
 #: models/cddamodel.cpp:1002
 #, kde-format
@@ -1410,27 +1427,27 @@ msgstr "Hossz"
 #: models/profilemodel.cpp:305
 #, kde-format
 msgid "Unknown error. No index found in profile model."
-msgstr ""
+msgstr "Ismeretlen hiba. Nem található index a profilmodellben."
 
 #: models/profilemodel.cpp:305
 #, kde-format
 msgid "This is an internal error. Please report."
-msgstr ""
+msgstr "Ez egy belső hiba. Kérjük, jelentse."
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "A profilnév nem lehet üres."
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
-msgstr ""
+msgstr "Nem adott meg profilnevet. Állítson be egyet."
 
 #: models/profilemodel.cpp:395
 #, kde-format
 msgid "Profile name already exists."
-msgstr ""
+msgstr "A profilnév már létezik."
 
 #: models/profilemodel.cpp:396
 #, kde-format
@@ -1438,31 +1455,32 @@ msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
+"A(z) %1 profilnév már létezik a profilok között. Válasszon egy egyedi nevet."
 
 #: models/profilemodel.cpp:407
 #, kde-format
 msgid "Profile encoder is not defined."
-msgstr ""
+msgstr "A profilkódoló nincs megadva."
 
 #: models/profilemodel.cpp:407
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
-msgstr ""
+msgstr "Nem adott meg kódolót a profilhoz. Állítson be egyet."
 
 #: models/profilemodel.cpp:414
 #, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr ""
+msgstr "A profil fájlnevezési sémája nincs megadva."
 
 #: models/profilemodel.cpp:415
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr ""
+msgstr "Nem adott meg fájlnevezési sémát a profilhoz. Állítson be egyet."
 
 #: models/profilemodel.cpp:443
 #, kde-format
 msgid "The image file format is unknown."
-msgstr ""
+msgstr "A képfájlformátum ismeretlen."
 
 #: models/profilemodel.cpp:444
 #, kde-format
@@ -1470,21 +1488,23 @@ msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
+"A megadott képfájlformátum ismeretlen. Válasszon a következő formátumok "
+"közül: JPEG, PNG, TIFF vagy BMP."
 
 #: models/profilemodel.cpp:453
 #, kde-format
 msgid "Cover name must not be empty."
-msgstr ""
+msgstr "A borítónév nem lehet üres."
 
 #: models/profilemodel.cpp:453
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
-msgstr ""
+msgstr "Nem adott meg borítónevet. Állítson be egyet."
 
 #: models/profilemodel.cpp:463
 #, kde-format
 msgid "The playlist file format is unknown."
-msgstr ""
+msgstr "A lejátszásilista-fájl formátuma ismeretlen."
 
 #: models/profilemodel.cpp:464
 #, kde-format
@@ -1492,16 +1512,18 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
+"A megadott lejátszásilista-fájl formátuma ismeretlen. Válasszon a következők "
+"közül: M3U, PLS vagy XSPF."
 
 #: models/profilemodel.cpp:473
 #, kde-format
 msgid "Playlist name must not be empty."
-msgstr ""
+msgstr "A lejátszási lista neve nem lehet üres."
 
 #: models/profilemodel.cpp:473
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
-msgstr ""
+msgstr "Nem adott meg nevet a lejátszási listához. Állítson be egyet."
 
 #: models/profilemodel.cpp:493
 #, kde-format
