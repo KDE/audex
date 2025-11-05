@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-11-03 22:36+0100\n"
+"PO-Revision-Date: 2025-11-04 23:11+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -1528,27 +1528,27 @@ msgstr "Nem adott meg nevet a lejátszási listához. Állítson be egyet."
 #: models/profilemodel.cpp:493
 #, kde-format
 msgid "Info text name must not be empty."
-msgstr ""
+msgstr "Az információs szöveg neve nem lehet üres."
 
 #: models/profilemodel.cpp:493
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
-msgstr ""
+msgstr "Nem adott nevet az információs szövegfájlnak. Adjon meg egyet."
 
 #: models/profilemodel.cpp:500
 #, kde-format
 msgid "Info text file name suffix must not be empty."
-msgstr ""
+msgstr "Az információs szövegfájl utótagja nem lehet üres."
 
 #: models/profilemodel.cpp:501
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
-msgstr ""
+msgstr "Nem adott meg utótagot az információs szövegfájlhoz. Adjon meg egyet."
 
 #: models/profilemodel.cpp:512
 #, kde-format
 msgid "The hashlist file format is unknown."
-msgstr ""
+msgstr "A kivonatlista fájlformátuma ismeretlen."
 
 #: models/profilemodel.cpp:513
 #, kde-format
@@ -1556,46 +1556,48 @@ msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
+"A megadott kivonatlista fájlformátuma ismeretlen. Válasszon egyet ezek "
+"közül: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "Hashlist name must not be empty."
-msgstr ""
+msgstr "A kivonatlista neve nem lehet üres."
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
-msgstr ""
+msgstr "Nem adott nevet a kivonatlistának. Adjon meg egyet."
 
 #: models/profilemodel.cpp:533
 #, kde-format
 msgid "Cue filename name must not be empty."
-msgstr ""
+msgstr "A CUE-fájl neve nem lehet üres."
 
 #: models/profilemodel.cpp:533
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
-msgstr ""
+msgstr "Nem adott meg nevet a CUE-fájlnak. Adjon meg egyet."
 
 #: models/profilemodel.cpp:546
 #, kde-format
 msgid "Log filename name must not be empty."
-msgstr ""
+msgstr "A naplófájl neve nem lehet üres."
 
 #: models/profilemodel.cpp:546
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr ""
+msgstr "Nem adott meg nevet a naplófájlnak. Adjon meg egyet."
 
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "Filename name must not be empty."
-msgstr ""
+msgstr "A fájlnév nem lehet üres."
 
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
-msgstr ""
+msgstr "Nem adott meg nevet a hangfájlnak. Adjon meg egyet."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:942 widgets/profilewidgetUI.ui:42
@@ -1616,7 +1618,7 @@ msgstr "Mintaeltolás: %1"
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Beolvasás %1 mintaeltolással"
 
 #: utils/cddaextractthread.cpp:75
 #, kde-format
@@ -1626,7 +1628,7 @@ msgstr "Paranoia mód bekapcsolva"
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Paranoia mód kikapcsolva"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1641,53 +1643,57 @@ msgstr "Teljes CD beolvasásának indítása…"
 #: utils/cddaextractthread.cpp:193
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr ""
+msgstr "Hiba történt a(z) %1 szektor olvasása közben (sávpozíció: %2): %3"
 
 #: utils/cddaextractthread.cpp:200 utils/cddaextractthread.cpp:208
 #, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
 msgstr ""
+"Hiba történt a(z) %1. sáv beolvasása közben, a(z) %2 pozíciónál. Lásd a "
+"naplót."
 
 #: utils/cddaextractthread.cpp:202 utils/cddaextractthread.cpp:210
 #: utils/cddaextractthread.cpp:217 utils/cddaextractthread.cpp:219
 #, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr ""
+msgstr "Hiba történt a beolvasás során a(z) %1 pozíciónál. Lásd a naplót."
 
 #: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
-msgstr ""
+msgstr "Hiba a(z) %1. szektor olvasásakor (sávon belüli pozíció: %2)"
 
 #: utils/cddaextractthread.cpp:226
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
 msgstr ""
+"Hiba a(z) %1. szektor olvasásakor (%2): **a teljes szektor csenddel lesz "
+"kitöltve**"
 
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Paranoia állapotjelentés a(z) %1. sávhoz:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Paranoia állapotjelentés:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "A beolvasás egy hiba miatt megszakadt."
 
 #: utils/cddaextractthread.cpp:275
 #, kde-format
 msgid "User canceled extracting."
-msgstr ""
+msgstr "A felhasználó megszakította a beolvasást."
 
 #: utils/cddaextractthread.cpp:276
 #, kde-format
 msgid "Extraction interrupted"
-msgstr ""
+msgstr "Beolvasás megszakítva"
 
 #: utils/cddaextractthread.cpp:279
 #, kde-format
@@ -1717,7 +1723,7 @@ msgstr "Eszközhiba."
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Check your device on \"%1\"."
-msgstr ""
+msgstr "Ellenőrizze az eszközt a(z) „%1” meghajtón."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
@@ -1729,16 +1735,17 @@ msgstr "Lemezhiba."
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
 msgstr ""
+"A lemezt nem sikerült megnyitni. Biztosan van hang CD a(z) „%1” meghajtóban?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "A cdparanoia nem talált módot a hang olvasására a(z) „%1” meghajtóról."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Meghatározatlan meghajtóhiba a következőn: „%1”."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
@@ -1748,12 +1755,13 @@ msgstr "Meghajtó/lemezhiba."
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Meghatározatlan meghajtó- vagy lemezhiba a következőn: „%1”."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"--. sáv, kezdőszektor: 000000, szektorok száma: 000150, típus: Bevezető"
 
 #: utils/cddaparanoia.cpp:358
 #, kde-format
@@ -1768,12 +1776,12 @@ msgstr "Nem hang"
 #: utils/cddaparanoia.cpp:364
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "Kivezető rész"
 
 #: utils/cddaparanoia.cpp:366
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "%1. sáv, kezdőszektor: %2, szektorok száma: %3, típus: %4"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1803,7 +1811,7 @@ msgstr "MP4 (AAC)"
 #: utils/encoderassistant.h:119
 #, kde-format
 msgid "WAVE (Raw Uncompressed)"
-msgstr ""
+msgstr "WAVE (nyers, tömörítetlen)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:126 utils/encoderassistant.h:127
@@ -1815,43 +1823,43 @@ msgstr "Egyéni"
 #: utils/encoderwrapper.cpp:61
 #, kde-format
 msgid "Command scheme is empty."
-msgstr ""
+msgstr "A parancsséma üres."
 
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr ""
+msgstr "%1. sáv kódolása…"
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr ""
+msgstr "A(z) „%1” részleges fájl törölve."
 
 #: utils/encoderwrapper.cpp:115
 #, kde-format
 msgid "User canceled encoding."
-msgstr ""
+msgstr "A felhasználó megszakította a kódolást."
 
 #: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr ""
+msgstr "Kódolás OK („%1”)."
 
 #: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
-msgstr ""
+msgstr "Hiba történt a(z) „%1” fájl kódolása során."
 
 #: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:191
 #: utils/encoderwrapper.cpp:194 utils/encoderwrapper.cpp:204
 #, kde-format
 msgid "Please check your profile."
-msgstr ""
+msgstr "Ellenőrizze a profilját."
 
 #: utils/encoderwrapper.cpp:188
 #, kde-format
 msgid "%1 failed to start."
-msgstr ""
+msgstr "A(z) %1 indítása sikertelen."
 
 #: utils/encoderwrapper.cpp:188
 #, kde-format
@@ -1859,21 +1867,22 @@ msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr ""
+"Vagy hiányzik, vagy nincs elegendő jogosultsága a program futtatásához."
 
 #: utils/encoderwrapper.cpp:191
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
-msgstr ""
+msgstr "A(z) %1 összeomlott nem sokkal a sikeres elindulás után."
 
 #: utils/encoderwrapper.cpp:194
 #, kde-format
 msgid "%1 timed out. This should not happen."
-msgstr ""
+msgstr "A(z) %1 túllépte az időkorlátot. Ez nem történhetne meg."
 
 #: utils/encoderwrapper.cpp:197
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr ""
+msgstr "Hiba történt a(z) %1 írására tett kísérlet során."
 
 #: utils/encoderwrapper.cpp:198
 #, kde-format
@@ -1881,37 +1890,39 @@ msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
 msgstr ""
+"Például az is előfordulhat, hogy a folyamat nem fut, vagy lezárta a bemeneti "
+"csatornáját."
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
-msgstr ""
+msgstr "Hiba történt a(z) %1 olvasására tett kísérlet során."
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "For example, the process may not be running."
-msgstr ""
+msgstr "Például az is előfordulhat, hogy a folyamat nem fut."
 
 #: utils/encoderwrapper.cpp:204
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
-msgstr ""
+msgstr "Ismeretlen hiba történt: %1. Ennek nem lenne szabad megtörténnie."
 
 #: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Érvénytelen karakter a(z) %1. pozíción: „%2”"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Bezáratlan idézőjel található"
 
 #: utils/schemeparser.cpp:65
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Érvénytelen karakter található a(z) %1. indexen: %2"
 
 #: utils/schemeparser.cpp:116
 #, kde-format
@@ -1919,16 +1930,19 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"A replace_char_list paraméterhez két további paraméter szükséges: "
+"replace_char_list_from és replace_char_list_to, amelyeknek azonos "
+"hosszúságúaknak kell lenniük."
 
 #: utils/schemeparser.cpp:262
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Lezáratlan kapcsos zárójel."
 
 #: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Nem sikerült létrehozni az ideiglenes borítóképfájlt: %1"
 
 #: utils/schemeparser.h:154
 #, kde-format
@@ -1949,6 +1963,21 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>A következő helykitöltők a megfelelő értékekkel lesznek helyettesítve:</"
+"p><table><tr><th>Helykitöltő</th><th>Leírás</th></tr><tr><td><tt>$artist</"
+"tt></td><td>A CD előadója. Ha a CD válogatás, akkor ez a címkefelirat a "
+"legtöbb esetben a címnek felel meg.</td></tr><tr><td><tt>$title</tt></"
+"td><td>A CD címe. Ha a CD válogatás, akkor ez a címkefelirat a legtöbb "
+"esetben az alcímnek felel meg.</td></tr><tr><td><tt>$date</tt></td><td>A CD "
+"megjelenési dátuma. Szinte minden esetben ez az év.</td></tr><tr><td><tt>"
+"$genre</tt></td><td>A CD műfaja.</td></tr><tr><td><tt>$cdno</tt></"
+"td><td>Több lemezes album esetén a CD sorszáma. Gyakran a válogatások több "
+"lemezből állnak. <i>Megjegyzés:</i> Ha a több-CD jelző <b>nincs</b> "
+"beállítva az aktuális lemezhez, ez az érték üres lesz.</td></tr><tr><td><tt>"
+"$nooftracks</tt></td><td>A CD-n található hangsávok teljes száma.</td></"
+"tr><tr><td><tt>$encoder</tt></td><td>A kódoló neve és verziója.</td></"
+"tr><tr><td><tt>$audex</tt></td><td>Az Audex neve és verziója.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:171
 #, kde-format
@@ -1980,6 +2009,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Az Audexben a helykitöltőknek lehetnek paramétereik a <tt>kulcs=érték</"
+"tt> formában.  Például: <tt>${title lowercase=true}</tt>. Ebben a példában a "
+"cím kisbetűssé lesz alakítva. A következő általános paraméterek használhatók "
+"a helykitöltőkkel:</p><table><tr><th>Kulcs</th><th>Érték</th><th>Leírás</"
+"th></tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>A helykitöltő "
+"értéke kisbetűssé lesz alakítva.</td></tr><tr><td><tt>uppercase</tt></"
+"td><td>true/false</td><td>A helykitöltő értéke nagybetűssé lesz alakítva.</"
+"td></tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>A "
+"helykitöltő értékében lévő szóközök aláhúzásjelekkel lesznek helyettesítve.</"
+"td></tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>A FAT32 "
+"fájlrendszerben érvénytelen fájlnév-karakterek aláhúzásjelekkel lesznek "
+"helyettesítve.</td></tr><tr><td><tt>replace_chars</tt></td><td>true/false</"
+"td><td>Karakterek cseréje. Ez a paraméter két további, azonos hosszúságú "
+"értéket igénylő kulcsot használ: <tt>replace_char_list_from</tt> és "
+"<tt>replace_char_list_to</tt>. Ezek karakterlisták. A "
+"<tt>replace_char_list_from</tt> első karaktere lecserélődik a "
+"<tt>replace_char_list_to</tt> első karakterére, és így tovább.</td></"
+"tr><tr><td><tt>left</tt></td><td>Szám</td><td>A helykitöltő értékének bal "
+"oldaláról vett n karakter.</td></tr><tr><td><tt>length</tt></td><td>Szám</"
+"td><td>Ha a helykitöltő értéke szám, a megadott hosszra lesz kiegészítve. "
+"Emellett egy kitöltő karakter is meghatározható a <tt>fillchar</tt> "
+"kulccsal. Alapértelmezett kitöltő karakter: „0”.</td></tr><tr><td><tt>pre</"
+"tt></td><td>Szöveg</td><td>Egy szöveg, amely az érték <b>elé</b> kerül. "
+"Különösen hasznos parancssori paraméterekhez, amelyeket nem kell megadni, ha "
+"az érték üres.</td></tr><tr><td><tt>post</tt></td><td>Szöveg</td><td>Egy "
+"szöveg, amely az érték <b>mögé</b> kerül.</td></tr></table>"
 
 #: utils/schemeparser.h:192
 #, kde-format
@@ -1993,6 +2048,13 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Helykitöltő</th><th>Leírás</th></tr><tr><td>$tartist</"
+"td><td>Az egyes sávok előadója. Különösen hasznos válogatásalbumok esetén.</"
+"td></tr><tr><td>$ttitle</td><td>A sáv címe. Általában minden sávnak saját "
+"címe van a CD-n, ami a dal neve.</td></tr><tr><td>$trackno</td><td>A sáv "
+"száma. Az első sáv száma 1.</td></tr><tr><td><tt>$isrc</tt></td><td>A sáv "
+"nemzetközi szabványos felvételi kódja (ISRC) – csak akkor érhető el, ha az "
+"eszköz támogatja.</td></tr></table>"
 
 #: utils/schemeparser.h:204
 #, kde-format
@@ -2009,6 +2071,17 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Helykitöltő</th><th>Specifikus paraméter</th><th>Leírás</th></"
+"tr><tr><td><tt>$i</tt></td><td></td><td>Az ideiglenes WAVE-fájl (RIFF WAVE), "
+"amelyet az Audex hoz létre a CD hangsávból. Ez a parancssori kódoló bemeneti "
+"fájlja.</td></tr><tr><td><tt>$o</tt></td><td></td><td>A teljes kimeneti "
+"fájlnév és elérési út. Ezt használja a parancssori kódoló kimeneteként.</"
+"td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>A "
+"borítófájl neve. Ha nincs beállítva borító, ez üres lesz. Leginkább a "
+"<tt>pre</tt> paraméterrel együtt hasznos. A képet az <tt>x</tt> és <tt>y</"
+"tt> paraméterekkel lehet átméretezni. Lehetséges képformátumok: JPEG, PNG, "
+"GIF vagy BMP (alapértelmezés: JPEG). <i><b>Megjegyzés:</b> A LAME figyelmen "
+"kívül hagyja a 128 KiB-nál nagyobb borítófájlokat.</i></td></tr></table>"
 
 #: utils/schemeparser.h:218
 #, kde-format
@@ -2036,16 +2109,39 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table><tr><th>Helykitöltő</th><th>Specifikus paraméter</th><th>Leírás</th></"
+"tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Kiírja az összes "
+"beolvasott (kódolt) zenefájl teljes méretét (beleértve a borítóképet is).  "
+"Az <tt>iec</tt> paraméterrel a méret kiszámítása (kibi), (mebi) vagy (gibi) "
+"egységekben történik.  A kiegészítő <tt>precision</tt> paraméterrel "
+"megadható a tizedesjegyek száma.</td></tr><tr><td>$length</td><td></"
+"td><td>Kiírja az összes beolvasott szám teljes hosszát. A formátum: perc:"
+"másodperc.</td></tr><tr><td>$nooftracks</td><td></td><td>Kiírja a beolvasott "
+"számok teljes darabszámát.</td></tr><tr><td>$discid</td><td>base</"
+"td><td>Kiírja a CDDB lemezazonosítót hexadecimális formátumban.</td></"
+"tr><tr><td><tt>$mcn</tt></td><td></td><td>A CD médiakatalógus-száma (MCN) "
+"(csak akkor érhető el, ha az eszköz támogatja).</td></tr><tr><td>$now</"
+"td><td><tt>format,locale</tt></td><td>Kiírja az aktuális dátumot és/vagy "
+"időt.  A <tt>format</tt> paraméter határozza meg a megjelenítési formátumot. "
+"A támogatott formátumjelölőkről az alábbi Qt-dokumentációban olvashat:  "
+"<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>. A kiegészítő <tt>locale</tt> kulccsal "
+"megadható a nyelvi beállítás. Alapértelmezetten a rendszer nyelvi környezete "
+"kerül használatra. A locale formátuma: <tt>language_TERRITORY</tt>, például "
+"<tt>en_EN</tt>.  A <tt>language</tt> egy kisbetűs, kétbetűs ISO 639 nyelvi "
+"kód, míg a <tt>TERRITORY</tt> egy nagybetűs, kétbetűs ISO 3166 országkód.</"
+"td></tr><tr><td>$br</td><td></td><td>Újsor karaktert (sortörést) illeszt be."
+"</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr ""
+msgstr "A(z) %1 fájl feltöltése a kiszolgálóra. Kérjük, várjon…"
 
 #: utils/upload.cpp:61
 #, kde-format
 msgid "Finished uploading file %1 to server."
-msgstr ""
+msgstr "A(z) %1 fájl feltöltése a kiszolgálóra befejeződött."
 
 #: widgets/cddaheaderwidget.cpp:131
 #, kde-format
@@ -2108,6 +2204,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Speciális technikák használata a rejtett olvasási "
+"hibák esélyének csökkentésére. Ez biztonságosabb beolvasási folyamatot "
+"eredményez, a sebesség rovására — ezért gyakran „biztonságos módnak” is "
+"nevezik.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
