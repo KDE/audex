@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:42+0000\n"
-"PO-Revision-Date: 2025-11-04 23:11+0100\n"
+"PO-Revision-Date: 2025-11-10 21:00+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -70,7 +70,7 @@ msgstr "Teljes paranoia mód (biztonságos mód)"
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
 #, kde-format
 msgid "Skip read errors"
-msgstr "Olvasási hibák kihagyása"
+msgstr "Olvasási hibák átugrása"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
@@ -101,7 +101,7 @@ msgstr "Fájlok feltöltése kiszolgálóra"
 #: audex.kcfg:65
 #, kde-format
 msgid "URL of server"
-msgstr "Kiszolgáló URL-je"
+msgstr "Kiszolgáló webcíme"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
@@ -409,7 +409,7 @@ msgstr "Súgó"
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
 msgid "Album Artist"
-msgstr "Album előadó"
+msgstr "Album előadója"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:319
@@ -423,7 +423,7 @@ msgstr "Albumcím"
 #: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
 #, kde-format
 msgid "Track Artist"
-msgstr "Szám előadó"
+msgstr "Szám előadója"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:363 dialogs/schemewizardwidgetUI.ui:356
@@ -506,12 +506,12 @@ msgstr "Kódolás"
 #: dialogs/extractingprogressdialog.cpp:40
 #, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr "0 / %1 szám beolvasása"
+msgstr "0. / %1 szám beolvasása"
 
 #: dialogs/extractingprogressdialog.cpp:41
 #, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr "0 / %1 szám beolvasása"
+msgstr "0. / %1 szám beolvasása"
 
 #: dialogs/extractingprogressdialog.cpp:155
 #, kde-format
@@ -531,7 +531,7 @@ msgstr "Szám beolvasása"
 #: dialogs/extractingprogressdialog.cpp:172
 #, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr "%1 / %2 szám beolvasása"
+msgstr "%1. / %2 szám beolvasása"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:173
@@ -544,7 +544,7 @@ msgstr "Összesített előrehaladás"
 #: dialogs/extractingprogressdialog.cpp:173
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr "Összesített előrehaladás (%1 / %2 szám beolvasása)"
+msgstr "Összesített előrehaladás (%1. / %2 szám beolvasása)"
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
@@ -559,7 +559,7 @@ msgstr "Szám kódolása"
 #: dialogs/extractingprogressdialog.cpp:192
 #, kde-format
 msgid "Encoding Track %1 of %2"
-msgstr "%1 / %2 szám kódolása"
+msgstr "%1. / %2 szám kódolása"
 
 #: dialogs/extractingprogressdialog.cpp:234
 #: dialogs/extractingprogressdialog.cpp:240
@@ -643,7 +643,7 @@ msgstr "…"
 #: dialogs/extractingprogresswidgetUI.ui:198
 #, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr "8 / 12 szám beolvasása"
+msgstr "8. / 12 szám beolvasása"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
@@ -667,7 +667,7 @@ msgstr "%p%"
 #: dialogs/extractingprogresswidgetUI.ui:131
 #, kde-format
 msgid "Encoding Track 8 of 12"
-msgstr "8 / 12 szám kódolása"
+msgstr "8. / 12 szám kódolása"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -677,7 +677,7 @@ msgstr "Sémavarázsló"
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
 #, kde-format
 msgid "Filename scheme help"
-msgstr "Fájlnév-séma súgó"
+msgstr "Fájlnévséma súgó"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -790,7 +790,7 @@ msgid ""
 "and codes.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Írja be a műsorszámok médiakatalógus-számát (MCN) és "
-"nemzetközi standard felvételi kódjait (ISRC, ISO 3901) a CUE-fájlba (ha a "
+"nemzetközi szabványos felvételi kódjait (ISRC, ISO 3901) a CUE-fájlba (ha a "
 "meghajtója rendelkezik ezzel a képességgel).</p><p>A meghajtótól függően a "
 "másolás folyamatának végén néhány másodpercbe telhet, amíg a számok és kódok "
 "beolvasásra kerülnek.</p></body></html>"
@@ -922,7 +922,7 @@ msgstr "Fájlnevek"
 #: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
-msgstr "FAT32 kompatibilis fájlnevek létrehozása"
+msgstr "FAT32-kompatibilis fájlnevek létrehozása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:146
@@ -1011,7 +1011,7 @@ msgstr "Egyetlen fájl írása"
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Fájlnévséma varázsló"
+msgstr "Fájlnévséma-varázsló"
 
 #: main.cpp:26
 #, kde-format
@@ -1643,7 +1643,7 @@ msgstr "Teljes CD beolvasásának indítása…"
 #: utils/cddaextractthread.cpp:193
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr "Hiba történt a(z) %1 szektor olvasása közben (sávpozíció: %2): %3"
+msgstr "Hiba történt a(z) %1. szektor olvasása közben (sávpozíció: %2): %3"
 
 #: utils/cddaextractthread.cpp:200 utils/cddaextractthread.cpp:208
 #, kde-format
@@ -1698,7 +1698,7 @@ msgstr "Beolvasás megszakítva"
 #: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Ripping OK (Track %1)."
-msgstr "Beolvasás OK (%1. szám)"
+msgstr "Beolvasás OK (%1. szám)."
 
 #: utils/cddaextractthread.cpp:280
 #, kde-format
@@ -2151,7 +2151,7 @@ msgstr "CD szám: "
 #: widgets/cddaheaderwidget.cpp:150
 #, kde-format
 msgid "No audio CD detected"
-msgstr "Nem található audió CD"
+msgstr "Nem található zenei CD"
 
 #: widgets/cddaheaderwidget.cpp:243
 #, kde-format
@@ -2377,7 +2377,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:101
 #, kde-format
 msgid "Standard (170...210 kbit/s)"
-msgstr "Standard (170…210 kbit/s)"
+msgstr "Szokásos (170…210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2521,7 +2521,7 @@ msgstr "Mentés…"
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
-msgstr "URL:"
+msgstr "Webcím:"
 
 #~ msgid "Sample offset"
 #~ msgstr "Mintavételezés eltolása"
