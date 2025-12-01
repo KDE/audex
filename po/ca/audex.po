@@ -2556,21 +2556,3 @@ msgstr "Desa..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Sample offset"
-#~ msgstr "Desplaçament de la mostra"
-
-#~ msgid "TOC:"
-#~ msgstr "TOC:"
-
-#~ msgid "Start ripping track %1 with length %2..."
-#~ msgstr "Comença l'extracció de la pista %1 amb longitud %2..."
-
-#~ msgid "Start ripping whole cd with length %1..."
-#~ msgstr "Comença l'extracció del CD sencer amb longitud %1..."
-
-#~ msgid "Sample offset:"
-#~ msgstr "Desplaçament de la mostra:"
-
-#~ msgid "Retries on read error:"
-#~ msgstr "Reintents en errors de lectura:"
