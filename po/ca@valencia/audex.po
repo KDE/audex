@@ -1656,8 +1656,8 @@ msgstr "Comença l'extracció del CD sencer…"
 #, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
 msgstr ""
-"S'ha produït un error en durant la lectura del sector %1 (posició temporal "
-"de la pista %2): %3"
+"S'ha produït un error durant la lectura del sector %1 (posició temporal de "
+"la pista %2): %3"
 
 #: utils/cddaextractthread.cpp:200 utils/cddaextractthread.cpp:208
 #, kde-format
@@ -1874,7 +1874,7 @@ msgstr "Comproveu el vostre perfil."
 #: utils/encoderwrapper.cpp:188
 #, kde-format
 msgid "%1 failed to start."
-msgstr "%1 ha fallat en començar."
+msgstr "%1 ha fallat mentre es començava."
 
 #: utils/encoderwrapper.cpp:188
 #, kde-format
@@ -1896,7 +1896,7 @@ msgstr "%1 ha exhaurit el temps. Açò no hauria de passar."
 #: utils/encoderwrapper.cpp:197
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr "S'ha produït un error en intentar escriure a %1."
+msgstr "S'ha produït un error mentre s'intentava escriure a %1."
 
 #: utils/encoderwrapper.cpp:198
 #, kde-format
@@ -1910,7 +1910,7 @@ msgstr ""
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
-msgstr "S'ha produït un error en intentar llegir des de %1."
+msgstr "S'ha produït un error mentre s'intentava llegir des de %1."
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
