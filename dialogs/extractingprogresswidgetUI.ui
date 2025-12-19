@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>508</width>
+    <width>512</width>
     <height>492</height>
    </rect>
   </property>
@@ -15,12 +15,11 @@
     <widget class="KSqueezedTextLabel" name="label_header">
      <property name="font">
       <font>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
      <property name="textElideMode">
-      <enum>Qt::ElideRight</enum>
+      <enum>Qt::TextElideMode::ElideRight</enum>
      </property>
     </widget>
    </item>
@@ -33,13 +32,13 @@
       <string>...</string>
      </property>
      <property name="toolButtonStyle">
-      <enum>Qt::ToolButtonIconOnly</enum>
+      <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
      </property>
      <property name="autoRaise">
       <bool>true</bool>
      </property>
      <property name="arrowType">
-      <enum>Qt::UpArrow</enum>
+      <enum>Qt::ArrowType::UpArrow</enum>
      </property>
     </widget>
    </item>
@@ -92,10 +91,10 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Speed: 0x</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Speed: 0×&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -110,7 +109,7 @@
          <number>0</number>
         </property>
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="format">
          <string>%p%</string>
@@ -141,10 +140,10 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Speed: 0x</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Speed: 0×&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -156,7 +155,7 @@
          <number>0</number>
         </property>
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Orientation::Horizontal</enum>
         </property>
         <property name="format">
          <string>%p%</string>
@@ -177,7 +176,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Overall Progress</string>
+        <string>Overall progress</string>
        </property>
       </widget>
      </item>
@@ -195,10 +194,10 @@
         </font>
        </property>
        <property name="text">
-        <string>Ripping Track 8 of 12</string>
+        <string>KSqueezedTextLabel</string>
        </property>
        <property name="textElideMode">
-        <enum>Qt::ElideLeft</enum>
+        <enum>Qt::TextElideMode::ElideLeft</enum>
        </property>
       </widget>
      </item>
@@ -210,7 +209,7 @@
       <number>0</number>
      </property>
      <property name="orientation">
-      <enum>Qt::Horizontal</enum>
+      <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="format">
       <string>%p%</string>

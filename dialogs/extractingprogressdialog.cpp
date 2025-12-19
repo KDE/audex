@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+#include <QLocale>
+
 #include "extractingprogressdialog.h"
 
 ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent)
@@ -169,14 +171,14 @@ void ExtractingProgressDialog::show_changed_extract_track(int no, int total, con
     Q_UNUSED(title);
 
     if (!p_single_file) {
-        ui.label_extracting->setText((1 == total) ? i18n("Ripping Track") : i18n("Ripping Track %1 of %2", no, total));
-        ui.label_overall_track->setText((1 == total) ? i18n("Overall Progress") : i18n("Overall Progress (Ripping Track %1 of %2)", no, total));
+        ui.label_extracting->setText((1 == total) ? i18n("Ripping track…") : i18n("Ripping track %1 of %2…", no, total));
+        ui.label_overall_track->setText((1 == total) ? i18n("Overall progress") : i18n("Overall progress (ripping track %1 of %2)", no, total));
         current_track = no;
         update_unity();
 
     } else {
-        ui.label_extracting->setText(i18n("Ripping whole CD as single track"));
-        ui.label_overall_track->setText(i18n("Overall Progress"));
+        ui.label_extracting->setText(i18n("Ripping whole CD as single track…"));
+        ui.label_overall_track->setText(i18n("Overall progress"));
     }
 }
 
@@ -185,11 +187,11 @@ void ExtractingProgressDialog::show_changed_encode_track(int no, int total, cons
     Q_UNUSED(filename);
 
     if (no == 0) {
-        ui.label_encoding->setText("<i>" + i18n("Waiting for an encoding job...") + "</i>");
+        ui.label_encoding->setText(i18n("<i>Waiting for an encoding job…</i>"));
         ui.label_speed_encoding->clear();
     } else {
         if (!p_single_file)
-            ui.label_encoding->setText((1 == total) ? i18n("Encoding Track") : i18n("Encoding Track %1 of %2", no, total));
+            ui.label_encoding->setText((1 == total) ? i18n("Encoding track…") : i18n("Encoding track %1 of %2…", no, total));
     }
 }
 
@@ -230,14 +232,14 @@ void ExtractingProgressDialog::show_progress_encode_overall(int percent)
 
 void ExtractingProgressDialog::show_speed_encode(double speed)
 {
-    QString s = QString("%1").arg((double)speed, 0, 'f', 2);
-    ui.label_speed_encoding->setText("<i>" + i18n("Speed: %1x", s) + "</i>");
+    QString s = QLocale().toString((double)speed, 'f', 2);
+    ui.label_speed_encoding->setText(i18n("<i>Speed: %1×</i>", s));
 }
 
 void ExtractingProgressDialog::show_speed_extract(double speed)
 {
-    QString s = QString("%1").arg((double)speed, 0, 'f', 2);
-    ui.label_speed_extracting->setText("<i>" + i18n("Speed: %1x", s) + "</i>");
+    QString s = QLocale().toString((double)speed, 'f', 2);
+    ui.label_speed_extracting->setText(i18n("<i>Speed: %1×</i>", s));
 }
 
 void ExtractingProgressDialog::conclusion(bool successful)
@@ -275,14 +277,14 @@ void ExtractingProgressDialog::conclusion(bool successful)
         ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
         if (audex->encoderLog().count() > 0) {
             auto *encoderLogButton = new QPushButton();
-            encoderLogButton->setText(i18n("Show encoding log..."));
+            encoderLogButton->setText(i18n("Show Encoding Log…"));
             encoderLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
             buttonBox->addButton(encoderLogButton, QDialogButtonBox::HelpRole);
             connect(encoderLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderLog);
         }
         if (audex->extractLog().count() > 0) {
             auto *extractLogButton = new QPushButton();
-            extractLogButton->setText(i18n("Show rip log..."));
+            extractLogButton->setText(i18n("Show Rip Log…"));
             extractLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
             buttonBox->addButton(extractLogButton, QDialogButtonBox::HelpRole);
             connect(extractLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractLog);
