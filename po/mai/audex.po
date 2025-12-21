@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-12-21 00:42+0000\n"
 "PO-Revision-Date: 2010-09-24 13:03+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <bhashaghar@googlegroups.com>\n"
@@ -493,186 +493,196 @@ msgstr ""
 msgid "Output File"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:13
+#: dialogs/extractingprogressdialog.cpp:15
 #, kde-format
 msgid "Rip And Encode"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:36
-#: dialogs/extractingprogressdialog.cpp:178
+#: dialogs/extractingprogressdialog.cpp:38
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:37
+#: dialogs/extractingprogressdialog.cpp:39
 #, kde-format
 msgid "Encoding"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:40
+#: dialogs/extractingprogressdialog.cpp:42
 #, kde-format
 msgid "Ripping Track 0 of %1"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:41
+#: dialogs/extractingprogressdialog.cpp:43
 #, kde-format
 msgid "Encoding Track 0 of %1"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:155
+#: dialogs/extractingprogressdialog.cpp:157
 #, kde-format
 msgid "Do you really want to cancel extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:156
+#: dialogs/extractingprogressdialog.cpp:158
 #, kde-format
 msgid "Cancel"
 msgstr "रद करू"
 
-#: dialogs/extractingprogressdialog.cpp:172
+#: dialogs/extractingprogressdialog.cpp:174
 #, kde-format
-msgid "Ripping Track"
+msgid "Ripping track…"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:172
+#: dialogs/extractingprogressdialog.cpp:174
 #, kde-format
-msgid "Ripping Track %1 of %2"
+msgid "Ripping track %1 of %2…"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:173
-#: dialogs/extractingprogressdialog.cpp:179
-#: dialogs/extractingprogresswidgetUI.ui:180
+#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogresswidgetUI.ui:179
 #, kde-format
-msgid "Overall Progress"
+msgid "Overall progress"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:173
+#: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
-msgid "Overall Progress (Ripping Track %1 of %2)"
+msgid "Overall progress (ripping track %1 of %2)"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:188
+#: dialogs/extractingprogressdialog.cpp:180
 #, kde-format
-msgid "Waiting for an encoding job..."
+msgid "Ripping whole CD as single track…"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:192
+#: dialogs/extractingprogressdialog.cpp:190
 #, kde-format
-msgid "Encoding Track"
+msgid "<i>Waiting for an encoding job…</i>"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:192
+#: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
-msgid "Encoding Track %1 of %2"
+msgid "Encoding track…"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:234
-#: dialogs/extractingprogressdialog.cpp:240
+#: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
-msgid "Speed: %1x"
+msgid "Encoding track %1 of %2…"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:258
+#: dialogs/extractingprogressdialog.cpp:236
+#: dialogs/extractingprogressdialog.cpp:242
+#, kde-format
+msgid "<i>Speed: %1×</i>"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
 msgid "All jobs successfully done."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:262
-#: dialogs/extractingprogressdialog.cpp:263
 #: dialogs/extractingprogressdialog.cpp:264
+#: dialogs/extractingprogressdialog.cpp:265
+#: dialogs/extractingprogressdialog.cpp:266
 #, kde-format
 msgid "Finished!"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:269
+#: dialogs/extractingprogressdialog.cpp:271
 #, kde-format
 msgid "At least one job failed."
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:273
-#: dialogs/extractingprogressdialog.cpp:274
 #: dialogs/extractingprogressdialog.cpp:275
+#: dialogs/extractingprogressdialog.cpp:276
+#: dialogs/extractingprogressdialog.cpp:277
 #, fuzzy, kde-format
 #| msgid "Failed."
 msgid "Failed!"
 msgstr "विफल."
 
-#: dialogs/extractingprogressdialog.cpp:278
+#: dialogs/extractingprogressdialog.cpp:280
 #, kde-format
-msgid "Show encoding log..."
+msgid "Show Encoding Log…"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:285
+#: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
-msgid "Show rip log..."
+msgid "Show Rip Log…"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:332
+#: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:334
+#: dialogs/extractingprogressdialog.cpp:336
 #, kde-format
 msgid "Cancel extraction"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:344
+#: dialogs/extractingprogressdialog.cpp:346
 #, kde-format
 msgid "Encoding log"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:350
+#: dialogs/extractingprogressdialog.cpp:352
 #, kde-format
 msgid "Ripping log"
 msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
-#: dialogs/extractingprogresswidgetUI.ui:30
+#: dialogs/extractingprogresswidgetUI.ui:29
 #, kde-format
 msgid "Show/hide details"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
-#: dialogs/extractingprogresswidgetUI.ui:33
+#: dialogs/extractingprogresswidgetUI.ui:32
 #, fuzzy, kde-format
 #| msgid "Add..."
 msgid "..."
 msgstr "जोडू..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
-#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:82
-#: dialogs/extractingprogresswidgetUI.ui:198
+#: dialogs/extractingprogresswidgetUI.ui:81
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:95
-#: dialogs/extractingprogresswidgetUI.ui:144
+#: dialogs/extractingprogresswidgetUI.ui:94
+#: dialogs/extractingprogresswidgetUI.ui:143
 #, kde-format
-msgid "Speed: 0x"
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
+"p></body></html>"
 msgstr ""
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
-#: dialogs/extractingprogresswidgetUI.ui:116
-#: dialogs/extractingprogresswidgetUI.ui:162
-#: dialogs/extractingprogresswidgetUI.ui:216
+#: dialogs/extractingprogresswidgetUI.ui:115
+#: dialogs/extractingprogresswidgetUI.ui:161
+#: dialogs/extractingprogresswidgetUI.ui:215
 #, no-c-format, kde-format
 msgid "%p%"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:131
+#: dialogs/extractingprogresswidgetUI.ui:130
 #, kde-format
 msgid "Encoding Track 8 of 12"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
+#: dialogs/extractingprogresswidgetUI.ui:197
+#, kde-format
+msgid "KSqueezedTextLabel"
 msgstr ""
 
 #: dialogs/filenameschemewizarddialog.cpp:18
@@ -750,11 +760,12 @@ msgstr ""
 msgid "Scale before store:"
 msgstr ""
 
+#. i18n: multiplication sign between two spinboxes
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
-msgid "x"
-msgstr "x"
+msgid "×"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -945,7 +956,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
-msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
@@ -2400,6 +2411,9 @@ msgstr "सहेजू..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
+
+#~ msgid "x"
+#~ msgstr "x"
 
 #, fuzzy
 #~| msgid "Example:"

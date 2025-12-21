@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"POT-Creation-Date: 2025-12-21 00:42+0000\n"
 "PO-Revision-Date: 2023-04-29 12:27+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -501,187 +501,208 @@ msgstr "Eingabedatei"
 msgid "Output File"
 msgstr "Ausgabedatei"
 
-#: dialogs/extractingprogressdialog.cpp:13
+#: dialogs/extractingprogressdialog.cpp:15
 #, kde-format
 msgid "Rip And Encode"
 msgstr "Auslesen und Kodieren"
 
-#: dialogs/extractingprogressdialog.cpp:36
-#: dialogs/extractingprogressdialog.cpp:178
+#: dialogs/extractingprogressdialog.cpp:38
 #, kde-format
 msgid "Ripping whole CD as single track"
 msgstr "Die gesamte CD als ein Stück auslesen"
 
-#: dialogs/extractingprogressdialog.cpp:37
+#: dialogs/extractingprogressdialog.cpp:39
 #, kde-format
 msgid "Encoding"
 msgstr "Kodierung"
 
-#: dialogs/extractingprogressdialog.cpp:40
+#: dialogs/extractingprogressdialog.cpp:42
 #, kde-format
 msgid "Ripping Track 0 of %1"
 msgstr "Stück 0 von %1 wird ausgelesen"
 
-#: dialogs/extractingprogressdialog.cpp:41
+#: dialogs/extractingprogressdialog.cpp:43
 #, kde-format
 msgid "Encoding Track 0 of %1"
 msgstr "Stück 0 von %1 wird kodiert"
 
-#: dialogs/extractingprogressdialog.cpp:155
+#: dialogs/extractingprogressdialog.cpp:157
 #, kde-format
 msgid "Do you really want to cancel extraction?"
 msgstr "Möchten Sie das Auslesen wirklich abbrechen?"
 
-#: dialogs/extractingprogressdialog.cpp:156
+#: dialogs/extractingprogressdialog.cpp:158
 #, kde-format
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: dialogs/extractingprogressdialog.cpp:172
-#, kde-format
-msgid "Ripping Track"
+#: dialogs/extractingprogressdialog.cpp:174
+#, fuzzy, kde-format
+#| msgid "Ripping Track"
+msgid "Ripping track…"
 msgstr "Stück wird ausgelesen"
 
-#: dialogs/extractingprogressdialog.cpp:172
-#, kde-format
-msgid "Ripping Track %1 of %2"
+#: dialogs/extractingprogressdialog.cpp:174
+#, fuzzy, kde-format
+#| msgid "Ripping Track %1 of %2"
+msgid "Ripping track %1 of %2…"
 msgstr "Stück %1 von %2 wird ausgelesen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:173
-#: dialogs/extractingprogressdialog.cpp:179
-#: dialogs/extractingprogresswidgetUI.ui:180
-#, kde-format
-msgid "Overall Progress"
+#: dialogs/extractingprogressdialog.cpp:175
+#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogresswidgetUI.ui:179
+#, fuzzy, kde-format
+#| msgid "Overall Progress"
+msgid "Overall progress"
 msgstr "Gesamtfortschritt"
 
-#: dialogs/extractingprogressdialog.cpp:173
-#, kde-format
-msgid "Overall Progress (Ripping Track %1 of %2)"
+#: dialogs/extractingprogressdialog.cpp:175
+#, fuzzy, kde-format
+#| msgid "Overall Progress (Ripping Track %1 of %2)"
+msgid "Overall progress (ripping track %1 of %2)"
 msgstr "Gesamtfortschritt (Stück %1 von %2 wird ausgelesen)"
 
-#: dialogs/extractingprogressdialog.cpp:188
-#, kde-format
-msgid "Waiting for an encoding job..."
+#: dialogs/extractingprogressdialog.cpp:180
+#, fuzzy, kde-format
+#| msgid "Ripping whole CD as single track"
+msgid "Ripping whole CD as single track…"
+msgstr "Die gesamte CD als ein Stück auslesen"
+
+#: dialogs/extractingprogressdialog.cpp:190
+#, fuzzy, kde-format
+#| msgid "Waiting for an encoding job..."
+msgid "<i>Waiting for an encoding job…</i>"
 msgstr "Auf Datei zum Kodieren warten ..."
 
-#: dialogs/extractingprogressdialog.cpp:192
-#, kde-format
-msgid "Encoding Track"
+#: dialogs/extractingprogressdialog.cpp:194
+#, fuzzy, kde-format
+#| msgid "Encoding Track"
+msgid "Encoding track…"
 msgstr "Stück wird kodiert"
 
-#: dialogs/extractingprogressdialog.cpp:192
-#, kde-format
-msgid "Encoding Track %1 of %2"
+#: dialogs/extractingprogressdialog.cpp:194
+#, fuzzy, kde-format
+#| msgid "Encoding Track %1 of %2"
+msgid "Encoding track %1 of %2…"
 msgstr "Stück %1 von %2 wird kodiert"
 
-#: dialogs/extractingprogressdialog.cpp:234
-#: dialogs/extractingprogressdialog.cpp:240
-#, kde-format
-msgid "Speed: %1x"
+#: dialogs/extractingprogressdialog.cpp:236
+#: dialogs/extractingprogressdialog.cpp:242
+#, fuzzy, kde-format
+#| msgid "Speed: %1x"
+msgid "<i>Speed: %1×</i>"
 msgstr "Geschwindigkeit %1x"
 
-#: dialogs/extractingprogressdialog.cpp:258
+#: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
 msgid "All jobs successfully done."
 msgstr "Alle Aufträge erfolgreich beendet."
 
-#: dialogs/extractingprogressdialog.cpp:262
-#: dialogs/extractingprogressdialog.cpp:263
 #: dialogs/extractingprogressdialog.cpp:264
+#: dialogs/extractingprogressdialog.cpp:265
+#: dialogs/extractingprogressdialog.cpp:266
 #, kde-format
 msgid "Finished!"
 msgstr "Beendet."
 
-#: dialogs/extractingprogressdialog.cpp:269
+#: dialogs/extractingprogressdialog.cpp:271
 #, kde-format
 msgid "At least one job failed."
 msgstr "Mindestens ein Auftrag ist fehlgeschlagen."
 
-#: dialogs/extractingprogressdialog.cpp:273
-#: dialogs/extractingprogressdialog.cpp:274
 #: dialogs/extractingprogressdialog.cpp:275
+#: dialogs/extractingprogressdialog.cpp:276
+#: dialogs/extractingprogressdialog.cpp:277
 #, kde-format
 msgid "Failed!"
 msgstr "Fehlgeschlagen."
 
-#: dialogs/extractingprogressdialog.cpp:278
-#, kde-format
-msgid "Show encoding log..."
+#: dialogs/extractingprogressdialog.cpp:280
+#, fuzzy, kde-format
+#| msgid "Show encoding log..."
+msgid "Show Encoding Log…"
 msgstr "Kodierungsprotokoll anzeigen ..."
 
-#: dialogs/extractingprogressdialog.cpp:285
-#, kde-format
-msgid "Show rip log..."
+#: dialogs/extractingprogressdialog.cpp:287
+#, fuzzy, kde-format
+#| msgid "Show rip log..."
+msgid "Show Rip Log…"
 msgstr "Ausleseprotokoll anzeigen ..."
 
-#: dialogs/extractingprogressdialog.cpp:332
+#: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
 msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:334
+#: dialogs/extractingprogressdialog.cpp:336
 #, kde-format
 msgid "Cancel extraction"
 msgstr "Auslesen abbrechen"
 
-#: dialogs/extractingprogressdialog.cpp:344
+#: dialogs/extractingprogressdialog.cpp:346
 #, fuzzy, kde-format
 #| msgid "Encoding"
 msgid "Encoding log"
 msgstr "Kodierung"
 
-#: dialogs/extractingprogressdialog.cpp:350
+#: dialogs/extractingprogressdialog.cpp:352
 #, fuzzy, kde-format
 #| msgid "Ripping OK."
 msgid "Ripping log"
 msgstr "Das Auslesen war erfolgreich."
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
-#: dialogs/extractingprogresswidgetUI.ui:30
+#: dialogs/extractingprogresswidgetUI.ui:29
 #, kde-format
 msgid "Show/hide details"
 msgstr "Details anzeigen/ausblenden"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
-#: dialogs/extractingprogresswidgetUI.ui:33
+#: dialogs/extractingprogresswidgetUI.ui:32
 #, kde-format
 msgid "..."
 msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
-#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: dialogs/extractingprogresswidgetUI.ui:82
-#: dialogs/extractingprogresswidgetUI.ui:198
+#: dialogs/extractingprogresswidgetUI.ui:81
 #, kde-format
 msgid "Ripping Track 8 of 12"
 msgstr "Stück 8 von 12 wird ausgelesen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:95
-#: dialogs/extractingprogresswidgetUI.ui:144
+#: dialogs/extractingprogresswidgetUI.ui:94
+#: dialogs/extractingprogresswidgetUI.ui:143
 #, kde-format
-msgid "Speed: 0x"
-msgstr "Geschwindigkeit: 0×"
+msgid ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
+"p></body></html>"
+msgstr ""
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_overall)
-#: dialogs/extractingprogresswidgetUI.ui:116
-#: dialogs/extractingprogresswidgetUI.ui:162
-#: dialogs/extractingprogresswidgetUI.ui:216
+#: dialogs/extractingprogresswidgetUI.ui:115
+#: dialogs/extractingprogresswidgetUI.ui:161
+#: dialogs/extractingprogresswidgetUI.ui:215
 #, no-c-format, kde-format
 msgid "%p%"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: dialogs/extractingprogresswidgetUI.ui:131
+#: dialogs/extractingprogresswidgetUI.ui:130
 #, kde-format
 msgid "Encoding Track 8 of 12"
 msgstr "Stück 8 von 12 wird kodiert"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
+#: dialogs/extractingprogresswidgetUI.ui:197
+#, kde-format
+msgid "KSqueezedTextLabel"
+msgstr ""
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -758,11 +779,12 @@ msgstr "BMP"
 msgid "Scale before store:"
 msgstr "Vor dem Speichern skalieren:"
 
+#. i18n: multiplication sign between two spinboxes
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
-msgid "x"
-msgstr "x"
+msgid "×"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -957,8 +979,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, kde-format
-msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, fuzzy, kde-format
+#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
 msgstr "Zweistellige Stücknummern (z. B. 01, 02, 03...) anzeigen"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
@@ -2548,6 +2571,12 @@ msgstr "Speichern ..."
 #, kde-format
 msgid "URL:"
 msgstr "Adresse:"
+
+#~ msgid "Speed: 0x"
+#~ msgstr "Geschwindigkeit: 0×"
+
+#~ msgid "x"
+#~ msgstr "x"
 
 #~ msgid "Sample offset"
 #~ msgstr "Aufnahmen-Versatz"
