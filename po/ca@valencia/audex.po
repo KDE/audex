@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2025-05-21 11:39+0200\n"
+"PO-Revision-Date: 2025-12-21 10:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -499,7 +499,7 @@ msgstr "Extrau i codifica"
 #: dialogs/extractingprogressdialog.cpp:178
 #, kde-format
 msgid "Ripping whole CD as single track"
-msgstr "S'extrau tot el CD com una sola pista"
+msgstr "S'extrau tot el CD com una pista individual"
 
 #: dialogs/extractingprogressdialog.cpp:37
 #, kde-format
@@ -1010,7 +1010,7 @@ msgstr "Guarda el fitxer de registre"
 #: dialogs/profiledatawidgetUI.ui:355
 #, kde-format
 msgid "Write single file"
-msgstr "Escriu en un sol fitxer"
+msgstr "Escriu en un fitxer individual"
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
@@ -1120,13 +1120,13 @@ msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
-"Heu seleccionat extraure en un únic fitxer, però no heu seleccionat extraure "
-"totes les pistes. Segur que voleu continuar?"
+"Heu seleccionat extraure en un fitxer individual, però no heu seleccionat "
+"extraure totes les pistes. Segur que voleu continuar?"
 
 #: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr "No heu seleccionat extraure totes les pistes en un únic fitxer"
+msgstr "No heu seleccionat extraure totes les pistes en un fitxer individual"
 
 #: mainwindow.cpp:146
 #, kde-format
@@ -1609,7 +1609,8 @@ msgstr "El nom de fitxer no ha d'estar buit."
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
-msgstr "No heu indicat cap nom per al fitxer d'àudio únic. Establiu-ne un."
+msgstr ""
+"No heu indicat cap nom per al fitxer d'àudio individual. Establiu-ne un."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:942 widgets/profilewidgetUI.ui:42
