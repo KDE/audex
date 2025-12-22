@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-21 22:41+0300\n"
+"PO-Revision-Date: 2025-12-21 14:59+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -527,62 +527,53 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
-msgstr "Видобування доріжки"
+msgstr "Видобування доріжки…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "Видобування доріжки %1 з %2"
+msgstr "Видобування доріжки %1 з %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
 msgstr "Загальний поступ"
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
 msgstr "Загальний поступ (видобування доріжки %1 з %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "Видобування всіх даних як єдиної доріжки"
+msgstr "Видобування всіх даних як єдиної доріжки…"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "Очікування на завершення кодування…"
+msgstr "<i>Очікування на завершення кодування…</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
-msgstr "Кодування доріжки"
+msgstr "Кодування доріжки…"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "Кодування доріжки %1 з %2"
+msgstr "Кодування доріжки %1 з %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "Швидкість: %1x"
+msgstr "<i>Швидкість: %1×</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -609,14 +600,12 @@ msgid "Failed!"
 msgstr "Помилка."
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#, kde-format
 msgid "Show Encoding Log…"
 msgstr "Показати журнал кодування…"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
 msgstr "Показати журнал видобування…"
 
@@ -671,6 +660,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Швидкість: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -772,7 +763,7 @@ msgstr "Масштабувати перед зберіганням:"
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -968,8 +959,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
 msgstr "Встановити двоцифровий номер композиції (наприклад, 01, 02, 03…)"
 

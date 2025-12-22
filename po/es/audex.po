@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-21 12:39+0100\n"
+"PO-Revision-Date: 2025-12-21 11:45+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -525,62 +525,53 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
-msgstr "Extrayendo pista"
+msgstr "Extrayendo pista…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "Extrayendo pista %1 de %2"
+msgstr "Extrayendo pista %1 de %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
-msgstr "Progreso total"
+msgstr "Avance total"
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr "Progreso total (extrayendo pista %1 de %2)"
+msgstr "Avance total (extrayendo pista %1 de %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "Extraer todo el CD como una única pista"
+msgstr "Extrayendo todo el CD como una única pista…"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "Esperando por un trabajo de codificación…"
+msgstr "<i>Esperando un trabajo de codificación…</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
-msgstr "Codificando pista"
+msgstr "Codificando pista…"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "Codificando pista %1 de %2"
+msgstr "Codificando pista %1 de %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "Velocidad: %1x"
+msgstr "<i>Velocidad: %1×</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -607,14 +598,12 @@ msgid "Failed!"
 msgstr "Error."
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#, kde-format
 msgid "Show Encoding Log…"
 msgstr "Mostrar registro de la codificación…"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
 msgstr "Mostrar registro de la extracción…"
 
@@ -670,6 +659,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Velocidad: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -691,7 +682,7 @@ msgstr "Codificando pista 8 de 12"
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -771,7 +762,7 @@ msgstr "Escalar antes de guardar:"
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -966,10 +957,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "Establecer números de pista de dos dígitos (p. ej.,  01, 02, 03…)"
+msgstr "Establecer números de pista de dos dígitos (01, 02, 03…)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1352,7 +1342,7 @@ msgstr "Formato de imagen comunes"
 #: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr "La transacción CDDB ya está en progreso."
+msgstr "La transacción CDDB ya está en curso."
 
 #: models/cddamodel.cpp:823
 #, kde-format
@@ -2575,9 +2565,3 @@ msgstr "Guardar…"
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Speed: 0x"
-#~ msgstr "Velocidad: 0x"
-
-#~ msgid "x"
-#~ msgstr "x"

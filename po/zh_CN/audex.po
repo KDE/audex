@@ -521,62 +521,53 @@ msgid "Cancel"
 msgstr "取消"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
-msgstr "抓取轨道"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "抓取轨道 %1 ，共 %2"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
-msgstr "整体进度"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr "总体进展 (正在抓取音轨 %1 / %2)"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "将整个 CD 抓取为单个曲目"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "正在等待编码作业..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
-msgstr "编码音轨"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "正在编码音轨 %1，总共 %2"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "速度：%1x"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -603,16 +594,14 @@ msgid "Failed!"
 msgstr "已失败!"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "显示编码日志..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
-msgstr "显示抓取日志..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -958,10 +947,9 @@ msgstr "此设置覆盖方案中任何参数化的变量设置"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "设置两位数的曲目编号 (例如01, 02, 03...)"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -2476,9 +2464,3 @@ msgstr "保存..."
 #, kde-format
 msgid "URL:"
 msgstr "网址："
-
-#~ msgid "Speed: 0x"
-#~ msgstr "速度：0x"
-
-#~ msgid "x"
-#~ msgstr "x"

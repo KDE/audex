@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2025-05-21 11:39+0200\n"
+"PO-Revision-Date: 2025-12-21 10:51+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -498,7 +498,7 @@ msgstr "Extreu i codifica"
 #: dialogs/extractingprogressdialog.cpp:38
 #, kde-format
 msgid "Ripping whole CD as single track"
-msgstr "S'extreu tot el CD com una sola pista"
+msgstr "S'extreu tot el CD com una pista individual"
 
 #: dialogs/extractingprogressdialog.cpp:39
 #, kde-format
@@ -526,62 +526,53 @@ msgid "Cancel"
 msgstr "Cancel·la"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
-msgstr "Extreu la pista"
+msgstr "S'està extraient la pista…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "S'extreu la pista %1 de %2"
+msgstr "S'està extraient la pista %1 de %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
 msgstr "Progrés global"
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
 msgstr "Progrés global (s'extreu la pista %1 de %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "S'extreu tot el CD com una sola pista"
+msgstr "S'extreu tot el CD com una pista individual…"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "S'està esperant per a un treball de codificació..."
+msgstr "<i>S'està esperant per a un treball de codificació…</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
-msgstr "S'està codificant la pista"
+msgstr "S'està codificant una pista…"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "S'està codificant la pista %1 de %2"
+msgstr "S'està codificant la pista %1 de %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "Velocitat: %1x"
+msgstr "<i>Velocitat: %1×</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -608,16 +599,14 @@ msgid "Failed!"
 msgstr "Ha fallat!"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "Mostra el registre de la codificació..."
+msgstr "Mostra el registre de codificació…"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
-msgstr "Mostra el registre de l'extracció..."
+msgstr "Mostra el registre de l'extracció…"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -671,6 +660,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Velocitat: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -692,7 +683,7 @@ msgstr "S'està codificant la pista 8 de 12"
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -772,7 +763,7 @@ msgstr "Escala abans d'emmagatzemar:"
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -968,10 +959,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "Estableix un nombre de pista de dos dígits (p. ex. 01, 02, 03...)"
+msgstr "Estableix un nombre de pista de dos dígits (p. ex. 01, 02, 03)…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1034,7 +1024,7 @@ msgstr "Desa el fitxer de registre"
 #: dialogs/profiledatawidgetUI.ui:355
 #, kde-format
 msgid "Write single file"
-msgstr "Escriu en un sol fitxer"
+msgstr "Escriu en un fitxer individual"
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
@@ -1144,13 +1134,13 @@ msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
-"Heu seleccionat extreure en un únic fitxer, però no heu seleccionat extreure "
-"totes les pistes. Realment voleu continuar?"
+"Heu seleccionat extreure en un fitxer individual, però no heu seleccionat "
+"extreure totes les pistes. Realment voleu continuar?"
 
 #: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr "No heu seleccionat extreure totes les pistes en un únic fitxer"
+msgstr "No heu seleccionat extreure totes les pistes en un fitxer individual"
 
 #: mainwindow.cpp:146
 #, kde-format
@@ -1641,8 +1631,8 @@ msgstr "El nom de fitxer no ha d'estar buit."
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
-"No heu indicat cap nom per al fitxer d'àudio únic. Si us plau, establiu-ne "
-"un."
+"No heu indicat cap nom per al fitxer d'àudio individual. Si us plau, "
+"establiu-ne un."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:942 widgets/profilewidgetUI.ui:42
