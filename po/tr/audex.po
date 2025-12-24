@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2025-12-21 11:06+0300\n"
+"PO-Revision-Date: 2025-12-23 11:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.11.80\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -2246,7 +2246,7 @@ msgstr ""
 "<html><head/><body><p>Bazı sürücülerde, ses CD’lerini okurken bir örnek "
 "ofset bulunur. Sürücünüz için olan doğru ofseti algılamak için <a href="
 "\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
-"decoration: underline; color:#2980b9;\">Accuraterip</span></a> veritabanını "
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a> veri tabanını "
 "kullanabilirsiniz.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
