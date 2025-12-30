@@ -50,12 +50,25 @@ parts:
     parse-info:
       - usr/share/metainfo/org.kde.audex.appdata.xml
     plugin: cmake
+    build-snaps:
+      - kde-qt6-core24-sdk/latest/beta
+      - kf6-core24-sdk/latest/beta
     build-packages:
       - libxkbcommon-dev
       - libcdio-dev
       - libcdio-cdda-dev
       - libcdio-paranoia-dev
       - libpulse0
+      - libxml2-dev
+      - gettext
+      - doxygen
+      - graphviz
+      - libxml2-utils
+      - docbook-xml
+      - docbook-xsl
+      - libglx-dev
+      - libgl-dev
+      - libglvnd-dev
     stage-packages:
       - libpulse0
       - libasound2
