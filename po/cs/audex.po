@@ -529,30 +529,28 @@ msgstr "Zrušit"
 
 #: dialogs/extractingprogressdialog.cpp:174
 #, fuzzy, kde-format
-#| msgid "Ripping Track"
+#| msgid "Ripping Track 0 of %1"
 msgid "Ripping track…"
-msgstr "Ripuje se stopa"
+msgstr "Ripuje se stopa  0 z %1"
 
 #: dialogs/extractingprogressdialog.cpp:174
 #, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#| msgid "Ripping Track 0 of %1"
 msgid "Ripping track %1 of %2…"
-msgstr "Ripuje se stopa %1 z %2"
+msgstr "Ripuje se stopa  0 z %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
-msgstr "Celkový postup"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr "Celkový postup (při ripování stopy %1 z %2)"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:180
 #, fuzzy, kde-format
@@ -561,29 +559,27 @@ msgid "Ripping whole CD as single track…"
 msgstr "Celé CD se ripuje jako jedna skladba"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "Čeká se na úkoly spojené se zakódováním..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:194
 #, fuzzy, kde-format
-#| msgid "Encoding Track"
+#| msgid "Encoding track %1..."
 msgid "Encoding track…"
-msgstr "Převádí se stopa"
+msgstr "Převádí se stopa %1..."
 
 #: dialogs/extractingprogressdialog.cpp:194
 #, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#| msgid "Encoding Track 0 of %1"
 msgid "Encoding track %1 of %2…"
-msgstr "Převádí se stopa  %1 z %2"
+msgstr "Převádí se stopa  0 z %1"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "Rychlost: %1x"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -611,15 +607,14 @@ msgstr "Selhalo."
 
 #: dialogs/extractingprogressdialog.cpp:280
 #, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#| msgid "Encoding log"
 msgid "Show Encoding Log…"
-msgstr "Ukázat zápis o průběhu převádění..."
+msgstr "Zápis o průběhu převádění"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
-msgstr "Ukázat zápis o průběhu ripování..."
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -968,10 +963,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "Nastavit dvojmístné číslo skladby (např. 01, 02, 03...)"
+msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -2456,9 +2450,3 @@ msgstr "Uložit..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#~ msgid "Speed: 0x"
-#~ msgstr "Rychlost: 0x"
-
-#~ msgid "x"
-#~ msgstr "x"
