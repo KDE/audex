@@ -111,14 +111,14 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "元数据(&M)"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
 #, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
@@ -357,7 +357,7 @@ msgstr ""
 #: dialogs/cddaheaderdatawidgetUI.ui:176
 #, kde-format
 msgid "CDDB disc ID:"
-msgstr ""
+msgstr "CDDB 盘片ID："
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -514,7 +514,7 @@ msgstr "编码 %1 中的音轨 0"
 #: dialogs/extractingprogressdialog.cpp:155
 #, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr ""
+msgstr "您确定要取消提取吗？"
 
 #: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
