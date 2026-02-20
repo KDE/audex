@@ -78,10 +78,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Example:"
+#, kde-format
 msgid "Sample shift"
-msgstr "Sampla:"
+msgstr ""
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -104,10 +103,9 @@ msgstr ""
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
-#, fuzzy, kde-format
-#| msgid "Audex"
+#, kde-format
 msgid "&Audex"
-msgstr "Audex"
+msgstr ""
 
 #. i18n: ectx: Menu (metadata)
 #: audexui.rc:14
@@ -117,11 +115,10 @@ msgstr ""
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
-msgstr "CDDB"
+msgstr ""
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
@@ -330,10 +327,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
-#, fuzzy, kde-format
-#| msgid "Track Artist"
+#, kde-format
 msgid "Track Offset:"
-msgstr "Ealaíontóir an Amhráin"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
@@ -373,10 +369,9 @@ msgid "Command Scheme Wizard"
 msgstr ""
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Pattern:"
+#, kde-format
 msgid "Command scheme help"
-msgstr "Patrún:"
+msgstr ""
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
@@ -386,17 +381,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
-#, fuzzy, kde-format
-#| msgid "Example:"
+#, kde-format
 msgid "Album Example:"
-msgstr "Sampla:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
-#, fuzzy, kde-format
-#| msgid "Example:"
+#, kde-format
 msgid "Sampler Example:"
-msgstr "Sampla:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -517,10 +510,9 @@ msgid "Encoding Track 0 of %1"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:155
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "An bhfuil tú cinnte gur mian leat cealú?"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:156
 #, kde-format
@@ -618,10 +610,9 @@ msgid "Cancel extraction"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:344
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "Ionchódú"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:350
 #, kde-format
@@ -678,10 +669,9 @@ msgid "Scheme Wizard"
 msgstr ""
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
-#| msgid "Filenames"
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Ainmneacha comhaid"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -878,10 +868,9 @@ msgid "Scheme:"
 msgstr ""
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Log Files Settings"
-msgstr "&Socruithe"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
@@ -966,10 +955,9 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:283 dialogs/profiledatawidgetUI.ui:290
 #: dialogs/profiledatawidgetUI.ui:316 dialogs/profiledatawidgetUI.ui:323
 #: dialogs/profiledatawidgetUI.ui:365
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Settings.."
-msgstr "&Socruithe"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
@@ -991,24 +979,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:303
-#, fuzzy, kde-format
-#| msgid "Create Profile"
+#, kde-format
 msgid "Create info file"
-msgstr "Cruthaigh Próifíl"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
-#, fuzzy, kde-format
-#| msgid "Create Profile"
+#, kde-format
 msgid "Save log file"
-msgstr "Cruthaigh Próifíl"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
-#, fuzzy, kde-format
-#| msgid "Overwrite existing files"
+#, kde-format
 msgid "Write single file"
-msgstr "Scríobh thar chomhaid reatha"
+msgstr ""
 
 #: dialogs/schemewizarddialog.cpp:18
 #, kde-format
@@ -1027,10 +1012,9 @@ msgid "Audio ripping application"
 msgstr ""
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2011 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Cóipcheart © 2007–2011 by Marco Nelles"
+msgstr ""
 
 #: main.cpp:33
 #, kde-format
@@ -1123,10 +1107,9 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "An bhfuil tú cinnte gur mian leat cealú?"
+msgstr ""
 
 #: mainwindow.cpp:147
 #, kde-format
@@ -1139,10 +1122,9 @@ msgid "General settings"
 msgstr "Socruithe ginearálta"
 
 #: mainwindow.cpp:174
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Device settings"
-msgstr "&Socruithe"
+msgstr ""
 
 #: mainwindow.cpp:177
 #, kde-format
@@ -1150,10 +1132,9 @@ msgid "Profiles"
 msgstr "Próifílí"
 
 #: mainwindow.cpp:186
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "CDDB settings"
-msgstr "&Socruithe"
+msgstr ""
 
 #: mainwindow.cpp:189
 #, kde-format
@@ -1236,10 +1217,9 @@ msgid "Profile"
 msgstr "Próifíl"
 
 #: mainwindow.cpp:439
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Faigh Eolas"
+msgstr ""
 
 #: mainwindow.cpp:446
 #, kde-format
@@ -1247,10 +1227,9 @@ msgid "Submit"
 msgstr ""
 
 #: mainwindow.cpp:452
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Cuir na Sonraí in Eagar"
+msgstr ""
 
 #: mainwindow.cpp:459
 #, kde-format
@@ -1592,10 +1571,9 @@ msgid "Audio Disc"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Example:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Sampla:"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
@@ -1694,10 +1672,9 @@ msgid "Ripping successfully finished"
 msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device"
+#, kde-format
 msgid "Device error."
-msgstr "Gléas"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -2074,10 +2051,9 @@ msgstr "Bain Clúdach"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
-#| msgid "Pattern:"
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Patrún:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
@@ -2120,10 +2096,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Example:"
+#, kde-format
 msgid "Sample shift:"
-msgstr "Sampla:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2207,10 +2182,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
-#, fuzzy, kde-format
-#| msgid "Quality"
+#, kde-format
 msgid "Quality/Bitrate"
-msgstr "Cáilíocht"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
@@ -2273,10 +2247,9 @@ msgstr "Ráta Tairiseach Giotán"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
-#, fuzzy, kde-format
-#| msgid "Constant Bitrate"
+#, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Ráta Tairiseach Giotán"
+msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
@@ -2286,10 +2259,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Constant Bitrate"
+#, kde-format
 msgid "Target bitrate ~"
-msgstr "Ráta Tairiseach Giotán"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2392,98 +2364,3 @@ msgstr "Sábháil..."
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
-
-#, fuzzy
-#~| msgid "Example:"
-#~ msgid "Sample offset:"
-#~ msgstr "Sampla:"
-
-#~ msgid "Xiph.Org Foundation"
-#~ msgstr "Fondúireacht Xiph.Org"
-
-#, fuzzy
-#~| msgid "Example:"
-#~ msgid "Correction sample offset: %1"
-#~ msgstr "Sampla:"
-
-#, fuzzy
-#~| msgid "&Settings"
-#~ msgid "Device information"
-#~ msgstr "&Socruithe"
-
-#~ msgid "Model:"
-#~ msgstr "Samhail:"
-
-#, fuzzy
-#~| msgid "Pattern:"
-#~ msgid "Cover pattern:"
-#~ msgstr "Patrún:"
-
-#, fuzzy
-#~| msgid "Pattern:"
-#~ msgid "Name/Pattern:"
-#~ msgstr "Patrún:"
-
-#~ msgid "Pattern:"
-#~ msgstr "Patrún:"
-
-#~ msgid "Cannot open file."
-#~ msgstr "Ní féidir an comhad a oscailt."
-
-#~ msgid "Cannot open file"
-#~ msgstr "Ní féidir an comhad a oscailt"
-
-#~ msgid "Cannot save file"
-#~ msgstr "Ní féidir an comhad a shábháil"
-
-#~ msgid "&CDDB"
-#~ msgstr "&CDDB"
-
-#~ msgid "Found 1 Cover"
-#~ msgid_plural "Found %1 Covers"
-#~ msgstr[0] "Aimsíodh 1 Chlúdach"
-#~ msgstr[1] "Aimsíodh %1 Chlúdach"
-#~ msgstr[2] "Aimsíodh %1 Chlúdach"
-#~ msgstr[3] "Aimsíodh %1 gClúdach"
-#~ msgstr[4] "Aimsíodh %1 Clúdach"
-
-#~ msgid "freedb.org"
-#~ msgstr "freedb.org"
-
-#~ msgid ""
-#~ "Special thanks to freedb.org for providing a free CDDB-like CD database"
-#~ msgstr ""
-#~ "Gabhaimid buíochas ar leith le freedb.org as a mbunachar sonraí "
-#~ "dlúthdhioscaí cosúil le CDDB"
-
-#~ msgid "Wikipedia"
-#~ msgstr "Vicipéid"
-
-#~ msgid "English"
-#~ msgstr "Béarla"
-
-#~ msgid "CD Device"
-#~ msgstr "Gléas Dlúthdhiosca"
-
-#~ msgid "Save"
-#~ msgstr "Sábháil"
-
-#~ msgid "CD-Text"
-#~ msgstr "CD-Text"
-
-#, fuzzy
-#~| msgid "Format:"
-#~ msgid "Form"
-#~ msgstr "Formáid:"
-
-#~ msgid "Offset"
-#~ msgstr "Fritháireamh"
-
-#~ msgid "Unknown"
-#~ msgstr "Anaithnid"
-
-#~ msgid "Optical Drive"
-#~ msgstr "Tiomántán Optúil"
-
-#~ msgid "CD-ROM"
-#~ msgstr "CD-ROM"
