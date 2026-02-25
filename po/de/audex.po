@@ -4,20 +4,21 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2010 Markus Slopianka <markus.s@kdemail.net>
 # SPDX-FileCopyrightText: 2022 Frank Steinmetzger <dev-kde@felsenfleischer.de>
+# SPDX-FileCopyrightText: 2026 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:40+0000\n"
-"PO-Revision-Date: 2023-04-29 12:27+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2026-02-22 12:12+0100\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -367,10 +368,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "FreeDB disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "FreeDB-CD-Kennung:"
+msgstr "CDDB-Kennung der CD:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
@@ -415,7 +415,7 @@ msgstr "Aufnahmen-Beispiel:"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Hilfe"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -579,7 +579,7 @@ msgstr "Stück %1 von %2 wird kodiert"
 #: dialogs/extractingprogressdialog.cpp:240
 #, kde-format
 msgid "Speed: %1x"
-msgstr "Geschwindigkeit %1x"
+msgstr "Geschwindigkeit: %1×"
 
 #: dialogs/extractingprogressdialog.cpp:258
 #, kde-format
@@ -628,16 +628,14 @@ msgid "Cancel extraction"
 msgstr "Auslesen abbrechen"
 
 #: dialogs/extractingprogressdialog.cpp:344
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "Kodierung"
+msgstr "Kodierungsprotokoll"
 
 #: dialogs/extractingprogressdialog.cpp:350
-#, fuzzy, kde-format
-#| msgid "Ripping OK."
+#, kde-format
 msgid "Ripping log"
-msgstr "Das Auslesen war erfolgreich."
+msgstr "Ausleseprotokoll"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
@@ -675,7 +673,7 @@ msgstr "Geschwindigkeit: 0×"
 #: dialogs/extractingprogresswidgetUI.ui:216
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p %"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:131
@@ -840,8 +838,7 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Einfache Dateiüberprüfung)"
 
 #: dialogs/profiledatahashlistdialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest-Algorithmus 5)"
 
@@ -959,7 +956,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "Zweistellige Stücknummern (z. B. 01, 02, 03...) anzeigen"
+msgstr "Zweistellige Stücknummern (z. B. 01, 02, 03 …) verwenden"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1083,8 +1080,7 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr ""
 "Besonderer Dank geht an die credativ GmbH (Deutschland) für die Unterstützung"
@@ -1146,16 +1142,14 @@ msgstr ""
 "ausgewählt"
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
-#| msgid "No disc information set. Do you really want to continue?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Es wurden keine CD-Informationen gesetzt. Möchten Sie fortfahren?"
+msgstr "Es wurde kein Cover festgelegt. Möchten Sie wirklich fortfahren?"
 
 #: mainwindow.cpp:147
-#, fuzzy, kde-format
-#| msgid "Cover File"
+#, kde-format
 msgid "Cover is empty"
-msgstr "Cover-Datei"
+msgstr "Das Cover ist leer"
 
 #: mainwindow.cpp:171
 #, kde-format
@@ -1263,22 +1257,19 @@ msgid "Profile"
 msgstr "Profil"
 
 #: mainwindow.cpp:439
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Informationen holen"
+msgstr "Abrufen"
 
 #: mainwindow.cpp:446
-#, fuzzy, kde-format
-#| msgid "Submit Info"
+#, kde-format
 msgid "Submit"
-msgstr "Information senden"
+msgstr "Senden"
 
 #: mainwindow.cpp:452
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Daten ändern"
+msgstr "Bearbeiten"
 
 #: mainwindow.cpp:459
 #, kde-format
@@ -1409,10 +1400,9 @@ msgstr ""
 "Verwaltung des CDDB-Servers auf."
 
 #: models/cddamodel.cpp:902
-#, fuzzy, kde-format
-#| msgid "Unable to create KCDDB object."
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "Das KCDDB-Objekt kann nicht erstellt werden."
+msgstr "Das CDIO-Objekt kann nicht erstellt werden."
 
 #: models/cddamodel.cpp:981
 #, kde-format
@@ -1473,7 +1463,7 @@ msgstr "Der Name des Profils darf nicht leer sein."
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr ""
-"Sie haben keinen Namen für das Profil eingegeben. Bitte legen Sie einen fest."
+"Sie haben keinen Namen für das Profil angegeben. Bitte legen Sie einen fest."
 
 #: models/profilemodel.cpp:395
 #, kde-format
@@ -1498,7 +1488,7 @@ msgstr "Kodierer für das Profil ist nicht angegeben."
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
 msgstr ""
-"Sie haben keinen Kodierer für das Profil eingegeben. Bitte legen Sie einen "
+"Sie haben keinen Kodierer für das Profil angegeben. Bitte legen Sie einen "
 "fest."
 
 #: models/profilemodel.cpp:414
@@ -1521,16 +1511,13 @@ msgid "The image file format is unknown."
 msgstr "Das Bildformat ist unbekannt."
 
 #: models/profilemodel.cpp:444
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given image file format is unknown. Please choose on of these "
-#| "formats: JPG/JPEG, PNG or BMP."
+#, kde-format
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
-"Ihr gewähltes Bildformat ist unbekannt. Bitte wählen Sie eins von den "
-"Formaten: JPG/JPEG, PNG oder BMP."
+"Ihr gewähltes Bilddateiformat ist unbekannt. Bitte wählen Sie eines der "
+"folgenden Formate: JPEG, PNG, TIFF oder BMP."
 
 #: models/profilemodel.cpp:453
 #, kde-format
@@ -1566,7 +1553,7 @@ msgstr "Der Name für die Wiedergabeliste darf nicht leer sein."
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
 msgstr ""
-"Sie haben keinen Namen für die Wiedergabeliste eingegeben. Bitte legen Sie "
+"Sie haben keinen Namen für die Wiedergabeliste angegeben. Bitte legen Sie "
 "einen fest."
 
 #: models/profilemodel.cpp:493
@@ -1578,7 +1565,7 @@ msgstr "Der Name für die Informationsdatei darf nicht leer sein."
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
 msgstr ""
-"Sie haben keinen Namen für die Informationsdatei eingegeben. Bitte legen Sie "
+"Sie haben keinen Namen für die Informationsdatei angegeben. Bitte legen Sie "
 "einen fest."
 
 #: models/profilemodel.cpp:500
@@ -1590,8 +1577,8 @@ msgstr "Die Erweiterung für die Informationsdatei darf nicht leer sein."
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
-"Sie haben keine Erweiterung für die Informationsdatei eingegeben. Bitte "
-"legen Sie eine fest."
+"Sie haben keine Erweiterung für die Informationsdatei angegeben. Bitte legen "
+"Sie eine fest."
 
 #: models/profilemodel.cpp:512
 #, kde-format
@@ -1599,16 +1586,13 @@ msgid "The hashlist file format is unknown."
 msgstr "Das Format für die Hashliste ist unbekannt."
 
 #: models/profilemodel.cpp:513
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your given hashlist file format is unknown. Please choose on of these "
-#| "formats: SFV, MD5."
+#, kde-format
 msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
-"Ihr gewähltes Hashlisten-Format der Datei ist unbekannt. Bitte wählen Sie "
-"eine von diesen Formaten: SFV oder MD5."
+"Ihr gewähltes Hashlisten-Dateiformat ist unbekannt. Bitte wählen Sie eines "
+"der folgenden Formate: SFV, MD5 oder SHA-256."
 
 #: models/profilemodel.cpp:522
 #, kde-format
@@ -1619,7 +1603,7 @@ msgstr "Der Name für die Hashliste darf nicht leer sein."
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
 msgstr ""
-"Sie haben keinen Namen für die Hashliste eingegeben. Bitte legen Sie einen "
+"Sie haben keinen Namen für die Hashliste angegeben. Bitte legen Sie einen "
 "fest."
 
 #: models/profilemodel.cpp:533
@@ -1631,21 +1615,20 @@ msgstr "Der Dateiname darf nicht leer sein."
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
 msgstr ""
-"Sie haben kein Namen für die Cue-Datei angegeben. Bitte geben Sie einen "
-"Namen an."
+"Sie haben keinen Namen für die Cue-Datei angegeben. Bitte legen Sie einen "
+"fest."
 
 #: models/profilemodel.cpp:546
-#, fuzzy, kde-format
-#| msgid "Cue filename name must not be empty."
+#, kde-format
 msgid "Log filename name must not be empty."
-msgstr "Der Dateiname darf nicht leer sein."
+msgstr "Der Name der Protokolldatei darf nicht leer sein."
 
 #: models/profilemodel.cpp:546
-#, fuzzy, kde-format
-#| msgid "You have given no name for the profile. Please set one."
+#, kde-format
 msgid "You have given no name for the log file. Please set one."
 msgstr ""
-"Sie haben keinen Namen für das Profil eingegeben. Bitte legen Sie einen fest."
+"Sie haben keinen Namen für die Protokolldatei angegeben. Bitte legen Sie "
+"einen fest."
 
 #: models/profilemodel.cpp:560
 #, kde-format
@@ -1656,7 +1639,7 @@ msgstr "Der Dateiname darf nicht leer sein."
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
-"Sie haben keinen Namen für die einzelne Audiodatei eingegeben. Bitte legen "
+"Sie haben keinen Namen für die einzelne Audiodatei angegeben. Bitte legen "
 "Sie einen fest."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
@@ -1759,10 +1742,9 @@ msgid "User canceled extracting."
 msgstr "Auslesen durch Benutzer abgebrochen"
 
 #: utils/cddaextractthread.cpp:276
-#, fuzzy, kde-format
-#| msgid "Extracting finished."
+#, kde-format
 msgid "Extraction interrupted"
-msgstr "Auslesen beendet."
+msgstr "Auslesen abgebrochen"
 
 #: utils/cddaextractthread.cpp:279
 #, kde-format
@@ -1837,10 +1819,9 @@ msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
 
 #: utils/cddaparanoia.cpp:358
-#, fuzzy, kde-format
-#| msgid "Audio Disc"
+#, kde-format
 msgid "Audio"
-msgstr "Audio-CD"
+msgstr "Audio"
 
 #: utils/cddaparanoia.cpp:360
 #, fuzzy, kde-format
@@ -1871,7 +1852,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:98
 #, kde-format
