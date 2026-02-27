@@ -541,33 +541,33 @@ msgstr "整体进度"
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr ""
+msgstr "总体进展 (正在抓取音轨 %1 / %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
 #, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr ""
+msgstr "将整个 CD 抓取为单个音轨..."
 
 #: dialogs/extractingprogressdialog.cpp:190
 #, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr ""
+msgstr "<i>正在等待编码作业...</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
 msgid "Encoding track…"
-msgstr ""
+msgstr "编码音轨..."
 
 #: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr ""
+msgstr "正在编码音轨 %1 / %2..."
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
 #, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr ""
+msgstr "<i>速度：%1×</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -596,12 +596,12 @@ msgstr "已失败!"
 #: dialogs/extractingprogressdialog.cpp:280
 #, kde-format
 msgid "Show Encoding Log…"
-msgstr ""
+msgstr "显示编码日志..."
 
 #: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
 msgid "Show Rip Log…"
-msgstr ""
+msgstr "显示抓取日志..."
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -654,6 +654,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">速度：0×</span></"
+"p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -675,7 +677,7 @@ msgstr "正在编码轨道 8，共 12"
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -755,7 +757,7 @@ msgstr "存储前先缩放："
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -949,7 +951,7 @@ msgstr "此设置覆盖方案中任何参数化的变量设置"
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr ""
+msgstr "设置两位数的曲目编号 (例如01, 02, 03)..."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1243,17 +1245,17 @@ msgstr "项目"
 #: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "获取"
 
 #: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: mainwindow.cpp:452
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: mainwindow.cpp:459
 #, kde-format
@@ -1776,7 +1778,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "作品"
 
 #: utils/encoderassistant.h:98
 #, kde-format
@@ -2353,19 +2355,19 @@ msgstr "固定码率"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr ""
+msgstr "目标码率 (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
-msgstr ""
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr ""
+msgstr "目标码率 ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2410,6 +2412,9 @@ msgid ""
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>要重新扫描您系统上的编解码器 (Lame, Opus, FLAC 等)吗？</p><p><font style="
+"\"font-style:italic;\">此操作将尝试根据找到的编解码器创建一些示例配置文件。</"
+"font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
