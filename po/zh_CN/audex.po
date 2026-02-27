@@ -1232,17 +1232,17 @@ msgstr "项目"
 #: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "获取"
 
 #: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: mainwindow.cpp:452
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: mainwindow.cpp:459
 #, kde-format
@@ -1765,7 +1765,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "作品"
 
 #: utils/encoderassistant.h:98
 #, kde-format
@@ -2342,19 +2342,19 @@ msgstr "固定码率"
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
 #, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr ""
+msgstr "目标码率 (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
 #, kde-format
 msgid " kbit/s"
-msgstr ""
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 #, kde-format
 msgid "Target bitrate ~"
-msgstr ""
+msgstr "目标码率 ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2399,6 +2399,9 @@ msgid ""
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>要重新扫描您系统上的编解码器 (Lame, Opus, FLAC 等)吗？</p><p><font style="
+"\"font-style:italic;\">此操作将尝试根据找到的编解码器创建一些示例配置文件。</"
+"font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
