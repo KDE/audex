@@ -277,7 +277,7 @@ void CDDAExtractThread::run()
     } else {
         if (track > 0) {
             Q_EMIT info(i18n("Ripping OK (Track %1).", track));
-            append_log_line(i18n("Ripping of track %2 successfully finished"));
+            append_log_line(i18n("Ripping of track %1 successfully finished", track));
         } else {
             Q_EMIT info(i18n("Ripping OK."));
             append_log_line(i18n("Ripping successfully finished"));
