@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:04+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -1717,7 +1717,7 @@ msgstr "रिपिंग ठीक है (ट्रैक %1)."
 #: utils/cddaextractthread.cpp:280
 #, fuzzy, kde-format
 #| msgid "Cover \"%1\" successfully saved."
-msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "कवर \"%1\" सफलतापूर्वक सहेजा गया."
 
 #: utils/cddaextractthread.cpp:282

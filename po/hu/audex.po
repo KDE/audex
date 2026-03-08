@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2025-11-10 21:00+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1724,8 +1724,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Beolvasás OK (%1. szám)."
 
 #: utils/cddaextractthread.cpp:280
-#, kde-format
-msgid "Ripping of track %2 successfully finished"
+#, fuzzy, kde-format
+#| msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "A(z) %2. szám beolvasása sikeresen befejeződött"
 
 #: utils/cddaextractthread.cpp:282

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2026-02-17 20:40+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -1719,8 +1719,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Успешное копирование (дорожка %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, kde-format
-msgid "Ripping of track %2 successfully finished"
+#, fuzzy, kde-format
+#| msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "Копирование дорожки %2 завершено успешно"
 
 #: utils/cddaextractthread.cpp:282

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2017-08-06 20:17+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1699,7 +1699,7 @@ msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
 
 #: utils/cddaextractthread.cpp:280
 #, fuzzy, kde-format
-msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "Obal bol úspešne stiahnutý"
 
 #: utils/cddaextractthread.cpp:282

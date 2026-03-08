@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -1781,7 +1781,7 @@ msgstr "ជោគជ័យ​ក្នុង​ការ​បម្លែង (�
 #: utils/cddaextractthread.cpp:280
 #, fuzzy, kde-format
 #| msgid "Cover \"%1\" successfully saved."
-msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "បាន​រក្សា​ទុក​គម្រប​ \"%1\" ដោយ​ជោគ​ជ័យ ។"
 
 #: utils/cddaextractthread.cpp:282

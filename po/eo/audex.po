@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2024-05-04 23:30+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -1726,7 +1726,7 @@ msgstr "Ripping OK (Trako %1)."
 #: utils/cddaextractthread.cpp:280
 #, fuzzy, kde-format
 #| msgid "Cover \"%1\" successfully saved."
-msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "Kovro \"%1\" sukcese konservita."
 
 #: utils/cddaextractthread.cpp:282

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-21 00:42+0000\n"
+"POT-Creation-Date: 2026-03-08 00:43+0000\n"
 "PO-Revision-Date: 2025-12-23 11:54+0100\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1731,8 +1731,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Estrazione della traccia %1 completata correttamente."
 
 #: utils/cddaextractthread.cpp:280
-#, kde-format
-msgid "Ripping of track %2 successfully finished"
+#, fuzzy, kde-format
+#| msgid "Ripping of track %2 successfully finished"
+msgid "Ripping of track %1 successfully finished"
 msgstr "Estrazione della traccia %2 terminata correttamente"
 
 #: utils/cddaextractthread.cpp:282
