@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the audex package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2025-12-29 16:53+0100\n"
+"PO-Revision-Date: 2026-03-08 18:29+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1733,10 +1733,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Rippar OK (Tracia %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %2 successfully finished"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "Rippar de tracia %2 terminate con successo"
+msgstr "Rippar de tracia %1 terminate con successo"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format

@@ -1,15 +1,15 @@
 # Spanish translations for audex.po package.
-# Copyright (C) 2010-2025 This file is copyright:
+# Copyright (C) 2010-2026 This file is copyright:
 # This file is distributed under the same license as the audex package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2020, 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2012, 2013 Rocio Gallego <traducciones@rociogallego.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2025-12-21 11:45+0100\n"
+"PO-Revision-Date: 2026-03-09 00:51+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1735,10 +1735,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Extracción correcta (Pista %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %2 successfully finished"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "Extracción de la pista %2 terminado correctamente"
+msgstr "Extracción de la pista %1 terminado correctamente"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
