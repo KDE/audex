@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the audex package.
-# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2025-12-24 16:56+0400\n"
+"PO-Revision-Date: 2026-03-09 21:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -1708,10 +1708,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "الاستخراج جيد (المسار %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %2 successfully finished"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "انتهى نسخ المسار %2 بنجاح"
+msgstr "انتهى نسخ المسار %1 بنجاح"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format

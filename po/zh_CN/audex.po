@@ -1685,10 +1685,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "抓取 OK (音轨 %1)。"
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %2 successfully finished"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "音轨 %2 抓轨已完成"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
