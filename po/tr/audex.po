@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2025-12-23 11:33+0300\n"
+"PO-Revision-Date: 2026-03-11 15:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1650,7 +1650,7 @@ msgstr "Kuşku kipi devre dışı"
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
 msgid "Start ripping track %1..."
-msgstr "%1 parçasını dönüştürme başlatılıyor…"
+msgstr "Parça %1 dönüştürmesi başlatılıyor…"
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
 #, kde-format
@@ -1706,12 +1706,12 @@ msgstr "Kullanıcı çıkarmayı iptal etti."
 #: utils/cddaextractthread.cpp:276
 #, kde-format
 msgid "Extraction interrupted"
-msgstr "Çıkarma yarıda kesildi"
+msgstr "Çıkarma yarıda kesildi."
 
 #: utils/cddaextractthread.cpp:279
 #, kde-format
 msgid "Ripping OK (Track %1)."
-msgstr "Dönüştürme Tamam (Parça %1)."
+msgstr "Dönüştürme tamamlandı (parça %1)."
 
 #: utils/cddaextractthread.cpp:280
 #, kde-format
@@ -1721,7 +1721,7 @@ msgstr "%2 parçasının dönüştürülmesi başarıyla bitti."
 #: utils/cddaextractthread.cpp:282
 #, kde-format
 msgid "Ripping OK."
-msgstr "Dönüştürme Tamam."
+msgstr "Dönüştürme tamamlandı."
 
 #: utils/cddaextractthread.cpp:283
 #, kde-format
@@ -1845,7 +1845,7 @@ msgstr "Parça %1 kodlanıyor…"
 #: utils/encoderwrapper.cpp:110
 #, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr "“%1” kısımsal dosyası silindi."
+msgstr "Kısımsal “%1” dosyası silindi."
 
 #: utils/encoderwrapper.cpp:115
 #, kde-format
@@ -1855,7 +1855,7 @@ msgstr "Kullanıcı kodlamayı iptal etti."
 #: utils/encoderwrapper.cpp:174
 #, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr "Kodlama Tamam (“%1”)."
+msgstr "Kodlama tamamlandı (“%1”)."
 
 #: utils/encoderwrapper.cpp:176
 #, kde-format
