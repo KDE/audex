@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -44,43 +44,41 @@ msgstr "Vykonať CDDB vyhľadávanie &automaticky"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:27
-#, fuzzy, kde-format
+#, kde-format
 msgid "Perform cover lookup (amazon) automatically"
-msgstr "Vykonať CDDB vyhľadávanie &automaticky"
+msgstr "Automaticky vyhľadávať obal (amazon)"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Number of covers to fetch"
-msgstr "&Maximálny počet sťahovaných príspevkov:"
+msgstr "Počet obalov na stiahnutie"
 
 #. i18n: ectx: label, entry (fullParanoiaMode), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullParanoiaMode)
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr ""
+msgstr "Úplný paranoidný režim (bezpečný režim)"
 
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Never skip on read error"
+#, kde-format
 msgid "Skip read errors"
-msgstr "Nikdy nepreskočiť pri chybe čítania"
+msgstr "Preskočiť chyby čítania"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Never skip on read error"
+#, kde-format
 msgid "Retries on read error"
-msgstr "Nikdy nepreskočiť pri chybe čítania"
+msgstr "Pokusy pri chybe čítania"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sample shift"
-msgstr "Poznámkový blok (príklad)"
+msgstr "Posun vzoriek"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -111,22 +109,21 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metadáta"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "&CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr "Definícia vločkových nástrojov"
+msgstr "Nástroje na opravu titulkov"
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:32
@@ -135,42 +132,39 @@ msgid "&Settings"
 msgstr "&Nastavenia"
 
 #: core/audex.cpp:105
-#, fuzzy, kde-format
+#, kde-format
 msgid "No profile selected. Operation abort."
-msgstr ""
-"Expander: nie je špecifikovaný žiadny profil pre %_Profile(profile)%; "
-"končím..."
+msgstr "Žiadny profil nebol vybraný. Operácia zrušená."
 
 #: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
+msgstr "Spustenie ripovanie a kódovanie s profilom „%1\"..."
 
 #: core/audex.cpp:634 core/audex.cpp:697
-#, fuzzy, kde-format
+#, kde-format
 msgid "Can't find path \"%1\"."
-msgstr "Cesta k programu"
+msgstr "Nepodarilo sa nájsť cestu „%1\"."
 
 #: core/audex.cpp:634 core/audex.cpp:697 core/audex.cpp:706 core/audex.cpp:1155
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please check your path (write access?)"
-msgstr ""
-"Nedá sa pristúpiť k súboru %1. Prosím, skontrolujte či je cesta správna."
+msgstr "Skontrolujte svoju cestu (prístup na zápis?)"
 
 #: core/audex.cpp:647
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr ""
+msgstr "Voľné miesto na „%1\" je menej ako 200 MiB."
 
 #: core/audex.cpp:653 core/audex.cpp:725
-#, fuzzy, kde-format
+#, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "Starší súbor s menom '%1' už existuje.\n"
+msgstr "Varovanie! Súbor „%1\" už existuje. Prepíše sa."
 
 #: core/audex.cpp:655 core/audex.cpp:727 core/audex.cpp:1135
-#, fuzzy, kde-format
+#, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "Starší súbor s menom '%1' už existuje.\n"
+msgstr "Varovanie! Súbor „%1\" už existuje. Preskakuje sa."
 
 #: core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
@@ -178,9 +172,9 @@ msgid "Unable to create folder \"%1\"."
 msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
 #: core/audex.cpp:709 core/audex.cpp:1158
-#, fuzzy, kde-format
+#, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr "Projekt \"%1\" úspešne vytvorený."
+msgstr "Priečinok „%1\" bol úspešne vytvorený."
 
 #: core/audex.cpp:712
 #, kde-format
@@ -190,12 +184,12 @@ msgstr "Priečinok \"%1\" už existuje."
 #: core/audex.cpp:719
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "Voľné miesto na „%1\" je menej ako 800 MiB."
 
 #: core/audex.cpp:742
-#, fuzzy, kde-format
+#, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr "Chyba pri odstraňovaní priečinku."
+msgstr "Chyba dočasného priečinka „%1\" (%2)."
 
 #: core/audex.cpp:742
 #, kde-format
@@ -205,17 +199,17 @@ msgstr "Prosím skontrolujte."
 #: core/audex.cpp:750
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "Voľné miesto v dočasnom priečinku „%1\" je menej ako 800 MiB."
 
 #: core/audex.cpp:752
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr ""
+msgstr "Dočasný priečinok „%1\" potrebuje aspoň 200 MiB voľného miesta."
 
 #: core/audex.cpp:752
 #, kde-format
 msgid "Please free space or set another path."
-msgstr ""
+msgstr "Uvoľnite miesto alebo nastavte inú cestu."
 
 #: core/audex.cpp:781
 #, kde-format
@@ -223,83 +217,76 @@ msgid "Eject CD tray"
 msgstr "Vysunúť CD"
 
 #: core/audex.cpp:833
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr "Obal bol úspešne stiahnutý"
+msgstr "Obal „%1\" bol úspešne uložený."
 
 #: core/audex.cpp:836
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to save cover \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa uložiť obal „%1\"."
 
 #: core/audex.cpp:836 core/audex.cpp:914 core/audex.cpp:959 core/audex.cpp:1007
 #: core/audex.cpp:1047 core/audex.cpp:1076 core/audex.cpp:1123
 #: core/audex.cpp:1150
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please check your path and permissions"
-msgstr "Nie je možné vytvoriť adresár. Skontrolujte svoje práva."
+msgstr "Skontrolujte cestu a oprávnenia"
 
 #: core/audex.cpp:910
-#, fuzzy, kde-format
+#, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr "Projekt \"%1\" úspešne vytvorený."
+msgstr "Playlist „%1\" bol úspešne vytvorený."
 
 #: core/audex.cpp:914
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to save playlist \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa uložiť playlist „%1\"."
 
 #: core/audex.cpp:956
-#, fuzzy, kde-format
+#, kde-format
 msgid "Info file \"%1\" successfully created."
-msgstr "Projekt \"%1\" úspešne vytvorený."
+msgstr "Informačný súbor „%1\" bol úspešne vytvorený."
 
 #: core/audex.cpp:959
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa uložiť informačný súbor „%1\"."
 
 #: core/audex.cpp:1004
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr "Projekt \"%1\" úspešne vytvorený."
+msgstr "Hashlist „%1\" bol úspešne vytvorený."
 
 #: core/audex.cpp:1007
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa uložiť hashlist „%1\"."
 
 #: core/audex.cpp:1044
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr "Cue/Bin súbory boli úspešne vytvorené."
+msgstr "Cue sheet „%1\" bol úspešne vytvorený."
 
 #: core/audex.cpp:1047
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to save cue sheet \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa uložiť cue sheet „%1\"."
 
 #: core/audex.cpp:1073
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log file \"%1\" successfully stored."
-msgstr "Projekt \"%1\" úspešne vytvorený."
+msgstr "Súbor záznamu „%1\" bol úspešne uložený."
 
 #: core/audex.cpp:1076
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa uložiť súbor záznamu „%1\"."
 
 #: core/audex.cpp:1123 core/audex.cpp:1150
-#, fuzzy, kde-format
-#| msgid "Unable to create folder \"%1\"."
+#, kde-format
 msgid "Unable to open folder \"%1\"."
-msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
+msgstr "Nedá sa otvoriť priečinok „%1\"."
 
 #: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
@@ -356,16 +343,17 @@ msgstr "Rok:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:160
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Additional\n"
 "Information:"
-msgstr "Ďalšie informácie"
+msgstr ""
+"Ďalšie\n"
+"informácie:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
-#| msgid "Disc ID:"
+#, kde-format
 msgid "CDDB disc ID:"
 msgstr "ID disku:"
 
@@ -376,32 +364,32 @@ msgid "0x00000000"
 msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Command Scheme Wizard"
-msgstr "Sprievodca KDE Groupware"
+msgstr "Sprievodca schémou príkazov"
 
 #: dialogs/commandwizarddialog.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Command scheme help"
-msgstr "Neplatný príkaz: príkaz je prázdny."
+msgstr "Pomocník pre schému príkazov"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, qlineedit_command)
 #: dialogs/commandwizardwidgetUI.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please set a command scheme"
-msgstr "Získať &nové schémy..."
+msgstr "Nastavte schému príkazov"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:30 dialogs/schemewizardwidgetUI.ui:26
-#, fuzzy, kde-format
+#, kde-format
 msgid "Album Example:"
-msgstr "Poznámkový blok (príklad)"
+msgstr "Príklad albumu:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sampler Example:"
-msgstr "Poznámkový blok (príklad)"
+msgstr "Príklad samplovanej zbierky:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -409,7 +397,7 @@ msgstr "Poznámkový blok (príklad)"
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Pomocník"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -479,9 +467,9 @@ msgstr "Žáner"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:420
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cover File"
-msgstr "Získať obal zo &súboru..."
+msgstr "Súbor obalu"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:430
@@ -496,14 +484,14 @@ msgid "Output File"
 msgstr "Výstupný súbor"
 
 #: dialogs/extractingprogressdialog.cpp:15
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rip And Encode"
-msgstr "Čierna a červená"
+msgstr "Ripovať a kódovať"
 
 #: dialogs/extractingprogressdialog.cpp:38
 #, kde-format
 msgid "Ripping whole CD as single track"
-msgstr ""
+msgstr "Ripovanie celého CD ako jednej stopy"
 
 #: dialogs/extractingprogressdialog.cpp:39
 #, kde-format
@@ -511,18 +499,17 @@ msgid "Encoding"
 msgstr "Kódovanie"
 
 #: dialogs/extractingprogressdialog.cpp:42
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr "Ripuje sa stopa %1 (%2 - %3)"
+msgstr "Ripovanie stopy 0 z %1"
 
 #: dialogs/extractingprogressdialog.cpp:43
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr "1 stopa (kódovanie do %2)"
+msgstr "Kódovanie stopy 0 z %1"
 
 #: dialogs/extractingprogressdialog.cpp:157
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
 msgstr "Naozaj chcete zrušiť?"
 
@@ -532,62 +519,58 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
 msgstr "Ripuje sa stopa"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "Ripuje sa stopa %1 (%2 - %3)"
+msgstr "Ripuje sa stopa %1 z %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
 msgstr "Celkový priebeh"
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
+msgstr "Celkový priebeh (ripovanie stopy %1 z %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
 #, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr ""
+msgstr "Ripuje sa celé CD ako jedna stopa…"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "PIN (pre súkromnú úlohu)"
+msgstr "<i>Čaká sa na úlohu kódovania…</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
 msgstr "Kódovanie stopy"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "1 stopa (kódovanie do %2)"
+msgstr "Kódovanie stopy %1 z %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
 msgstr "Rýchlosť: %1x"
 
 #: dialogs/extractingprogressdialog.cpp:260
-#, fuzzy, kde-format
+#, kde-format
 msgid "All jobs successfully done."
-msgstr "Operácia vrátenia poslednej činnosti úspešná."
+msgstr "Všetky úlohy boli úspešne dokončené."
 
 #: dialogs/extractingprogressdialog.cpp:264
 #: dialogs/extractingprogressdialog.cpp:265
@@ -597,9 +580,9 @@ msgid "Finished!"
 msgstr "Ukončené!"
 
 #: dialogs/extractingprogressdialog.cpp:271
-#, fuzzy, kde-format
+#, kde-format
 msgid "At least one job failed."
-msgstr "Zadajte aspoň jednu URL adresu."
+msgstr "Aspoň jedna úloha zlyhala."
 
 #: dialogs/extractingprogressdialog.cpp:275
 #: dialogs/extractingprogressdialog.cpp:276
@@ -609,14 +592,14 @@ msgid "Failed!"
 msgstr "Zlyhalo!"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "Zobraziť záznam správ"
+msgstr "Zobraziť záznam kódovania…"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Rip Log…"
-msgstr "Zobraziť záznam správ"
+msgstr "Zobraziť záznam ripovania…"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -624,6 +607,8 @@ msgid ""
 "Ripping speed was extremely slow for the last 5 minutes.\n"
 "Do you want to continue extraction?"
 msgstr ""
+"Rýchlosť ripovania bola posledných 5 minút extrémne pomalá.\n"
+"Chcete pokračovať v extrakcii?"
 
 #: dialogs/extractingprogressdialog.cpp:336
 #, kde-format
@@ -631,16 +616,14 @@ msgid "Cancel extraction"
 msgstr "Zrušiť extrakciu"
 
 #: dialogs/extractingprogressdialog.cpp:346
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "Kódovanie"
+msgstr "Záznam kódovania"
 
 #: dialogs/extractingprogressdialog.cpp:352
-#, fuzzy, kde-format
-#| msgid "Ripping OK."
+#, kde-format
 msgid "Ripping log"
-msgstr "Ripovanie OK."
+msgstr "Záznam ripovania"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:29
@@ -656,9 +639,9 @@ msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #: dialogs/extractingprogresswidgetUI.ui:81
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
+msgstr "Ripovanie stopy 8 z 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
@@ -669,6 +652,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Rýchlosť: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -678,29 +663,29 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:215
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:130
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding Track 8 of 12"
-msgstr "1 stopa (kódovanie do %2)"
+msgstr "Kódovanie stopy 8 z 12"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
 msgid "Scheme Wizard"
-msgstr ""
+msgstr "Sprievodca schémou"
 
 #: dialogs/filenameschemewizarddialog.cpp:37 dialogs/schemewizarddialog.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filename scheme help"
-msgstr "Odstrániť zvolenú vzorku názvu súboru."
+msgstr "Pomocník pre schému názvov súborov"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_suffix)
 #: dialogs/filenameschemewizardwidgetUI.ui:189
@@ -725,10 +710,9 @@ msgstr "Príklad:"
 #: dialogs/profiledataplaylistwidgetUI.ui:46
 #: dialogs/profiledatasinglefilewidgetUI.ui:30
 #: dialogs/profiledatawidgetUI.ui:108
-#, fuzzy, kde-format
-#| msgid "Please check."
+#, kde-format
 msgid "Please set a scheme"
-msgstr "Prosím skontrolujte."
+msgstr "Nastavte schému"
 
 #: dialogs/logviewdialog.cpp:60
 #, kde-format
@@ -738,12 +722,12 @@ msgstr "Uložiť %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr ""
+msgstr "vytvorené dňa "
 
 #: dialogs/profiledatacoverdialog.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cover Settings"
-msgstr "Nastavenie panela"
+msgstr "Nastavenia obalu"
 
 #: dialogs/profiledatacoverdialog.cpp:68
 #, kde-format
@@ -762,16 +746,16 @@ msgstr "BMP (Windows Bitmap)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: dialogs/profiledatacoverwidgetUI.ui:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Scale before store:"
-msgstr "Vyčistiť uložené dáta"
+msgstr "Zmenšiť pred uložením:"
 
 #. i18n: multiplication sign between two spinboxes
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -783,14 +767,14 @@ msgstr "Formát:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacoverwidgetUI.ui:91
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cover scheme:"
-msgstr "Schémy skratiek"
+msgstr "Schéma obalu:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cue Sheet Settings"
-msgstr "Posiela sa CUE súbor"
+msgstr "Nastavenia cue sheet"
 
 #. i18n: ectx: property (text), widget (QLabel, label_scheme)
 #: dialogs/profiledatacuesheetwidgetUI.ui:33
@@ -800,7 +784,7 @@ msgstr "Posiela sa CUE súbor"
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 #, kde-format
 msgid "Name/Scheme:"
-msgstr ""
+msgstr "Názov/Schéma:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_timestamps)
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_add_mcn_and_isrc)
@@ -814,12 +798,17 @@ msgid ""
 "take a few seconds at the end of your ripping process to fetch those numbers "
 "and codes.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Write Media Catalog Number (MCN) and International "
+"Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet "
+"(if your drive have the capability).</p><p>Depending in your drive it could "
+"take a few seconds at the end of your ripping process to fetch those numbers "
+"and codes.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_add_mcn_and_isrc)
 #: dialogs/profiledatacuesheetwidgetUI.ui:65
 #, kde-format
 msgid "Add MCN and ISRC values (if available)"
-msgstr ""
+msgstr "Pridať hodnoty MCN a ISRC (ak sú dostupné)"
 
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
@@ -838,9 +827,9 @@ msgstr "Nový profil"
 
 #: dialogs/profiledatahashlistdialog.cpp:28
 #: dialogs/profiledataplaylistdialog.cpp:30
-#, fuzzy, kde-format
+#, kde-format
 msgid "Playlist Settings"
-msgstr "Nastavenie panela"
+msgstr "Nastavenia playlistu"
 
 #: dialogs/profiledatahashlistdialog.cpp:56
 #, kde-format
@@ -848,41 +837,40 @@ msgid "SFV (Simple File Verification)"
 msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "MD5 (Message-Digest algorithm 5)"
+#, kde-format
 msgid "MD5 (Message-Digest Algorithm 5)"
 msgstr "MD5 (Message-Digest algorithm 5)"
 
 #: dialogs/profiledatahashlistdialog.cpp:58
 #, kde-format
 msgid "SHA-256 (Secure Hash Algorithm)"
-msgstr ""
+msgstr "SHA-256 (Bezpečný hashovací algoritmus)"
 
 #: dialogs/profiledatainfodialog.cpp:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Info Settings"
-msgstr "Nastavenie panela"
+msgstr "Nastavenia informácií"
 
 #: dialogs/profiledatainfodialog.cpp:56
 #, kde-format
 msgid "Text info scheme help"
-msgstr ""
+msgstr "Pomocník pre schému textových informácií"
 
 #: dialogs/profiledatainfodialog.cpp:153
-#, fuzzy, kde-format
+#, kde-format
 msgid "Load Text Template"
-msgstr "Šablónu %1 sa nepodarilo načítať."
+msgstr "Načítať textovú šablónu"
 
 #: dialogs/profiledatainfodialog.cpp:166
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save Text Template"
-msgstr "Uložiť ako ša&blónu"
+msgstr "Uložiť textovú šablónu"
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
-#, fuzzy, kde-format
+#, kde-format
 msgid "Information text:"
-msgstr "Nájsť textové informácie"
+msgstr "Informačný text:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -897,35 +885,35 @@ msgstr "Prípona:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Schéma:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log Files Settings"
-msgstr "Nastavenia súborového systému"
+msgstr "Nastavenia súborov záznamu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "Zapisovať časové pečiatky"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
 #, kde-format
 msgid "Use absolute file paths in playlist"
-msgstr ""
+msgstr "Používať absolútne cesty k súborom v playliste"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_utf8)
 #: dialogs/profiledataplaylistwidgetUI.ui:63
 #, kde-format
 msgid "UTF-8 coding in playlist"
-msgstr ""
+msgstr "Kódovanie UTF-8 v playliste"
 
 #: dialogs/profiledatasinglefiledialog.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgid "Single File Settings"
-msgstr "Nastavenia súborového systému"
+msgstr "Nastavenia jednotlivého súboru"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
@@ -941,9 +929,9 @@ msgstr "Názvy súborov"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:133
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create FAT32 compatible filenames"
-msgstr "Vytvoriť index kompatibilný s ht://dig"
+msgstr "Vytvoriť názvy súborov kompatibilné s FAT32"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:146
@@ -957,12 +945,13 @@ msgstr "Nahradiť medzery podčiarkovníkmi"
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
+"Toto nastavenie prepíše všetky parametrizované nastavenia premenných v schéme"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr ""
+msgstr "Nastaviť dvojciferné číslo stopy (napr. 01, 02, 03)…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -972,9 +961,9 @@ msgstr "Navyše"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:211
-#, fuzzy, kde-format
+#, kde-format
 msgid "Store cover file"
-msgstr "Získať obal zo &súboru..."
+msgstr "Uložiť súbor obalu"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_playlist)
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_info)
@@ -993,44 +982,44 @@ msgstr "Nastavenia..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create hashlist"
-msgstr "Vytvoriť nový priečinok záložiek v %1"
+msgstr "Vytvoriť hashlist"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:244
 #, kde-format
 msgid "Create cue sheet"
-msgstr ""
+msgstr "Vytvoriť súbor cue sheet"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:257
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create playlist"
-msgstr "Vytvoriť nový priečinok záložiek v %1"
+msgstr "Vytvoriť playlist"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:303
-#, fuzzy, kde-format
+#, kde-format
 msgid "Create info file"
-msgstr "Vytvoriť nový profil"
+msgstr "Vytvoriť informačný súbor"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_logfile)
 #: dialogs/profiledatawidgetUI.ui:330
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save log file"
-msgstr "Vytvoriť nový profil"
+msgstr "Uložiť súbor záznamu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:355
-#, fuzzy, kde-format
+#, kde-format
 msgid "Write single file"
-msgstr "Inštalátor jednotlivých súborov"
+msgstr "Zapísať do jedného súboru"
 
 #: dialogs/schemewizarddialog.cpp:18
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filename Scheme Wizard"
-msgstr "Odstrániť zvolenú vzorku názvu súboru."
+msgstr "Sprievodca schémou názvov súborov"
 
 #: main.cpp:26
 #, kde-format
@@ -1041,13 +1030,12 @@ msgstr "Audex"
 #, kde-format
 msgctxt "@info"
 msgid "Audio ripping application"
-msgstr ""
+msgstr "Aplikácia na ripovanie audia"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007–2013 by Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007–2013 by Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1055,9 +1043,9 @@ msgid "Marco Nelles"
 msgstr "Marco Nelles"
 
 #: main.cpp:33
-#, fuzzy, kde-format
+#, kde-format
 msgid "Current maintainer, main developer"
-msgstr "Správca a aktuálny hlavný vývojár"
+msgstr "Aktuálny správca, hlavný vývojár"
 
 #: main.cpp:34
 #, kde-format
@@ -1065,9 +1053,9 @@ msgid "Craig Drummond"
 msgstr "Craig Drummond"
 
 #: main.cpp:34
-#, fuzzy, kde-format
+#, kde-format
 msgid "GUI improvements, development"
-msgstr "Vývoj tlaku: %1<br>"
+msgstr "Vylepšenia GUI, vývoj"
 
 #: main.cpp:35
 #, kde-format
@@ -1087,7 +1075,7 @@ msgstr "credativ GmbH"
 #: main.cpp:36
 #, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "Špeciálne poďakovanie spoločnosti credativ GmbH (Nemecko) za podporu"
 
 #: main.cpp:37
 #, kde-format
@@ -1102,30 +1090,31 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
 #: mainwindow.cpp:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create ProfileModel object."
-msgstr "Nepodarilo sa vytvoriť komponent prvkov."
+msgstr "Nedá sa vytvoriť objekt ProfileModel."
 
 #: mainwindow.cpp:36 mainwindow.cpp:49
 #, kde-format
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
+"Interná chyba. Skontrolujte hardvér. Ak je všetko v poriadku, nahláste chybu."
 
 #: mainwindow.cpp:49
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create CDDAModel object."
-msgstr "Nepodarilo sa vytvoriť komponent prvkov."
+msgstr "Nedá sa vytvoriť objekt CDDAModel."
 
 #: mainwindow.cpp:121
 #, kde-format
 msgid "No disc information set. Do you really want to continue?"
-msgstr ""
+msgstr "Nie sú nastavené žiadne informácie o disku. Naozaj chcete pokračovať?"
 
 #: mainwindow.cpp:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Disc information not found"
-msgstr "Kanál nebol nájdený na %1."
+msgstr "Informácie o disku neboli nájdené"
 
 #: mainwindow.cpp:133
 #, kde-format
@@ -1133,22 +1122,23 @@ msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
+"Je vybraný rip do jedného súboru, ale nie sú vybrané všetky zvukové stopy. "
+"Naozaj chcete pokračovať?"
 
 #: mainwindow.cpp:134
 #, kde-format
 msgid "Not all audio tracks selected for single file rip"
-msgstr ""
+msgstr "Nie sú vybrané všetky zvukové stopy pre rip do jedného súboru"
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
 msgstr "Naozaj chcete zrušiť?"
 
 #: mainwindow.cpp:147
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cover is empty"
-msgstr "Získať obal zo &súboru..."
+msgstr "Obal je prázdny"
 
 #: mainwindow.cpp:171
 #, kde-format
@@ -1176,21 +1166,23 @@ msgid "Remote Server"
 msgstr "Vzdialený server"
 
 #: mainwindow.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
-msgstr "Čítanie archívu zlyhalo s nasledujúcou chybou: <message>%1</message>"
+msgstr ""
+"Vyhľadávanie CDDB zlyhalo s nasledujúcou chybou:\n"
+"%1"
 
 #: mainwindow.cpp:230
-#, fuzzy, kde-format
+#, kde-format
 msgid "CDD Lookup Failure"
-msgstr "Nepodarilo sa nájsť informáciu"
+msgstr "Zlyhanie vyhľadávania CDDB"
 
 #: mainwindow.cpp:335
-#, fuzzy, kde-format
+#, kde-format
 msgid "Split titles"
-msgstr "Titulky kariet"
+msgstr "Rozdeliť tituly"
 
 #: mainwindow.cpp:336
 #, kde-format
@@ -1199,36 +1191,40 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
+"Nastavte oddeľovací reťazec. Dávajte pozor na prázdne medzery.\n"
+"\n"
+"Oddeľovač:"
 
 #: mainwindow.cpp:348
 #, kde-format
 msgid "Do you really want to swap all artists and titles?"
-msgstr ""
+msgstr "Naozaj chcete zameniť všetkých interpretov a tituly?"
 
 #: mainwindow.cpp:349
-#, fuzzy, kde-format
+#, kde-format
 msgid "Swap artists and titles"
-msgstr "História pamäti a swapu"
+msgstr "Zameniť interpretov a tituly"
 
 #: mainwindow.cpp:363
 #, kde-format
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
+"Naozaj chcete dať veľké začiatočné písmená všetkým interpretom a titulom?"
 
 #: mainwindow.cpp:364
-#, fuzzy, kde-format
+#, kde-format
 msgid "Capitalize artists and titles"
-msgstr "Nastavenie vzhľadu titulkov okien"
+msgstr "Veľké začiatočné písmená interpretov a titulov"
 
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Do you really want to autofill track artists?"
-msgstr ""
+msgstr "Naozaj chcete automaticky vyplniť interpretov stôp?"
 
 #: mainwindow.cpp:379
-#, fuzzy, kde-format
+#, kde-format
 msgid "Autofill artists"
-msgstr "Viacerý u&melci"
+msgstr "Automaticky vyplniť interpretov"
 
 #: mainwindow.cpp:406
 #, kde-format
@@ -1251,21 +1247,19 @@ msgid "Profile"
 msgstr "Profil"
 
 #: mainwindow.cpp:439
-#, fuzzy, kde-format
-#| msgid "Fetch Info"
+#, kde-format
 msgid "Fetch"
-msgstr "Natiahnuť info"
+msgstr "Načítať"
 
 #: mainwindow.cpp:446
-#, fuzzy, kde-format
+#, kde-format
 msgid "Submit"
-msgstr "Kig Info"
+msgstr "Odoslať"
 
 #: mainwindow.cpp:452
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Upraviť dáta"
+msgstr "Upraviť"
 
 #: mainwindow.cpp:459
 #, kde-format
@@ -1273,14 +1267,14 @@ msgid "Rip..."
 msgstr "Ripovať..."
 
 #: mainwindow.cpp:468
-#, fuzzy, kde-format
+#, kde-format
 msgid "Split Titles..."
-msgstr "Titulky kariet"
+msgstr "Rozdeliť tituly..."
 
 #: mainwindow.cpp:473
-#, fuzzy, kde-format
+#, kde-format
 msgid "Swap Artists And Titles"
-msgstr "História pamäti a swapu"
+msgstr "Zameniť interpretov a tituly"
 
 #: mainwindow.cpp:478
 #, kde-format
@@ -1288,9 +1282,9 @@ msgid "Capitalize"
 msgstr "Veľké prvé písmená"
 
 #: mainwindow.cpp:483
-#, fuzzy, kde-format
+#, kde-format
 msgid "Auto Fill Artists"
-msgstr "Interpreti podobní  %1"
+msgstr "Automaticky vyplniť interpretov"
 
 #: mainwindow.cpp:488
 #, kde-format
@@ -1308,9 +1302,9 @@ msgid "Invert Selection"
 msgstr "Invertovať výber"
 
 #: models/cddamodel.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create devices object."
-msgstr "Nepodarilo sa vytvoriť komponent prvkov."
+msgstr "Nedá sa vytvoriť objekt zariadení."
 
 #: models/cddamodel.cpp:21 models/cddamodel.cpp:33 models/cddamodel.cpp:903
 #, kde-format
@@ -1318,11 +1312,13 @@ msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
+"Toto je interná chyba. Skontrolujte váš hardvér. Ak je všetko v poriadku, "
+"nahláste chybu."
 
 #: models/cddamodel.cpp:32
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create KCDDB object."
-msgstr "Nepodarilo sa vytvoriť komponent prvkov."
+msgstr "Nedá sa vytvoriť objekt KCDDB."
 
 #: models/cddamodel.cpp:121
 #, kde-format
@@ -1330,21 +1326,21 @@ msgid "Track %1"
 msgstr "Stopa %1"
 
 #: models/cddamodel.cpp:525
-#, fuzzy, kde-format
+#, kde-format
 msgid "Common image formats"
-msgstr "Formáty obrázkov raw v KDE"
+msgstr "Bežné formáty obrázkov"
 
 #: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr ""
+msgstr "Transakcia CDDB už prebieha."
 
 #: models/cddamodel.cpp:823
 #, kde-format
 msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
-msgstr ""
+msgstr "Transakcia CDDB už prebieha. Počkajte, kým sa dokončí, a skúste znova."
 
 #: models/cddamodel.cpp:842 models/cddamodel.cpp:955
 #, kde-format
@@ -1352,6 +1348,8 @@ msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
+"Vyskytla sa chyba so serverom CDDB. Počkajte alebo kontaktujte správcu "
+"servera CDDB."
 
 #: models/cddamodel.cpp:848 models/cddamodel.cpp:961
 #, kde-format
@@ -1359,6 +1357,8 @@ msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
+"Server CDDB sa nedá nájsť. Skontrolujte svoju sieť. Možno je server CDDB "
+"offline."
 
 #: models/cddamodel.cpp:854 models/cddamodel.cpp:967
 #, kde-format
@@ -1366,31 +1366,33 @@ msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
+"Počkajte, server môže byť zaneprázdnený, alebo kontaktujte správcu servera "
+"CDDB."
 
 #: models/cddamodel.cpp:859
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please contact the CDDB server administrator."
 msgstr "Prosím, kontaktujte administrátora systému."
 
 #: models/cddamodel.cpp:862 models/cddamodel.cpp:972
-#, fuzzy, kde-format
+#, kde-format
 msgid "This should not happen. Please make a bug report."
-msgstr "Súbor \"%1\" je adresár. Toto by nemalo nastať. Prosím zadajte bug."
+msgstr "Toto by sa nemalo stať. Nahláste chybu."
 
 #: models/cddamodel.cpp:869 models/cddamodel.cpp:975
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
-msgstr ""
+msgstr "Nahláste chybu a kontaktujte správcu servera CDDB."
 
 #: models/cddamodel.cpp:902
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "Nepodarilo sa vytvoriť komponent prvkov."
+msgstr "Nedá sa vytvoriť objekt CDIO."
 
 #: models/cddamodel.cpp:981
 #, kde-format
 msgid "This means no data found in the CDDB database."
-msgstr ""
+msgstr "To znamená, že v databáze CDDB neboli nájdené žiadne dáta."
 
 #: models/cddamodel.cpp:1002
 #, kde-format
@@ -1430,27 +1432,27 @@ msgstr "Dĺžka"
 #: models/profilemodel.cpp:305
 #, kde-format
 msgid "Unknown error. No index found in profile model."
-msgstr ""
+msgstr "Neznáma chyba. V modeli profilov nebol nájdený žiadny index."
 
 #: models/profilemodel.cpp:305
-#, fuzzy, kde-format
+#, kde-format
 msgid "This is an internal error. Please report."
-msgstr "Nastala neznáma chyba (%1), prosím oznáte to"
+msgstr "Toto je interná chyba. Nahláste ju."
 
 #: models/profilemodel.cpp:381
-#, fuzzy, kde-format
+#, kde-format
 msgid "Profile name must not be empty."
-msgstr "Meno makra nemôže byť prázdne."
+msgstr "Názov profilu nesmie byť prázdny."
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre profil. Nastavte ho."
 
 #: models/profilemodel.cpp:395
-#, fuzzy, kde-format
+#, kde-format
 msgid "Profile name already exists."
-msgstr "Meno <em>%1</em> je už použité."
+msgstr "Názov profilu už existuje."
 
 #: models/profilemodel.cpp:396
 #, kde-format
@@ -1458,31 +1460,33 @@ msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
+"Váš názov profilu %1 už existuje v sade profilov. Vyberte si prosím "
+"jedinečný."
 
 #: models/profilemodel.cpp:407
-#, fuzzy, kde-format
+#, kde-format
 msgid "Profile encoder is not defined."
-msgstr "Ovládač APS nie je definovaný."
+msgstr "Kodér profilu nie je definovaný."
 
 #: models/profilemodel.cpp:407
 #, kde-format
 msgid "You have given no encoder for the profile. Please set one."
-msgstr ""
+msgstr "Pre profil ste nezadali žiadny kodér. Nastavte ho."
 
 #: models/profilemodel.cpp:414
-#, fuzzy, kde-format
+#, kde-format
 msgid "Profile filename scheme is not defined."
-msgstr "Ovládač APS nie je definovaný."
+msgstr "Schéma názvov súborov profilu nie je definovaná."
 
 #: models/profilemodel.cpp:415
 #, kde-format
 msgid "You have given no filename scheme for the profile. Please set one."
-msgstr ""
+msgstr "Pre profil ste nezadali žiadnu schému názvu súboru. Nastavte ju."
 
 #: models/profilemodel.cpp:443
-#, fuzzy, kde-format
+#, kde-format
 msgid "The image file format is unknown."
-msgstr "Formát súboru \"%1\" cieľového obrázku nie je podporovaný."
+msgstr "Formát obrazového súboru je neznámy."
 
 #: models/profilemodel.cpp:444
 #, kde-format
@@ -1490,21 +1494,23 @@ msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPEG, PNG, TIFF or BMP."
 msgstr ""
+"Zadaný formát obrazového súboru je neznámy. Vyberte si jeden z formátov: "
+"JPEG, PNG, TIFF alebo BMP."
 
 #: models/profilemodel.cpp:453
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cover name must not be empty."
-msgstr "Meno makra nemôže byť prázdne."
+msgstr "Názov obalu nesmie byť prázdny."
 
 #: models/profilemodel.cpp:453
 #, kde-format
 msgid "You have given no name for the cover. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre obal. Nastavte ho."
 
 #: models/profilemodel.cpp:463
-#, fuzzy, kde-format
+#, kde-format
 msgid "The playlist file format is unknown."
-msgstr "Súbor '%1' nie je v binárnom formáte."
+msgstr "Formát súboru playlistu je neznámy."
 
 #: models/profilemodel.cpp:464
 #, kde-format
@@ -1512,41 +1518,43 @@ msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
+"Zadaný formát súboru zoznamu skladieb je neznámy. Vyberte si jeden z "
+"formátov: M3U, PLS alebo XSPF."
 
 #: models/profilemodel.cpp:473
-#, fuzzy, kde-format
+#, kde-format
 msgid "Playlist name must not be empty."
-msgstr "Meno makra nemôže byť prázdne."
+msgstr "Názov playlistu nesmie byť prázdny."
 
 #: models/profilemodel.cpp:473
 #, kde-format
 msgid "You have given no name for the playlist. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre playlist. Nastavte ho."
 
 #: models/profilemodel.cpp:493
 #, kde-format
 msgid "Info text name must not be empty."
-msgstr ""
+msgstr "Názov informačného textu nesmie byť prázdny."
 
 #: models/profilemodel.cpp:493
 #, kde-format
 msgid "You have given no name for the info text file. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre informačný textový súbor. Nastavte ho."
 
 #: models/profilemodel.cpp:500
 #, kde-format
 msgid "Info text file name suffix must not be empty."
-msgstr ""
+msgstr "Prípona názvu informačného textového súboru nesmie byť prázdna."
 
 #: models/profilemodel.cpp:501
 #, kde-format
 msgid "You have given no suffix for the info text file. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadnu príponu pre informačný textový súbor. Nastavte ju."
 
 #: models/profilemodel.cpp:512
-#, fuzzy, kde-format
+#, kde-format
 msgid "The hashlist file format is unknown."
-msgstr "Súbor '%1' nie je v binárnom formáte."
+msgstr "Formát súboru hashlistu je neznámy."
 
 #: models/profilemodel.cpp:513
 #, kde-format
@@ -1554,46 +1562,48 @@ msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
+"Zadaný formát súboru kontrolných súčtov je neznámy. Vyberte si jeden z "
+"formátov: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:522
-#, fuzzy, kde-format
+#, kde-format
 msgid "Hashlist name must not be empty."
-msgstr "Meno makra nemôže byť prázdne."
+msgstr "Názov hashlistu nesmie byť prázdny."
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre hashlist. Nastavte ho."
 
 #: models/profilemodel.cpp:533
 #, kde-format
 msgid "Cue filename name must not be empty."
-msgstr ""
+msgstr "Názov súboru cue nesmie byť prázdny."
 
 #: models/profilemodel.cpp:533
 #, kde-format
 msgid "You have given no name for the cue sheet. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre cue sheet. Nastavte ho."
 
 #: models/profilemodel.cpp:546
-#, fuzzy, kde-format
+#, kde-format
 msgid "Log filename name must not be empty."
-msgstr "Meno makra nemôže byť prázdne."
+msgstr "Názov súboru záznamu nesmie byť prázdny."
 
 #: models/profilemodel.cpp:546
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre súbor záznamu. Nastavte ho."
 
 #: models/profilemodel.cpp:560
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filename name must not be empty."
-msgstr "Meno makra nemôže byť prázdne."
+msgstr "Názov súboru nesmie byť prázdny."
 
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "You have given no name for the single audio file. Please set one."
-msgstr ""
+msgstr "Nezadali ste žiadny názov pre jeden zvukový súbor. Nastavte ho."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_copy)
 #: models/profilemodel.cpp:942 widgets/profilewidgetUI.ui:42
@@ -1602,105 +1612,100 @@ msgid "Copy"
 msgstr "Kopírovať"
 
 #: utils/cddadevices.cpp:84
-#, fuzzy, kde-format
-#| msgid "Audio disc"
+#, kde-format
 msgid "Audio Disc"
 msgstr "Zvukový disk"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "Poznámkový blok (príklad)"
+msgstr "Posun vzoriek: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Ripovanie s posunom %1 vzoriek"
 
 #: utils/cddaextractthread.cpp:75
 #, kde-format
 msgid "Paranoia mode enabled"
-msgstr ""
+msgstr "Paranoidný režim povolený"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Paranoidný režim zakázaný"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Ripping track %1 (%2:%3)..."
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "Ripuje sa stopa %1 (%2:%3)..."
+msgstr "Začína sa ripovanie stopy %1..."
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Ripping track %1 (%2:%3)..."
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "Ripuje sa stopa %1 (%2:%3)..."
+msgstr "Začína sa ripovanie celého CD..."
 
 #: utils/cddaextractthread.cpp:193
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error occured while reading sector %1 (track time pos %2): %3"
-msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
+msgstr "Nastala chyba pri čítaní sektora %1 (pozícia v stope %2): %3"
 
 #: utils/cddaextractthread.cpp:200 utils/cddaextractthread.cpp:208
-#, fuzzy, kde-format
+#, kde-format
 msgid "An error occured while ripping track %1 at position %2. See log."
-msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
+msgstr "Nastala chyba pri ripovaní stopy %1 na pozícii %2. Pozrite záznam."
 
 #: utils/cddaextractthread.cpp:202 utils/cddaextractthread.cpp:210
 #: utils/cddaextractthread.cpp:217 utils/cddaextractthread.cpp:219
-#, fuzzy, kde-format
+#, kde-format
 msgid "An error occured while ripping at position %1. See log."
-msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
+msgstr "Nastala chyba pri ripovaní na pozícii %1. Pozrite záznam."
 
 #: utils/cddaextractthread.cpp:215
 #, kde-format
 msgid "Error reading sector %1 (track time pos %2)"
-msgstr ""
+msgstr "Chyba čítania sektora %1 (pozícia v stope %2)"
 
 #: utils/cddaextractthread.cpp:226
 #, kde-format
 msgid "Error reading sector %1 (%2): **Filling whole sector with silence**"
-msgstr ""
+msgstr "Chyba čítania sektora %1 (%2): **Celý sektor je vyplnený tichom**"
 
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Správa o stave paranoidného režimu pre stopu %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Správa o stave paranoidného režimu:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
 msgid "Ripping was canceled due to an error."
-msgstr ""
+msgstr "Ripovanie bolo zrušené kvôli chybe."
 
 #: utils/cddaextractthread.cpp:275
-#, fuzzy, kde-format
+#, kde-format
 msgid "User canceled extracting."
-msgstr ""
-"Užívateľ zrušil akciu\n"
-"%1"
+msgstr "Používateľ zrušil extrakciu."
 
 #: utils/cddaextractthread.cpp:276
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extraction interrupted"
-msgstr "Sťahovanie bolo dokončené"
+msgstr "Extrakcia bola prerušená"
 
 #: utils/cddaextractthread.cpp:279
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping OK (Track %1)."
-msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
+msgstr "Ripovanie OK (stopa %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr "Obal bol úspešne stiahnutý"
+msgstr "Ripovanie stopy %2 bolo úspešne dokončené"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1708,77 +1713,77 @@ msgid "Ripping OK."
 msgstr "Ripovanie OK."
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "Obal bol úspešne stiahnutý"
+msgstr "Ripovanie bolo úspešne dokončené"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device error."
-msgstr "Interná chyba: nenastavené zariadenie."
+msgstr "Chyba zariadenia."
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Check your device on \"%1\"."
-msgstr ""
+msgstr "Skontrolujte zariadenie na „%1\"."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
+#, kde-format
 msgid "Disc error."
-msgstr "Interná chyba: nenastavené zariadenie."
+msgstr "Chyba disku."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "Nedá sa otvoriť disk. Je v mechanike „%1\" audio disk?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "cdparanoia nenašla spôsob, ako čítať zvuk z mechaniky „%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Nešpecifikovaná chyba mechaniky na „%1\"."
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "Interná chyba: nenastavené zariadenie."
+msgstr "Chyba mechaniky/disku."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Nešpecifikovaná chyba mechaniky alebo disku na „%1\"."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
 msgid "Track --, Start sector: 000000, Size in sectors: 000150, Type: Lead-in"
 msgstr ""
+"Stopa --, Počiatočný sektor: 000000, Veľkosť v sektoroch: 000150, Typ: Lead-"
+"in"
 
 #: utils/cddaparanoia.cpp:358
-#, fuzzy, kde-format
-#| msgid "Audio disc"
+#, kde-format
 msgid "Audio"
-msgstr "Zvukový disk"
+msgstr "Zvukové"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Audio disc"
+#, kde-format
 msgid "Non-Audio"
-msgstr "Zvukový disk"
+msgstr "Nezvukové"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
 msgid "Lead-out"
-msgstr ""
+msgstr "Lead-out"
 
 #: utils/cddaparanoia.cpp:366
 #, kde-format
 msgid "Track %1, Start sector: %2, Size in sectors: %3, Type: %4"
-msgstr ""
+msgstr "Stopa %1, Počiatočný sektor: %2, Veľkosť v sektoroch: %3, Typ: %4"
 
 #: utils/encoderassistant.h:59
 #, kde-format
@@ -1793,7 +1798,7 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:98
 #, kde-format
@@ -1806,9 +1811,9 @@ msgid "MP4 (AAC)"
 msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:119
-#, fuzzy, kde-format
+#, kde-format
 msgid "WAVE (Raw Uncompressed)"
-msgstr "Nekomprimovaný archív (.tar)"
+msgstr "WAVE (nekomprimovaný formát)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:126 utils/encoderassistant.h:127
@@ -1818,9 +1823,9 @@ msgid "Custom"
 msgstr "Vlastné"
 
 #: utils/encoderwrapper.cpp:61
-#, fuzzy, kde-format
+#, kde-format
 msgid "Command scheme is empty."
-msgstr "Neplatný príkaz: príkaz je prázdny."
+msgstr "Schéma príkazov je prázdna."
 
 #: utils/encoderwrapper.cpp:92
 #, kde-format
@@ -1828,32 +1833,30 @@ msgid "Encoding track %1..."
 msgstr "Kódovanie stopy %1..."
 
 #: utils/encoderwrapper.cpp:110
-#, fuzzy, kde-format
+#, kde-format
 msgid "Deleted partial file \"%1\"."
 msgstr "Bol odstránený čiastočný súbor '%1'."
 
 #: utils/encoderwrapper.cpp:115
-#, fuzzy, kde-format
+#, kde-format
 msgid "User canceled encoding."
-msgstr ""
-"Užívateľ zrušil akciu\n"
-"%1"
+msgstr "Používateľ zrušil kódovanie."
 
 #: utils/encoderwrapper.cpp:174
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr "Prihlásenie v poriadku"
+msgstr "Kódovanie OK („%1\")."
 
 #: utils/encoderwrapper.cpp:176
-#, fuzzy, kde-format
+#, kde-format
 msgid "An error occurred while encoding file \"%1\"."
-msgstr "Chyba pri nahrávaní zvukov."
+msgstr "Nastala chyba pri kódovaní súboru „%1\"."
 
 #: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:191
 #: utils/encoderwrapper.cpp:194 utils/encoderwrapper.cpp:204
-#, fuzzy, kde-format
+#, kde-format
 msgid "Please check your profile."
-msgstr "Prosím popíšte svoj upload."
+msgstr "Skontrolujte profil."
 
 #: utils/encoderwrapper.cpp:188
 #, kde-format
@@ -1865,60 +1868,60 @@ msgstr "Zlyhalo spustenie %1"
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
-msgstr ""
+msgstr "Buď chýba, alebo nemáte dostatočné oprávnenia na spustenie programu."
 
 #: utils/encoderwrapper.cpp:191
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
-msgstr ""
+msgstr "%1 havaroval nejaký čas po úspešnom spustení."
 
 #: utils/encoderwrapper.cpp:194
 #, kde-format
 msgid "%1 timed out. This should not happen."
-msgstr ""
+msgstr "%1 vypršal časový limit. To by sa nemalo stať."
 
 #: utils/encoderwrapper.cpp:197
-#, fuzzy, kde-format
+#, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr "Nastala neočakávaná chyba (%1) pri pokuse o %2."
+msgstr "Nastala chyba pri pokuse o zápis do %1."
 
 #: utils/encoderwrapper.cpp:198
 #, kde-format
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
-msgstr ""
+msgstr "Napríklad proces nemusí bežať alebo mohol zatvoriť svoj vstupný kanál."
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
-msgstr ""
+msgstr "Nastala chyba pri pokuse o čítanie z %1."
 
 #: utils/encoderwrapper.cpp:201
 #, kde-format
 msgid "For example, the process may not be running."
-msgstr ""
+msgstr "Napríklad, proces nemusí bežať."
 
 #: utils/encoderwrapper.cpp:204
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
-msgstr ""
+msgstr "V %1 nastala neznáma chyba. To by sa nemalo stať."
 
 #: utils/parameters.cpp:61 utils/parameters.cpp:83 utils/parameters.cpp:91
 #: utils/parameters.cpp:110
 #, kde-format
 msgid "Illegal character found at index %1: '%2'"
-msgstr ""
+msgstr "Nepovolený znak na indexe %1: '%2'"
 
 #: utils/parameters.cpp:121
 #, kde-format
 msgid "Unclosed quote found"
-msgstr ""
+msgstr "Neuzavretá úvodzovka"
 
 #: utils/schemeparser.cpp:65
 #, kde-format
 msgid "Illegal character found at index %1: %2"
-msgstr ""
+msgstr "Nepovolený znak na indexe %1: %2"
 
 #: utils/schemeparser.cpp:116
 #, kde-format
@@ -1926,16 +1929,18 @@ msgid ""
 "replace_char_list parameter needs two more parameters replace_char_list_from "
 "and replace_char_list_to with equal size."
 msgstr ""
+"Parameter replace_char_list vyžaduje dva ďalšie parametre "
+"replace_char_list_from a replace_char_list_to s rovnakou veľkosťou."
 
 #: utils/schemeparser.cpp:262
 #, kde-format
 msgid "Unclosed brace."
-msgstr ""
+msgstr "Neuzavretá zložená zátvorka."
 
 #: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Nedá sa vytvoriť dočasný súbor obalu: %1"
 
 #: utils/schemeparser.h:154
 #, kde-format
@@ -1956,6 +1961,21 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>Nasledujúce zástupné znaky budú nahradené ich príslušným významom:</"
+"p><table><tr><th>Zástupný znak</th><th>Popis</th></tr><tr><td><tt>$artist</"
+"tt></td><td>The artist of the CD. If your CD is a compilation then this tag "
+"represents the title in most cases.</td></tr><tr><td><tt>$title</tt></"
+"td><td>The title of the CD. If your CD is a compilation then this tag "
+"represents the subtitle in most cases.</td></tr><tr><td><tt>$date</tt></"
+"td><td>The release date of the CD. In almost all cases this is the year.</"
+"td></tr><tr><td><tt>$genre</tt></td><td>The genre of the CD.</td></"
+"tr><tr><td><tt>$cdno</tt></td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD then this value will be empty.</td></"
+"tr><tr><td><tt>$nooftracks</tt></td><td>The total number of audio tracks of "
+"the CD.</td></tr><tr><td><tt>$encoder</tt></td><td>Encoder name and version."
+"</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:171
 #, kde-format
@@ -1987,6 +2007,32 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Zástupné znaky v Audex môžu mať parametre vo forme kľúč=hodnota. Napr. "
+"<tt>${title lowercase=true}</tt>. V tomto príklade bude názov malými "
+"písmenami. The following general parameters can be used with placeholders:</"
+"p><table><tr><th>Key</th><th>Value</th><th>Description</th></"
+"tr><tr><td><tt>lowercase</tt></td><td>true/false</td><td>The placeholder "
+"value will be lowercased.</td></tr><tr><td><tt>uppercase</tt></td><td>true/"
+"false</td><td>The placeholder value will be uppercased.</td></"
+"tr><tr><td><tt>underscores</tt></td><td>true/false</td><td>Replace the "
+"spaces of the placeholder value with underscores.</td></"
+"tr><tr><td><tt>fat32compatible</tt></td><td>true/false</td><td>Replace "
+"illegal filename characters of a FAT32 filesystem with underscores.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Replace "
+"characters. This parameter needs two additional keys of the same value size:"
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. These are "
+"lists of characters. The first character of<tt>replace_char_list_from</tt> "
+"will be replaced by the first character of <tt>replace_char_list_to</tt> and "
+"so on.</td></tr><tr><td><tt>left</tt></td><td>Number</td><td>Take nth "
+"characters from the left of the placeholder value.</td></"
+"tr><tr><td><tt>length</tt></td><td>Number</td><td>If the placeholder value "
+"is a number expand it to the given length. Furthermore you can define a fill "
+"character with the additional key <tt>fillchar</tt>. Default fillchar is '0'."
+"</td></tr><tr><td><tt>pre</tt></td><td>String</td><td>A string which will be "
+"placed <b>before</b> the value. Especially useful for command line "
+"parameters which should not be set at all if the value is empty.</td></"
+"tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
+"placed <b>after</b> the value.</td></tr></table>"
 
 #: utils/schemeparser.h:192
 #, kde-format
@@ -2000,6 +2046,14 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Zástupný znak</th><th>Popis</th></tr><tr><td>$tartist</"
+"td><td>This is the artist of every track. It is especially useful on "
+"compilation CDs.</td></tr><tr><td>$ttitle</td><td>The track title. Normally "
+"each track on a CD has its own title, which is the name of the song.</td></"
+"tr><tr><td>$trackno</td><td>The track number. First track is 1.</td></"
+"tr><tr><td><tt>$isrc</tt></td><td>The International Standard Recording Code "
+"(ISRC) of the track (only available if supported by your device).</td></tr></"
+"table>"
 
 #: utils/schemeparser.h:204
 #, kde-format
@@ -2016,6 +2070,17 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Zástupný znak</th><th>Špecifický parameter</th><th>Popis</"
+"th></tr><tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF "
+"WAVE) created by Audex from CD audio track. This is the input file for your "
+"command line encoder.</td></tr><tr><td><tt>$o</tt></td><td></td><td>The full "
+"output filename and path. Use it as the output for your command line encoder."
+"</td></tr><tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></"
+"td><td>Filename of the cover file. If no cover is set, this will be empty. "
+"Mostly useful in conjunction with the <tt>pre</tt> parameter. Image can be "
+"scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
+"<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
+"LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:218
 #, kde-format
@@ -2043,16 +2108,38 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table><tr><th>Zástupný znak</th><th>Špecifický parameter</th><th>Popis</"
+"th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Prints the "
+"overall size of all extracted (encoded) music files (incl. the cover image "
+"file). With <tt>iec</tt> calculate (k)ibi, (m)ebi or (g)ibi. The additional "
+"parameter <tt>precision</tt> can define the number of decimal places.</td></"
+"tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
+"all extracted tracks. The format is min:sec.</td></tr><tr><td>$nooftracks</"
+"td><td></td><td>Prints the total number of extracted tracks.</td></"
+"tr><tr><td>$discid</td><td>base</td><td>Prints the CDDB discid in "
+"hexadecimal format.</td></tr><tr><td><tt>$mcn</tt></td><td></td><td>The "
+"Media Catalog Number (MCN) of the CD (only available if supported by your "
+"device).</td></tr><tr><td>$now</td><td><tt>format,locale</tt></td><td>Prints "
+"the current date and/or time. The parameter format specifies the output. "
+"Please consult official qt documentation (<tt>https://doc.qt.io/qt-5/qtime."
+"html#toString</tt>, <tt>https://doc.qt.io/qt-6/qdate.html#toString</tt>) for "
+"the supported specifiers within the format string. With the additional key "
+"<tt>locale</tt> you can specify a language setting. By default your system "
+"locales are used. The locale has the format <tt>language_TERRITORY</tt>, e."
+"g. <tt>en_EN</tt>. <tt>language</tt> is a lowercase, two-letter, ISO 639 "
+"language code and <tt>TERRITORY</tt> an uppercase, two-letter, ISO 3166 "
+"territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
+"td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr ""
+msgstr "Nahráva sa súbor %1 na server. Počkajte..."
 
 #: utils/upload.cpp:61
 #, kde-format
 msgid "Finished uploading file %1 to server."
-msgstr ""
+msgstr "Nahrávanie súboru %1 na server bolo dokončené."
 
 #: widgets/cddaheaderwidget.cpp:131
 #, kde-format
@@ -2060,10 +2147,9 @@ msgid "CD Number: "
 msgstr "Číslo CD:"
 
 #: widgets/cddaheaderwidget.cpp:150
-#, fuzzy, kde-format
-#| msgid "No audio disc"
+#, kde-format
 msgid "No audio CD detected"
-msgstr "Žiadne audio disk"
+msgstr "Žiadne audio CD nebolo zistené"
 
 #: widgets/cddaheaderwidget.cpp:243
 #, kde-format
@@ -2081,14 +2167,14 @@ msgid "Set Custom Cover..."
 msgstr "Nastaviť vlastný obal..."
 
 #: widgets/cddaheaderwidget.cpp:335
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save Cover To File..."
-msgstr "&Uložiť ako HTML súbor:"
+msgstr "Uložiť obal do súboru..."
 
 #: widgets/cddaheaderwidget.cpp:340
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Full Size Cover..."
-msgstr "Zobraziť &veľkosť súboru obrázku"
+msgstr "Zobraziť obal v plnej veľkosti..."
 
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
@@ -2097,9 +2183,9 @@ msgstr "Odstrániť obal"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Command Scheme:"
-msgstr "Vzorka nájdená"
+msgstr "Schéma príkazov:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
@@ -2116,6 +2202,10 @@ msgid ""
 "expense of ripping speed, so it might be also called \"secure mode\".</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Use some special techniques to reduce the chance of "
+"unnoticed reading errors. Leads to a more secure reading process at the "
+"expense of ripping speed, so it might be also called \"secure mode\".</p></"
+"body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
@@ -2127,6 +2217,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
+"second) after retrying to read it. Please specify the number of retry "
+"attempts under <span style=\" font-style:italic;\">Retries on read error</"
+"span>. If skipped, null samples will be written for the faulty sectors.</p></"
+"body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2139,12 +2234,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Some drives have a sample offset when reading audio "
+"CDs. To determine the correct offset for your drive model, you can check the "
+"<a href=\"https://www.accuraterip.com/driveoffsets.htm\"><span style=\" text-"
+"decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sample shift:"
-msgstr "Poznámkový blok (príklad)"
+msgstr "Posun vzoriek:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2154,12 +2254,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Určte maximálny počet pokusov o opakovanie, keď sa "
+"narazí na chybný sektor.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "Max. počet pokusov čítania:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2188,7 +2290,7 @@ msgstr "Najvyššia"
 #: widgets/lamewidgetUI.ui:251 widgets/opusencwidgetUI.ui:69
 #, kde-format
 msgid "Embed cover in music file"
-msgstr ""
+msgstr "Vložiť obal do hudobného súboru"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
@@ -2210,34 +2312,35 @@ msgstr "Základná cesta na uloženie hudobných súborov:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:60
-#, fuzzy, kde-format
-#| msgid "Eject CD tray after extraction finished"
+#, kde-format
 msgid "Eject CD tray after finished extraction"
 msgstr "Vysunúť CD po ukončení extrakcie"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
 #: widgets/generalsettingswidgetUI.ui:77
-#, fuzzy, kde-format
+#, kde-format
 msgid "Perform cover lookup automatically"
-msgstr "Vykonať CDDB vyhľadávanie &automaticky"
+msgstr "Automaticky vyhľadávať obal"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/generalsettingswidgetUI.ui:95
-#, fuzzy, kde-format
+#, kde-format
 msgid "Number of covers to fetch:"
-msgstr "&Maximálny počet sťahovaných príspevkov:"
+msgstr "Počet obalov na stiahnutie:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
-#, fuzzy, kde-format
+#, kde-format
 msgid "Quality/Bitrate"
-msgstr "Konštantný dátový tok"
+msgstr "Kvalita/Dátový tok"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
 #, kde-format
 msgid "This preset should provide perceptual transparency to most people."
 msgstr ""
+"Tento prednastavený profil by mal poskytnúť percepciónu transparentnosť "
+"väčšine ľudí."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
@@ -2252,6 +2355,8 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"Ak máte extrémne dobrý sluch a zodpovedajúce vybavenie, táto predvoľba "
+"všeobecne poskytne o niečo vyššiu kvalitu ako \"štandardný\" režim"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
@@ -2263,7 +2368,7 @@ msgstr "Extrémne (220...260 kbits/s)"
 #: widgets/lamewidgetUI.ui:98
 #, kde-format
 msgid "This preset should generally be transparent to most people."
-msgstr ""
+msgstr "Tento prednastavený profil by mal byť väčšine ľudí transparentný."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
@@ -2278,6 +2383,8 @@ msgid ""
 "This preset will usually be overkill, but if you want to have the absolute "
 "highest quality with no regard to filesize, this is the way to go."
 msgstr ""
+"Táto predvoľba je zvyčajne prehnaná, ale ak chcete mať absolútne najvyššiu "
+"kvalitu bez ohľadu na veľkosť súboru, toto je správna voľba."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
@@ -2294,21 +2401,19 @@ msgstr "Konštantný dátový tok"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153 widgets/opusencwidgetUI.ui:95
-#, fuzzy, kde-format
+#, kde-format
 msgid "Target bitrate (kbit/s)"
-msgstr "Nastavenie premenlivého dátového toku"
+msgstr "Cieľový dátový tok (kbit/s)"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
 msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
-#, fuzzy, kde-format
-#| msgid "Target Bitrate ~"
+#, kde-format
 msgid "Target bitrate ~"
 msgstr "Cieľový dátový tok ~"
 
@@ -2323,15 +2428,15 @@ msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set minimum bitrate"
-msgstr "Nastavenie premenlivého dátového toku"
+msgstr "Nastaviť minimálny dátový tok"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
 #: widgets/oggencwidgetUI.ui:245
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set maximum bitrate"
-msgstr "Nastaviť maximálny počet návrhov"
+msgstr "Nastaviť maximálny dátový tok"
 
 #: widgets/profilewidget.cpp:78
 #, kde-format
@@ -2355,26 +2460,29 @@ msgid ""
 "p><p><font style=\"font-style:italic;\">This will attempt to create some "
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>Chcete znovu prehľadať váš systém pre kodeky (Lame, Opus, FLAC atď.)?</"
+"p><p><font style=\"font-style:italic;\">This will attempt to create some "
+"sample profiles based upon any found codecs.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:144
 #: widgets/profilewidgetUI.ui:65
-#, fuzzy, kde-format
+#, kde-format
 msgid "Codec Scan"
-msgstr "Prehľadať priečinok"
+msgstr "Vyhľadávanie kodekov"
 
 #: widgets/profilewidget.cpp:144
-#, fuzzy, kde-format
+#, kde-format
 msgid "No new codecs found"
-msgstr "Nebol nájdený žiadny bežiaci proces aRtsd"
+msgstr "Neboli nájdené žiadne nové kodeky"
 
 #: widgets/profilewidget.cpp:144
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] "Spustiť nový profil"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "1 nový profil bol pridaný"
+msgstr[1] "%1 nové profily boli pridané"
+msgstr[2] "%1 nových profilov bolo pridaných"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
@@ -2419,12 +2527,10 @@ msgstr "URL:"
 #~ msgstr "x"
 
 #, fuzzy
-#~| msgid "Ripping track %1 (%2:%3)..."
 #~ msgid "Start ripping track %1 with length %2..."
 #~ msgstr "Ripuje sa stopa %1 (%2:%3)..."
 
 #, fuzzy
-#~| msgid "Ripping track %1 (%2:%3)..."
 #~ msgid "Start ripping whole cd with length %1..."
 #~ msgstr "Ripuje sa stopa %1 (%2:%3)..."
 
@@ -2469,17 +2575,14 @@ msgstr "URL:"
 #~ msgstr "Poznámkový blok (príklad)"
 
 #, fuzzy
-#~| msgid "Ripping track %1 (%2:%3)..."
 #~ msgid "Ripping whole disc (%1:%2)..."
 #~ msgstr "Ripuje sa stopa %1 (%2:%3)..."
 
 #, fuzzy
-#~| msgid "Reading finished"
 #~ msgid "Ripping finished"
 #~ msgstr "Čítanie ukončené"
 
 #, fuzzy
-#~| msgid "No audio disc"
 #~ msgid "(No disc detected)"
 #~ msgstr "Žiadne audio disk"
 
