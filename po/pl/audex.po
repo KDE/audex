@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2011, 2014, 2015, 2017, 2019, 2020, 2022, 2023, 2024, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2011, 2014, 2015, 2017, 2019, 2020, 2022, 2023, 2024, 2025, 2026 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
 #
 msgid ""
@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2025-06-14 13:40+0200\n"
+"PO-Revision-Date: 2026-04-18 14:26+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -527,62 +527,53 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
-msgstr "Zgrywanie ścieżki"
+msgstr "Zgrywanie ścieżki…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "Zgrywanie ścieżki %1 z %2"
+msgstr "Zgrywanie ścieżki %1 z %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
 msgstr "Całkowity postęp"
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
 msgstr "Całkowity postęp (zgrywanie ścieżki %1 z %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "Zgrywanie całej płyty CD jako pojedyncza ścieżka"
+msgstr "Zgrywanie całej płyty CD jako pojedynczej ścieżki…"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "Oczekiwanie na zadanie kodowania..."
+msgstr "<i>Oczekiwanie na zadanie kodowania…</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
-msgstr "Kodowanie ścieżki"
+msgstr "Kodowanie ścieżki…"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "Kodowanie ścieżki %1 z %2"
+msgstr "Kodowanie ścieżki %1 z %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "Szybkość: %1x"
+msgstr "<i>Szybkość: %1×</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -594,7 +585,7 @@ msgstr "Pomyślnie ukończono wszystkie zadania."
 #: dialogs/extractingprogressdialog.cpp:266
 #, kde-format
 msgid "Finished!"
-msgstr "Zakończono!"
+msgstr "Ukończono!"
 
 #: dialogs/extractingprogressdialog.cpp:271
 #, kde-format
@@ -609,16 +600,14 @@ msgid "Failed!"
 msgstr "Niepowodzenie!"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "Pokaż dziennik kodowania..."
+msgstr "Pokaż dziennik kodowania…"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
-msgstr "Pokaż dziennik zgrywania..."
+msgstr "Pokaż dziennik zgrywania…"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -671,6 +660,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Szybkość: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -692,7 +683,7 @@ msgstr "Kodowanie ścieżki 8 z 12"
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KŚciśniętaEtykietaTekstowa"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -772,7 +763,7 @@ msgstr "Przeskaluj przed zmagazynowaniem:"
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -967,10 +958,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "Ustaw 2 cyfrowe numery ścieżek (np. 01, 02, 03...)"
+msgstr "Ustaw 2 cyfrowe numery ścieżek (np. 01, 02, 03)…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1730,10 +1720,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Zgrywanie OK (Ścieżka %1)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %2 successfully finished"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "Pomyślnie zgrano ścieżkę %2"
+msgstr "Pomyślnie zgrano ścieżkę %1"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
