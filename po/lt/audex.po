@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2017-09-04 10:01+0200\n"
+"PO-Revision-Date: 2026-05-04 00:13+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,14 +19,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 3.8\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
-msgstr "Perrašyti egzistuojančius failus"
+msgstr "Perrašyti esamus failus"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
@@ -97,13 +97,13 @@ msgstr ""
 #: audex.kcfg:61 widgets/remoteserversettingswidgetUI.ui:23
 #, kde-format
 msgid "Upload files to server"
-msgstr ""
+msgstr "Išsiųsti failus į serverį"
 
 #. i18n: ectx: label, entry (url), group (general)
 #: audex.kcfg:65
 #, kde-format
 msgid "URL of server"
-msgstr ""
+msgstr "Serverio URL"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
@@ -115,7 +115,7 @@ msgstr "&Audex"
 #: audexui.rc:14
 #, kde-format
 msgid "&Metadata"
-msgstr ""
+msgstr "&Metaduomenys"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
@@ -151,12 +151,12 @@ msgstr ""
 #: core/audex.cpp:634 core/audex.cpp:697
 #, kde-format
 msgid "Can't find path \"%1\"."
-msgstr ""
+msgstr "Nepavyksta rasti kelią „%1“."
 
 #: core/audex.cpp:634 core/audex.cpp:697 core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
 msgid "Please check your path (write access?)"
-msgstr ""
+msgstr "Patikrinkite kelią (rašymo prieigą?)"
 
 #: core/audex.cpp:647
 #, kde-format
@@ -166,12 +166,12 @@ msgstr ""
 #: core/audex.cpp:653 core/audex.cpp:725
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr ""
+msgstr "Įspėjimas! Failas „%1“ jau yra. Perrašomas."
 
 #: core/audex.cpp:655 core/audex.cpp:727 core/audex.cpp:1135
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr ""
+msgstr "Įspėjimas! Failas „%1“ jau yra. Praleidžiamas."
 
 #: core/audex.cpp:706 core/audex.cpp:1155
 #, fuzzy, kde-format
@@ -181,7 +181,7 @@ msgstr "Nepavyko sukurti aplanko %1"
 #: core/audex.cpp:709 core/audex.cpp:1158
 #, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr ""
+msgstr "Aplankas „%1“ sėkmingai sukurtas."
 
 #: core/audex.cpp:712
 #, fuzzy, kde-format
@@ -201,7 +201,7 @@ msgstr ""
 #: core/audex.cpp:742
 #, kde-format
 msgid "Please check."
-msgstr ""
+msgstr "Patikrinkite."
 
 #: core/audex.cpp:750
 #, kde-format
@@ -221,54 +221,54 @@ msgstr ""
 #: core/audex.cpp:781
 #, kde-format
 msgid "Eject CD tray"
-msgstr ""
+msgstr "Išstumti CD dėklą"
 
 #: core/audex.cpp:833
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr ""
+msgstr "Viršelis „%1“ sėkmingai įrašytas."
 
 #: core/audex.cpp:836
 #, kde-format
 msgid "Unable to save cover \"%1\"."
-msgstr ""
+msgstr "Nepavyko įrašyti viršelio „%1“."
 
 #: core/audex.cpp:836 core/audex.cpp:914 core/audex.cpp:959 core/audex.cpp:1007
 #: core/audex.cpp:1047 core/audex.cpp:1076 core/audex.cpp:1123
 #: core/audex.cpp:1150
 #, kde-format
 msgid "Please check your path and permissions"
-msgstr ""
+msgstr "Patikrinkite kelią ir leidimus"
 
 #: core/audex.cpp:910
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr ""
+msgstr "Grojaraštis „%1“ sėkmingai sukurtas."
 
 #: core/audex.cpp:914
 #, kde-format
 msgid "Unable to save playlist \"%1\"."
-msgstr ""
+msgstr "Nepavyko įrašyti grojaraščio „%1“."
 
 #: core/audex.cpp:956
 #, kde-format
 msgid "Info file \"%1\" successfully created."
-msgstr ""
+msgstr "Informacinis failas „%1“ sėkmingai sukurtas."
 
 #: core/audex.cpp:959
 #, kde-format
 msgid "Unable to save info file \"%1\"."
-msgstr ""
+msgstr "Nepavyko įrašyti informacinio failo „%1“."
 
 #: core/audex.cpp:1004
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr ""
+msgstr "Maišos sąrašas „%1“ sėkmingai sukurtas."
 
 #: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr ""
+msgstr "Nepavyko įrašyti maišos sąrašos „%1“."
 
 #: core/audex.cpp:1044
 #, kde-format
@@ -293,7 +293,7 @@ msgstr "Nepavyko sukurti aplanko %1"
 #: core/audex.cpp:1123 core/audex.cpp:1150
 #, kde-format
 msgid "Unable to open folder \"%1\"."
-msgstr ""
+msgstr "Nepavyko atverti aplanko „%1“."
 
 #: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
@@ -328,13 +328,13 @@ msgstr "Pavadinimas:"
 #: dialogs/cddaheaderdatawidgetUI.ui:76
 #, kde-format
 msgid "CD Number:"
-msgstr ""
+msgstr "CD numeris:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:90
 #, kde-format
 msgid "Track Offset:"
-msgstr ""
+msgstr "Takelio poslinkis:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:110
@@ -355,6 +355,8 @@ msgid ""
 "Additional\n"
 "Information:"
 msgstr ""
+"Papildoma\n"
+"informacija:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
@@ -402,7 +404,7 @@ msgstr ""
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "Pagalba"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -506,12 +508,12 @@ msgstr "Koduotė"
 #: dialogs/extractingprogressdialog.cpp:42
 #, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr ""
+msgstr "Perrašomas takelis 0 iš %1"
 
 #: dialogs/extractingprogressdialog.cpp:43
 #, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr ""
+msgstr "Koduojamas takelis 0 iš %1"
 
 #: dialogs/extractingprogressdialog.cpp:157
 #, fuzzy, kde-format
@@ -545,7 +547,7 @@ msgstr "Visas progresas"
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr ""
+msgstr "Bendra eiga (perrašomas takelis %1 iš %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
 #, kde-format
@@ -565,7 +567,7 @@ msgstr "Koduotė"
 #: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr ""
+msgstr "Koduojamas takelis %1 iš %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
@@ -605,7 +607,7 @@ msgstr "Koduotė"
 #: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
 msgid "Show Rip Log…"
-msgstr ""
+msgstr "Rodyti perrašymo žurnalą…"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -633,19 +635,19 @@ msgstr "Kopijuojamas takelis %1 (%2 - %3)"
 #: dialogs/extractingprogresswidgetUI.ui:29
 #, kde-format
 msgid "Show/hide details"
-msgstr ""
+msgstr "Rodyti/slėpti išsamesnę informaciją"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:32
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #: dialogs/extractingprogresswidgetUI.ui:81
 #, kde-format
 msgid "Ripping Track 8 of 12"
-msgstr ""
+msgstr "Perrašomas takelis 8 iš 12"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
@@ -665,19 +667,19 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:215
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:130
 #, kde-format
 msgid "Encoding Track 8 of 12"
-msgstr ""
+msgstr "Koduojamas takelis 8 iš 12"
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -757,7 +759,7 @@ msgstr ""
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -810,7 +812,7 @@ msgstr ""
 #: dialogs/profiledatadialog.cpp:113
 #, kde-format
 msgid "Modify Profile"
-msgstr "Keisti profilį"
+msgstr "Modifikuoti profilį"
 
 #: dialogs/profiledatadialog.cpp:182
 #, kde-format
@@ -1270,7 +1272,7 @@ msgstr ""
 #: mainwindow.cpp:478
 #, kde-format
 msgid "Capitalize"
-msgstr "Iš didžiosios raidės"
+msgstr "Rašyti iš didžiųjų raidžių"
 
 #: mainwindow.cpp:483
 #, kde-format
@@ -1383,12 +1385,12 @@ msgid "Select CDDB Entry"
 msgstr "Parinkite CDDB įrašą"
 
 #: models/cddamodel.cpp:1002
-#, kde-format
+#, fuzzy, kde-format
 msgid "Select a CDDB entry:"
 msgstr "Parinkite CDDB įrašą:"
 
 #: models/cddamodel.h:35
-#, kde-format
+#, fuzzy, kde-format
 msgid "Rip"
 msgstr "Ištraukti"
 
@@ -2068,7 +2070,7 @@ msgstr ""
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
 msgid "Remove Cover"
-msgstr "Pašalinti viršelį"
+msgstr "Šalinti viršelį"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
@@ -2263,7 +2265,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:140
 #, kde-format
 msgid "Constant Bitrate"
-msgstr "Pastovus bitų dažnis"
+msgstr "Pastovus pralaidumas"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
@@ -2354,13 +2356,13 @@ msgstr[3] ""
 #: widgets/profilewidgetUI.ui:21
 #, kde-format
 msgid "Add..."
-msgstr "uPridėti..."
+msgstr "Pridėti..."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 #, kde-format
 msgid "Remove"
-msgstr "Pašalinti"
+msgstr "Šalinti"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
