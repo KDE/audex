@@ -2459,7 +2459,7 @@ msgid ""
 "sample profiles based upon any found codecs.</font></p>"
 msgstr ""
 "<p>Chcete znovu prehľadať váš systém pre kodeky (Lame, Opus, FLAC atď.)?</"
-"p><p><font style=\\\"font-style:italic;\\\">Pokúsi sa vytvoriť niekoľko "
+"p><p><font style=\"font-style:italic;\">Pokúsi sa vytvoriť niekoľko "
 "vzorových profilov na základe nájdených kodekov.</font></p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_init)
