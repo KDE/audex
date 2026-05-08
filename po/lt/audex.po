@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-05-04 00:13+0300\n"
+"PO-Revision-Date: 2026-05-07 19:53+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -480,13 +480,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:430
-#, fuzzy, kde-format
+#, kde-format
 msgid "Input File"
-msgstr "Įvesties failas:"
+msgstr "Įvesties failas"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:440
-#, fuzzy, kde-format
+#, kde-format
 msgid "Output File"
 msgstr "Išvesties failas"
 
@@ -501,7 +501,7 @@ msgid "Ripping whole CD as single track"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding"
 msgstr "Koduotė"
 
@@ -521,19 +521,19 @@ msgid "Do you really want to cancel extraction?"
 msgstr "Ar tikrai nori atšaukti?"
 
 #: dialogs/extractingprogressdialog.cpp:158
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cancel"
-msgstr "Atšaukti"
+msgstr "Atsisakyti"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping track…"
-msgstr "Kopijuojamas takelis %1 (%2 - %3)"
+msgstr "Perrašomas takelis…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "Kopijuojamas takelis %1 (%2 - %3)"
+msgstr "Perrašomas takelis %1 iš %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
@@ -560,9 +560,9 @@ msgid "<i>Waiting for an encoding job…</i>"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding track…"
-msgstr "Koduotė"
+msgstr "Koduojamas takelis…"
 
 #: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
@@ -583,9 +583,9 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:264
 #: dialogs/extractingprogressdialog.cpp:265
 #: dialogs/extractingprogressdialog.cpp:266
-#, fuzzy, kde-format
+#, kde-format
 msgid "Finished!"
-msgstr "Baigta"
+msgstr "Užbaigta!"
 
 #: dialogs/extractingprogressdialog.cpp:271
 #, kde-format
@@ -595,14 +595,14 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:275
 #: dialogs/extractingprogressdialog.cpp:276
 #: dialogs/extractingprogressdialog.cpp:277
-#, fuzzy, kde-format
+#, kde-format
 msgid "Failed!"
-msgstr "Nepavyko"
+msgstr "Nepavyko!"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "Koduotė"
+msgstr "Rodyti kodavimo žurnalą…"
 
 #: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
@@ -622,14 +622,14 @@ msgid "Cancel extraction"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:346
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoding log"
-msgstr "Koduotė"
+msgstr "Kodavimo žurnalas"
 
 #: dialogs/extractingprogressdialog.cpp:352
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ripping log"
-msgstr "Kopijuojamas takelis %1 (%2 - %3)"
+msgstr "Perrašymo žurnalas"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:29
@@ -700,7 +700,7 @@ msgstr "Priesaga"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/filenameschemewizardwidgetUI.ui:212
-#, fuzzy, kde-format
+#, kde-format
 msgid "Example:"
 msgstr "Pavyzdys:"
 
@@ -719,9 +719,9 @@ msgid "Please set a scheme"
 msgstr ""
 
 #: dialogs/logviewdialog.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "Save %1"
-msgstr "Įrašyti"
+msgstr "Įrašyti %1"
 
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
@@ -817,7 +817,7 @@ msgstr "Modifikuoti profilį"
 #: dialogs/profiledatadialog.cpp:182
 #, kde-format
 msgid "Create Profile"
-msgstr ""
+msgstr "Sukurti profilį"
 
 #: dialogs/profiledatadialog.cpp:193
 #, kde-format
@@ -858,12 +858,12 @@ msgstr ""
 #: dialogs/profiledatainfodialog.cpp:153
 #, kde-format
 msgid "Load Text Template"
-msgstr ""
+msgstr "Įkelti tekstinį šabloną"
 
 #: dialogs/profiledatainfodialog.cpp:166
 #, kde-format
 msgid "Save Text Template"
-msgstr ""
+msgstr "Įrašyti tekstinį šabloną"
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
@@ -917,9 +917,9 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "Encoder"
-msgstr "Koduotojas"
+msgstr "Koduotuvas"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
@@ -975,9 +975,9 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:283 dialogs/profiledatawidgetUI.ui:290
 #: dialogs/profiledatawidgetUI.ui:316 dialogs/profiledatawidgetUI.ui:323
 #: dialogs/profiledatawidgetUI.ui:365
-#, fuzzy, kde-format
+#, kde-format
 msgid "Settings.."
-msgstr "Nuostatos"
+msgstr "Nuostatos..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:237
@@ -1034,17 +1034,17 @@ msgstr ""
 #: main.cpp:30
 #, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr ""
+msgstr "Copyright © 2007–2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
 msgid "Marco Nelles"
-msgstr ""
+msgstr "Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
 msgid "Current maintainer, main developer"
-msgstr ""
+msgstr "Dabartinis prižiūrėtojas, pagrindinis plėtotojas"
 
 #: main.cpp:34
 #, kde-format
@@ -1054,17 +1054,17 @@ msgstr "Craig Drummond"
 #: main.cpp:34
 #, kde-format
 msgid "GUI improvements, development"
-msgstr ""
+msgstr "Naudotojo sąsajos patobulinimai, plėtojimas"
 
 #: main.cpp:35
 #, kde-format
 msgid "Elson"
-msgstr ""
+msgstr "Elson"
 
 #: main.cpp:35
 #, kde-format
 msgid "development"
-msgstr ""
+msgstr "plėtojimas"
 
 #: main.cpp:36
 #, kde-format
@@ -1074,19 +1074,19 @@ msgstr "credativ GmbH"
 #: main.cpp:36
 #, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "Ypatingai dėkojame „credativ GmbH“ (Vokietija) už palaikymą"
 
 #: main.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrius Štikonas"
+msgstr "Andrius Štikonas, Moo"
 
 #: main.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrius@stikonas.eu"
+msgstr "andrius@stikonas.eu, <>"
 
 #: mainwindow.cpp:35
 #, kde-format
@@ -1098,6 +1098,8 @@ msgstr ""
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
+"Vidinė klaida. Patikrinkite aparatinę įranga. Jei viskas gerai, pateikite "
+"pranešimą apie klaidą."
 
 #: mainwindow.cpp:49
 #, kde-format
@@ -1137,31 +1139,29 @@ msgid "Cover is empty"
 msgstr ""
 
 #: mainwindow.cpp:171
-#, fuzzy, kde-format
+#, kde-format
 msgid "General settings"
-msgstr "Bendrosios nuostatos"
+msgstr "Bendros nuostatos"
 
 #: mainwindow.cpp:174
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Device settings"
-msgstr "&Nuostatos"
+msgstr "Įrenginio nuostatos"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
+#, kde-format
 msgid "Profiles"
 msgstr "Profiliai"
 
 #: mainwindow.cpp:186
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "CDDB settings"
-msgstr "&Nuostatos"
+msgstr "CDDB nuostatos"
 
 #: mainwindow.cpp:189
 #, kde-format
 msgid "Remote Server"
-msgstr ""
+msgstr "Nuotolinis serveris"
 
 #: mainwindow.cpp:228
 #, kde-format
@@ -1224,14 +1224,14 @@ msgid "Eject"
 msgstr "Išstumti"
 
 #: mainwindow.cpp:413
-#, fuzzy, kde-format
+#, kde-format
 msgid "Profile:"
-msgstr "Profilis"
+msgstr "Profilis:"
 
 #: mainwindow.cpp:425
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Profile:"
-msgstr "Profilis"
+msgstr "&Profilis:"
 
 #: mainwindow.cpp:431
 #, kde-format
@@ -1241,23 +1241,22 @@ msgstr "Profilis"
 #: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "Gauti"
 
 #: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
-msgstr ""
+msgstr "Pateikti"
 
 #: mainwindow.cpp:452
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "Taisyti duomenis"
+msgstr "Taisyti"
 
 #: mainwindow.cpp:459
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rip..."
-msgstr "Ištraukti"
+msgstr "Perrašyti..."
 
 #: mainwindow.cpp:468
 #, kde-format
@@ -1280,19 +1279,19 @@ msgid "Auto Fill Artists"
 msgstr ""
 
 #: mainwindow.cpp:488
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select All Tracks"
-msgstr "Pasirinkti visus takelius"
+msgstr "Žymėti visus takelius"
 
 #: mainwindow.cpp:493
-#, fuzzy, kde-format
+#, kde-format
 msgid "Deselect All Tracks"
-msgstr "&Nuimti pažymėjimą nuo visų dainų"
+msgstr "Nuimti žymėjimą nuo visų takelių"
 
 #: mainwindow.cpp:498
-#, fuzzy, kde-format
+#, kde-format
 msgid "Invert Selection"
-msgstr "Invertuoti pažymėjimą"
+msgstr "Invertuoti žymėjimą"
 
 #: models/cddamodel.cpp:20
 #, fuzzy, kde-format
@@ -1309,22 +1308,22 @@ msgstr ""
 #: models/cddamodel.cpp:32
 #, kde-format
 msgid "Unable to create KCDDB object."
-msgstr ""
+msgstr "Nepavyko sukurti KCDDB objektą."
 
 #: models/cddamodel.cpp:121
-#, fuzzy, kde-format
+#, kde-format
 msgid "Track %1"
 msgstr "Takelis %1"
 
 #: models/cddamodel.cpp:525
 #, kde-format
 msgid "Common image formats"
-msgstr ""
+msgstr "Paplitę paveikslų formatai"
 
 #: models/cddamodel.cpp:822
 #, kde-format
 msgid "CDDB transaction already in progress."
-msgstr ""
+msgstr "CDDB operacija jau vyksta."
 
 #: models/cddamodel.cpp:823
 #, kde-format
@@ -1332,6 +1331,8 @@ msgid ""
 "A CDDB transaction is already in progress. Please wait until it has finished "
 "and try again."
 msgstr ""
+"CDDB operacija jau vyksta. Palaukite, kol ji bus užbaigta ir bandykite dar "
+"kartą."
 
 #: models/cddamodel.cpp:842 models/cddamodel.cpp:955
 #, kde-format
@@ -1370,9 +1371,9 @@ msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
 
 #: models/cddamodel.cpp:902
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create CDIO object."
-msgstr "Nepavyko sukurti aplanko %1"
+msgstr "Nepavyko sukurti CDIO objektą."
 
 #: models/cddamodel.cpp:981
 #, kde-format
@@ -1390,12 +1391,12 @@ msgid "Select a CDDB entry:"
 msgstr "Parinkite CDDB įrašą:"
 
 #: models/cddamodel.h:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rip"
-msgstr "Ištraukti"
+msgstr "Perrašyti"
 
 #: models/cddamodel.h:36
-#, fuzzy, kde-format
+#, kde-format
 msgid "Track"
 msgstr "Takelis"
 
@@ -1405,7 +1406,7 @@ msgid "Artist"
 msgstr "Atlikėjas"
 
 #: models/cddamodel.h:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "Title"
 msgstr "Pavadinimas"
 
@@ -1422,22 +1423,23 @@ msgstr ""
 #: models/profilemodel.cpp:305
 #, kde-format
 msgid "This is an internal error. Please report."
-msgstr ""
+msgstr "Tai yra vidinė klaida. Praneškite apie ją."
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "Profilio pavadinimas negali būti tuščias."
 
 #: models/profilemodel.cpp:381
 #, kde-format
 msgid "You have given no name for the profile. Please set one."
 msgstr ""
+"Jūs nesuteikėte profiliui jokio pavadinimo. Suteikite kokį nors pavadinimą."
 
 #: models/profilemodel.cpp:395
 #, kde-format
 msgid "Profile name already exists."
-msgstr ""
+msgstr "Profilio pavadinimas jau yra."
 
 #: models/profilemodel.cpp:396
 #, kde-format
@@ -1695,9 +1697,9 @@ msgid "Ripping successfully finished"
 msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device error."
-msgstr "Įrenginys"
+msgstr "Įrenginio klaida."
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -1781,9 +1783,9 @@ msgid "FLAC (Lossless)"
 msgstr ""
 
 #: utils/encoderassistant.h:108
-#, fuzzy, kde-format
+#, kde-format
 msgid "MP4 (AAC)"
-msgstr "MP4 AAC"
+msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:119
 #, kde-format
@@ -2045,12 +2047,12 @@ msgstr "nieko neaptikta"
 #: widgets/cddaheaderwidget.cpp:243
 #, kde-format
 msgid "Load Cover"
-msgstr ""
+msgstr "Įkelti viršelį"
 
 #: widgets/cddaheaderwidget.cpp:253 widgets/profilewidget.cpp:122
 #, kde-format
 msgid "Save Cover"
-msgstr ""
+msgstr "Įrašyti viršelį"
 
 #: widgets/cddaheaderwidget.cpp:330
 #, fuzzy, kde-format
@@ -2060,12 +2062,12 @@ msgstr "Nurodyti savo viršelį"
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "Įrašyti viršelį į failą..."
 
 #: widgets/cddaheaderwidget.cpp:340
 #, kde-format
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "Rodyti viso dydžio viršelį..."
 
 #: widgets/cddaheaderwidget.cpp:345
 #, kde-format
@@ -2080,7 +2082,7 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/devicewidgetUI.ui:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "Device"
 msgstr "Įrenginys"
 
@@ -2169,13 +2171,13 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
-#, fuzzy, kde-format
+#, kde-format
 msgid "Compression"
-msgstr "Suspaudimas"
+msgstr "Glaudinimas"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
-#, fuzzy, kde-format
+#, kde-format
 msgid "Paths"
 msgstr "Keliai"
 
@@ -2311,17 +2313,17 @@ msgstr ""
 #: widgets/profilewidget.cpp:78
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Ar tikrai norite ištrinti profilį „%1“?"
 
 #: widgets/profilewidget.cpp:79
-#, fuzzy, kde-format
+#, kde-format
 msgid "Delete profile"
-msgstr "Pašalinti profilį"
+msgstr "Ištrinti profilį"
 
 #: widgets/profilewidget.cpp:130
 #, kde-format
 msgid "Load Profiles"
-msgstr ""
+msgstr "Įkelti profilius"
 
 #: widgets/profilewidget.cpp:138
 #, kde-format
@@ -2347,10 +2349,10 @@ msgstr ""
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Pridėtas 1 naujas profilis"
+msgstr[1] "Pridėti %1 nauji profiliai"
+msgstr[2] "Pridėta %1 naujų profilių"
+msgstr[3] "Pridėtas %1 naujas profilis"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
@@ -2366,15 +2368,15 @@ msgstr "Šalinti"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
-#, fuzzy, kde-format
+#, kde-format
 msgid "Modify..."
-msgstr "Keisti..."
+msgstr "Modifikuoti..."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 #, kde-format
 msgid "Load..."
-msgstr ""
+msgstr "Įkelti..."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
