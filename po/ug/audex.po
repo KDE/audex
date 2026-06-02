@@ -8,21 +8,22 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-28 17:06-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #: audex.kcfg:11 widgets/generalsettingswidgetUI.ui:46
 #, kde-format
 msgid "Overwrite existing files"
-msgstr "بار ھۆججەتلەرنى قاپلىۋەت"
+msgstr "بار ھۆججەتنى قاپلىۋەت"
 
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
@@ -99,7 +100,7 @@ msgstr ""
 #: audex.kcfg:65
 #, kde-format
 msgid "URL of server"
-msgstr ""
+msgstr "مۇلازىمېتىر تور ئادرېسى"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
@@ -115,8 +116,7 @@ msgstr ""
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -294,13 +294,13 @@ msgstr ""
 #: dialogs/cddaheaderdatadialog.cpp:174
 #, kde-format
 msgid "Edit Data"
-msgstr "سانلىق-مەلۇمات تەھرىر"
+msgstr "سانلىق مەلۇمات تەھرىر"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:17 models/cddamodel.cpp:1027
 #, kde-format
 msgid "Various Artists"
-msgstr "ھەر خىل ئورۇنلىغۇچىلار"
+msgstr "نۇرغۇن ئورۇنلىغۇچى"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:24
@@ -398,7 +398,7 @@ msgstr ""
 #: dialogs/profiledatainfowidgetUI.ui:58 dialogs/schemewizardwidgetUI.ui:263
 #, kde-format
 msgid "Help"
-msgstr ""
+msgstr "ياردەم"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:297
@@ -406,7 +406,7 @@ msgstr ""
 #: dialogs/schemewizardwidgetUI.ui:290
 #, kde-format
 msgid "Album Artist"
-msgstr "ئالبوم ئورۇنلىغۇچىسى"
+msgstr "ناخشا توپلىمى سەنئەتكارى"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:319
@@ -414,7 +414,7 @@ msgstr "ئالبوم ئورۇنلىغۇچىسى"
 #: dialogs/schemewizardwidgetUI.ui:312
 #, kde-format
 msgid "Album Title"
-msgstr "ئالبوم ماۋزۇسى"
+msgstr "ناخشا توپلىمى ماۋزۇسى"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:341 dialogs/schemewizardwidgetUI.ui:334
@@ -510,15 +510,14 @@ msgid "Encoding Track 0 of %1"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:157
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "Do you really want to cancel extraction?"
-msgstr "راستلا ۋاز كېچەمسىز؟"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:158
 #, kde-format
 msgid "Cancel"
-msgstr "ئەمەلدىن قالدۇر"
+msgstr "ۋاز كەچ"
 
 #: dialogs/extractingprogressdialog.cpp:174
 #, kde-format
@@ -554,10 +553,9 @@ msgid "<i>Waiting for an encoding job…</i>"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding track…"
-msgstr "كودلاش"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:194
 #, kde-format
@@ -595,10 +593,9 @@ msgid "Failed!"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "كودلاش"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
@@ -618,10 +615,9 @@ msgid "Cancel extraction"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:346
-#, fuzzy, kde-format
-#| msgid "Encoding"
+#, kde-format
 msgid "Encoding log"
-msgstr "كودلاش"
+msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:352
 #, kde-format
@@ -664,7 +660,7 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:215
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:130
@@ -676,7 +672,7 @@ msgstr ""
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -756,7 +752,7 @@ msgstr ""
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -884,10 +880,9 @@ msgid "Scheme:"
 msgstr ""
 
 #: dialogs/profiledatalogfiledialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Log Files Settings"
-msgstr "تەڭشەك(&S)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_timestamps)
 #: dialogs/profiledatalogfilewidgetUI.ui:65
@@ -1020,7 +1015,7 @@ msgstr ""
 #: main.cpp:26
 #, kde-format
 msgid "Audex"
-msgstr "Audex"
+msgstr ""
 
 #: main.cpp:28
 #, kde-format
@@ -1046,7 +1041,7 @@ msgstr ""
 #: main.cpp:34
 #, kde-format
 msgid "Craig Drummond"
-msgstr "Craig Drummond"
+msgstr ""
 
 #: main.cpp:34
 #, kde-format
@@ -1077,13 +1072,13 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: mainwindow.cpp:35
 #, kde-format
@@ -1124,10 +1119,9 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
-#| msgid "Do you really want to cancel?"
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "راستلا ۋاز كېچەمسىز؟"
+msgstr ""
 
 #: mainwindow.cpp:147
 #, kde-format
@@ -1140,21 +1134,19 @@ msgid "General settings"
 msgstr "ئادەتتىكى تەڭشەك"
 
 #: mainwindow.cpp:174
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "Device settings"
-msgstr "تەڭشەك(&S)"
+msgstr ""
 
 #: mainwindow.cpp:177
 #, kde-format
 msgid "Profiles"
-msgstr "Profiles"
+msgstr "سەپلىمە ھۆججەت"
 
 #: mainwindow.cpp:186
-#, fuzzy, kde-format
-#| msgid "&Settings"
+#, kde-format
 msgid "CDDB settings"
-msgstr "تەڭشەك(&S)"
+msgstr ""
 
 #: mainwindow.cpp:189
 #, kde-format
@@ -1219,7 +1211,7 @@ msgstr ""
 #: mainwindow.cpp:406
 #, kde-format
 msgid "Eject"
-msgstr "چىقار"
+msgstr "قاڭقىت"
 
 #: mainwindow.cpp:413
 #, kde-format
@@ -1239,18 +1231,17 @@ msgstr "سەپلىمە ھۆججەت"
 #: mainwindow.cpp:439
 #, kde-format
 msgid "Fetch"
-msgstr ""
+msgstr "تۇت"
 
 #: mainwindow.cpp:446
 #, kde-format
 msgid "Submit"
-msgstr ""
+msgstr "تاپشۇر"
 
 #: mainwindow.cpp:452
-#, fuzzy, kde-format
-#| msgid "Edit Data"
+#, kde-format
 msgid "Edit"
-msgstr "سانلىق-مەلۇمات تەھرىر"
+msgstr "تەھرىر"
 
 #: mainwindow.cpp:459
 #, kde-format
@@ -1693,10 +1684,9 @@ msgid "Ripping successfully finished"
 msgstr ""
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device"
+#, kde-format
 msgid "Device error."
-msgstr "ئۈسكۈنە"
+msgstr ""
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
@@ -1742,7 +1732,7 @@ msgstr ""
 #: utils/cddaparanoia.cpp:358
 #, kde-format
 msgid "Audio"
-msgstr ""
+msgstr "ئۈن"
 
 #: utils/cddaparanoia.cpp:360
 #, kde-format
@@ -1762,12 +1752,12 @@ msgstr ""
 #: utils/encoderassistant.h:59
 #, kde-format
 msgid "MP3"
-msgstr "MP3"
+msgstr ""
 
 #: utils/encoderassistant.h:73
 #, kde-format
 msgid "Ogg Vorbis"
-msgstr "Ogg Vorbis"
+msgstr ""
 
 #: utils/encoderassistant.h:87
 #, kde-format
@@ -2170,7 +2160,7 @@ msgstr ""
 #: widgets/flacwidgetUI.ui:29
 #, kde-format
 msgid "Compression"
-msgstr "پرېسلاش"
+msgstr "قىسىش"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:17
@@ -2275,10 +2265,9 @@ msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
@@ -2293,7 +2282,7 @@ msgstr ""
 #: widgets/oggencwidgetUI.ui:347
 #, kde-format
 msgid "kbit/s"
-msgstr "kbit/s"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
@@ -2382,12 +2371,11 @@ msgstr "ساقلاش…"
 #: widgets/remoteserversettingswidgetUI.ui:51
 #, kde-format
 msgid "URL:"
-msgstr "URL:"
+msgstr "تور ئادرېسى:"
 
 #~ msgid "x"
 #~ msgstr "x"
 
-#, fuzzy
 #~| msgid "&Settings"
 #~ msgid "Device information"
 #~ msgstr "تەڭشەك(&S)"
@@ -2431,7 +2419,6 @@ msgstr "URL:"
 #~ msgid "No disc in drive"
 #~ msgstr "ئۈسكۈنىدە نۇر دىسكا يوق"
 
-#, fuzzy
 #~| msgid "Format:"
 #~ msgid "Form"
 #~ msgstr "فورمات:"
