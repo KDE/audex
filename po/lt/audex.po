@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2026-05-07 19:54+0300\n"
+"PO-Revision-Date: 2026-06-12 16:05+0300\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -44,9 +44,9 @@ msgstr ""
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #: audex.kcfg:23 widgets/generalsettingswidgetUI.ui:67
-#, fuzzy, kde-format
+#, kde-format
 msgid "Perform CDDB lookup automatically"
-msgstr "&Automatiškai vykdyti CDDB paiešką"
+msgstr "&Automatiškai atlikti CDDB paiešką"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:27
@@ -119,8 +119,7 @@ msgstr "&Metaduomenys"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:16
-#, fuzzy, kde-format
-#| msgid "CDDB"
+#, kde-format
 msgctxt "@title:menu"
 msgid "CDDB"
 msgstr "CDDB"
@@ -141,12 +140,12 @@ msgstr "&Nuostatos"
 #: core/audex.cpp:105
 #, kde-format
 msgid "No profile selected. Operation abort."
-msgstr ""
+msgstr "Nepasirinktas joks profilis. Operacija nutraukta."
 
 #: core/audex.cpp:117
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
+msgstr "Pradėti perrašymą ir kodavimą naudojant „%1“ profilį..."
 
 #: core/audex.cpp:634 core/audex.cpp:697
 #, kde-format
@@ -161,7 +160,7 @@ msgstr "Patikrinkite kelią (rašymo prieigą?)"
 #: core/audex.cpp:647
 #, kde-format
 msgid "Free space on \"%1\" is less than 200 MiB."
-msgstr ""
+msgstr "Laisvos vietos „%1“ yra mažiau nei 200 MiB."
 
 #: core/audex.cpp:653 core/audex.cpp:725
 #, kde-format
@@ -174,9 +173,9 @@ msgid "Warning! File \"%1\" already exists. Skipping."
 msgstr "Įspėjimas! Failas „%1“ jau yra. Praleidžiamas."
 
 #: core/audex.cpp:706 core/audex.cpp:1155
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr "Nepavyko sukurti aplanko %1"
+msgstr "Nepavyko sukurti aplanko „%1“."
 
 #: core/audex.cpp:709 core/audex.cpp:1158
 #, kde-format
@@ -184,19 +183,19 @@ msgid "Folder \"%1\" successfully created."
 msgstr "Aplankas „%1“ sėkmingai sukurtas."
 
 #: core/audex.cpp:712
-#, fuzzy, kde-format
+#, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr "Toks aplankas jau yra"
+msgstr "Aplankas „%1“ jau yra."
 
 #: core/audex.cpp:719
 #, kde-format
 msgid "Free space on \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "Laisvos vietos „%1“ yra mažiau nei 800 MiB."
 
 #: core/audex.cpp:742
 #, kde-format
 msgid "Temporary folder \"%1\" error (%2)."
-msgstr ""
+msgstr "Laikinojo aplanko „%1“ klaida (%2)."
 
 #: core/audex.cpp:742
 #, kde-format
@@ -206,17 +205,17 @@ msgstr "Patikrinkite."
 #: core/audex.cpp:750
 #, kde-format
 msgid "Free space on temporary folder \"%1\" is less than 800 MiB."
-msgstr ""
+msgstr "Laisvos vietos laikinajame aplanke „%1“ yra mažiau nei 800 MiB."
 
 #: core/audex.cpp:752
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr ""
+msgstr "Laikinajam aplankui „%1“ reikia bent 200 MiB laisvos vietos."
 
 #: core/audex.cpp:752
 #, kde-format
 msgid "Please free space or set another path."
-msgstr ""
+msgstr "Atlaisvinkite vietą arba nustatykite kitą kelią."
 
 #: core/audex.cpp:781
 #, kde-format
@@ -286,9 +285,9 @@ msgid "Log file \"%1\" successfully stored."
 msgstr ""
 
 #: core/audex.cpp:1076
-#, fuzzy, kde-format
+#, kde-format
 msgid "Unable to save log file \"%1\"."
-msgstr "Nepavyko sukurti aplanko %1"
+msgstr "Nepavyko įrašyti žurnalo failo „%1“."
 
 #: core/audex.cpp:1123 core/audex.cpp:1150
 #, kde-format
@@ -314,13 +313,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:50
-#, fuzzy, kde-format
+#, kde-format
 msgid "Artist:"
 msgstr "Atlikėjas:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "Title:"
 msgstr "Pavadinimas:"
 
@@ -344,7 +343,7 @@ msgstr "Žanras:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:133
-#, fuzzy, kde-format
+#, kde-format
 msgid "Year:"
 msgstr "Metai:"
 
@@ -360,15 +359,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:176
-#, fuzzy, kde-format
+#, kde-format
 msgid "CDDB disc ID:"
-msgstr "Disko id:"
+msgstr "CDDB disko ID:"
 
 #. i18n: ectx: property (text), widget (QLineEdit, qlineedit_cddbdiscid)
 #: dialogs/cddaheaderdatawidgetUI.ui:186
-#, fuzzy, kde-format
+#, kde-format
 msgid "0x00000000"
-msgstr "X"
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:20
 #, kde-format
@@ -436,17 +435,17 @@ msgstr "Takelio pavadinimas"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:373 dialogs/schemewizardwidgetUI.ui:366
-#, fuzzy, kde-format
+#, kde-format
 msgid "Track #"
-msgstr "Takelio #"
+msgstr "Takelio nr."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:383
 #: dialogs/filenameschemewizardwidgetUI.ui:199
 #: dialogs/schemewizardwidgetUI.ui:376
-#, fuzzy, kde-format
+#, kde-format
 msgid "CD #"
-msgstr "CD"
+msgstr "CD nr."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:390
@@ -460,7 +459,7 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:400
 #: dialogs/filenameschemewizardwidgetUI.ui:242
 #: dialogs/schemewizardwidgetUI.ui:386
-#, fuzzy, kde-format
+#, kde-format
 msgid "Date"
 msgstr "Data"
 
@@ -476,7 +475,7 @@ msgstr "Žanras"
 #: dialogs/commandwizardwidgetUI.ui:420
 #, kde-format
 msgid "Cover File"
-msgstr ""
+msgstr "Viršelio failas"
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:430
@@ -493,7 +492,7 @@ msgstr "Išvesties failas"
 #: dialogs/extractingprogressdialog.cpp:15
 #, kde-format
 msgid "Rip And Encode"
-msgstr ""
+msgstr "Perrašyti ir koduoti"
 
 #: dialogs/extractingprogressdialog.cpp:38
 #, kde-format
@@ -539,10 +538,9 @@ msgstr "Perrašomas takelis %1 iš %2…"
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
-msgstr "Visas progresas"
+msgstr "Bendra eiga"
 
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
@@ -573,12 +571,12 @@ msgstr "Koduojamas takelis %1 iš %2…"
 #: dialogs/extractingprogressdialog.cpp:242
 #, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr ""
+msgstr "<i>Greitis: %1×</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
 msgid "All jobs successfully done."
-msgstr ""
+msgstr "Visos užduotys sėkmingai atliktos."
 
 #: dialogs/extractingprogressdialog.cpp:264
 #: dialogs/extractingprogressdialog.cpp:265
@@ -590,7 +588,7 @@ msgstr "Užbaigta!"
 #: dialogs/extractingprogressdialog.cpp:271
 #, kde-format
 msgid "At least one job failed."
-msgstr ""
+msgstr "Bent viena užduotis patyrė nesėkmę."
 
 #: dialogs/extractingprogressdialog.cpp:275
 #: dialogs/extractingprogressdialog.cpp:276
@@ -641,7 +639,7 @@ msgstr "Rodyti/slėpti išsamesnę informaciją"
 #: dialogs/extractingprogresswidgetUI.ui:32
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #: dialogs/extractingprogresswidgetUI.ui:81
@@ -658,6 +656,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Greitis: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -731,7 +731,7 @@ msgstr ""
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
 msgid "Cover Settings"
-msgstr ""
+msgstr "Viršelio nuostatos"
 
 #: dialogs/profiledatacoverdialog.cpp:68
 #, fuzzy, kde-format
@@ -752,7 +752,7 @@ msgstr "BMP - „Windows“ taškinė grafika"
 #: dialogs/profiledatacoverwidgetUI.ui:23
 #, kde-format
 msgid "Scale before store:"
-msgstr ""
+msgstr "Keisti mastelį prieš saugant:"
 
 #. i18n: multiplication sign between two spinboxes
 #. i18n: ectx: property (text), widget (QLabel, label_x)
@@ -884,7 +884,7 @@ msgstr "Priesaga:"
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 #, kde-format
 msgid "Scheme:"
-msgstr ""
+msgstr "Schema:"
 
 #: dialogs/profiledatalogfiledialog.cpp:24
 #, fuzzy, kde-format
@@ -896,7 +896,7 @@ msgstr "Grojaraščio nuostatos"
 #: dialogs/profiledatalogfilewidgetUI.ui:65
 #, kde-format
 msgid "Write timestamps"
-msgstr ""
+msgstr "Rašyti laiko žymas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_abs_file_path)
 #: dialogs/profiledataplaylistwidgetUI.ui:56
@@ -925,13 +925,13 @@ msgstr "Koduotuvas"
 #: dialogs/profiledatawidgetUI.ui:72
 #, kde-format
 msgid "Filenames"
-msgstr ""
+msgstr "Failo pavadinimai"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:133
 #, kde-format
 msgid "Create FAT32 compatible filenames"
-msgstr ""
+msgstr "Sukurti su FAT32 suderinamus failo pavadinimus"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:146
@@ -945,18 +945,20 @@ msgstr "Pakeisti tarpus pabraukimais"
 msgid ""
 "This setting overrides any parameterized variable settings in the scheme"
 msgstr ""
+"Ši nuostata nustelbia bet kokias parametrais schemoje nurodytas kintamas "
+"nuostatas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr ""
+msgstr "Nustatyti iš 2 skaitmenų sudarytą takelio numerį (pvz., 01, 02, 03)…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
-#, fuzzy, kde-format
+#, kde-format
 msgid "Extra"
-msgstr "Papildoma"
+msgstr "Papildomai"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:211
@@ -1129,14 +1131,14 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
 #: mainwindow.cpp:146
-#, fuzzy, kde-format
+#, kde-format
 msgid "No cover was set. Do you really want to continue?"
-msgstr "Ar tikrai nori atšaukti?"
+msgstr "Nebuvo nustatytas joks viršelis. Ar tikrai norite tęsti?"
 
 #: mainwindow.cpp:147
 #, kde-format
 msgid "Cover is empty"
-msgstr ""
+msgstr "Viršelis tuščias"
 
 #: mainwindow.cpp:171
 #, kde-format
@@ -1358,7 +1360,7 @@ msgstr ""
 #: models/cddamodel.cpp:859
 #, kde-format
 msgid "Please contact the CDDB server administrator."
-msgstr ""
+msgstr "Susisiekite su CDDB serverio administratoriumi."
 
 #: models/cddamodel.cpp:862 models/cddamodel.cpp:972
 #, kde-format
@@ -1369,6 +1371,8 @@ msgstr ""
 #, kde-format
 msgid "Please make a bug report and contact the CDDB server administrator."
 msgstr ""
+"Pateikite pranešimą apie klaidą ir susisiekite su CDDB serverio "
+"administratoriumi."
 
 #: models/cddamodel.cpp:902
 #, kde-format
@@ -1378,7 +1382,7 @@ msgstr "Nepavyko sukurti CDIO objektą."
 #: models/cddamodel.cpp:981
 #, kde-format
 msgid "This means no data found in the CDDB database."
-msgstr ""
+msgstr "Tai reiškia, kad CDDB duomenų bazėje nerasti jokie duomenys."
 
 #: models/cddamodel.cpp:1002
 #, fuzzy, kde-format
@@ -1505,7 +1509,7 @@ msgstr ""
 #: models/profilemodel.cpp:473
 #, kde-format
 msgid "Playlist name must not be empty."
-msgstr ""
+msgstr "Grojaraščio pavadinimas negali būti tuščias."
 
 #: models/profilemodel.cpp:473
 #, kde-format
@@ -1567,7 +1571,7 @@ msgstr ""
 #: models/profilemodel.cpp:546
 #, kde-format
 msgid "Log filename name must not be empty."
-msgstr ""
+msgstr "Žurnalo failo pavadinimas negali būti tuščias."
 
 #: models/profilemodel.cpp:546
 #, kde-format
@@ -1577,7 +1581,7 @@ msgstr ""
 #: models/profilemodel.cpp:560
 #, kde-format
 msgid "Filename name must not be empty."
-msgstr ""
+msgstr "Failo pavadinimas negali būti tuščias."
 
 #: models/profilemodel.cpp:560
 #, kde-format
@@ -1775,12 +1779,12 @@ msgstr "Ogg Vorbis"
 #: utils/encoderassistant.h:87
 #, kde-format
 msgid "Opus"
-msgstr ""
+msgstr "Opus"
 
 #: utils/encoderassistant.h:98
 #, kde-format
 msgid "FLAC (Lossless)"
-msgstr ""
+msgstr "FLAC (Nenuostolingasis)"
 
 #: utils/encoderassistant.h:108
 #, kde-format
@@ -1807,7 +1811,7 @@ msgstr ""
 #: utils/encoderwrapper.cpp:92
 #, kde-format
 msgid "Encoding track %1..."
-msgstr ""
+msgstr "Koduojamas takelis %1..."
 
 #: utils/encoderwrapper.cpp:110
 #, kde-format
@@ -1817,7 +1821,7 @@ msgstr ""
 #: utils/encoderwrapper.cpp:115
 #, kde-format
 msgid "User canceled encoding."
-msgstr ""
+msgstr "Naudotojas atsisakė kodavimo."
 
 #: utils/encoderwrapper.cpp:174
 #, kde-format
@@ -1827,13 +1831,13 @@ msgstr ""
 #: utils/encoderwrapper.cpp:176
 #, kde-format
 msgid "An error occurred while encoding file \"%1\"."
-msgstr ""
+msgstr "Įvyko klaida koduojant failą „%1“."
 
 #: utils/encoderwrapper.cpp:176 utils/encoderwrapper.cpp:191
 #: utils/encoderwrapper.cpp:194 utils/encoderwrapper.cpp:204
 #, kde-format
 msgid "Please check your profile."
-msgstr ""
+msgstr "Patikrinkite profilį."
 
 #: utils/encoderwrapper.cpp:188
 #, fuzzy, kde-format
@@ -1915,7 +1919,7 @@ msgstr ""
 #: utils/schemeparser.cpp:447
 #, kde-format
 msgid "Could not create temporary cover file: %1"
-msgstr ""
+msgstr "Nepavyko sukurti laikinojo viršelio failo: %1"
 
 #: utils/schemeparser.h:154
 #, kde-format
@@ -2037,7 +2041,7 @@ msgstr ""
 #: widgets/cddaheaderwidget.cpp:131
 #, kde-format
 msgid "CD Number: "
-msgstr ""
+msgstr "CD numeris: "
 
 #: widgets/cddaheaderwidget.cpp:150
 #, fuzzy, kde-format
@@ -2055,9 +2059,9 @@ msgid "Save Cover"
 msgstr "Įrašyti viršelį"
 
 #: widgets/cddaheaderwidget.cpp:330
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set Custom Cover..."
-msgstr "Nurodyti savo viršelį"
+msgstr "Nustatyti tinkintą viršelį..."
 
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
@@ -2209,7 +2213,7 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:41
 #, kde-format
 msgid "Quality/Bitrate"
-msgstr ""
+msgstr "Kokybė/Pralaidumas"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
@@ -2278,10 +2282,9 @@ msgstr "Numatomas bitrate"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, kintspinbox_bitrate)
 #: widgets/lamewidgetUI.ui:218 widgets/opusencwidgetUI.ui:116
-#, fuzzy, kde-format
-#| msgid "kbit/s"
+#, kde-format
 msgid " kbit/s"
-msgstr "kbit/s"
+msgstr " kbit/s"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
@@ -2338,12 +2341,12 @@ msgstr ""
 #: widgets/profilewidgetUI.ui:65
 #, kde-format
 msgid "Codec Scan"
-msgstr ""
+msgstr "Peržiūrėti kodekus"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
 msgid "No new codecs found"
-msgstr ""
+msgstr "Nerasti jokie nauji kodekai"
 
 #: widgets/profilewidget.cpp:144
 #, kde-format
