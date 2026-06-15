@@ -1,0 +1,99 @@
+{
+    "id": "org.kde.audex",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "6.10",
+    "sdk": "org.kde.Sdk",
+    "command": "audex",
+    "tags": [
+        "nightly"
+    ],
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": [
+        "--device=all",
+        "--share=ipc",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--system-talk-name=org.freedesktop.UDisks2"
+    ],
+    "modules": [
+        {
+            "name": "libkcddb",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/multimedia/libkcddb.git"
+                }
+            ]
+        },
+        {
+            "name": "libcdio",
+            "config-opts": [
+                "--disable-static",
+                "--disable-example-progs"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2",
+                    "mirror-urls": [
+                        "https://mirrors.kernel.org/gnu/libcdio/libcdio-2.1.0.tar.bz2",
+                        "https://mirrors.ocf.berkeley.edu/gnu/libcdio/libcdio-2.1.0.tar.bz2",
+                        "https://ftpmirror.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2"
+                    ],
+                    "sha256": "8550e9589dbd594bfac93b81ecf129b1dc9d0d51e90f9696f1b2f9b2af32712b",
+                    "x-checker-data": {
+                        "type": "html",
+                        "url": "https://ftp.gnu.org/gnu/libcdio/",
+                        "version-pattern": "libcdio-(\\d\\.\\d+\\.?\\d*).tar.bz2",
+                        "url-template": "https://ftp.gnu.org/gnu/libcdio/libcdio-$version.tar.bz2"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "libcdio-paranoia",
+            "config-opts": [
+                "--disable-static",
+                "--disable-example-progs"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.2.tar.bz2",
+                    "mirror-urls": [
+                        "https://mirrors.kernel.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2",
+                        "https://mirrors.ocf.berkeley.edu/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2",
+                        "https://ftpmirror.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2"
+                    ],
+                    "sha256": "186892539dedd661276014d71318c8c8f97ecb1250a86625256abd4defbf0d0c",
+                    "x-checker-data": {
+                        "type": "html",
+                        "url": "https://ftp.gnu.org/gnu/libcdio/",
+                        "version-pattern": "libcdio-paranoia-([\\d\\.\\+-]+).tar.bz2",
+                        "url-template": "https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-$version.tar.bz2"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "org.kde.audex",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+        }
+    ]
+}
