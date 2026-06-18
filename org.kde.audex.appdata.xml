@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>org.kde.audex.desktop</id>
+  <id>org.kde.audex</id>
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0</project_license>
   <name>Audex</name>
@@ -162,6 +162,7 @@
   </developer>
   <provides>
     <binary>audex</binary>
+    <id>org.kde.audex.desktop</id>
   </provides>
   <launchable type="desktop-id">org.kde.audex.desktop</launchable>
   <releases>
