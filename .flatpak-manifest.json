@@ -11,7 +11,9 @@
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
         "--device=all",
+        "--filesystem=xdg-music:create",
         "--share=ipc",
+        "--share=network",
         "--socket=wayland",
         "--socket=fallback-x11",
         "--system-talk-name=org.freedesktop.UDisks2"
