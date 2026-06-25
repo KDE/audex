@@ -18,10 +18,23 @@
         "--socket=fallback-x11",
         "--system-talk-name=org.freedesktop.UDisks2"
     ],
+    "cleanup": [
+        "/include",
+        "/lib/cmake",
+        "/lib/pkgconfig",
+        "/mkspecs",
+        "/share/doc",
+        "/share/info",
+        "/share/man",
+        "*.la"
+    ],
     "modules": [
         {
             "name": "libkcddb",
             "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -34,10 +47,6 @@
             "config-opts": [
                 "--disable-static",
                 "--disable-example-progs"
-            ],
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig"
             ],
             "sources": [
                 {
@@ -64,10 +73,6 @@
                 "--disable-static",
                 "--disable-example-progs"
             ],
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig"
-            ],
             "sources": [
                 {
                     "type": "archive",
@@ -90,6 +95,9 @@
         {
             "name": "org.kde.audex",
             "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+            ],
             "sources": [
                 {
                     "type": "dir",
