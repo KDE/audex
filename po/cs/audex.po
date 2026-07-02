@@ -5,21 +5,22 @@
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2017.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # SPDX-FileCopyrightText: 2015, 2018, 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-21 00:42+0000\n"
-"PO-Revision-Date: 2024-06-11 10:02+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-07-02 01:32+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -72,19 +73,19 @@ msgstr "Úplný režim paranoia (bezpečný režim)"
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
 #, kde-format
 msgid "Skip read errors"
-msgstr ""
+msgstr "Přeskakovat chyby čtení"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
 #, kde-format
 msgid "Retries on read error"
-msgstr ""
+msgstr "Opakovat při chybě čtení"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
 #, kde-format
 msgid "Sample shift"
-msgstr ""
+msgstr "Posun vzorku"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -240,7 +241,7 @@ msgstr "Nelze uložit obal \"%1\"."
 #: core/audex.cpp:1150
 #, kde-format
 msgid "Please check your path and permissions"
-msgstr "Prosím, ověřte cestu a svá oprávnění."
+msgstr "Prosím, ověřte cestu a svá oprávnění"
 
 #: core/audex.cpp:910
 #, kde-format
@@ -398,7 +399,7 @@ msgstr "Příklad alba:"
 #: dialogs/commandwizardwidgetUI.ui:147 dialogs/schemewizardwidgetUI.ui:140
 #, kde-format
 msgid "Sampler Example:"
-msgstr "Příklad ukázky"
+msgstr "Příklad vzorku:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_help)
 #: dialogs/commandwizardwidgetUI.ui:273
@@ -528,16 +529,14 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track 0 of %1"
+#, kde-format
 msgid "Ripping track…"
-msgstr "Ripuje se stopa  0 z %1"
+msgstr "Ripuje se stopa…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track 0 of %1"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "Ripuje se stopa  0 z %1"
+msgstr "Ripuje se stopa %1 z %2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
@@ -545,41 +544,38 @@ msgstr "Ripuje se stopa  0 z %1"
 #: dialogs/extractingprogresswidgetUI.ui:179
 #, kde-format
 msgid "Overall progress"
-msgstr ""
+msgstr "Celkový průběh"
 
 #: dialogs/extractingprogressdialog.cpp:175
 #, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
-msgstr ""
+msgstr "Celkový postup (při ripování stopy %1 z %2)"
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "Celé CD se ripuje jako jedna skladba"
+msgstr "Celé CD se ripuje jako jedna skladba…"
 
 #: dialogs/extractingprogressdialog.cpp:190
 #, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr ""
+msgstr "<i>Čeká se na úkoly spojené se zakódováním...</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding track %1..."
+#, kde-format
 msgid "Encoding track…"
-msgstr "Převádí se stopa %1..."
+msgstr "Převádí se stopa…"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track 0 of %1"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "Převádí se stopa  0 z %1"
+msgstr "Převádí se stopa  %1 z %2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
 #, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr ""
+msgstr "<i>Rychlost: %1x</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -591,7 +587,7 @@ msgstr "Všechny úkoly byly úspěšně dokončeny."
 #: dialogs/extractingprogressdialog.cpp:266
 #, kde-format
 msgid "Finished!"
-msgstr "Dokončeno."
+msgstr "Dokončeno!"
 
 #: dialogs/extractingprogressdialog.cpp:271
 #, kde-format
@@ -603,18 +599,17 @@ msgstr "Přinejmenším provedení jednoho úkolu selhalo."
 #: dialogs/extractingprogressdialog.cpp:277
 #, kde-format
 msgid "Failed!"
-msgstr "Selhalo."
+msgstr "Selhalo!"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Encoding log"
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "Zápis o průběhu převádění"
+msgstr "Zobrazit záznam kódování…"
 
 #: dialogs/extractingprogressdialog.cpp:287
 #, kde-format
 msgid "Show Rip Log…"
-msgstr ""
+msgstr "Zobrazit záznam ripování…"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -667,6 +662,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">Rychlost: 0×</"
+"span></p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -705,7 +702,7 @@ msgstr "Nápověda ke schématu názvu souboru"
 #: dialogs/schemewizardwidgetUI.ui:406
 #, kde-format
 msgid "Suffix"
-msgstr "Přípona:"
+msgstr "Přípona"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/filenameschemewizardwidgetUI.ui:212
@@ -735,7 +732,7 @@ msgstr "Uložit %1"
 #: dialogs/logviewdialog.cpp:66
 #, kde-format
 msgid "created on "
-msgstr "vytvořeno dne"
+msgstr "vytvořeno dne "
 
 #: dialogs/profiledatacoverdialog.cpp:29
 #, kde-format
@@ -965,7 +962,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr ""
+msgstr "Nastavit dvojmístné číslo skladby (např. 01, 02, 03...)…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1049,7 +1046,7 @@ msgstr "Program pro ripování zvukových dat z CD"
 #: main.cpp:30
 #, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr ""
+msgstr "Autorská práva © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1095,13 +1092,13 @@ msgstr "Zvláštní poděkování credativ GmbH (Německo) za podporu"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Pavel Fric"
+msgstr "Pavel Fric, Libor Filípek"
 
 #: main.cpp:37
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "pavelfric@seznam.cz"
+msgstr "pavelfric@seznam.cz, libor.filipek@gmail.com"
 
 #: mainwindow.cpp:35
 #, kde-format
@@ -1643,32 +1640,32 @@ msgstr "Audio disk"
 #: utils/cddaextractthread.cpp:70
 #, kde-format
 msgid "Sample shift: %1"
-msgstr ""
+msgstr "Posun vzorku: %1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "Ripování s posunem o %1 vzorků"
 
 #: utils/cddaextractthread.cpp:75
 #, kde-format
 msgid "Paranoia mode enabled"
-msgstr ""
+msgstr "Režim paranoia je povolen"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Režim paranoia je zakázán"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
 msgid "Start ripping track %1..."
-msgstr ""
+msgstr "Začít ripovat stopa %1..."
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
 #, kde-format
 msgid "Start ripping whole cd..."
-msgstr ""
+msgstr "Začít ripovat celé CD..."
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1700,12 +1697,12 @@ msgstr "Chyba při čtení sektoru %1 (%2): **Vyplňuji celý sektor tichem**"
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "Zpráva o stavu Paranoia pro stopu %1:"
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Zpráva o stavu Paranoia:"
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
@@ -1730,7 +1727,7 @@ msgstr "Ripování zvukových dat proběhlo v pořádku (stopa %1)."
 #: utils/cddaextractthread.cpp:280
 #, kde-format
 msgid "Ripping of track %2 successfully finished"
-msgstr ""
+msgstr "Ripování stopy %2 bylo úspěšně dokončeno"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1740,48 +1737,49 @@ msgstr "Ripování proběhlo v pořádku."
 #: utils/cddaextractthread.cpp:283
 #, kde-format
 msgid "Ripping successfully finished"
-msgstr ""
+msgstr "Ripování bylo úspěšně dokončeno"
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Device error."
-msgstr ""
+msgstr "Chyba zařízení."
 
 #: utils/cddaparanoia.cpp:20
 #, kde-format
 msgid "Check your device on \"%1\"."
-msgstr ""
+msgstr "Zkontrolujte své zařízení na \"%1\"."
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Disc error."
-msgstr ""
+msgstr "Chyba disku."
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "Nelze otevřít disk. Nachází se v mechanice \"%1\" audio disk?"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
 msgstr ""
+"Program cdparanoia nemohl najít způsob, jak načíst zvuk z disku \"%1\"."
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "Nespecifikovaná chyba disku na \"%1\"."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Drive/Disc error."
-msgstr ""
+msgstr "Chyba disku."
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "Nespecifikovaná chyba jednotky nebo disku na \"%1\"."
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1798,7 +1796,7 @@ msgstr "Audio"
 #: utils/cddaparanoia.cpp:360
 #, kde-format
 msgid "Non-Audio"
-msgstr ""
+msgstr "Není audio"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -1987,6 +1985,20 @@ msgid ""
 "</td></tr><tr><td><tt>$audex</tt></td><td>Audex name and version.</td></tr></"
 "table>"
 msgstr ""
+"<p>Následující zástupné symboly budou nahrazeny příslušnými údaji:</"
+"p><table><tr><th>Zástupný symbol</th><th>Popis</th></tr><tr><td><tt>$artist</"
+"tt></td><td>Interpret CD. Pokud se jedná o kompilaci, tato značka ve většině "
+"případů představuje název kompilace.</td></tr><tr><td><tt>$title</tt></"
+"td><td>Název CD. Pokud se jedná o kompilaci, představuje tato značka ve "
+"většině případů podtitul.</td></tr><tr><td><tt>$date</tt></td><td>Datum "
+"vydání CD. Téměř ve všech případech se jedná o rok.</td></tr><tr><td><tt>"
+"$genre</tt></td><td>Žánr CD.</td></tr><tr><td><tt>$cdno</tt></td><td>Číslo "
+"CD v rámci alba obsahujícího více CD. Kompilace se často skládají z několika "
+"CD. <i>Poznámka:</i> Pokud není pro aktuální CD nastaven příznak více CD, "
+"<b>nebude</b> tato hodnota prázdná.</td></tr><tr><td><tt>$nooftracks</tt></"
+"td><td>Celkový počet zvukových stop na CD.</td></tr><tr><td><tt>$encoder</"
+"tt></td><td>Název a verze kodéru.</td></tr><tr><td><tt>$audex</tt></"
+"td><td>Název a verze Audexu.</td></tr></table>"
 
 #: utils/schemeparser.h:171
 #, kde-format
@@ -2018,6 +2030,31 @@ msgid ""
 "tr><tr><td><tt>post</tt></td><td>String</td><td>A string which will be "
 "placed <b>after</b> the value.</td></tr></table>"
 msgstr ""
+"<p>Zástupné symboly v Audexu mohou mít parametry ve tvaru klíč=hodnota. "
+"Např. <tt>${title lowercase=true}<tt>. V tomto příkladu bude název psán "
+"malými písmeny. Se zástupnými symboly lze použít následující obecné "
+"parametry:</p><table><tr><th>Klíč</th><th>Hodnota</th><th>Popis</th></"
+"tr><tr><td><tt>malá písmena</tt></td><td>true/false</td><td>Hodnota "
+"zástupného symbolu bude malá.</td></tr><tr><td><tt>velká písmena</tt></"
+"td><td>true/false</td><td>Hodnota zástupného symbolu bude velká.</td></"
+"tr><tr><td><tt>podtržítka</tt></td><td>true/false</td><td>Mezery v hodnotě "
+"zástupného symbolu nahradí podtržítkem.</td></tr><tr><td><tt>kompatibilní s "
+"fat32</tt></td><td>true/false</td><td>Nahrazuje neplatné znaky v názvu "
+"souboru souborového systému FAT32 podtržítky.</td></"
+"tr><tr><td><tt>replace_chars</tt></td><td>true/false</td><td>Nahrazuje "
+"znaky. Tento parametr potřebuje dva další klíče se stejnou velikostí:"
+"<tt>replace_char_list_from</tt>, <tt>replace_char_list_to</tt>. Toto jsou "
+"seznamy znaků. První znak řetězce <tt>replace_char_list_from</tt> bude "
+"nahrazen prvním znakem řetězce <tt>replace_char_list_to</tt> a tak dále.</"
+"td></tr><tr><td><tt>left</tt></td><td>Číslo</td><td>Vezměte n-tý znak zleva "
+"od zástupné hodnoty.</td></tr><tr><td><tt>length</tt></td><td>Číslo</"
+"td><td>Pokud je zástupná hodnota číslo, rozbalte ji na zadanou délku. Dále "
+"můžete definovat výplňový znak pomocí dalšího klíče <tt>fillchar</tt>. "
+"Výchozí fillchar je '0'.</td></tr><tr><td><tt>pre</tt></td><td>Řetězec</"
+"td><td>Řetězec, který bude umístěn <b>před</b> hodnotou. Obzvláště užitečné "
+"pro parametry příkazového řádku, které by se neměly vůbec nastavovat, pokud "
+"je hodnota prázdná.</td></tr><tr><td><tt>post</tt></td><td>Řetězec</"
+"td><td>Řetězec, který bude umístěn <b>za</b> hodnotou.</td></tr></table>"
 
 #: utils/schemeparser.h:192
 #, kde-format
@@ -2031,6 +2068,14 @@ msgid ""
 "(ISRC) of the track (only available if supported by your device).</td></tr></"
 "table>"
 msgstr ""
+"<table><tr><th>Zástupný symbol</th><th>Popis</th></tr><tr><td>$tartist</"
+"td><td>Toto je interpret každé skladby. Je to užitečné zejména u "
+"kompilačních CD.</td></tr><tr><td>$ttitle</td><td>Název skladby. Obvykle má "
+"každá skladba na CD svůj vlastní název, kterým je název písně.</td></"
+"tr><tr><td>$trackno</td><td>Číslo skladby. První skladba má číslo 1.</td></"
+"tr><tr><td><tt>$isrc</tt></td><td>Mezinárodní standardní kód nahrávky (ISRC) "
+"skladby (k dispozici pouze v případě, že jej vaše zařízení podporuje).</td></"
+"tr></table>"
 
 #: utils/schemeparser.h:204
 #, kde-format
@@ -2047,6 +2092,18 @@ msgid ""
 "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
 "LAME discards cover files larger than 128 KiB.</i></td></tr></table>"
 msgstr ""
+"<table><tr><th>Zástupný symbol</th><th>Konkrétní parametr</th><th>Popis</"
+"th></tr><tr><td><tt>$i</tt></td><td></td><td>Dočasný soubor WAVE (RIFF WAVE) "
+"vytvořený programem Audex z audio stopy na CD. Jedná se o vstupní soubor pro "
+"váš příkazový řádek kodéru.</td></tr><tr><td><tt>$o</tt></td><td></"
+"td><td>Úplný název a cesta výstupního souboru. Použijte jej jako výstup pro "
+"váš příkazový řádek kodéru.</td></tr><tr><td><tt>$cover</tt></"
+"td><td><tt>format,x,y</tt></td><td>Název souboru s obalem. Pokud není "
+"nastaven žádný obal, bude toto pole prázdné. Nejčastěji se používá ve "
+"spojení s parametrem <tt>pre</tt>. Obrázek lze škálovat pomocí parametrů "
+"<tt>x</tt> a <tt>y</tt>. Možné <tt>formáty</tt> obrázků jsou JPEG, PNG, GIF "
+"nebo BMP (výchozí: JPEG). <i><b>Poznámka:</b> LAME vyřazuje soubory obalů "
+"větší než 128 KiB.</i></td></tr></table>"
 
 #: utils/schemeparser.h:218
 #, kde-format
@@ -2074,6 +2131,28 @@ msgid ""
 "territory code.</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak.</"
 "td></tr></table>"
 msgstr ""
+"<table><tr><th>Zástupný symbol</th><th>Specifický parametr</th><th>Popis</"
+"th></tr><tr><td>$size</td><td><tt>iec,precision</tt></td><td>Vypíše celkovou "
+"velikost všech extrahovaných (kódovaných) hudebních souborů (včetně souboru "
+"s obrázkem obalu). Pomocí <tt>iec</tt> vypočítá (k)ibi, (m)ebi nebo (g)ibi. "
+"Další parametr <tt>precision</tt> může definovat počet desetinných míst.</"
+"td></tr><tr><td>$length</td><td></td><td>Vypíše příslušnou celkovou délku "
+"všech extrahovaných stop. Formát je min:s.</td></tr><tr><td>$nooftracks</"
+"td><td></td><td>Vypíše celkový počet extrahovaných stop.</td></tr><tr><td>"
+"$discid</td><td>base</td><td>Vypíše disk CDDB v hexadecimálním formátu.</"
+"td></tr><tr><td><tt>$mcn</tt></td><td></td><td>Číslo katalogu médií (MCN) CD "
+"(k dispozici pouze pokud je podporováno vaším zařízením).</td></tr><tr><td>"
+"$now</td><td><tt>format,locale</tt></td><td>Vypíše aktuální datum a/nebo "
+"čas. Parametr format určuje výstup. Seznam podporovaných specifikátorů v "
+"rámci formátovacího řetězce naleznete v oficiální dokumentaci k QT "
+"(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
+"qt-6/qdate.html#toString</tt>). Pomocí dodatečného klíče <tt>locale</tt> "
+"můžete zadat nastavení jazyka. Ve výchozím nastavení se používají vaše "
+"systémové locale. Locale má formát <tt>language_TERRITORY</tt>, např. "
+"<tt>en_EN</tt>. <tt>language</tt> je malý dvoupísmenný kód jazyka podle "
+"normy ISO 639 a <tt>TERRITORY</tt> je velký dvoupísmenný kód území podle "
+"normy ISO 3166.</td></tr><tr><td>$br</td><td></td><td>Vypíše zalomení řádku."
+"</td></tr></table>"
 
 #: utils/upload.cpp:54
 #, kde-format
@@ -2113,7 +2192,7 @@ msgstr "Nastavit vlastní obal..."
 #: widgets/cddaheaderwidget.cpp:335
 #, kde-format
 msgid "Save Cover To File..."
-msgstr "Uložit obrázek obalu do souboru"
+msgstr "Uložit obrázek obalu do souboru..."
 
 #: widgets/cddaheaderwidget.cpp:340
 #, kde-format
@@ -2161,6 +2240,11 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Přeskočit chyby čtení u sektoru (délka sektoru: 1/75 "
+"sekundy) po opakovaném pokusu o jeho čtení. Uveďte prosím počet opakovaných "
+"pokusů v poli <span style=\" font-style:italic;\">Počet opakovaných pokusů "
+"při chybě čtení</span>. Pokud toto pole zůstane prázdné, budou do chybných "
+"sektorů zapsány nulové vzorky.</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2173,12 +2257,17 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Některé mechaniky mají při čtení audio CD nastavený "
+"offset vzorku. Správný offset pro váš model mechaniky můžete zjistit v "
+"databázi <a href=\"https://www.accuraterip.com/driveoffsets.htm\"><span "
+"style=\" text-decoration: underline; color:#2980b9;\">Accuraterip</span></a>."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
 #, kde-format
 msgid "Sample shift:"
-msgstr ""
+msgstr "Posun vzorku:"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label_4)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_retriesOnReadError)
@@ -2188,12 +2277,14 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Zadejte maximální počet opakovaných pokusů v případě, "
+"že dojde k nalezení vadného sektoru.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "Počet opakování čtení:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
@@ -2431,7 +2522,7 @@ msgstr "Odstranit"
 #: widgets/profilewidgetUI.ui:35
 #, kde-format
 msgid "Modify..."
-msgstr "Pozměnit"
+msgstr "Upravit..."
 
 #. i18n: ectx: property (text), widget (QPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
