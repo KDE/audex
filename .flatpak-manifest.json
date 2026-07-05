@@ -30,6 +30,60 @@
     ],
     "modules": [
         {
+        "name": "opus-encoder",
+        "buildsystem": "autotools",
+        "sources": [
+                {
+                "type": "archive",
+                "url": "https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz",
+                "sha256": "8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9",
+                "x-checker-data": {
+                    "type": "anitya",
+                    "project-id": 17877,
+                    "url-template": "https://archive.mozilla.org/pub/opus/libopusenc-$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+        "name": "opus-tools",
+        "buildsystem": "autotools",
+        "sources": [
+            {
+                "type": "archive",
+                "url": "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz",
+                "sha256": "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86",
+                "x-checker-data": {
+                    "type": "anitya",
+                    "project-id": 7905,
+                    "url-template": "https://archive.mozilla.org/pub/opus/opus-tools-$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+        "name": "vorbis-tools",
+        "buildsystem": "autotools",
+        "no-autogen": true,
+        "config-opts": [
+            "--disable-ogg123",
+            "--disable-oggdec",
+            "--disable-ogginfo",
+            "--disable-vcut",
+            "--disable-vorbiscomment",
+            "--disable-oggtest",
+            "--disable-vorbistest",
+            "--disable-curltest"
+        ],
+        "sources": [
+            {
+                "type": "archive",
+                "url": "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz",
+                "sha256": "a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde"
+                }
+            ]
+        },
+        {
             "name": "libkcddb",
             "buildsystem": "cmake-ninja",
             "config-opts": [
