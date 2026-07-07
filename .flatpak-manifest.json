@@ -79,7 +79,12 @@
             {
                 "type": "archive",
                 "url": "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz",
-                "sha256": "a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde"
+                "sha256": "a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde",
+                "x-checker-data": {
+                    "type": "anitya",
+                    "project-id": 5104,
+                    "url-template": "https://downloads.xiph.org/releases/vorbis/vorbis-tools-$version.tar.gz"
+                    }
                 }
             ]
         },
