@@ -52,7 +52,7 @@ void Upload::upload(const QString &targetpath, const QStringList &filelist)
         QFileInfo fi(filelist.at(i));
         url.setPath(base_url.path() + '/' + targetpath + '/' + fi.fileName());
         Q_EMIT info(i18n("Uploading file %1 to server. Please wait...", fi.fileName()));
-        KIO::Job *job = KIO::copy(QUrl(filelist.at(i)), url);
+        KIO::Job *job = KIO::copy(QUrl::fromLocalFile(filelist.at(i)), url);
         if (!job->exec()) {
             Q_EMIT error(job->errorText(), "");
             qDebug() << job->errorText();
