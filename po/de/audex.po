@@ -969,7 +969,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:156
 #, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "Zweistellige Stücknummern (z. B. 01, 02, 03 …) verwenden"
+msgstr "Zweistellige Stücknummern (z. B. 01, 02, 03 …) verwenden"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
