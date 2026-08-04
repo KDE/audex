@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the audex package.
 #
 # pan93412 <pan93412@gmail.com>, 2019.
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023-2024, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2024-07-12 03:54+0900\n"
+"PO-Revision-Date: 2026-08-04 07:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -62,29 +62,26 @@ msgstr "要取得的專輯封面數"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr "完整強迫症模式（安全模式）"
+msgstr ""
 
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
 #: audex.kcfg:41 widgets/devicewidgetUI.ui:42
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Skip read errors"
 msgstr "跳過讀取錯誤"
 
 #. i18n: ectx: label, entry (retriesOnReadError), group (general)
 #: audex.kcfg:45
-#, fuzzy, kde-format
-#| msgid "Skip reading errors"
+#, kde-format
 msgid "Retries on read error"
-msgstr "跳過讀取錯誤"
+msgstr "有讀取錯誤時重試"
 
 #. i18n: ectx: label, entry (sampleShift), group (general)
 #: audex.kcfg:51
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift"
-msgstr "樣本偏移："
+msgstr "樣本偏移"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:57
@@ -523,62 +520,53 @@ msgid "Cancel"
 msgstr "取消"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track"
+#, kde-format
 msgid "Ripping track…"
-msgstr "正在擷取音軌"
+msgstr "正在擷取音軌…"
 
 #: dialogs/extractingprogressdialog.cpp:174
-#, fuzzy, kde-format
-#| msgid "Ripping Track %1 of %2"
+#, kde-format
 msgid "Ripping track %1 of %2…"
-msgstr "正在擷取音軌 %1/%2"
+msgstr "正在擷取音軌 %1/%2…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:175
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogresswidgetUI.ui:179
-#, fuzzy, kde-format
-#| msgid "Overall Progress"
+#, kde-format
 msgid "Overall progress"
 msgstr "整體進度"
 
 #: dialogs/extractingprogressdialog.cpp:175
-#, fuzzy, kde-format
-#| msgid "Overall Progress (Ripping Track %1 of %2)"
+#, kde-format
 msgid "Overall progress (ripping track %1 of %2)"
 msgstr "整體進度（正在擷取音軌 %1/%2）"
 
 #: dialogs/extractingprogressdialog.cpp:180
-#, fuzzy, kde-format
-#| msgid "Ripping whole CD as single track"
+#, kde-format
 msgid "Ripping whole CD as single track…"
-msgstr "正在將整個 CD 擷取成一個音軌"
+msgstr "正在將整個 CD 擷取成一個音軌…"
 
 #: dialogs/extractingprogressdialog.cpp:190
-#, fuzzy, kde-format
-#| msgid "Waiting for an encoding job..."
+#, kde-format
 msgid "<i>Waiting for an encoding job…</i>"
-msgstr "等待編碼工作中..."
+msgstr "<i>等待編碼工作中…</i>"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track"
+#, kde-format
 msgid "Encoding track…"
-msgstr "正在編碼音軌"
+msgstr "正在編碼音軌…"
 
 #: dialogs/extractingprogressdialog.cpp:194
-#, fuzzy, kde-format
-#| msgid "Encoding Track %1 of %2"
+#, kde-format
 msgid "Encoding track %1 of %2…"
-msgstr "正在編碼音軌 %1/%2"
+msgstr "正在編碼音軌 %1/%2…"
 
 #: dialogs/extractingprogressdialog.cpp:236
 #: dialogs/extractingprogressdialog.cpp:242
-#, fuzzy, kde-format
-#| msgid "Speed: %1x"
+#, kde-format
 msgid "<i>Speed: %1×</i>"
-msgstr "速度：%1x"
+msgstr "<i>速度：%1x</i>"
 
 #: dialogs/extractingprogressdialog.cpp:260
 #, kde-format
@@ -605,16 +593,14 @@ msgid "Failed!"
 msgstr "失敗！"
 
 #: dialogs/extractingprogressdialog.cpp:280
-#, fuzzy, kde-format
-#| msgid "Show encoding log..."
+#, kde-format
 msgid "Show Encoding Log…"
-msgstr "顯示編碼紀錄..."
+msgstr "顯示編碼紀錄…"
 
 #: dialogs/extractingprogressdialog.cpp:287
-#, fuzzy, kde-format
-#| msgid "Show rip log..."
+#, kde-format
 msgid "Show Rip Log…"
-msgstr "顯示擷取紀錄..."
+msgstr "顯示擷取紀錄…"
 
 #: dialogs/extractingprogressdialog.cpp:334
 #, kde-format
@@ -667,6 +653,8 @@ msgid ""
 "<html><head/><body><p><span style=\" font-style:italic;\">Speed: 0×</span></"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p><span style=\" font-style:italic;\">速度：0×</span></"
+"p></body></html>"
 
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_extracting)
 #. i18n: ectx: property (format), widget (QProgressBar, progressBar_encoding)
@@ -688,7 +676,7 @@ msgstr "正在編碼音軌 8/12"
 #: dialogs/extractingprogresswidgetUI.ui:197
 #, kde-format
 msgid "KSqueezedTextLabel"
-msgstr ""
+msgstr "KSqueezedTextLabel"
 
 #: dialogs/filenameschemewizarddialog.cpp:18
 #, kde-format
@@ -768,7 +756,7 @@ msgstr "儲存前進行縮放："
 #: dialogs/profiledatacoverwidgetUI.ui:49
 #, kde-format
 msgid "×"
-msgstr ""
+msgstr "×"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
@@ -959,10 +947,9 @@ msgstr "這個設定會覆寫機制中的參數化變數設定"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:156
-#, fuzzy, kde-format
-#| msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+#, kde-format
 msgid "Set 2 digits track number (e.g. 01, 02, 03)…"
-msgstr "設定二位數的音軌編號（例如 01、02、03...）"
+msgstr "設定二位數的音軌編號（例如 01、02、03）…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:180
@@ -1044,10 +1031,9 @@ msgid "Audio ripping application"
 msgstr "音訊擷取應用程式"
 
 #: main.cpp:30
-#, fuzzy, kde-format
-#| msgid "Copyright © 2007-2023 Marco Nelles"
+#, kde-format
 msgid "Copyright © 2007-2025 Marco Nelles"
-msgstr "Copyright © 2007-2023 Marco Nelles"
+msgstr "Copyright © 2007-2025 Marco Nelles"
 
 #: main.cpp:33
 #, kde-format
@@ -1085,10 +1071,9 @@ msgid "credativ GmbH"
 msgstr "credativ GmbH"
 
 #: main.cpp:36
-#, fuzzy, kde-format
-#| msgid "Special thanks to former credativ GmbH (Germany) for support"
+#, kde-format
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "特別感謝前 credativ GmbH（德國）的支援"
+msgstr "特別感謝 credativ GmbH（德國）的支援"
 
 #: main.cpp:37
 #, kde-format
@@ -1612,21 +1597,19 @@ msgid "Audio Disc"
 msgstr "音訊碟片"
 
 #: utils/cddaextractthread.cpp:70
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift: %1"
-msgstr "樣本偏移："
+msgstr "樣本偏移：%1"
 
 #: utils/cddaextractthread.cpp:72
 #, kde-format
 msgid "Ripping with shift of %1 samples"
-msgstr ""
+msgstr "正在進行偏移 %1 個樣本的擷取"
 
 #: utils/cddaextractthread.cpp:75
-#, fuzzy, kde-format
-#| msgid "Full paranoia mode (secure mode)"
+#, kde-format
 msgid "Paranoia mode enabled"
-msgstr "完整強迫症模式（安全模式）"
+msgstr ""
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
@@ -1634,16 +1617,14 @@ msgid "Paranoia mode disabled"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping track %1..."
-msgstr "開始讀取音軌 %1，有 %2 個磁區"
+msgstr "開始擷取音軌 %1…"
 
 #: utils/cddaextractthread.cpp:113 utils/cddaextractthread.cpp:114
-#, fuzzy, kde-format
-#| msgid "Start reading track %1 with %2 sectors"
+#, kde-format
 msgid "Start ripping whole cd..."
-msgstr "開始讀取音軌 %1，有 %2 個磁區"
+msgstr "開始擷取整個 CD…"
 
 #: utils/cddaextractthread.cpp:193
 #, kde-format
@@ -1702,10 +1683,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "擷取正常（音軌 %1）。"
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "成功儲存「%1」專輯封面。"
+msgstr "成功完成音軌 %1 的擷取"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
@@ -1713,55 +1693,50 @@ msgid "Ripping OK."
 msgstr "擷取正常。"
 
 #: utils/cddaextractthread.cpp:283
-#, fuzzy, kde-format
-#| msgid "Cover \"%1\" successfully saved."
+#, kde-format
 msgid "Ripping successfully finished"
-msgstr "成功儲存「%1」專輯封面。"
+msgstr "成功完成擷取"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Device error."
-msgstr "裝置錯誤 (1)。"
+msgstr "裝置錯誤。"
 
 #: utils/cddaparanoia.cpp:20
-#, fuzzy, kde-format
-#| msgid "Check your device and make a bug report."
+#, kde-format
 msgid "Check your device on \"%1\"."
-msgstr "請檢查您的裝置，並進行錯誤回報。"
+msgstr "請檢查您在「%1」的裝置。"
 
 #: utils/cddaparanoia.cpp:30 utils/cddaparanoia.cpp:34
 #: utils/cddaparanoia.cpp:40
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Disc error."
-msgstr "裝置錯誤 (1)。"
+msgstr "碟片錯誤。"
 
 #: utils/cddaparanoia.cpp:30
 #, kde-format
 msgid "Unable to open disc. Is there an audio disc in the drive \"%1\"."
-msgstr ""
+msgstr "無法開啟光碟。光碟機「%1」裡有音效光碟嗎？"
 
 #: utils/cddaparanoia.cpp:34
 #, kde-format
 msgid "cdparanoia could not find a way to read audio from the drive \"%1\"."
-msgstr ""
+msgstr "cdparanoia 找不到方式可以從「%1」光碟機讀取音訊。"
 
 #: utils/cddaparanoia.cpp:40
 #, kde-format
 msgid "Unspecified drive error on \"%1\"."
-msgstr ""
+msgstr "在「%1」發生未指定的磁碟機錯誤。"
 
 #: utils/cddaparanoia.cpp:47
-#, fuzzy, kde-format
-#| msgid "Device error (1)."
+#, kde-format
 msgid "Drive/Disc error."
-msgstr "裝置錯誤 (1)。"
+msgstr "磁碟機/光碟錯誤。"
 
 #: utils/cddaparanoia.cpp:47
 #, kde-format
 msgid "Unspecified drive or disc error on \"%1\"."
-msgstr ""
+msgstr "在「%1」發生未指定的磁碟機或光碟錯誤。"
 
 #: utils/cddaparanoia.cpp:333
 #, kde-format
@@ -1774,10 +1749,9 @@ msgid "Audio"
 msgstr "音訊"
 
 #: utils/cddaparanoia.cpp:360
-#, fuzzy, kde-format
-#| msgid "Non-Audio: CD-i"
+#, kde-format
 msgid "Non-Audio"
-msgstr "非音訊：CD-i"
+msgstr "非音訊"
 
 #: utils/cddaparanoia.cpp:364
 #, kde-format
@@ -2235,8 +2209,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
-#, fuzzy, kde-format
-#| msgid "Sample offset:"
+#, kde-format
 msgid "Sample shift:"
 msgstr "樣本偏移："
 
@@ -2253,7 +2226,7 @@ msgstr ""
 #: widgets/devicewidgetUI.ui:106
 #, kde-format
 msgid "Max. read retries:"
-msgstr ""
+msgstr "最大重試讀取次數："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
