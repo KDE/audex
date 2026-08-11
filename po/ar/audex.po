@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-03-09 21:12+0400\n"
+"PO-Revision-Date: 2026-08-10 18:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -235,7 +235,7 @@ msgstr "غير قادر على حفظ الغلاف\"%1\"."
 #: core/audex.cpp:1150
 #, kde-format
 msgid "Please check your path and permissions"
-msgstr "يرجى التحقق من المسار وأذوناتك."
+msgstr "يرجى التحقق من المسار وأذونك."
 
 #: core/audex.cpp:910
 #, kde-format
@@ -1873,7 +1873,7 @@ msgstr "فشل بدء %1"
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
-msgstr "إما أنه مفقود، أو قد لا يكون لديك أذونات كافية لاستدعاء البرنامج."
+msgstr "إما أنه مفقود، أو قد لا يكون لديك أذون كافية لاستدعاء البرنامج."
 
 #: utils/encoderwrapper.cpp:191
 #, kde-format
