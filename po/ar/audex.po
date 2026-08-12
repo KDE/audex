@@ -1371,7 +1371,7 @@ msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
-"يرجى الانتظار، ربما يكون الخادم مشغولاً، أو اتصل بمسؤول خادم قاعدة بيانات "
+"يرجى الانتظار، ربما يكون الخادم مشغولًا، أو اتصل بمسؤول خادم قاعدة بيانات "
 "الأقراص المضغوطة CDDB."
 
 #: models/cddamodel.cpp:859
@@ -2354,7 +2354,7 @@ msgid ""
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
 "إذا كان لديك سمع جيد للغاية ومعدات مماثلة، فسيوفر هذا الإعداد المسبق بشكل "
-"عام جودة أعلى قليلاً من الوضع \"القياسي\""
+"عام جودة أعلى قليلًا من الوضع \"القياسي\""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
