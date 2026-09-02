@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-04-30 17:07+0200\n"
+"PO-Revision-Date: 2026-09-01 16:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1612,7 +1612,7 @@ msgstr "Nomine de nomine de file non debe esser vacue."
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
 msgstr ""
-"Tu non ha date alcun nomine al filede registro. Pro favor tu assigna un."
+"Tu non ha date alcun nomine al file de registro. Pro favor tu assigna un."
 
 #: models/profilemodel.cpp:560
 #, kde-format
