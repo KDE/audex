@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-04-30 17:07+0200\n"
+"PO-Revision-Date: 2026-09-01 17:15+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1612,7 +1612,7 @@ msgstr "Nomine de nomine de file non debe esser vacue."
 #, kde-format
 msgid "You have given no name for the log file. Please set one."
 msgstr ""
-"Tu non ha date alcun nomine al filede registro. Pro favor tu assigna un."
+"Tu non ha date alcun nomine al file de registro. Pro favor tu assigna un."
 
 #: models/profilemodel.cpp:560
 #, kde-format
@@ -2261,7 +2261,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Salta errores de lectura per un sector (longitude de "
 "un sector: 1/75 secunda) post essayar a leger novemente le sector Pro favor "
-"specifica lenumero de tentativas sub <span style=\"font-style:italic:\">Re-"
+"specifica le numero de tentativas sub <span style=\"font-style:italic:\">Re-"
 "essaya sur error de lectura</span>.l Si saltate, exemplos vacue essera "
 "scribite per le sectores errate.</p></body></html>"
 
