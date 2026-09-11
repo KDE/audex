@@ -2109,11 +2109,11 @@ msgstr ""
 "l'emplacement réservé est un nombre, il est étendu à la longueur demandée. "
 "De plus, vous pouvez définir un caractère de remplissage avec une clé "
 "supplémentaire <tt>remplissage</tt>. Le caractère de remplissage par défaut "
-"est « 0 ».</td></tr><tr><td><tt>pre</tt></td><td>Chaîne</td><td>Une chaine "
+"est « 0 ».</td></tr><tr><td><tt>pre</tt></td><td>Chaine</td><td>Une chaine "
 "de caractères sera placée <b>avant</b> la valeur. Ceci est particulièrement "
 "utile pour les paramètres de ligne de commandes, qui ne devraient pas être "
 "définis du tout, si la valeur est vide.</td></tr><tr><td><tt>post</tt></"
-"td><td>Chaîne</td><td>Une chaine de caractères sera placée <b>après</b> la "
+"td><td>Chaine</td><td>Une chaine de caractères sera placée <b>après</b> la "
 "valeur.</td></tr></table>"
 
 #: utils/schemeparser.h:192
