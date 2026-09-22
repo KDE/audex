@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-08-04 07:45+0900\n"
+"PO-Revision-Date: 2026-09-21 23:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -62,7 +62,7 @@ msgstr "要取得的專輯封面數"
 #: audex.kcfg:37 widgets/devicewidgetUI.ui:32
 #, kde-format
 msgid "Full paranoia mode (secure mode)"
-msgstr ""
+msgstr "完整 paranoia 模式（安全模式）"
 
 #. i18n: ectx: label, entry (skipReadErrors), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_skipReadErrors)
@@ -1609,12 +1609,12 @@ msgstr "正在進行偏移 %1 個樣本的擷取"
 #: utils/cddaextractthread.cpp:75
 #, kde-format
 msgid "Paranoia mode enabled"
-msgstr ""
+msgstr "Paranoia 模式已啟用"
 
 #: utils/cddaextractthread.cpp:77
 #, kde-format
 msgid "Paranoia mode disabled"
-msgstr ""
+msgstr "Paranoia 模式已停用"
 
 #: utils/cddaextractthread.cpp:110 utils/cddaextractthread.cpp:111
 #, kde-format
@@ -1655,12 +1655,12 @@ msgstr "讀取磁區 %1 時有錯誤 (%2)：**將把整個磁區以靜音填滿*
 #: utils/cddaextractthread.cpp:264
 #, kde-format
 msgid "Paranoia status report for track %1:"
-msgstr ""
+msgstr "音軌 %1 的 paranoia 狀態回報："
 
 #: utils/cddaextractthread.cpp:266
 #, kde-format
 msgid "Paranoia status report:"
-msgstr ""
+msgstr "Paranoia 狀態回報："
 
 #: utils/cddaextractthread.cpp:272 utils/cddaextractthread.cpp:273
 #, kde-format
