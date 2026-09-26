@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-07-02 01:32+0200\n"
+"PO-Revision-Date: 2026-09-25 00:25+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -266,12 +266,12 @@ msgstr "Nelze uložit soubor s informacemi \"%1\"."
 #: core/audex.cpp:1004
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr "Hešový seznam \"%1\" byl úspěšně vytvořen."
+msgstr "Seznam otisků \"%1\" byl úspěšně vytvořen."
 
 #: core/audex.cpp:1007
 #, kde-format
 msgid "Unable to save hashlist \"%1\"."
-msgstr "Nelze uložit seznam hašů \"%1\"."
+msgstr "Nelze uložit seznam otisků \"%1\"."
 
 #: core/audex.cpp:1044
 #, kde-format
@@ -995,7 +995,7 @@ msgstr "Nastavení..."
 #: dialogs/profiledatawidgetUI.ui:237
 #, kde-format
 msgid "Create hashlist"
-msgstr "Vytvořit seznam hašů"
+msgstr "Vytvořit seznam otisků"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:244
@@ -1574,7 +1574,7 @@ msgstr ""
 #: models/profilemodel.cpp:512
 #, kde-format
 msgid "The hashlist file format is unknown."
-msgstr "Formát souboru hašového seznamu je neznámý."
+msgstr "Formát souboru seznamu otisků je neznámý."
 
 #: models/profilemodel.cpp:513
 #, kde-format
@@ -1582,18 +1582,18 @@ msgid ""
 "Your given hashlist file format is unknown. Please choose one of these "
 "formats: SFV, MD5, SHA-256."
 msgstr ""
-"Zadaný formát souboru hašovacího seznamu není znám. Vyberte, prosím, jeden z "
+"Zadaný formát souboru seznamu otisků není znám. Vyberte, prosím, jeden z "
 "těchto formátů: SFV, MD5, SHA-256."
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "Hashlist name must not be empty."
-msgstr "Název hašového seznamu nesmí zůstat nevyplněn."
+msgstr "Název seznamu otisků nesmí zůstat nevyplněn."
 
 #: models/profilemodel.cpp:522
 #, kde-format
 msgid "You have given no name for the hashlist. Please set one."
-msgstr "Nezadali jste žádný název pro hašový seznam. Prosím, jeden zadejte."
+msgstr "Nezadali jste žádný název pro seznam otisků. Prosím, jeden zadejte."
 
 #: models/profilemodel.cpp:533
 #, kde-format
