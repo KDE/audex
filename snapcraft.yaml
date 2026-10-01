@@ -36,7 +36,34 @@ slots:
     name: org.kde.audex
     bus: session
 parts:
+  # Ubuntu 24.04 (core24) ships TagLib 1.13 without CMake config; Audex needs
+  # TagLib >= 1.12 with its CMake package config, so build TagLib 2.x like the
+  # Flatpak does. utf8cpp is a hard dependency of TagLib 2.x.
+  utfcpp:
+    plugin: cmake
+    source: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.2.1.tar.gz
+    source-checksum: sha256/6d6a5493a111884cc085ee31babfe6d9960c8fb08fc80a64852eaeea8323dbc1
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DUTF8_TESTS=OFF
+      - -DUTF8_SAMPLES=OFF
+  taglib:
+    after:
+      - utfcpp
+    plugin: cmake
+    source: https://taglib.org/releases/taglib-2.1.tar.gz
+    source-checksum: sha256/95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_TESTING=OFF
+      - -DBUILD_EXAMPLES=OFF
+      - -DBUILD_BINDINGS=OFF
   audex:
+    after:
+      - taglib
     parse-info:
       - usr/share/metainfo/org.kde.audex.metainfo.xml
     plugin: cmake
@@ -45,7 +72,6 @@ parts:
       - kf6-core24-sdk/latest/beta
     build-packages:
       - libxkbcommon-dev
-      - libtag1-dev
       - libflac-dev
       - libopusenc-dev
       - libmp3lame-dev
@@ -72,7 +98,6 @@ parts:
       - faac
       - libxkbcommon0
       - libaudio2
-      - libtag1v5
       - libflac12t64
       - libopusenc0
       - libmp3lame0
