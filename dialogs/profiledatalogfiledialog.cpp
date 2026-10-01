@@ -1,11 +1,13 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "profiledatalogfiledialog.h"
+
+#include "dialogs/filenameschemewizarddialog.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -16,16 +18,20 @@ ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, 
     Q_UNUSED(parent);
 
     this->profile_model = profile_model;
+
+    if (!this->profile_model) {
+        qWarning() << "ProfileDataLogFileDialog() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return;
+    }
+
     this->profile_row = profile_row;
     this->new_profile_mode = new_profile_mode;
-
-    applyButton = nullptr;
 
     setWindowTitle(i18n("Log Files Settings"));
 
     // profile data logfile data
     QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString();
-    bool write_timestamps = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool();
 
     auto *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
@@ -44,21 +50,18 @@ ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, 
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    connect(ui.kpushbutton_scheme, &QPushButton::clicked, this, [this]() {
+        scheme_wizard();
+    });
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-
-    ui.checkBox_timestamps->setChecked(write_timestamps);
-    connect(ui.checkBox_timestamps, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, [this](const QString &) {
+        trigger_changed();
+    });
 
     if (applyButton)
         applyButton->setEnabled(false);
-}
-
-ProfileDataLogFileDialog::~ProfileDataLogFileDialog()
-{
 }
 
 void ProfileDataLogFileDialog::slotAccepted()
@@ -77,50 +80,42 @@ void ProfileDataLogFileDialog::slotApplied()
 
 void ProfileDataLogFileDialog::scheme_wizard()
 {
-    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), "log", this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    FilenameSchemeWizardDialog dialog(ui.qlineedit_scheme->text(), "log", this);
+    if (dialog.exec() != QDialog::Accepted)
         return;
-    }
-
-    ui.qlineedit_scheme->setText(dialog->scheme);
-
-    delete dialog;
-
+    ui.qlineedit_scheme->setText(dialog.scheme);
     trigger_changed();
 }
 
 void ProfileDataLogFileDialog::trigger_changed()
 {
-    if (applyButton) {
-        QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString();
-        bool write_timestamps = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool();
+    if (!profile_model) {
+        qWarning() << "ProfileDataLogFileDialog::trigger_changed() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return;
+    }
 
-        if (ui.qlineedit_scheme->text() != scheme) {
-            applyButton->setEnabled(true);
-            return;
-        }
-        if (ui.checkBox_timestamps->isChecked() != write_timestamps) {
-            applyButton->setEnabled(true);
-            return;
-        }
-        applyButton->setEnabled(false);
+    if (applyButton) {
+        const QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString();
+        applyButton->setEnabled(ui.qlineedit_scheme->text() != scheme);
     }
 }
 
 bool ProfileDataLogFileDialog::save()
 {
-    QString scheme = ui.qlineedit_scheme->text();
-    bool write_timestamps = ui.checkBox_timestamps->isChecked();
+    if (!profile_model) {
+        qWarning() << "ProfileDataLogFileDialog::save() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return false;
+    }
+
+    const QString scheme = ui.qlineedit_scheme->text();
 
     error.clear();
     bool success = true;
 
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX), scheme);
-    if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX), write_timestamps);
 
     if (!success)
         error = profile_model->lastError();

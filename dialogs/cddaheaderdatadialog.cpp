@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,167 +7,30 @@
 
 #include "cddaheaderdatadialog.h"
 
+#include "utils/genres.h"
+#include "widgets/cddaheaderwidget.h"
+
+#include <QDate>
 #include <QDialogButtonBox>
+#include <QEvent>
+#include <QLineEdit>
+#include <QSpinBox>
 #include <QVBoxLayout>
 
-#define GENRE_MAX 148
-static const char *ID3_GENRES[GENRE_MAX] = {"Blues",
-                                            "Classic Rock",
-                                            "Country",
-                                            "Dance",
-                                            "Disco",
-                                            "Funk",
-                                            "Grunge",
-                                            "Hip-Hop",
-                                            "Jazz",
-                                            "Metal",
-                                            "New Age",
-                                            "Oldies",
-                                            "Other",
-                                            "Pop",
-                                            "R&B",
-                                            "Rap",
-                                            "Reggae",
-                                            "Rock",
-                                            "Techno",
-                                            "Industrial",
-                                            "Alternative",
-                                            "Ska",
-                                            "Death Metal",
-                                            "Pranks",
-                                            "Soundtrack",
-                                            "Euro-Techno",
-                                            "Ambient",
-                                            "Trip-Hop",
-                                            "Vocal",
-                                            "Jazz+Funk",
-                                            "Fusion",
-                                            "Trance",
-                                            "Classical",
-                                            "Instrumental",
-                                            "Acid",
-                                            "House",
-                                            "Game",
-                                            "Sound Clip",
-                                            "Gospel",
-                                            "Noise",
-                                            "Alt",
-                                            "Bass",
-                                            "Soul",
-                                            "Punk",
-                                            "Space",
-                                            "Meditative",
-                                            "Instrumental Pop",
-                                            "Instrumental Rock",
-                                            "Ethnic",
-                                            "Gothic",
-                                            "Darkwave",
-                                            "Techno-Industrial",
-                                            "Electronic",
-                                            "Pop-Folk",
-                                            "Eurodance",
-                                            "Dream",
-                                            "Southern Rock",
-                                            "Comedy",
-                                            "Cult",
-                                            "Gangsta Rap",
-                                            "Top 40",
-                                            "Christian Rap",
-                                            "Pop/Funk",
-                                            "Jungle",
-                                            "Native American",
-                                            "Cabaret",
-                                            "New Wave",
-                                            "Psychedelic",
-                                            "Rave",
-                                            "Showtunes",
-                                            "Trailer",
-                                            "Lo-Fi",
-                                            "Tribal",
-                                            "Acid Punk",
-                                            "Acid Jazz",
-                                            "Polka",
-                                            "Retro",
-                                            "Musical",
-                                            "Rock & Roll",
-                                            "Hard Rock",
-                                            "Folk",
-                                            "Folk/Rock",
-                                            "National Folk",
-                                            "Swing",
-                                            "Fast-Fusion",
-                                            "Bebob",
-                                            "Latin",
-                                            "Revival",
-                                            "Celtic",
-                                            "Bluegrass",
-                                            "Avantgarde",
-                                            "Gothic Rock",
-                                            "Progressive Rock",
-                                            "Psychedelic Rock",
-                                            "Symphonic Rock",
-                                            "Slow Rock",
-                                            "Big Band",
-                                            "Chorus",
-                                            "Easy Listening",
-                                            "Acoustic",
-                                            "Humour",
-                                            "Speech",
-                                            "Chanson",
-                                            "Opera",
-                                            "Chamber Music",
-                                            "Sonata",
-                                            "Symphony",
-                                            "Booty Bass",
-                                            "Primus",
-                                            "Porn Groove",
-                                            "Satire",
-                                            "Slow Jam",
-                                            "Club",
-                                            "Tango",
-                                            "Samba",
-                                            "Folklore",
-                                            "Ballad",
-                                            "Power Ballad",
-                                            "Rhythmic Soul",
-                                            "Freestyle",
-                                            "Duet",
-                                            "Punk Rock",
-                                            "Drum Solo",
-                                            "A Cappella",
-                                            "Euro-House",
-                                            "Dance Hall",
-                                            "Goa",
-                                            "Drum & Bass",
-                                            "Club-House",
-                                            "Hardcore",
-                                            "Terror",
-                                            "Indie",
-                                            "BritPop",
-                                            "Negerpunk",
-                                            "Polsk Punk",
-                                            "Beat",
-                                            "Christian Gangsta Rap",
-                                            "Heavy Metal",
-                                            "Black Metal",
-                                            "Crossover",
-                                            "Contemporary Christian",
-                                            "Christian Rock",
-                                            "Merengue",
-                                            "Salsa",
-                                            "Thrash Metal",
-                                            "Anime",
-                                            "JPop",
-                                            "Synthpop"};
+#include <KCompletion>
+#include <KLocalizedString>
 
-CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent)
+using namespace Qt::StringLiterals;
+
+CDDAHeaderDataDialog::CDDAHeaderDataDialog(Audex::CDInfoModel *cddaModel, std::optional<bool> hdcd, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
 
     cdda_model = cddaModel;
     if (!cdda_model) {
-        qDebug() << "CDDAModel is NULL!";
+        qWarning() << "CDDAHeaderDataDialog() called with null model pointers";
+        Q_ASSERT(cdda_model);
         return;
     }
 
@@ -190,30 +53,51 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    QStringList genres;
-    for (int i = 0; i < GENRE_MAX; ++i)
-        genres.append(QString().fromLatin1(ID3_GENRES[i]));
-    genres.sort();
+    const QStringList genres = Audex::Genres::presets();
     KCompletion *comp = ui.kcombobox_genre->completionObject();
     comp->insertItems(genres);
     ui.kcombobox_genre->addItems(genres);
-    connect(ui.kcombobox_genre, SIGNAL(returnPressed(const QString &)), comp, SLOT(addItem(const QString &)));
+    connect(ui.kcombobox_genre, &KComboBox::returnPressed, comp, [comp](const QString &text) {
+        comp->addItem(text);
+    });
 
-    ui.checkBox_various->setChecked(cdda_model->isVarious());
-    connect(ui.checkBox_various, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    ui.checkBox_multicd->setChecked(cdda_model->isMultiCD());
-    connect(ui.checkBox_multicd, SIGNAL(toggled(bool)), this, SLOT(enable_checkbox_multicd(bool)));
-    connect(ui.checkBox_multicd, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    ui.checkBox_various->setChecked(cdda_model->variousArtists());
+    connect(ui.checkBox_various, &QAbstractButton::toggled, this, &CDDAHeaderDataDialog::trigger_changed);
+    ui.checkBox_multicd->setChecked(cdda_model->cdInfo().metadata().flag(Audex::Metadata::Field::MultiDisc));
+    // read-only, shows the result of the HDCD detection (see eventFilter())
+    ui.checkBox_hdcd->setChecked(hdcd.value_or(false));
+    ui.checkBox_hdcd->setEnabled(hdcd.has_value());
+    ui.checkBox_hdcd->setFocusPolicy(Qt::NoFocus);
+    ui.checkBox_hdcd->installEventFilter(this);
+    if (!hdcd)
+        ui.checkBox_hdcd->setToolTip(i18n("Not checked: the HDCD detection is turned off or has not finished yet."));
+    else if (*hdcd)
+        ui.checkBox_hdcd->setToolTip(i18n("HDCD encoded disc. The bit-perfect rip preserves all HDCD information; see the README for decoding with FFmpeg."));
+    else
+        ui.checkBox_hdcd->setToolTip(i18n("No HDCD encoding found on this disc."));
+    // read-only, the pre-emphasis flags of the TOC: partially checked if only
+    // some tracks are flagged
+    const Audex::CDInfo &info = cdda_model->cdInfo();
+    const qsizetype emphasized = info.preEmphasisTracks().size();
+    ui.checkBox_preemphasis->setTristate(true);
+    ui.checkBox_preemphasis->setCheckState(emphasized == 0                                     ? Qt::Unchecked
+                                               : emphasized == info.audioTrackNumbers().size() ? Qt::Checked
+                                                                                               : Qt::PartiallyChecked);
+    ui.checkBox_preemphasis->setFocusPolicy(Qt::NoFocus);
+    ui.checkBox_preemphasis->installEventFilter(this);
+    ui.checkBox_preemphasis->setToolTip(emphasized > 0 ? CDDAHeaderWidget::preEmphasisText(info) : i18n("No track is flagged with pre-emphasis."));
+    connect(ui.checkBox_multicd, &QAbstractButton::toggled, this, &CDDAHeaderDataDialog::enable_checkbox_multicd);
+    connect(ui.checkBox_multicd, &QAbstractButton::toggled, this, &CDDAHeaderDataDialog::trigger_changed);
     ui.qlineedit_artist->setText(cdda_model->artist());
-    connect(ui.qlineedit_artist, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    ui.qlineedit_title->setText(cdda_model->title());
-    connect(ui.qlineedit_title, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    ui.kintspinbox_cdnum->setValue(cdda_model->cdNum());
-    connect(ui.kintspinbox_cdnum, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    ui.kintspinbox_trackoffset->setValue(cdda_model->trackOffset());
-    connect(ui.kintspinbox_trackoffset, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(ui.qlineedit_artist, &QLineEdit::textEdited, this, &CDDAHeaderDataDialog::trigger_changed);
+    ui.qlineedit_title->setText(cdda_model->album());
+    connect(ui.qlineedit_title, &QLineEdit::textEdited, this, &CDDAHeaderDataDialog::trigger_changed);
+    ui.kintspinbox_cdnum->setValue(cdda_model->discNumber());
+    connect(ui.kintspinbox_cdnum, &QSpinBox::valueChanged, this, &CDDAHeaderDataDialog::trigger_changed);
+    ui.kintspinbox_trackoffset->setValue(cdda_model->trackNumberOffset());
+    connect(ui.kintspinbox_trackoffset, &QSpinBox::valueChanged, this, &CDDAHeaderDataDialog::trigger_changed);
     ui.kcombobox_genre->lineEdit()->setText(cdda_model->genre());
-    connect(ui.kcombobox_genre->lineEdit(), SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(ui.kcombobox_genre->lineEdit(), &QLineEdit::textEdited, this, &CDDAHeaderDataDialog::trigger_changed);
     {
         bool ok;
         int year = cdda_model->year().toInt(&ok);
@@ -222,18 +106,32 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
         else
             ui.kintspinbox_year->setValue(QDate::currentDate().year());
     }
-    connect(ui.kintspinbox_year, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-    ui.ktextedit_extdata->setText(cdda_model->extendedData().join("\n"));
-    connect(ui.ktextedit_extdata, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
-    ui.qlineedit_cddbdiscid->setText(QString("0x%1").arg(DiscIDCalculator::CDDBId(cdda_model->discSignature()), 0, 16));
+    connect(ui.kintspinbox_year, &QSpinBox::valueChanged, this, &CDDAHeaderDataDialog::trigger_changed);
+    ui.ktextedit_extdata->setText(cdda_model->comment());
+    connect(ui.ktextedit_extdata, &QTextEdit::textChanged, this, &CDDAHeaderDataDialog::trigger_changed);
+    ui.qlineedit_cddbdiscid->setText(u"0x"_s + cdda_model->cdInfo().cddbDiscId());
 
-    enable_checkbox_multicd(cdda_model->isMultiCD());
+    enable_checkbox_multicd(cdda_model->cdInfo().metadata().flag(Audex::Metadata::Field::MultiDisc));
 
     applyButton->setEnabled(false);
 }
 
-CDDAHeaderDataDialog::~CDDAHeaderDataDialog()
+bool CDDAHeaderDataDialog::eventFilter(QObject *watched, QEvent *event)
 {
+    // the HDCD and pre-emphasis check boxes ignore clicks and keys, tooltips still work
+    if (watched == ui.checkBox_hdcd || watched == ui.checkBox_preemphasis) {
+        switch (event->type()) {
+        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonRelease:
+        case QEvent::MouseButtonDblClick:
+        case QEvent::KeyPress:
+        case QEvent::KeyRelease:
+            return true;
+        default:
+            break;
+        }
+    }
+    return QDialog::eventFilter(watched, event);
 }
 
 void CDDAHeaderDataDialog::slotAccepted()
@@ -249,25 +147,37 @@ void CDDAHeaderDataDialog::slotApplied()
 
 void CDDAHeaderDataDialog::save()
 {
-    cdda_model->setVarious(ui.checkBox_various->isChecked());
-    cdda_model->setMultiCD(ui.checkBox_multicd->isChecked());
+    if (!cdda_model) {
+        qWarning() << "CDDAHeaderDataDialog::save() called with null model pointers";
+        Q_ASSERT(cdda_model);
+        return;
+    }
+
+    cdda_model->setVariousArtists(ui.checkBox_various->isChecked());
+    cdda_model->setAlbumValue(Audex::Metadata::Field::MultiDisc, ui.checkBox_multicd->isChecked());
     cdda_model->setArtist(ui.qlineedit_artist->text());
-    cdda_model->setTitle(ui.qlineedit_title->text());
-    cdda_model->setCDNum(ui.kintspinbox_cdnum->value());
-    cdda_model->setTrackOffset(ui.kintspinbox_trackoffset->value());
+    cdda_model->setAlbum(ui.qlineedit_title->text());
+    cdda_model->setDiscNumber(ui.kintspinbox_cdnum->value());
+    cdda_model->setTrackNumberOffset(ui.kintspinbox_trackoffset->value());
     cdda_model->setGenre(ui.kcombobox_genre->lineEdit()->text());
     cdda_model->setYear(QString("%1").arg(ui.kintspinbox_year->value()));
-    cdda_model->setExtendedData(ui.ktextedit_extdata->toPlainText().split('\n'));
+    cdda_model->setComment(ui.ktextedit_extdata->toPlainText());
     applyButton->setEnabled(false);
 }
 
 void CDDAHeaderDataDialog::trigger_changed()
 {
-    if (ui.checkBox_various->isChecked() != cdda_model->isVarious()) {
+    if (!cdda_model) {
+        qWarning() << "CDDAHeaderDataDialog::trigger_changed() called with null model pointers";
+        Q_ASSERT(cdda_model);
+        return;
+    }
+
+    if (ui.checkBox_various->isChecked() != cdda_model->variousArtists()) {
         applyButton->setEnabled(true);
         return;
     }
-    if (ui.checkBox_multicd->isChecked() != cdda_model->isMultiCD()) {
+    if (ui.checkBox_multicd->isChecked() != cdda_model->cdInfo().metadata().flag(Audex::Metadata::Field::MultiDisc)) {
         applyButton->setEnabled(true);
         return;
     }
@@ -275,16 +185,16 @@ void CDDAHeaderDataDialog::trigger_changed()
         applyButton->setEnabled(true);
         return;
     }
-    if (ui.qlineedit_title->text() != cdda_model->title()) {
+    if (ui.qlineedit_title->text() != cdda_model->album()) {
         applyButton->setEnabled(true);
         return;
     }
     if (ui.checkBox_various->isChecked())
-        if (ui.kintspinbox_cdnum->value() != cdda_model->cdNum()) {
+        if (ui.kintspinbox_cdnum->value() != cdda_model->discNumber()) {
             applyButton->setEnabled(true);
             return;
         }
-    if (ui.kintspinbox_trackoffset->value() != cdda_model->trackOffset()) {
+    if (ui.kintspinbox_trackoffset->value() != cdda_model->trackNumberOffset()) {
         applyButton->setEnabled(true);
         return;
     }
@@ -296,7 +206,7 @@ void CDDAHeaderDataDialog::trigger_changed()
         applyButton->setEnabled(true);
         return;
     }
-    if (ui.ktextedit_extdata->toPlainText().split('\n') != cdda_model->extendedData()) {
+    if (ui.ktextedit_extdata->toPlainText().split('\n') != cdda_model->comment().split(u'\n')) {
         applyButton->setEnabled(true);
         return;
     }

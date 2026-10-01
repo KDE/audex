@@ -11,34 +11,98 @@
       <label>Overwrite existing files</label>
       <default>false</default>
     </entry>
-    <entry name="deletePartialFiles" type="Bool">
-      <label>Delete partial files after cancel</label>
-      <default>true</default>
-    </entry>
     <entry name="ejectCDTray" type="Bool">
       <label>Eject CD tray after extraction finished</label>
       <default>false</default>
     </entry>
     <entry name="cddbLookupAuto" type="Bool">
-      <label>Perform CDDB lookup automatically</label>
+      <label>Fetch metadata automatically</label>
       <default>true</default>
     </entry>
     <entry name="coverLookupAuto" type="Bool">
-      <label>Perform cover lookup (amazon) automatically</label>
+      <label>Fetch cover automatically</label>
       <default>true</default>
     </entry>
-    <entry name="fetchCount" type="Int">
-      <label>Number of covers to fetch</label>
-      <default>8</default>
-      <min>1</min>
-      <max>99</max>
+    <entry name="coverSize" type="Enum">
+      <label>Size of fetched covers</label>
+      <choices>
+        <choice name="Small"/>
+        <choice name="Medium"/>
+        <choice name="Large"/>
+        <choice name="Original"/>
+      </choices>
+      <default>Large</default>
     </entry>
-    <entry name="fullParanoiaMode" type="Bool">
-      <label>Full paranoia mode (secure mode)</label>
+    <entry name="coverReleaseGroupFallback" type="Bool">
+      <label>Use the cover of the release group if the release has none</label>
       <default>true</default>
     </entry>
-    <entry name="skipReadErrors" type="Bool">
-      <label>Skip read errors</label>
+    <entry name="hdcdDetect" type="Bool">
+      <label>Detect HDCD encoded discs</label>
+      <default>false</default>
+    </entry>
+    <entry name="cdgDetect" type="Bool">
+      <label>Detect CD+G graphics</label>
+      <default>false</default>
+    </entry>
+    <entry name="cdgRead" type="Bool">
+      <label>Save CD+G graphics as .cdg files</label>
+      <default>false</default>
+    </entry>
+    <entry name="preEmphasisTag" type="String">
+      <label>Tag written into tracks with pre-emphasis (empty: none)</label>
+      <default>PRE_EMPHASIS</default>
+    </entry>
+    <entry name="hdcdTag" type="String">
+      <label>Tag written into HDCD encoded tracks (empty: none)</label>
+      <default>HDCD</default>
+    </entry>
+    <entry name="accurateRipVerify" type="Bool">
+      <label>Verify ripped tracks against the AccurateRip database</label>
+      <default>true</default>
+    </entry>
+    <entry name="ctdbVerify" type="Bool">
+      <label>Verify ripped tracks against the CUETools database</label>
+      <default>false</default>
+    </entry>
+    <entry name="detectGaps" type="Bool">
+      <label>Read pregaps and indexes from the Q sub-channel</label>
+      <default>true</default>
+    </entry>
+    <entry name="readIsrcMcn" type="Bool">
+      <label>Read ISRCs and the media catalog number from the Q sub-channel</label>
+      <default>false</default>
+    </entry>
+    <entry name="gapHandling" type="Enum">
+      <label>Pregaps in track files</label>
+      <choices>
+        <choice name="AppendToPrevious"/>
+        <choice name="WithOwnTrack"/>
+      </choices>
+      <default>AppendToPrevious</default>
+    </entry>
+    <entry name="metadataProvider" type="Enum">
+      <label>Preferred metadata provider</label>
+      <choices>
+        <choice name="MusicBrainz"/>
+        <choice name="CDText"/>
+      </choices>
+      <default>MusicBrainz</default>
+    </entry>
+    <entry name="secureMode" type="Bool">
+      <label>Secure mode</label>
+      <default>false</default>
+    </entry>
+    <entry name="useC2" type="Bool">
+      <label>Use C2 error pointers</label>
+      <default>false</default>
+    </entry>
+    <entry name="cacheDefeat" type="Bool">
+      <label>Defeat drive cache in secure mode</label>
+      <default>false</default>
+    </entry>
+    <entry name="overread" type="Bool">
+      <label>Overread into lead-in and lead-out</label>
       <default>false</default>
     </entry>
     <entry name="retriesOnReadError" type="Int">
@@ -53,16 +117,21 @@
       <min>-10000</min>
       <max>10000</max>
     </entry>
+    <entry name="readSpeed" type="Int">
+      <label>Read speed (0 = maximum)</label>
+      <default>0</default>
+      <min>0</min>
+      <max>64</max>
+    </entry>
+    <entry name="errorReadSpeed" type="Int">
+      <label>Read speed while recovering errors (0 = unchanged)</label>
+      <default>0</default>
+      <min>0</min>
+      <max>64</max>
+    </entry>
     <entry name="basePath" type="Path">
       <label>Base path to store music files</label>
       <default code="true">QStandardPaths::writableLocation(QStandardPaths::MusicLocation)</default>
-    </entry>
-    <entry name="upload" type="Bool">
-      <label>Upload files to server</label>
-      <default>false</default>
-    </entry>
-    <entry name="url" type="Url">
-      <label>URL of server</label>
     </entry>
   </group>
 </kcfg>

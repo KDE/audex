@@ -1,7 +1,12 @@
-// SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
-// SPDX-License-Identifier: GPL-3.0-or-later
+/* AUDEX CDDA EXTRACTOR
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
+ * <https://userbase.kde.org/Audex>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
 
 #pragma once
+
 #include <QString>
 
 class QWidget;

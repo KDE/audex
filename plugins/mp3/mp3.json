@@ -1,0 +1,5 @@
+{
+    "Id": "mp3",
+    "Name": "MP3 (LAME)",
+    "Library": "libmp3lame"
+}

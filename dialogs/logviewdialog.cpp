@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,13 +7,13 @@
 
 #include "logviewdialog.h"
 
+#include <KLocalizedString>
+
+#include <QDateTime>
+#include <QDialogButtonBox>
+#include <QFile>
 #include <QFileDialog>
 #include <QTextStream>
-
-#include <KConfigGroup>
-#include <KLocalizedString>
-#include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 LogViewDialog::LogViewDialog(const QStringList &log, const QString &title, QWidget *parent)
@@ -39,10 +39,6 @@ LogViewDialog::LogViewDialog(const QStringList &log, const QString &title, QWidg
 
     this->log = log;
     this->title = title;
-}
-
-LogViewDialog::~LogViewDialog()
-{
 }
 
 void LogViewDialog::slotClosed()

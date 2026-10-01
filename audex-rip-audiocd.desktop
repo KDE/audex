@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 [Desktop Entry]
 X-KDE-Solid-Predicate=[ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Audio' ]
 Type=Service

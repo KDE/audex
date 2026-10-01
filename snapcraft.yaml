@@ -36,28 +36,19 @@ slots:
     name: org.kde.audex
     bus: session
 parts:
-  libkcddb:
-    plugin: cmake
-    source: https://invent.kde.org/multimedia/libkcddb.git
-    cmake-parameters:
-      - -DCMAKE_INSTALL_PREFIX=/usr
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DQT_MAJOR_VERSION=6
-      - -DBUILD_TESTING=OFF
   audex:
-    after:
-      - libkcddb
     parse-info:
-      - usr/share/metainfo/org.kde.audex.appdata.xml
+      - usr/share/metainfo/org.kde.audex.metainfo.xml
     plugin: cmake
     build-snaps:
       - kde-qt6-core24-sdk/latest/beta
       - kf6-core24-sdk/latest/beta
     build-packages:
       - libxkbcommon-dev
-      - libcdio-dev
-      - libcdio-cdda-dev
-      - libcdio-paranoia-dev
+      - libtag1-dev
+      - libflac-dev
+      - libopusenc-dev
+      - libmp3lame-dev
       - libpulse0
       - libxml2-dev
       - gettext
@@ -80,10 +71,11 @@ parts:
       - vorbis-tools
       - faac
       - libxkbcommon0
-      - libcdio19t64
-      - libcdio-cdda2t64
-      - libcdio-paranoia2t64
       - libaudio2
+      - libtag1v5
+      - libflac12t64
+      - libopusenc0
+      - libmp3lame0
     source: .
     source-type: local
     cmake-parameters:
@@ -112,4 +104,3 @@ parts:
       for snap in "core24" "kf6-core24"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
       done
-

@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,33 +7,34 @@
 
 #include "flacwidget.h"
 
-#include <QDebug>
+#include "utils/encoderassistant.h"
+#include "utils/parameters.h"
 
-flacWidget::flacWidget(Parameters *parameters, QWidget *parent)
+#include <QAbstractButton>
+#include <QAbstractSlider>
+#include <QLineEdit>
+#include <QSpinBox>
+
+flacWidget::flacWidget(const Parameters &parameters, QWidget *parent)
     : flacWidgetUI(parent)
+    , p_parameters(parameters)
 {
     Q_UNUSED(parent);
 
-    this->parameters = parameters;
-    if (!parameters) {
-        qDebug() << "ParameterString is NULL!";
-        return;
-    }
+    horizontalSlider_compression->setValue(p_parameters.value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
+    kintspinbox_compression->setValue(p_parameters.value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
 
-    horizontalSlider_compression->setValue(parameters->value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
-    kintspinbox_compression->setValue(parameters->value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
+    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_FLAC_EMBED_COVER_KEY).toBool());
+    qlineedit_suffix->setText(p_parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
-    checkBox_embedcover->setChecked(parameters->value(ENCODER_FLAC_EMBED_COVER_KEY).toBool());
-    qlineedit_suffix->setText(parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
+    connect(horizontalSlider_compression, &QAbstractSlider::valueChanged, this, &flacWidget::compression_changed_by_slider);
+    connect(horizontalSlider_compression, &QAbstractSlider::valueChanged, this, &flacWidget::trigger_changed);
 
-    connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_slider(int)));
-    connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(kintspinbox_compression, &QSpinBox::valueChanged, this, &flacWidget::compression_changed_by_spinbox);
+    connect(kintspinbox_compression, &QSpinBox::valueChanged, this, &flacWidget::trigger_changed);
 
-    connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_spinbox(int)));
-    connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
-
-    connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(checkBox_embedcover, &QAbstractButton::toggled, this, &flacWidget::trigger_changed);
+    connect(qlineedit_suffix, &QLineEdit::textEdited, this, &flacWidget::trigger_changed);
 
     changed = false;
 }
@@ -46,9 +47,9 @@ bool flacWidget::save()
 {
     bool success = true;
 
-    parameters->setValue(ENCODER_FLAC_COMPRESSION_KEY, horizontalSlider_compression->value());
-    parameters->setValue(ENCODER_FLAC_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
-    parameters->setValue(ENCODER_FLAC_SUFFIX_KEY, qlineedit_suffix->text());
+    p_parameters.setValue(ENCODER_FLAC_COMPRESSION_KEY, horizontalSlider_compression->value());
+    p_parameters.setValue(ENCODER_FLAC_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
+    p_parameters.setValue(ENCODER_FLAC_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
 
@@ -71,9 +72,9 @@ void flacWidget::compression_changed_by_spinbox(int compression)
 
 void flacWidget::trigger_changed()
 {
-    changed = (horizontalSlider_compression->value() != parameters->value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt()
-               || checkBox_embedcover->isChecked() != parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool()
-               || qlineedit_suffix->text() != parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
+    changed = (horizontalSlider_compression->value() != p_parameters.value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt()
+               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_FLAC_EMBED_COVER_KEY).toBool()
+               || qlineedit_suffix->text() != p_parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }

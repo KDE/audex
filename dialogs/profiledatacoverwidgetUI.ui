@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
 <ui version="4.0">
  <class>ProfileDataCoverWidgetUI</class>
  <widget class="QWidget" name="ProfileDataCoverWidgetUI">
@@ -63,21 +67,15 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label_format">
-     <property name="minimumSize">
-      <size>
-       <width>80</width>
-       <height>0</height>
-      </size>
+   <item row="1" column="0" colspan="5">
+    <widget class="QCheckBox" name="checkBox_png">
+     <property name="toolTip">
+      <string>Covers are stored as JPEG by default. PNG is lossless and supports transparency, but produces larger files.</string>
      </property>
      <property name="text">
-      <string>Format:</string>
+      <string>Store as PNG instead of JPEG</string>
      </property>
     </widget>
-   </item>
-   <item row="1" column="1" colspan="4">
-    <widget class="KComboBox" name="kcombobox_format"/>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_scheme">
@@ -117,13 +115,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

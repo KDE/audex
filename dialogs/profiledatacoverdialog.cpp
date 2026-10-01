@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,8 +7,9 @@
 
 #include "profiledatacoverdialog.h"
 
+#include "dialogs/filenameschemewizarddialog.h"
+
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
 
 ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
@@ -19,12 +20,16 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, cons
     this->profile_row = profile_row;
     this->new_profile_mode = new_profile_mode;
 
-    applyButton = nullptr;
+    if (!profile_model) {
+        qWarning() << "ProfileDataCoverDialog() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return;
+    }
 
-    bool scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
-    QSize size = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
-    QString format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
-    QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
+    const bool scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
+    const QSize size = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
+    const QString format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
+    const QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
 
     setWindowTitle(i18n("Cover Settings"));
 
@@ -51,38 +56,28 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, cons
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    connect(ui.kpushbutton_scheme, &QAbstractButton::clicked, this, &ProfileDataCoverDialog::scheme_wizard);
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     ui.checkBox_scale->setChecked(scale);
     enable_scale(ui.checkBox_scale->isChecked());
-    connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(ui.checkBox_scale, SIGNAL(toggled(bool)), this, SLOT(enable_scale(bool)));
+    connect(ui.checkBox_scale, &QAbstractButton::toggled, this, &ProfileDataCoverDialog::trigger_changed);
+    connect(ui.checkBox_scale, &QAbstractButton::toggled, this, &ProfileDataCoverDialog::enable_scale);
 
     ui.kintspinbox_x->setValue(size.width());
-    connect(ui.kintspinbox_x, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(ui.kintspinbox_x, &QSpinBox::valueChanged, this, &ProfileDataCoverDialog::trigger_changed);
 
     ui.kintspinbox_y->setValue(size.height());
-    connect(ui.kintspinbox_y, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(ui.kintspinbox_y, &QSpinBox::valueChanged, this, &ProfileDataCoverDialog::trigger_changed);
 
-    ui.kcombobox_format->addItem(i18n("JPEG (Joint Photographic Experts Group)"), "JPEG");
-    ui.kcombobox_format->addItem(i18n("PNG (Portable Network Graphics)"), "PNG");
-    ui.kcombobox_format->addItem(i18n("BMP (Windows Bitmap)"), "BMP");
-    {
-        int i = ui.kcombobox_format->findData(format);
-        ui.kcombobox_format->setCurrentIndex(i);
-    }
-    connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
+    ui.checkBox_png->setChecked(format == "PNG"); // anything else (legacy BMP etc.) means JPEG
+    connect(ui.checkBox_png, &QAbstractButton::toggled, this, &ProfileDataCoverDialog::trigger_changed);
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataCoverDialog::trigger_changed);
 
     if (applyButton)
         applyButton->setEnabled(false);
-}
-
-ProfileDataCoverDialog::~ProfileDataCoverDialog()
-{
 }
 
 void ProfileDataCoverDialog::slotAccepted()
@@ -101,29 +96,30 @@ void ProfileDataCoverDialog::slotApplied()
 
 void ProfileDataCoverDialog::scheme_wizard()
 {
-    QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
+    const QString suffix = ui.checkBox_png->isChecked() ? QStringLiteral("png") : QStringLiteral("jpg");
 
-    FilenameSchemeWizardDialog *dialog = new FilenameSchemeWizardDialog(ui.qlineedit_scheme->text(), suffix, this);
+    FilenameSchemeWizardDialog dialog(ui.qlineedit_scheme->text(), suffix, this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog.exec() != QDialog::Accepted)
         return;
-    }
 
-    ui.qlineedit_scheme->setText(dialog->scheme);
-
-    delete dialog;
-
+    ui.qlineedit_scheme->setText(dialog.scheme);
     trigger_changed();
 }
 
 void ProfileDataCoverDialog::trigger_changed()
 {
+    if (!profile_model) {
+        qWarning() << "ProfileDataCoverDialog::trigger_changed() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return;
+    }
+
     if (applyButton) {
-        bool scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
-        QSize size = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
-        QString format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
-        QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
+        const bool scale = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool();
+        const QSize size = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
+        const QString format = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX)).toString();
+        const QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX)).toString();
 
         if (ui.checkBox_scale->isChecked() != scale) {
             applyButton->setEnabled(true);
@@ -137,7 +133,7 @@ void ProfileDataCoverDialog::trigger_changed()
             applyButton->setEnabled(true);
             return;
         }
-        if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) {
+        if ((ui.checkBox_png->isChecked() ? QStringLiteral("PNG") : QStringLiteral("JPEG")) != format) {
             applyButton->setEnabled(true);
             return;
         }
@@ -158,10 +154,16 @@ void ProfileDataCoverDialog::enable_scale(bool enabled)
 
 bool ProfileDataCoverDialog::save()
 {
-    bool scale = ui.checkBox_scale->isChecked();
-    QSize size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
-    QString format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-    QString scheme = ui.qlineedit_scheme->text();
+    if (!profile_model) {
+        qWarning() << "ProfileDataCoverDialog::save() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return false;
+    }
+
+    const bool scale = ui.checkBox_scale->isChecked();
+    const QSize size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
+    const QString format = ui.checkBox_png->isChecked() ? QStringLiteral("PNG") : QStringLiteral("JPEG");
+    const QString scheme = ui.qlineedit_scheme->text();
 
     error.clear();
     bool success = true;

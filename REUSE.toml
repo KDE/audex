@@ -1,0 +1,47 @@
+version = 1
+
+[[annotations]]
+path = [
+    "**.cpp",
+    "**.h",
+    "**.ui",
+    "CMakeLists.txt",
+    "cmake/**"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2007-2026 Marco Nelles"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+[[annotations]]
+path = [
+    "org.kde.audex.svg",
+    "icons/**"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2007-2026 Marco Nelles"
+SPDX-License-Identifier = "CC-BY-ND-4.0"
+
+[[annotations]]
+path = [
+    "images/**"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2007-2026 Marco Nelles"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = [
+    "**.json",
+    "**.kcfg",
+    "**.kcfgc",
+    "**.qrc",
+    "**.rc",
+    "**.desktop",
+    "**.xml",
+    "**.yaml",
+    "Messages.sh",
+    "README.md"
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2007-2026 Marco Nelles"
+SPDX-License-Identifier = "CC0-1.0"

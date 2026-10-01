@@ -1,22 +1,18 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PARAMETERS_HEADER
-#define PARAMETERS_HEADER
+#pragma once
 
 #include <QList>
 #include <QMap>
-#include <QMapIterator>
-#include <QObject>
-#include <QString>
 #include <QVariant>
-#include <QDebug>
 
-#include <KLocalizedString>
+class QString;
+class QChar;
 
 typedef QList<QString> KeyList;
 
@@ -30,10 +26,7 @@ public:
     ~Parameters();
 
     void fromString(const QString &string, const QChar &sep = ',');
-    const QString toString(const QChar &sep = ',');
-
-    void fromBase64(const QByteArray &bytearray);
-    const QByteArray toBase64();
+    const QString toString(const QChar &sep = ',') const;
 
     inline void setValue(const QString &key, const QVariant &value)
     {
@@ -47,13 +40,14 @@ public:
 
     bool contains(const QString &key) const;
     const KeyList keys() const;
-    bool isEmpty() const;
 
-    inline bool error() const {
+    inline bool error() const
+    {
         return !p_error_string.isEmpty();
     }
 
-    inline const QString errorString() const {
+    inline const QString errorString() const
+    {
         return p_error_string;
     }
 
@@ -61,8 +55,5 @@ private:
     QMap<QString, QVariant> p_parameters;
     QString p_error_string;
 
-    void p_insert_value(const QString& key, const QString& value, const bool is_quoted);
-
+    void p_insert_value(const QString &key, const QString &value, const bool is_quoted);
 };
-
-#endif

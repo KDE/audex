@@ -1,11 +1,13 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "filenameschemewizarddialog.h"
+
+#include "utils/schemeparser.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -37,19 +39,19 @@ FilenameSchemeWizardDialog::FilenameSchemeWizardDialog(const QString &scheme, co
     help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(3), i18n("Filename scheme help"), this);
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    connect(ui.qlineedit_scheme, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
+    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &FilenameSchemeWizardDialog::trigger_changed);
+    connect(ui.qlineedit_scheme, &QLineEdit::textChanged, this, &FilenameSchemeWizardDialog::update_example);
     ui.qlineedit_scheme->setCursorPosition(0);
 
-    connect(ui.kurllabel_help, SIGNAL(leftClickedUrl()), this, SLOT(help()));
+    connect(ui.kurllabel_help, &KUrlLabel::leftClickedUrl, this, &FilenameSchemeWizardDialog::help);
 
-    connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
-    connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
-    connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
-    connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
-    connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
-    connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
-    connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
+    connect(ui.kpushbutton_albumartist, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insAlbumArtist);
+    connect(ui.kpushbutton_albumtitle, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insAlbumTitle);
+    connect(ui.kpushbutton_cdno, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insCDNo);
+    connect(ui.kpushbutton_date, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insDate);
+    connect(ui.kpushbutton_genre, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insGenre);
+    connect(ui.kpushbutton_suffix, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insSuffix);
+    connect(ui.kpushbutton_nooftracks, &QAbstractButton::clicked, this, &FilenameSchemeWizardDialog::insNoOfTracks);
 
     this->scheme = scheme;
     this->suffix = suffix;
@@ -58,14 +60,7 @@ FilenameSchemeWizardDialog::FilenameSchemeWizardDialog(const QString &scheme, co
     update_example();
 }
 
-FilenameSchemeWizardDialog::~FilenameSchemeWizardDialog()
-{
-    if (help_dialog != nullptr) {
-        help_dialog->close();
-        delete help_dialog;
-        help_dialog = nullptr;
-    }
-}
+FilenameSchemeWizardDialog::~FilenameSchemeWizardDialog() = default;
 
 void FilenameSchemeWizardDialog::slotAccepted()
 {
@@ -89,7 +84,13 @@ void FilenameSchemeWizardDialog::trigger_changed()
 
 void FilenameSchemeWizardDialog::help()
 {
-    help_dialog->showNormal();
+    if (!help_dialog) {
+        help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(1), i18n("Filename scheme help"), this);
+    }
+
+    help_dialog->show();
+    help_dialog->raise();
+    help_dialog->activateWindow();
 }
 
 void FilenameSchemeWizardDialog::insAlbumArtist()

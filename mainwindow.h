@@ -1,55 +1,51 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
-#include <QComboBox>
-#include <QDockWidget>
-#include <QInputDialog>
-#include <QLabel>
-#include <QLineEdit>
-#include <QMenu>
-#include <QObject>
-#include <QPushButton>
-#include <QStatusBar>
-#include <QTreeView>
-#include <QWidgetAction>
+#include <QFutureWatcher>
+#include <QList>
+#include <QPointer>
+#include <QString>
 
-#include <KActionCollection>
-#include <KCDDB/CDInfo>
-#include <KCDDB/Client>
-#include <KCDDB/KCDDB>
-#include <KCModuleLoader>
-#include <KComboBox>
-#include <KConfigDialog>
-#include <KLocalizedString>
-#include <KMessageBox>
-#include <KStandardAction>
-#include <KTextEdit>
 #include <KXmlGuiWindow>
 
-#include "utils/cuesheetwriter.h"
-#include "utils/error.h"
+#include <memory>
+#include <optional>
 
-#include "models/cddamodel.h"
-#include "models/profilemodel.h"
+#include "core/hdcd.h" // Audex::Hdcd::Result - must be complete for m_hdcdWatcher
+#include "metadata/lookup.h" // Audex::MetadataCandidates (slot signature)
+#include "online/coverartfetcher.h" // Audex::Metadata::CoverArt (slot signature)
 
-#include "preferences.h"
-#include "widgets/cddaheaderwidget.h"
-#include "widgets/devicewidget.h"
-#include "widgets/generalsettingswidget.h"
-#include "widgets/profilewidget.h"
-#include "widgets/remoteserversettingswidget.h"
+class QDockWidget;
+class QLabel;
+class QModelIndex;
+class QNetworkAccessManager;
+class QTreeView;
 
-#include "dialogs/errordialog.h"
-#include "dialogs/extractingprogressdialog.h"
+class KComboBox;
+class KMessageWidget;
 
-#include "utils/encoderassistant.h"
+class CDDAHeaderWidget;
+class DiscController;
+class ProfileFilterModel;
+class ProfileModel;
+
+namespace Audex
+{
+class CDInfoModel;
+class PrecomputedProvider;
+struct DiscReadResult;
+
+namespace Encoding
+{
+class EncoderRegistry;
+}
+}
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -59,69 +55,112 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
-private:
-    bool firstStart();
+    bool isValid() const;
 
 private Q_SLOTS:
+    // toolbar / menu actions
     void eject();
-    void cddb_lookup();
-    void cddb_submit();
+    void fetch_metadata();
+    void fetch_metadata_cdtext();
+    void fetch_metadata_musicbrainz();
+    void edit();
     void rip();
     void configure();
-    void edit();
 
-    void new_audio_disc_detected();
-    void audio_disc_removed();
-
-    void cddb_lookup_start();
-    void cddb_lookup_done(const bool successful);
-
-    void update_layout();
-
-    void enable_layout(bool enabled);
-    void enable_cddb_submit(bool enabled = true);
-    void disable_cddb_submit();
-
-    void configuration_updated(const QString &dialog_name);
-
-    void current_profile_updated_from_ui(int row);
-    void update_profile_action(int index);
-    void update_profile_action();
-
+    // track list editing
     void split_titles();
     void swap_artists_and_titles();
     void capitalize();
     void auto_fill_artists();
-    void toggle(const QModelIndex &idx);
-    void resizeColumns();
 
+    // track selection
+    void toggle(const QModelIndex &idx);
     void select_all();
     void select_none();
     void invert_selection();
-
     void cdda_context_menu(const QPoint &pos);
 
-    void selection_changed(const int num_selected);
+    // drives and disc
+    void current_drive_updated_from_ui(int index);
+    void drives_updated();
+    void current_drive_updated();
+    void disc_detected(const Audex::DiscReadResult &result);
+    void disc_removed();
+    void disc_failed(const QString &message, const QString &details);
+    void hdcd_probe_finished();
+    void start_cdg_probe();
+    void cdg_probe_finished();
+
+    // metadata and cover
+    void lookup_finished(int lookupId, const Audex::MetadataCandidates &candidates);
+    void lookup_provider_failed(int lookupId, const QString &providerId, const QString &error);
+    void cover_fetch_finished(int requestId, const Audex::Metadata::CoverArt &cover, const QString &error);
+    void start_cover_fetch(const Audex::MetadataCandidate &candidate);
+    void fetch_next_cover();
+
+    // profile
+    void current_profile_updated_from_ui(int row);
+    void update_profile_action(int index);
+    void update_profile_action();
+
+    // layout and configuration
+    void update_layout();
+    void enable_layout(bool enabled);
+    void resizeColumns();
 
 private:
-    CDDAModel *cdda_model;
-    ProfileModel *profile_model;
-
-    QLabel *profile_label;
-    KComboBox *profile_combobox;
-
+    bool firstStart();
     void setup_actions();
     void setup_layout();
 
-    QTreeView *cdda_tree_view;
+    void start_metadata_lookup(const QString &providerId, bool automatic);
+    void profileChanged();
+    void applyImageMode(bool image);
+    void updateProfileMessage();
+    void updateSelectionActionStates();
+    int audioTrackCount() const;
 
-    QDockWidget *cdda_header_dock;
-    CDDAHeaderWidget *cdda_header_widget;
+    // models
+    QPointer<ProfileModel> m_profileModel;
+    QPointer<ProfileFilterModel> m_profileFilter;
+    QPointer<Audex::CDInfoModel> m_cddaModel;
 
-    bool layout_enabled;
+    // backend
+    std::shared_ptr<Audex::Encoding::EncoderRegistry> m_encoders;
+    QPointer<DiscController> m_discController;
+    QPointer<QNetworkAccessManager> m_network;
+    QPointer<Audex::MetadataLookup> m_lookup;
+    QPointer<Audex::PrecomputedProvider> m_cdtextProvider;
+    QPointer<Audex::CoverArtFetcher> m_coverFetcher;
+    QFutureWatcher<std::optional<Audex::Hdcd::Result>> m_hdcdWatcher; // empty: the drive could not be opened
+    QFutureWatcher<std::optional<bool>> m_cdgWatcher; // CD+G; runs after the HDCD probe, empty: not checked
 
-    int current_profile_index;
-    void set_profile(int profile_index);
+    // widgets
+    QPointer<QTreeView> m_cddaTreeView;
+    QPointer<QDockWidget> m_cddaHeaderDock;
+    QPointer<CDDAHeaderWidget> m_cddaHeaderWidget;
+    QPointer<KMessageWidget> m_profileMessage;
+    QPointer<KComboBox> m_driveComboBox;
+    QPointer<QLabel> m_profileLabel;
+    QPointer<KComboBox> m_profileComboBox;
+
+    // metadata lookup state
+    int m_lookupId = 0;
+    QString m_lookupError;
+    bool m_lookupAuto = false;
+    int m_coverFetchId = 0;
+    struct PendingCover {
+        QUrl url;
+        QUrl page;
+        QString origin; // for the user
+    };
+    PendingCover m_coverFetching; // the one m_coverFetchId loads
+    QList<PendingCover> m_coverQueue; // to try if it does not exist
+
+    // ui state
+    bool m_layoutEnabled = false;
+    bool m_imageMode = false;
+    QList<int> m_savedSelection; // track selection before image mode forced all tracks
+    bool m_htoaSilent = false; // the hidden track one audio of the disc is silence
+    bool m_valid = false; // set once the constructor has completed
 };
-
-#endif

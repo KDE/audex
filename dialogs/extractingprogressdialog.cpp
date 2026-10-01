@@ -1,15 +1,38 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include <QLocale>
-
 #include "extractingprogressdialog.h"
 
-ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent)
+#include "dialogs/errordialog.h"
+#include "dialogs/logviewdialog.h"
+#include "preferences.h"
+#include "utils/devicesettings.h"
+
+#include <QDBusConnection>
+#include <QDialogButtonBox>
+#include <QElapsedTimer>
+#include <QLocale>
+#include <QPointer>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <KColorScheme>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KMessageBox>
+
+using namespace Qt::StringLiterals;
+
+ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model,
+                                                   Audex::CDInfoModel *cdda_model,
+                                                   std::shared_ptr<const Audex::Encoding::EncoderRegistry> encoders,
+                                                   const Audex::DriveEntry &drive,
+                                                   const QString &driveUdi,
+                                                   QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18n("Rip And Encode"));
@@ -29,66 +52,156 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
     this->profile_model = profile_model;
     this->cdda_model = cdda_model;
 
-    QString title = QString("%1 - %2").arg(cdda_model->artist(), cdda_model->title());
-    ui.label_header->setText(title);
-
-    p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
-
-    if (p_single_file) {
-        ui.label_extracting->setText(i18n("Ripping whole CD as single track"));
-        ui.label_encoding->setText(i18n("Encoding"));
-
-    } else {
-        ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->numOfAudioTracks()));
-        ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
+    if (!cdda_model || !profile_model) {
+        qWarning() << "ExtractingProgressDialog() called with null model pointers";
+        Q_ASSERT(cdda_model);
+        Q_ASSERT(profile_model);
+        return;
     }
 
-    audex = new Audex(this, profile_model, cdda_model);
+    m_encoders = std::move(encoders);
+    m_drive = drive;
+    m_driveUdi = driveUdi;
 
-    connect(audex, SIGNAL(error(const QString &, const QString &)), this, SLOT(show_error(const QString &, const QString &)));
-    connect(audex, SIGNAL(warning(const QString &)), this, SLOT(show_warning(const QString &)));
-    connect(audex, SIGNAL(info(const QString &)), this, SLOT(show_info(const QString &)));
-    connect(audex, SIGNAL(finished(bool)), this, SLOT(conclusion(bool)));
-    connect(audex, SIGNAL(speedEncode(double)), this, SLOT(show_speed_encode(double)));
-    connect(audex, SIGNAL(speedExtract(double)), this, SLOT(show_speed_extract(double)));
-    connect(audex, SIGNAL(progressExtractTrack(int)), this, SLOT(show_progress_extract_track(int)));
-    connect(audex, SIGNAL(progressExtractOverall(int)), this, SLOT(show_progress_extract_overall(int)));
-    connect(audex, SIGNAL(progressEncodeTrack(int)), this, SLOT(show_progress_encode_track(int)));
-    connect(audex, SIGNAL(progressEncodeOverall(int)), this, SLOT(show_progress_encode_overall(int)));
-    connect(audex,
-            SIGNAL(changedExtractTrack(int, int, const QString &, const QString &)),
-            this,
-            SLOT(show_changed_extract_track(int, int, const QString &, const QString &)));
-    connect(audex, SIGNAL(changedEncodeTrack(int, int, const QString &)), this, SLOT(show_changed_encode_track(int, int, const QString &)));
-    connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
-    connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
+    QString title = u"%1 - %2"_s.arg(cdda_model->artist(), cdda_model->album());
+    ui.label_header->setText(title);
+
+    p_image_file = profile_model->isCurrentImage();
+
+    if (p_image_file) {
+        ui.label_extracting->setText(i18n("Ripping whole CD as image file"));
+    } else {
+        ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->selectedTracks().count()));
+    }
+
+    connect(ui.details_button, &QToolButton::clicked, this, &ExtractingProgressDialog::toggle_details);
 
     finished = false;
 
-    progressbar_np_flag = false;
+    last_sectors = 0;
+    speed_ema = 0.0;
+    current_track = 0;
 
     unity_message = QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
 }
 
 ExtractingProgressDialog::~ExtractingProgressDialog()
 {
-    delete audex;
+    if (m_job) {
+        m_job->cancel();
+        m_job->wait();
+    }
 }
 
 int ExtractingProgressDialog::exec()
 {
+    if (!cdda_model || !profile_model) {
+        qWarning() << "ExtractingProgressDialog::exec() called with null model pointers";
+        Q_ASSERT(cdda_model);
+        Q_ASSERT(profile_model);
+        return QDialog::Rejected;
+    }
+
     KConfigGroup grp(KSharedConfig::openConfig(), "ExtractingProgressDialog");
 
     resize(600, 400);
-    current_extract_overall = 0;
-    current_encode_overall = 0;
+    m_tracks = cdda_model->selectedTracks();
+
+    m_mapTracks.clear();
+    m_mapSectors = 0;
+    const Audex::CDInfo mapInfo = cdda_model->cdInfo();
+    for (const int number : std::as_const(m_tracks)) {
+        const auto entry = mapInfo.entry(number);
+        if (!entry)
+            continue;
+        m_mapTracks.append({entry->sectorCount(), number});
+        m_mapSectors += entry->sectorCount();
+    }
+    ui.discMap->setTracks(m_mapTracks);
+
     ui.details_button->setArrowType(grp.readEntry("Simple", true) ? Qt::UpArrow : Qt::DownArrow);
     toggle_details();
     show();
     setModal(true);
-    if (audex->prepare()) {
-        audex->start();
+
+    RipRequestBuilder builder(profile_model, cdda_model, m_encoders);
+    builder.setDrive(m_drive);
+    builder.setDriveUdi(m_driveUdi);
+
+    QString error;
+    QStringList existing;
+    if (!builder.validate(&error, &existing)) {
+        ErrorDialog::show(this, error, i18n("Ripping cannot be started."));
+        return QDialog::Rejected;
     }
+
+    // a drive that does not read accurately makes the rip worthless: say so plainly
+    const RipRequestBuilder::StreamWarning stream = builder.streamWarning();
+    if (stream.warn) {
+        const QString text = stream.measured
+            ? i18np(
+                  "The drive test found that this drive does not read accurately: after every jump to another position on the disc, "
+                  "its reads are off by up to %1 sample (no \"accurate stream\").\n\n"
+                  "Audex cannot compensate for this. In secure mode almost every sector will be reported as suspicious and the rip "
+                  "takes many hours; in fast mode the audio is shifted and AccurateRip will not confirm it. Neither gives a usable copy.\n\n"
+                  "Please use another drive.",
+                  "The drive test found that this drive does not read accurately: after every jump to another position on the disc, "
+                  "its reads are off by up to %1 samples (no \"accurate stream\").\n\n"
+                  "Audex cannot compensate for this. In secure mode almost every sector will be reported as suspicious and the rip "
+                  "takes many hours; in fast mode the audio is shifted and AccurateRip will not confirm it. Neither gives a usable copy.\n\n"
+                  "Please use another drive.",
+                  stream.jitterSamples)
+            : i18n(
+                  "This drive reports that it does not read accurately (no \"accurate stream\"). If that is true, secure mode will report "
+                  "almost every sector as suspicious and fast mode will deliver shifted audio.\n\n"
+                  "The drive has not been tested yet. The drive test in the device settings measures it in about two minutes.");
+        if (KMessageBox::warningContinueCancel(this,
+                                               text,
+                                               i18n("Drive Does Not Read Accurately"),
+                                               KGuiItem(i18n("Rip Anyway")),
+                                               KStandardGuiItem::cancel(),
+                                               QString(),
+                                               KMessageBox::Notify | KMessageBox::Dangerous)
+            != KMessageBox::Continue)
+            return QDialog::Rejected;
+    }
+
+    if (!existing.isEmpty() && !Preferences::overwriteExistingFiles()) {
+        if (KMessageBox::warningTwoActionsList(this,
+                                               i18n("The following files already exist. Do you want to overwrite them?"),
+                                               existing,
+                                               i18n("Files Already Exist"),
+                                               KStandardGuiItem::overwrite(),
+                                               KStandardGuiItem::cancel())
+            != KMessageBox::PrimaryAction) {
+            return QDialog::Rejected;
+        }
+    }
+
+    const RipRequestBuilder::DiskSpace space = builder.diskSpace();
+    if (!space.enough()) {
+        const QLocale locale;
+        if (KMessageBox::warningContinueCancel(this,
+                                               i18n("The output folder %1 has %2 free, but the rip needs about %3. Start it anyway?",
+                                                    space.folder,
+                                                    locale.formattedDataSize(space.available),
+                                                    locale.formattedDataSize(space.needed)),
+                                               i18n("Not Enough Disk Space"),
+                                               KGuiItem(i18n("Start Anyway")))
+            != KMessageBox::Continue)
+            return QDialog::Rejected;
+    }
+
+    m_plan = builder.plan();
+
+    m_job = new Audex::RipJob(builder.request(), this);
+    connect(m_job, &Audex::RipJob::progress, this, &ExtractingProgressDialog::onProgress);
+    connect(m_job, &Audex::RipJob::trackStatus, this, &ExtractingProgressDialog::onTrackStatus);
+    connect(m_job, &Audex::RipJob::message, this, &ExtractingProgressDialog::onMessage);
+    connect(m_job, &Audex::RipJob::finished, this, &ExtractingProgressDialog::onFinished);
+    speed_timer.start();
+    m_job->start();
+
     int rv = QDialog::exec();
 
     grp.writeEntry("Simple", (Qt::DownArrow == ui.details_button->arrowType()));
@@ -96,35 +209,21 @@ int ExtractingProgressDialog::exec()
     return rv;
 }
 
-void ExtractingProgressDialog::calc_overall_progress()
-{
-    ui.progressBar_overall->setValue((int)(((float)(current_extract_overall + current_encode_overall) / 2.0f) + .5f));
-    update_unity();
-}
-
 void ExtractingProgressDialog::toggle_details()
 {
-    if (Qt::UpArrow == ui.details_button->arrowType()) {
-        ui.details_button->setArrowType(Qt::DownArrow);
-        ui.details->setVisible(false);
-        ui.label_overall->setVisible(false);
-        ui.label_overall_track->setVisible(true);
-        ui.progressBar_overall->setVisible(true);
-        resize(width(), 32);
+    const bool expand = (Qt::UpArrow == ui.details_button->arrowType());
+    ui.details_button->setArrowType(expand ? Qt::DownArrow : Qt::UpArrow);
+    ui.details->setVisible(expand);
 
-    } else {
-        ui.details_button->setArrowType(Qt::UpArrow);
-        ui.details->setVisible(true);
-        ui.label_overall_track->setVisible(false);
+    // the spacer only keeps the collapsed content at the top
+    ui.verticalSpacer->changeSize(20, 0, QSizePolicy::Minimum, expand ? QSizePolicy::Minimum : QSizePolicy::Expanding);
 
-        if (cdda_model->numOfAudioTracksInSelection() < 2) {
-            ui.label_overall->setVisible(false);
-            ui.progressBar_overall->setVisible(false);
-        } else {
-            ui.label_overall->setVisible(true);
-        }
-        resize(width(), 400);
-    }
+    // update the minimum size now, otherwise resize() is clamped to the old one;
+    // the inner layout goes first, activating it propagates the change to mainLayout
+    ui.gridLayout_2->invalidate();
+    ui.gridLayout_2->activate();
+    mainLayout->activate();
+    resize(width(), expand ? 400 : minimumSizeHint().height());
 }
 
 void ExtractingProgressDialog::slotCancel()
@@ -137,112 +236,185 @@ void ExtractingProgressDialog::slotClose()
     close();
 }
 
-void ExtractingProgressDialog::slotEncoderLog()
+void ExtractingProgressDialog::slotLog()
 {
-    open_encoder_log_view_dialog();
+    open_log_view_dialog();
 }
 
-void ExtractingProgressDialog::slotExtractLog()
+void ExtractingProgressDialog::reject()
 {
-    open_extract_log_view_dialog();
+    // Esc and the window's close button end up here
+    if (finished)
+        QDialog::reject();
+    else
+        cancel();
 }
 
 void ExtractingProgressDialog::cancel()
 {
     if (finished) {
         close();
+        return;
+    }
+    if (m_cancelRequested)
+        return;
 
+    const auto answer = KMessageBox::warningTwoActions(this,
+                                                       i18n("Do you really want to cancel the extraction?"),
+                                                       i18n("Cancel Extraction"),
+                                                       KGuiItem(i18n("Cancel Extraction"), QIcon::fromTheme(QStringLiteral("process-stop"))),
+                                                       KStandardGuiItem::cont());
+    // the rip may have finished while the question was open
+    if (answer != KMessageBox::PrimaryAction || finished)
+        return;
+
+    m_cancelRequested = true;
+    if (cancelButton)
+        cancelButton->setEnabled(false);
+    show_info(i18n("Canceling..."));
+    if (m_job)
+        m_job->cancel();
+}
+
+void ExtractingProgressDialog::onProgress(qint64 doneSectors, qint64 totalSectors, int trackNumber, qint64 trackSectors)
+{
+    if (!cdda_model) {
+        qWarning() << "ExtractingProgressDialog::onProgress() called with null model pointers";
+        Q_ASSERT(cdda_model);
+        return;
+    }
+
+    m_percent = totalSectors > 0 ? int(doneSectors * 100 / totalSectors) : 0;
+    ui.discMap->setTrackProgress(trackNumber, trackSectors);
+    ui.discMap->setPercent(m_percent);
+
+    const int pos = qMax(1, m_tracks.indexOf(trackNumber) + 1);
+    current_track = pos;
+
+    if (p_image_file) {
+        ui.label_extracting->setText(i18n("Ripping whole CD as image file..."));
+    } else if (m_rereading.contains(trackNumber)) {
+        ui.label_extracting->setText(i18n("Reading track %1 again in secure mode...", pos));
     } else {
-        if (KMessageBox::warningTwoActions(this,
-                                           i18n("Do you really want to cancel extraction?"),
-                                           i18n("Cancel"),
-                                           KStandardGuiItem::cancel(),
-                                           KStandardGuiItem::cont())
-            == KMessageBox::PrimaryAction) {
-            cancelButton->setEnabled(false);
-            audex->cancel();
-        }
+        ui.label_extracting->setText((1 == m_tracks.count()) ? i18n("Ripping track...") : i18n("Ripping track %1 of %2...", pos, m_tracks.count()));
+    }
+
+    // speed: sectors per second / 75 sectors per second at 1x
+    if (speed_timer.elapsed() >= 500) {
+        const double sps = (double)(doneSectors - last_sectors) / ((double)speed_timer.elapsed() / 1000.0);
+        const double speed = sps / 75.0;
+        speed_ema = (speed_ema <= 0.0) ? speed : (0.3 * speed + 0.7 * speed_ema);
+        last_sectors = doneSectors;
+        speed_timer.restart();
+        ui.label_speed_extracting->setText(i18n("<i>Speed: %1×</i>", QLocale().toString(speed_ema, 'f', 2)));
+        // the read position on the disc: stays within the disc and follows
+        // the drive back when a track is read again
+        const QString sector = i18n("Sector %1 of %2", QLocale().toString(discPosition(trackNumber, trackSectors)), QLocale().toString(m_mapSectors));
+        const QString errors = i18np("%1 read error", "%1 read errors", m_errorCount);
+        if (m_rereading.contains(trackNumber))
+            ui.label_telemetry->setText(i18nc("sector, re-read, read errors", "%1 · re-read %2 of %3 · %4", sector, m_rereadIndex, m_rereadCount, errors));
+        else
+            ui.label_telemetry->setText(i18nc("sector, read errors", "%1 · %2", sector, errors));
+    }
+
+    update_unity();
+}
+
+void ExtractingProgressDialog::onTrackStatus(int trackNumber, int status)
+{
+    using Audex::Rip::SegmentStatus;
+    using State = DiscMapWidget::TrackState;
+
+    State state = State::Done;
+    switch (static_cast<SegmentStatus>(status)) {
+    case SegmentStatus::Confirmed:
+        state = State::Confirmed;
+        break;
+    case SegmentStatus::Unconfirmed:
+        state = State::Unconfirmed;
+        break;
+    case SegmentStatus::Rereading:
+        state = State::Rereading;
+        break;
+    case SegmentStatus::Done:
+        state = State::Done;
+        break;
+    case SegmentStatus::Suspicious:
+        state = State::Suspicious;
+        break;
+    }
+    if (state == State::Unconfirmed)
+        ++m_rereadCount;
+    if (state == State::Rereading) {
+        ++m_rereadIndex;
+        m_rereading.insert(trackNumber);
+    } else {
+        m_rereading.remove(trackNumber);
+    }
+    ui.discMap->setTrackState(trackNumber, state);
+}
+
+void ExtractingProgressDialog::onMessage(int level, const QString &text)
+{
+    switch (static_cast<Audex::Rip::LogLevel>(level)) {
+    case Audex::Rip::LogLevel::Warning:
+        show_warning(text);
+        ui.discMap->addErrorMark();
+        ++m_errorCount;
+        break;
+    case Audex::Rip::LogLevel::Error:
+        show_error(text, QString());
+        ui.discMap->addErrorMark();
+        ++m_errorCount;
+        break;
+    case Audex::Rip::LogLevel::Info:
+        show_info(text);
+        break;
+    default:
+        break; // Debug
     }
 }
 
-void ExtractingProgressDialog::show_changed_extract_track(int no, int total, const QString &artist, const QString &title)
+void ExtractingProgressDialog::onFinished(const Audex::RipSummary &summary)
 {
-    Q_UNUSED(artist);
-    Q_UNUSED(title);
-
-    if (!p_single_file) {
-        ui.label_extracting->setText((1 == total) ? i18n("Ripping track…") : i18n("Ripping track %1 of %2…", no, total));
-        ui.label_overall_track->setText((1 == total) ? i18n("Overall progress") : i18n("Overall progress (ripping track %1 of %2)", no, total));
-        current_track = no;
-        update_unity();
-
-    } else {
-        ui.label_extracting->setText(i18n("Ripping whole CD as single track…"));
-        ui.label_overall_track->setText(i18n("Overall progress"));
+    if (!cdda_model) {
+        qWarning() << "ExtractingProgressDialog::onFinished() called with null model pointers";
+        Q_ASSERT(cdda_model);
+        return;
     }
-}
 
-void ExtractingProgressDialog::show_changed_encode_track(int no, int total, const QString &filename)
-{
-    Q_UNUSED(filename);
+    m_summary = summary;
+    if (summary.measuredCacheDefeatReads > 0)
+        DeviceSettings::setCacheDefeatReads(m_driveUdi, summary.measuredCacheDefeatReads);
 
-    if (no == 0) {
-        ui.label_encoding->setText(i18n("<i>Waiting for an encoding job…</i>"));
-        ui.label_speed_encoding->clear();
-    } else {
-        if (!p_single_file)
-            ui.label_encoding->setText((1 == total) ? i18n("Encoding track…") : i18n("Encoding track %1 of %2…", no, total));
+    if (summary.completed && !summary.canceled) {
+        RipRequestBuilder::runPostProcess(m_plan, summary, cdda_model->cdInfo(), m_tracks, this, [this](int level, const QString &text) {
+            onMessage(level, text);
+        });
     }
+
+    if (summary.canceled)
+        show_info(i18n("Ripping canceled."));
+    else if (!summary.completed)
+        show_error(summary.error.isEmpty() ? i18n("Ripping failed.") : summary.error, QString());
+
+    // a completed rip may still contain damaged audio
+    const bool successful = summary.completed && !summary.canceled;
+    if (successful && summary.suspiciousPositions > 0)
+        show_warning(i18np("%1 position could not be read reliably; the audio may contain errors.",
+                           "%1 positions could not be read reliably; the audio may contain errors.",
+                           summary.suspiciousPositions));
+    if (successful && summary.accurateRipMismatches > 0)
+        show_warning(
+            i18np("%1 track does not match the AccurateRip database.", "%1 tracks do not match the AccurateRip database.", summary.accurateRipMismatches));
+
+    if (successful && summary.ctdbMismatches > 0)
+        show_warning(i18np("%1 track does not match the CUETools database.", "%1 tracks do not match the CUETools database.", summary.ctdbMismatches));
+
+    conclusion(successful, summary.suspiciousPositions > 0 || summary.accurateRipMismatches > 0 || summary.ctdbMismatches > 0);
 }
 
-void ExtractingProgressDialog::show_progress_extract_track(int percent)
-{
-    ui.progressBar_extracting->setValue(percent);
-}
-
-void ExtractingProgressDialog::show_progress_extract_overall(int percent)
-{
-    current_extract_overall = percent;
-    calc_overall_progress();
-}
-
-void ExtractingProgressDialog::show_progress_encode_track(int percent)
-{
-    if (percent >= 0) {
-        ui.progressBar_encoding->setValue(percent);
-        if (progressbar_np_flag) {
-            ui.progressBar_encoding->setRange(0, 100);
-            ui.progressBar_encoding->setTextVisible(true);
-            progressbar_np_flag = false;
-        }
-    } else {
-        if (!progressbar_np_flag) {
-            progressbar_np_flag = true;
-            ui.progressBar_encoding->setRange(0, 0);
-            ui.progressBar_encoding->setTextVisible(false);
-        }
-    }
-}
-
-void ExtractingProgressDialog::show_progress_encode_overall(int percent)
-{
-    current_encode_overall = percent;
-    calc_overall_progress();
-}
-
-void ExtractingProgressDialog::show_speed_encode(double speed)
-{
-    QString s = QLocale().toString((double)speed, 'f', 2);
-    ui.label_speed_encoding->setText(i18n("<i>Speed: %1×</i>", s));
-}
-
-void ExtractingProgressDialog::show_speed_extract(double speed)
-{
-    QString s = QLocale().toString((double)speed, 'f', 2);
-    ui.label_speed_extracting->setText(i18n("<i>Speed: %1×</i>", s));
-}
-
-void ExtractingProgressDialog::conclusion(bool successful)
+void ExtractingProgressDialog::conclusion(bool successful, bool warnings)
 {
     // Remove the cancel button
     buttonBox->clear();
@@ -256,50 +428,39 @@ void ExtractingProgressDialog::conclusion(bool successful)
 
     QPalette pal(ui.label_extracting->palette());
     KColorScheme kcs(QPalette::Active);
-    if (successful) {
+    if (successful && !warnings) {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-ok-apply"), i18n("All jobs successfully done."));
         ui.klistwidget->addItem(item);
         ui.klistwidget->scrollToItem(item);
         pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
         ui.label_extracting->setText("<font style=\"font-weight:bold;\">" + i18n("Finished!") + "</font>");
-        ui.label_encoding->setText("<font style=\"font-weight:bold;\">" + i18n("Finished!") + "</font>");
-        ui.label_overall_track->setText("<font style=\"font-weight:bold;\">" + i18n("Finished!") + "</font>");
-        ui.progressBar_extracting->setValue(100);
-        ui.progressBar_encoding->setValue(100);
-        ui.progressBar_overall->setValue(100);
+
+    } else if (successful) {
+        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-warning"), i18n("Finished with warnings. Please check the rip log."));
+        ui.klistwidget->addItem(item);
+        ui.klistwidget->scrollToItem(item);
+        pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NeutralText));
+        const QString color = kcs.foreground(KColorScheme::NeutralText).color().name();
+        const QString text = u"<font style=\"color:%1;font-weight:bold;\">%2</font>"_s.arg(color, i18n("Finished with warnings"));
+        ui.label_extracting->setText(text);
+
     } else {
         QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-cancel"), i18n("At least one job failed."));
         pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
         ui.klistwidget->addItem(item);
         ui.klistwidget->scrollToItem(item);
         ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
-        ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
-        ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
-        if (audex->encoderLog().count() > 0) {
-            auto *encoderLogButton = new QPushButton();
-            encoderLogButton->setText(i18n("Show Encoding Log…"));
-            encoderLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical-audio")));
-            buttonBox->addButton(encoderLogButton, QDialogButtonBox::HelpRole);
-            connect(encoderLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotEncoderLog);
-        }
-        if (audex->extractLog().count() > 0) {
-            auto *extractLogButton = new QPushButton();
-            extractLogButton->setText(i18n("Show Rip Log…"));
-            extractLogButton->setIcon(QIcon::fromTheme(QStringLiteral("media-optical")));
-            buttonBox->addButton(extractLogButton, QDialogButtonBox::HelpRole);
-            connect(extractLogButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotExtractLog);
-        }
     }
 
-    ui.progressBar_extracting->setEnabled(false);
-    ui.progressBar_encoding->setEnabled(false);
-    ui.progressBar_overall->setEnabled(false);
+    if (m_summary.report.count() > 0) {
+        auto *logButton = new QPushButton();
+        logButton->setText(i18n("Show Rip Log..."));
+        logButton->setIcon(QIcon::fromTheme(u"media-optical"_s));
+        buttonBox->addButton(logButton, QDialogButtonBox::HelpRole);
+        connect(logButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotLog);
+    }
     ui.label_speed_extracting->setEnabled(false);
-    ui.label_speed_encoding->setEnabled(false);
-    ui.label_overall->setEnabled(false);
-
     ui.label_extracting->setPalette(pal);
-    ui.label_encoding->setPalette(pal);
 }
 
 void ExtractingProgressDialog::show_info(const QString &message)
@@ -328,35 +489,27 @@ void ExtractingProgressDialog::show_error(const QString &message, const QString 
     ui.klistwidget->scrollToItem(item);
 }
 
-void ExtractingProgressDialog::ask_timeout()
+void ExtractingProgressDialog::open_log_view_dialog()
 {
-    if (KMessageBox::questionTwoActions(this,
-                                        i18n("Ripping speed was extremely slow for the last 5 minutes.\n"
-                                             "Do you want to continue extraction?"),
-                                        i18n("Cancel extraction"),
-                                        KStandardGuiItem::cont(),
-                                        KStandardGuiItem::cancel())
-        == KMessageBox::SecondaryAction) {
-        audex->cancel();
+    LogViewDialog logViewDialog(m_summary.report, i18n("Ripping log"), this);
+    logViewDialog.exec();
+}
+
+qint64 ExtractingProgressDialog::discPosition(int trackNumber, qint64 trackSectors) const
+{
+    qint64 offset = 0;
+    for (const auto &track : m_mapTracks) {
+        if (track.second == trackNumber)
+            return offset + std::clamp<qint64>(trackSectors, 0, track.first);
+        offset += track.first;
     }
-}
-
-void ExtractingProgressDialog::open_encoder_log_view_dialog()
-{
-    LogViewDialog logViewDialog(audex->encoderLog(), i18n("Encoding log"), this);
-    logViewDialog.exec();
-}
-
-void ExtractingProgressDialog::open_extract_log_view_dialog()
-{
-    LogViewDialog logViewDialog(audex->extractLog(), i18n("Ripping log"), this);
-    logViewDialog.exec();
+    return 0;
 }
 
 void ExtractingProgressDialog::update_unity()
 {
     QList<QVariant> args;
-    int progress = ui.progressBar_overall->value();
+    const int progress = m_percent;
     bool show_progress = progress > -1 && progress < 100 && !finished;
     QMap<QString, QVariant> props;
     props["count-visible"] = current_track > 0 && !finished;

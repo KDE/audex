@@ -1,35 +1,42 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CUESHEETWRITER_H
-#define CUESHEETWRITER_H
+#pragma once
 
 #include <QFileInfo>
 #include <QString>
 #include <QStringList>
 
-#include <KLocalizedString>
+#include "core/subchannel.h"
+#include "metadata/cdinfo.h"
 
-#include "models/cddamodel.h"
-
-class CueSheetWriter : public QObject
+// Writes cue sheets for the ripped files. Positions inside a single image
+// file are relative to the start of the first written track.
+class CueSheetWriter
 {
-    Q_OBJECT
 public:
-    explicit CueSheetWriter(CDDAModel *model);
-    ~CueSheetWriter() override;
+    explicit CueSheetWriter(const Audex::CDInfo &info);
+    ~CueSheetWriter();
 
-    QStringList cueSheet(const QString &binFilename, const int frameOffset = 0 /*, const bool writeMCN = false, const bool writeISRC = false*/) const;
-    QStringList cueSheet(const QStringList &filenames, const int frameOffset = 0 /*, const bool writeMCN = false, const bool writeISRC = false*/) const;
+    // pregaps and indexes; ISRC and MCN where the metadata has none
+    void setSubchannel(const Audex::Cdda::SubchannelScan &scan);
+
+    // single image file (single file rip); tracks = written TOC track numbers
+    QStringList cueSheet(const QString &binFilename, const QList<int> &tracks, const bool writeMCN = false, const bool writeISRC = false) const;
+
+    // one audio file per track
+    QStringList cueSheet(const QStringList &filenames, const QList<int> &tracks, const bool writeMCN = false, const bool writeISRC = false) const;
 
 private:
-    CDDAModel *model;
+    QStringList header(const bool writeMCN) const;
+    QStringList trackLines(const int number, const bool writeISRC) const;
 
-    QString p_filetype(const QString &filename) const;
+    const QString p_filetype(const QString &filename) const;
+
+    Audex::CDInfo info;
+    Audex::Cdda::SubchannelScan subchannel;
 };
-
-#endif

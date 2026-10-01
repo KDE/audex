@@ -1,21 +1,57 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "commandwizarddialog.h"
+#include "dialogs/commandwizarddialog.h"
 #include "dialogs/textviewdialog.h"
+#include "encoding/registry.h"
+#include "utils/encodercommand.h"
 #include "utils/schemeparser.h"
 
+#include <QDate>
 #include <QDialogButtonBox>
+#include <QDir>
+#include <QMap>
+#include <QTime>
 #include <QVBoxLayout>
 
-CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent)
+using namespace Qt::StringLiterals;
+
+namespace
+{
+
+// what the placeholders stand for in the preview
+QMap<QString, QString>
+exampleValues(const QString &artist, const QString &title, const QString &date, const QString &genre, const QString &cdNo, const QString &tracks)
+{
+    return {{QStringLiteral(VAR_ALBUM_ARTIST), artist},
+            {QStringLiteral(VAR_ALBUM_TITLE), title},
+            {QStringLiteral(VAR_DATE), date},
+            {QStringLiteral(VAR_GENRE), genre},
+            {QStringLiteral(VAR_CD_NO), cdNo},
+            {QStringLiteral(VAR_NO_OF_TRACKS), tracks},
+            {QStringLiteral(VAR_ENCODER), QStringLiteral("LAME 3.100")},
+            {QStringLiteral(VAR_AUDEX), QStringLiteral("Audex")},
+            {QStringLiteral(VAR_DISCID), QStringLiteral("a70de90c")},
+            {QStringLiteral(VAR_MCN), QStringLiteral("4006381333931")},
+            {QStringLiteral(VAR_CD_SIZE), QStringLiteral("587 MiB")},
+            {QStringLiteral(VAR_CD_LENGTH), QStringLiteral("55:42.120")},
+            {QStringLiteral(VAR_TODAY), QDate::currentDate().toString(Qt::ISODate)},
+            {QStringLiteral(VAR_NOW), QTime::currentTime().toString(QStringLiteral("hh-mm-ss"))},
+            {QStringLiteral(VAR_LINEBREAK), QStringLiteral(" ")}};
+}
+
+}
+
+CommandWizardDialog::CommandWizardDialog(const QString &command, const QString &suffix, QWidget *parent)
     : QDialog(parent)
 {
     Q_UNUSED(parent);
+
+    m_suffix = suffix;
 
     setWindowTitle(i18n("Command Scheme Wizard"));
 
@@ -39,24 +75,23 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
     help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(2), i18n("Command scheme help"), this);
 
     ui.qlineedit_command->setText(command);
-    connect(ui.qlineedit_command, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    connect(ui.qlineedit_command, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
+    connect(ui.qlineedit_command, &QLineEdit::textEdited, this, &CommandWizardDialog::trigger_changed);
+    connect(ui.qlineedit_command, &QLineEdit::textChanged, this, &CommandWizardDialog::update_example);
     ui.qlineedit_command->setCursorPosition(0);
 
-    connect(ui.kurllabel_help, SIGNAL(leftClickedUrl()), this, SLOT(help()));
+    connect(ui.kurllabel_help, &KUrlLabel::leftClickedUrl, this, &CommandWizardDialog::help);
 
-    connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
-    connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
-    connect(ui.kpushbutton_trackartist, SIGNAL(clicked()), this, SLOT(insTrackArtist()));
-    connect(ui.kpushbutton_tracktitle, SIGNAL(clicked()), this, SLOT(insTrackTitle()));
-    connect(ui.kpushbutton_trackno, SIGNAL(clicked()), this, SLOT(insTrackNo()));
-    connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
-    connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
-    connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
-    connect(ui.kpushbutton_cover_file, SIGNAL(clicked()), this, SLOT(insCoverFile()));
-    connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
-    connect(ui.kpushbutton_input_file, SIGNAL(clicked()), this, SLOT(insInFile()));
-    connect(ui.kpushbutton_output_file, SIGNAL(clicked()), this, SLOT(insOutFile()));
+    connect(ui.kpushbutton_albumartist, &QAbstractButton::clicked, this, &CommandWizardDialog::insAlbumArtist);
+    connect(ui.kpushbutton_albumtitle, &QAbstractButton::clicked, this, &CommandWizardDialog::insAlbumTitle);
+    connect(ui.kpushbutton_trackartist, &QAbstractButton::clicked, this, &CommandWizardDialog::insTrackArtist);
+    connect(ui.kpushbutton_tracktitle, &QAbstractButton::clicked, this, &CommandWizardDialog::insTrackTitle);
+    connect(ui.kpushbutton_trackno, &QAbstractButton::clicked, this, &CommandWizardDialog::insTrackNo);
+    connect(ui.kpushbutton_cdno, &QAbstractButton::clicked, this, &CommandWizardDialog::insCDNo);
+    connect(ui.kpushbutton_date, &QAbstractButton::clicked, this, &CommandWizardDialog::insDate);
+    connect(ui.kpushbutton_genre, &QAbstractButton::clicked, this, &CommandWizardDialog::insGenre);
+    connect(ui.kpushbutton_nooftracks, &QAbstractButton::clicked, this, &CommandWizardDialog::insNoOfTracks);
+    connect(ui.kpushbutton_input_file, &QAbstractButton::clicked, this, &CommandWizardDialog::insInFile);
+    connect(ui.kpushbutton_output_file, &QAbstractButton::clicked, this, &CommandWizardDialog::insOutFile);
 
     this->command = command;
 
@@ -65,14 +100,7 @@ CommandWizardDialog::CommandWizardDialog(const QString &command, QWidget *parent
     update_example();
 }
 
-CommandWizardDialog::~CommandWizardDialog()
-{
-    if (help_dialog != nullptr) {
-        help_dialog->close();
-        delete help_dialog;
-        help_dialog = nullptr;
-    }
-}
+CommandWizardDialog::~CommandWizardDialog() = default;
 
 void CommandWizardDialog::slotAccepted()
 {
@@ -96,7 +124,13 @@ void CommandWizardDialog::trigger_changed()
 
 void CommandWizardDialog::help()
 {
-    help_dialog->showNormal();
+    if (!help_dialog) {
+        help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(1), i18n("Filename scheme help"), this);
+    }
+
+    help_dialog->show();
+    help_dialog->raise();
+    help_dialog->activateWindow();
 }
 
 void CommandWizardDialog::insAlbumArtist()
@@ -163,14 +197,6 @@ void CommandWizardDialog::insGenre()
     update_example();
 }
 
-void CommandWizardDialog::insCoverFile()
-{
-    QString text = ui.qlineedit_command->text();
-    text.insert(ui.qlineedit_command->cursorPosition(), '$' + QString(VAR_COVER_FILE));
-    ui.qlineedit_command->setText(text);
-    update_example();
-}
-
 void CommandWizardDialog::insNoOfTracks()
 {
     QString text = ui.qlineedit_command->text();
@@ -204,48 +230,44 @@ bool CommandWizardDialog::save()
 
 void CommandWizardDialog::update_example()
 {
-    SchemeParser schemeparser;
-    QString filename = schemeparser.parsePerTrackCommandScheme(ui.qlineedit_command->text(),
-                                                               "/tmp/tmp.wav",
-                                                               QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
-                                                               2,
-                                                               1,
-                                                               1,
-                                                               12,
-                                                               "Meat Loaf",
-                                                               "Bat Out Of Hell III",
-                                                               "Meat Loaf",
-                                                               "Blind As A Bat",
-                                                               "2006",
-                                                               "Rock",
-                                                               "AA6Q72000047",
-                                                               "ogg",
-                                                               QImage(),
-                                                               QDir::tempPath(),
-                                                               "LAME 3.100",
-                                                               true);
-    ui.qlineedit_album_example->setText(filename);
+    // both steps, exactly as the engine does them: album values before the
+    // rip, track values when the output file is opened; %o is shown with an
+    // example path, resolved by the same code the engine uses
+    const QString suffix = m_suffix.isEmpty() ? u"m4a"_s : m_suffix;
+    const auto preview = [this](const QMap<QString, QString> &album, const QMap<QString, QString> &track, const QString &outputPath) {
+        const Audex::Encoding::CommandScheme scheme = Audex::Encoding::parseCommandScheme(ui.qlineedit_command->text(), album);
+        const QStringList args = Audex::Encoding::ExternalEncoderFactory::commandLine(Audex::Encoding::substituteValues(scheme.arguments, track), outputPath);
+        return qMakePair(Audex::Encoding::commandToString(args), scheme.unsupported);
+    };
+
+    const QString musicDir = QDir::homePath() + u"/music/"_s;
+    const auto album = preview(exampleValues(QStringLiteral("Meat Loaf"),
+                                             QStringLiteral("Bat Out Of Hell III"),
+                                             QStringLiteral("2006"),
+                                             QStringLiteral("Rock"),
+                                             QString(),
+                                             QStringLiteral("12")),
+                               Audex::Encoding::trackValues(QStringLiteral("Meat Loaf"), QStringLiteral("Blind As A Bat"), 2, QStringLiteral("AA6Q72000047")),
+                               musicDir + u"Meat Loaf/Bat Out Of Hell III/02 - Blind As A Bat."_s + suffix);
+    ui.qlineedit_album_example->setText(album.first);
     ui.qlineedit_album_example->setCursorPosition(0);
-    filename =
-        schemeparser.parsePerTrackCommandScheme(ui.qlineedit_command->text(),
-                                                "/tmp/tmp.wav",
-                                                QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
-                                                4,
-                                                2,
-                                                1,
-                                                18,
-                                                "Alternative Hits",
-                                                "Volume 4",
-                                                "Wolfsheim",
-                                                "Approaching Lightspeed",
-                                                "2003",
-                                                "Darkwave",
-                                                "AA6Q72000047",
-                                                "ogg",
-                                                QImage(),
-                                                QDir::tempPath(),
-                                                "LAME 3.100",
-                                                true);
-    ui.qlineedit_sampler_example->setText(filename);
+
+    const auto sampler =
+        preview(exampleValues(QStringLiteral("Alternative Hits"),
+                              QStringLiteral("Volume 4"),
+                              QStringLiteral("2003"),
+                              QStringLiteral("Darkwave"),
+                              QStringLiteral("2"),
+                              QStringLiteral("18")),
+                Audex::Encoding::trackValues(QStringLiteral("Wolfsheim"), QStringLiteral("Approaching Lightspeed"), 4, QStringLiteral("DEA123400001")),
+                musicDir + u"Alternative Hits/Volume 4/04 - Approaching Lightspeed."_s + suffix);
+    ui.qlineedit_sampler_example->setText(sampler.first);
     ui.qlineedit_sampler_example->setCursorPosition(0);
+
+    ui.label_note->setText(album.second.isEmpty()
+                               ? i18n("Audex sends the audio to the command as WAVE on standard input (that is what %1 becomes); %2 is the file the command "
+                                      "has to write.",
+                                      QStringLiteral("$i"),
+                                      QStringLiteral("%o"))
+                               : i18n("%1 cannot be filled in; a rip with this command is refused.", album.second.join(QStringLiteral(", "))));
 }

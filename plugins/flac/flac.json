@@ -1,0 +1,5 @@
+{
+    "Id": "flac",
+    "Name": "FLAC",
+    "Library": "libFLAC"
+}

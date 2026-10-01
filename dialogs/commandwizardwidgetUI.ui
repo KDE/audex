@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
 <ui version="4.0">
  <class>CommandWizardWidgetUI</class>
  <widget class="QWidget" name="CommandWizardWidgetUI">
@@ -278,21 +282,6 @@
    </item>
    <item row="6" column="0" colspan="2">
     <widget class="QPushButton" name="kpushbutton_albumartist">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Album Artist</string>
      </property>
@@ -300,148 +289,91 @@
    </item>
    <item row="6" column="2" colspan="2">
     <widget class="QPushButton" name="kpushbutton_albumtitle">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Album Title</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="4" colspan="3">
+   <item row="6" column="4" colspan="2">
     <widget class="QPushButton" name="kpushbutton_trackartist">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Track Artist</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="7" colspan="2">
+   <item row="6" column="6" colspan="3">
     <widget class="QPushButton" name="kpushbutton_tracktitle">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>16777215</height>
-      </size>
-     </property>
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Track Title</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="0">
+   <item row="7" column="0" colspan="2">
     <widget class="QPushButton" name="kpushbutton_trackno">
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Track #</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="1" colspan="2">
+   <item row="7" column="2" colspan="2">
     <widget class="QPushButton" name="kpushbutton_cdno">
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>CD #</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="3" colspan="2">
+   <item row="7" column="4" colspan="2">
     <widget class="QPushButton" name="kpushbutton_nooftracks">
      <property name="text">
       <string># of Tracks</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="5" colspan="3">
+   <item row="7" column="6" colspan="3">
     <widget class="QPushButton" name="kpushbutton_date">
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Date</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="8">
+   <item row="8" column="0" colspan="3">
     <widget class="QPushButton" name="kpushbutton_genre">
-     <property name="toolTip">
-      <string/>
-     </property>
      <property name="text">
       <string>Genre</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0" colspan="3">
-    <widget class="QPushButton" name="kpushbutton_cover_file">
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Cover File</string>
      </property>
     </widget>
    </item>
    <item row="8" column="3" colspan="3">
     <widget class="QPushButton" name="kpushbutton_input_file">
      <property name="toolTip">
-      <string/>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Inserts $i. Audex sends the audio to the command as WAVE on standard input, so $i becomes a single &lt;tt&gt;-&lt;/tt&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="text">
-      <string>Input File</string>
+      <string>Audio Input</string>
      </property>
     </widget>
    </item>
    <item row="8" column="6" colspan="3">
     <widget class="QPushButton" name="kpushbutton_output_file">
      <property name="toolTip">
-      <string/>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Inserts $o, the file the command has to write.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="text">
       <string>Output File</string>
      </property>
     </widget>
    </item>
-   <item row="9" column="3" colspan="2">
+   <item row="9" column="0" colspan="9">
+    <widget class="QLabel" name="label_note">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="10" column="3" colspan="2">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -475,7 +407,6 @@
   <tabstop>kpushbutton_cdno</tabstop>
   <tabstop>kpushbutton_date</tabstop>
   <tabstop>kpushbutton_genre</tabstop>
-  <tabstop>kpushbutton_cover_file</tabstop>
   <tabstop>kpushbutton_input_file</tabstop>
   <tabstop>kpushbutton_output_file</tabstop>
  </tabstops>

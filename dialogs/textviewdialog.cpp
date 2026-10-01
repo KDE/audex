@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,10 +7,7 @@
 
 #include "textviewdialog.h"
 
-#include <KConfigGroup>
-#include <KLocalizedString>
 #include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 
 TextViewDialog::TextViewDialog(const QString &text, const QString &title, QWidget *parent)
@@ -34,10 +31,6 @@ TextViewDialog::TextViewDialog(const QString &text, const QString &title, QWidge
 
     if (!text.isEmpty())
         ui.ktextedit->setText(text);
-}
-
-TextViewDialog::~TextViewDialog()
-{
 }
 
 void TextViewDialog::slotClosed()
