@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-09-21 23:02+0900\n"
+"PO-Revision-Date: 2026-10-01 01:12+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -2179,12 +2179,7 @@ msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_skipReadErrors)
 #: widgets/devicewidgetUI.ui:39
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>Skip reading errors of a sector (length of a "
-#| "sector: 1/75 second) after trying to read the sector again for at most 20 "
-#| "times. Usually broken sectors will be filled with silence.</p></body></"
-#| "html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>Skip reading errors for a sector (sector length: 1/75 "
 "second) after retrying to read it. Please specify the number of retry "
@@ -2192,8 +2187,9 @@ msgid ""
 "span>. If skipped, null samples will be written for the faulty sectors.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>嘗試讀取磁區最多 20 次之後跳過讀取磁區的錯誤（磁區長"
-"度：1/75 秒）。通常破損的磁區會以靜音填滿。</p></body></html>"
+"<html><head/><body><p>重新嘗試讀取磁區後跳過磁區的讀取錯誤（磁區長度：1/75 "
+"秒）。請在「有讀取錯誤時重試」底下指定重試次數。若跳過，會為有問題的磁區寫入"
+"零樣本。</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #. i18n: ectx: property (toolTip), widget (QSpinBox, kcfg_sampleShift)
@@ -2206,6 +2202,10 @@ msgid ""
 "decoration: underline; color:#2980b9;\">Accuraterip</span></a> database.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>某些磁碟機在讀取音訊 CD 時會有樣本偏移。要判斷您的磁碟"
+"機型號的正確偏移，您可以參照<a href=\"https://www.accuraterip.com/"
+"driveoffsets.htm\"><span style=\" text-decoration: underline; color:#2980b9;"
+"\">Accuraterip</span></a> 資料庫。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/devicewidgetUI.ui:54
@@ -2221,6 +2221,8 @@ msgid ""
 "<html><head/><body><p>Specify the maximum number of retry attempts when a "
 "faulty sector is encountered.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>指定遇到有問題的磁區的時候最多要重試幾次。</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: widgets/devicewidgetUI.ui:106
