@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <array>
 #include <cstdlib>
+#include <cstring>
 
 namespace Audex::Rip
 {
@@ -209,14 +210,20 @@ void AccurateRipChecksum::update(QByteArrayView data)
     const char *p = data.constData();
     qsizetype n = data.size();
 
-    while (m_pendingLength > 0 && n > 0) {
-        m_pending[m_pendingLength++] = *p++;
-        --n;
-        if (m_pendingLength == 4) {
-            processSample(qFromLittleEndian<quint32>(m_pending));
-            m_pendingLength = 0;
-            break;
+    if (m_pendingLength > 0) {
+        const int needed = 4 - m_pendingLength;
+        const int toCopy = std::min<qsizetype>(n, needed);
+        std::memcpy(m_pending + m_pendingLength, p, toCopy);
+        m_pendingLength += toCopy;
+        p += toCopy;
+        n -= toCopy;
+
+        if (m_pendingLength < 4) {
+            return;
         }
+
+        processSample(qFromLittleEndian<quint32>(m_pending));
+        m_pendingLength = 0;
     }
 
     while (n >= 4) {
@@ -225,9 +232,9 @@ void AccurateRipChecksum::update(QByteArrayView data)
         n -= 4;
     }
 
-    while (n > 0) {
-        m_pending[m_pendingLength++] = *p++;
-        --n;
+    if (n > 0) {
+        std::memcpy(m_pending, p, n);
+        m_pendingLength = static_cast<int>(n);
     }
 }
 
