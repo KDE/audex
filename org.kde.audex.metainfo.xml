@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>org.kde.audex</id>
   <metadata_license>FSFAP</metadata_license>
-  <project_license>GPL-2.0</project_license>
+  <project_license>GPL-3.0-or-later</project_license>
   <name>Audex</name>
   <name xml:lang="ar">أوديكس</name>
   <name xml:lang="ast">Audex</name>
@@ -77,10 +77,16 @@
   <summary xml:lang="zh-TW">從您的 CD-ROM 光碟取出音訊</summary>
   <description>
     <p>
-      Audex is a CD ripper application. It lets you extract the audio from
-      your CDs to let you listen to them on your computer and your other
-      devices. It includes CDDB and MusicBrainz integrations to fetch the
-      metadata and covers for your CDs if available.
+      Audex is a CD ripper application. It extracts the audio from your CDs
+      with its own secure extraction engine: read offset correction, drive
+      cache defeat, optional C2 error pointers, and verification of every
+      track against the AccurateRip and CUETools databases. Each rip is
+      documented in a log.
+    </p>
+    <p>
+      Metadata comes from MusicBrainz and CD-Text, covers from the Cover Art
+      Archive. The audio is encoded while ripping to FLAC, MP3 or Opus, or
+      through any command-line encoder you configure.
     </p>
     <p xml:lang="ar">أوديكس هو تطبيق لاستخراج الصوت من الأقراص المضغوطة. يتيح لك استخراج الصوت من الأقراص المضغوطة حتى تتمكن من الاستماع إليها على حاسوبك والأجهزة الأخرى. يتضمن تكاملات CDDB وMusicBrainz لجلب البيانات الوصفية وأغلفة الأقراص المضغوطة إذا كانت متوفرة.</p>
     <p xml:lang="ca">L'Audex és una aplicació d'extracció de CD. Permet extreure l'àudio dels CD per a permetre escoltar-los en l'ordinador i en altres dispositius. Inclou una integració amb el CDDB i el MusicBrainz per a obtenir les metadades i caràtules dels CD si estan disponibles.</p>
@@ -168,7 +174,6 @@
   </provides>
   <launchable type="desktop-id">org.kde.audex.desktop</launchable>
   <releases>
-    <release version="26.08.2" date="2026-10-08"/>
     <release version="26.08.1" date="2026-09-10"/>
     <release version="26.08.0" date="2026-08-20"/>
     <release version="26.04.3" date="2026-07-02"/>
