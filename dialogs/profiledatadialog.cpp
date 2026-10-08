@@ -1,16 +1,26 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "profiledatadialog.h"
-#include "models/profilemodel.h"
 
-#include <KConfigGroup>
-#include <QDebug>
+#include "dialogs/errordialog.h"
+#include "dialogs/filenameschemewizarddialog.h"
+#include "dialogs/profiledatacoverdialog.h"
+#include "dialogs/profiledatahookdialog.h"
+#include "dialogs/profiledatalogfiledialog.h"
+#include "dialogs/profiledataplaylistdialog.h"
+#include "dialogs/schemewizarddialog.h"
+
+#include <KMessageWidget>
+
+#include <QComboBox>
 #include <QDialogButtonBox>
+#include <QStackedWidget>
+#include <QStandardItemModel>
 #include <QVBoxLayout>
 
 ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent)
@@ -20,7 +30,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     profile_model = profileModel;
     if (!profile_model) {
-        qDebug() << "ProfileModel is NULL!";
+        qWarning() << "ProfileDataDialog() called with null model pointers";
+        Q_ASSERT(profile_model);
         return;
     }
 
@@ -45,69 +56,69 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     setLayout(mainLayout);
     mainLayout->addWidget(widget);
 
-    if (!new_profile_mode) {
-        lame_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX)).toString());
-        oggenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX)).toString());
-        opusenc_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX)).toString());
-        flac_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX)).toString());
-        faac_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX)).toString());
-        wave_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX)).toString());
-        custom_parameters.fromString(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX)).toString());
-    }
+    // For a new profile the widgets start from their own defaults, so the
+    // stored parameters are only read when an existing profile is modified.
+    auto storedParameters = [this](const int column) {
+        Parameters parameters;
+        if (!new_profile_mode)
+            parameters.fromString(profile_model->data(profile_model->index(profile_row, column)).toString());
+        return parameters;
+    };
 
-    lame_widget = new lameWidget(&lame_parameters, this);
-    connect(lame_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
-    oggenc_widget = new oggencWidget(&oggenc_parameters, this);
-    connect(oggenc_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
-    opusenc_widget = new opusencWidget(&opusenc_parameters, this);
-    connect(opusenc_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
-    flac_widget = new flacWidget(&flac_parameters, this);
-    connect(flac_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
-    faac_widget = new faacWidget(&faac_parameters, this);
-    connect(faac_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
-    wave_widget = new waveWidget(&wave_parameters, this);
-    connect(wave_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
-    custom_widget = new customWidget(&custom_parameters, this);
-    connect(custom_widget, SIGNAL(triggerChanged()), this, SLOT(trigger_changed()));
+    lame_widget = new lameWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX), this);
+    connect(lame_widget, &lameWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
+    opusenc_widget = new opusencWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX), this);
+    connect(opusenc_widget, &opusencWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
+    flac_widget = new flacWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX), this);
+    connect(flac_widget, &flacWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
+    wave_widget = new waveWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), this);
+    connect(wave_widget, &waveWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
+    custom_widget = new customWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX), this);
+    connect(custom_widget, &customWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
 
     ui.stackedWidget_encoder->addWidget(lame_widget);
-    ui.stackedWidget_encoder->addWidget(oggenc_widget);
     ui.stackedWidget_encoder->addWidget(opusenc_widget);
     ui.stackedWidget_encoder->addWidget(flac_widget);
-    ui.stackedWidget_encoder->addWidget(faac_widget);
     ui.stackedWidget_encoder->addWidget(wave_widget);
     ui.stackedWidget_encoder->addWidget(custom_widget);
 
-    QMap<int, QString> encoders = EncoderAssistant::availableEncoderNameList();
-    QMap<int, QString>::const_iterator i = encoders.constBegin();
-    while (i != encoders.constEnd()) {
-        ui.kcombobox_encoder->addItem(i.value(), i.key());
-        ++i;
-    }
-    connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(set_encoder_by_combobox(int)));
+    // All encoders are listed: one without its plugin stays visible (the
+    // profile may use it), but cannot be chosen (see update_encoder_items()).
+    for (int e = 0; e < EncoderAssistant::NUM; ++e)
+        ui.kcombobox_encoder->addItem(EncoderAssistant::name((EncoderAssistant::Encoder)e), e);
+    connect(ui.kcombobox_encoder, &QComboBox::activated, this, &ProfileDataDialog::set_encoder_by_combobox);
 
-    connect(ui.kpushbutton_scheme, SIGNAL(clicked()), this, SLOT(scheme_wizard()));
+    ui.kcombobox_output->addItem(i18n("One file per track"), PROFILE_OUTPUT_TRACKS);
+    ui.kcombobox_output->addItem(i18n("Whole disc as one image file"), PROFILE_OUTPUT_IMAGE);
+    connect(ui.kcombobox_output, &QComboBox::activated, this, &ProfileDataDialog::set_output_by_combobox);
+
+    encoder_message = new KMessageWidget(widget);
+    encoder_message->setMessageType(KMessageWidget::Warning);
+    encoder_message->setCloseButtonVisible(false);
+    encoder_message->setWordWrap(true);
+    encoder_message->hide();
+    ui.verticalLayout->insertWidget(ui.verticalLayout->indexOf(ui.stackedWidget_encoder), encoder_message);
+
+    connect(ui.kpushbutton_scheme, &QAbstractButton::clicked, this, &ProfileDataDialog::scheme_wizard);
     ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(ui.kpushbutton_image_scheme, &QAbstractButton::clicked, this, &ProfileDataDialog::image_scheme_wizard);
+    ui.kpushbutton_image_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(ui.kpushbutton_cue_scheme, &QAbstractButton::clicked, this, &ProfileDataDialog::cue_scheme_wizard);
+    ui.kpushbutton_cue_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
-    connect(ui.kpushbutton_cover, SIGNAL(clicked()), this, SLOT(cover_settings()));
-    connect(ui.kpushbutton_playlist, SIGNAL(clicked()), this, SLOT(playlist_settings()));
-    connect(ui.kpushbutton_info, SIGNAL(clicked()), this, SLOT(info_settings()));
-    connect(ui.kpushbutton_hashlist, SIGNAL(clicked()), this, SLOT(hashlist_settings()));
-    connect(ui.kpushbutton_cuesheet, SIGNAL(clicked()), this, SLOT(cuesheet_settings()));
-    connect(ui.kpushbutton_logfile, SIGNAL(clicked()), this, SLOT(logfile_settings()));
-    connect(ui.kpushbutton_singlefile, SIGNAL(clicked()), this, SLOT(singlefile_settings()));
+    connect(ui.kpushbutton_cover, &QAbstractButton::clicked, this, &ProfileDataDialog::cover_settings);
+    connect(ui.kpushbutton_playlist, &QAbstractButton::clicked, this, &ProfileDataDialog::playlist_settings);
+    connect(ui.kpushbutton_logfile, &QAbstractButton::clicked, this, &ProfileDataDialog::logfile_settings);
+    connect(ui.kpushbutton_hook, &QAbstractButton::clicked, this, &ProfileDataDialog::hook_settings);
 
-    connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cover(bool)));
-    connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_playlist(bool)));
-    connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(enable_settings_info(bool)));
-    connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(enable_settings_hashlist(bool)));
-    connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(enable_settings_cuesheet(bool)));
-    connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_logfile(bool)));
-    connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(enable_settings_singlefile(bool)));
-    connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_filenames(bool)));
-    connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(disable_playlist(bool)));
+    connect(ui.checkBox_cover, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_cover);
+    connect(ui.checkBox_playlist, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_playlist);
+    connect(ui.checkBox_logfile, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_logfile);
+    connect(ui.checkBox_hook, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_hook);
+    connect(ui.checkBox_cue, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_cue);
+    connect(ui.checkBox_ctdb_repair, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_ctdb_repair);
 
-    connect(this, SIGNAL(rejected()), this, SLOT(slotRejected()));
+    connect(this, &QDialog::rejected, this, &ProfileDataDialog::slotRejected);
 
     if (!new_profile_mode) {
         setWindowTitle(i18n("Modify Profile"));
@@ -123,58 +134,69 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         mainLayout->addWidget(buttonBox);
 
         ui.qlineedit_name->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString());
-        connect(ui.qlineedit_name, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+        connect(ui.qlineedit_name, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
         ui.qlineedit_name->setCursorPosition(0);
 
         ui.kiconbutton_icon->setIcon(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString());
-        connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString &)), this, SLOT(trigger_changed()));
+        connect(ui.kiconbutton_icon, &KIconButton::iconChanged, this, &ProfileDataDialog::trigger_changed);
 
         set_encoder(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toInt());
-        connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
+        connect(ui.kcombobox_encoder, &QComboBox::activated, this, &ProfileDataDialog::trigger_changed);
+
+        set_output(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX)).toInt());
+        connect(ui.kcombobox_output, &QComboBox::activated, this, &ProfileDataDialog::trigger_changed);
+
+        ui.qlineedit_image_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString());
+        connect(ui.qlineedit_image_scheme, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
+        ui.qlineedit_image_scheme->setCursorPosition(0);
+
+        ui.checkBox_cue->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool());
+        enable_settings_cue(ui.checkBox_cue->isChecked());
+        connect(ui.checkBox_cue, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
+
+        ui.qlineedit_cue_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString());
+        connect(ui.qlineedit_cue_scheme, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
+        ui.qlineedit_cue_scheme->setCursorPosition(0);
+
+        ui.checkBox_cue_mcn_isrc->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX)).toBool());
+        connect(ui.checkBox_cue_mcn_isrc, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
+
+        ui.checkBox_ctdb_repair->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX)).toBool());
+        enable_settings_ctdb_repair(ui.checkBox_ctdb_repair->isChecked());
+        connect(ui.checkBox_ctdb_repair, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
+
+        ui.checkBox_ctdb_repair_keep_original->setChecked(
+            profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX)).toBool());
+        connect(ui.checkBox_ctdb_repair_keep_original, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.qlineedit_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString());
-        connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+        connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
         ui.qlineedit_scheme->setCursorPosition(0);
 
         ui.checkBox_fat32compatible->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
-        connect(ui.checkBox_fat32compatible, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        connect(ui.checkBox_fat32compatible, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_underscore->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool());
-        connect(ui.checkBox_underscore, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        connect(ui.checkBox_underscore, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_2digitstracknum->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX)).toBool());
-        connect(ui.checkBox_2digitstracknum, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        connect(ui.checkBox_2digitstracknum, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_cover->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool());
         enable_settings_cover(ui.checkBox_cover->isChecked());
-        connect(ui.checkBox_cover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        connect(ui.checkBox_cover, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_playlist->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX)).toBool());
         enable_settings_playlist(ui.checkBox_playlist->isChecked());
-        connect(ui.checkBox_playlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-
-        ui.checkBox_info->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX)).toBool());
-        enable_settings_info(ui.checkBox_info->isChecked());
-        connect(ui.checkBox_info, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-
-        ui.checkBox_hashlist->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool());
-        enable_settings_hashlist(ui.checkBox_hashlist->isChecked());
-        connect(ui.checkBox_hashlist, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-
-        ui.checkBox_cuesheet->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool());
-        enable_settings_cuesheet(ui.checkBox_cuesheet->isChecked());
-        connect(ui.checkBox_cuesheet, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        connect(ui.checkBox_playlist, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_logfile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool());
         enable_settings_logfile(ui.checkBox_logfile->isChecked());
-        connect(ui.checkBox_logfile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+        connect(ui.checkBox_logfile, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
-        ui.checkBox_singlefile->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool());
-        enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
-        connect(ui.checkBox_singlefile, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-
-        if (ui.checkBox_singlefile->isChecked())
-            disable_playlist(true);
+        ui.checkBox_hook->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_INDEX)).toBool());
+        enable_settings_hook(ui.checkBox_hook->isChecked());
+        connect(ui.checkBox_hook, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         applyButton->setEnabled(false);
 
@@ -193,7 +215,20 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         ui.qlineedit_name->setText(i18n("New Profile"));
         ui.kiconbutton_icon->setIcon(DEFAULT_ICON);
 
-        set_encoder(DEFAULT_ENCODER_SELECTED);
+        int encoder = DEFAULT_ENCODER_SELECTED;
+        if (!EncoderAssistant::available((EncoderAssistant::Encoder)encoder))
+            encoder = EncoderAssistant::available(EncoderAssistant::FLAC) ? EncoderAssistant::FLAC : EncoderAssistant::WAVE;
+        set_encoder(encoder);
+        set_output(DEFAULT_OUTPUT);
+
+        ui.qlineedit_image_scheme->setText(DEFAULT_IMAGE_SCHEME);
+        ui.checkBox_cue->setChecked(DEFAULT_CUE);
+        ui.qlineedit_cue_scheme->setText(DEFAULT_CUE_NAME);
+        ui.checkBox_cue_mcn_isrc->setChecked(DEFAULT_CUE_MCN_ISRC);
+        ui.checkBox_ctdb_repair->setChecked(DEFAULT_CTDB_REPAIR);
+        ui.checkBox_ctdb_repair_keep_original->setChecked(DEFAULT_CTDB_REPAIR_KEEP_ORIGINAL);
+        enable_settings_cue(ui.checkBox_cue->isChecked());
+        enable_settings_ctdb_repair(ui.checkBox_ctdb_repair->isChecked());
 
         ui.qlineedit_scheme->setText(DEFAULT_SCHEME);
         ui.checkBox_fat32compatible->setChecked(DEFAULT_FAT32);
@@ -202,54 +237,17 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
         ui.checkBox_cover->setChecked(DEFAULT_SC);
         ui.checkBox_playlist->setChecked(DEFAULT_PL);
-        ui.checkBox_info->setChecked(DEFAULT_INF);
-        ui.checkBox_hashlist->setChecked(DEFAULT_HL);
-        ui.checkBox_cuesheet->setChecked(DEFAULT_CUE);
         ui.checkBox_logfile->setChecked(DEFAULT_LOG);
-        ui.checkBox_singlefile->setChecked(DEFAULT_SF);
-        cover_scale = DEFAULT_SC_SCALE;
-        cover_size = DEFAULT_SC_SIZE;
-        cover_format = DEFAULT_SC_FORMAT;
-        cover_scheme = DEFAULT_SC_NAME;
-        playlist_format = DEFAULT_PL_FORMAT;
-        playlist_scheme = DEFAULT_PL_NAME;
-        infofile_text.clear();
-        infofile_scheme = DEFAULT_INF_NAME;
-        infofile_suffix = DEFAULT_INF_SUFFIX;
-        hashlist_format = DEFAULT_HL_FORMAT;
-        hashlist_scheme = DEFAULT_HL_NAME;
-        cuesheet_scheme = DEFAULT_CUE_NAME;
-        cuesheet_write_mcn_and_isrc = DEFAULT_CUE_ADD_MCN_AND_ISRC;
-        logfile_scheme = DEFAULT_CUE_NAME;
-        logfile_write_timestamps = DEFAULT_LOG_WRITE_TIMESTAMPS;
-        singlefile_scheme = DEFAULT_SF_NAME;
+        ui.checkBox_hook->setChecked(DEFAULT_HOOK);
 
         enable_settings_cover(ui.checkBox_cover->isChecked());
         enable_settings_playlist(ui.checkBox_playlist->isChecked());
-        enable_settings_info(ui.checkBox_info->isChecked());
-        enable_settings_hashlist(ui.checkBox_hashlist->isChecked());
-        enable_settings_cuesheet(ui.checkBox_cuesheet->isChecked());
         enable_settings_logfile(ui.checkBox_logfile->isChecked());
-        enable_settings_singlefile(ui.checkBox_singlefile->isChecked());
-
-        disable_playlist(ui.checkBox_singlefile->isChecked());
+        enable_settings_hook(ui.checkBox_hook->isChecked());
     }
-
-    enable_filenames(!ui.checkBox_singlefile->isChecked());
 
     ui.qlineedit_name->setFocus();
     resize(0, 0); // For some reason dialog start of big...
-}
-
-ProfileDataDialog::~ProfileDataDialog()
-{
-    delete lame_widget;
-    delete oggenc_widget;
-    delete opusenc_widget;
-    delete flac_widget;
-    delete faac_widget;
-    delete wave_widget;
-    delete custom_widget;
 }
 
 void ProfileDataDialog::slotAccepted()
@@ -268,6 +266,12 @@ void ProfileDataDialog::slotApplied()
 
 void ProfileDataDialog::slotRejected()
 {
+    if (!profile_model) {
+        qWarning() << "ProfileDataDialog::slotRejected() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return;
+    }
+
     if (new_profile_mode)
         profile_model->removeRows(profile_row, 1);
 }
@@ -277,15 +281,89 @@ void ProfileDataDialog::set_encoder(const int encoder)
     set_encoder_widget((EncoderAssistant::Encoder)encoder);
 
     ui.kcombobox_encoder->setCurrentIndex(ui.kcombobox_encoder->findData(encoder));
+    update_encoder_message();
 }
 
 void ProfileDataDialog::set_encoder_by_combobox(const int index)
 {
     set_encoder_widget((EncoderAssistant::Encoder)ui.kcombobox_encoder->itemData(index).toInt());
+    update_encoder_message();
+}
+
+void ProfileDataDialog::set_output_by_combobox(const int index)
+{
+    set_output(ui.kcombobox_output->itemData(index).toInt());
+}
+
+EncoderAssistant::Encoder ProfileDataDialog::selected_encoder() const
+{
+    if (ui.kcombobox_encoder->currentIndex() < 0)
+        return EncoderAssistant::NUM;
+    return (EncoderAssistant::Encoder)ui.kcombobox_encoder->currentData().toInt();
+}
+
+bool ProfileDataDialog::image_output() const
+{
+    return ui.kcombobox_output->currentData().toInt() == PROFILE_OUTPUT_IMAGE;
+}
+
+void ProfileDataDialog::set_output(const int output)
+{
+    ui.kcombobox_output->setCurrentIndex(ui.kcombobox_output->findData(output));
+    const bool image = image_output();
+
+    update_encoder_items();
+    if (image && !EncoderAssistant::lossless(selected_encoder()))
+        set_encoder(EncoderAssistant::available(EncoderAssistant::FLAC) ? EncoderAssistant::FLAC : EncoderAssistant::WAVE);
+
+    // tracks: Filenames tab and playlist - image: Image tab
+    const int filenamesTab = ui.tabWidget->indexOf(ui.tab_3);
+    const int imageTab = ui.tabWidget->indexOf(ui.tab_image);
+    ui.tabWidget->setTabEnabled(filenamesTab, !image);
+    ui.tabWidget->setTabToolTip(filenamesTab, image ? i18n("Only used when ripping one file per track") : QString());
+    ui.tabWidget->setTabEnabled(imageTab, image);
+    ui.tabWidget->setTabToolTip(imageTab, image ? QString() : i18n("Only used when ripping the whole disc as one image file"));
+    ui.checkBox_playlist->setEnabled(!image);
+    enable_settings_playlist(ui.checkBox_playlist->isChecked());
+}
+
+void ProfileDataDialog::update_encoder_items()
+{
+    auto *model = qobject_cast<QStandardItemModel *>(ui.kcombobox_encoder->model());
+    if (!model)
+        return;
+
+    const bool image = image_output();
+    for (int i = 0; i < ui.kcombobox_encoder->count(); ++i) {
+        const auto encoder = (EncoderAssistant::Encoder)ui.kcombobox_encoder->itemData(i).toInt();
+        const bool available = EncoderAssistant::available(encoder);
+        const bool allowed = !image || EncoderAssistant::lossless(encoder);
+        QStandardItem *item = model->item(i);
+        item->setText(available ? EncoderAssistant::name(encoder) : i18nc("@item encoder", "%1 (not installed)", EncoderAssistant::name(encoder)));
+        item->setToolTip(!available ? EncoderAssistant::unavailableReason(encoder) : !allowed ? i18n("An image requires a lossless encoder.") : QString());
+        item->setEnabled(available && allowed);
+    }
+}
+
+void ProfileDataDialog::update_encoder_message()
+{
+    const QString reason = (selected_encoder() != EncoderAssistant::NUM) ? EncoderAssistant::unavailableReason(selected_encoder()) : QString();
+    if (reason.isEmpty()) {
+        encoder_message->hide();
+        return;
+    }
+    encoder_message->setText(i18n("%1 The settings are kept, but the profile cannot be used until the plugin is installed.", reason));
+    encoder_message->show();
 }
 
 void ProfileDataDialog::trigger_changed()
 {
+    if (!profile_model) {
+        qWarning() << "ProfileDataDialog::trigger_changed() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return;
+    }
+
     if (applyButton) {
         applyButton->setEnabled(
             ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString()
@@ -298,26 +376,19 @@ void ProfileDataDialog::trigger_changed()
             || ui.checkBox_underscore->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool()
             || ui.checkBox_cover->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_INDEX)).toBool()
             || ui.checkBox_playlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX)).toBool()
-            || ui.checkBox_info->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX)).toBool()
-            || ui.checkBox_hashlist->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX)).toBool()
-            || ui.checkBox_cuesheet->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()
             || ui.checkBox_logfile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX)).toBool()
-            || ui.checkBox_singlefile->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX)).toBool()
-            || playlist_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX)).toString()
-            || playlist_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX)).toString()
-            || playlist_abs_file_path != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX)).toBool()
-            || playlist_utf8 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX)).toBool()
-            || infofile_text != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_TEXT_INDEX)).toStringList()
-            || infofile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString()
-            || infofile_suffix != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString()
-            || hashlist_format != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX)).toString()
-            || hashlist_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_NAME_INDEX)).toString()
-            || logfile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString()
-            || logfile_write_timestamps != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX)).toBool()
-            || singlefile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
-            || singlefile_scheme != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString()
-            || lame_widget->isChanged() || oggenc_widget->isChanged() || flac_widget->isChanged() || faac_widget->isChanged() || wave_widget->isChanged()
-            || custom_widget->isChanged());
+            || ui.checkBox_hook->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_INDEX)).toBool()
+            || ui.checkBox_2digitstracknum->isChecked()
+                != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX)).toBool()
+            || ui.kcombobox_output->currentData().toInt() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX)).toInt()
+            || ui.qlineedit_image_scheme->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString()
+            || ui.checkBox_cue->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()
+            || ui.qlineedit_cue_scheme->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
+            || ui.checkBox_cue_mcn_isrc->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX)).toBool()
+            || ui.checkBox_ctdb_repair->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX)).toBool()
+            || ui.checkBox_ctdb_repair_keep_original->isChecked()
+                != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX)).toBool()
+            || lame_widget->isChanged() || opusenc_widget->isChanged() || flac_widget->isChanged() || wave_widget->isChanged() || custom_widget->isChanged());
     }
 }
 
@@ -328,22 +399,7 @@ void ProfileDataDialog::enable_settings_cover(bool enabled)
 
 void ProfileDataDialog::enable_settings_playlist(bool enabled)
 {
-    ui.kpushbutton_playlist->setEnabled(enabled);
-}
-
-void ProfileDataDialog::enable_settings_info(bool enabled)
-{
-    ui.kpushbutton_info->setEnabled(enabled);
-}
-
-void ProfileDataDialog::enable_settings_hashlist(bool enabled)
-{
-    ui.kpushbutton_hashlist->setEnabled(enabled);
-}
-
-void ProfileDataDialog::enable_settings_cuesheet(bool enabled)
-{
-    ui.kpushbutton_cuesheet->setEnabled(enabled);
+    ui.kpushbutton_playlist->setEnabled(enabled && !image_output());
 }
 
 void ProfileDataDialog::enable_settings_logfile(bool enabled)
@@ -351,127 +407,85 @@ void ProfileDataDialog::enable_settings_logfile(bool enabled)
     ui.kpushbutton_logfile->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_settings_singlefile(bool enabled)
+void ProfileDataDialog::enable_settings_hook(bool enabled)
 {
-    ui.kpushbutton_singlefile->setEnabled(enabled);
+    ui.kpushbutton_hook->setEnabled(enabled);
 }
 
-void ProfileDataDialog::disable_playlist(bool disabled)
+void ProfileDataDialog::enable_settings_cue(bool enabled)
 {
-    ui.checkBox_playlist->setEnabled(!disabled);
-    ui.kpushbutton_playlist->setEnabled(!disabled);
+    ui.label_cue_scheme->setEnabled(enabled);
+    ui.qlineedit_cue_scheme->setEnabled(enabled);
+    ui.kpushbutton_cue_scheme->setEnabled(enabled);
+    ui.checkBox_cue_mcn_isrc->setEnabled(enabled);
 }
 
-void ProfileDataDialog::enable_filenames(bool enabled)
+void ProfileDataDialog::enable_settings_ctdb_repair(bool enabled)
 {
-    ui.groupBox_filenames->setEnabled(enabled);
-}
-
-void ProfileDataDialog::disable_filenames(bool disabled)
-{
-    ui.groupBox_filenames->setEnabled(!disabled);
+    ui.checkBox_ctdb_repair_keep_original->setEnabled(enabled);
 }
 
 void ProfileDataDialog::scheme_wizard()
 {
-    SchemeWizardDialog *dialog = new SchemeWizardDialog(ui.qlineedit_scheme->text(), this);
+    SchemeWizardDialog dialog(ui.qlineedit_scheme->text(), this);
 
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
+    if (dialog.exec() != QDialog::Accepted)
         return;
-    }
 
-    ui.qlineedit_scheme->setText(dialog->scheme);
+    ui.qlineedit_scheme->setText(dialog.scheme);
+    trigger_changed();
+}
 
-    delete dialog;
+void ProfileDataDialog::image_scheme_wizard()
+{
+    FilenameSchemeWizardDialog dialog(ui.qlineedit_image_scheme->text(),
+                                      selected_encoder() == EncoderAssistant::FLAC ? QStringLiteral("flac") : QStringLiteral("wav"),
+                                      this);
 
+    if (dialog.exec() != QDialog::Accepted)
+        return;
+
+    ui.qlineedit_image_scheme->setText(dialog.scheme);
+    trigger_changed();
+}
+
+void ProfileDataDialog::cue_scheme_wizard()
+{
+    FilenameSchemeWizardDialog dialog(ui.qlineedit_cue_scheme->text(), QStringLiteral("cue"), this);
+
+    if (dialog.exec() != QDialog::Accepted)
+        return;
+
+    ui.qlineedit_cue_scheme->setText(dialog.scheme);
     trigger_changed();
 }
 
 void ProfileDataDialog::cover_settings()
 {
-    ProfileDataCoverDialog *dialog = new ProfileDataCoverDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
+    ProfileDataCoverDialog dialog(profile_model, profile_row, new_profile_mode, this);
+    if (dialog.exec() == QDialog::Accepted)
+        trigger_changed();
 }
 
 void ProfileDataDialog::playlist_settings()
 {
-    ProfileDataPlaylistDialog *dialog = new ProfileDataPlaylistDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
-}
-
-void ProfileDataDialog::info_settings()
-{
-    ProfileDataInfoDialog *dialog = new ProfileDataInfoDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
-}
-
-void ProfileDataDialog::hashlist_settings()
-{
-    ProfileDataHashlistDialog *dialog = new ProfileDataHashlistDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
-}
-
-void ProfileDataDialog::cuesheet_settings()
-{
-    ProfileDataCueSheetDialog *dialog = new ProfileDataCueSheetDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
+    ProfileDataPlaylistDialog dialog(profile_model, profile_row, new_profile_mode, this);
+    if (dialog.exec() == QDialog::Accepted)
+        trigger_changed();
 }
 
 void ProfileDataDialog::logfile_settings()
 {
-    ProfileDataLogFileDialog *dialog = new ProfileDataLogFileDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
+    ProfileDataLogFileDialog dialog(profile_model, profile_row, new_profile_mode, this);
+    if (dialog.exec() == QDialog::Accepted)
+        trigger_changed();
 }
 
-void ProfileDataDialog::singlefile_settings()
+void ProfileDataDialog::hook_settings()
 {
-    ProfileDataSingleFileDialog *dialog = new ProfileDataSingleFileDialog(profile_model, profile_row, new_profile_mode, this);
-
-    if (dialog->exec() != QDialog::Accepted) {
-        delete dialog;
-        return;
-    }
-
-    delete dialog;
-
-    trigger_changed();
+    ProfileDataHookDialog dialog(profile_model, profile_row, new_profile_mode, this);
+    if (dialog.exec() == QDialog::Accepted)
+        trigger_changed();
 }
 
 void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encoder)
@@ -480,17 +494,11 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
     case EncoderAssistant::LAME:
         ui.stackedWidget_encoder->setCurrentWidget(lame_widget);
         break;
-    case EncoderAssistant::OGGENC:
-        ui.stackedWidget_encoder->setCurrentWidget(oggenc_widget);
-        break;
     case EncoderAssistant::OPUSENC:
         ui.stackedWidget_encoder->setCurrentWidget(opusenc_widget);
         break;
     case EncoderAssistant::FLAC:
         ui.stackedWidget_encoder->setCurrentWidget(flac_widget);
-        break;
-    case EncoderAssistant::FAAC:
-        ui.stackedWidget_encoder->setCurrentWidget(faac_widget);
         break;
     case EncoderAssistant::WAVE:
         ui.stackedWidget_encoder->setCurrentWidget(wave_widget);
@@ -505,6 +513,12 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
 
 bool ProfileDataDialog::save()
 {
+    if (!profile_model) {
+        qWarning() << "ProfileDataDialog::save() called with null model pointers";
+        Q_ASSERT(profile_model);
+        return false;
+    }
+
     bool success = true;
 
     error.clear();
@@ -513,12 +527,6 @@ bool ProfileDataDialog::save()
         success = lame_widget->save();
     if (!success)
         error = lame_widget->lastError();
-
-    if (success) {
-        success = oggenc_widget->save();
-        if (!success)
-            error = oggenc_widget->lastError();
-    }
 
     if (success) {
         success = opusenc_widget->save();
@@ -530,12 +538,6 @@ bool ProfileDataDialog::save()
         success = flac_widget->save();
         if (!success)
             error = flac_widget->lastError();
-    }
-
-    if (success) {
-        success = faac_widget->save();
-        if (!success)
-            error = faac_widget->lastError();
     }
 
     if (success) {
@@ -554,9 +556,12 @@ bool ProfileDataDialog::save()
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
-    if (success)
+    if (success && ui.kcombobox_encoder->currentIndex() >= 0)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX),
                                          ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
+    // after the encoder: the model checks the output type against it
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX), ui.kcombobox_output->currentData().toInt());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX), ui.qlineedit_scheme->text());
     if (success)
@@ -572,30 +577,38 @@ bool ProfileDataDialog::save()
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_INDEX), ui.checkBox_playlist->isChecked());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_INF_INDEX), ui.checkBox_info->isChecked());
-    if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HL_INDEX), ui.checkBox_hashlist->isChecked());
-    if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cuesheet->isChecked());
-    if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_INDEX), ui.checkBox_logfile->isChecked());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SF_INDEX), ui.checkBox_singlefile->isChecked());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_INDEX), ui.checkBox_hook->isChecked());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX), lame_parameters.toString());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX), ui.qlineedit_image_scheme->text());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX), oggenc_parameters.toString());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cue->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), ui.qlineedit_cue_scheme->text());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX), ui.checkBox_cue_mcn_isrc->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX), ui.checkBox_ctdb_repair->isChecked());
+    if (success)
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX),
+                                         ui.checkBox_ctdb_repair_keep_original->isChecked());
     if (success)
         success =
-            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX), opusenc_parameters.toString());
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX), lame_widget->parameters().toString());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX), flac_parameters.toString());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX),
+                                         opusenc_widget->parameters().toString());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX), faac_parameters.toString());
+        success =
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX), flac_widget->parameters().toString());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), wave_parameters.toString());
+        success =
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), wave_widget->parameters().toString());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX), custom_parameters.toString());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX),
+                                         custom_widget->parameters().toString());
+
     if (!success)
         error = profile_model->lastError();
 

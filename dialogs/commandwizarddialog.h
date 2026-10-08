@@ -1,32 +1,26 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef COMMANDWIZARDDIALOG_H
-#define COMMANDWIZARDDIALOG_H
-
-#include <QWidget>
-
-#include <QDialog>
-#include <QDialogButtonBox>
-#include <QMessageBox>
-#include <QSizePolicy>
-#include <QTextBrowser>
-
-#include "dialogs/textviewdialog.h"
-#include "utils/schemeparser.h"
+#pragma once
 
 #include "ui_commandwizardwidgetUI.h"
+
+#include <QDialog>
+#include <QPointer>
+#include <QPushButton>
+
+#include "dialogs/textviewdialog.h"
 
 class CommandWizardDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit CommandWizardDialog(const QString &command, QWidget *parent = nullptr);
+    explicit CommandWizardDialog(const QString &command, const QString &suffix, QWidget *parent = nullptr);
     ~CommandWizardDialog() override;
 
     QString command;
@@ -44,7 +38,6 @@ private Q_SLOTS:
     void insCDNo();
     void insDate();
     void insGenre();
-    void insCoverFile();
     void insNoOfTracks();
     void insInFile();
     void insOutFile();
@@ -57,12 +50,12 @@ private Q_SLOTS:
 private:
     Ui::CommandWizardWidgetUI ui;
 
+    QString m_suffix;
+
     bool save();
 
-    QPushButton *okButton;
-    QPushButton *applyButton;
+    QPushButton *okButton = nullptr;
+    QPushButton *applyButton = nullptr;
 
-    TextViewDialog *help_dialog;
+    QPointer<TextViewDialog> help_dialog;
 };
-
-#endif

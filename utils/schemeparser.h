@@ -1,12 +1,11 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef SCHEMEPARSER_H
-#define SCHEMEPARSER_H
+#pragma once
 
 #include <QDate>
 #include <QDateTime>
@@ -187,7 +186,7 @@ public:
             "<tr><td><tt>post</tt></td><td>String</td><td>A string which will be placed <b>after</b> the value.</td></tr>"
             "</table>"));
 
-        if (scheme == 1 || scheme == 2) {
+        if (scheme == 1) {
             result.append(
                 i18n("<table>"
                      "<tr><th>Placeholder</th><th>Description</th></tr>"
@@ -202,15 +201,19 @@ public:
         if (scheme == 2) {
             result.append(
                 i18n("<table>"
-                     "<tr><th>Placeholder</th><th>Specific parameter</th><th>Description</th></tr>"
-                     "<tr><td><tt>$i</tt></td><td></td><td>The temporary WAVE file (RIFF WAVE) created by Audex from CD audio track. This is the "
-                     "input file for your command line encoder.</td></tr>"
-                     "<tr><td><tt>$o</tt></td><td></td><td>The full output filename and path. Use it as the output for your command line encoder.</td></tr>"
-                     "<tr><td><tt>$cover</tt></td><td><tt>format,x,y</tt></td><td>Filename of the cover file. If no cover is set, this will be empty. Mostly "
-                     "useful in conjunction with the <tt>pre</tt> parameter. Image can be scaled with the <tt>x</tt> and <tt>y</tt> parameters. Possible image "
-                     "<tt>formats</tt> are JPEG, PNG, GIF or BMP (Default: JPEG). <i><b>Note:</b> "
-                     "LAME discards cover files larger than 128 KiB.</i></td></tr>"
-                     "</table>"));
+                     "<tr><th>Placeholder</th><th>Description</th></tr>"
+                     "<tr><td><tt>$i</tt></td><td>The audio data. Audex does not write a temporary file any more: it sends the audio to the command as "
+                     "WAVE (RIFF WAVE) on standard input, and <tt>$i</tt> becomes the single <tt>-</tt> that tells most encoders to read from there. If "
+                     "your encoder wants the input somewhere else (for example <tt>-i -</tt> or <tt>pipe:0</tt>), write that instead of "
+                     "<tt>$i</tt>.</td></tr>"
+                     "<tr><td><tt>$o</tt></td><td>The file the command has to write.</td></tr>"
+                     "<tr><td><tt>$tartist</tt>, <tt>$ttitle</tt>, <tt>$trackno</tt>, <tt>$isrc</tt></td><td>Track data. They are filled in when the "
+                     "file of that track is opened. A single file rip (disc image) has no track of its own and uses the album data.</td></tr>"
+                     "</table>"
+                     "<p>A command is not run in a shell: it is split into arguments once, and the values are put into those arguments afterwards. A quote "
+                     "or a space in a track title can therefore not change the command line, and <tt>$$</tt> is a plain dollar sign. Parameters in "
+                     "placeholders (<tt>${title lowercase=true}</tt>) do not work here, and <tt>$cover</tt> cannot be filled in because Audex embeds the "
+                     "cover itself instead of writing a file. A command that uses them is refused before the rip starts.</p>"));
         }
 
         if (scheme == 4) {
@@ -288,12 +291,7 @@ public:
         return result;
     }
 
-Q_SIGNALS:
-    void error(const QString &message, const QString &details = QString());
-
 private:
-    const Parameters parse_keyvalue_stringlist(const QStringList &keyvaluepairs);
-
     QString p_error_string;
 
     const QString mask_inner_quotes(const QString &string) const
@@ -303,5 +301,3 @@ private:
         return result;
     }
 };
-
-#endif

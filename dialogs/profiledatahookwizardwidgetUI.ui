@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<ui version="4.0">
+    <class>ProfileDataHookWizardWidgetUI</class>
+    <widget class="QWidget" name="ProfileDataHookWizardWidgetUI">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>520</width>
+                <height>210</height>
+            </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0" colspan="4">
+                <widget class="QLineEdit" name="qlineedit_command">
+                    <property name="placeholderText">
+                        <string>Please set a command scheme</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="1" column="0" colspan="4">
+                <widget class="QLabel" name="label_hint">
+                    <property name="wordWrap">
+                        <bool>true</bool>
+                    </property>
+                    <property name="text">
+                        <string>Album variables ($...) are expanded with the disc metadata, %d is replaced by the output directory and %f by the list of written audio files. Values stay a single argument even if they contain spaces; double quotes are only needed to group literal words.</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="2" column="0">
+                <widget class="QPushButton" name="kpushbutton_albumartist">
+                    <property name="text">
+                        <string>Album Artist</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="2" column="1">
+                <widget class="QPushButton" name="kpushbutton_albumtitle">
+                    <property name="text">
+                        <string>Album Title</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="2" column="2">
+                <widget class="QPushButton" name="kpushbutton_date">
+                    <property name="text">
+                        <string>Date</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="2" column="3">
+                <widget class="QPushButton" name="kpushbutton_genre">
+                    <property name="text">
+                        <string>Genre</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="3" column="0">
+                <widget class="QPushButton" name="kpushbutton_nooftracks">
+                    <property name="text">
+                        <string># of Tracks</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="3" column="1">
+                <widget class="QPushButton" name="kpushbutton_today">
+                    <property name="text">
+                        <string>Today</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="3" column="2">
+                <widget class="QPushButton" name="kpushbutton_outputdir">
+                    <property name="text">
+                        <string>Output Directory</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="3" column="3">
+                <widget class="QPushButton" name="kpushbutton_filelist">
+                    <property name="text">
+                        <string>File List</string>
+                    </property>
+                </widget>
+            </item>
+            <item row="4" column="0">
+                <widget class="QLabel" name="label_example">
+                    <property name="text">
+                        <string>Example:</string>
+                    </property>
+                    <property name="buddy">
+                        <cstring>qlineedit_example</cstring>
+                    </property>
+                </widget>
+            </item>
+            <item row="4" column="1" colspan="3">
+                <widget class="QLineEdit" name="qlineedit_example">
+                    <property name="readOnly">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </item>
+            <item row="5" column="1">
+                <spacer name="verticalSpacer">
+                    <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                        <size>
+                            <width>20</width>
+                            <height>10</height>
+                        </size>
+                    </property>
+                </spacer>
+            </item>
+        </layout>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

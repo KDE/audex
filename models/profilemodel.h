@@ -1,25 +1,23 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef PROFILEMODEL_HEADER
-#define PROFILEMODEL_HEADER
-
-#include <climits>
-
-#include <QAbstractTableModel>
-#include <QString>
-#include <QVariant>
-
-#include <KConfig>
-#include <KConfigGroup>
-#include <KLocalizedString>
+#pragma once
 
 #include "utils/encoderassistant.h"
 #include "utils/error.h"
+#include "utils/parameters.h"
+#include "utils/schemeparser.h"
+
+#include <KConfig>
+#include <KConfigGroup>
+
+#include <QAbstractTableModel>
+#include <QSortFilterProxyModel>
+#include <QVariant>
 
 #define DEFAULT_PROFILEINDEX -1
 #define DEFAULT_NAME ""
@@ -41,34 +39,32 @@
 #define DEFAULT_SC_FORMAT "JPEG"
 #define DEFAULT_SC_NAME "$" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
 
-#define DEFAULT_PL true
-#define DEFAULT_PL_FORMAT "M3U"
+#define DEFAULT_PL false
 #define DEFAULT_PL_NAME "$" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
 #define DEFAULT_PL_ABS_FILE_PATH false
 #define DEFAULT_PL_UTF8 true
 
-#define DEFAULT_INF false
-#define DEFAULT_INF_TEXT QStringList()
-#define DEFAULT_INF_NAME "info"
-#define DEFAULT_INF_SUFFIX "nfo"
-
-#define DEFAULT_HL false
-#define DEFAULT_HL_FORMAT "SFV"
-#define DEFAULT_HL_NAME "checksums.$" VAR_SUFFIX
-
-#define DEFAULT_CUE false
-#define DEFAULT_CUE_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
-#define DEFAULT_CUE_ADD_MCN_AND_ISRC false
-
 #define DEFAULT_LOG false
 #define DEFAULT_LOG_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
-#define DEFAULT_LOG_WRITE_TIMESTAMPS false
 
-#define DEFAULT_SF false
-#define DEFAULT_SF_NAME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_HOOK false
+#define DEFAULT_HOOK_COMMAND ""
+
+// output of a profile: one file per track or one image file of the whole disc
+#define PROFILE_OUTPUT_TRACKS 0
+#define PROFILE_OUTPUT_IMAGE 1
+#define DEFAULT_OUTPUT PROFILE_OUTPUT_TRACKS
+
+#define DEFAULT_IMAGE_ICON "media-optical-audio"
+
+#define DEFAULT_IMAGE_SCHEME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_CUE true
+#define DEFAULT_CUE_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_CUE_MCN_ISRC false
+#define DEFAULT_CTDB_REPAIR false
+#define DEFAULT_CTDB_REPAIR_KEEP_ORIGINAL false
 
 enum ProfileColumns {
-
     PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX = 0,
     PROFILE_MODEL_COLUMN_NAME_INDEX,
     PROFILE_MODEL_COLUMN_ICON_INDEX,
@@ -88,41 +84,31 @@ enum ProfileColumns {
     PROFILE_MODEL_COLUMN_SC_NAME_INDEX,
 
     PROFILE_MODEL_COLUMN_PL_INDEX,
-    PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX,
     PROFILE_MODEL_COLUMN_PL_NAME_INDEX,
     PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX,
     PROFILE_MODEL_COLUMN_PL_UTF8_INDEX,
 
-    PROFILE_MODEL_COLUMN_INF_INDEX,
-    PROFILE_MODEL_COLUMN_INF_TEXT_INDEX,
-    PROFILE_MODEL_COLUMN_INF_NAME_INDEX,
-    PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX,
-
-    PROFILE_MODEL_COLUMN_HL_INDEX,
-    PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX,
-    PROFILE_MODEL_COLUMN_HL_NAME_INDEX,
-
-    PROFILE_MODEL_COLUMN_CUE_INDEX,
-    PROFILE_MODEL_COLUMN_CUE_NAME_INDEX,
-    PROFILE_MODEL_COLUMN_CUE_ADD_MCN_AND_ISRC_INDEX,
-
     PROFILE_MODEL_COLUMN_LOG_INDEX,
     PROFILE_MODEL_COLUMN_LOG_NAME_INDEX,
-    PROFILE_MODEL_COLUMN_LOG_WRITE_TIMESTAMPS_INDEX,
 
-    PROFILE_MODEL_COLUMN_SF_INDEX,
-    PROFILE_MODEL_COLUMN_SF_NAME_INDEX,
+    PROFILE_MODEL_COLUMN_HOOK_INDEX,
+    PROFILE_MODEL_COLUMN_HOOK_COMMAND_INDEX,
 
     PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX,
-    PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX,
-    PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX,
     PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX,
 
-    PROFILE_MODEL_COLUMN_NUM
+    PROFILE_MODEL_COLUMN_OUTPUT_INDEX,
+    PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX,
+    PROFILE_MODEL_COLUMN_CUE_INDEX,
+    PROFILE_MODEL_COLUMN_CUE_NAME_INDEX,
+    PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX,
+    PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX,
+    PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX,
 
+    PROFILE_MODEL_COLUMN_NUM
 };
 
 #define PROFILE_MODEL_PROFILEINDEX_KEY "profile_key"
@@ -143,38 +129,51 @@ enum ProfileColumns {
 #define PROFILE_MODEL_SC_NAME_KEY "sc_name"
 
 #define PROFILE_MODEL_PL_KEY "pl"
-#define PROFILE_MODEL_PL_FORMAT_KEY "pl_format"
 #define PROFILE_MODEL_PL_NAME_KEY "pl_name"
 #define PROFILE_MODEL_PL_ABS_FILE_PATH_KEY "pl_abs_file_path"
 #define PROFILE_MODEL_PL_UTF8_KEY "pl_utf8"
 
-#define PROFILE_MODEL_INF_KEY "inf"
-#define PROFILE_MODEL_INF_TEXT_KEY "inf_text"
-#define PROFILE_MODEL_INF_NAME_KEY "inf_name"
-#define PROFILE_MODEL_INF_SUFFIX_KEY "inf_suffix"
-
-#define PROFILE_MODEL_HL_KEY "hl"
-#define PROFILE_MODEL_HL_FORMAT_KEY "hl_format"
-#define PROFILE_MODEL_HL_NAME_KEY "hl_name"
-
-#define PROFILE_MODEL_CUE_KEY "cue"
-#define PROFILE_MODEL_CUE_NAME_KEY "cue_name"
-#define PROFILE_MODEL_CUE_ADD_MCN_AND_ISRC_KEY "cue_write_mcn_and_isrc"
-
 #define PROFILE_MODEL_LOG_KEY "log"
 #define PROFILE_MODEL_LOG_NAME_KEY "log_name"
-#define PROFILE_MODEL_LOG_WRITE_TIMESTAMPS_KEY "log_write_timestamps"
 
-#define PROFILE_MODEL_SF_KEY "sf"
-#define PROFILE_MODEL_SF_NAME_KEY "sf_name"
+#define PROFILE_MODEL_HOOK_KEY "hook"
+#define PROFILE_MODEL_HOOK_COMMAND_KEY "hook_command"
 
 #define PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY "lame_parameters"
-#define PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY "oggenc_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_OPUSENC_PARAMETERS_KEY "opusenc_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY "flac_parameters"
-#define PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY "faac_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY "wave_parameters"
 #define PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY "custom_parameters"
+
+#define PROFILE_MODEL_OUTPUT_KEY "output"
+#define PROFILE_MODEL_IMAGE_SCHEME_KEY "image_scheme"
+#define PROFILE_MODEL_CUE_KEY "cue"
+#define PROFILE_MODEL_CUE_NAME_KEY "cue_name"
+#define PROFILE_MODEL_CUE_MCN_ISRC_KEY "cue_mcn_isrc"
+#define PROFILE_MODEL_CTDB_REPAIR_KEY "ctdb_repair"
+#define PROFILE_MODEL_CTDB_REPAIR_KEEP_ORIGINAL_KEY "ctdb_repair_keep_original"
+
+// profile format version, stored in the "Profiles" group (absent = legacy 1.x;
+// 2 = before the output type, image rips used global settings)
+#define PROFILE_MODEL_VERSION_KEY "version"
+#define PROFILE_MODEL_VERSION 3
+#define PROFILE_MODEL_VERSION_ENCODER_PLUGINS 2 // first version with the current encoder ids
+
+// legacy Audex 1.x profile format (external command encoders, pre-plugin engine)
+#define LEGACY_ENCODER_OGGENC 1
+#define LEGACY_ENCODER_FAAC 4
+
+#define LEGACY_OGGENC_PARAMETERS_KEY "oggenc_parameters"
+#define LEGACY_OGGENC_QUALITY_KEY "quality"
+#define LEGACY_OGGENC_MINBITRATE_KEY "minbitrate"
+#define LEGACY_OGGENC_MINBITRATE_VALUE_KEY "minbitrate_value"
+#define LEGACY_OGGENC_MAXBITRATE_KEY "maxbitrate"
+#define LEGACY_OGGENC_MAXBITRATE_VALUE_KEY "maxbitrate_value"
+#define LEGACY_OGGENC_SUFFIX_KEY "suffix"
+
+#define LEGACY_FAAC_PARAMETERS_KEY "faac_parameters"
+#define LEGACY_FAAC_QUALITY_KEY "quality"
+#define LEGACY_FAAC_SUFFIX_KEY "suffix"
 
 typedef QMap<QString, QVariant> Profile;
 
@@ -195,9 +194,17 @@ public:
 
     bool validateData(const QModelIndex &index, const QVariant &value);
 
-    int currentProfileIndex() const;
     int currentProfileRow() const;
     int getRowByIndex(int profile_index) const;
+
+    bool isImage(int row) const; // the profile rips the whole disc into one image file
+    bool isAvailable(int row) const; // its encoder is available (plugin installed)
+    QString unavailableReason(int row) const; // empty if available
+
+    // Makes an available profile the current one if the current one is not.
+    // The previous choice is remembered and restored as soon as it is
+    // available again (e.g. after installing the missing plugin).
+    void ensureAvailableCurrentProfile();
 
     void clear();
 
@@ -211,10 +218,10 @@ public:
     void autoCreate(); // scans the system for encoders and create standard profiles
     EncoderAssistant::Encoder getSelectedEncoderFromCurrentIndex();
     const Parameters getSelectedEncoderParametersFromCurrentIndex();
-    const QString getSelectedEncoderSchemeFromCurrentIndex();
     const QString getSelectedEncoderSuffixFromCurrentIndex();
     const QString getSelectedEncoderNameAndVersion();
     bool isSelectedEncoderWithEmbedCover();
+    bool isCurrentImage() const;
     /**END: EncoderAssistant related */
 
     Error lastError() const;
@@ -229,7 +236,7 @@ public Q_SLOTS:
     bool loadProfilesFromFile(const QString &filename);
 
     void setCurrentProfileIndex(int profile_index);
-    int setRowAsCurrentProfileIndex(int row); // returns profile index
+    int setRowAsCurrentProfileIndex(int row); // returns profile index, -1 for an invalid row
 
 Q_SIGNALS:
     void profilesRemovedOrInserted();
@@ -237,6 +244,7 @@ Q_SIGNALS:
 
 private:
     const Profile p_new_profile();
+    Profile p_new_encoder_profile(EncoderAssistant::Encoder encoder, bool image);
     QList<Profile> p_cache;
     int p_current_profile_index;
 
@@ -244,8 +252,29 @@ private:
 
     void p_new_name(QString &name);
 
-    void p_save(KConfig *config);
-    void p_load(KConfig *config);
+    void p_save(KConfig &config);
+    int p_load(KConfig &config); // returns the format version that was stored
+    void p_migrateLegacyProfile(Profile &profile, const KConfigGroup &subGroup);
+    void p_migrateImageSettings();
 };
 
-#endif
+// Profile selection of the main window: profiles whose encoder is not
+// available are shown, but disabled (the settings list shows them enabled,
+// so that they can still be edited, copied or removed)
+class ProfileFilterModel : public QSortFilterProxyModel
+{
+public:
+    explicit ProfileFilterModel(QObject *parent = nullptr)
+        : QSortFilterProxyModel(parent)
+    {
+    }
+
+    Qt::ItemFlags flags(const QModelIndex &index) const override
+    {
+        Qt::ItemFlags f = QSortFilterProxyModel::flags(index);
+        const auto *profiles = qobject_cast<const ProfileModel *>(sourceModel());
+        if (profiles && index.isValid() && !profiles->isAvailable(mapToSource(index).row()))
+            f &= ~(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+        return f;
+    }
+};

@@ -1,11 +1,13 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "schemewizarddialog.h"
+
+#include "utils/schemeparser.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -37,22 +39,22 @@ SchemeWizardDialog::SchemeWizardDialog(const QString &scheme, QWidget *parent)
     help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(1), i18n("Filename scheme help"), this);
 
     ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
-    connect(ui.qlineedit_scheme, SIGNAL(textChanged(const QString &)), this, SLOT(update_example()));
+    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &SchemeWizardDialog::trigger_changed);
+    connect(ui.qlineedit_scheme, &QLineEdit::textChanged, this, &SchemeWizardDialog::update_example);
     ui.qlineedit_scheme->setCursorPosition(0);
 
-    connect(ui.kurllabel_help, SIGNAL(leftClickedUrl()), this, SLOT(help()));
+    connect(ui.kurllabel_help, &KUrlLabel::leftClickedUrl, this, &SchemeWizardDialog::help);
 
-    connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
-    connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
-    connect(ui.kpushbutton_trackartist, SIGNAL(clicked()), this, SLOT(insTrackArtist()));
-    connect(ui.kpushbutton_tracktitle, SIGNAL(clicked()), this, SLOT(insTrackTitle()));
-    connect(ui.kpushbutton_trackno, SIGNAL(clicked()), this, SLOT(insTrackNo()));
-    connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
-    connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
-    connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
-    connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
-    connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
+    connect(ui.kpushbutton_albumartist, &QAbstractButton::clicked, this, &SchemeWizardDialog::insAlbumArtist);
+    connect(ui.kpushbutton_albumtitle, &QAbstractButton::clicked, this, &SchemeWizardDialog::insAlbumTitle);
+    connect(ui.kpushbutton_trackartist, &QAbstractButton::clicked, this, &SchemeWizardDialog::insTrackArtist);
+    connect(ui.kpushbutton_tracktitle, &QAbstractButton::clicked, this, &SchemeWizardDialog::insTrackTitle);
+    connect(ui.kpushbutton_trackno, &QAbstractButton::clicked, this, &SchemeWizardDialog::insTrackNo);
+    connect(ui.kpushbutton_cdno, &QAbstractButton::clicked, this, &SchemeWizardDialog::insCDNo);
+    connect(ui.kpushbutton_date, &QAbstractButton::clicked, this, &SchemeWizardDialog::insDate);
+    connect(ui.kpushbutton_genre, &QAbstractButton::clicked, this, &SchemeWizardDialog::insGenre);
+    connect(ui.kpushbutton_suffix, &QAbstractButton::clicked, this, &SchemeWizardDialog::insSuffix);
+    connect(ui.kpushbutton_nooftracks, &QAbstractButton::clicked, this, &SchemeWizardDialog::insNoOfTracks);
 
     this->scheme = scheme;
 
@@ -61,14 +63,7 @@ SchemeWizardDialog::SchemeWizardDialog(const QString &scheme, QWidget *parent)
     update_example();
 }
 
-SchemeWizardDialog::~SchemeWizardDialog()
-{
-    if (help_dialog != nullptr) {
-        help_dialog->close();
-        delete help_dialog;
-        help_dialog = nullptr;
-    }
-}
+SchemeWizardDialog::~SchemeWizardDialog() = default;
 
 void SchemeWizardDialog::slotAccepted()
 {
@@ -92,7 +87,13 @@ void SchemeWizardDialog::trigger_changed()
 
 void SchemeWizardDialog::help()
 {
-    help_dialog->showNormal();
+    if (!help_dialog) {
+        help_dialog = new TextViewDialog(SchemeParser::helpHTMLDoc(1), i18n("Filename scheme help"), this);
+    }
+
+    help_dialog->show();
+    help_dialog->raise();
+    help_dialog->activateWindow();
 }
 
 void SchemeWizardDialog::insAlbumArtist()
@@ -185,36 +186,36 @@ bool SchemeWizardDialog::save()
 void SchemeWizardDialog::update_example()
 {
     SchemeParser schemeparser;
-    QString filename = schemeparser.parsePerTrackFilenameScheme(ui.qlineedit_scheme->text(),
-                                                                2,
-                                                                1,
-                                                                12,
-                                                                1,
-                                                                "Meat Loaf",
-                                                                "Bat Out Of Hell III",
-                                                                "Meat Loaf",
-                                                                "Blind As A Bat",
-                                                                "2006",
-                                                                "Rock",
-                                                                "AA6Q72000047",
-                                                                "ogg",
-                                                                false);
-    ui.qlineedit_album_example->setText(filename);
+    const QString filename_albumex = schemeparser.parsePerTrackFilenameScheme(ui.qlineedit_scheme->text(),
+                                                                              2,
+                                                                              1,
+                                                                              12,
+                                                                              1,
+                                                                              "Meat Loaf",
+                                                                              "Bat Out Of Hell III",
+                                                                              "Meat Loaf",
+                                                                              "Blind As A Bat",
+                                                                              "2006",
+                                                                              "Rock",
+                                                                              "AA6Q72000047",
+                                                                              "ogg",
+                                                                              false);
+    ui.qlineedit_album_example->setText(filename_albumex);
     ui.qlineedit_album_example->setCursorPosition(0);
-    filename = schemeparser.parsePerTrackFilenameScheme(ui.qlineedit_scheme->text(),
-                                                        4,
-                                                        2,
-                                                        18,
-                                                        1,
-                                                        "Alternative Hits",
-                                                        "Volume 4",
-                                                        "Wolfsheim",
-                                                        "Kein Zurueck",
-                                                        "2003",
-                                                        "Darkwave",
-                                                        "AA6Q72000047",
-                                                        "ogg",
-                                                        false);
-    ui.qlineedit_sampler_example->setText(filename);
+    const QString filename_samplerex = schemeparser.parsePerTrackFilenameScheme(ui.qlineedit_scheme->text(),
+                                                                                4,
+                                                                                2,
+                                                                                18,
+                                                                                1,
+                                                                                "Alternative Hits",
+                                                                                "Volume 4",
+                                                                                "Wolfsheim",
+                                                                                "Kein Zurueck",
+                                                                                "2003",
+                                                                                "Darkwave",
+                                                                                "AA6Q72000047",
+                                                                                "ogg",
+                                                                                false);
+    ui.qlineedit_sampler_example->setText(filename_samplerex);
     ui.qlineedit_sampler_example->setCursorPosition(0);
 }

@@ -1,22 +1,18 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef SCHEMEWIZARDDIALOG_H
-#define SCHEMEWIZARDDIALOG_H
-
-#include <QWidget>
-
-#include <QDialog>
-#include <QPushButton>
-
-#include "dialogs/textviewdialog.h"
-#include "utils/schemeparser.h"
+#pragma once
 
 #include "ui_schemewizardwidgetUI.h"
+
+#include "dialogs/textviewdialog.h"
+
+#include <QDialog>
+#include <QPointer>
 
 class SchemeWizardDialog : public QDialog
 {
@@ -54,9 +50,7 @@ private:
 
     bool save();
 
-    QPushButton *applyButton;
+    QPushButton *applyButton = nullptr;
 
-    TextViewDialog *help_dialog;
+    QPointer<TextViewDialog> help_dialog;
 };
-
-#endif

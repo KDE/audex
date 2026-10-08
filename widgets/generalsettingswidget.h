@@ -1,20 +1,15 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef GENERALSETTINGSWIDGET_H
-#define GENERALSETTINGSWIDGET_H
-
-#include <QDir>
-
-#include <KLineEdit>
-
-#include "preferences.h"
+#pragma once
 
 #include "ui_generalsettingswidgetUI.h"
+
+#include <QWidget>
 
 class generalSettingsWidgetUI : public QWidget, public Ui::GeneralSettingsWidgetUI
 {
@@ -33,5 +28,3 @@ public:
     explicit generalSettingsWidget(QWidget *parent = nullptr);
     ~generalSettingsWidget() override;
 };
-
-#endif

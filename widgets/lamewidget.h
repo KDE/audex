@@ -1,21 +1,19 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef LAMEWIDGET_H
-#define LAMEWIDGET_H
+#pragma once
+
+#include "ui_lamewidgetUI.h"
 
 #include <QList>
 #include <QWidget>
 
-#include "utils/encoderassistant.h"
 #include "utils/error.h"
 #include "utils/parameters.h"
-
-#include "ui_lamewidgetUI.h"
 
 class lameWidgetUI : public QWidget, public Ui::LAMEWidgetUI
 {
@@ -31,8 +29,12 @@ class lameWidget : public lameWidgetUI
 {
     Q_OBJECT
 public:
-    explicit lameWidget(Parameters *parameters, QWidget *parent = nullptr);
+    explicit lameWidget(const Parameters &parameters, QWidget *parent = nullptr);
     ~lameWidget() override;
+    inline const Parameters &parameters() const
+    {
+        return p_parameters;
+    }
     inline Error lastError() const
     {
         return error;
@@ -57,7 +59,7 @@ private Q_SLOTS:
     void trigger_changed();
 
 private:
-    Parameters *parameters;
+    Parameters p_parameters;
     Error error;
     bool changed;
     bool p_cbr_flag;
@@ -65,5 +67,3 @@ private:
     int real_bitrate;
     int preset;
 };
-
-#endif

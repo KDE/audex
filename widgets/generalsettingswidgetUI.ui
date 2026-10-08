@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
 <ui version="4.0">
  <class>GeneralSettingsWidgetUI</class>
  <widget class="QWidget" name="GeneralSettingsWidgetUI">
@@ -7,11 +11,404 @@
     <x>0</x>
     <y>0</y>
     <width>283</width>
-    <height>394</height>
+    <height>460</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox_reading">
+     <property name="title">
+      <string>Reading the CD</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_reading">
+      <item>
+       <widget class="QCheckBox" name="kcfg_cddbLookupAuto">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Look up artist, album and track titles as soon as a disc is detected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Fetch metadata automatically</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_hdcdDetect">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scan a few seconds of audio for HDCD control information when a disc is detected and mark HDCD discs in the header.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Detect HDCD encoded discs</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_cdgDetect">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Read a few seconds of the sub-channel when a disc is detected and mark discs with CD+G graphics (karaoke) in the header. Skipped for drives on which the drive test found no raw sub-channel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Detect CD+G graphics</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_provider">
+        <item>
+         <widget class="QLabel" name="label_metadataProvider">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Source that is asked first. CD-Text comes from the disc itself and needs no network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Preferred metadata provider:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="kcfg_metadataProvider">
+          <item>
+           <property name="text">
+            <string>MusicBrainz</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>CD-Text</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox_cover">
+     <property name="title">
+      <string>Cover</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_cover">
+      <item>
+       <widget class="QCheckBox" name="kcfg_coverLookupAuto">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Also fetch the cover when the metadata is looked up automatically. After a lookup you started yourself, the cover is always fetched.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Fetch the cover with the automatic lookup</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_coverSize">
+        <item>
+         <widget class="QLabel" name="label_coverSize">
+          <property name="text">
+           <string>Size:</string>
+          </property>
+          <property name="buddy">
+           <cstring>kcfg_coverSize</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="kcfg_coverSize">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The Cover Art Archive offers every cover in these sizes. Originals are often scans of several megabytes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>250 × 250 pixels</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>500 × 500 pixels</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1200 × 1200 pixels</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Original size</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_coverSize">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_coverReleaseGroupFallback">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Many releases, for example other pressings or re-issues, have no cover of their own at MusicBrainz. Then the cover chosen for all releases of the album is used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Use the release group's cover if the release has none</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_coverSource">
+        <property name="text">
+         <string>Covers come from the &lt;a href="https://coverartarchive.org/"&gt;Cover Art Archive&lt;/a&gt; and are fetched for albums found at MusicBrainz.</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::RichText</enum>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="openExternalLinks">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QGroupBox" name="groupBox_ripping">
+     <property name="title">
+      <string>Ripping and verification</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_ripping">
+      <item>
+       <widget class="QCheckBox" name="kcfg_detectGaps">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Before ripping, the Q sub-channel is read to find pregaps (INDEX 00) and further indexes. They go into the cue sheet and the rip log. Takes a few seconds per track. Left out for drives on which the drive test found no usable Q sub-channel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Read pregaps and indexes from the Q sub-channel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_isrc">
+        <item>
+         <spacer name="horizontalSpacer_isrc">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="kcfg_readIsrcMcn">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Read the per-track ISRCs and the media catalog number. Needed only for tags and cue sheets; reading takes a few extra seconds per track.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Read ISRCs and the media catalog number</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_gapHandling">
+        <item>
+         <spacer name="horizontalSpacer_gapHandling">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_gapHandling">
+          <property name="text">
+           <string>Pregaps in track files:</string>
+          </property>
+          <property name="buddy">
+           <cstring>kcfg_gapHandling</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="kcfg_gapHandling">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Where the pregap (INDEX 00) of a track goes when every track gets a file of its own. At the end of the previous track is how most rippers do it; with its own track, a file starts with the pause (or the spoken intro, the applause) before its music. AccurateRip and the CUETools database check the tracks as the TOC defines them either way. Images always contain the whole disc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>At the end of the previous track</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>At the start of their own track</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_gapHandlingEnd">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_cdgRead">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For discs on which &amp;quot;Detect CD+G graphics&amp;quot; found graphics: after the audio, read the sub-channel twice and save the CD+G graphics next to the audio files, one .cdg file per track or one for an image. Players such as VLC, mpv or karaoke software show them with the audio file of the same name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Save CD+G graphics as .cdg files</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_accurateRipVerify">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compares the ripped tracks with the AccurateRip database (accuraterip.com) and writes the result to the rip log. In secure mode, a track the database confirms after the first read is not read a second time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Verify ripped tracks with AccurateRip</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_ctdbVerify">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compares the ripped tracks with the CUETools database (db.cuetools.net), which also knows discs that are missing in AccurateRip, and writes the result to the rip log. In secure mode, a track the database confirms after the first read is not read a second time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Verify ripped tracks with the CUETools database</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QGroupBox" name="groupBox_tagging">
+     <property name="title">
+      <string>Tagging</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_tagging">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_preEmphasisTag">
+        <property name="text">
+         <string>Tag for tracks with pre-emphasis:</string>
+        </property>
+        <property name="buddy">
+         <cstring>kcfg_preEmphasisTag</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="kcfg_preEmphasisTag">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the tag (value &amp;quot;1&amp;quot;) written into tracks that the disc flags with pre-emphasis, so that players or later processing can de-emphasize them. An image gets it only if all tracks are flagged. Leave empty to write no tag.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="placeholderText">
+         <string>No tag</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_hdcdTag">
+        <property name="text">
+         <string>Tag for HDCD encoded tracks:</string>
+        </property>
+        <property name="buddy">
+         <cstring>kcfg_hdcdTag</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="kcfg_hdcdTag">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the tag (value &amp;quot;1&amp;quot;) written into tracks that carry HDCD control information, so that they can be found and decoded later (the audio is saved as it is on the disc). Audex checks every track while ripping; an image gets the tag if one of its tracks is HDCD encoded. Needs &amp;quot;Detect HDCD encoded discs&amp;quot;. Leave empty to write no tag.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="placeholderText">
+         <string>No tag</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QGroupBox" name="groupBox_after">
+     <property name="title">
+      <string>After ripping</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_after">
+      <item>
+       <widget class="QCheckBox" name="kcfg_overwriteExistingFiles">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace existing files without asking. Off: Audex lists the files and asks before the rip starts.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Overwrite existing files</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_ejectCDTray">
+        <property name="text">
+         <string>Eject CD tray after finish</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="5" column="0">
     <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
       <string>Paths</string>
@@ -34,97 +431,10 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="0">
-    <widget class="QGroupBox" name="groupBox_4">
-     <property name="title">
-      <string notr="true"/>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QCheckBox" name="kcfg_overwriteExistingFiles">
-        <property name="text">
-         <string>Overwrite existing files</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="kcfg_deletePartialFiles">
-        <property name="text">
-         <string>Delete partial files after cancel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="kcfg_ejectCDTray">
-        <property name="text">
-         <string>Eject CD tray after finished extraction</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QCheckBox" name="kcfg_cddbLookupAuto">
-        <property name="text">
-         <string>Perform CDDB lookup automatically</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QCheckBox" name="kcfg_coverLookupAuto">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="text">
-         <string>Perform cover lookup automatically</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="text">
-           <string>Number of covers to fetch:</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="kcfg_fetchCount">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="2" column="0">
+   <item row="6" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Orientation::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

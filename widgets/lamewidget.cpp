@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,25 +7,21 @@
 
 #include "lamewidget.h"
 
-#include <QDebug>
+#include "utils/encoderassistant.h"
+#include "utils/parameters.h"
 
-lameWidget::lameWidget(Parameters *parameters, QWidget *parent)
+lameWidget::lameWidget(const Parameters &parameters, QWidget *parent)
     : lameWidgetUI(parent)
+    , p_parameters(parameters)
 {
     Q_UNUSED(parent);
 
-    this->parameters = parameters;
-    if (!parameters) {
-        qDebug() << "ParameterString is NULL!";
-        return;
-    }
-
     bitrates << 80 << 96 << 112 << 128 << 160 << 192 << 224 << 256 << 320;
 
-    real_bitrate = parameters->value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt();
-    p_cbr_flag = parameters->value(ENCODER_LAME_CBR_KEY).toBool();
+    real_bitrate = p_parameters.value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt();
+    p_cbr_flag = p_parameters.value(ENCODER_LAME_CBR_KEY).toBool();
     enable_CBR(p_cbr_flag);
-    preset = parameters->value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt();
+    preset = p_parameters.value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt();
     switch (preset) {
     case ENCODER_LAME_PRESET_MEDIUM:
         radioButton_medium->setChecked(true);
@@ -49,32 +45,32 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent)
         break;
     }
     checkBox_cbr->setChecked(p_cbr_flag);
-    checkBox_embedcover->setChecked(parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool());
-    qlineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
+    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_LAME_EMBED_COVER_KEY).toBool());
+    qlineedit_suffix->setText(p_parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
-    connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(enable_medium(bool)));
-    connect(radioButton_medium, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_standard, SIGNAL(toggled(bool)), this, SLOT(enable_standard(bool)));
-    connect(radioButton_standard, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_extreme, SIGNAL(toggled(bool)), this, SLOT(enable_extreme(bool)));
-    connect(radioButton_extreme, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_insane, SIGNAL(toggled(bool)), this, SLOT(enable_insane(bool)));
-    connect(radioButton_insane, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
-    connect(radioButton_custom, SIGNAL(toggled(bool)), this, SLOT(enable_custom(bool)));
-    connect(radioButton_custom, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    connect(radioButton_medium, &QAbstractButton::toggled, this, &lameWidget::enable_medium);
+    connect(radioButton_medium, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
+    connect(radioButton_standard, &QAbstractButton::toggled, this, &lameWidget::enable_standard);
+    connect(radioButton_standard, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
+    connect(radioButton_extreme, &QAbstractButton::toggled, this, &lameWidget::enable_extreme);
+    connect(radioButton_extreme, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
+    connect(radioButton_insane, &QAbstractButton::toggled, this, &lameWidget::enable_insane);
+    connect(radioButton_insane, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
+    connect(radioButton_custom, &QAbstractButton::toggled, this, &lameWidget::enable_custom);
+    connect(radioButton_custom, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(checkBox_cbr, SIGNAL(toggled(bool)), this, SLOT(enable_CBR(bool)));
-    connect(checkBox_cbr, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    connect(checkBox_cbr, &QAbstractButton::toggled, this, &lameWidget::enable_CBR);
+    connect(checkBox_cbr, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_slider(int)));
-    connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(horizontalSlider_bitrate, &QAbstractSlider::valueChanged, this, &lameWidget::bitrate_changed_by_slider);
+    connect(horizontalSlider_bitrate, &QAbstractSlider::valueChanged, this, &lameWidget::trigger_changed);
 
-    connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_spinbox(int)));
-    connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+    connect(kintspinbox_bitrate, &QSpinBox::valueChanged, this, &lameWidget::bitrate_changed_by_spinbox);
+    connect(kintspinbox_bitrate, &QSpinBox::valueChanged, this, &lameWidget::trigger_changed);
 
-    connect(checkBox_embedcover, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
+    connect(checkBox_embedcover, &QAbstractButton::toggled, this, &lameWidget::trigger_changed);
 
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(qlineedit_suffix, &QLineEdit::textEdited, this, &lameWidget::trigger_changed);
 
     changed = false;
 }
@@ -87,11 +83,11 @@ bool lameWidget::save()
 {
     bool success = true;
 
-    parameters->setValue(ENCODER_LAME_PRESET_KEY, preset);
-    parameters->setValue(ENCODER_LAME_BITRATE_KEY, real_bitrate);
-    parameters->setValue(ENCODER_LAME_CBR_KEY, checkBox_cbr->isChecked());
-    parameters->setValue(ENCODER_LAME_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
-    parameters->setValue(ENCODER_LAME_SUFFIX_KEY, qlineedit_suffix->text());
+    p_parameters.setValue(ENCODER_LAME_PRESET_KEY, preset);
+    p_parameters.setValue(ENCODER_LAME_BITRATE_KEY, real_bitrate);
+    p_parameters.setValue(ENCODER_LAME_CBR_KEY, checkBox_cbr->isChecked());
+    p_parameters.setValue(ENCODER_LAME_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
+    p_parameters.setValue(ENCODER_LAME_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
 
@@ -233,11 +229,11 @@ void lameWidget::bitrate_changed_by_spinbox(int bitrate)
 
 void lameWidget::trigger_changed()
 {
-    changed = (preset != parameters->value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt()
-               || real_bitrate != parameters->value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt()
-               || checkBox_cbr->isChecked() != parameters->value(ENCODER_LAME_CBR_KEY).toBool()
-               || checkBox_embedcover->isChecked() != parameters->value(ENCODER_LAME_EMBED_COVER_KEY).toBool()
-               || qlineedit_suffix->text() != parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
+    changed = (preset != p_parameters.value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt()
+               || real_bitrate != p_parameters.value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt()
+               || checkBox_cbr->isChecked() != p_parameters.value(ENCODER_LAME_CBR_KEY).toBool()
+               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_LAME_EMBED_COVER_KEY).toBool()
+               || qlineedit_suffix->text() != p_parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }

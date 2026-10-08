@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
 <ui version="4.0">
  <class>CustomWidgetUI</class>
  <widget class="QWidget" name="CustomWidgetUI">
@@ -18,6 +22,16 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label_hint">
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>The command reads the audio as WAVE from standard input (that is what $i becomes); $o is the file it has to write. Tags are written by Audex afterwards.</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -30,13 +44,13 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QLineEdit" name="qlineedit_scheme"/>
    </item>
-   <item row="1" column="1">
+   <item row="2" column="1">
     <widget class="QPushButton" name="kpushbutton_scheme"/>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item row="3" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QLabel" name="label_suffix">
@@ -68,6 +82,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="qpushbutton_preset">
+       <property name="text">
+        <string>Load preset...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -82,7 +103,7 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="0">
+   <item row="4" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>

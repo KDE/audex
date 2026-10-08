@@ -1,18 +1,15 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef TEXTVIEWDIALOG_H
-#define TEXTVIEWDIALOG_H
-
-#include <QWidget>
-
-#include <QDialog>
+#pragma once
 
 #include "ui_textviewwidgetUI.h"
+
+#include <QDialog>
 
 class TextViewDialog : public QDialog
 {
@@ -20,9 +17,9 @@ class TextViewDialog : public QDialog
 
 public:
     TextViewDialog(const QString &text = QString(), const QString &title = QString(), QWidget *parent = nullptr);
-    ~TextViewDialog() override;
 
 public Q_SLOTS:
+
     void setTitle(const QString &title)
     {
         setWindowTitle(title);
@@ -38,5 +35,3 @@ private Q_SLOTS:
 private:
     Ui::TextViewWidgetUI ui;
 };
-
-#endif

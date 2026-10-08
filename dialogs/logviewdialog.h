@@ -1,19 +1,15 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef LOGVIEWDIALOG_H
-#define LOGVIEWDIALOG_H
-
-#include <QDateTime>
-#include <QWidget>
-
-#include <QDialog>
+#pragma once
 
 #include "ui_logviewwidgetUI.h"
+
+#include <QDialog>
 
 class LogViewDialog : public QDialog
 {
@@ -21,7 +17,6 @@ class LogViewDialog : public QDialog
 
 public:
     LogViewDialog(const QStringList &log, const QString &title, QWidget *parent = nullptr);
-    ~LogViewDialog() override;
 
 private Q_SLOTS:
     void slotSaveLog();
@@ -34,5 +29,3 @@ private:
     QStringList log;
     QString title;
 };
-
-#endif

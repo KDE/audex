@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="audex" version="1">
+<kpartgui name="audex" version="3">
   <MenuBar>
     <Menu name="file" noMerge="1">
       <text>&amp;Audex</text>
@@ -12,10 +12,10 @@
     </Menu>
     <Menu name="metadata">
       <text>&amp;Metadata</text>
-      <Menu name="cddb">
-        <text context="@title:menu">CDDB</text>
-        <Action name="cddbfetch"/>
-        <Action name="cddbsubmit"/>
+      <Menu name="fetch">
+        <text context="@title:menu">Fetch</text>
+        <Action name="cddbfetch_cdtext"/>
+        <Action name="cddbfetch_musicbrainz"/>
       </Menu>
       <Separator/>
       <Action name="edit"/>
@@ -35,6 +35,8 @@
     </Menu>
   </MenuBar>
   <ToolBar name="mainToolBar" hidden="false" noMerge="1">
+    <Action name="drive"/>
+    <Separator lineSeparator="true"/>
     <Action name="eject"/>
     <Separator lineSeparator="true"/>
     <Action name="profile_label"/>
@@ -42,6 +44,9 @@
     <Separator lineSeparator="true"/>
     <Action name="edit"/>
     <Action name="cddbfetch"/>
+    <Separator lineSeparator="true"/>
+    <Action name="output_mode_label"/>
+    <Action name="output_mode"/>
     <Separator lineSeparator="true"/>
     <Action name="rip"/>
   </ToolBar>

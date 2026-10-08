@@ -36,28 +36,45 @@ slots:
     name: org.kde.audex
     bus: session
 parts:
-  libkcddb:
+  # Ubuntu 24.04 (core24) ships TagLib 1.13 without CMake config; Audex needs
+  # TagLib >= 1.12 with its CMake package config, so build TagLib 2.x like the
+  # Flatpak does. utf8cpp is a hard dependency of TagLib 2.x.
+  utfcpp:
     plugin: cmake
-    source: https://invent.kde.org/multimedia/libkcddb.git
+    source: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.2.1.tar.gz
+    source-checksum: sha256/6d6a5493a111884cc085ee31babfe6d9960c8fb08fc80a64852eaeea8323dbc1
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
-      - -DQT_MAJOR_VERSION=6
+      - -DUTF8_TESTS=OFF
+      - -DUTF8_SAMPLES=OFF
+  taglib:
+    after:
+      - utfcpp
+    plugin: cmake
+    source: https://taglib.org/releases/taglib-2.1.tar.gz
+    source-checksum: sha256/95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c
+    cmake-parameters:
+      - -DCMAKE_INSTALL_PREFIX=/usr
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
       - -DBUILD_TESTING=OFF
+      - -DBUILD_EXAMPLES=OFF
+      - -DBUILD_BINDINGS=OFF
   audex:
     after:
-      - libkcddb
+      - taglib
     parse-info:
-      - usr/share/metainfo/org.kde.audex.appdata.xml
+      - usr/share/metainfo/org.kde.audex.metainfo.xml
     plugin: cmake
     build-snaps:
       - kde-qt6-core24-sdk/latest/beta
       - kf6-core24-sdk/latest/beta
     build-packages:
       - libxkbcommon-dev
-      - libcdio-dev
-      - libcdio-cdda-dev
-      - libcdio-paranoia-dev
+      - libflac-dev
+      - libopusenc-dev
+      - libmp3lame-dev
       - libpulse0
       - libxml2-dev
       - gettext
@@ -80,10 +97,10 @@ parts:
       - vorbis-tools
       - faac
       - libxkbcommon0
-      - libcdio19t64
-      - libcdio-cdda2t64
-      - libcdio-paranoia2t64
       - libaudio2
+      - libflac12t64
+      - libopusenc0
+      - libmp3lame0
     source: .
     source-type: local
     cmake-parameters:
@@ -112,4 +129,3 @@ parts:
       for snap in "core24" "kf6-core24"; do
           cd "/snap/$snap/current" && find . -type f,l -exec rm -rf "${CRAFT_PRIME}/{}" \;
       done
-

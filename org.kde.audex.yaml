@@ -1,0 +1,103 @@
+# Flatpak manifest for Audex (Flathub-style, for a stable release build).
+# The KDE nightly Flatpak uses .flatpak-manifest.json instead.
+#
+# Local build and install:
+#   flatpak-builder --user --install --force-clean build-dir org.kde.audex.yaml
+#   flatpak run org.kde.audex
+#
+# For a Flathub submission replace the audex source with the release tarball
+# (type: archive) or the git repo (type: git, with tag + commit).
+#
+# Notes:
+# - --device=all is the only way to reach /dev/sr* for SG_IO/MMC access;
+#   Flatpak cannot grant single devices.
+# - UDisks2 access lets Solid enumerate and watch optical drives.
+# - Custom encoder commands run inside the sandbox: only binaries bundled
+#   here (or in the runtime) are available. vorbis-tools is bundled so the
+#   Ogg Vorbis preset works out of the box; FLAC/MP3/Opus/WAVE are built in.
+app-id: org.kde.audex
+runtime: org.kde.Platform
+runtime-version: "6.10"
+sdk: org.kde.Sdk
+command: audex
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=network # MusicBrainz, AccurateRip, CTDB, Cover Art Archive
+  - --device=all # optical drives (/dev/sr*) via SG_IO
+  - --system-talk-name=org.freedesktop.UDisks2 # drive enumeration via Solid
+  - --filesystem=xdg-music:create # default output folder
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/pkgconfig
+  - /share/man
+  - "*.la"
+  - "*.a"
+
+modules:
+  # Qt 6 and all required KDE Frameworks come with the runtime, as do
+  # libFLAC, LAME and opus (headers included in the Sdk, which is the
+  # freedesktop Sdk). Only TagLib and libopusenc are missing there and
+  # are bundled here.
+
+  - name: utf8cpp
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DUTF8_TESTS=OFF
+      - -DUTF8_SAMPLES=OFF
+    sources:
+      - type: archive
+        url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.2.1.tar.gz
+        sha256: 6d6a5493a111884cc085ee31babfe6d9960c8fb08fc80a64852eaeea8323dbc1
+
+  - name: taglib
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_TESTING=OFF
+      - -DBUILD_EXAMPLES=OFF
+      - -DBUILD_BINDINGS=OFF
+    sources:
+      - type: archive
+        url: https://taglib.org/releases/taglib-2.1.tar.gz
+        sha256: 95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c
+
+  - name: opus
+    buildsystem: autotools
+    config-opts:
+      - --disable-static
+      - --disable-doc
+    sources:
+      - type: archive
+        url: https://downloads.xiph.org/releases/opus/opus-1.5.2.tar.gz
+        sha256: 65c1d2f78b9f2fb20082c38cbe47c951ad5839345876e46941612ee87f9a7ce1
+
+  - name: libopusenc
+    buildsystem: autotools
+    config-opts:
+      - --disable-static
+      - --disable-examples
+    sources:
+      - type: archive
+        url: https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz
+        sha256: 8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9
+
+  - name: vorbis-tools # oggenc for the Ogg Vorbis custom-encoder preset
+    buildsystem: autotools
+    sources:
+      - type: archive
+        url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz
+        sha256: a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde
+
+  - name: audex
+    buildsystem: cmake
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    sources:
+      # development: build the working copy next to this manifest
+      - type: dir
+        path: .

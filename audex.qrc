@@ -1,3 +1,8 @@
+<?xml version="1.0"?>
+<!--
+SPDX-FileCopyrightText: 2007-2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
 <RCC>
   <qresource prefix="/kxmlgui5/audex">
     <file>audexui.rc</file>

@@ -1,21 +1,18 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef FILENAMESCHEMEWIZARDDIALOG_H
-#define FILENAMESCHEMEWIZARDDIALOG_H
-
-#include <QWidget>
-
-#include <QDialog>
-
-#include "dialogs/textviewdialog.h"
-#include "utils/schemeparser.h"
+#pragma once
 
 #include "ui_filenameschemewizardwidgetUI.h"
+
+#include "dialogs/textviewdialog.h"
+
+#include <QDialog>
+#include <QPointer>
 
 class FilenameSchemeWizardDialog : public QDialog
 {
@@ -48,11 +45,9 @@ private Q_SLOTS:
 private:
     Ui::FilenameSchemeWizardWidgetUI ui;
     QString suffix;
-    QPushButton *applyButton;
+    QPushButton *applyButton = nullptr;
 
     bool save();
 
-    TextViewDialog *help_dialog;
+    QPointer<TextViewDialog> help_dialog;
 };
-
-#endif

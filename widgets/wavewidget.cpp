@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * SPDX-FileCopyrightText: Copyright (C) 2007 Marco Nelles
+ * SPDX-FileCopyrightText: Copyright (C) 2007-2026 Marco Nelles
  * <https://userbase.kde.org/Audex>
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -7,22 +7,20 @@
 
 #include "wavewidget.h"
 
-#include <QDebug>
+#include "utils/encoderassistant.h"
+#include "utils/parameters.h"
 
-waveWidget::waveWidget(Parameters *parameters, QWidget *parent)
+#include <QLineEdit>
+
+waveWidget::waveWidget(const Parameters &parameters, QWidget *parent)
     : waveWidgetUI(parent)
+    , p_parameters(parameters)
 {
     Q_UNUSED(parent);
 
-    this->parameters = parameters;
-    if (!parameters) {
-        qDebug() << "ParameterString is NULL!";
-        return;
-    }
+    qlineedit_suffix->setText(p_parameters.value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
 
-    qlineedit_suffix->setText(parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
-
-    connect(qlineedit_suffix, SIGNAL(textEdited(const QString &)), this, SLOT(trigger_changed()));
+    connect(qlineedit_suffix, &QLineEdit::textEdited, this, &waveWidget::trigger_changed);
 
     changed = false;
 }
@@ -35,7 +33,7 @@ bool waveWidget::save()
 {
     bool success = true;
 
-    parameters->setValue(ENCODER_WAVE_SUFFIX_KEY, qlineedit_suffix->text());
+    p_parameters.setValue(ENCODER_WAVE_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
 
@@ -44,7 +42,7 @@ bool waveWidget::save()
 
 void waveWidget::trigger_changed()
 {
-    changed = (qlineedit_suffix->text() != parameters->value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
+    changed = (qlineedit_suffix->text() != p_parameters.value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
 }
