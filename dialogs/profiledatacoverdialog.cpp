@@ -7,9 +7,8 @@
 
 #include "profiledatacoverdialog.h"
 
-#include "dialogs/filenameschemewizarddialog.h"
-
 #include <QDialogButtonBox>
+#include <QPushButton>
 
 ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
     : QDialog(parent)
@@ -56,9 +55,6 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, cons
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, &QAbstractButton::clicked, this, &ProfileDataCoverDialog::scheme_wizard);
-    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
-
     ui.checkBox_scale->setChecked(scale);
     enable_scale(ui.checkBox_scale->isChecked());
     connect(ui.checkBox_scale, &QAbstractButton::toggled, this, &ProfileDataCoverDialog::trigger_changed);
@@ -73,8 +69,8 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(ProfileModel *profile_model, cons
     ui.checkBox_png->setChecked(format == "PNG"); // anything else (legacy BMP etc.) means JPEG
     connect(ui.checkBox_png, &QAbstractButton::toggled, this, &ProfileDataCoverDialog::trigger_changed);
 
-    ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataCoverDialog::trigger_changed);
+    ui.schemeedit_scheme->setScheme(scheme);
+    connect(ui.schemeedit_scheme, &SchemeEdit::edited, this, &ProfileDataCoverDialog::trigger_changed);
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -92,19 +88,6 @@ void ProfileDataCoverDialog::slotApplied()
 {
     if (!save())
         ErrorDialog::show(this, error.message(), error.details());
-}
-
-void ProfileDataCoverDialog::scheme_wizard()
-{
-    const QString suffix = ui.checkBox_png->isChecked() ? QStringLiteral("png") : QStringLiteral("jpg");
-
-    FilenameSchemeWizardDialog dialog(ui.qlineedit_scheme->text(), suffix, this);
-
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-
-    ui.qlineedit_scheme->setText(dialog.scheme);
-    trigger_changed();
 }
 
 void ProfileDataCoverDialog::trigger_changed()
@@ -137,7 +120,7 @@ void ProfileDataCoverDialog::trigger_changed()
             applyButton->setEnabled(true);
             return;
         }
-        if (ui.qlineedit_scheme->text() != scheme) {
+        if (ui.schemeedit_scheme->scheme() != scheme) {
             applyButton->setEnabled(true);
             return;
         }
@@ -163,7 +146,7 @@ bool ProfileDataCoverDialog::save()
     const bool scale = ui.checkBox_scale->isChecked();
     const QSize size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
     const QString format = ui.checkBox_png->isChecked() ? QStringLiteral("PNG") : QStringLiteral("JPEG");
-    const QString scheme = ui.qlineedit_scheme->text();
+    const QString scheme = ui.schemeedit_scheme->scheme();
 
     error.clear();
     bool success = true;

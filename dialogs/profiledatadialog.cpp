@@ -8,12 +8,12 @@
 #include "profiledatadialog.h"
 
 #include "dialogs/errordialog.h"
-#include "dialogs/filenameschemewizarddialog.h"
 #include "dialogs/profiledatacoverdialog.h"
 #include "dialogs/profiledatahookdialog.h"
 #include "dialogs/profiledatalogfiledialog.h"
 #include "dialogs/profiledataplaylistdialog.h"
-#include "dialogs/schemewizarddialog.h"
+
+#include "utils/encoderassistant.h"
 
 #include <KMessageWidget>
 
@@ -99,12 +99,6 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     encoder_message->hide();
     ui.verticalLayout->insertWidget(ui.verticalLayout->indexOf(ui.stackedWidget_encoder), encoder_message);
 
-    connect(ui.kpushbutton_scheme, &QAbstractButton::clicked, this, &ProfileDataDialog::scheme_wizard);
-    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
-    connect(ui.kpushbutton_image_scheme, &QAbstractButton::clicked, this, &ProfileDataDialog::image_scheme_wizard);
-    ui.kpushbutton_image_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
-    connect(ui.kpushbutton_cue_scheme, &QAbstractButton::clicked, this, &ProfileDataDialog::cue_scheme_wizard);
-    ui.kpushbutton_cue_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
 
     connect(ui.kpushbutton_cover, &QAbstractButton::clicked, this, &ProfileDataDialog::cover_settings);
     connect(ui.kpushbutton_playlist, &QAbstractButton::clicked, this, &ProfileDataDialog::playlist_settings);
@@ -146,17 +140,15 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         set_output(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX)).toInt());
         connect(ui.kcombobox_output, &QComboBox::activated, this, &ProfileDataDialog::trigger_changed);
 
-        ui.qlineedit_image_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString());
-        connect(ui.qlineedit_image_scheme, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
-        ui.qlineedit_image_scheme->setCursorPosition(0);
+        ui.schemeedit_image_scheme->setScheme(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString());
+        connect(ui.schemeedit_image_scheme, &SchemeEdit::edited, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_cue->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool());
         enable_settings_cue(ui.checkBox_cue->isChecked());
         connect(ui.checkBox_cue, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
-        ui.qlineedit_cue_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString());
-        connect(ui.qlineedit_cue_scheme, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
-        ui.qlineedit_cue_scheme->setCursorPosition(0);
+        ui.schemeedit_cue_scheme->setScheme(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString());
+        connect(ui.schemeedit_cue_scheme, &SchemeEdit::edited, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_cue_mcn_isrc->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX)).toBool());
         connect(ui.checkBox_cue_mcn_isrc, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
@@ -169,9 +161,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
             profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX)).toBool());
         connect(ui.checkBox_ctdb_repair_keep_original, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
-        ui.qlineedit_scheme->setText(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString());
-        connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataDialog::trigger_changed);
-        ui.qlineedit_scheme->setCursorPosition(0);
+        ui.schemeedit_scheme->setScheme(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString());
+        connect(ui.schemeedit_scheme, &SchemeEdit::edited, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_fat32compatible->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
         connect(ui.checkBox_fat32compatible, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
@@ -221,16 +212,16 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         set_encoder(encoder);
         set_output(DEFAULT_OUTPUT);
 
-        ui.qlineedit_image_scheme->setText(DEFAULT_IMAGE_SCHEME);
+        ui.schemeedit_image_scheme->setScheme(QStringLiteral(DEFAULT_IMAGE_SCHEME));
         ui.checkBox_cue->setChecked(DEFAULT_CUE);
-        ui.qlineedit_cue_scheme->setText(DEFAULT_CUE_NAME);
+        ui.schemeedit_cue_scheme->setScheme(QStringLiteral(DEFAULT_CUE_NAME));
         ui.checkBox_cue_mcn_isrc->setChecked(DEFAULT_CUE_MCN_ISRC);
         ui.checkBox_ctdb_repair->setChecked(DEFAULT_CTDB_REPAIR);
         ui.checkBox_ctdb_repair_keep_original->setChecked(DEFAULT_CTDB_REPAIR_KEEP_ORIGINAL);
         enable_settings_cue(ui.checkBox_cue->isChecked());
         enable_settings_ctdb_repair(ui.checkBox_ctdb_repair->isChecked());
 
-        ui.qlineedit_scheme->setText(DEFAULT_SCHEME);
+        ui.schemeedit_scheme->setScheme(QStringLiteral(DEFAULT_SCHEME));
         ui.checkBox_fat32compatible->setChecked(DEFAULT_FAT32);
         ui.checkBox_underscore->setChecked(DEFAULT_UNDERSCORE);
         ui.checkBox_2digitstracknum->setChecked(DEFAULT_2DIGITSTRACKNUM);
@@ -370,7 +361,7 @@ void ProfileDataDialog::trigger_changed()
             || ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString()
             || ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex())
                 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString()
-            || ui.qlineedit_scheme->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString()
+            || ui.schemeedit_scheme->scheme() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX)).toString()
             || ui.checkBox_fat32compatible->isChecked()
                 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool()
             || ui.checkBox_underscore->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool()
@@ -381,9 +372,9 @@ void ProfileDataDialog::trigger_changed()
             || ui.checkBox_2digitstracknum->isChecked()
                 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX)).toBool()
             || ui.kcombobox_output->currentData().toInt() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX)).toInt()
-            || ui.qlineedit_image_scheme->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString()
+            || ui.schemeedit_image_scheme->scheme() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString()
             || ui.checkBox_cue->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()
-            || ui.qlineedit_cue_scheme->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
+            || ui.schemeedit_cue_scheme->scheme() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
             || ui.checkBox_cue_mcn_isrc->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX)).toBool()
             || ui.checkBox_ctdb_repair->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX)).toBool()
             || ui.checkBox_ctdb_repair_keep_original->isChecked()
@@ -415,49 +406,13 @@ void ProfileDataDialog::enable_settings_hook(bool enabled)
 void ProfileDataDialog::enable_settings_cue(bool enabled)
 {
     ui.label_cue_scheme->setEnabled(enabled);
-    ui.qlineedit_cue_scheme->setEnabled(enabled);
-    ui.kpushbutton_cue_scheme->setEnabled(enabled);
+    ui.schemeedit_cue_scheme->setEnabled(enabled);
     ui.checkBox_cue_mcn_isrc->setEnabled(enabled);
 }
 
 void ProfileDataDialog::enable_settings_ctdb_repair(bool enabled)
 {
     ui.checkBox_ctdb_repair_keep_original->setEnabled(enabled);
-}
-
-void ProfileDataDialog::scheme_wizard()
-{
-    SchemeWizardDialog dialog(ui.qlineedit_scheme->text(), this);
-
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-
-    ui.qlineedit_scheme->setText(dialog.scheme);
-    trigger_changed();
-}
-
-void ProfileDataDialog::image_scheme_wizard()
-{
-    FilenameSchemeWizardDialog dialog(ui.qlineedit_image_scheme->text(),
-                                      selected_encoder() == EncoderAssistant::FLAC ? QStringLiteral("flac") : QStringLiteral("wav"),
-                                      this);
-
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-
-    ui.qlineedit_image_scheme->setText(dialog.scheme);
-    trigger_changed();
-}
-
-void ProfileDataDialog::cue_scheme_wizard()
-{
-    FilenameSchemeWizardDialog dialog(ui.qlineedit_cue_scheme->text(), QStringLiteral("cue"), this);
-
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-
-    ui.qlineedit_cue_scheme->setText(dialog.scheme);
-    trigger_changed();
 }
 
 void ProfileDataDialog::cover_settings()
@@ -563,7 +518,7 @@ bool ProfileDataDialog::save()
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX), ui.kcombobox_output->currentData().toInt());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX), ui.qlineedit_scheme->text());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SCHEME_INDEX), ui.schemeedit_scheme->scheme());
     if (success)
         success =
             profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());
@@ -581,11 +536,11 @@ bool ProfileDataDialog::save()
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_INDEX), ui.checkBox_hook->isChecked());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX), ui.qlineedit_image_scheme->text());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX), ui.schemeedit_image_scheme->scheme());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cue->isChecked());
     if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), ui.qlineedit_cue_scheme->text());
+        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), ui.schemeedit_cue_scheme->scheme());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX), ui.checkBox_cue_mcn_isrc->isChecked());
     if (success)

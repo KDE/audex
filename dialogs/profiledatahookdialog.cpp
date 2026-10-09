@@ -7,9 +7,8 @@
 
 #include "profiledatahookdialog.h"
 
-#include "dialogs/profiledatahookwizarddialog.h"
-
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 ProfileDataHookDialog::ProfileDataHookDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
@@ -55,11 +54,8 @@ ProfileDataHookDialog::ProfileDataHookDialog(ProfileModel *profile_model, const 
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    ui.qlineedit_command->setText(command);
-    connect(ui.qlineedit_command, &QLineEdit::textEdited, this, &ProfileDataHookDialog::trigger_changed);
-
-    connect(ui.kpushbutton_wizard, &QAbstractButton::clicked, this, &ProfileDataHookDialog::command_wizard);
-    ui.kpushbutton_wizard->setIcon(QIcon::fromTheme("tools-wizard"));
+    ui.schemeedit_command->setScheme(command);
+    connect(ui.schemeedit_command, &SchemeEdit::edited, this, &ProfileDataHookDialog::trigger_changed);
 
     if (applyButton)
         applyButton->setEnabled(false);
@@ -79,17 +75,6 @@ void ProfileDataHookDialog::slotApplied()
         ErrorDialog::show(this, error.message(), error.details());
 }
 
-void ProfileDataHookDialog::command_wizard()
-{
-    ProfileDataHookWizardDialog dialog(ui.qlineedit_command->text(), this);
-
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-
-    ui.qlineedit_command->setText(dialog.command);
-    trigger_changed();
-}
-
 void ProfileDataHookDialog::trigger_changed()
 {
     if (!profile_model) {
@@ -100,7 +85,7 @@ void ProfileDataHookDialog::trigger_changed()
 
     if (applyButton) {
         const QString command = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_COMMAND_INDEX)).toString();
-        applyButton->setEnabled(ui.qlineedit_command->text() != command);
+        applyButton->setEnabled(ui.schemeedit_command->scheme() != command);
     }
 }
 
@@ -114,7 +99,7 @@ bool ProfileDataHookDialog::save()
 
     error.clear();
 
-    const bool success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_COMMAND_INDEX), ui.qlineedit_command->text());
+    const bool success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_HOOK_COMMAND_INDEX), ui.schemeedit_command->scheme());
 
     if (!success)
         error = profile_model->lastError();

@@ -254,6 +254,7 @@ set(audex_SRCS
     widgets/flacwidget.cpp
     widgets/wavewidget.cpp
     widgets/customwidget.cpp
+    widgets/schemeedit.cpp
     widgets/discmapwidget.cpp
     dialogs/cddaheaderdatadialog.cpp
     dialogs/metadatacandidatedialog.cpp
@@ -263,14 +264,9 @@ set(audex_SRCS
     dialogs/profiledataplaylistdialog.cpp
     dialogs/profiledatalogfiledialog.cpp
     dialogs/profiledatahookdialog.cpp
-    dialogs/schemewizarddialog.cpp
-    dialogs/commandwizarddialog.cpp
-    dialogs/filenameschemewizarddialog.cpp
     dialogs/driveassistantdialog.cpp
-    dialogs/profiledatahookwizarddialog.cpp
     dialogs/extractingprogressdialog.cpp
     dialogs/logviewdialog.cpp
-    dialogs/textviewdialog.cpp
     dialogs/errordialog.cpp
     dialogs/settingsdialog.cpp)
 
@@ -290,14 +286,9 @@ ki18n_wrap_ui(
   dialogs/profiledataplaylistwidgetUI.ui
   dialogs/profiledatalogfilewidgetUI.ui
   dialogs/profiledatahookwidgetUI.ui
-  dialogs/schemewizardwidgetUI.ui
-  dialogs/commandwizardwidgetUI.ui
-  dialogs/filenameschemewizardwidgetUI.ui
   dialogs/driveassistantwidgetUI.ui
-  dialogs/profiledatahookwizardwidgetUI.ui
   dialogs/extractingprogresswidgetUI.ui
-  dialogs/logviewwidgetUI.ui
-  dialogs/textviewwidgetUI.ui)
+  dialogs/logviewwidgetUI.ui)
 
 kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
 qt_add_resources(audex_SRCS audex.qrc)

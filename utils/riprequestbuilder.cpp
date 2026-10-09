@@ -28,6 +28,19 @@ using Audex::Metadata::Field;
 namespace
 {
 
+// the engine only reports the kind of a command problem; the texts live here
+QString commandIssueText(const Audex::Encoding::CommandIssue &issue)
+{
+    switch (issue.kind) {
+    case Audex::Encoding::CommandIssue::Kind::HasParameters:
+        return i18n("%1: parameters are not supported in a command.", issue.written);
+    case Audex::Encoding::CommandIssue::Kind::CoverFile:
+        return i18n("%1 cannot be filled in: Audex embeds the cover itself and does not write a cover file.", issue.written);
+    default:
+        return i18n("%1 is not a known placeholder.", issue.written);
+    }
+}
+
 const QList<int> LameBitrates{128, 160, 192, 224, 256, 320};
 
 QString snapLameBitrate(int bitrate)
@@ -140,17 +153,19 @@ void RipRequestBuilder::encoder(QString *id, QVariantMap *settings, QString *suf
     (*settings)[u"suffix"_s] = *suffix;
 }
 
-QStringList RipRequestBuilder::externalCommand(const EncoderAssistant::Encoder encoder, const Parameters &parameters, QStringList *unsupported) const
+QStringList RipRequestBuilder::externalCommand(const EncoderAssistant::Encoder encoder,
+                                               const Parameters &parameters,
+                                               QList<Audex::Encoding::CommandIssue> *issues) const
 {
-    if (unsupported)
-        unsupported->clear();
+    if (issues)
+        issues->clear();
     if (encoder != EncoderAssistant::CUSTOM)
         return {};
 
     const QString scheme = parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME).toString();
     const Audex::Encoding::CommandScheme command = Audex::Encoding::parseCommandScheme(scheme, albumVars());
-    if (unsupported)
-        *unsupported = command.unsupported;
+    if (issues)
+        *issues = command.issues;
     return command.arguments;
 }
 
@@ -391,15 +406,17 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles) con
         return false;
     }
     if (id == u"external"_s) {
-        QStringList unsupported;
-        externalCommand(profile_model->getSelectedEncoderFromCurrentIndex(), profile_model->getSelectedEncoderParametersFromCurrentIndex(), &unsupported);
+        QList<Audex::Encoding::CommandIssue> issues;
+        externalCommand(profile_model->getSelectedEncoderFromCurrentIndex(), profile_model->getSelectedEncoderParametersFromCurrentIndex(), &issues);
         if (settings.value(u"commandArgs"_s).toStringList().isEmpty()) {
             *error = i18n("No encoder command configured.");
             return false;
         }
-        if (!unsupported.isEmpty()) {
-            *error = i18n("The encoder command uses %1, which Audex cannot fill in. Please edit the command in the profile.",
-                          unsupported.join(QStringLiteral(", ")));
+        if (!issues.isEmpty()) {
+            QStringList messages;
+            for (const Audex::Encoding::CommandIssue &issue : issues)
+                messages << commandIssueText(issue);
+            *error = i18n("The encoder command cannot be used. Please edit the command in the profile.") + u'\n' + messages.join(u'\n');
             return false;
         }
         if (suffix.trimmed().isEmpty()) {

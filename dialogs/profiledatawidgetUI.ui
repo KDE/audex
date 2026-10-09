@@ -132,20 +132,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="qlineedit_scheme">
-              <property name="font">
-               <font>
-                <weight>50</weight>
-                <bold>false</bold>
-               </font>
+             <widget class="SchemeEdit" name="schemeedit_scheme">
+              <property name="kind">
+               <enum>SchemeEdit::TrackFilename</enum>
               </property>
-              <property name="placeholderText">
-               <string>Please set a scheme</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="kpushbutton_scheme">
               <property name="font">
                <font>
                 <weight>50</weight>
@@ -228,15 +218,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="qlineedit_image_scheme">
-            <property name="placeholderText">
-             <string>Please set a scheme</string>
+          <item row="0" column="1" colspan="2">
+           <widget class="SchemeEdit" name="schemeedit_image_scheme">
+            <property name="kind">
+             <enum>SchemeEdit::Filename</enum>
             </property>
            </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QPushButton" name="kpushbutton_image_scheme"/>
           </item>
           <item row="1" column="0" colspan="3">
            <widget class="QCheckBox" name="checkBox_cue">
@@ -252,15 +239,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="qlineedit_cue_scheme">
-            <property name="placeholderText">
-             <string>Please set a scheme</string>
+          <item row="2" column="1" colspan="2">
+           <widget class="SchemeEdit" name="schemeedit_cue_scheme">
+            <property name="kind">
+             <enum>SchemeEdit::Filename</enum>
             </property>
            </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QPushButton" name="kpushbutton_cue_scheme"/>
           </item>
           <item row="3" column="0" colspan="3">
            <widget class="QCheckBox" name="checkBox_cue_mcn_isrc">
@@ -457,6 +441,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SchemeEdit</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/schemeedit.h</header>
+  </customwidget>
   <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>

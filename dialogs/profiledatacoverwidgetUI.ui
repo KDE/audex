@@ -90,15 +90,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </property>
     </widget>
    </item>
-   <item row="2" column="1" colspan="4">
-    <widget class="QLineEdit" name="qlineedit_scheme">
-     <property name="placeholderText">
-      <string>Please set a scheme</string>
+   <item row="2" column="1" colspan="5">
+    <widget class="SchemeEdit" name="schemeedit_scheme">
+     <property name="kind">
+      <enum>SchemeEdit::Filename</enum>
      </property>
     </widget>
-   </item>
-   <item row="2" column="5">
-    <widget class="QPushButton" name="kpushbutton_scheme"/>
    </item>
    <item row="3" column="2">
     <spacer name="verticalSpacer">
@@ -115,6 +112,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SchemeEdit</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/schemeedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

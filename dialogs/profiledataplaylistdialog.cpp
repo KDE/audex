@@ -7,8 +7,6 @@
 
 #include "profiledataplaylistdialog.h"
 
-#include "dialogs/filenameschemewizarddialog.h"
-
 #include <KMessageBox>
 
 #include <QDialogButtonBox>
@@ -61,11 +59,8 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(ProfileModel *profile_model
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, &QAbstractButton::clicked, this, &ProfileDataPlaylistDialog::scheme_wizard);
-    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
-
-    ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, &ProfileDataPlaylistDialog::trigger_changed);
+    ui.schemeedit_scheme->setScheme(scheme);
+    connect(ui.schemeedit_scheme, &SchemeEdit::edited, this, &ProfileDataPlaylistDialog::trigger_changed);
 
     ui.checkBox_abs_file_path->setChecked(abs_file_path);
     connect(ui.checkBox_abs_file_path, &QAbstractButton::toggled, this, &ProfileDataPlaylistDialog::trigger_changed);
@@ -86,15 +81,6 @@ void ProfileDataPlaylistDialog::slotAccepted()
 void ProfileDataPlaylistDialog::slotApplied()
 {
     save();
-}
-
-void ProfileDataPlaylistDialog::scheme_wizard()
-{
-    FilenameSchemeWizardDialog dialog(ui.qlineedit_scheme->text(), "m3u", this);
-    if (dialog.exec() == QDialog::Accepted) {
-        ui.qlineedit_scheme->setText(dialog.scheme);
-        trigger_changed();
-    }
 }
 
 void ProfileDataPlaylistDialog::trigger_changed()
@@ -120,7 +106,7 @@ void ProfileDataPlaylistDialog::trigger_changed()
             return;
         }
 
-        if (ui.qlineedit_scheme->text() != scheme) {
+        if (ui.schemeedit_scheme->scheme() != scheme) {
             applyButton->setEnabled(true);
             return;
         }
@@ -137,7 +123,7 @@ bool ProfileDataPlaylistDialog::save()
         return false;
     }
 
-    const QString scheme = ui.qlineedit_scheme->text();
+    const QString scheme = ui.schemeedit_scheme->scheme();
     const bool abs_file_path = ui.checkBox_abs_file_path->isChecked();
     const bool utf8 = ui.checkBox_utf8->isChecked();
 

@@ -15,6 +15,8 @@
 #include <QDialog>
 #include <QPointer>
 
+class QPushButton;
+
 class ProfileDataHookDialog : public QDialog
 {
     Q_OBJECT
@@ -27,8 +29,6 @@ private Q_SLOTS:
 
     void slotAccepted();
     void slotApplied();
-
-    void command_wizard();
 
 private:
     Ui::ProfileDataHookWidgetUI ui;

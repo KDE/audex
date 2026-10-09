@@ -29,14 +29,20 @@
 namespace Audex::Encoding
 {
 
-struct CommandScheme {
-    QStringList arguments; // ready for QProcess, track placeholders still in
-    QStringList unsupported; // placeholders used by the scheme that cannot be filled
+struct CommandIssue {
+    enum class Kind {
+        UnknownName, // a typo or a value Audex does not have
+        HasParameters, // parameters are a feature of the filename schemes
+        CoverFile // Audex embeds the cover into the files, there is no cover file
+    };
+    Kind kind;
+    QString written; // the placeholder as written in the scheme
 };
 
-// Placeholders that mean nothing in an encoder command: Audex no longer
-// creates a cover file.
-QStringList unsupportedCommandVariables();
+struct CommandScheme {
+    QStringList arguments; // ready for QProcess, track placeholders still in
+    QList<CommandIssue> issues; // what cannot be filled in, one entry per problem
+};
 
 // Placeholders the engine fills in per output file (see setTrackValues() in
 // encoding/encoder.h).
@@ -58,8 +64,8 @@ bool hasOutputFilePlaceholder(const QStringList &arguments);
 // everything else alone.
 QStringList substituteValues(const QStringList &arguments, const QMap<QString, QString> &values);
 
-// The arguments as one line, for the log and the wizard preview. Quoting is
-// the one QProcess::splitCommand() understands.
+// The arguments as one line, for the log. Quoting is the one
+// QProcess::splitCommand() understands.
 QString commandToString(const QStringList &arguments);
 
 // The command hook of a profile, run after a rip: the scheme is split with
@@ -71,6 +77,11 @@ QStringList hookCommandArguments(const QString &command,
                                  const QMap<QString, QString> &albumVars,
                                  const QStringList &files,
                                  const QString &outputDir);
+
+// What a hook command uses that cannot be filled in. The hook knows the
+// album values only: there is no $i/$o and no track, and parameters are a
+// feature of the filename schemes.
+QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString, QString> &values);
 
 // A preset command for the custom encoder (encoderpresets.json)
 struct EncoderPreset {

@@ -7,7 +7,6 @@
 
 #include "customwidget.h"
 
-#include "dialogs/commandwizarddialog.h"
 #include "utils/encoderassistant.h"
 #include "utils/encodercommand.h"
 #include "utils/parameters.h"
@@ -26,21 +25,17 @@ customWidget::customWidget(const Parameters &parameters, QWidget *parent)
 {
     Q_UNUSED(parent);
 
-    qlineedit_scheme->setText(p_parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME).toString());
+    schemeedit_command->setScheme(p_parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME).toString());
     qlineedit_suffix->setText(p_parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX).toString());
 
     connect(qlineedit_suffix, &QLineEdit::textEdited, this, &customWidget::trigger_changed);
-    connect(qlineedit_scheme, &QLineEdit::textEdited, this, &customWidget::trigger_changed);
-
-    connect(kpushbutton_scheme, &QAbstractButton::clicked, this, &customWidget::scheme_wizard);
-
-    kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
+    connect(schemeedit_command, &SchemeEdit::edited, this, &customWidget::trigger_changed);
 
     const QList<EncoderPreset> presets = Audex::Encoding::encoderPresets();
     auto *presetMenu = new QMenu(qpushbutton_preset);
     for (const EncoderPreset &preset : presets)
         presetMenu->addAction(preset.name, this, [this, preset]() {
-            qlineedit_scheme->setText(preset.command);
+            schemeedit_command->setScheme(preset.command);
             qlineedit_suffix->setText(preset.suffix);
             trigger_changed();
         });
@@ -60,7 +55,7 @@ bool customWidget::save()
 {
     bool success = true;
 
-    p_parameters.setValue(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, qlineedit_scheme->text());
+    p_parameters.setValue(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, schemeedit_command->scheme());
     p_parameters.setValue(ENCODER_CUSTOM_SUFFIX_KEY, qlineedit_suffix->text().trimmed());
 
     changed = false;
@@ -68,20 +63,9 @@ bool customWidget::save()
     return success;
 }
 
-void customWidget::scheme_wizard()
-{
-    CommandWizardDialog dialog(qlineedit_scheme->text(), qlineedit_suffix->text().trimmed(), this);
-
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-
-    qlineedit_scheme->setText(dialog.command);
-    trigger_changed();
-}
-
 void customWidget::trigger_changed()
 {
-    changed = (qlineedit_scheme->text() != p_parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME)
+    changed = (schemeedit_command->scheme() != p_parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME)
                || qlineedit_suffix->text() != p_parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
 
     Q_EMIT triggerChanged();

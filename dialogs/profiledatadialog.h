@@ -41,10 +41,6 @@ private Q_SLOTS:
     void enable_settings_cue(bool enabled);
     void enable_settings_ctdb_repair(bool enabled);
 
-    void scheme_wizard();
-    void image_scheme_wizard();
-    void cue_scheme_wizard();
-
     void cover_settings();
     void playlist_settings();
     void logfile_settings();

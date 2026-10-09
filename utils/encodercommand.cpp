@@ -30,6 +30,9 @@ namespace
 const QString InputFile = u"i"_s;
 const QString OutputFile = u"o"_s;
 
+// a filename value: Audex embeds the cover into the files, there is no cover file
+const QString CoverFile = u"cover"_s;
+
 QString readName(const QString &argument, qsizetype &at, bool *braced, bool *hasParameters)
 {
     qsizetype i = at + 1; // behind the dollar sign
@@ -97,11 +100,6 @@ QString substituteArgument(const QString &argument,
 
 }
 
-QStringList unsupportedCommandVariables()
-{
-    return {u"cover"_s}; // the cover is embedded by Audex, there is no file
-}
-
 QStringList trackCommandVariables()
 {
     return {u"tartist"_s, u"ttitle"_s, u"trackno"_s, u"isrc"_s};
@@ -117,12 +115,26 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
     const QStringList tracks = trackCommandVariables();
     CommandScheme result;
 
+    const auto issue = [&result](CommandIssue::Kind kind, const QString &written) {
+        for (const CommandIssue &e : result.issues)
+            if (e.kind == kind && e.written == written)
+                return;
+        result.issues.append({kind, written});
+    };
+
     const auto resolve = [&](const QString &name, bool parameters, const QString &written) -> std::optional<QString> {
-        if (parameters || (!values.contains(name) && !tracks.contains(name) && name != InputFile && name != OutputFile)) {
-            // placeholders with parameters need the old scheme parser, and an
-            // unknown name is a typo or a value Audex does not have
-            if (!result.unsupported.contains(written))
-                result.unsupported.append(written);
+        if (name == CoverFile) {
+            issue(CommandIssue::Kind::CoverFile, written);
+            return std::nullopt;
+        }
+        if (parameters) {
+            // parameters are a feature of the filename schemes
+            issue(CommandIssue::Kind::HasParameters, written);
+            return std::nullopt;
+        }
+        if (!values.contains(name) && !tracks.contains(name) && name != InputFile && name != OutputFile) {
+            // an unknown name is a typo or a value Audex does not have
+            issue(CommandIssue::Kind::UnknownName, written);
             return std::nullopt;
         }
         if (name == InputFile)
@@ -173,6 +185,24 @@ QStringList substituteValues(const QStringList &arguments, const QMap<QString, Q
     for (const QString &argument : arguments)
         result.append(substituteArgument(argument, true, resolve));
     return result;
+}
+
+QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString, QString> &values)
+{
+    QList<CommandIssue> issues;
+    const auto resolve = [&issues, &values](const QString &name, bool parameters, const QString &written) -> std::optional<QString> {
+        if (!parameters && values.contains(name))
+            return std::nullopt; // can be filled in
+        const CommandIssue::Kind kind = parameters ? CommandIssue::Kind::HasParameters : CommandIssue::Kind::UnknownName;
+        for (const CommandIssue &e : issues)
+            if (e.kind == kind && e.written == written)
+                return std::nullopt;
+        issues.append({kind, written});
+        return std::nullopt;
+    };
+    for (const QString &argument : QProcess::splitCommand(command))
+        substituteArgument(argument, true, resolve);
+    return issues;
 }
 
 QStringList hookCommandArguments(const QString &command, const QMap<QString, QString> &albumVars, const QStringList &files, const QString &outputDir)

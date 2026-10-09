@@ -15,15 +15,14 @@
 #include <QDialog>
 #include <QPointer>
 
+class QPushButton;
+
 class ProfileDataLogFileDialog : public QDialog
 {
     Q_OBJECT
 
 public:
     explicit ProfileDataLogFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
-
-protected Q_SLOTS:
-    void scheme_wizard();
 
 private Q_SLOTS:
     void trigger_changed();

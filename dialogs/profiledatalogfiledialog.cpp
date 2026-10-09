@@ -7,9 +7,8 @@
 
 #include "profiledatalogfiledialog.h"
 
-#include "dialogs/filenameschemewizarddialog.h"
-
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent)
@@ -50,13 +49,8 @@ ProfileDataLogFileDialog::ProfileDataLogFileDialog(ProfileModel *profile_model, 
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
 
-    connect(ui.kpushbutton_scheme, &QPushButton::clicked, this, [this]() {
-        scheme_wizard();
-    });
-    ui.kpushbutton_scheme->setIcon(QIcon::fromTheme("tools-wizard"));
-
-    ui.qlineedit_scheme->setText(scheme);
-    connect(ui.qlineedit_scheme, &QLineEdit::textEdited, this, [this](const QString &) {
+    ui.schemeedit_scheme->setScheme(scheme);
+    connect(ui.schemeedit_scheme, &SchemeEdit::edited, this, [this]() {
         trigger_changed();
     });
 
@@ -78,15 +72,6 @@ void ProfileDataLogFileDialog::slotApplied()
         ErrorDialog::show(this, error.message(), error.details());
 }
 
-void ProfileDataLogFileDialog::scheme_wizard()
-{
-    FilenameSchemeWizardDialog dialog(ui.qlineedit_scheme->text(), "log", this);
-    if (dialog.exec() != QDialog::Accepted)
-        return;
-    ui.qlineedit_scheme->setText(dialog.scheme);
-    trigger_changed();
-}
-
 void ProfileDataLogFileDialog::trigger_changed()
 {
     if (!profile_model) {
@@ -97,7 +82,7 @@ void ProfileDataLogFileDialog::trigger_changed()
 
     if (applyButton) {
         const QString scheme = profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX)).toString();
-        applyButton->setEnabled(ui.qlineedit_scheme->text() != scheme);
+        applyButton->setEnabled(ui.schemeedit_scheme->scheme() != scheme);
     }
 }
 
@@ -109,7 +94,7 @@ bool ProfileDataLogFileDialog::save()
         return false;
     }
 
-    const QString scheme = ui.qlineedit_scheme->text();
+    const QString scheme = ui.schemeedit_scheme->scheme();
 
     error.clear();
     bool success = true;

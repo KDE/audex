@@ -27,6 +27,7 @@
 #include <KLocalizedString>
 
 #include "encoding/registry.h"
+#include "utils/encodercommand.h"
 #include "metadata/cdinfo.h"
 #include "models/cdinfomodel.h"
 #include "models/profilemodel.h"
@@ -126,9 +127,11 @@ private:
 
     void encoder(QString *id, QVariantMap *settings, QString *suffix) const;
 
-    // Encoder command of the profile, translated for the engine; placeholders
-    // the command cannot use land in `unsupported`.
-    QStringList externalCommand(const EncoderAssistant::Encoder encoder, const Parameters &parameters, QStringList *unsupported = nullptr) const;
+    // Encoder command of the profile, translated for the engine; what the
+    // command cannot use lands in `issues` as one entry per problem.
+    QStringList externalCommand(const EncoderAssistant::Encoder encoder,
+                                const Parameters &parameters,
+                                QList<Audex::Encoding::CommandIssue> *issues = nullptr) const;
 
     QMap<QString, QString> albumVars() const; // values a scheme can fill in
     QString substituteAlbumVars(const QString &text) const;
