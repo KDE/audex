@@ -1,22 +1,22 @@
 [
     {
         "name": "Ogg Vorbis (oggenc, q6)",
-        "command": "oggenc -Q -q 6 -o %o -",
+        "command": "oggenc -Q -q 6 -o $o -",
         "suffix": "ogg"
     },
     {
         "name": "AAC (fdkaac, VBR quality 5)",
-        "command": "fdkaac --silent -m 5 -o %o -",
+        "command": "fdkaac --silent -m 5 -o $o -",
         "suffix": "m4a"
     },
     {
         "name": "ALAC (ffmpeg)",
-        "command": "ffmpeg -loglevel error -y -f wav -i - -c:a alac %o",
+        "command": "ffmpeg -loglevel error -y -f wav -i - -c:a alac $o",
         "suffix": "m4a"
     },
     {
         "name": "WavPack (high)",
-        "command": "wavpack -h -q -y -o %o -",
+        "command": "wavpack -h -q -y -o $o -",
         "suffix": "wv"
     }
 ]

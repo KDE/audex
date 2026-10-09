@@ -89,9 +89,9 @@ commands. It rips securely and the key points are (more details below):
   - **Opus** (libopusenc)
 - **WAVE** is built in.
 - **Custom encoders.** Any command-line encoder that reads WAVE from standard
-  input works. `%o` in the command stands for the output file, for example:
-  - `fdkaac --silent -m 5 -o %o -`
-  - `ffmpeg -loglevel error -f wav -i - -c:a alac %o`
+  input works. `$o` in the command stands for the output file, for example:
+  - `fdkaac --silent -m 5 -o $o -`
+  - `ffmpeg -loglevel error -f wav -i - -c:a alac $o`
 
   The custom encoder widget offers some presets. The presets
   come from `encoderpresets.json` (installed to the application data folder);
@@ -505,7 +505,7 @@ original CUETools code, so it uses the same data as CUETools does.
 - **Encoding happens inside Audex.** The external `lame`, `flac` and `opusenc`
   binaries are no longer needed. The native plugins replace them.
 - **Ogg Vorbis and AAC (FAAC) profiles are no longer built in.** Use a custom
-  command instead, for example `oggenc -Q -q 6 -o %o -`.
+  command instead, for example `oggenc -Q -q 6 -o $o -`.
 - **Custom commands receive the audio as WAVE on standard input.**
 - **Metadata comes from MusicBrainz or CD-Text.** CDDB/gnudb is no longer
   supported.

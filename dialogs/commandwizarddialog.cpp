@@ -268,6 +268,6 @@ void CommandWizardDialog::update_example()
                                ? i18n("Audex sends the audio to the command as WAVE on standard input (that is what %1 becomes); %2 is the file the command "
                                       "has to write.",
                                       QStringLiteral("$i"),
-                                      QStringLiteral("%o"))
+                                      QStringLiteral("$o"))
                                : i18n("%1 cannot be filled in; a rip with this command is refused.", album.second.join(QStringLiteral(", "))));
 }

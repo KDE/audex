@@ -237,7 +237,7 @@ public:
         if (cmd.isEmpty())
             return fail(error, tr("No encoder command configured."));
         if (!hasOutputFilePlaceholder(m_arguments))
-            return fail(error, tr("The encoder command must contain %o for the output file."));
+            return fail(error, tr("The encoder command must contain $o for the output file."));
 
         m_process = std::make_unique<QProcess>();
         m_process->setStandardOutputFile(QProcess::nullDevice());
