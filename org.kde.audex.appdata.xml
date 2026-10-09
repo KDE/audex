@@ -2,7 +2,7 @@
 <component type="desktop">
   <id>org.kde.audex</id>
   <metadata_license>FSFAP</metadata_license>
-  <project_license>GPL-2.0</project_license>
+  <project_license>GPL-3.0-or-later</project_license>
   <name>Audex</name>
   <name xml:lang="ar">أوديكس</name>
   <name xml:lang="ast">Audex</name>
