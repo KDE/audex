@@ -159,8 +159,8 @@ void SchemeEdit::rebuildMenu()
         addVariable(i18n("Output File"), QStringLiteral(VAR_OUTPUT_FILE));
     } else if (m_kind == HookCommand) {
         m_insertMenu->addSection(i18n("Hook"));
-        addEntry(i18n("Written Files"), QStringLiteral("%f"));
-        addEntry(i18n("Output Directory"), QStringLiteral("%d"));
+        addVariable(i18n("Written Files"), QStringLiteral(VAR_HOOK_FILES));
+        addVariable(i18n("Output Directory"), QStringLiteral(VAR_HOOK_OUTPUT_DIR));
     } else {
         m_insertMenu->addSection(i18n("File"));
         addVariable(i18n("Suffix"), QStringLiteral(VAR_SUFFIX));

@@ -41,6 +41,9 @@
 #define VAR_INPUT_FILE "i"
 #define VAR_OUTPUT_FILE "o"
 
+#define VAR_HOOK_FILES "files"
+#define VAR_HOOK_OUTPUT_DIR "dir"
+
 #define VAR_MCN "mcn"
 #define VAR_DISCID "discid"
 #define VAR_CD_SIZE "size"
@@ -195,10 +198,10 @@ public:
             result.append(
                 i18n("<table>"
                      "<tr><th>Placeholder</th><th>Description</th></tr>"
-                     "<tr><td><tt>%f</tt></td><td>The list of the written audio files. As an argument of its own it becomes one argument per file, "
+                     "<tr><td><tt>$files</tt></td><td>The list of the written audio files. As an argument of its own it becomes one argument per file, "
                      "inside a longer argument the file names are joined with spaces.</td></tr>"
-                     "<tr><td><tt>%d</tt></td><td>The output directory the files were written to.</td></tr>"
-                     "<tr><td><tt>%%</tt></td><td>A plain percent sign.</td></tr>"
+                     "<tr><td><tt>$dir</tt></td><td>The output directory the files were written to.</td></tr>"
+                     "<tr><td><tt>$$</tt></td><td>A plain dollar sign.</td></tr>"
                      "</table>"
                      "<p>The command runs after a successfully finished rip. It is not run in a shell: it is split into arguments once, and the values "
                      "are put into those arguments afterwards, so no quoting is needed for them. Only the album values above are available here — there "

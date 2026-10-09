@@ -69,18 +69,18 @@ QStringList substituteValues(const QStringList &arguments, const QMap<QString, Q
 QString commandToString(const QStringList &arguments);
 
 // The command hook of a profile, run after a rip: the scheme is split with
-// QProcess rules, then the album values are filled in per argument and %d
-// (output directory) and %% (a percent sign) are resolved, so a space or a
-// quote in a value can never change the command line. An argument that is
-// exactly %f expands to the written files, one argument per file.
+// QProcess rules, then the album values, $dir (output directory) and $$ (a
+// dollar sign) are filled in per argument, so a space or a quote in a value
+// can never change the command line. An argument that is exactly $files
+// expands to the written files, one argument per file.
 QStringList hookCommandArguments(const QString &command,
                                  const QMap<QString, QString> &albumVars,
                                  const QStringList &files,
                                  const QString &outputDir);
 
-// What a hook command uses that cannot be filled in. The hook knows the
-// album values only: there is no $i/$o and no track, and parameters are a
-// feature of the filename schemes.
+// What a hook command uses that cannot be filled in. Besides $files and $dir
+// the hook knows the album values only: there is no $i/$o and no track, and
+// parameters are a feature of the filename schemes.
 QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString, QString> &values);
 
 // A preset command for the custom encoder (encoderpresets.json)

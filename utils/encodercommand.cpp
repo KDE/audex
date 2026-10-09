@@ -30,6 +30,10 @@ namespace
 const QString InputFile = u"i"_s;
 const QString OutputFile = u"o"_s;
 
+// names of utils/schemeparser.h that only the command hook has
+const QString HookFiles = u"files"_s;
+const QString HookOutputDir = u"dir"_s;
+
 // a filename value: Audex embeds the cover into the files, there is no cover file
 const QString CoverFile = u"cover"_s;
 
@@ -191,7 +195,7 @@ QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString,
 {
     QList<CommandIssue> issues;
     const auto resolve = [&issues, &values](const QString &name, bool parameters, const QString &written) -> std::optional<QString> {
-        if (!parameters && values.contains(name))
+        if (!parameters && (values.contains(name) || name == HookFiles || name == HookOutputDir))
             return std::nullopt; // can be filled in
         const CommandIssue::Kind kind = parameters ? CommandIssue::Kind::HasParameters : CommandIssue::Kind::UnknownName;
         for (const CommandIssue &e : issues)
@@ -207,35 +211,23 @@ QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString,
 
 QStringList hookCommandArguments(const QString &command, const QMap<QString, QString> &albumVars, const QStringList &files, const QString &outputDir)
 {
+    QMap<QString, QString> values = albumVars;
+    values.insert(HookFiles, files.join(u' ')); // inside a larger argument it stays one argument
+    values.insert(HookOutputDir, outputDir);
+
+    // no escaping: nothing reads the arguments after this step
+    const auto resolve = [&values](const QString &name, bool parameters, const QString &) -> std::optional<QString> {
+        if (parameters || !values.contains(name))
+            return std::nullopt;
+        return values.value(name);
+    };
+
     QStringList result;
-    for (const QString &argument : substituteValues(QProcess::splitCommand(command), albumVars)) {
-        if (argument == u"%f"_s) {
+    for (const QString &argument : QProcess::splitCommand(command)) {
+        if (argument == u'$' + HookFiles || argument == u"${"_s + HookFiles + u'}')
             result += files;
-            continue;
-        }
-        QString out;
-        for (qsizetype i = 0; i < argument.size(); ++i) {
-            if (argument.at(i) == u'%' && i + 1 < argument.size()) {
-                const QChar next = argument.at(i + 1);
-                if (next == u'%') {
-                    out += u'%';
-                    ++i;
-                    continue;
-                }
-                if (next == u'd') {
-                    out += outputDir;
-                    ++i;
-                    continue;
-                }
-                if (next == u'f') {
-                    out += files.join(u' '); // inside a larger argument it stays one argument
-                    ++i;
-                    continue;
-                }
-            }
-            out += argument.at(i);
-        }
-        result += out;
+        else
+            result += substituteArgument(argument, true, resolve);
     }
     return result;
 }
