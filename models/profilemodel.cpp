@@ -822,7 +822,7 @@ bool ProfileModel::isSelectedEncoderWithEmbedCover()
     case EncoderAssistant::WAVE:
         return false;
     case EncoderAssistant::CUSTOM:
-        return true;
+        return parameters.value(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER).toBool();
     case EncoderAssistant::NUM:
         return false;
     }

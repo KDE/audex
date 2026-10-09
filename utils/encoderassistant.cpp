@@ -152,9 +152,13 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
 
         break;
 
-    case EncoderAssistant::WAVE:
-
     case EncoderAssistant::CUSTOM:
+
+        parameters.setValue(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER);
+
+        break;
+
+    case EncoderAssistant::WAVE:
 
     default:;
     }

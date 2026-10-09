@@ -37,6 +37,7 @@
 
 #define ENCODER_CUSTOM_SUFFIX_KEY "suffix"
 #define ENCODER_CUSTOM_COMMAND_SCHEME_KEY "command_scheme"
+#define ENCODER_CUSTOM_EMBED_COVER_KEY "embed_cover"
 
 /******************/
 /* default values */
@@ -79,6 +80,7 @@
 #define ENCODER_CUSTOM_ICON "audio-x-generic"
 #define ENCODER_CUSTOM_SUFFIX ""
 #define ENCODER_CUSTOM_COMMAND_SCHEME ""
+#define ENCODER_CUSTOM_EMBED_COVER true
 
 namespace EncoderAssistant
 {

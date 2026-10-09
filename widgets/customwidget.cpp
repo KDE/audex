@@ -13,6 +13,7 @@
 
 #include <KLocalizedString>
 
+#include <QAbstractButton>
 #include <QMenu>
 
 using namespace Qt::StringLiterals;
@@ -27,8 +28,10 @@ customWidget::customWidget(const Parameters &parameters, QWidget *parent)
 
     schemeedit_command->setScheme(p_parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME).toString());
     qlineedit_suffix->setText(p_parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX).toString());
+    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER).toBool());
 
     connect(qlineedit_suffix, &QLineEdit::textEdited, this, &customWidget::trigger_changed);
+    connect(checkBox_embedcover, &QAbstractButton::toggled, this, &customWidget::trigger_changed);
     connect(schemeedit_command, &SchemeEdit::edited, this, &customWidget::trigger_changed);
 
     const QList<EncoderPreset> presets = Audex::Encoding::encoderPresets();
@@ -57,6 +60,7 @@ bool customWidget::save()
 
     p_parameters.setValue(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, schemeedit_command->scheme());
     p_parameters.setValue(ENCODER_CUSTOM_SUFFIX_KEY, qlineedit_suffix->text().trimmed());
+    p_parameters.setValue(ENCODER_CUSTOM_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
 
     changed = false;
 
@@ -66,7 +70,8 @@ bool customWidget::save()
 void customWidget::trigger_changed()
 {
     changed = (schemeedit_command->scheme() != p_parameters.value(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, ENCODER_CUSTOM_COMMAND_SCHEME)
-               || qlineedit_suffix->text() != p_parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX));
+               || qlineedit_suffix->text() != p_parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX)
+               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER).toBool());
 
     Q_EMIT triggerChanged();
 }
