@@ -24,7 +24,7 @@ flacWidget::flacWidget(const Parameters &parameters, QWidget *parent)
     horizontalSlider_compression->setValue(p_parameters.value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
     kintspinbox_compression->setValue(p_parameters.value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt());
 
-    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_FLAC_EMBED_COVER_KEY).toBool());
+    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_FLAC_EMBED_COVER_KEY, ENCODER_FLAC_EMBED_COVER).toBool());
     qlineedit_suffix->setText(p_parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
     connect(horizontalSlider_compression, &QAbstractSlider::valueChanged, this, &flacWidget::compression_changed_by_slider);
@@ -73,7 +73,7 @@ void flacWidget::compression_changed_by_spinbox(int compression)
 void flacWidget::trigger_changed()
 {
     changed = (horizontalSlider_compression->value() != p_parameters.value(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION).toInt()
-               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_FLAC_EMBED_COVER_KEY).toBool()
+               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_FLAC_EMBED_COVER_KEY, ENCODER_FLAC_EMBED_COVER).toBool()
                || qlineedit_suffix->text() != p_parameters.value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();

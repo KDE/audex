@@ -23,7 +23,7 @@ opusencWidget::opusencWidget(const Parameters &parameters, QWidget *parent)
 
     horizontalSlider_bitrate->setValue(p_parameters.value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toInt());
     kintspinbox_bitrate->setValue(p_parameters.value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toInt());
-    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY).toBool());
+    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY, ENCODER_OPUSENC_EMBED_COVER).toBool());
     qlineedit_suffix->setText(p_parameters.value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString());
 
     connect(horizontalSlider_bitrate, &QAbstractSlider::valueChanged, this, &opusencWidget::bitrate_changed_by_slider);
@@ -73,7 +73,7 @@ void opusencWidget::bitrate_changed_by_spinbox(int bitrate)
 void opusencWidget::trigger_changed()
 {
     changed = (horizontalSlider_bitrate->value() != p_parameters.value(ENCODER_OPUSENC_BITRATE_KEY, ENCODER_OPUSENC_BITRATE).toInt()
-               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY).toBool()
+               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_OPUSENC_EMBED_COVER_KEY, ENCODER_OPUSENC_EMBED_COVER).toBool()
                || qlineedit_suffix->text() != p_parameters.value(ENCODER_OPUSENC_SUFFIX_KEY, ENCODER_OPUSENC_SUFFIX).toString());
 
     Q_EMIT triggerChanged();

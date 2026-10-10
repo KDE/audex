@@ -45,7 +45,7 @@ lameWidget::lameWidget(const Parameters &parameters, QWidget *parent)
         break;
     }
     checkBox_cbr->setChecked(p_cbr_flag);
-    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_LAME_EMBED_COVER_KEY).toBool());
+    checkBox_embedcover->setChecked(p_parameters.value(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER).toBool());
     qlineedit_suffix->setText(p_parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
     connect(radioButton_medium, &QAbstractButton::toggled, this, &lameWidget::enable_medium);
@@ -232,7 +232,7 @@ void lameWidget::trigger_changed()
     changed = (preset != p_parameters.value(ENCODER_LAME_PRESET_KEY, ENCODER_LAME_PRESET).toInt()
                || real_bitrate != p_parameters.value(ENCODER_LAME_BITRATE_KEY, ENCODER_LAME_BITRATE).toInt()
                || checkBox_cbr->isChecked() != p_parameters.value(ENCODER_LAME_CBR_KEY).toBool()
-               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_LAME_EMBED_COVER_KEY).toBool()
+               || checkBox_embedcover->isChecked() != p_parameters.value(ENCODER_LAME_EMBED_COVER_KEY, ENCODER_LAME_EMBED_COVER).toBool()
                || qlineedit_suffix->text() != p_parameters.value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX).toString());
 
     Q_EMIT triggerChanged();
