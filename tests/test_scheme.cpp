@@ -70,6 +70,7 @@ AUDEX_TEST("scheme: errors")
                 qint64(Error::Kind::ReplaceCharsLength));
     const Rendered r = renderFileName(u"${ttitle lowercse=true}"_s, Values);
     AUDEX_EQUAL(t, qint64(r.unknownParameters.size()), qint64(1));
+    AUDEX_EQUAL(t, qint64(renderFileName(u"${ttitle preparam=x postparam=y replace_char_list=true}"_s, Values).unknownParameters.size()), qint64(3));
 }
 
 AUDEX_TEST("scheme: stored key value lists")

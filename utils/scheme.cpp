@@ -236,15 +236,12 @@ Rendered renderFileName(const QString &scheme, const QMap<QString, QString> &val
                                    u"underscores"_s,
                                    u"fat32compatible"_s,
                                    u"replace_chars"_s,
-                                   u"replace_char_list"_s, // older name of replace_chars
                                    u"replace_char_list_from"_s,
                                    u"replace_char_list_to"_s,
                                    u"length"_s,
                                    u"fillchar"_s,
                                    u"pre"_s,
-                                   u"preparam"_s, // older name of pre
                                    u"post"_s,
-                                   u"postparam"_s, // older name of post
                                    u"omit_if_empty"_s};
 
     Rendered result;
@@ -285,7 +282,7 @@ Rendered renderFileName(const QString &scheme, const QMap<QString, QString> &val
                 value.replace(u' ', u'_');
             } else if (key == u"fat32compatible" && v.toBool()) {
                 value = fat32Compatible(value);
-            } else if ((key == u"replace_chars" || key == u"replace_char_list") && v.toBool()) {
+            } else if (key == u"replace_chars" && v.toBool()) {
                 const QString from = parameter(p.parameters, u"replace_char_list_from"_s).toString();
                 const QString to = parameter(p.parameters, u"replace_char_list_to"_s).toString();
                 if (from.size() != to.size()) {
@@ -301,9 +298,9 @@ Rendered renderFileName(const QString &scheme, const QMap<QString, QString> &val
                     const QString fill = parameter(p.parameters, u"fillchar"_s).toString();
                     value = u"%1"_s.arg(number, v.toInt(), 10, fill.isEmpty() ? QChar(u'0') : fill.at(0));
                 }
-            } else if (key == u"pre" || key == u"preparam") {
+            } else if (key == u"pre") {
                 pre = v.toString();
-            } else if (key == u"post" || key == u"postparam") {
+            } else if (key == u"post") {
                 post = v.toString();
             }
         }
