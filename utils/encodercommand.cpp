@@ -25,13 +25,7 @@ namespace Audex::Encoding
 namespace
 {
 
-// names of utils/schemeparser.h that only make sense in a command
-const QString InputFile = u"i"_s;
-const QString OutputFile = u"o"_s;
-
-// names of utils/schemeparser.h that only the command hook has
-const QString HookFiles = u"files"_s;
-const QString HookOutputDir = u"dir"_s;
+namespace Var = Scheme::Var;
 
 // a filename value: Audex embeds the cover into the files, there is no cover file
 const QString CoverFile = u"cover"_s;
@@ -107,12 +101,12 @@ QString escapeValue(QString value, bool escapeDollar)
 
 QStringList trackCommandVariables()
 {
-    return {u"tartist"_s, u"ttitle"_s, u"trackno"_s, u"isrc"_s};
+    return {Var::TrackArtist, Var::TrackTitle, Var::TrackNo, Var::Isrc};
 }
 
 QMap<QString, QString> trackValues(const QString &artist, const QString &title, int trackNumber, const QString &isrc)
 {
-    return {{u"tartist"_s, artist}, {u"ttitle"_s, title}, {u"trackno"_s, QString::number(trackNumber)}, {u"isrc"_s, isrc}};
+    return {{Var::TrackArtist, artist}, {Var::TrackTitle, title}, {Var::TrackNo, QString::number(trackNumber)}, {Var::Isrc, isrc}};
 }
 
 CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QString> &values)
@@ -140,10 +134,10 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
             } else if (!token.placeholder->parameters.isEmpty()) {
                 // parameters are a feature of the filename schemes
                 addIssue(&result.issues, CommandIssue::Kind::HasParameters, token.text);
-            } else if (name == InputFile) {
+            } else if (name == Var::InputFile) {
                 out += u"-"_s; // the engine writes the WAVE data to stdin
                 continue;
-            } else if (name == OutputFile) {
+            } else if (name == Var::OutputFile) {
                 out += u"%o"_s;
                 continue;
             } else if (tracks.contains(name)) {
@@ -221,7 +215,7 @@ QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString,
             const QString &name = token.placeholder->name;
             if (!token.placeholder->parameters.isEmpty())
                 addIssue(&issues, CommandIssue::Kind::HasParameters, token.text);
-            else if (!values.contains(name) && name != HookFiles && name != HookOutputDir)
+            else if (!values.contains(name) && name != Var::HookFiles && name != Var::HookOutputDir)
                 addIssue(&issues, CommandIssue::Kind::UnknownName, token.text);
         }
     }
@@ -234,13 +228,13 @@ QStringList hookCommandArguments(const QString &command, const QMap<QString, QSt
     const QList<Argument> arguments = splitScheme(command, &error);
 
     QMap<QString, QString> values = albumVars;
-    values.insert(HookFiles, files.join(u' ')); // inside a larger argument it stays one argument
-    values.insert(HookOutputDir, outputDir);
+    values.insert(Var::HookFiles, files.join(u' ')); // inside a larger argument it stays one argument
+    values.insert(Var::HookOutputDir, outputDir);
 
     QStringList result;
     for (const Argument &argument : arguments) {
         const std::optional<Scheme::Placeholder> &first = argument.constFirst().placeholder;
-        if (argument.size() == 1 && first && first->name == HookFiles && first->parameters.isEmpty()) {
+        if (argument.size() == 1 && first && first->name == Var::HookFiles && first->parameters.isEmpty()) {
             result += files;
             continue;
         }

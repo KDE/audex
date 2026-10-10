@@ -27,7 +27,7 @@
 
 #define DEFAULT_ENCODER_PARAMETERS ""
 
-#define DEFAULT_SCHEME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_TRACK_NO " - $" VAR_TRACK_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_SCHEME "$artist/$title/$trackno - $ttitle.$suffix"
 
 #define DEFAULT_FAT32 false
 #define DEFAULT_UNDERSCORE false
@@ -37,15 +37,15 @@
 #define DEFAULT_SC_SCALE false
 #define DEFAULT_SC_SIZE QSize(600, 600)
 #define DEFAULT_SC_FORMAT "JPEG"
-#define DEFAULT_SC_NAME "$" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_SC_NAME "$title.$suffix"
 
 #define DEFAULT_PL false
-#define DEFAULT_PL_NAME "$" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_PL_NAME "$title.$suffix"
 #define DEFAULT_PL_ABS_FILE_PATH false
 #define DEFAULT_PL_UTF8 true
 
 #define DEFAULT_LOG false
-#define DEFAULT_LOG_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_LOG_NAME "$artist - $title.$suffix"
 
 #define DEFAULT_HOOK false
 #define DEFAULT_HOOK_COMMAND ""
@@ -57,9 +57,9 @@
 
 #define DEFAULT_IMAGE_ICON "media-optical-audio"
 
-#define DEFAULT_IMAGE_SCHEME "$" VAR_ALBUM_ARTIST "/$" VAR_ALBUM_TITLE "/$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_IMAGE_SCHEME "$artist/$title/$artist - $title.$suffix"
 #define DEFAULT_CUE true
-#define DEFAULT_CUE_NAME "$" VAR_ALBUM_ARTIST " - $" VAR_ALBUM_TITLE ".$" VAR_SUFFIX
+#define DEFAULT_CUE_NAME "$artist - $title.$suffix"
 #define DEFAULT_CUE_MCN_ISRC false
 #define DEFAULT_CTDB_REPAIR false
 #define DEFAULT_CTDB_REPAIR_KEEP_ORIGINAL false

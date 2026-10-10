@@ -19,8 +19,7 @@
 //   substituteValues()    $ttitle and the other track    (per output file)
 //                         placeholders
 //
-// The syntax is the one of utils/scheme.h, the placeholder names are the
-// ones of utils/schemeparser.h.
+// Syntax and placeholder names are the ones of utils/scheme.h.
 
 #include "utils/scheme.h"
 

@@ -13,34 +13,6 @@
 #include "utils/encodercommand.h"
 #include "utils/scheme.h"
 
-#define VAR_ALBUM_ARTIST "artist"
-#define VAR_ALBUM_TITLE "title"
-#define VAR_TRACK_ARTIST "tartist"
-#define VAR_TRACK_TITLE "ttitle"
-#define VAR_TRACK_NO "trackno"
-#define VAR_CD_NO "cdno"
-#define VAR_DATE "date"
-#define VAR_GENRE "genre"
-#define VAR_ISRC "isrc"
-#define VAR_SUFFIX "suffix"
-#define VAR_ENCODER "encoder"
-
-#define VAR_INPUT_FILE "i"
-#define VAR_OUTPUT_FILE "o"
-
-#define VAR_HOOK_FILES "files"
-#define VAR_HOOK_OUTPUT_DIR "dir"
-
-#define VAR_MCN "mcn"
-#define VAR_DISCID "discid"
-#define VAR_CD_SIZE "size"
-#define VAR_CD_LENGTH "length"
-#define VAR_TODAY "today"
-#define VAR_NOW "now"
-
-#define VAR_AUDEX "audex"
-#define VAR_NO_OF_TRACKS "nooftracks"
-
 typedef QMap<QString, QString> Placeholders;
 
 // Filename schemes (see utils/scheme.h for the syntax) and the user visible

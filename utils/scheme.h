@@ -31,6 +31,39 @@
 namespace Audex::Scheme
 {
 
+// The placeholder names
+namespace Var
+{
+// album
+inline const QString AlbumArtist = QStringLiteral("artist");
+inline const QString AlbumTitle = QStringLiteral("title");
+inline const QString Date = QStringLiteral("date");
+inline const QString Genre = QStringLiteral("genre");
+inline const QString CdNo = QStringLiteral("cdno");
+inline const QString NoOfTracks = QStringLiteral("nooftracks");
+inline const QString Encoder = QStringLiteral("encoder");
+inline const QString Application = QStringLiteral("audex");
+inline const QString DiscId = QStringLiteral("discid");
+inline const QString Mcn = QStringLiteral("mcn");
+inline const QString CdSize = QStringLiteral("size");
+inline const QString CdLength = QStringLiteral("length");
+inline const QString Today = QStringLiteral("today");
+inline const QString Now = QStringLiteral("now");
+// track
+inline const QString TrackArtist = QStringLiteral("tartist");
+inline const QString TrackTitle = QStringLiteral("ttitle");
+inline const QString TrackNo = QStringLiteral("trackno");
+inline const QString Isrc = QStringLiteral("isrc");
+// file names
+inline const QString Suffix = QStringLiteral("suffix");
+// encoder command
+inline const QString InputFile = QStringLiteral("i");
+inline const QString OutputFile = QStringLiteral("o");
+// command hook
+inline const QString HookFiles = QStringLiteral("files");
+inline const QString HookOutputDir = QStringLiteral("dir");
+}
+
 struct Error {
     enum class Kind {
         None,

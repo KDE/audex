@@ -33,6 +33,7 @@
 
 using namespace Qt::StringLiterals;
 using Audex::Metadata::Field;
+namespace Var = Audex::Scheme::Var;
 
 namespace
 {
@@ -194,7 +195,7 @@ bool RipRequestBuilder::wantsCdg() const
     return Preferences::cdgDetect() && Preferences::cdgRead() && cdda_model->cdInfo().cdg().value_or(true);
 }
 
-// The values a scheme can fill in, by placeholder name (utils/schemeparser.h)
+// The values a scheme can fill in, by placeholder name (Audex::Scheme::Var)
 QMap<QString, QString> RipRequestBuilder::albumVars() const
 {
     const Audex::CDInfo &info = cdda_model->cdInfo();
@@ -206,20 +207,20 @@ QMap<QString, QString> RipRequestBuilder::albumVars() const
             audioSectors += entry->sectorCount();
 
     QMap<QString, QString> vars;
-    vars[QStringLiteral(VAR_NO_OF_TRACKS)] = QString::number(info.audioTrackNumbers().size());
-    vars[QStringLiteral(VAR_ALBUM_ARTIST)] = album.text(Field::Artist);
-    vars[QStringLiteral(VAR_ALBUM_TITLE)] = album.text(Field::Album);
-    vars[QStringLiteral(VAR_DATE)] = album.text(Field::Year);
-    vars[QStringLiteral(VAR_GENRE)] = album.text(Field::Genre);
-    vars[QStringLiteral(VAR_CD_NO)] = cdNo > 0 ? QString::number(cdNo) : QString();
-    vars[QStringLiteral(VAR_ENCODER)] = profile_model->getSelectedEncoderNameAndVersion().trimmed();
-    vars[QStringLiteral(VAR_DISCID)] = info.cddbDiscId();
-    vars[QStringLiteral(VAR_MCN)] = album.text(Field::MCN);
-    vars[QStringLiteral(VAR_TODAY)] = QDate::currentDate().toString(Qt::ISODate);
-    vars[QStringLiteral(VAR_NOW)] = QTime::currentTime().toString(u"hh-mm-ss"_s);
-    vars[QStringLiteral(VAR_AUDEX)] = m_application;
-    vars[QStringLiteral(VAR_CD_SIZE)] = QString::number(qint64(audioSectors) * Audex::Cdda::SectorBytes / (1024 * 1024)) + u" MiB"_s;
-    vars[QStringLiteral(VAR_CD_LENGTH)] = Audex::Cdda::sectorsToTime(audioSectors);
+    vars[Var::NoOfTracks] = QString::number(info.audioTrackNumbers().size());
+    vars[Var::AlbumArtist] = album.text(Field::Artist);
+    vars[Var::AlbumTitle] = album.text(Field::Album);
+    vars[Var::Date] = album.text(Field::Year);
+    vars[Var::Genre] = album.text(Field::Genre);
+    vars[Var::CdNo] = cdNo > 0 ? QString::number(cdNo) : QString();
+    vars[Var::Encoder] = profile_model->getSelectedEncoderNameAndVersion().trimmed();
+    vars[Var::DiscId] = info.cddbDiscId();
+    vars[Var::Mcn] = album.text(Field::MCN);
+    vars[Var::Today] = QDate::currentDate().toString(Qt::ISODate);
+    vars[Var::Now] = QTime::currentTime().toString(u"hh-mm-ss"_s);
+    vars[Var::Application] = m_application;
+    vars[Var::CdSize] = QString::number(qint64(audioSectors) * Audex::Cdda::SectorBytes / (1024 * 1024)) + u" MiB"_s;
+    vars[Var::CdLength] = Audex::Cdda::sectorsToTime(audioSectors);
     return vars;
 }
 
@@ -240,7 +241,7 @@ Placeholders RipRequestBuilder::fileNameValues(const QString &suffix) const
     const QMap<QString, QString> vars = albumVars();
     for (auto it = vars.cbegin(); it != vars.cend(); ++it)
         values.insert(it.key(), fileNameValue(it.value()));
-    values.insert(QStringLiteral(VAR_SUFFIX), fileNameValue(suffix));
+    values.insert(Var::Suffix, fileNameValue(suffix));
     return values;
 }
 
@@ -346,10 +347,10 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
             trackTitle = number == 0 ? i18n("Hidden Track") : i18n("Track %1", number);
         const int trackNo = info.displayTrackNumber(number);
 
-        values.insert(QStringLiteral(VAR_TRACK_ARTIST), fileNameValue(trackArtist));
-        values.insert(QStringLiteral(VAR_TRACK_TITLE), fileNameValue(trackTitle));
-        values.insert(QStringLiteral(VAR_TRACK_NO), twoDigits ? u"%1"_s.arg(trackNo, 2, 10, QLatin1Char('0')) : QString::number(trackNo));
-        values.insert(QStringLiteral(VAR_ISRC), fileNameValue(track.text(Field::ISRC)));
+        values.insert(Var::TrackArtist, fileNameValue(trackArtist));
+        values.insert(Var::TrackTitle, fileNameValue(trackTitle));
+        values.insert(Var::TrackNo, twoDigits ? u"%1"_s.arg(trackNo, 2, 10, QLatin1Char('0')) : QString::number(trackNo));
+        values.insert(Var::Isrc, fileNameValue(track.text(Field::ISRC)));
 
         const QString name = fileName(scheme, values, suffix, error);
         if (name.isEmpty())

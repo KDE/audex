@@ -20,36 +20,38 @@
 #include <QTime>
 #include <QToolTip>
 
+namespace Var = Audex::Scheme::Var;
+
 namespace
 {
 
 // values standing in for the album variables when a scheme is checked
 QMap<QString, QString> exampleAlbumValues()
 {
-    return {{QStringLiteral(VAR_ALBUM_ARTIST), QStringLiteral("Meat Loaf")},
-            {QStringLiteral(VAR_ALBUM_TITLE), QStringLiteral("Bat Out Of Hell III")},
-            {QStringLiteral(VAR_DATE), QStringLiteral("2006")},
-            {QStringLiteral(VAR_GENRE), QStringLiteral("Rock")},
-            {QStringLiteral(VAR_CD_NO), QString()},
-            {QStringLiteral(VAR_NO_OF_TRACKS), QStringLiteral("12")},
-            {QStringLiteral(VAR_ENCODER), QStringLiteral("LAME 3.100")},
-            {QStringLiteral(VAR_AUDEX), QStringLiteral("Audex")},
-            {QStringLiteral(VAR_DISCID), QStringLiteral("a70de90c")},
-            {QStringLiteral(VAR_MCN), QStringLiteral("4006381333931")},
-            {QStringLiteral(VAR_CD_SIZE), QStringLiteral("587 MiB")},
-            {QStringLiteral(VAR_CD_LENGTH), QStringLiteral("55:42.120")},
-            {QStringLiteral(VAR_TODAY), QDate::currentDate().toString(Qt::ISODate)},
-            {QStringLiteral(VAR_NOW), QTime::currentTime().toString(QStringLiteral("hh-mm-ss"))}};
+    return {{Var::AlbumArtist, QStringLiteral("Meat Loaf")},
+            {Var::AlbumTitle, QStringLiteral("Bat Out Of Hell III")},
+            {Var::Date, QStringLiteral("2006")},
+            {Var::Genre, QStringLiteral("Rock")},
+            {Var::CdNo, QString()},
+            {Var::NoOfTracks, QStringLiteral("12")},
+            {Var::Encoder, QStringLiteral("LAME 3.100")},
+            {Var::Application, QStringLiteral("Audex")},
+            {Var::DiscId, QStringLiteral("a70de90c")},
+            {Var::Mcn, QStringLiteral("4006381333931")},
+            {Var::CdSize, QStringLiteral("587 MiB")},
+            {Var::CdLength, QStringLiteral("55:42.120")},
+            {Var::Today, QDate::currentDate().toString(Qt::ISODate)},
+            {Var::Now, QTime::currentTime().toString(QStringLiteral("hh-mm-ss"))}};
 }
 
 // the values of a track filename scheme
 QMap<QString, QString> exampleTrackValues()
 {
     QMap<QString, QString> values = exampleAlbumValues();
-    values.insert(QStringLiteral(VAR_TRACK_ARTIST), QStringLiteral("Meat Loaf"));
-    values.insert(QStringLiteral(VAR_TRACK_TITLE), QStringLiteral("Blind As A Bat"));
-    values.insert(QStringLiteral(VAR_TRACK_NO), QStringLiteral("02"));
-    values.insert(QStringLiteral(VAR_ISRC), QStringLiteral("AA6Q72000047"));
+    values.insert(Var::TrackArtist, QStringLiteral("Meat Loaf"));
+    values.insert(Var::TrackTitle, QStringLiteral("Blind As A Bat"));
+    values.insert(Var::TrackNo, QStringLiteral("02"));
+    values.insert(Var::Isrc, QStringLiteral("AA6Q72000047"));
     return values;
 }
 
@@ -133,32 +135,32 @@ void SchemeEdit::rebuildMenu()
     };
 
     m_insertMenu->addSection(i18n("Album"));
-    addVariable(i18n("Album Artist"), QStringLiteral(VAR_ALBUM_ARTIST));
-    addVariable(i18n("Album Title"), QStringLiteral(VAR_ALBUM_TITLE));
-    addVariable(i18n("Date"), QStringLiteral(VAR_DATE));
-    addVariable(i18n("Genre"), QStringLiteral(VAR_GENRE));
-    addVariable(i18n("CD #"), QStringLiteral(VAR_CD_NO));
-    addVariable(i18n("# of Tracks"), QStringLiteral(VAR_NO_OF_TRACKS));
-    addVariable(i18n("Today"), QStringLiteral(VAR_TODAY));
+    addVariable(i18n("Album Artist"), Var::AlbumArtist);
+    addVariable(i18n("Album Title"), Var::AlbumTitle);
+    addVariable(i18n("Date"), Var::Date);
+    addVariable(i18n("Genre"), Var::Genre);
+    addVariable(i18n("CD #"), Var::CdNo);
+    addVariable(i18n("# of Tracks"), Var::NoOfTracks);
+    addVariable(i18n("Today"), Var::Today);
 
     if (m_kind != Filename && m_kind != HookCommand) {
         m_insertMenu->addSection(i18n("Track"));
-        addVariable(i18n("Track Artist"), QStringLiteral(VAR_TRACK_ARTIST));
-        addVariable(i18n("Track Title"), QStringLiteral(VAR_TRACK_TITLE));
-        addVariable(i18n("Track #"), QStringLiteral(VAR_TRACK_NO));
+        addVariable(i18n("Track Artist"), Var::TrackArtist);
+        addVariable(i18n("Track Title"), Var::TrackTitle);
+        addVariable(i18n("Track #"), Var::TrackNo);
     }
 
     if (m_kind == Command) {
         m_insertMenu->addSection(i18n("Command"));
-        addVariable(i18n("Audio Input"), QStringLiteral(VAR_INPUT_FILE));
-        addVariable(i18n("Output File"), QStringLiteral(VAR_OUTPUT_FILE));
+        addVariable(i18n("Audio Input"), Var::InputFile);
+        addVariable(i18n("Output File"), Var::OutputFile);
     } else if (m_kind == HookCommand) {
         m_insertMenu->addSection(i18n("Hook"));
-        addVariable(i18n("Written Files"), QStringLiteral(VAR_HOOK_FILES));
-        addVariable(i18n("Output Directory"), QStringLiteral(VAR_HOOK_OUTPUT_DIR));
+        addVariable(i18n("Written Files"), Var::HookFiles);
+        addVariable(i18n("Output Directory"), Var::HookOutputDir);
     } else {
         m_insertMenu->addSection(i18n("File"));
-        addVariable(i18n("Suffix"), QStringLiteral(VAR_SUFFIX));
+        addVariable(i18n("Suffix"), Var::Suffix);
     }
 }
 
@@ -186,7 +188,7 @@ void SchemeEdit::validate()
             }
         } else {
             Placeholders values = m_kind == TrackFilename ? exampleTrackValues() : exampleAlbumValues();
-            values.insert(QStringLiteral(VAR_SUFFIX), QStringLiteral("flac"));
+            values.insert(Var::Suffix, QStringLiteral("flac"));
             SchemeParser parser;
             parser.parseScheme(schemeText, values);
             warning = parser.error() ? parser.errorString() : parser.warnings().join(u'\n');
