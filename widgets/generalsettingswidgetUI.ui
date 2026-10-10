@@ -56,7 +56,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <item>
          <widget class="QLabel" name="label_metadataProvider">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Source that is asked first. CD-Text comes from the disc itself and needs no network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The source Audex asks when a disc is looked up. CD-Text comes from the disc itself and needs no network. gnudb carries on the freedb database: it knows many old samplers and regional releases, but its entries are less consistent than MusicBrainz and it requires a contact address.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>Preferred metadata provider:</string>
@@ -75,6 +75,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <string>CD-Text</string>
            </property>
           </item>
+          <item>
+           <property name="text">
+            <string>gnudb (CDDB)</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item>
@@ -89,6 +94,30 @@ SPDX-License-Identifier: GPL-3.0-or-later
            </size>
           </property>
          </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_gnudbEmail">
+        <item>
+         <widget class="QLabel" name="label_gnudbEmail">
+          <property name="text">
+           <string>Email address for gnudb:</string>
+          </property>
+          <property name="buddy">
+           <cstring>kcfg_gnudbEmail</cstring>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="kcfg_gnudbEmail">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;gnudb requires a contact address with every request and blocks clients that send none. It is needed whenever gnudb is asked, as the preferred provider or from the Fetch menu. The address is only sent to gnudb.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="placeholderText">
+           <string>you@example.org</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

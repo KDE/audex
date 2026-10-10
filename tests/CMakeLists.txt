@@ -20,6 +20,7 @@ add_executable(
   test_drivefeatures.cpp
   test_cacheprobe.cpp
   test_coverartarchive.cpp
+  test_gnudb.cpp
   test_cdg.cpp
   test_encodercommand.cpp
   test_scheme.cpp

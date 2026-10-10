@@ -107,6 +107,7 @@ set(audex_engine_SRCS
     metadata/cdinfo.cpp
     metadata/cdtextmetadata.cpp
     metadata/fields.cpp
+    metadata/gnudb.cpp
     metadata/lookup.cpp
     metadata/metadata.cpp
     metadata/musicbrainz.cpp
@@ -116,6 +117,7 @@ set(audex_engine_SRCS
     online/accuraterip.cpp
     online/blockingfetch.cpp
     online/ctdb.cpp
+    online/gnudbprovider.cpp
     online/coverartarchive.cpp
     online/coverartfetcher.cpp
     online/musicbrainzprovider.cpp

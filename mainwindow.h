@@ -40,6 +40,7 @@ class ProfileModel;
 namespace Audex
 {
 class CDInfoModel;
+class GnudbProvider;
 class PrecomputedProvider;
 struct DiscReadResult;
 
@@ -65,6 +66,7 @@ private Q_SLOTS:
     void fetch_metadata();
     void fetch_metadata_cdtext();
     void fetch_metadata_musicbrainz();
+    void fetch_metadata_gnudb();
     void edit();
     void rip();
     void configure();
@@ -134,6 +136,7 @@ private:
     QPointer<QNetworkAccessManager> m_network;
     QPointer<Audex::MetadataLookup> m_lookup;
     QPointer<Audex::PrecomputedProvider> m_cdtextProvider;
+    QPointer<Audex::GnudbProvider> m_gnudbProvider;
     QPointer<Audex::CoverArtFetcher> m_coverFetcher;
     QFutureWatcher<std::optional<Audex::Hdcd::Result>> m_hdcdWatcher; // empty: the drive could not be opened
     QFutureWatcher<std::optional<bool>> m_cdgWatcher; // CD+G; runs after the HDCD probe, empty: not checked

@@ -104,7 +104,9 @@ commands. It rips securely and the key points are (more details below):
 ### Metadata and output
 
 - **Metadata** from MusicBrainz (disc ID lookup with a choice between
-  releases) or from CD-Text. Cover art comes from the Cover Art Archive.
+  releases), from CD-Text or from gnudb (CDDB); the provider is chosen in the
+  settings and each one can also be asked directly. Cover art comes from the
+  Cover Art Archive.
 - **Profiles** control:
   - the output: one file per track, or the whole disc as one image file
     with a cue sheet (FLAC or WAVE)
@@ -507,8 +509,8 @@ original CUETools code, so it uses the same data as CUETools does.
 - **Ogg Vorbis and AAC (FAAC) profiles are no longer built in.** Use a custom
   command instead, for example `oggenc -Q -q 6 -o $o -`.
 - **Custom commands receive the audio as WAVE on standard input.**
-- **Metadata comes from MusicBrainz or CD-Text.** CDDB/gnudb is no longer
-  supported.
+- **Metadata comes from MusicBrainz, CD-Text or gnudb.** The libkcddb
+  dependency is gone; the gnudb (CDDB) lookup is built in.
 - **Multiple device support and device settings are stored per device.**
 
 ---
@@ -523,6 +525,10 @@ original CUETools code, so it uses the same data as CUETools does.
   clearly.
 - Drives are read with the MMC command READ CD only; old SCSI drives that
   need vendor-specific read commands are not supported.
+- The gnudb (CDDB) lookup requires a contact address with every request, and
+  its entries carry one genre, no artist ids and no release country. It is
+  worth a try for discs MusicBrainz does not know. Audex does not submit
+  entries to gnudb.
 - The CTDB repair works for image rips only and needs the whole disc. It
   does not yet use the positions of suspicious sectors, which would allow
   repairing more damage.
@@ -658,7 +664,7 @@ deliver (`expectedAudio()` in `sim/`).
 | `sim/`                            | Simulated drive for tests and demos                                                                                                                                             |
 | `encoding/`                       | Encoder and decoder interface and registry, WAVE and custom encoders, threaded `EncodedOutputs`, `TagWriter` (TagLib)                                                           |
 | `plugins/`                        | Native encoder plugins: FLAC, MP3 (LAME), Opus                                                                                                                                  |
-| `metadata/`, `online/`            | Disc model (`CDInfo`), metadata fields, CD-Text and MusicBrainz import, Cover Art Archive, AccurateRip and CTDB clients                                                         |
+| `metadata/`, `online/`            | Disc model (`CDInfo`), metadata fields, CD-Text, MusicBrainz and gnudb (CDDB) import, Cover Art Archive, AccurateRip and CTDB clients                                           |
 | `utils/`                          | Rip job (worker thread), CTDB image repair, drive handling via Solid (`DiscController`), profile → request translation (`RipRequestBuilder`), cue sheets, playlists, hash lists |
 | `models/`, `widgets/`, `dialogs/` | KF6 user interface                                                                                                                                                              |
 

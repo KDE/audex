@@ -105,8 +105,13 @@
       <choices>
         <choice name="MusicBrainz"/>
         <choice name="CDText"/>
+        <choice name="Gnudb"/>
       </choices>
       <default>MusicBrainz</default>
+    </entry>
+    <entry name="gnudbEmail" type="String">
+      <label>Email address sent to gnudb (required by the service)</label>
+      <default></default>
     </entry>
     <entry name="secureMode" type="Bool">
       <label>Secure mode</label>

@@ -16,6 +16,7 @@
         <text context="@title:menu">Fetch</text>
         <Action name="cddbfetch_cdtext"/>
         <Action name="cddbfetch_musicbrainz"/>
+        <Action name="cddbfetch_gnudb"/>
       </Menu>
       <Separator/>
       <Action name="edit"/>

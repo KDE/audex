@@ -13,6 +13,7 @@
 #include "encoding/registry.h"
 #include "models/cdinfomodel.h"
 #include "models/profilemodel.h"
+#include "online/gnudbprovider.h"
 #include "online/musicbrainzprovider.h"
 #include "utils/devicesettings.h"
 #include "utils/disccontroller.h"
@@ -85,7 +86,14 @@ protected:
 
 QString preferredProviderId()
 {
-    return (Preferences::metadataProvider() == Preferences::EnumMetadataProvider::CDText) ? u"cdtext"_s : u"musicbrainz"_s;
+    switch (Preferences::metadataProvider()) {
+    case Preferences::EnumMetadataProvider::CDText:
+        return u"cdtext"_s;
+    case Preferences::EnumMetadataProvider::Gnudb:
+        return u"gnudb"_s;
+    default:
+        return u"musicbrainz"_s;
+    }
 }
 
 } // namespace
@@ -142,6 +150,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_cdtextProvider = new Audex::PrecomputedProvider(u"cdtext"_s, i18n("CD-Text"), this);
     m_lookup->addProvider(m_cdtextProvider);
     m_lookup->addProvider(new Audex::MusicBrainzProvider(m_network, this));
+    m_gnudbProvider = new Audex::GnudbProvider(m_network, this);
+    m_lookup->addProvider(m_gnudbProvider);
     connect(m_lookup, &Audex::MetadataLookup::finished, this, &MainWindow::lookup_finished);
     connect(m_lookup, &Audex::MetadataLookup::providerFailed, this, &MainWindow::lookup_provider_failed);
 
@@ -275,6 +285,11 @@ void MainWindow::setup_actions()
     actionCollection()->addAction("cddbfetch_musicbrainz", musicBrainzAction);
     connect(musicBrainzAction, &QAction::triggered, this, &MainWindow::fetch_metadata_musicbrainz);
 
+    auto *gnudbAction = new QAction(this);
+    gnudbAction->setText(i18n("gnudb (CDDB)"));
+    actionCollection()->addAction("cddbfetch_gnudb", gnudbAction);
+    connect(gnudbAction, &QAction::triggered, this, &MainWindow::fetch_metadata_gnudb);
+
     // fetch button with a drop-down for the metadata provider (toolbar)
     auto *fetchButton = new QToolButton(this);
     fetchButton->setPopupMode(QToolButton::MenuButtonPopup);
@@ -288,6 +303,7 @@ void MainWindow::setup_actions()
     auto *fetchMenu = new QMenu(fetchButton);
     fetchMenu->addAction(cdtextAction);
     fetchMenu->addAction(musicBrainzAction);
+    fetchMenu->addAction(gnudbAction);
     fetchButton->setMenu(fetchMenu);
 
     auto *fetchWidgetAction = new QWidgetAction(this);
@@ -435,6 +451,11 @@ void MainWindow::fetch_metadata_cdtext()
 void MainWindow::fetch_metadata_musicbrainz()
 {
     start_metadata_lookup(u"musicbrainz"_s, false);
+}
+
+void MainWindow::fetch_metadata_gnudb()
+{
+    start_metadata_lookup(u"gnudb"_s, false);
 }
 
 void MainWindow::edit()
@@ -840,9 +861,25 @@ void MainWindow::start_metadata_lookup(const QString &providerId, bool automatic
     if (!providerId.isEmpty())
         providers << providerId;
 
+    // read from the settings on every lookup: the dialog may have changed it
+    if (m_gnudbProvider) {
+        m_gnudbProvider->setEmail(Preferences::gnudbEmail());
+        // gnudb refuses requests without a contact address. The automatic
+        // lookup says so once instead of failing at every disc, a lookup the
+        // user started every time.
+        if (providerId == u"gnudb"_s && !m_gnudbProvider->isAvailable()) {
+            KMessageBox::information(this,
+                                     i18n("gnudb requires an email address with every request. Please enter one in the settings."),
+                                     i18n("Metadata Lookup"),
+                                     automatic ? QStringLiteral("gnudb_email_missing") : QString());
+            return;
+        }
+    }
+
     actionCollection()->action("cddbfetch")->setEnabled(false);
     actionCollection()->action("cddbfetch_cdtext")->setEnabled(false);
     actionCollection()->action("cddbfetch_musicbrainz")->setEnabled(false);
+    actionCollection()->action("cddbfetch_gnudb")->setEnabled(false);
     m_lookupId = m_lookup->start(m_cddaModel->cdInfo(), providers);
 }
 
@@ -854,6 +891,7 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
     actionCollection()->action("cddbfetch")->setEnabled(m_layoutEnabled);
     actionCollection()->action("cddbfetch_cdtext")->setEnabled(m_layoutEnabled);
     actionCollection()->action("cddbfetch_musicbrainz")->setEnabled(m_layoutEnabled);
+    actionCollection()->action("cddbfetch_gnudb")->setEnabled(m_layoutEnabled);
 
     if (candidates.isEmpty()) {
         if (!m_lookupError.isEmpty()) {
@@ -1108,6 +1146,7 @@ void MainWindow::enable_layout(bool enabled)
     actionCollection()->action("cddbfetch")->setEnabled(enabled);
     actionCollection()->action("cddbfetch_cdtext")->setEnabled(enabled);
     actionCollection()->action("cddbfetch_musicbrainz")->setEnabled(enabled);
+    actionCollection()->action("cddbfetch_gnudb")->setEnabled(enabled);
     actionCollection()->action("edit")->setEnabled(enabled);
     actionCollection()->action("eject")->setEnabled(enabled || !m_discController->currentDriveUdi().isEmpty());
     actionCollection()->action("splittitles")->setEnabled(enabled);
