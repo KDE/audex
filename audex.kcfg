@@ -57,6 +57,25 @@
       <label>Tag written into HDCD encoded tracks (empty: none)</label>
       <default>HDCD</default>
     </entry>
+    <entry name="embedCoverScale" type="Bool">
+      <label>Scale embedded covers down</label>
+      <default>true</default>
+    </entry>
+    <entry name="embedCoverMaxSize" type="Int">
+      <label>Largest width and height of embedded covers in pixels</label>
+      <default>1000</default>
+      <min>100</min>
+      <max>4000</max>
+    </entry>
+    <entry name="embedCoverFormat" type="Enum">
+      <label>Format of embedded covers</label>
+      <choices>
+        <choice name="Original"/>
+        <choice name="JPEG"/>
+        <choice name="PNG"/>
+      </choices>
+      <default>JPEG</default>
+    </entry>
     <entry name="accurateRipVerify" type="Bool">
       <label>Verify ripped tracks against the AccurateRip database</label>
       <default>true</default>

@@ -30,6 +30,7 @@ generalSettingsWidget::generalSettingsWidget(QWidget *parent)
     follows(kcfg_hdcdDetect, label_hdcdTag); // the rip checks the tracks only with the detection on
     follows(kcfg_hdcdDetect, kcfg_hdcdTag);
     follows(kcfg_cdgDetect, kcfg_cdgRead); // only discs the detection found with graphics are read
+    follows(kcfg_embedCoverScale, kcfg_embedCoverMaxSize);
 }
 
 generalSettingsWidget::~generalSettingsWidget()

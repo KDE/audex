@@ -44,11 +44,6 @@ using Metadata::Field;
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::RipJob", text);
-}
-
 }
 
 RipJob::RipJob(RipRequest request, QObject *parent)
@@ -164,6 +159,7 @@ void RipJob::run()
         }
         target.tags.embedCover = rq.embedCover;
         target.tags.coverMaxSize = rq.coverMaxSize;
+        target.tags.coverFormat = rq.coverFormat;
         if (!rq.preEmphasisTag.isEmpty() && (rq.imageFile ? imageEmphasis : emphasis.contains(number)))
             target.tags.extra.insert(rq.preEmphasisTag, u"1"_s);
         targets.append(target);

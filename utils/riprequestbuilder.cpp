@@ -566,8 +566,17 @@ Audex::RipRequest RipRequestBuilder::request() const
     rq.detectHdcd = Preferences::hdcdDetect();
     rq.hdcdTag = rq.detectHdcd ? Preferences::hdcdTag().trimmed() : QString();
     rq.embedCover = profile_model->isSelectedEncoderWithEmbedCover();
-    const QSize size = columnVariant(PROFILE_MODEL_COLUMN_SC_SIZE_INDEX).toSize();
-    rq.coverMaxSize = columnBool(PROFILE_MODEL_COLUMN_SC_SCALE_INDEX) ? qMax(size.width(), size.height()) : 0;
+    rq.coverMaxSize = Preferences::embedCoverScale() ? Preferences::embedCoverMaxSize() : 0;
+    switch (Preferences::embedCoverFormat()) {
+    case Preferences::EnumEmbedCoverFormat::JPEG:
+        rq.coverFormat = Audex::Encoding::CoverFormat::Jpeg;
+        break;
+    case Preferences::EnumEmbedCoverFormat::PNG:
+        rq.coverFormat = Audex::Encoding::CoverFormat::Png;
+        break;
+    default:
+        rq.coverFormat = Audex::Encoding::CoverFormat::Original;
+    }
 
     rq.application = m_application;
     return rq;

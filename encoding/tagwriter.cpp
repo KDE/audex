@@ -8,10 +8,12 @@
 #include "tagwriter.h"
 
 #include <QBuffer>
+#include <QColorSpace>
 #include <QCoreApplication>
 #include <QFile>
 #include <QImage>
 #include <QImageWriter>
+#include <QPainter>
 
 #include <taglib/attachedpictureframe.h>
 #include <taglib/flacfile.h>
@@ -121,7 +123,24 @@ QMap<QString, QStringList> TagWriter::properties(const TagInfo &info)
     return p;
 }
 
-std::optional<PreparedCover> TagWriter::prepareCover(const Metadata::CoverArt &cover, int maxSize)
+namespace
+{
+
+bool isOpaque(const QImage &image)
+{
+    const QImage argb = image.convertToFormat(QImage::Format_ARGB32);
+    for (int y = 0; y < argb.height(); ++y) {
+        const auto *line = reinterpret_cast<const QRgb *>(argb.constScanLine(y));
+        for (int x = 0; x < argb.width(); ++x)
+            if (qAlpha(line[x]) != 255)
+                return false;
+    }
+    return true;
+}
+
+}
+
+std::optional<PreparedCover> TagWriter::prepareCover(const Metadata::CoverArt &cover, int maxSize, CoverFormat format)
 {
     if (cover.isNull())
         return std::nullopt;
@@ -130,24 +149,41 @@ std::optional<PreparedCover> TagWriter::prepareCover(const Metadata::CoverArt &c
         return std::nullopt;
 
     PreparedCover result;
-    const bool embeddable = cover.mimeType == u"image/jpeg" || cover.mimeType == u"image/png";
+    const bool isJpeg = cover.mimeType == u"image/jpeg";
+    const bool isPng = cover.mimeType == u"image/png";
+    const bool png = format == CoverFormat::Png || (format == CoverFormat::Original && (isPng || (!isJpeg && image.hasAlphaChannel())));
     const bool small = maxSize <= 0 || (image.width() <= maxSize && image.height() <= maxSize);
-    if (embeddable && small) {
+    if (small && (png ? isPng : isJpeg)) {
         result.cover = cover;
     } else {
         if (!small)
             image = image.scaled(maxSize, maxSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        // players expect sRGB; a profile only costs space
+        if (image.colorSpace().isValid() && image.colorSpace() != QColorSpace(QColorSpace::SRgb))
+            image.convertToColorSpace(QColorSpace(QColorSpace::SRgb));
+        image.setColorSpace(QColorSpace());
+        if (image.hasAlphaChannel() && (!png || isOpaque(image))) { // JPEG has no transparency
+            QImage opaque(image.size(), QImage::Format_RGB32);
+            opaque.fill(Qt::white);
+            QPainter(&opaque).drawImage(0, 0, image);
+            image = opaque;
+        }
+        if (image.format() != QImage::Format_Grayscale8 && image.allGray())
+            image.convertTo(QImage::Format_Grayscale8);
         QByteArray data;
         QBuffer buffer(&data);
         buffer.open(QIODevice::WriteOnly);
-        const bool alpha = image.hasAlphaChannel();
-        QImageWriter writer(&buffer, alpha ? "png" : "jpeg");
-        if (!alpha)
-            writer.setQuality(90);
+        QImageWriter writer(&buffer, png ? "png" : "jpeg");
+        if (!png) {
+            // 80 is a smaller than 90 at hardly visible cost; baseline
+            // (not progressive), as some car radios and players need it
+            writer.setQuality(80);
+            writer.setOptimizedWrite(true);
+        }
         if (!writer.write(image))
             return std::nullopt;
         result.cover.data = data;
-        result.cover.mimeType = alpha ? u"image/png"_s : u"image/jpeg"_s;
+        result.cover.mimeType = png ? u"image/png"_s : u"image/jpeg"_s;
         result.cover.source = cover.source;
     }
     result.width = image.width();
@@ -234,7 +270,7 @@ bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo 
         return fail(error, tr("Tags are not supported for .%1 files.").arg(suffix));
 
     const QByteArray name = QFile::encodeName(path);
-    const std::optional<PreparedCover> cover = info.embedCover ? prepareCover(info.album.cover(), info.coverMaxSize) : std::nullopt;
+    const std::optional<PreparedCover> cover = info.embedCover ? prepareCover(info.album.cover(), info.coverMaxSize, info.coverFormat) : std::nullopt;
 
     if (s == u"flac") {
         TagLib::FLAC::File file(name.constData());

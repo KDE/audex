@@ -17,6 +17,13 @@
 namespace Audex::Encoding
 {
 
+// Format of an embedded cover; Original keeps JPEG and PNG as they come
+enum class CoverFormat {
+    Original,
+    Jpeg,
+    Png
+};
+
 // Everything the tagger needs for one output file
 struct TagInfo {
     Metadata::Album album;
@@ -25,6 +32,7 @@ struct TagInfo {
     int trackTotal = 0;
     bool embedCover = true;
     int coverMaxSize = 1000; // pixels, 0 = keep original
+    CoverFormat coverFormat = CoverFormat::Original;
     QMap<QString, QString> extra; // further tags, e.g. the pre-emphasis flag
 
     const Metadata::Track &track() const
@@ -53,9 +61,10 @@ public:
     // them to the frames of each format.
     static QMap<QString, QStringList> properties(const TagInfo &info);
 
-    // Keeps the original bytes if they are JPEG/PNG and small enough,
-    // otherwise scales (keeping the aspect ratio) and re-encodes as JPEG.
-    static std::optional<PreparedCover> prepareCover(const Metadata::CoverArt &cover, int maxSize);
+    // Keeps the original bytes if they have the wanted format and are small
+    // enough, otherwise scales (keeping the aspect ratio) and re-encodes.
+    // Original writes other formats as JPEG, or PNG if they are transparent.
+    static std::optional<PreparedCover> prepareCover(const Metadata::CoverArt &cover, int maxSize, CoverFormat format = CoverFormat::Original);
 };
 
 }

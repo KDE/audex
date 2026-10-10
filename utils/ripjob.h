@@ -18,6 +18,7 @@
 #include "core/ripengine.h"
 #include "core/subchannel.h"
 #include "encoding/registry.h"
+#include "encoding/tagwriter.h"
 #include "utils/discsource.h"
 
 namespace Audex
@@ -42,7 +43,8 @@ struct RipRequest {
     QVariantMap encoderSettings;
     bool writeTags = true;
     bool embedCover = true;
-    int coverMaxSize = 1000;
+    int coverMaxSize = 1000; // embedded cover, 0 = keep its size
+    Encoding::CoverFormat coverFormat = Encoding::CoverFormat::Original;
 
     // image file: all selected tracks go into one file (segments sharing a
     // path are merged by EncodedOutputs); the cue sheet is written by the GUI
