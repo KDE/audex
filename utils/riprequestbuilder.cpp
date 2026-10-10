@@ -220,7 +220,6 @@ QMap<QString, QString> RipRequestBuilder::albumVars() const
     vars[QStringLiteral(VAR_AUDEX)] = m_application;
     vars[QStringLiteral(VAR_CD_SIZE)] = QString::number(qint64(audioSectors) * Audex::Cdda::SectorBytes / (1024 * 1024)) + u" MiB"_s;
     vars[QStringLiteral(VAR_CD_LENGTH)] = Audex::Cdda::sectorsToTime(audioSectors);
-    vars[QStringLiteral(VAR_LINEBREAK)] = u" "_s;
     return vars;
 }
 

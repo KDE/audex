@@ -37,7 +37,6 @@
 #define VAR_CD_LENGTH "length"
 #define VAR_TODAY "today"
 #define VAR_NOW "now"
-#define VAR_LINEBREAK "br"
 
 #define VAR_AUDEX "audex"
 #define VAR_NO_OF_TRACKS "nooftracks"

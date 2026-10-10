@@ -39,8 +39,7 @@ QMap<QString, QString> exampleAlbumValues()
             {QStringLiteral(VAR_CD_SIZE), QStringLiteral("587 MiB")},
             {QStringLiteral(VAR_CD_LENGTH), QStringLiteral("55:42.120")},
             {QStringLiteral(VAR_TODAY), QDate::currentDate().toString(Qt::ISODate)},
-            {QStringLiteral(VAR_NOW), QTime::currentTime().toString(QStringLiteral("hh-mm-ss"))},
-            {QStringLiteral(VAR_LINEBREAK), QStringLiteral(" ")}};
+            {QStringLiteral(VAR_NOW), QTime::currentTime().toString(QStringLiteral("hh-mm-ss"))}};
 }
 
 // the values of a track filename scheme
