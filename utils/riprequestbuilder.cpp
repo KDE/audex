@@ -257,7 +257,10 @@ QString RipRequestBuilder::fileName(const QString &scheme, const Placeholders &v
 
     QStringList segments;
     for (const QString &segment : parsed.split(u'/', Qt::SkipEmptyParts)) {
-        const QString s = segment.trimmed();
+        QString s = segment.trimmed();
+        // FAT32 names cannot end with a dot or a space ("R.E.M." becomes "R.E.M")
+        while (fat32() && (s.endsWith(u'.') || s.endsWith(u' ')))
+            s.chop(1);
         if (!s.isEmpty() && s != u"."_s && s != u".."_s)
             segments << s;
     }
@@ -420,7 +423,10 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles) con
         }
     }
 
-    if (!isImageFile() && QSet<QString>(paths.cbegin(), paths.cend()).size() != paths.size()) {
+    QSet<QString> distinct;
+    for (const QString &path : paths)
+        distinct.insert(fat32() ? path.toCaseFolded() : path); // FAT32 ignores the case
+    if (!isImageFile() && distinct.size() != paths.size()) {
         *error = i18n("Several tracks would be written to the same file. Use a file name scheme that contains the track number.");
         return false;
     }
