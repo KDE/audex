@@ -14,7 +14,6 @@
 
 #include <QDBusConnection>
 #include <QDialogButtonBox>
-#include <QElapsedTimer>
 #include <QLocale>
 #include <QPointer>
 #include <QPushButton>
@@ -398,8 +397,7 @@ void ExtractingProgressDialog::onCdgProgress(int pass, qint64 doneSectors, qint6
         }
         last_sectors = doneSectors;
         speed_timer.restart();
-        const QString sector =
-            i18n("Sector %1 of %2", QLocale().toString(discPosition(trackNumber, trackSectors)), QLocale().toString(m_mapSectors));
+        const QString sector = i18n("Sector %1 of %2", QLocale().toString(discPosition(trackNumber, trackSectors)), QLocale().toString(m_mapSectors));
         const QString errors = i18np("%1 read error", "%1 read errors", m_errorCount);
         ui.label_telemetry->setText(i18nc("sector, read errors", "%1 · %2", sector, errors));
     }

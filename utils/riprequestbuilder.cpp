@@ -11,16 +11,25 @@
 #include "preferences.h"
 #include "utils/cuesheetwriter.h"
 #include "utils/devicesettings.h"
+#include "utils/encoderassistant.h"
 #include "utils/encodercommand.h"
 #include "utils/playlist.h"
 #include "utils/schemeparser.h"
 
+#include <KLocalizedString>
+
 #include <QCoreApplication>
+#include <QDate>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QImage>
 #include <QPointer>
+#include <QProcess>
+#include <QSet>
 #include <QStorageInfo>
 #include <QTemporaryFile>
-
-#include <algorithm>
+#include <QTime>
 
 using namespace Qt::StringLiterals;
 using Audex::Metadata::Field;
@@ -140,9 +149,8 @@ void RipRequestBuilder::encoder(QString *id, QVariantMap *settings, QString *suf
     (*settings)[u"suffix"_s] = *suffix;
 }
 
-QStringList RipRequestBuilder::externalCommand(const EncoderAssistant::Encoder encoder,
-                                               const Parameters &parameters,
-                                               QList<Audex::Encoding::CommandIssue> *issues) const
+QStringList
+RipRequestBuilder::externalCommand(const EncoderAssistant::Encoder encoder, const Parameters &parameters, QList<Audex::Encoding::CommandIssue> *issues) const
 {
     if (issues)
         issues->clear();

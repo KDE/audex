@@ -7,31 +7,14 @@
 
 #pragma once
 
-#include <functional>
-#include <memory>
-
-#include <QDate>
-#include <QDir>
-#include <QFile>
-#include <QFileInfo>
-#include <QImage>
 #include <QMap>
-#include <QProcess>
-#include <QSet>
 #include <QSize>
 #include <QString>
 #include <QStringList>
-#include <QTime>
 #include <QVariant>
 
-#include <KLocalizedString>
-
-#include "encoding/registry.h"
-#include "utils/encodercommand.h"
-#include "metadata/cdinfo.h"
 #include "models/cdinfomodel.h"
 #include "models/profilemodel.h"
-#include "utils/encoderassistant.h"
 #include "utils/ripjob.h"
 
 // Translates an Audex profile (ProfileModel), the disc model (CDInfoModel)
@@ -129,9 +112,8 @@ private:
 
     // Encoder command of the profile, translated for the engine; what the
     // command cannot use lands in `issues` as one entry per problem.
-    QStringList externalCommand(const EncoderAssistant::Encoder encoder,
-                                const Parameters &parameters,
-                                QList<Audex::Encoding::CommandIssue> *issues = nullptr) const;
+    QStringList
+    externalCommand(const EncoderAssistant::Encoder encoder, const Parameters &parameters, QList<Audex::Encoding::CommandIssue> *issues = nullptr) const;
 
     QMap<QString, QString> albumVars() const; // values a scheme can fill in
     QString sanitizePathSegment(const QString &name) const;

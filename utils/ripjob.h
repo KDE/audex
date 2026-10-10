@@ -7,26 +7,18 @@
 
 #pragma once
 
-#include <QCoreApplication>
-#include <QDeadlineTimer>
-#include <QDir>
-#include <QElapsedTimer>
-#include <QFile>
-#include <QFileInfo>
-#include <QMap>
-#include <QObject>
 #include <QPointer>
-#include <QSet>
-#include <QThread>
+#include <QString>
+#include <QStringList>
+#include <QVariantMap>
 
 #include <atomic>
 #include <mutex>
 
 #include "core/ripengine.h"
 #include "core/subchannel.h"
-#include "discsource.h"
 #include "encoding/registry.h"
-#include "metadata/cdinfo.h"
+#include "utils/discsource.h"
 
 namespace Audex
 {

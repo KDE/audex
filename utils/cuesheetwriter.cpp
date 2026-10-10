@@ -8,6 +8,8 @@
 #include "cuesheetwriter.h"
 #include "audex-version.h"
 
+#include <QFileInfo>
+
 using namespace Audex;
 using namespace Qt::StringLiterals;
 using Metadata::Field;

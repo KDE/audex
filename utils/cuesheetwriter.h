@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include <QFileInfo>
 #include <QString>
 #include <QStringList>
 

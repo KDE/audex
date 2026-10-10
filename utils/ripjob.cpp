@@ -18,10 +18,17 @@
 #include "utils/encodercommand.h"
 #include "utils/imagerepair.h"
 
+#include <QCoreApplication>
+#include <QDeadlineTimer>
 #include <QDir>
+#include <QElapsedTimer>
+#include <QFile>
 #include <QFileInfo>
+#include <QMap>
 #include <QSaveFile>
+#include <QSet>
 #include <QTemporaryFile>
+#include <QThread>
 
 #include <map>
 #include <memory>

@@ -7,8 +7,8 @@
 
 #include "ctdb.h"
 
-#include "blockingfetch.h"
 #include "core/checksums.h"
+#include "online/blockingfetch.h"
 
 #include <QCryptographicHash>
 #include <QMap>

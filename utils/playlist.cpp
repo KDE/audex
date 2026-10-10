@@ -8,6 +8,8 @@
 #include "playlist.h"
 
 #include <KLocalizedString>
+
+#include <QDir>
 #include <QStringList>
 
 Playlist::Playlist()

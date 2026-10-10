@@ -15,6 +15,7 @@
 
 #include <QDBusMessage>
 #include <QDialog>
+#include <QElapsedTimer>
 #include <QPointer>
 #include <QSet>
 

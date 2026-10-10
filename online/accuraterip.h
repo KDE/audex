@@ -15,9 +15,6 @@
 #include <QStringList>
 #include <QUrl>
 
-#include <functional>
-#include <optional>
-
 #include "core/ripengine.h"
 #include "core/toc.h"
 
@@ -112,11 +109,8 @@ QList<PressingOffset> matchFrame450(const QList<Response> &responses, const QMap
 
 // Reads the surroundings of sector 450 of up to maxTracks audio tracks with
 // the given read offset; result keyed by audio index (see matchFrame450()).
-QMap<int, QList<quint32>> probeFrame450(Rip::SectorReader &reader,
-                                        const Cdda::Toc &toc,
-                                        int readOffset,
-                                        int maxTracks = 3,
-                                        const std::function<bool()> &isCanceled = {});
+QMap<int, QList<quint32>>
+probeFrame450(Rip::SectorReader &reader, const Cdda::Toc &toc, int readOffset, int maxTracks = 3, const std::function<bool()> &isCanceled = {});
 
 struct OffsetDetection {
     bool found = false;
@@ -128,7 +122,8 @@ struct OffsetDetection {
 
 // Finds the drive's read offset with any disc in the database: frame 450
 // search on raw reads, confirmed by extracting one whole track.
-OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc, const QList<Response> &responses, const std::function<bool()> &isCanceled = {});
+OffsetDetection
+detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc, const QList<Response> &responses, const std::function<bool()> &isCanceled = {});
 
 // ---- verification ----------------------------------------------------------
 
@@ -137,19 +132,14 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
 // outcome as log lines. An empty response list means the disc is not in the
 // database. The first line is a section heading; used in the rip report.
 // inaccurateTracks receives the number of tracks the database contradicts.
-QStringList formatVerification(const QList<Response> &responses,
-                               const QList<Rip::SegmentResult> &segments,
-                               const Cdda::Toc &toc,
-                               int *inaccurateTracks = nullptr);
+QStringList
+formatVerification(const QList<Response> &responses, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *inaccurateTracks = nullptr);
 
 // Synchronous lookup of the database entry for a disc, for worker threads
 // (RipJob). Sets notFound when the server answered 404 and error on network
 // or protocol failures; both are not fatal for a rip.
-QList<Response> lookupDiscEntry(const Cdda::Toc &toc,
-                                QString *error,
-                                bool *notFound = nullptr,
-                                int timeoutMs = 30000,
-                                const std::function<bool()> &isCanceled = {});
+QList<Response>
+lookupDiscEntry(const Cdda::Toc &toc, QString *error, bool *notFound = nullptr, int timeoutMs = 30000, const std::function<bool()> &isCanceled = {});
 
 // ---- asynchronous access (GUI thread) --------------------------------------
 
@@ -178,7 +168,10 @@ private:
     QNetworkAccessManager *m_network = nullptr;
     QNetworkReply *m_reply = nullptr;
 
-    enum class Pending { None, DriveOffsets };
+    enum class Pending {
+        None,
+        DriveOffsets
+    };
     Pending m_pending = Pending::None;
 };
 
