@@ -703,6 +703,14 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
             const QPointer<QObject> logTo(parent);
             auto *process = new QProcess(QCoreApplication::instance());
             process->setStandardOutputFile(QProcess::nullDevice());
+            // keep only the end of stderr, QProcess would buffer all of it
+            constexpr qsizetype StderrTail = 16384;
+            auto stderrTail = std::make_shared<QByteArray>();
+            QObject::connect(process, &QProcess::readyReadStandardError, process, [process, stderrTail] {
+                stderrTail->append(process->readAllStandardError());
+                if (stderrTail->size() > StderrTail)
+                    stderrTail->remove(0, stderrTail->size() - StderrTail);
+            });
             QObject::connect(process, &QProcess::started, process, [logTo, log, display] {
                 if (logTo)
                     log(int(Audex::Rip::LogLevel::Info), i18n("Command started: %1", display));
@@ -714,9 +722,10 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
                     log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot start command: %1", display));
                 process->deleteLater();
             });
-            QObject::connect(process, &QProcess::finished, process, [process, logTo, log, display](int exitCode, QProcess::ExitStatus status) {
+            QObject::connect(process, &QProcess::finished, process, [process, stderrTail, logTo, log, display](int exitCode, QProcess::ExitStatus status) {
                 if (logTo) {
-                    const QString err = QString::fromLocal8Bit(process->readAllStandardError()).right(16384).trimmed();
+                    stderrTail->append(process->readAllStandardError());
+                    const QString err = QString::fromLocal8Bit(stderrTail->right(StderrTail)).trimmed();
                     if (status == QProcess::NormalExit && exitCode == 0)
                         log(int(Audex::Rip::LogLevel::Info), i18n("Command finished: %1", display));
                     else if (err.isEmpty())
