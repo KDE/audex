@@ -34,7 +34,6 @@ struct RipRequest {
     QList<int> tracks; // TOC numbers, 0 = hidden track
     Rip::RipOptions options;
     QString outputDirectory;
-    QString fileNamePattern = QStringLiteral("{number} - {artist} - {title}");
     QString application = QStringLiteral("Audex");
 
     // output format; the registry must outlive the job
@@ -48,7 +47,6 @@ struct RipRequest {
     // image file: all selected tracks go into one file (segments sharing a
     // path are merged by EncodedOutputs); the cue sheet is written by the GUI
     bool imageFile = false;
-    QString imageFileNamePattern = QStringLiteral("{artist} - {album}");
 
     // look up the disc in the AccurateRip database before the extraction
     // (pressing offsets, keepConfirmedTracks) and verify the tracks afterwards
@@ -110,29 +108,11 @@ struct RipRequest {
     // a canceled or failed rip as well.
     QString logFilePath;
 
-    // replace spaces with underscores in file names (Audex profile option)
-    bool underscores = false;
-
-    // pad the track number in file names to two digits (Audex profile option)
-    bool twoDigitTrackNumbers = true;
-
-    // Complete output file per track number (absolute or relative to
-    // outputDirectory). Tracks listed here ignore the name patterns above.
+    // Output file per track number (absolute or relative to
+    // outputDirectory), required for every track; an image file uses the
+    // same path for all of them
     QMap<int, QString> filePaths;
 };
-
-// Placeholders: {number} {artist} {title} {album} {year}. Characters that are
-// not allowed in file names are replaced; "." + suffix is appended.
-QString trackFileName(const CDInfo &disc,
-                      int trackNumber,
-                      const QString &pattern,
-                      const QString &suffix = QStringLiteral("wav"),
-                      bool underscores = false,
-                      bool twoDigitNumber = true);
-
-// Same placeholders for the image file of a whole disc: {title} and {album}
-// both mean the album title, {number} is "1".
-QString imageFileName(const CDInfo &disc, const QString &pattern, const QString &suffix = QStringLiteral("wav"), bool underscores = false);
 
 struct RipSummary {
     bool completed = false;

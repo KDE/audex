@@ -49,76 +49,6 @@ QString tr(const char *text)
     return QCoreApplication::translate("Audex::RipJob", text);
 }
 
-QString sanitizeFileName(QString name)
-{
-    static const QString forbidden = u"/\\:*?\"<>|"_s;
-    for (QChar &c : name) {
-        if (c.unicode() < 0x20 || forbidden.contains(c))
-            c = u'_';
-    }
-    name = name.simplified();
-    while (name.startsWith(u'.'))
-        name.remove(0, 1);
-    if (name.size() > 200)
-        name.truncate(200);
-    return name.trimmed();
-}
-
-}
-
-QString trackFileName(const CDInfo &disc, int trackNumber, const QString &pattern, const QString &suffix, bool underscores, bool twoDigitNumber)
-{
-    const Metadata::Album &album = disc.metadata();
-    const Metadata::Track &track = album.track(trackNumber);
-
-    QString artist = track.text(Field::Artist);
-    if (artist.isEmpty())
-        artist = album.text(Field::Artist);
-    if (artist.isEmpty())
-        artist = tr("Unknown Artist");
-    QString title = track.text(Field::Title);
-    if (title.isEmpty())
-        title = trackNumber == 0 ? tr("Hidden Track") : tr("Track %1").arg(trackNumber);
-
-    QString name = pattern;
-    name.replace(u"{number}"_s,
-                 twoDigitNumber ? u"%1"_s.arg(disc.displayTrackNumber(trackNumber), 2, 10, QLatin1Char('0'))
-                                : QString::number(disc.displayTrackNumber(trackNumber)));
-    name.replace(u"{artist}"_s, artist);
-    name.replace(u"{title}"_s, title);
-    name.replace(u"{album}"_s, album.text(Field::Album));
-    name.replace(u"{year}"_s, album.text(Field::Year));
-    name = sanitizeFileName(name);
-    if (underscores)
-        name.replace(u' ', u'_');
-    if (name.isEmpty())
-        name = u"track%1"_s.arg(trackNumber, 2, 10, QLatin1Char('0'));
-    return name + u'.' + suffix;
-}
-
-QString imageFileName(const CDInfo &disc, const QString &pattern, const QString &suffix, bool underscores)
-{
-    const Metadata::Album &album = disc.metadata();
-
-    QString artist = album.text(Field::Artist);
-    if (artist.isEmpty())
-        artist = tr("Unknown Artist");
-    QString title = album.text(Field::Album);
-    if (title.isEmpty())
-        title = tr("Unknown Album");
-
-    QString name = pattern;
-    name.replace(u"{number}"_s, u"1"_s);
-    name.replace(u"{artist}"_s, artist);
-    name.replace(u"{title}"_s, title);
-    name.replace(u"{album}"_s, title);
-    name.replace(u"{year}"_s, album.text(Field::Year));
-    name = sanitizeFileName(name);
-    if (underscores)
-        name.replace(u' ', u'_');
-    if (name.isEmpty())
-        name = u"disc"_s;
-    return name + u'.' + suffix;
 }
 
 RipJob::RipJob(RipRequest request, QObject *parent)
@@ -186,7 +116,6 @@ void RipJob::run()
     const Encoding::EncoderFactory *encoder = rq.encoders ? rq.encoders->factory(rq.encoderId) : nullptr;
     if (!encoder)
         return fail(tr("The output format \"%1\" is not available.").arg(rq.encoderId));
-    const QString suffix = encoder->fileSuffix(rq.encoderSettings);
 
     // --- segments and files ---
     QList<int> tracks = rq.tracks;
@@ -196,7 +125,6 @@ void RipJob::run()
     QList<Encoding::OutputTarget> targets;
     const int firstAudio = toc.firstAudioTrackNumber();
     const int lastAudio = toc.lastAudioTrackNumber();
-    const QString imageFN = rq.imageFile ? imageFileName(disc, rq.imageFileNamePattern, suffix, rq.underscores) : QString();
     const QList<int> emphasis = disc.preEmphasisTracks();
     const bool imageEmphasis = !emphasis.isEmpty() && emphasis.size() == disc.audioTrackNumbers().size();
     for (int number : std::as_const(tracks)) {
@@ -216,9 +144,9 @@ void RipJob::run()
         s.ctdbSkipFirst = s.accurateRipFirst ? Ctdb::StrideSamples : 0;
         s.ctdbSkipLast = s.accurateRipLast ? Ctdb::skipLast(toc) : 0;
         segments.append(s);
-        QString name = rq.filePaths.value(number);
+        const QString name = rq.filePaths.value(number);
         if (name.isEmpty())
-            name = rq.imageFile ? imageFN : trackFileName(disc, number, rq.fileNamePattern, suffix, rq.underscores, rq.twoDigitTrackNumbers);
+            return fail(tr("No output file for track %1.").arg(number));
         fileNames.append(name); // one entry per segment (ReportContext::fileNames)
 
         Encoding::OutputTarget target;
