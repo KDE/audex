@@ -123,7 +123,8 @@ set(audex_engine_SRCS
     utils/ripjob.cpp
     utils/imagerepair.cpp
     utils/discsource.cpp
-    utils/encodercommand.cpp)
+    utils/encodercommand.cpp
+    utils/scheme.cpp)
 
 add_library(audexengine STATIC ${audex_engine_SRCS})
 target_include_directories(audexengine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

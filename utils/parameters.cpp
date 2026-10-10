@@ -7,6 +7,8 @@
 
 #include "parameters.h"
 
+#include "utils/scheme.h"
+
 #include <KLocalizedString>
 
 #include <QList>
@@ -19,6 +21,7 @@ Parameters::Parameters()
 Parameters::Parameters(const Parameters &other)
 {
     p_parameters = other.p_parameters;
+    p_error_string = other.p_error_string;
 }
 
 Parameters::Parameters(const QString &string, const QChar &sep)
@@ -29,6 +32,7 @@ Parameters::Parameters(const QString &string, const QChar &sep)
 Parameters &Parameters::operator=(const Parameters &other)
 {
     p_parameters = other.p_parameters;
+    p_error_string = other.p_error_string;
     return *this;
 }
 
@@ -39,86 +43,13 @@ Parameters::~Parameters()
 void Parameters::fromString(const QString &string, const QChar &sep)
 {
     p_error_string.clear();
-
-    if (string.isEmpty())
-        return;
-
     p_parameters.clear();
 
-    QString key, value;
-    bool value_is_quoted = false;
-    bool is_in_key = false;
-    bool is_in_value = false;
-    bool is_in_value_quote = false;
-    int i = 0;
-    while (i < string.length()) {
-        QChar c = string.at(i);
-
-        if (is_in_key) {
-            if (c.isLetterOrNumber() || c == QChar('_')) {
-                key.append(c);
-            } else if (c == QChar('=')) {
-                is_in_key = false;
-                is_in_value = true;
-            } else {
-                p_error_string = i18n("Illegal character found at index %1: '%2'").arg(i).arg(c);
-                return;
-            }
-
-        } else if (is_in_value) {
-            if (is_in_value_quote) {
-                if (c == QChar('\'') || c == QChar('"')) {
-                    is_in_value_quote = false;
-                    is_in_value = false;
-                } else {
-                    value.append(c);
-                }
-
-            } else {
-                if (c == QChar('\'') || c == QChar('"')) {
-                    if (value.isEmpty()) {
-                        is_in_value_quote = true;
-                        value_is_quoted = true;
-                    } else {
-                        p_error_string = i18n("Illegal character found at index %1: '%2'").arg(i).arg(c);
-                        return;
-                    }
-                } else if (c == sep) {
-                    is_in_key = false;
-                    is_in_value = false;
-                    continue;
-                } else if (c.isSpace()) {
-                    p_error_string = i18n("Illegal character found at index %1: '%2'").arg(i).arg(c);
-                    return;
-                } else {
-                    value.append(c);
-                }
-            }
-
-        } else {
-            if (c == sep) {
-                p_insert_value(key, value, value_is_quoted);
-                key.clear();
-                value.clear();
-                value_is_quoted = false;
-            } else if ((c.isLetterOrNumber() || c == QChar('_')) && value.isEmpty()) {
-                is_in_key = true;
-                key.append(c);
-            } else {
-                p_error_string = i18n("Illegal character found at index %1: '%2'").arg(i).arg(c);
-                return;
-            }
-        }
-
-        ++i;
-    }
-
-    if (is_in_value_quote) {
-        p_error_string = i18n("Unclosed quote found");
-        return;
-    }
-
-    p_insert_value(key, value, value_is_quoted);
+    Audex::Scheme::Error error;
+    for (const auto &[key, value] : Audex::Scheme::parseKeyValues(string, sep, &error))
+        p_parameters.insert(key, value);
+    if (error)
+        p_error_string = i18n("Invalid parameters at position %1.", error.position + 1);
 }
 
 const QString Parameters::toString(const QChar &sep) const
@@ -126,14 +57,14 @@ const QString Parameters::toString(const QChar &sep) const
     QString string;
 
     for (auto i = p_parameters.cbegin(), end = p_parameters.cend(); i != end; ++i) {
-        QVariant value = i.value();
+        const QVariant value = i.value();
         if (i != p_parameters.cbegin())
             string.append(sep);
         if (value.typeId() == QMetaType::QString || value.typeId() == QMetaType::QDateTime || value.typeId() == QMetaType::QDate
             || value.typeId() == QMetaType::QTime)
-            string.append(i.key() + "='" + value.toString() + "'");
+            string.append(i.key() + QLatin1Char('=') + Audex::Scheme::quoted(value.toString()));
         else
-            string.append(i.key() + "=" + value.toString());
+            string.append(i.key() + QLatin1Char('=') + value.toString());
     }
 
     return string;
@@ -141,41 +72,10 @@ const QString Parameters::toString(const QChar &sep) const
 
 bool Parameters::contains(const QString &key) const
 {
-    return p_parameters.contains(key);
+    return p_parameters.contains(key.toLower());
 }
 
 const KeyList Parameters::keys() const
 {
     return p_parameters.keys();
-}
-
-void Parameters::p_insert_value(const QString &key, const QString &value, const bool is_quoted)
-{
-    if (key.isEmpty())
-        return;
-
-    // an quoted value is expected to be alway a string
-    if (is_quoted) {
-        p_parameters.insert(key, QVariant(value));
-
-    } else { // not quoted -> the case is more complicated
-
-        bool ok;
-        int number_int = value.toInt(&ok);
-        if (ok) {
-            p_parameters.insert(key, QVariant(number_int));
-        } else {
-            double number_double = value.toDouble(&ok);
-            if (ok) {
-                p_parameters.insert(key, QVariant(number_double));
-            } else {
-                if (value.toLower() == "false")
-                    p_parameters.insert(key, QVariant(false));
-                else if (value.toLower() == "true")
-                    p_parameters.insert(key, QVariant(true));
-                else
-                    p_parameters.insert(key, QVariant(value));
-            }
-        }
-    }
 }

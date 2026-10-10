@@ -134,9 +134,16 @@ private:
                                 QList<Audex::Encoding::CommandIssue> *issues = nullptr) const;
 
     QMap<QString, QString> albumVars() const; // values a scheme can fill in
-    QString substituteAlbumVars(const QString &text) const;
     QString sanitizePathSegment(const QString &name) const;
     bool replaceSpaces() const; // "Replace spaces with underscores", track rips only
+    bool fat32() const; // "Create FAT32 compatible filenames", track rips only
+
+    // A file name scheme: its values are made safe for a path segment, the
+    // result is relative to the folder it is written to and has the suffix.
+    // Empty with `error` set if the scheme cannot be used.
+    QString fileNameValue(const QString &value) const;
+    Placeholders fileNameValues(const QString &suffix) const; // album values and $suffix
+    QString fileName(const QString &scheme, const Placeholders &values, const QString &suffix, QString *error = nullptr) const;
     QString resolveNameScheme(const QString &scheme, const QString &suffix) const; // cover/playlist/... names
     QString logFilePath() const; // rip log of the profile, empty if it writes none
     bool wantsCdg() const; // .cdg files wanted, and the disc may carry graphics

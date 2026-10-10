@@ -18,6 +18,7 @@
 #include <QDebug>
 #include <QList>
 #include <QString>
+#include <QStringList>
 
 #include <algorithm>
 
@@ -40,6 +41,16 @@ inline QString describe(qint64 value)
 inline QString describe(const QByteArray &data)
 {
     return QString::number(data.size()) + QString(" bytes");
+}
+
+inline QString describe(const QString &text)
+{
+    return QLatin1Char('"') + text + QLatin1Char('"');
+}
+
+inline QString describe(const QStringList &list)
+{
+    return QLatin1Char('[') + list.join(QLatin1Char('|')) + QLatin1Char(']');
 }
 
 class Context

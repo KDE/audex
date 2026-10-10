@@ -16,6 +16,7 @@ class QChar;
 
 typedef QList<QString> KeyList;
 
+// Key value list as the profiles store it, read with the syntax of utils/scheme.h
 class Parameters
 {
 public:
@@ -54,6 +55,4 @@ public:
 private:
     QMap<QString, QVariant> p_parameters;
     QString p_error_string;
-
-    void p_insert_value(const QString &key, const QString &value, const bool is_quoted);
 };

@@ -15,7 +15,6 @@
 #include <QProcess>
 #include <QStandardPaths>
 
-#include <functional>
 #include <optional>
 
 using namespace Qt::StringLiterals;
@@ -37,28 +36,62 @@ const QString HookOutputDir = u"dir"_s;
 // a filename value: Audex embeds the cover into the files, there is no cover file
 const QString CoverFile = u"cover"_s;
 
-QString readName(const QString &argument, qsizetype &at, bool *braced, bool *hasParameters)
+// Marks a placeholder in the text handed to QProcess::splitCommand(), so that
+// it is never split, not even at a space between its parameters. U+FDD0 and
+// U+FDD1 are noncharacters, they do not occur in a scheme.
+const QChar MarkBegin(0xFDD0);
+const QChar MarkEnd(0xFDD1);
+
+using Argument = QList<Scheme::Token>;
+
+// The scheme split into arguments with QProcess rules
+QList<Argument> splitScheme(const QString &scheme, Scheme::Error *error)
 {
-    qsizetype i = at + 1; // behind the dollar sign
-    *braced = i < argument.size() && argument.at(i) == u'{';
-    *hasParameters = false;
-    if (*braced)
-        ++i;
-    const qsizetype start = i;
-    while (i < argument.size() && (argument.at(i).isLetterOrNumber() || argument.at(i) == u'_'))
-        ++i;
-    const QString name = argument.sliced(start, i - start);
-    if (*braced) {
-        if (name.isEmpty())
-            return {}; // not a placeholder after all
-        const qsizetype end = argument.indexOf(u'}', i);
-        // no closing brace: the scheme was split at a space inside the braces,
-        // which only parameters have
-        *hasParameters = end < 0 || end > i;
-        i = end < 0 ? argument.size() : end + 1;
+    const Scheme::Parsed parsed = Scheme::parse(scheme);
+    *error = parsed.error;
+    if (parsed.error)
+        return {};
+
+    QString marked;
+    QList<Scheme::Token> placeholders;
+    for (const Scheme::Token &token : parsed.tokens) {
+        if (token.placeholder) {
+            marked += MarkBegin + QString::number(placeholders.size()) + MarkEnd;
+            placeholders.append(token);
+        } else {
+            marked += token.text;
+        }
     }
-    at = i;
-    return name;
+
+    QList<Argument> result;
+    for (const QString &argument : QProcess::splitCommand(marked)) {
+        Argument tokens;
+        QString text;
+        for (qsizetype i = 0; i < argument.size(); ++i) {
+            const qsizetype end = argument.at(i) == MarkBegin ? argument.indexOf(MarkEnd, i) : -1;
+            if (end > i) {
+                if (!text.isEmpty())
+                    tokens.append({text, std::nullopt});
+                text.clear();
+                tokens.append(placeholders.value(argument.sliced(i + 1, end - i - 1).toInt()));
+                i = end;
+            } else {
+                text += argument.at(i);
+            }
+        }
+        if (!text.isEmpty())
+            tokens.append({text, std::nullopt});
+        result.append(tokens);
+    }
+    return result;
+}
+
+void addIssue(QList<CommandIssue> *issues, CommandIssue::Kind kind, const QString &written)
+{
+    for (const CommandIssue &e : std::as_const(*issues))
+        if (e.kind == kind && e.written == written)
+            return;
+    issues->append({kind, written, {}});
 }
 
 // A value becomes a whole argument or part of one. The engine reads %o as the
@@ -68,38 +101,6 @@ QString escapeValue(QString value, bool escapeDollar)
 {
     value.replace(u'%', u"%%"_s);
     return escapeDollar ? value.replace(u'$', u"$$"_s) : value;
-}
-
-// Walks one argument. `resolve` returns the replacement for a placeholder, or
-// nothing to leave it as it was written. The last step turns $$ into $.
-QString substituteArgument(const QString &argument,
-                           bool lastStep,
-                           const std::function<std::optional<QString>(const QString &name, bool parameters, const QString &written)> &resolve)
-{
-    QString out;
-    for (qsizetype i = 0; i < argument.size();) {
-        if (argument.at(i) != u'$') {
-            out += argument.at(i++);
-            continue;
-        }
-        if (i + 1 < argument.size() && argument.at(i + 1) == u'$') { // $$ is a dollar sign
-            out += lastStep ? u"$"_s : u"$$"_s;
-            i += 2;
-            continue;
-        }
-        qsizetype next = i;
-        bool braced = false;
-        bool parameters = false;
-        const QString name = readName(argument, next, &braced, &parameters);
-        if (name.isEmpty()) {
-            out += argument.at(i++);
-            continue;
-        }
-        const QString written = braced ? u"${%1%2}"_s.arg(name, parameters ? u" ..."_s : QString()) : u'$' + name;
-        out += resolve(name, parameters, written).value_or(written);
-        i = next;
-    }
-    return out;
 }
 
 }
@@ -119,39 +120,46 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
     const QStringList tracks = trackCommandVariables();
     CommandScheme result;
 
-    const auto issue = [&result](CommandIssue::Kind kind, const QString &written) {
-        for (const CommandIssue &e : result.issues)
-            if (e.kind == kind && e.written == written)
-                return;
-        result.issues.append({kind, written});
-    };
+    Scheme::Error error;
+    const QList<Argument> arguments = splitScheme(scheme, &error);
+    if (error) {
+        result.issues.append({CommandIssue::Kind::Syntax, QString(), error});
+        return result;
+    }
 
-    const auto resolve = [&](const QString &name, bool parameters, const QString &written) -> std::optional<QString> {
-        if (name == CoverFile) {
-            issue(CommandIssue::Kind::CoverFile, written);
-            return std::nullopt;
+    for (const Argument &argument : arguments) {
+        QString out;
+        for (const Scheme::Token &token : argument) {
+            if (!token.placeholder) {
+                out += escapeValue(token.text, true); // a literal % or $ stays one
+                continue;
+            }
+            const QString &name = token.placeholder->name;
+            if (name == CoverFile) {
+                addIssue(&result.issues, CommandIssue::Kind::CoverFile, token.text);
+            } else if (!token.placeholder->parameters.isEmpty()) {
+                // parameters are a feature of the filename schemes
+                addIssue(&result.issues, CommandIssue::Kind::HasParameters, token.text);
+            } else if (name == InputFile) {
+                out += u"-"_s; // the engine writes the WAVE data to stdin
+                continue;
+            } else if (name == OutputFile) {
+                out += u"%o"_s;
+                continue;
+            } else if (tracks.contains(name)) {
+                out += u"${"_s + name + u'}'; // filled in when the output file is opened
+                continue;
+            } else if (values.contains(name)) {
+                out += escapeValue(values.value(name), true);
+                continue;
+            } else {
+                // an unknown name is a typo or a value Audex does not have
+                addIssue(&result.issues, CommandIssue::Kind::UnknownName, token.text);
+            }
+            out += escapeValue(token.text, true);
         }
-        if (parameters) {
-            // parameters are a feature of the filename schemes
-            issue(CommandIssue::Kind::HasParameters, written);
-            return std::nullopt;
-        }
-        if (!values.contains(name) && !tracks.contains(name) && name != InputFile && name != OutputFile) {
-            // an unknown name is a typo or a value Audex does not have
-            issue(CommandIssue::Kind::UnknownName, written);
-            return std::nullopt;
-        }
-        if (name == InputFile)
-            return u"-"_s; // the engine writes the WAVE data to stdin
-        if (name == OutputFile)
-            return u"%o"_s;
-        if (tracks.contains(name))
-            return std::nullopt; // filled in when the output file is opened
-        return escapeValue(values.value(name), true);
-    };
-
-    for (const QString &argument : QProcess::splitCommand(scheme))
-        result.arguments.append(substituteArgument(argument, false, resolve));
+        result.arguments.append(out);
+    }
 
     // a scheme that names no output file gets the old default: WAVE on stdin,
     // output file at the end
@@ -179,55 +187,71 @@ bool hasOutputFilePlaceholder(const QStringList &arguments)
 
 QStringList substituteValues(const QStringList &arguments, const QMap<QString, QString> &values)
 {
-    const auto resolve = [&values](const QString &name, bool parameters, const QString &) -> std::optional<QString> {
-        if (parameters || !values.contains(name))
-            return std::nullopt;
-        return escapeValue(values.value(name), false);
-    };
-
     QStringList result;
-    for (const QString &argument : arguments)
-        result.append(substituteArgument(argument, true, resolve));
+    for (const QString &argument : arguments) {
+        const Scheme::Parsed parsed = Scheme::parse(argument);
+        if (parsed.error) { // not written by parseCommandScheme()
+            result.append(argument);
+            continue;
+        }
+        QString out;
+        for (const Scheme::Token &token : parsed.tokens) {
+            if (token.placeholder && token.placeholder->parameters.isEmpty() && values.contains(token.placeholder->name))
+                out += escapeValue(values.value(token.placeholder->name), false);
+            else
+                out += token.text;
+        }
+        result.append(out);
+    }
     return result;
 }
 
 QList<CommandIssue> checkHookCommand(const QString &command, const QMap<QString, QString> &values)
 {
     QList<CommandIssue> issues;
-    const auto resolve = [&issues, &values](const QString &name, bool parameters, const QString &written) -> std::optional<QString> {
-        if (!parameters && (values.contains(name) || name == HookFiles || name == HookOutputDir))
-            return std::nullopt; // can be filled in
-        const CommandIssue::Kind kind = parameters ? CommandIssue::Kind::HasParameters : CommandIssue::Kind::UnknownName;
-        for (const CommandIssue &e : issues)
-            if (e.kind == kind && e.written == written)
-                return std::nullopt;
-        issues.append({kind, written});
-        return std::nullopt;
-    };
-    for (const QString &argument : QProcess::splitCommand(command))
-        substituteArgument(argument, true, resolve);
+    Scheme::Error error;
+    const QList<Argument> arguments = splitScheme(command, &error);
+    if (error)
+        return {{CommandIssue::Kind::Syntax, QString(), error}};
+
+    for (const Argument &argument : arguments) {
+        for (const Scheme::Token &token : argument) {
+            if (!token.placeholder)
+                continue;
+            const QString &name = token.placeholder->name;
+            if (!token.placeholder->parameters.isEmpty())
+                addIssue(&issues, CommandIssue::Kind::HasParameters, token.text);
+            else if (!values.contains(name) && name != HookFiles && name != HookOutputDir)
+                addIssue(&issues, CommandIssue::Kind::UnknownName, token.text);
+        }
+    }
     return issues;
 }
 
 QStringList hookCommandArguments(const QString &command, const QMap<QString, QString> &albumVars, const QStringList &files, const QString &outputDir)
 {
+    Scheme::Error error;
+    const QList<Argument> arguments = splitScheme(command, &error);
+
     QMap<QString, QString> values = albumVars;
     values.insert(HookFiles, files.join(u' ')); // inside a larger argument it stays one argument
     values.insert(HookOutputDir, outputDir);
 
-    // no escaping: nothing reads the arguments after this step
-    const auto resolve = [&values](const QString &name, bool parameters, const QString &) -> std::optional<QString> {
-        if (parameters || !values.contains(name))
-            return std::nullopt;
-        return values.value(name);
-    };
-
     QStringList result;
-    for (const QString &argument : QProcess::splitCommand(command)) {
-        if (argument == u'$' + HookFiles || argument == u"${"_s + HookFiles + u'}')
+    for (const Argument &argument : arguments) {
+        const std::optional<Scheme::Placeholder> &first = argument.constFirst().placeholder;
+        if (argument.size() == 1 && first && first->name == HookFiles && first->parameters.isEmpty()) {
             result += files;
-        else
-            result += substituteArgument(argument, true, resolve);
+            continue;
+        }
+        QString out;
+        for (const Scheme::Token &token : argument) {
+            if (token.placeholder && token.placeholder->parameters.isEmpty() && values.contains(token.placeholder->name))
+                out += values.value(token.placeholder->name);
+            else
+                out += token.text;
+        }
+        result += out;
     }
     return result;
 }

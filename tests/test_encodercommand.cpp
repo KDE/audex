@@ -50,3 +50,27 @@ AUDEX_TEST("hook command: check knows $files and $dir")
     const QList<CommandIssue> issues = checkHookCommand(u"tool $file ${dir x=1}"_s, Album);
     AUDEX_EQUAL(t, qint64(issues.size()), qint64(2));
 }
+
+AUDEX_TEST("encoder command: literal text, values and track placeholders")
+{
+    const CommandScheme scheme = parseCommandScheme(u"enc \"--title=$title\" -c 50% ${ttitle} $o"_s, {{u"title"_s, u"100% $x"_s}});
+    AUDEX_CHECK(t, scheme.issues.isEmpty());
+    const QStringList album{u"enc"_s, u"--title=100%% $$x"_s, u"-c"_s, u"50%%"_s, u"${ttitle}"_s, u"%o"_s};
+    AUDEX_CHECK_MSG(t, scheme.arguments == album, describeArguments(scheme.arguments));
+
+    const QStringList track = substituteValues(scheme.arguments, {{u"ttitle"_s, u"A $b 5%"_s}});
+    const QStringList expected{u"enc"_s, u"--title=100%% $x"_s, u"-c"_s, u"50%%"_s, u"A $b 5%%"_s, u"%o"_s};
+    AUDEX_CHECK_MSG(t, track == expected, describeArguments(track));
+}
+
+AUDEX_TEST("encoder command: parameters and syntax errors are reported")
+{
+    const CommandScheme parameters = parseCommandScheme(u"enc ${title lowercase=true} $o"_s, {{u"title"_s, u"x"_s}});
+    AUDEX_EQUAL(t, qint64(parameters.issues.size()), qint64(1));
+    AUDEX_CHECK(t, parameters.issues.value(0).kind == CommandIssue::Kind::HasParameters);
+    AUDEX_EQUAL(t, qint64(parameters.arguments.size()), qint64(3));
+
+    const CommandScheme syntax = parseCommandScheme(u"enc ${title $o"_s, {});
+    AUDEX_CHECK(t, syntax.issues.value(0).kind == CommandIssue::Kind::Syntax);
+    AUDEX_CHECK(t, checkHookCommand(u"tool ${dir"_s, {}).value(0).kind == CommandIssue::Kind::Syntax);
+}

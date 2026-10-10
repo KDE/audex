@@ -28,19 +28,6 @@ using Audex::Metadata::Field;
 namespace
 {
 
-// the engine only reports the kind of a command problem; the texts live here
-QString commandIssueText(const Audex::Encoding::CommandIssue &issue)
-{
-    switch (issue.kind) {
-    case Audex::Encoding::CommandIssue::Kind::HasParameters:
-        return i18n("%1: parameters are not supported in a command.", issue.written);
-    case Audex::Encoding::CommandIssue::Kind::CoverFile:
-        return i18n("%1 cannot be filled in: Audex embeds the cover itself and does not write a cover file.", issue.written);
-    default:
-        return i18n("%1 is not a known placeholder.", issue.written);
-    }
-}
-
 const QList<int> LameBitrates{128, 160, 192, 224, 256, 320};
 
 QString snapLameBitrate(int bitrate)
@@ -229,42 +216,59 @@ QMap<QString, QString> RipRequestBuilder::albumVars() const
     return vars;
 }
 
-QString RipRequestBuilder::substituteAlbumVars(const QString &text) const
+bool RipRequestBuilder::fat32() const
 {
-    const QMap<QString, QString> vars = albumVars();
-    QStringList names = vars.keys();
-    std::sort(names.begin(), names.end(), [](const QString &a, const QString &b) {
-        return a.size() > b.size(); // longest names first
-    });
+    return !isImageFile() && columnBool(PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX);
+}
 
-    QString result = text;
-    for (const QString &name : std::as_const(names))
-        result.replace(u'$' + name, vars.value(name));
-    result.replace(u'$' + QStringLiteral(VAR_ISRC), QString()); // no track at this point
-    return result;
+QString RipRequestBuilder::fileNameValue(const QString &value) const
+{
+    const QString segment = sanitizePathSegment(value);
+    return fat32() ? Audex::Scheme::fat32Compatible(segment) : segment;
+}
+
+Placeholders RipRequestBuilder::fileNameValues(const QString &suffix) const
+{
+    Placeholders values;
+    const QMap<QString, QString> vars = albumVars();
+    for (auto it = vars.cbegin(); it != vars.cend(); ++it)
+        values.insert(it.key(), fileNameValue(it.value()));
+    values.insert(QStringLiteral(VAR_SUFFIX), fileNameValue(suffix));
+    return values;
+}
+
+QString RipRequestBuilder::fileName(const QString &scheme, const Placeholders &values, const QString &suffix, QString *error) const
+{
+    SchemeParser parser;
+    const QString parsed = parser.parseScheme(scheme, values);
+    if (parser.error()) {
+        if (error)
+            *error = parser.errorString();
+        return QString();
+    }
+
+    QStringList segments;
+    for (const QString &segment : parsed.split(u'/', Qt::SkipEmptyParts)) {
+        const QString s = segment.trimmed();
+        if (!s.isEmpty() && s != u"."_s && s != u".."_s)
+            segments << s;
+    }
+    if (segments.isEmpty()) {
+        if (error)
+            *error = i18n("The name scheme results in an empty file name.");
+        return QString();
+    }
+
+    const QString name = segments.join(u'/');
+    // a scheme may spell the extension out instead of using $suffix
+    const bool hasSuffix = name.endsWith(u'.' + suffix, Qt::CaseInsensitive) || (suffix == u"jpg"_s && name.endsWith(u".jpeg"_s, Qt::CaseInsensitive));
+    return hasSuffix ? name : name + u'.' + suffix;
 }
 
 QString RipRequestBuilder::resolveNameScheme(const QString &scheme, const QString &suffix) const
 {
-    QString work = scheme.trimmed();
-    const QString suffixVar = u".$"_s + QStringLiteral(VAR_SUFFIX);
-    if (work.endsWith(suffixVar, Qt::CaseInsensitive))
-        work.chop(suffixVar.size());
-    work = substituteAlbumVars(work);
-
-    const QStringList raw = work.split(u'/', Qt::SkipEmptyParts);
-    QStringList segments;
-    for (const QString &segment : raw) {
-        const QString clean = sanitizePathSegment(segment);
-        if (!clean.isEmpty())
-            segments << clean;
-    }
-    QString name = segments.join(u'/');
-    if (name.isEmpty())
-        name = u"audex"_s;
-    // a scheme may spell the extension out instead of using $suffix
-    const bool hasSuffix = name.endsWith(u'.' + suffix, Qt::CaseInsensitive) || (suffix == u"jpg"_s && name.endsWith(u".jpeg"_s, Qt::CaseInsensitive));
-    return hasSuffix ? name : name + u'.' + suffix;
+    const QString name = fileName(scheme, fileNameValues(suffix), suffix);
+    return name.isEmpty() ? u"audex."_s + suffix : name; // validate() reports the scheme
 }
 
 QString RipRequestBuilder::logFilePath() const
@@ -300,52 +304,20 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
     if (const Audex::Encoding::EncoderFactory *factory = m_encoders ? m_encoders->factory(id) : nullptr)
         suffix = factory->fileSuffix(settings); // what the engine writes
 
-    // the Filenames tab (and with it these options) applies to track rips only
-    const bool fat32 = !isImageFile() && columnBool(PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX);
-    const bool underscores = replaceSpaces();
-    const int cdNo = album.number(Field::DiscNumber);
-    const int noOfTracks = int(info.audioTrackNumbers().size());
-    // values must not create folders; only '/' in the scheme itself does
-    const QString artist = sanitizePathSegment(album.text(Field::Artist));
-    const QString title = sanitizePathSegment(album.text(Field::Album));
-    const QString date = sanitizePathSegment(album.text(Field::Year));
-    const QString genre = sanitizePathSegment(album.text(Field::Genre));
-
-    SchemeParser parser;
-    auto toPath = [&](const QString &parsed) -> QString {
-        if (parser.error())
-            return QString();
-        QStringList segments;
-        for (const QString &segment : parsed.split(u'/', Qt::SkipEmptyParts)) {
-            const QString s = segment.trimmed();
-            if (!s.isEmpty() && s != u"."_s && s != u".."_s)
-                segments << s;
-        }
-        if (segments.isEmpty())
-            return QString();
-        QString path = segments.join(u'/');
-        if (!path.endsWith(u'.' + suffix, Qt::CaseInsensitive))
-            path += u'.' + suffix;
-        return QDir(Preferences::basePath()).filePath(path);
-    };
-    auto fail = [&]() {
-        if (error)
-            *error = parser.error() ? parser.errorString() : i18n("The name scheme results in an empty file name.");
-        return QMap<int, QString>();
-    };
-
+    const QDir base(Preferences::basePath());
     QMap<int, QString> result;
     const QList<int> tracks = cdda_model->selectedTracks();
+    Placeholders values = fileNameValues(suffix);
 
     if (isImageFile()) {
         QString scheme = column(PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX);
         if (scheme.trimmed().isEmpty())
             scheme = QStringLiteral(DEFAULT_IMAGE_SCHEME);
-        const QString path = toPath(parser.parseFilenameScheme(scheme, cdNo, noOfTracks, artist, title, date, genre, suffix, fat32, underscores));
-        if (path.isEmpty())
-            return fail();
+        const QString name = fileName(scheme, values, suffix, error);
+        if (name.isEmpty())
+            return {};
         for (const int number : tracks)
-            result.insert(number, path);
+            result.insert(number, base.filePath(name));
         return result;
     }
 
@@ -362,26 +334,17 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
         QString trackTitle = track.text(Field::Title);
         if (trackTitle.isEmpty())
             trackTitle = number == 0 ? i18n("Hidden Track") : i18n("Track %1", number);
+        const int trackNo = info.displayTrackNumber(number);
 
-        const QString path = toPath(parser.parsePerTrackFilenameScheme(scheme,
-                                                                       info.displayTrackNumber(number),
-                                                                       cdNo,
-                                                                       0, // offset is already in displayTrackNumber()
-                                                                       noOfTracks,
-                                                                       artist,
-                                                                       title,
-                                                                       sanitizePathSegment(trackArtist),
-                                                                       sanitizePathSegment(trackTitle),
-                                                                       date,
-                                                                       genre,
-                                                                       sanitizePathSegment(track.text(Field::ISRC)),
-                                                                       suffix,
-                                                                       fat32,
-                                                                       underscores,
-                                                                       twoDigits));
-        if (path.isEmpty())
-            return fail();
-        result.insert(number, path);
+        values.insert(QStringLiteral(VAR_TRACK_ARTIST), fileNameValue(trackArtist));
+        values.insert(QStringLiteral(VAR_TRACK_TITLE), fileNameValue(trackTitle));
+        values.insert(QStringLiteral(VAR_TRACK_NO), twoDigits ? u"%1"_s.arg(trackNo, 2, 10, QLatin1Char('0')) : QString::number(trackNo));
+        values.insert(QStringLiteral(VAR_ISRC), fileNameValue(track.text(Field::ISRC)));
+
+        const QString name = fileName(scheme, values, suffix, error);
+        if (name.isEmpty())
+            return {};
+        result.insert(number, base.filePath(name));
     }
     return result;
 }
@@ -408,15 +371,15 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles) con
     if (id == u"external"_s) {
         QList<Audex::Encoding::CommandIssue> issues;
         externalCommand(profile_model->getSelectedEncoderFromCurrentIndex(), profile_model->getSelectedEncoderParametersFromCurrentIndex(), &issues);
-        if (settings.value(u"commandArgs"_s).toStringList().isEmpty()) {
-            *error = i18n("No encoder command configured.");
-            return false;
-        }
         if (!issues.isEmpty()) {
             QStringList messages;
             for (const Audex::Encoding::CommandIssue &issue : issues)
-                messages << commandIssueText(issue);
+                messages << SchemeParser::commandIssueText(issue);
             *error = i18n("The encoder command cannot be used. Please edit the command in the profile.") + u'\n' + messages.join(u'\n');
+            return false;
+        }
+        if (settings.value(u"commandArgs"_s).toStringList().isEmpty()) {
+            *error = i18n("No encoder command configured.");
             return false;
         }
         if (suffix.trimmed().isEmpty()) {
@@ -430,6 +393,23 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles) con
     if (paths.isEmpty()) {
         *error = i18n("The file name scheme is invalid: %1", schemeError);
         return false;
+    }
+
+    // the other files the profile writes
+    struct Extra {
+        int enabled;
+        int scheme;
+        QString suffix;
+    };
+    const QList<Extra> extras{{PROFILE_MODEL_COLUMN_SC_INDEX, PROFILE_MODEL_COLUMN_SC_NAME_INDEX, u"jpg"_s},
+                              {PROFILE_MODEL_COLUMN_LOG_INDEX, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX, u"log"_s},
+                              isImageFile() ? Extra{PROFILE_MODEL_COLUMN_CUE_INDEX, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX, u"cue"_s}
+                                            : Extra{PROFILE_MODEL_COLUMN_PL_INDEX, PROFILE_MODEL_COLUMN_PL_NAME_INDEX, u"m3u"_s}};
+    for (const Extra &extra : extras) {
+        if (columnBool(extra.enabled) && fileName(column(extra.scheme), fileNameValues(extra.suffix), extra.suffix, &schemeError).isEmpty()) {
+            *error = i18n("The name scheme \"%1\" is invalid: %2", column(extra.scheme), schemeError);
+            return false;
+        }
     }
 
     if (!isImageFile() && QSet<QString>(paths.cbegin(), paths.cend()).size() != paths.size()) {

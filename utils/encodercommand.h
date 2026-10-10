@@ -19,7 +19,10 @@
 //   substituteValues()    $ttitle and the other track    (per output file)
 //                         placeholders
 //
-// The placeholder names are the ones of utils/schemeparser.h.
+// The syntax is the one of utils/scheme.h, the placeholder names are the
+// ones of utils/schemeparser.h.
+
+#include "utils/scheme.h"
 
 #include <QList>
 #include <QMap>
@@ -33,10 +36,12 @@ struct CommandIssue {
     enum class Kind {
         UnknownName, // a typo or a value Audex does not have
         HasParameters, // parameters are a feature of the filename schemes
-        CoverFile // Audex embeds the cover into the files, there is no cover file
+        CoverFile, // Audex embeds the cover into the files, there is no cover file
+        Syntax // the scheme cannot be read, see `syntax`
     };
     Kind kind;
     QString written; // the placeholder as written in the scheme
+    Scheme::Error syntax;
 };
 
 struct CommandScheme {
@@ -49,11 +54,11 @@ struct CommandScheme {
 QStringList trackCommandVariables();
 QMap<QString, QString> trackValues(const QString &artist, const QString &title, int trackNumber, const QString &isrc);
 
-// $name and ${name}. The name is read as a whole, so $isrc is not $i followed
-// by "src"; unknown names and placeholders with parameters stay as they are
-// and are reported. Values are put into the arguments after the scheme was
-// split, so a quote or a space in a title cannot change the command line; %
-// and $ in a value are escaped for the steps that follow.
+// The name is read as a whole, so $isrc is not $i followed by "src"; unknown
+// names and placeholders with parameters stay as they are and are reported.
+// Values are put into the arguments after the scheme was split, so a quote or
+// a space in a title cannot change the command line; % and $ in a value and
+// in the scheme's own text are escaped for the steps that follow.
 CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QString> &values);
 
 // Looks for %o with %% as an escaped percent sign. Values are escaped when

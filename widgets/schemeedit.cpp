@@ -20,12 +20,10 @@
 #include <QTime>
 #include <QToolTip>
 
-using namespace Qt::StringLiterals;
-
 namespace
 {
 
-// values standing in for the album variables when a command scheme is checked
+// values standing in for the album variables when a scheme is checked
 QMap<QString, QString> exampleAlbumValues()
 {
     return {{QStringLiteral(VAR_ALBUM_ARTIST), QStringLiteral("Meat Loaf")},
@@ -45,16 +43,15 @@ QMap<QString, QString> exampleAlbumValues()
             {QStringLiteral(VAR_LINEBREAK), QStringLiteral(" ")}};
 }
 
-QString commandIssueText(const Audex::Encoding::CommandIssue &issue)
+// the values of a track filename scheme
+QMap<QString, QString> exampleTrackValues()
 {
-    switch (issue.kind) {
-    case Audex::Encoding::CommandIssue::Kind::HasParameters:
-        return i18n("%1: parameters are not supported in a command.", issue.written);
-    case Audex::Encoding::CommandIssue::Kind::CoverFile:
-        return i18n("%1 cannot be filled in: Audex embeds the cover itself and does not write a cover file.", issue.written);
-    default:
-        return i18n("%1 is not a known placeholder.", issue.written);
-    }
+    QMap<QString, QString> values = exampleAlbumValues();
+    values.insert(QStringLiteral(VAR_TRACK_ARTIST), QStringLiteral("Meat Loaf"));
+    values.insert(QStringLiteral(VAR_TRACK_TITLE), QStringLiteral("Blind As A Bat"));
+    values.insert(QStringLiteral(VAR_TRACK_NO), QStringLiteral("02"));
+    values.insert(QStringLiteral(VAR_ISRC), QStringLiteral("AA6Q72000047"));
+    return values;
 }
 
 }
@@ -143,8 +140,7 @@ void SchemeEdit::rebuildMenu()
     addVariable(i18n("Genre"), QStringLiteral(VAR_GENRE));
     addVariable(i18n("CD #"), QStringLiteral(VAR_CD_NO));
     addVariable(i18n("# of Tracks"), QStringLiteral(VAR_NO_OF_TRACKS));
-    if (m_kind == HookCommand)
-        addVariable(i18n("Today"), QStringLiteral(VAR_TODAY));
+    addVariable(i18n("Today"), QStringLiteral(VAR_TODAY));
 
     if (m_kind != Filename && m_kind != HookCommand) {
         m_insertMenu->addSection(i18n("Track"));
@@ -178,7 +174,7 @@ void SchemeEdit::validate()
             if (!command.issues.isEmpty()) {
                 QStringList messages;
                 for (const Audex::Encoding::CommandIssue &issue : command.issues)
-                    messages << commandIssueText(issue);
+                    messages << SchemeParser::commandIssueText(issue);
                 warning = messages.join(u'\n');
             }
         } else if (m_kind == HookCommand) {
@@ -186,24 +182,15 @@ void SchemeEdit::validate()
             if (!issues.isEmpty()) {
                 QStringList messages;
                 for (const Audex::Encoding::CommandIssue &issue : issues)
-                    messages << commandIssueText(issue);
+                    messages << SchemeParser::commandIssueText(issue);
                 warning = messages.join(u'\n');
             }
         } else {
-            // the parsed names are discarded; only the parser's error state matters
+            Placeholders values = m_kind == TrackFilename ? exampleTrackValues() : exampleAlbumValues();
+            values.insert(QStringLiteral(VAR_SUFFIX), QStringLiteral("flac"));
             SchemeParser parser;
-            if (m_kind == TrackFilename)
-                parser.parsePerTrackFilenameScheme(schemeText, 2, 1, 0, 12, u"Meat Loaf"_s, u"Bat Out Of Hell III"_s, u"Meat Loaf"_s, u"Blind As A Bat"_s, u"2006"_s, u"Rock"_s, u"AA6Q72000047"_s, u"flac"_s);
-            else
-                parser.parseFilenameScheme(schemeText, 1, 12, u"Meat Loaf"_s, u"Bat Out Of Hell III"_s, u"2006"_s, u"Rock"_s, u"flac"_s);
-            if (parser.error()) {
-                warning = parser.errorString();
-            } else if (!parser.unknownPlaceholders().isEmpty()) {
-                QStringList messages;
-                for (const QString &name : parser.unknownPlaceholders())
-                    messages << i18n("$%1 is not available in this scheme and is left out of the file name.", name);
-                warning = messages.join(u'\n');
-            }
+            parser.parseScheme(schemeText, values);
+            warning = parser.error() ? parser.errorString() : parser.warnings().join(u'\n');
         }
     }
 

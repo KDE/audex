@@ -175,7 +175,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <item row="3" column="0">
            <widget class="QCheckBox" name="checkBox_2digitstracknum">
             <property name="toolTip">
-             <string>This setting overrides any parameterized variable settings in the scheme</string>
+             <string>A length parameter in the scheme, e.g. ${trackno length=3}, takes precedence.</string>
             </property>
             <property name="text">
              <string>Set 2 digits track number (e.g. 01, 02, 03)...</string>
