@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
                          i18n("Audex"),
                          AUDEX_VERSION_STRING,
                          i18nc("@info", "Audio ripping application"),
-                         KAboutLicense::GPL,
+                         KAboutLicense::GPL_V3,
                          i18n("Copyright © 2007-2026 Marco Nelles"));
     aboutData.setHomepage("https://apps.kde.org/audex/");
     aboutData.setBugAddress("https://bugs.kde.org/enter_bug.cgi?product=audex");
