@@ -256,6 +256,7 @@ set(audex_SRCS
     widgets/wavewidget.cpp
     widgets/customwidget.cpp
     widgets/schemeedit.cpp
+    widgets/discplaceholder.cpp
     widgets/discmapwidget.cpp
     dialogs/cddaheaderdatadialog.cpp
     dialogs/metadatacandidatedialog.cpp

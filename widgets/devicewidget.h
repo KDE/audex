@@ -76,6 +76,7 @@ private:
     Audex::DriveEntry currentDrive() const;
 
     void updateC2Availability();
+    void updateDiscButtons(); // the drive test and the offset detection need an audio CD
     void updateFeatureSummary();
     static void applyFeatures(const Audex::Rip::DriveFeatures &features, DeviceSettings::Values *values);
 
@@ -91,6 +92,8 @@ private:
     KMessageWidget *m_fetchMessage = nullptr; // inline feedback for offset fetch and detection
     KMessageWidget *m_streamMessage = nullptr; // the drive test found no accurate stream
     QString m_c2ToolTip; // original tooltip from the .ui file
+    QString m_assistantToolTip; // the same for the buttons that need a CD
+    QString m_detectToolTip;
     QFutureWatcher<Audex::AccurateRip::OffsetDetection> m_detectWatcher;
     std::shared_ptr<std::atomic_bool> m_detectCancel;
     QString m_detectUdi; // drive the running detection was started for

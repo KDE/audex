@@ -27,10 +27,26 @@ class DiscController : public QObject
     Q_OBJECT
 
 public:
+    enum class Medium {
+        None, // no disc (or one the system does not report, e.g. a blank one)
+        Audio, // audio tracks, possibly with data (Enhanced CD)
+        NoAudio // data disc
+    };
+
     struct DriveInfo {
         QString udi; // Solid UDI of the drive (stable identifier)
         Audex::DriveEntry entry; // device node + display name
-        bool hasAudioDisc = false;
+        Medium medium = Medium::None;
+    };
+
+    // what the current drive offers, for the main window
+    enum class State {
+        NoDrive,
+        NoDisc,
+        NoAudio,
+        Reading,
+        Failed, // see failureMessage(); retry() reads again
+        Ready // discDetected() was emitted
     };
 
     explicit DiscController(QObject *parent = nullptr);
@@ -51,12 +67,26 @@ public:
     }
     bool setCurrentDrive(const QString &udi); // returns false if the UDI is unknown
 
+    State state() const
+    {
+        return m_state;
+    }
+    QString failureMessage() const
+    {
+        return m_failedMessage;
+    }
+    QString failureDetails() const
+    {
+        return m_failedDetails;
+    }
+
     // C2 capability of a drive, once a disc was read this session
     std::optional<bool> driveSupportsC2(const QString &udi) const;
 
 public Q_SLOTS:
     void eject();
     void rescan();
+    void retry(); // reads the disc of the current drive again after a failure
 
 Q_SIGNALS:
     void discDetected(const Audex::DiscReadResult &result);
@@ -64,6 +94,7 @@ Q_SIGNALS:
     void failed(const QString &message, const QString &details);
     void drivesChanged();
     void currentDriveChanged();
+    void stateChanged();
 
 private Q_SLOTS:
     void onDeviceAdded(const QString &udi);
@@ -77,6 +108,7 @@ private:
     void pickCurrentDrive(); // choose a sane current drive if none/invalid
     void setCurrentDriveInternal(const QString &udi);
     void startRead(const QString &udi);
+    void updateState(); // emits stateChanged() if it changed
 
     QList<DriveInfo> m_drives;
     QHash<QString, QString> m_volumeByDrive; // drive UDI -> volume (disc) UDI
@@ -86,5 +118,8 @@ private:
     Audex::DriveEntry m_drive;
     QFutureWatcher<Audex::DiscReadResult> m_watcher;
     QString m_readingUdi;
-    QString m_failedUdi; // reading failed; skip until the disc is removed
+    QString m_failedUdi; // reading failed; skip until the disc is removed or retry()
+    QString m_failedMessage;
+    QString m_failedDetails;
+    State m_state = State::NoDrive;
 };

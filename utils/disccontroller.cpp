@@ -7,7 +7,14 @@
 
 #include "disccontroller.h"
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusObjectPath>
+#include <QDBusReply>
+#include <QDBusVariant>
+#include <QFile>
 #include <QMap>
+#include <QScopeGuard>
 #include <QTimer>
 
 #include <QtConcurrent>
@@ -19,6 +26,41 @@
 #include <Solid/OpticalDrive>
 
 using namespace Qt::StringLiterals;
+
+namespace
+{
+
+// The device node of an optical drive without a disc: Solid hides the block
+// device of an empty drive, UDisks2 keeps it. The UDI of a drive is its
+// UDisks2 object path.
+QString udisksDeviceNode(const QString &driveUdi)
+{
+    const QString service = u"org.freedesktop.UDisks2"_s;
+    const QDBusConnection bus = QDBusConnection::systemBus();
+    QDBusMessage list = QDBusMessage::createMethodCall(service, u"/org/freedesktop/UDisks2/Manager"_s, u"org.freedesktop.UDisks2.Manager"_s, u"GetBlockDevices"_s);
+    list << QVariantMap();
+    const QDBusReply<QList<QDBusObjectPath>> blocks = bus.call(list, QDBus::Block, 2000);
+    if (!blocks.isValid())
+        return {};
+
+    for (const QDBusObjectPath &block : blocks.value()) {
+        const auto property = [&](const QString &name) {
+            QDBusMessage get = QDBusMessage::createMethodCall(service, block.path(), u"org.freedesktop.DBus.Properties"_s, u"Get"_s);
+            get << u"org.freedesktop.UDisks2.Block"_s << name;
+            const QDBusReply<QDBusVariant> reply = bus.call(get, QDBus::Block, 2000);
+            return reply.isValid() ? reply.value().variant() : QVariant();
+        };
+        if (property(u"Drive"_s).value<QDBusObjectPath>().path() != driveUdi)
+            continue;
+        QByteArray node = property(u"Device"_s).toByteArray();
+        while (node.endsWith('\0'))
+            node.chop(1);
+        return QFile::decodeName(node);
+    }
+    return {};
+}
+
+}
 
 DiscController::DiscController(QObject *parent)
     : QObject(parent)
@@ -65,9 +107,19 @@ QList<DiscController::DriveInfo> DiscController::scanDrives()
             it->entry.displayName = block->device();
         const Solid::OpticalDisc *disc = device.as<Solid::OpticalDisc>();
         if (disc && (disc->availableContent() & Solid::OpticalDisc::Audio)) {
-            it->hasAudioDisc = true;
+            it->medium = Medium::Audio;
             m_volumeByDrive.insert(it->udi, device.udi());
+        } else if (disc) {
+            it->medium = Medium::NoAudio;
         }
+    }
+
+    // pass 3: drives without a disc
+    for (auto it = drives.begin(); it != drives.end(); ++it) {
+        if (it->entry.id.isEmpty())
+            it->entry.id = udisksDeviceNode(it->udi);
+        if (it->entry.displayName.isEmpty())
+            it->entry.displayName = it->entry.id;
     }
 
     QList<DriveInfo> result;
@@ -84,7 +136,7 @@ void DiscController::adoptScan(const QList<DriveInfo> &scan)
         for (int i = 0; i < scan.size(); ++i) {
             const DriveInfo &a = scan.at(i);
             const DriveInfo &b = m_drives.at(i);
-            if (a.udi != b.udi || a.entry.id != b.entry.id || a.entry.displayName != b.entry.displayName || a.hasAudioDisc != b.hasAudioDisc) {
+            if (a.udi != b.udi || a.entry.id != b.entry.id || a.entry.displayName != b.entry.displayName || a.medium != b.medium) {
                 changed = true;
                 break;
             }
@@ -128,7 +180,7 @@ void DiscController::pickCurrentDrive()
     for (const DriveInfo &d : m_drives) {
         if (best.isEmpty())
             best = d.udi;
-        if (d.hasAudioDisc) {
+        if (d.medium == Medium::Audio) {
             best = d.udi;
             break;
         }
@@ -138,6 +190,9 @@ void DiscController::pickCurrentDrive()
 
 bool DiscController::setCurrentDrive(const QString &udi)
 {
+    const auto state = qScopeGuard([this] {
+        updateState();
+    });
     if (udi == m_driveUdi)
         return true;
     for (const DriveInfo &d : m_drives) {
@@ -168,6 +223,9 @@ std::optional<bool> DiscController::driveSupportsC2(const QString &udi) const
 
 void DiscController::rescan()
 {
+    const auto state = qScopeGuard([this] {
+        updateState();
+    });
     adoptScan(scanDrives());
     pickCurrentDrive();
     if (m_udi.isEmpty() && m_readingUdi.isEmpty() && !m_driveUdi.isEmpty()) {
@@ -180,6 +238,9 @@ void DiscController::rescan()
 void DiscController::onDeviceAdded(const QString &udi)
 {
     Q_UNUSED(udi);
+    const auto state = qScopeGuard([this] {
+        updateState();
+    });
     adoptScan(scanDrives());
     if (m_driveUdi.isEmpty())
         pickCurrentDrive();
@@ -193,7 +254,7 @@ void DiscController::onDeviceAdded(const QString &udi)
     }
     // the current drive has no (readable) disc: jump to a drive that has one
     for (const DriveInfo &d : m_drives) {
-        if (d.udi != m_driveUdi && d.hasAudioDisc) {
+        if (d.udi != m_driveUdi && d.medium == Medium::Audio) {
             const QString other = volumeUdiFor(d.udi);
             if (!other.isEmpty() && other != m_failedUdi) {
                 setCurrentDrive(d.udi);
@@ -205,6 +266,9 @@ void DiscController::onDeviceAdded(const QString &udi)
 
 void DiscController::onDeviceRemoved(const QString &udi)
 {
+    const auto state = qScopeGuard([this] {
+        updateState();
+    });
     if (udi == m_readingUdi)
         m_readingUdi.clear(); // result is ignored when it arrives
 
@@ -262,6 +326,9 @@ void DiscController::startRead(const QString &udi)
 
 void DiscController::onDiscRead()
 {
+    const auto state = qScopeGuard([this] {
+        updateState();
+    });
     const QString udi = m_readingUdi;
     m_readingUdi.clear();
 
@@ -273,12 +340,50 @@ void DiscController::onDiscRead()
         // do not hammer the drive with retries: wait until the disc is
         // removed (the UDI is the same for the next disc in this drive)
         m_failedUdi = udi;
-        Q_EMIT failed(result.error, result.notes.join(u'\n'));
+        m_failedMessage = result.error;
+        m_failedDetails = result.notes.join(u'\n');
+        Q_EMIT failed(m_failedMessage, m_failedDetails);
         return;
     }
 
     m_udi = udi;
     Q_EMIT discDetected(result);
+}
+
+void DiscController::retry()
+{
+    const QString volume = volumeUdiFor(m_driveUdi);
+    if (volume.isEmpty() || volume != m_failedUdi || !m_readingUdi.isEmpty())
+        return;
+    m_failedUdi.clear();
+    startRead(volume);
+    updateState();
+}
+
+void DiscController::updateState()
+{
+    State state = State::NoDrive;
+    if (!m_driveUdi.isEmpty()) {
+        Medium medium = Medium::None;
+        for (const DriveInfo &d : std::as_const(m_drives))
+            if (d.udi == m_driveUdi)
+                medium = d.medium;
+        const QString volume = volumeUdiFor(m_driveUdi);
+        if (!m_udi.isEmpty())
+            state = State::Ready;
+        else if (!m_readingUdi.isEmpty())
+            state = State::Reading;
+        else if (!volume.isEmpty() && volume == m_failedUdi)
+            state = State::Failed;
+        else if (medium == Medium::Audio)
+            state = State::Reading; // the read is about to start
+        else
+            state = medium == Medium::NoAudio ? State::NoAudio : State::NoDisc;
+    }
+    if (state != m_state) {
+        m_state = state;
+        Q_EMIT stateChanged();
+    }
 }
 
 void DiscController::eject()

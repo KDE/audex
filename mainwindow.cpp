@@ -7,6 +7,8 @@
 
 #include "mainwindow.h"
 
+#include <algorithm>
+
 #include "core/cdg.h"
 #include "encoding/registry.h"
 #include "models/cdinfomodel.h"
@@ -20,6 +22,7 @@
 
 #include "widgets/cddaheaderwidget.h"
 #include "widgets/devicewidget.h"
+#include "widgets/discplaceholder.h"
 #include "widgets/generalsettingswidget.h"
 #include "widgets/profilewidget.h"
 
@@ -48,6 +51,7 @@
 #include <QLineEdit>
 #include <QMenu>
 #include <QNetworkAccessManager>
+#include <QStackedWidget>
 #include <QStatusBar>
 #include <QTimer>
 #include <QToolButton>
@@ -129,7 +133,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_discController = new DiscController(this);
     connect(m_discController, &DiscController::discDetected, this, &MainWindow::disc_detected);
     connect(m_discController, &DiscController::discRemoved, this, &MainWindow::disc_removed);
-    connect(m_discController, &DiscController::failed, this, &MainWindow::disc_failed);
     connect(m_discController, &DiscController::drivesChanged, this, &MainWindow::drives_updated);
     connect(m_discController, &DiscController::currentDriveChanged, this, &MainWindow::current_drive_updated);
 
@@ -222,7 +225,7 @@ void MainWindow::setup_actions()
     // drive selector for the toolbar (between "Eject" and "Profile:")
     m_driveComboBox = new KComboBox(this);
     m_driveComboBox->setMinimumWidth(80);
-    m_driveComboBox->setMaximumWidth(260);
+    m_driveComboBox->setMaximumWidth(320);
     m_driveComboBox->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
     m_driveComboBox->setToolTip(i18n("Select the drive to rip from"));
     connect(m_driveComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::current_drive_updated_from_ui);
@@ -381,7 +384,19 @@ void MainWindow::setup_layout()
     centralLayout->setContentsMargins(0, 0, 0, 0);
     centralLayout->setSpacing(0);
     centralLayout->addWidget(m_profileMessage);
-    centralLayout->addWidget(m_cddaTreeView);
+    m_placeholder = new DiscPlaceholder(this);
+    connect(m_placeholder, &DiscPlaceholder::ejectClicked, this, &MainWindow::eject);
+    connect(m_placeholder, &DiscPlaceholder::retryClicked, m_discController, &DiscController::retry);
+    connect(m_placeholder, &DiscPlaceholder::detailsClicked, this, [this]() {
+        ErrorDialog::show(this, m_discController->failureMessage(), m_discController->failureDetails());
+    });
+    m_trackStack = new QStackedWidget(this);
+    m_trackStack->addWidget(m_cddaTreeView);
+    m_trackStack->addWidget(m_placeholder);
+    centralLayout->addWidget(m_trackStack);
+    connect(m_discController, &DiscController::stateChanged, this, &MainWindow::update_placeholder);
+    connect(m_discController, &DiscController::currentDriveChanged, this, &MainWindow::update_placeholder);
+    update_placeholder();
 
     setCentralWidget(central);
 
@@ -620,25 +635,38 @@ void MainWindow::drives_updated()
 {
     if (!m_driveComboBox)
         return;
+    const QList<DiscController::DriveInfo> drives = m_discController->drives();
     const QString current = m_discController->currentDriveUdi();
     const QSignalBlocker blocker(m_driveComboBox);
     m_driveComboBox->clear();
-    for (const DiscController::DriveInfo &d : m_discController->drives()) {
-        QString text = d.entry.displayName;
-        if (!d.entry.id.isEmpty() && !text.contains(d.entry.id))
-            text += u" ("_s + d.entry.id + u')';
-        if (d.hasAudioDisc)
-            text += i18n(" (audio CD)");
-        m_driveComboBox->addItem(text, d.udi);
+    for (const DiscController::DriveInfo &d : drives) {
+        // the device node only to tell drives of the same model apart
+        const auto sameName = [&d](const DiscController::DriveInfo &other) {
+            return other.entry.displayName == d.entry.displayName;
+        };
+        const QString name = std::count_if(drives.cbegin(), drives.cend(), sameName) > 1 ? u"%1 (%2)"_s.arg(d.entry.displayName, d.entry.id)
+                                                                                          : d.entry.displayName;
+        switch (d.medium) {
+        case DiscController::Medium::Audio:
+            m_driveComboBox->addItem(QIcon::fromTheme(u"media-optical-audio"_s), i18nc("@item:inlistbox drive and its disc", "%1 – audio CD", name), d.udi);
+            break;
+        case DiscController::Medium::NoAudio:
+            m_driveComboBox->addItem(QIcon::fromTheme(u"media-optical-data"_s), i18nc("@item:inlistbox drive and its disc", "%1 – no audio CD", name), d.udi);
+            break;
+        case DiscController::Medium::None:
+            m_driveComboBox->addItem(QIcon::fromTheme(u"drive-optical"_s), i18nc("@item:inlistbox drive and its disc", "%1 – no disc", name), d.udi);
+            break;
+        }
+        m_driveComboBox->setItemData(m_driveComboBox->count() - 1, d.entry.id, Qt::ToolTipRole);
     }
-    if (m_driveComboBox->count() == 0) {
-        m_driveComboBox->addItem(i18n("No optical drive found"), QString());
+    if (drives.isEmpty()) {
+        m_driveComboBox->addItem(QIcon::fromTheme(u"drive-optical"_s), i18n("No optical drive found"), QString());
         m_driveComboBox->setCurrentIndex(0);
     } else {
         const int idx = m_driveComboBox->findData(current);
         m_driveComboBox->setCurrentIndex(idx >= 0 ? idx : 0);
     }
-    m_driveComboBox->setEnabled(m_driveComboBox->count() > 1 || !current.isEmpty());
+    m_driveComboBox->setEnabled(!drives.isEmpty());
 }
 
 void MainWindow::current_drive_updated()
@@ -716,9 +744,38 @@ void MainWindow::disc_removed()
     update_layout();
 }
 
-void MainWindow::disc_failed(const QString &message, const QString &details)
+void MainWindow::update_placeholder()
 {
-    ErrorDialog::show(this, message, details);
+    using State = DiscController::State;
+    const QString drive = m_discController->currentDrive().displayName;
+    switch (m_discController->state()) {
+    case State::Ready:
+        m_trackStack->setCurrentWidget(m_cddaTreeView);
+        return;
+    case State::NoDrive:
+        m_placeholder->setMessage(u"drive-optical"_s, i18n("No optical drive found"), i18n("Connect a CD drive or switch it on."));
+        break;
+    case State::NoDisc:
+        m_placeholder->setMessage(u"drive-optical"_s, i18n("No disc in %1", drive), i18n("Insert an audio CD to rip it."), DiscPlaceholder::OpenTray);
+        break;
+    case State::NoAudio:
+        m_placeholder->setMessage(u"media-optical-data"_s,
+                                  i18n("No audio CD in %1", drive),
+                                  i18n("The disc in this drive has no audio tracks."),
+                                  DiscPlaceholder::Eject);
+        break;
+    case State::Reading:
+        m_placeholder->setMessage(u"media-optical-audio"_s, i18n("Reading the CD…"), drive);
+        break;
+    case State::Failed: {
+        DiscPlaceholder::Buttons buttons = DiscPlaceholder::Retry | DiscPlaceholder::Eject;
+        if (!m_discController->failureDetails().isEmpty())
+            buttons |= DiscPlaceholder::Details;
+        m_placeholder->setMessage(u"dialog-error"_s, i18n("The CD in %1 cannot be read", drive), m_discController->failureMessage(), buttons);
+        break;
+    }
+    }
+    m_trackStack->setCurrentWidget(m_placeholder);
 }
 
 void MainWindow::hdcd_probe_finished()

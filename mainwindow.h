@@ -25,6 +25,7 @@ class QDockWidget;
 class QLabel;
 class QModelIndex;
 class QNetworkAccessManager;
+class QStackedWidget;
 class QTreeView;
 
 class KComboBox;
@@ -32,6 +33,7 @@ class KMessageWidget;
 
 class CDDAHeaderWidget;
 class DiscController;
+class DiscPlaceholder;
 class ProfileFilterModel;
 class ProfileModel;
 
@@ -86,7 +88,7 @@ private Q_SLOTS:
     void current_drive_updated();
     void disc_detected(const Audex::DiscReadResult &result);
     void disc_removed();
-    void disc_failed(const QString &message, const QString &details);
+    void update_placeholder(); // the track list, or why there is none
     void hdcd_probe_finished();
     void start_cdg_probe();
     void cdg_probe_finished();
@@ -138,6 +140,8 @@ private:
 
     // widgets
     QPointer<QTreeView> m_cddaTreeView;
+    QPointer<QStackedWidget> m_trackStack; // track list or placeholder
+    QPointer<DiscPlaceholder> m_placeholder;
     QPointer<QDockWidget> m_cddaHeaderDock;
     QPointer<CDDAHeaderWidget> m_cddaHeaderWidget;
     QPointer<KMessageWidget> m_profileMessage;

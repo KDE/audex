@@ -52,6 +52,8 @@ deviceWidget::deviceWidget(DiscController *discController, QWidget *parent)
     pushButton_fetchOffset->setIcon(QIcon::fromTheme(u"download"_s));
     pushButton_detectOffset->setIcon(QIcon::fromTheme(u"media-optical-audio"_s));
     pushButton_assistant->setIcon(QIcon::fromTheme(u"drive-optical"_s));
+    m_assistantToolTip = pushButton_assistant->toolTip();
+    m_detectToolTip = pushButton_detectOffset->toolTip();
 
     fillDriveList();
 
@@ -241,8 +243,8 @@ void deviceWidget::detectOffset()
 
 void deviceWidget::offsetDetectionFinished()
 {
-    pushButton_detectOffset->setEnabled(true);
     pushButton_detectOffset->setText(i18n("Detect with inserted CD"));
+    updateDiscButtons();
     const Audex::AccurateRip::OffsetDetection d = m_detectWatcher.result();
     if (m_detectUdi != m_shownUdi)
         return; // another drive is on screen now
@@ -451,6 +453,20 @@ void deviceWidget::showDrive(const QString &udi)
     setWidgetValues(m_edited.contains(udi) ? m_edited.value(udi) : DeviceSettings::load(udi));
     updateC2Availability();
     updateFeatureSummary();
+    updateDiscButtons();
+}
+
+void deviceWidget::updateDiscButtons()
+{
+    bool audioCd = false;
+    for (const DiscController::DriveInfo &d : m_discController->drives())
+        if (d.udi == m_shownUdi)
+            audioCd = d.medium == DiscController::Medium::Audio;
+    const QString hint = i18n("Insert an audio CD into this drive first.");
+    pushButton_assistant->setEnabled(audioCd);
+    pushButton_assistant->setToolTip(audioCd ? m_assistantToolTip : hint);
+    pushButton_detectOffset->setEnabled(audioCd && !m_detectWatcher.isRunning());
+    pushButton_detectOffset->setToolTip(audioCd ? m_detectToolTip : hint);
 }
 
 QString deviceWidget::currentUdi() const
