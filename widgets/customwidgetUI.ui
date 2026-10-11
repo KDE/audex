@@ -78,7 +78,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <item row="4" column="0" colspan="2">
     <widget class="QCheckBox" name="checkBox_tags">
      <property name="toolTip">
-      <string>&lt;p&gt;After the encoder has finished, Audex writes title, artist, album and the other data of the CD into the file. It uses TagLib for this, the tagging library many music programs share.&lt;/p&gt;&lt;p&gt;TagLib knows MP3, FLAC, Ogg Vorbis, Opus, M4A (AAC, ALAC), WavPack, Monkey's Audio (APE), Musepack, TTA, WMA, AIFF and WAV. It recognizes the format mainly by the suffix, so the suffix has to match the format. Tags the encoder wrote itself are replaced. Files of other formats stay untagged, the log of the rip says so.&lt;/p&gt;</string>
+      <string>&lt;p&gt;After the encoder has finished, Audex writes title, artist, album and the other data of the CD into the file. It uses TagLib for this, the tagging library many music programs share.&lt;/p&gt;&lt;p&gt;TagLib knows MP3, FLAC, Ogg Vorbis, Opus, M4A (AAC, ALAC), WavPack, Monkey's Audio (APE), Musepack, TTA, WMA, AIFF and WAV. It recognizes the format mainly by the suffix, so the suffix has to match the format. Tags the encoder wrote itself are replaced. Files of other formats stay untagged, the log of the rip says so.&lt;/p&gt;&lt;p&gt;Without tags the files also lose the pre-emphasis and HDCD markers set in the General settings. Players need the pre-emphasis marker to play such recordings correctly.&lt;/p&gt;</string>
      </property>
      <property name="text">
       <string>Write tags to music file</string>
