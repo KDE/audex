@@ -15,7 +15,9 @@
 #include <QJsonObject>
 #include <QLibrary>
 #include <QPluginLoader>
+#ifndef AUDEX_SANDBOX
 #include <QProcess>
+#endif
 
 #include <algorithm>
 #include <atomic>
@@ -206,6 +208,7 @@ std::unique_ptr<AudioDecoder> WavEncoderFactory::createDecoder() const
     return std::make_unique<WavDecoder>();
 }
 
+#ifndef AUDEX_SANDBOX
 // ---- external command ----------------------------------------------------------------
 
 namespace
@@ -392,13 +395,16 @@ QStringList ExternalEncoderFactory::commandLine(const QStringList &arguments, co
     }
     return args;
 }
+#endif
 
 // ---- registry ------------------------------------------------------------------------
 
 EncoderRegistry::EncoderRegistry()
 {
     addFactory(std::make_shared<WavEncoderFactory>());
+#ifndef AUDEX_SANDBOX
     addFactory(std::make_shared<ExternalEncoderFactory>());
+#endif
 }
 
 void EncoderRegistry::addFactory(std::shared_ptr<EncoderFactory> factory)

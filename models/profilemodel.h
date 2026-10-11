@@ -256,6 +256,11 @@ private:
     int p_load(KConfig &config); // returns the format version that was stored
     void p_migrateLegacyProfile(Profile &profile, const KConfigGroup &subGroup);
     void p_migrateImageSettings();
+
+    // AUDEX_SANDBOX: names of the loaded profiles whose custom encoder fell
+    // back to WAVE and of those whose command after the rip is ignored
+    QStringList p_sandboxEncoders;
+    QStringList p_sandboxHooks;
 };
 
 // Profile selection of the main window: profiles whose encoder is not

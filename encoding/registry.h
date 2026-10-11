@@ -59,6 +59,7 @@ public:
     std::unique_ptr<AudioDecoder> createDecoder() const override;
 };
 
+#ifndef AUDEX_SANDBOX
 // Any command line encoder that reads WAVE from stdin, e.g.
 //   fdkaac --silent -m 5 -o %o -
 //   ffmpeg -loglevel error -f wav -i - -c:a alac %o
@@ -81,6 +82,7 @@ public:
     // {"fdkaac", "-o", "%o", "-"} + path -> program and arguments
     static QStringList commandLine(const QStringList &arguments, const QString &outputPath);
 };
+#endif
 
 // 44 byte RIFF header for 16 bit stereo PCM
 QByteArray wavHeader(qint64 dataBytes);

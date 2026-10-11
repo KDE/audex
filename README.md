@@ -169,6 +169,14 @@ To uninstall:
 sudo xargs rm < build/install_manifest.txt
 ```
 
+### Sandboxed packages
+
+A sandbox such as Flatpak cannot run the programs of the host system. Built
+with `-DAUDEX_SANDBOX=ON` Audex has no custom encoder and no command after
+the rip (hook) and starts no external programs at all. Profiles that use a
+custom encoder rip to WAVE instead and a command after the rip is ignored.
+Importing such profiles shows a warning.
+
 ### Running from the build directory
 
 The encoder plugins are loaded at run time. Audex looks for them in these

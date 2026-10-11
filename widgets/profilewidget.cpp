@@ -7,6 +7,7 @@
 
 #include "profilewidget.h"
 
+#include "dialogs/errordialog.h"
 #include "dialogs/profiledatadialog.h"
 #include "models/profilemodel.h"
 
@@ -130,7 +131,9 @@ void profileWidget::save_profiles()
 void profileWidget::load_profiles()
 {
     const QString filename = QFileDialog::getOpenFileName(this, i18n("Load Profiles"), QDir::homePath(), "*.apf");
-    if (!filename.isEmpty()) {
-        profile_model->loadProfilesFromFile(filename);
-    }
+    if (filename.isEmpty())
+        return;
+    // an error, or a warning about what this build cannot do
+    if (!profile_model->loadProfilesFromFile(filename) || profile_model->lastError().isValid())
+        ErrorDialog::show(this, profile_model->lastError().message(), profile_model->lastError().details());
 }

@@ -612,7 +612,9 @@ PostProcessPlan RipRequestBuilder::plan() const
         p.cueFilePath = outDir.filePath(resolveNameScheme(column(PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), u"cue"_s));
     }
 
+#ifndef AUDEX_SANDBOX
     p.runHook = columnBool(PROFILE_MODEL_COLUMN_HOOK_INDEX);
+#endif
     if (p.runHook) {
         p.hookCommand = column(PROFILE_MODEL_COLUMN_HOOK_COMMAND_INDEX);
         p.hookVars = albumVars();
@@ -706,6 +708,7 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
         writeTextFile(plan.cueFilePath, cue);
     }
 
+#ifndef AUDEX_SANDBOX
     // user command hook: runs as a child process, its completion is logged.
     // The process belongs to the application, so it keeps running when the
     // progress dialog is closed (logging stops then); quitting Audex ends it.
@@ -753,4 +756,5 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
             process->start(args.constFirst(), args.sliced(1));
         }
     }
+#endif
 }

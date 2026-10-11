@@ -84,7 +84,11 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder)
     case EncoderAssistant::WAVE:
         return true; // built into the engine
     case EncoderAssistant::CUSTOM:
+#ifdef AUDEX_SANDBOX
+        return false; // starts an external program
+#else
         return true;
+#endif
     default:
         return false;
     }

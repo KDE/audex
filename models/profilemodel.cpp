@@ -992,6 +992,7 @@ bool ProfileModel::loadProfilesFromFile(const QString &filename)
 {
     // see saveProfilesToFile() for why the path is made absolute
     const QString path = QFileInfo(filename).absoluteFilePath();
+    p_error.clear();
 
     // Validate before touching the model: p_load() clears the cache, and
     // commit() would persist the empty profile list afterwards.
@@ -1012,6 +1013,16 @@ bool ProfileModel::loadProfilesFromFile(const QString &filename)
     p_load(config);
     endResetModel();
     commit();
+
+    // AUDEX_SANDBOX: imported, but not everything works (see p_load())
+    if (!p_sandboxEncoders.isEmpty() || !p_sandboxHooks.isEmpty()) {
+        QStringList details;
+        if (!p_sandboxEncoders.isEmpty())
+            details << i18n("These profiles used a custom encoder and rip to WAVE now: %1", p_sandboxEncoders.join(QStringLiteral(", ")));
+        if (!p_sandboxHooks.isEmpty())
+            details << i18n("The command after the rip of these profiles is ignored: %1", p_sandboxHooks.join(QStringLiteral(", ")));
+        p_error = Error(i18n("This version of Audex cannot start other programs."), details.join(u'\n'), Error::WARNING, this);
+    }
     return true;
 }
 
@@ -1079,6 +1090,8 @@ int ProfileModel::p_load(KConfig &config)
     p_current_profile_index = profilesGroup.readEntry("Standard", -1);
     const int profileCount = profilesGroup.readEntry("Count", QVariant(0)).toInt();
     const int version = profilesGroup.readEntry(PROFILE_MODEL_VERSION_KEY, 1);
+    p_sandboxEncoders.clear();
+    p_sandboxHooks.clear();
 
     for (int i = 0; i < profileCount; ++i) {
         Profile p;
@@ -1127,6 +1140,16 @@ int ProfileModel::p_load(KConfig &config)
 
         if (version < PROFILE_MODEL_VERSION_ENCODER_PLUGINS)
             p_migrateLegacyProfile(p, subGroup);
+
+#ifdef AUDEX_SANDBOX
+        // this build starts no external programs
+        if (p[PROFILE_MODEL_ENCODER_SELECTED_KEY].toInt() == EncoderAssistant::CUSTOM) {
+            p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::WAVE;
+            p_sandboxEncoders << p[PROFILE_MODEL_NAME_KEY].toString();
+        }
+        if (p[PROFILE_MODEL_HOOK_KEY].toBool() && !p[PROFILE_MODEL_HOOK_COMMAND_KEY].toString().trimmed().isEmpty())
+            p_sandboxHooks << p[PROFILE_MODEL_NAME_KEY].toString();
+#endif
 
         p_cache.append(p);
     }

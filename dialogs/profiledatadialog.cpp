@@ -84,8 +84,13 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
     // All encoders are listed: one without its plugin stays visible (the
     // profile may use it), but cannot be chosen (see update_encoder_items()).
-    for (int e = 0; e < EncoderAssistant::NUM; ++e)
+    for (int e = 0; e < EncoderAssistant::NUM; ++e) {
+#ifdef AUDEX_SANDBOX
+        if (e == EncoderAssistant::CUSTOM)
+            continue; // starts an external program
+#endif
         ui.kcombobox_encoder->addItem(EncoderAssistant::name((EncoderAssistant::Encoder)e), e);
+    }
     connect(ui.kcombobox_encoder, &QComboBox::activated, this, &ProfileDataDialog::set_encoder_by_combobox);
 
     ui.kcombobox_output->addItem(i18n("One file per track"), PROFILE_OUTPUT_TRACKS);
@@ -104,6 +109,11 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(ui.kpushbutton_playlist, &QAbstractButton::clicked, this, &ProfileDataDialog::playlist_settings);
     connect(ui.kpushbutton_logfile, &QAbstractButton::clicked, this, &ProfileDataDialog::logfile_settings);
     connect(ui.kpushbutton_hook, &QAbstractButton::clicked, this, &ProfileDataDialog::hook_settings);
+#ifdef AUDEX_SANDBOX
+    // the setting stays in the profile, but is never run in this build
+    ui.checkBox_hook->hide();
+    ui.kpushbutton_hook->hide();
+#endif
 
     connect(ui.checkBox_cover, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_cover);
     connect(ui.checkBox_playlist, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_playlist);

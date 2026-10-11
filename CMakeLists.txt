@@ -50,6 +50,14 @@ find_package(
              WidgetsAddons
              XmlGui)
 
+# Sandboxed packages (e.g. Flatpak) cannot run the user's programs: without
+# the custom encoder and the command after the rip Audex starts none.
+option(AUDEX_SANDBOX "Build without features that start external programs (custom encoder, command after the rip)" OFF)
+add_feature_info(AUDEX_SANDBOX AUDEX_SANDBOX "No custom encoder and no command after the rip, for sandboxed packages")
+if(AUDEX_SANDBOX)
+  add_compile_definitions(AUDEX_SANDBOX)
+endif()
+
 find_package(TagLib 1.12 REQUIRED)
 set_package_properties(
   TagLib PROPERTIES
@@ -357,7 +365,9 @@ install(FILES audex.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 # example commands for the custom encoder (users can add their own in
 # ~/.local/share/audex/encoderpresets.json)
-install(FILES encoderpresets.json DESTINATION ${KDE_INSTALL_DATADIR}/audex)
+if(NOT AUDEX_SANDBOX)
+  install(FILES encoderpresets.json DESTINATION ${KDE_INSTALL_DATADIR}/audex)
+endif()
 
 # example genres (users can add their own in ~/.local/share/audex/genres.json)
 install(FILES genres.json DESTINATION ${KDE_INSTALL_DATADIR}/audex)
