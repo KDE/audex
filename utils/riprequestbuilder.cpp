@@ -38,15 +38,16 @@ namespace Var = Audex::Scheme::Var;
 namespace
 {
 
-const QList<int> LameBitrates{128, 160, 192, 224, 256, 320};
+// the CBR steps of the LAME widget
+const QList<int> LameBitrates{80, 96, 112, 128, 160, 192, 224, 256, 320};
 
-QString snapLameBitrate(int bitrate)
+int snapLameBitrate(int bitrate)
 {
     int best = LameBitrates.first();
     for (const int b : LameBitrates)
         if (qAbs(b - bitrate) < qAbs(best - bitrate))
             best = b;
-    return QString::number(best);
+    return best;
 }
 
 }
@@ -119,11 +120,16 @@ void RipRequestBuilder::encoder(QString *id, QVariantMap *settings, QString *suf
             break;
         case ENCODER_LAME_PRESET_INSANE:
             (*settings)[u"mode"_s] = u"cbr"_s;
-            (*settings)[u"bitrate"_s] = u"320"_s;
+            (*settings)[u"bitrate"_s] = 320;
             break;
-        default: // custom (cbr/abr with explicit bitrate)
-            (*settings)[u"mode"_s] = u"cbr"_s;
-            (*settings)[u"bitrate"_s] = snapLameBitrate(bitrate);
+        default: // custom
+            if (params.value(ENCODER_LAME_CBR_KEY, ENCODER_LAME_CBR).toBool()) {
+                (*settings)[u"mode"_s] = u"cbr"_s;
+                (*settings)[u"bitrate"_s] = snapLameBitrate(bitrate);
+            } else {
+                (*settings)[u"mode"_s] = u"abr"_s;
+                (*settings)[u"bitrate"_s] = bitrate;
+            }
             break;
         }
         return;

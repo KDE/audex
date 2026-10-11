@@ -140,6 +140,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
    </item>
    <item row="1" column="0">
     <widget class="QCheckBox" name="checkBox_cbr">
+     <property name="toolTip">
+      <string>Every frame gets the same bitrate. Otherwise the bitrate varies around the target (ABR).</string>
+     </property>
      <property name="text">
       <string>Constant Bitrate</string>
      </property>

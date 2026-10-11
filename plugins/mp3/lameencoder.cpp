@@ -24,16 +24,14 @@ QString tr(const char *text)
     return QCoreApplication::translate("LameEncoder", text);
 }
 
-const QStringList Bitrates{u"128"_s, u"160"_s, u"192"_s, u"224"_s, u"256"_s, u"320"_s};
-
 QList<EncoderOption> lameOptions()
 {
     EncoderOption mode;
     mode.key = u"mode"_s;
     mode.label = tr("Mode");
     mode.type = EncoderOption::Type::Choice;
-    mode.choices = {u"vbr"_s, u"cbr"_s};
-    mode.choiceLabels = {tr("Variable bitrate"), tr("Constant bitrate")};
+    mode.choices = {u"vbr"_s, u"abr"_s, u"cbr"_s};
+    mode.choiceLabels = {tr("Variable bitrate"), tr("Average bitrate"), tr("Constant bitrate")};
     mode.defaultValue = u"vbr"_s;
 
     EncoderOption quality;
@@ -47,11 +45,12 @@ QList<EncoderOption> lameOptions()
 
     EncoderOption bitrate;
     bitrate.key = u"bitrate"_s;
-    bitrate.label = tr("CBR bitrate (kbit/s)");
-    bitrate.type = EncoderOption::Type::Choice;
-    bitrate.choices = Bitrates;
-    bitrate.choiceLabels = Bitrates;
-    bitrate.defaultValue = u"320"_s;
+    bitrate.label = tr("ABR/CBR bitrate (kbit/s)");
+    bitrate.type = EncoderOption::Type::Integer;
+    bitrate.minimum = 32;
+    bitrate.maximum = 320;
+    bitrate.defaultValue = 320;
+    bitrate.toolTip = tr("Constant bitrate uses the nearest MP3 bitrate.");
 
     return {mode, quality, bitrate};
 }
@@ -59,8 +58,14 @@ QList<EncoderOption> lameOptions()
 class LameEncoder : public AudioEncoder
 {
 public:
-    LameEncoder(bool vbr, int vbrQuality, int bitrate)
-        : m_vbr(vbr)
+    enum Mode {
+        Vbr,
+        Abr,
+        Cbr
+    };
+
+    LameEncoder(Mode mode, int vbrQuality, int bitrate)
+        : m_mode(mode)
         , m_vbrQuality(vbrQuality)
         , m_bitrate(bitrate)
     {
@@ -83,12 +88,19 @@ public:
         lame_set_num_samples(m_lame, (unsigned long)totalFrames);
         lame_set_mode(m_lame, JOINT_STEREO);
         lame_set_quality(m_lame, 2);
-        if (m_vbr) {
+        switch (m_mode) {
+        case Vbr:
             lame_set_VBR(m_lame, vbr_default);
             lame_set_VBR_quality(m_lame, float(m_vbrQuality));
-        } else {
+            break;
+        case Abr:
+            lame_set_VBR(m_lame, vbr_abr);
+            lame_set_VBR_mean_bitrate_kbps(m_lame, m_bitrate);
+            break;
+        case Cbr:
             lame_set_VBR(m_lame, vbr_off);
-            lame_set_brate(m_lame, m_bitrate);
+            lame_set_brate(m_lame, m_bitrate); // LAME takes the nearest valid bitrate
+            break;
         }
         // Tags are written by TagLib (ID3v2.4, UTF-8); the LAME/Xing frame
         // carries the gapless information.
@@ -174,7 +186,7 @@ private:
         m_lame = nullptr;
     }
 
-    bool m_vbr;
+    Mode m_mode;
     int m_vbrQuality;
     int m_bitrate;
     lame_t m_lame = nullptr;
@@ -215,7 +227,8 @@ public:
     std::unique_ptr<AudioEncoder> create(const QVariantMap &settings) const override
     {
         const QList<EncoderOption> o = options();
-        return std::make_unique<LameEncoder>(optionValue(o, settings, u"mode"_s).toString() == u"vbr",
+        const QString mode = optionValue(o, settings, u"mode"_s).toString();
+        return std::make_unique<LameEncoder>(mode == u"abr" ? LameEncoder::Abr : mode == u"cbr" ? LameEncoder::Cbr : LameEncoder::Vbr,
                                              optionValue(o, settings, u"vbrQuality"_s).toInt(),
                                              optionValue(o, settings, u"bitrate"_s).toInt());
     }
