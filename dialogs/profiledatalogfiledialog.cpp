@@ -63,13 +63,13 @@ void ProfileDataLogFileDialog::slotAccepted()
     if (save())
         accept();
     else
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataLogFileDialog::slotApplied()
 {
     if (!save())
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataLogFileDialog::trigger_changed()

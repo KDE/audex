@@ -129,7 +129,7 @@ MainWindow::MainWindow(QWidget *parent)
     // after the plugins: loading migrates profiles, which depends on them
     m_profileModel = new ProfileModel(this);
     if (m_profileModel->lastError().isValid()) {
-        ErrorDialog::show(this, m_profileModel->lastError().message(), m_profileModel->lastError().details());
+        ErrorDialog::show(this, m_profileModel->lastError());
         return;
     }
 
@@ -854,7 +854,7 @@ void MainWindow::start_metadata_lookup(const QString &providerId, bool automatic
     if (m_lookupId > 0 && m_lookup->isRunning(m_lookupId))
         return;
 
-    m_lookupError.clear();
+    m_lookupErrors.clear();
     m_lookupAuto = automatic;
 
     QStringList providers;
@@ -894,11 +894,8 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
     actionCollection()->action("cddbfetch_gnudb")->setEnabled(m_layoutEnabled);
 
     if (candidates.isEmpty()) {
-        if (!m_lookupError.isEmpty()) {
-            ErrorDialog::show(this,
-                              i18n("The metadata lookup failed, with the following error:\n%1", m_lookupError),
-                              QString(),
-                              i18n("Metadata Lookup Failure"));
+        if (!m_lookupErrors.isEmpty()) {
+            ErrorDialog::show(this, i18n("The metadata lookup failed."), m_lookupErrors.join(u'\n'), i18n("Metadata Lookup"));
         } else if (!m_lookupAuto) {
             KMessageBox::information(this, i18n("No metadata found for this disc."), i18n("Metadata Lookup"));
         }
@@ -978,7 +975,8 @@ void MainWindow::lookup_provider_failed(int lookupId, const QString &providerId,
     Q_UNUSED(providerId);
     if (lookupId != m_lookupId)
         return;
-    m_lookupError = error;
+    // the servers' own words, e.g. why gnudb refuses a request
+    m_lookupErrors << error;
 }
 
 void MainWindow::cover_fetch_finished(int requestId, const Audex::Metadata::CoverArt &cover, const QString &error)

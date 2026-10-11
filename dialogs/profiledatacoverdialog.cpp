@@ -81,13 +81,13 @@ void ProfileDataCoverDialog::slotAccepted()
     if (save())
         accept();
     else
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataCoverDialog::slotApplied()
 {
     if (!save())
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataCoverDialog::trigger_changed()

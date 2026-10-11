@@ -996,8 +996,14 @@ bool ProfileModel::saveProfilesToFile(const QString &filename)
     // cascading. Relative paths are made absolute here, as KConfig would
     // resolve them against the config location instead of the current
     // working directory.
-    KConfig config(QFileInfo(filename).absoluteFilePath(), KConfig::SimpleConfig);
+    const QString path = QFileInfo(filename).absoluteFilePath();
+    p_error.clear();
+    KConfig config(path, KConfig::SimpleConfig);
     p_save(config);
+    if (!config.sync()) {
+        p_error = Error(i18n("Cannot save the profiles."), i18n("The file %1 cannot be written.", path), Error::ERROR, this);
+        return false;
+    }
     return true;
 }
 

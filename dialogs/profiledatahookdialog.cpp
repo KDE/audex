@@ -66,13 +66,13 @@ void ProfileDataHookDialog::slotAccepted()
     if (save())
         accept();
     else
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataHookDialog::slotApplied()
 {
     if (!save())
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataHookDialog::trigger_changed()

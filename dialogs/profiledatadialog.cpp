@@ -256,13 +256,13 @@ void ProfileDataDialog::slotAccepted()
     if (save())
         accept();
     else
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataDialog::slotApplied()
 {
     if (!save())
-        ErrorDialog::show(this, error.message(), error.details());
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataDialog::slotRejected()

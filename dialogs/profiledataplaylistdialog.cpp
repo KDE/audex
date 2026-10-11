@@ -7,8 +7,6 @@
 
 #include "profiledataplaylistdialog.h"
 
-#include <KMessageBox>
-
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -76,11 +74,14 @@ void ProfileDataPlaylistDialog::slotAccepted()
 {
     if (save())
         accept();
+    else
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataPlaylistDialog::slotApplied()
 {
-    save();
+    if (!save())
+        ErrorDialog::show(this, error);
 }
 
 void ProfileDataPlaylistDialog::trigger_changed()
@@ -127,21 +128,23 @@ bool ProfileDataPlaylistDialog::save()
     const bool abs_file_path = ui.checkBox_abs_file_path->isChecked();
     const bool utf8 = ui.checkBox_utf8->isChecked();
 
+    error.clear();
+
     bool success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX), scheme);
     if (!success) {
-        KMessageBox::error(this, i18n("Playlist scheme could not be saved."), i18n("Playlist Settings"));
+        error = profile_model->lastError();
         return false;
     }
 
     success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_ABS_FILE_PATH_INDEX), abs_file_path);
     if (!success) {
-        KMessageBox::error(this, i18n("Playlist absolute file path setting could not be saved."), i18n("Playlist Settings"));
+        error = profile_model->lastError();
         return false;
     }
 
     success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PL_UTF8_INDEX), utf8);
     if (!success) {
-        KMessageBox::error(this, i18n("Playlist UTF-8 setting could not be saved."), i18n("Playlist Settings"));
+        error = profile_model->lastError();
         return false;
     }
 

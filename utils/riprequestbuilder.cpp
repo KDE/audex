@@ -366,7 +366,7 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
     return result;
 }
 
-bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles) const
+bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles, QString *details) const
 {
     if (cdda_model->isEmpty()) {
         *error = i18n("No disc in drive.");
@@ -446,7 +446,9 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles) con
     // mkpath() also succeeds for an existing folder Audex cannot write to
     QTemporaryFile probe(QDir(outDir).filePath(u".audex-XXXXXX"_s));
     if (!probe.open()) {
-        *error = i18n("Cannot write to the output folder %1: %2", outDir, probe.errorString());
+        *error = i18n("Cannot write to the output folder %1.", outDir);
+        if (details)
+            *details = probe.errorString();
         return false;
     }
 

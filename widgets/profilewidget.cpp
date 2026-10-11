@@ -122,10 +122,9 @@ void profileWidget::copy_profile()
 
 void profileWidget::save_profiles()
 {
-    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath(), "*.apf");
-    if (!filename.isEmpty()) {
-        profile_model->saveProfilesToFile(filename);
-    }
+    const QString filename = QFileDialog::getSaveFileName(this, i18n("Save Profiles"), QDir::homePath(), "*.apf");
+    if (!filename.isEmpty() && !profile_model->saveProfilesToFile(filename))
+        ErrorDialog::show(this, profile_model->lastError());
 }
 
 void profileWidget::load_profiles()
@@ -135,5 +134,5 @@ void profileWidget::load_profiles()
         return;
     // an error, or a warning about what this build cannot do
     if (!profile_model->loadProfilesFromFile(filename) || profile_model->lastError().isValid())
-        ErrorDialog::show(this, profile_model->lastError().message(), profile_model->lastError().details());
+        ErrorDialog::show(this, profile_model->lastError());
 }

@@ -56,8 +56,9 @@ public:
 
     // Checks selection and output directory. existingFiles receives the
     // target files that already exist (overwrite confirmation is up to the
-    // caller, see Preferences::overwriteExistingFiles()).
-    bool validate(QString *error, QStringList *existingFiles = nullptr) const;
+    // caller, see Preferences::overwriteExistingFiles()). details receives
+    // the reason given by the system, if there is one.
+    bool validate(QString *error, QStringList *existingFiles = nullptr, QString *details = nullptr) const;
 
     Audex::RipRequest request() const;
     PostProcessPlan plan() const;

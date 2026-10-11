@@ -127,10 +127,10 @@ int ExtractingProgressDialog::exec()
     builder.setDrive(m_drive);
     builder.setDriveUdi(m_driveUdi);
 
-    QString error;
+    QString error, details;
     QStringList existing;
-    if (!builder.validate(&error, &existing)) {
-        ErrorDialog::show(this, error, i18n("Ripping cannot be started."));
+    if (!builder.validate(&error, &existing, &details)) {
+        ErrorDialog::show(this, error, details, i18n("Cannot Start Ripping"));
         return QDialog::Rejected;
     }
 

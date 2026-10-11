@@ -11,6 +11,7 @@
 #include <QList>
 #include <QPointer>
 #include <QString>
+#include <QStringList>
 
 #include <KXmlGuiWindow>
 
@@ -154,7 +155,7 @@ private:
 
     // metadata lookup state
     int m_lookupId = 0;
-    QString m_lookupError;
+    QStringList m_lookupErrors; // one per failed provider
     bool m_lookupAuto = false;
     int m_coverFetchId = 0;
     struct PendingCover {
