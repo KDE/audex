@@ -50,8 +50,10 @@ commands. It rips securely and the key points are (more details below):
   rip, Audex downloads the recovery data of the disc and repairs the image,
   see the chapter below.
 - **Rip log** in a well-known style. It contains the drive, the settings, the
-  TOC, for each track the peak level, CRC32, CRC32 without null samples,
-  the AccurateRip v1/v2 checksums, suspicious positions and statistics.
+  TOC, for each track how it was read (twice and compared, with the number of
+  sectors that differed, or once and confirmed by AccurateRip or the CTDB),
+  the peak level, CRC32, CRC32 without null samples, the AccurateRip v1/v2
+  checksums, suspicious positions and statistics.
 - **Disc layouts.** Hidden track one audio (HTOA, ripped as track 0),
   Enhanced CD / CD-Extra and Mixed Mode CDs are supported. Audex reads the
   full TOC and falls back to the formatted TOC if needed.

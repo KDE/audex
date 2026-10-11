@@ -30,7 +30,7 @@ QString modeDescription(const Rip::RipOptions &o)
 {
     if (o.mode == Rip::ReadMode::Fast)
         return u"Fast (single read, %1 retries on read errors)"_s.arg(o.readErrorRetries);
-    const QString first = o.verifyFirst ? u", AccurateRip first"_s : QString();
+    const QString first = o.verifyFirst ? u", read once if a database confirms the track"_s : QString();
     const QString retries = u", %1 retries on read errors"_s.arg(o.readErrorRetries);
     if (o.useC2)
         return u"Secure with C2%1 (window %2, %3 reads/round, %4 rounds%5)"_s.arg(first).arg(o.secureWindow).arg(o.readsPerRound).arg(o.maxRounds).arg(retries);
@@ -40,6 +40,19 @@ QString modeDescription(const Rip::RipOptions &o)
         .arg(o.readsPerRound)
         .arg(o.maxRounds)
         .arg(retries);
+}
+
+QString readDescription(const Rip::RipOptions &o, const Rip::SegmentResult &s, const QString &confirmedBy)
+{
+    if (s.acceptedAfterOnePass)
+        return u"Read once, confirmed by %1"_s.arg(confirmedBy.isEmpty() ? u"a database"_s : confirmedBy);
+    if (o.mode == Rip::ReadMode::Fast)
+        return u"Read once"_s;
+    if (o.useC2)
+        return u"Read once, checked with C2 error pointers"_s;
+    if (s.passMismatches == 0)
+        return u"Read twice and compared: no differences"_s;
+    return u"Read twice and compared: %1 sector(s) differed"_s.arg(s.passMismatches);
 }
 
 QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
@@ -108,6 +121,7 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
                      .arg(p.zeroFilled ? u", filled with silence"_s : QString())
                      .arg(p.reason);
         }
+        l << u"     "_s + readDescription(o, s, ctx.confirmedBy.value(i));
         l << u"     Copy CRC %1 (w/o null samples %2)"_s.arg(hex8(s.crc32), hex8(s.crc32NoNull));
         if (seg.accurateRip) {
             l << u"     AccurateRip v1 %1, v2 %2, frame 450 %3"_s.arg(hex8(s.accurateRipV1), hex8(s.accurateRipV2), hex8(s.accurateRipFrame450));
@@ -120,8 +134,6 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
             l << u"     "_s + note;
         if (ctx.crcBeforeRepair.contains(i))
             l << u"     Repaired with the CUETools database (copy CRC before %1)"_s.arg(hex8(ctx.crcBeforeRepair.value(i)));
-        if (s.acceptedAfterOnePass)
-            l << u"     Read once, confirmed by AccurateRip"_s;
         if (s.bytesWritten != seg.byteCount())
             l << u"     Incomplete: %1 of %2 bytes"_s.arg(s.bytesWritten).arg(seg.byteCount());
         else if (s.suspicious.isEmpty())

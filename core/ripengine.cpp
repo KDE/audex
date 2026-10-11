@@ -752,8 +752,11 @@ bool RipEngine::extractSecure(const ReadPlan &plan, Stream &stream)
                     accepted[i] = true;
                 } else if (a.status.at(i).ok && b.status.at(i).ok) {
                     accepted[i] = a.sector(i) == b.sector(i);
-                    if (!accepted.at(i))
+                    if (!accepted.at(i)) {
                         ++m_result.statistics.passMismatches;
+                        for (int seg : segmentsForDriveSector(w + i))
+                            ++m_result.segments[seg].passMismatches;
+                    }
                 }
             }
         }

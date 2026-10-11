@@ -27,6 +27,7 @@ add_executable(
   test_cover.cpp
   test_tagwriter.cpp
   test_cuesheet.cpp
+  test_ripreport.cpp
   ../utils/cuesheetwriter.cpp)
 
 # ${CMAKE_BINARY_DIR}: audex-version.h for the cue sheet writer

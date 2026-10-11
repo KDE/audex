@@ -147,6 +147,7 @@ AUDEX_TEST("secure mode recovers a noisy sector")
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, options, area));
     AUDEX_CHECK(t, result.segments.at(0).suspicious.isEmpty());
     AUDEX_EQUAL(t, result.statistics.passMismatches, 1LL);
+    AUDEX_EQUAL(t, result.segments.at(0).passMismatches, 1);
     AUDEX_EQUAL(t, result.segments.at(0).rereadSectors, 1);
 }
 

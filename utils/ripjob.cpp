@@ -335,17 +335,24 @@ void RipJob::run()
     const bool canReplace = !rq.imageFile || (contiguous && encoder->createDecoder() != nullptr);
     if (rq.keepConfirmedTracks && options.mode == Rip::ReadMode::Secure && !canReplace)
         say(Rip::LogLevel::Info, tr("Tracks cannot be replaced in this image afterwards; every track is read securely right away."));
+    QMap<int, QString> confirmedBy; // segment -> database(s) that confirmed it, for the log
     if (rq.keepConfirmedTracks && options.mode == Rip::ReadMode::Secure && canReplace && (arPressingKnown || ctdbConfirms)) {
         options.verifyFirst = true;
         const QList<int> audio = toc.audioTrackNumbers();
-        cb.verify = [&, audio](int, const Rip::SegmentResult &r) {
+        cb.verify = [&, audio](int segment, const Rip::SegmentResult &r) {
             if (!r.segment.accurateRip || !r.suspicious.isEmpty())
                 return false;
             const int index = int(audio.indexOf(r.segment.trackNumber));
             int confidence = AccurateRip::matchConfidence(arResponses, index, r.accurateRipV1, r.accurateRipV2);
             for (const Rip::ShiftedChecksums &c : r.accurateRipShifted)
                 confidence = std::max(confidence, AccurateRip::matchConfidence(arResponses, index, c.v1, c.v2));
-            return confidence >= rq.minConfidence || Ctdb::trackConfidence(entries, r, toc) >= rq.minConfidence;
+            const bool byAccurateRip = confidence >= rq.minConfidence;
+            const bool byCtdb = Ctdb::trackConfidence(entries, r, toc) >= rq.minConfidence;
+            if (byAccurateRip && byCtdb)
+                confirmedBy[segment] = u"AccurateRip and the CUETools database"_s;
+            else if (byAccurateRip || byCtdb)
+                confirmedBy[segment] = byAccurateRip ? u"AccurateRip"_s : u"the CUETools database"_s;
+            return byAccurateRip || byCtdb;
         };
         cb.discard = [&](int segment) {
             if (!rq.imageFile)
@@ -662,6 +669,7 @@ void RipJob::run()
     ctx.medium = disc.mediumDescription();
     ctx.gapHandling = gapHandling;
     ctx.trackNotes = trackNotes;
+    ctx.confirmedBy = confirmedBy;
     ctx.repaired = repairChecked;
     ctx.crcBeforeRepair = crcBeforeRepair;
     if (rq.inaccurateStream)

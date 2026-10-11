@@ -36,9 +36,12 @@ struct ReportContext {
     bool repaired = false;
     QMap<int, quint32> crcBeforeRepair; // segment index -> copy CRC before the repair
     QMap<int, QStringList> trackNotes; // segment index -> further lines (HDCD ...)
+    QMap<int, QString> confirmedBy; // segment index -> database(s) that confirmed its single read
 };
 
 QString modeDescription(const Rip::RipOptions &options);
+// how a track was read and checked, one line of its section
+QString readDescription(const Rip::RipOptions &options, const Rip::SegmentResult &segment, const QString &confirmedBy = {});
 QStringList formatReport(const ReportContext &context, const Rip::RipResult &result);
 
 }

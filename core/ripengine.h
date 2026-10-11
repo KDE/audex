@@ -163,6 +163,7 @@ struct SegmentResult {
     double peakPercent = 0.0;
     qint64 bytesWritten = 0;
     int rereadSectors = 0; // sectors that needed error recovery
+    int passMismatches = 0; // secure mode without C2: sectors whose two reads differed
     int paddedSectors = 0; // unreadable lead-in/lead-out area replaced by silence
     QList<SuspiciousPosition> suspicious;
 };
