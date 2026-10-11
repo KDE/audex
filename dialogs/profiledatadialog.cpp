@@ -11,6 +11,7 @@
 #include "dialogs/profiledatacoverdialog.h"
 #include "dialogs/profiledatahookdialog.h"
 #include "dialogs/profiledatalogfiledialog.h"
+#include "dialogs/profiledatacuedialog.h"
 #include "dialogs/profiledataplaylistdialog.h"
 
 #include "utils/encoderassistant.h"
@@ -120,6 +121,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(ui.checkBox_logfile, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_logfile);
     connect(ui.checkBox_hook, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_hook);
     connect(ui.checkBox_cue, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_cue);
+    connect(ui.kpushbutton_cue, &QAbstractButton::clicked, this, &ProfileDataDialog::cue_settings);
     connect(ui.checkBox_ctdb_repair, &QAbstractButton::toggled, this, &ProfileDataDialog::enable_settings_ctdb_repair);
 
     connect(this, &QDialog::rejected, this, &ProfileDataDialog::slotRejected);
@@ -156,12 +158,6 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
         ui.checkBox_cue->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool());
         enable_settings_cue(ui.checkBox_cue->isChecked());
         connect(ui.checkBox_cue, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
-
-        ui.schemeedit_cue_scheme->setScheme(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString());
-        connect(ui.schemeedit_cue_scheme, &SchemeEdit::edited, this, &ProfileDataDialog::trigger_changed);
-
-        ui.checkBox_cue_mcn_isrc->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX)).toBool());
-        connect(ui.checkBox_cue_mcn_isrc, &QAbstractButton::toggled, this, &ProfileDataDialog::trigger_changed);
 
         ui.checkBox_ctdb_repair->setChecked(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX)).toBool());
         enable_settings_ctdb_repair(ui.checkBox_ctdb_repair->isChecked());
@@ -224,8 +220,6 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
         ui.schemeedit_image_scheme->setScheme(QStringLiteral(DEFAULT_IMAGE_SCHEME));
         ui.checkBox_cue->setChecked(DEFAULT_CUE);
-        ui.schemeedit_cue_scheme->setScheme(QStringLiteral(DEFAULT_CUE_NAME));
-        ui.checkBox_cue_mcn_isrc->setChecked(DEFAULT_CUE_MCN_ISRC);
         ui.checkBox_ctdb_repair->setChecked(DEFAULT_CTDB_REPAIR);
         ui.checkBox_ctdb_repair_keep_original->setChecked(DEFAULT_CTDB_REPAIR_KEEP_ORIGINAL);
         enable_settings_cue(ui.checkBox_cue->isChecked());
@@ -384,8 +378,6 @@ void ProfileDataDialog::trigger_changed()
             || ui.kcombobox_output->currentData().toInt() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_OUTPUT_INDEX)).toInt()
             || ui.schemeedit_image_scheme->scheme() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX)).toString()
             || ui.checkBox_cue->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX)).toBool()
-            || ui.schemeedit_cue_scheme->scheme() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX)).toString()
-            || ui.checkBox_cue_mcn_isrc->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX)).toBool()
             || ui.checkBox_ctdb_repair->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX)).toBool()
             || ui.checkBox_ctdb_repair_keep_original->isChecked()
                 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX)).toBool()
@@ -415,9 +407,7 @@ void ProfileDataDialog::enable_settings_hook(bool enabled)
 
 void ProfileDataDialog::enable_settings_cue(bool enabled)
 {
-    ui.label_cue_scheme->setEnabled(enabled);
-    ui.schemeedit_cue_scheme->setEnabled(enabled);
-    ui.checkBox_cue_mcn_isrc->setEnabled(enabled);
+    ui.kpushbutton_cue->setEnabled(enabled);
 }
 
 void ProfileDataDialog::enable_settings_ctdb_repair(bool enabled)
@@ -435,6 +425,13 @@ void ProfileDataDialog::cover_settings()
 void ProfileDataDialog::playlist_settings()
 {
     ProfileDataPlaylistDialog dialog(profile_model, profile_row, new_profile_mode, this);
+    if (dialog.exec() == QDialog::Accepted)
+        trigger_changed();
+}
+
+void ProfileDataDialog::cue_settings()
+{
+    ProfileDataCueDialog dialog(profile_model, profile_row, new_profile_mode, this);
     if (dialog.exec() == QDialog::Accepted)
         trigger_changed();
 }
@@ -549,10 +546,6 @@ bool ProfileDataDialog::save()
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX), ui.schemeedit_image_scheme->scheme());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_INDEX), ui.checkBox_cue->isChecked());
-    if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), ui.schemeedit_cue_scheme->scheme());
-    if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX), ui.checkBox_cue_mcn_isrc->isChecked());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX), ui.checkBox_ctdb_repair->isChecked());
     if (success)

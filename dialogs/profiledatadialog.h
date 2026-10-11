@@ -43,6 +43,7 @@ private Q_SLOTS:
 
     void cover_settings();
     void playlist_settings();
+    void cue_settings();
     void logfile_settings();
     void hook_settings();
 

@@ -39,6 +39,7 @@ struct PostProcessPlan {
     bool writeCue = false;
     QString cueFilePath;
     bool cueMcnIsrc = false;
+    QMap<int, QString> trackFiles; // one file per track: track number -> file
 
     bool runHook = false;
     QString hookCommand; // raw scheme; placeholders are filled at run time

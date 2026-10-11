@@ -220,6 +220,7 @@ void RipJob::run()
     if (!rq.imageFile) {
         if (rq.pregapsWithTrack && summary.subchannel.supported) {
             Rip::keepPregapsWithTrack(segments, summary.subchannel.index00, firstAudio);
+            summary.pregapsWithTrack = true;
             for (qsizetype i = 0; i < segments.size(); ++i)
                 targets[i].frames = qint64(segments.at(i).lastLba - segments.at(i).firstLba + 1) * Cdda::SamplesPerSector;
             gapHandling = u"With their own track"_s;

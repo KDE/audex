@@ -154,10 +154,13 @@ enum ProfileColumns {
 #define PROFILE_MODEL_CTDB_REPAIR_KEEP_ORIGINAL_KEY "ctdb_repair_keep_original"
 
 // profile format version, stored in the "Profiles" group (absent = legacy 1.x;
-// 2 = before the output type, image rips used global settings)
+// 2 = before the output type, image rips used global settings; 3 = cue
+// sheets for images only)
 #define PROFILE_MODEL_VERSION_KEY "version"
-#define PROFILE_MODEL_VERSION 3
+#define PROFILE_MODEL_VERSION 4
 #define PROFILE_MODEL_VERSION_ENCODER_PLUGINS 2 // first version with the current encoder ids
+#define PROFILE_MODEL_VERSION_IMAGE_PROFILES 3 // first version with the output type
+#define PROFILE_MODEL_VERSION_TRACK_CUE 4 // first version with cue sheets for track files
 
 // legacy Audex 1.x profile format (external command encoders, pre-plugin engine)
 #define LEGACY_ENCODER_OGGENC 1

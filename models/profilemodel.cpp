@@ -959,7 +959,7 @@ void ProfileModel::revert()
     clear();
     const int version = p_load(*KSharedConfig::openConfig());
     const bool migrate = (version < PROFILE_MODEL_VERSION) && !p_cache.isEmpty();
-    if (migrate)
+    if (migrate && version < PROFILE_MODEL_VERSION_IMAGE_PROFILES)
         p_migrateImageSettings();
     endResetModel();
 
@@ -1159,6 +1159,11 @@ int ProfileModel::p_load(KConfig &config)
 
         if (version < PROFILE_MODEL_VERSION_ENCODER_PLUGINS)
             p_migrateLegacyProfile(p, subGroup);
+
+        // the cue sheet setting was ignored for track files: they keep
+        // getting none, as before
+        if (version < PROFILE_MODEL_VERSION_TRACK_CUE && p[PROFILE_MODEL_OUTPUT_KEY].toInt() != PROFILE_OUTPUT_IMAGE)
+            p[PROFILE_MODEL_CUE_KEY] = false;
 
 #ifdef AUDEX_SANDBOX
         // this build starts no external programs

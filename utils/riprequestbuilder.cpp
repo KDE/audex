@@ -418,10 +418,11 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles, QSt
         int scheme;
         QString suffix;
     };
-    const QList<Extra> extras{{PROFILE_MODEL_COLUMN_SC_INDEX, PROFILE_MODEL_COLUMN_SC_NAME_INDEX, u"jpg"_s},
-                              {PROFILE_MODEL_COLUMN_LOG_INDEX, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX, u"log"_s},
-                              isImageFile() ? Extra{PROFILE_MODEL_COLUMN_CUE_INDEX, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX, u"cue"_s}
-                                            : Extra{PROFILE_MODEL_COLUMN_PL_INDEX, PROFILE_MODEL_COLUMN_PL_NAME_INDEX, u"m3u"_s}};
+    QList<Extra> extras{{PROFILE_MODEL_COLUMN_SC_INDEX, PROFILE_MODEL_COLUMN_SC_NAME_INDEX, u"jpg"_s},
+                        {PROFILE_MODEL_COLUMN_LOG_INDEX, PROFILE_MODEL_COLUMN_LOG_NAME_INDEX, u"log"_s},
+                        {PROFILE_MODEL_COLUMN_CUE_INDEX, PROFILE_MODEL_COLUMN_CUE_NAME_INDEX, u"cue"_s}};
+    if (!isImageFile())
+        extras.append({PROFILE_MODEL_COLUMN_PL_INDEX, PROFILE_MODEL_COLUMN_PL_NAME_INDEX, u"m3u"_s});
     for (const Extra &extra : extras) {
         if (columnBool(extra.enabled) && fileName(column(extra.scheme), fileNameValues(extra.suffix), extra.suffix, &schemeError).isEmpty()) {
             *error = i18n("The name scheme \"%1\" is invalid: %2", column(extra.scheme), schemeError);
@@ -613,11 +614,12 @@ PostProcessPlan RipRequestBuilder::plan() const
         p.playlistFilePath = outDir.filePath(resolveNameScheme(column(PROFILE_MODEL_COLUMN_PL_NAME_INDEX), u"m3u"_s));
     }
 
-    // cue sheets are tied to the disc image (image file rip)
-    p.writeCue = isImageFile() && columnBool(PROFILE_MODEL_COLUMN_CUE_INDEX);
+    p.writeCue = columnBool(PROFILE_MODEL_COLUMN_CUE_INDEX);
     if (p.writeCue) {
         p.cueMcnIsrc = columnBool(PROFILE_MODEL_COLUMN_CUE_MCN_ISRC_INDEX);
         p.cueFilePath = outDir.filePath(resolveNameScheme(column(PROFILE_MODEL_COLUMN_CUE_NAME_INDEX), u"cue"_s));
+        if (!isImageFile())
+            p.trackFiles = filePaths();
     }
 
 #ifndef AUDEX_SANDBOX
@@ -711,8 +713,24 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
     if (plan.writeCue && !summary.files.isEmpty()) {
         CueSheetWriter writer(disc);
         writer.setSubchannel(summary.subchannel);
-        const QStringList cue = plan.imageFile ? writer.cueSheet(summary.files.first(), tracks, plan.cueMcnIsrc, plan.cueMcnIsrc)
-                                               : writer.cueSheet(summary.files, tracks, plan.cueMcnIsrc, plan.cueMcnIsrc);
+        QStringList cue;
+        if (plan.imageFile) {
+            cue = writer.cueSheet(summary.files.first(), tracks, plan.cueMcnIsrc, plan.cueMcnIsrc);
+        } else {
+            // the files that were written, in track order, relative to the cue sheet
+            const QDir cueDir = QFileInfo(plan.cueFilePath).absoluteDir();
+            QList<int> written;
+            QStringList files;
+            for (const int number : tracks) {
+                const QString path = plan.trackFiles.value(number);
+                if (summary.files.contains(path)) {
+                    written << number;
+                    files << cueDir.relativeFilePath(path);
+                }
+            }
+            const auto pregaps = summary.pregapsWithTrack ? CueSheetWriter::Pregaps::WithOwnTrack : CueSheetWriter::Pregaps::AppendedToPrevious;
+            cue = writer.cueSheet(files, written, plan.cueMcnIsrc, plan.cueMcnIsrc, pregaps);
+        }
         writeTextFile(plan.cueFilePath, cue);
     }
 

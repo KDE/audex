@@ -274,6 +274,7 @@ set(audex_SRCS
     dialogs/profiledatadialog.cpp
     dialogs/profiledatacoverdialog.cpp
     dialogs/profiledataplaylistdialog.cpp
+    dialogs/profiledatacuedialog.cpp
     dialogs/profiledatalogfiledialog.cpp
     dialogs/profiledatahookdialog.cpp
     dialogs/driveassistantdialog.cpp
@@ -296,6 +297,7 @@ ki18n_wrap_ui(
   dialogs/profiledatawidgetUI.ui
   dialogs/profiledatacoverwidgetUI.ui
   dialogs/profiledataplaylistwidgetUI.ui
+  dialogs/profiledatacuewidgetUI.ui
   dialogs/profiledatalogfilewidgetUI.ui
   dialogs/profiledatahookwidgetUI.ui
   dialogs/driveassistantwidgetUI.ui

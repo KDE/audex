@@ -112,8 +112,10 @@ commands. It rips securely and the key points are (more details below):
   Cover Art Archive.
 - **Profiles** control:
   - the output: one file per track, or the whole disc as one image file
-    with a cue sheet (FLAC or WAVE)
+    (FLAC or WAVE)
   - file and folder naming schemes
+  - cue sheets, for an image and for track files (the pregaps where
+    _Pregaps in track files_ puts them)
   - playlists (M3U)
   - cover files and the rip log
   - a custom command to run after the rip
@@ -443,8 +445,7 @@ preemphasis [at this page](<https://www.studio-nibble.com/cd/index.php?title=Pre
 
 Audex marks such discs with a purple PRE-EMPHASIS badge in the main window
 (the tooltip names the tracks) and shows the flag in the _Edit Data_
-dialog. The cue sheet of an image carries `FLAGS PRE` for every flagged
-track. Ripped files get a tag, by default `PRE_EMPHASIS=1`; the name is set
+dialog. The cue sheet carries `FLAGS PRE` for every flagged track. Ripped files get a tag, by default `PRE_EMPHASIS=1`; the name is set
 on the _General settings_ page; an empty name writes no tag. An image is
 tagged only if all of its tracks are flagged. Note, that WAVE files are not
 tagged.

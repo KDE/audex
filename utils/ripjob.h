@@ -130,6 +130,7 @@ struct RipSummary {
     QString logFile;
     QStringList report;
     Cdda::SubchannelScan subchannel; // scanSubchannel: pregaps etc. for the cue sheet
+    bool pregapsWithTrack = false; // track files: each pregap starts its own track's file
 };
 
 // Runs one extraction in its own thread. Signals arrive in the thread of the

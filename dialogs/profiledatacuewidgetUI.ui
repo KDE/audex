@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: 2026 Marco Nelles
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<ui version="4.0">
+ <class>ProfileDataCueWidgetUI</class>
+ <widget class="QWidget" name="ProfileDataCueWidgetUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>374</width>
+    <height>90</height>
+   </rect>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_scheme">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Name/Scheme:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" colspan="2">
+    <widget class="SchemeEdit" name="schemeedit_scheme">
+     <property name="kind">
+      <enum>SchemeEdit::Filename</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QCheckBox" name="checkBox_mcn_isrc">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Write Media Catalog Number (MCN) and International Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet (if your drive have the capability).&lt;/p&gt;&lt;p&gt;Depending in your drive it could take a few seconds at the end of your ripping process to fetch those numbers and codes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Add MCN and ISRC values (if available)</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>4</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SchemeEdit</class>
+   <extends>QLineEdit</extends>
+   <header>widgets/schemeedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
