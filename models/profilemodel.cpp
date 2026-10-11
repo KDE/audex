@@ -822,12 +822,25 @@ bool ProfileModel::isSelectedEncoderWithEmbedCover()
     case EncoderAssistant::WAVE:
         return false;
     case EncoderAssistant::CUSTOM:
-        return parameters.value(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER).toBool();
+        return parameters.value(ENCODER_CUSTOM_TAGS_KEY, ENCODER_CUSTOM_TAGS).toBool()
+            && parameters.value(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER).toBool();
     case EncoderAssistant::NUM:
         return false;
     }
 
     return false;
+}
+
+bool ProfileModel::isSelectedEncoderWithTags()
+{
+    switch (getSelectedEncoderFromCurrentIndex()) {
+    case EncoderAssistant::WAVE:
+        return false; // WAVE files stay plain
+    case EncoderAssistant::CUSTOM:
+        return Parameters(getSelectedEncoderParametersFromCurrentIndex()).value(ENCODER_CUSTOM_TAGS_KEY, ENCODER_CUSTOM_TAGS).toBool();
+    default:
+        return true;
+    }
 }
 
 bool ProfileModel::isCurrentImage() const

@@ -338,7 +338,7 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
     }
 
     const QString suffix = QFileInfo(rq.path).suffix();
-    if (rq.writeTags && Encoding::TagWriter::supportsSuffix(suffix) && !Encoding::TagWriter::write(part, suffix, rq.tags, &error))
+    if (rq.writeTags && !Encoding::TagWriter::write(part, suffix, rq.tags, &error))
         note(u"Tagging the repaired image failed: %1"_s.arg(error));
 
     if (rq.keepOriginal) {
@@ -426,7 +426,7 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
 
     const QString suffix = QFileInfo(rq.path).suffix();
     QString tagError;
-    if (rq.writeTags && Encoding::TagWriter::supportsSuffix(suffix))
+    if (rq.writeTags)
         Encoding::TagWriter::write(part, suffix, rq.tags, &tagError); // the old image had them; a failure is not fatal
 
     if (!QFile::remove(rq.path) || !QFile::rename(part, rq.path)) {

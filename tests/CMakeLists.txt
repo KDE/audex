@@ -24,7 +24,8 @@ add_executable(
   test_cdg.cpp
   test_encodercommand.cpp
   test_scheme.cpp
-  test_cover.cpp)
+  test_cover.cpp
+  test_tagwriter.cpp)
 
 target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 target_link_libraries(audex_tests PRIVATE audexengine)

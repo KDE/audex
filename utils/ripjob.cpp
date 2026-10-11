@@ -510,7 +510,7 @@ void RipJob::run()
             const Encoding::OutputTarget &target = targets.at(rq.imageFile ? 0 : i);
             const QString suffix = QFileInfo(target.path).suffix();
             QString tagError;
-            if (Encoding::TagWriter::supportsSuffix(suffix) && !Encoding::TagWriter::write(target.path, suffix, target.tags, &tagError))
+            if (!Encoding::TagWriter::write(target.path, suffix, target.tags, &tagError))
                 say(Rip::LogLevel::Warning, tr("Cannot write the HDCD tag into %1: %2").arg(QFileInfo(target.path).fileName(), tagError));
             if (rq.imageFile)
                 break; // one file

@@ -221,6 +221,7 @@ public:
     const QString getSelectedEncoderSuffixFromCurrentIndex();
     const QString getSelectedEncoderNameAndVersion();
     bool isSelectedEncoderWithEmbedCover();
+    bool isSelectedEncoderWithTags();
     bool isCurrentImage() const;
     /**END: EncoderAssistant related */
 

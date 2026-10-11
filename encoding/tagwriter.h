@@ -50,10 +50,15 @@ struct PreparedCover {
 
 // Writes tags with TagLib after encoding, identical for all formats:
 // ID3v2.4 for MP3, Vorbis comments for FLAC/Opus/Vorbis, MP4 atoms for M4A.
+// Other formats get what TagLib's generic interface writes for them.
 class TagWriter
 {
 public:
-    static bool supportsSuffix(const QString &suffix);
+    // Covers go into MP3, FLAC, Ogg and M4A; into the other formats only
+    // with TagLib 2
+    static bool coverInAllFormats();
+
+    // false (with the reason) also for formats TagLib does not know
 
     static bool write(const QString &path, const QString &suffix, const TagInfo &info, QString *error = nullptr);
 

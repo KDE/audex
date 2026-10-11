@@ -268,7 +268,7 @@ private:
         }
 
         const QString suffix = QFileInfo(m_path).suffix();
-        if (m_writeTags && TagWriter::supportsSuffix(suffix) && !TagWriter::write(m_partPath, suffix, m_tags, &error)) {
+        if (m_writeTags && !TagWriter::write(m_partPath, suffix, m_tags, &error)) {
             std::lock_guard lock(m_mutex);
             m_warnings << QFileInfo(m_path).fileName() + u": "_s + error;
         }

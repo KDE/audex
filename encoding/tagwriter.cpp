@@ -16,6 +16,7 @@
 #include <QPainter>
 
 #include <taglib/attachedpictureframe.h>
+#include <taglib/fileref.h>
 #include <taglib/flacfile.h>
 #include <taglib/flacpicture.h>
 #include <taglib/id3v2tag.h>
@@ -27,6 +28,9 @@
 #include <taglib/tpropertymap.h>
 #include <taglib/vorbisfile.h>
 #include <taglib/xiphcomment.h>
+#if TAGLIB_MAJOR_VERSION >= 2
+#include <taglib/tvariant.h>
+#endif
 
 using namespace Qt::StringLiterals;
 
@@ -255,20 +259,46 @@ bool saveXiph(TagLib::File &file, TagLib::Ogg::XiphComment *comment, const TagIn
     return file.save() || fail(error, tr("Cannot save the tags."));
 }
 
+// Any other format TagLib knows (WavPack, APE, WMA, AIFF, WAV, ...): the
+// text tags through its property interface, which maps them to the tag type
+// of the format. The cover needs the picture interface of TagLib 2.
+bool writeGeneric(const QByteArray &name, const QString &suffix, const TagInfo &info, const std::optional<PreparedCover> &cover, QString *error)
+{
+    TagLib::FileRef file(name.constData());
+    if (file.isNull())
+        return fail(error, tr("TagLib does not know .%1 files, they stay untagged.").arg(suffix));
+    file.file()->setProperties(toPropertyMap(combinedNumbers(TagWriter::properties(info))));
+#if TAGLIB_MAJOR_VERSION >= 2
+    TagLib::List<TagLib::VariantMap> pictures;
+    if (cover) {
+        TagLib::VariantMap picture;
+        picture.insert("data", toBytes(cover->cover.data));
+        picture.insert("mimeType", toTag(cover->cover.mimeType));
+        picture.insert("pictureType", TagLib::String("Front Cover"));
+        picture.insert("description", TagLib::String());
+        pictures.append(picture);
+    }
+    file.file()->setComplexProperties("PICTURE", pictures);
+#else
+    Q_UNUSED(cover)
+#endif
+    return file.save() || fail(error, tr("Cannot save the tags."));
 }
 
-bool TagWriter::supportsSuffix(const QString &suffix)
+}
+
+bool TagWriter::coverInAllFormats()
 {
-    static const QStringList supported{u"flac"_s, u"mp3"_s, u"opus"_s, u"ogg"_s, u"oga"_s, u"m4a"_s, u"mp4"_s, u"m4b"_s};
-    return supported.contains(suffix.toLower());
+#if TAGLIB_MAJOR_VERSION >= 2
+    return true;
+#else
+    return false;
+#endif
 }
 
 bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo &info, QString *error)
 {
     const QString s = suffix.toLower();
-    if (!supportsSuffix(s))
-        return fail(error, tr("Tags are not supported for .%1 files.").arg(suffix));
-
     const QByteArray name = QFile::encodeName(path);
     const std::optional<PreparedCover> cover = info.embedCover ? prepareCover(info.album.cover(), info.coverMaxSize, info.coverFormat) : std::nullopt;
 
@@ -314,6 +344,9 @@ bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo 
         }
         return file.save(TagLib::MPEG::File::ID3v2, TagLib::File::StripOthers, TagLib::ID3v2::v4) || fail(error, tr("Cannot save the tags."));
     }
+
+    if (s != u"m4a" && s != u"mp4" && s != u"m4b")
+        return writeGeneric(name, suffix, info, cover, error);
 
     // MP4 container
     TagLib::MP4::File file(name.constData());

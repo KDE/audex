@@ -158,6 +158,7 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
 
     case EncoderAssistant::CUSTOM:
 
+        parameters.setValue(ENCODER_CUSTOM_TAGS_KEY, ENCODER_CUSTOM_TAGS);
         parameters.setValue(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER);
 
         break;

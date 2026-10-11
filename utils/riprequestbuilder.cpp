@@ -567,7 +567,7 @@ Audex::RipRequest RipRequestBuilder::request() const
     QString suffix;
     encoder(&rq.encoderId, &rq.encoderSettings, &suffix);
 
-    rq.writeTags = true;
+    rq.writeTags = profile_model->isSelectedEncoderWithTags();
     rq.preEmphasisTag = Preferences::preEmphasisTag().trimmed();
     rq.detectHdcd = Preferences::hdcdDetect();
     rq.hdcdTag = rq.detectHdcd ? Preferences::hdcdTag().trimmed() : QString();

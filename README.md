@@ -99,7 +99,10 @@ commands. It rips securely and the key points are (more details below):
 
 - **Tagging** with TagLib the same way for every format: ID3v2.4 for MP3,
   Vorbis comments for FLAC/Opus, and MP4 atoms for M4A. The tags include
-  the MusicBrainz IDs and optionally an embedded cover.
+  the MusicBrainz IDs and optionally an embedded cover. Files of a custom
+  encoder in other formats TagLib knows (WavPack, APE, WMA, AIFF, ...) get
+  the tags as well, the cover only with TagLib 2; tagging can be switched
+  off for a custom encoder.
 
 ### Metadata and output
 
@@ -127,7 +130,7 @@ kernel's SG_IO interface (`/dev/sr*`).
 - CMake ≥ 3.16 and a C++20 compiler (GCC or Clang)
 - Qt ≥ 6.5: Core, Gui, Widgets, Concurrent, Network, DBus
 - KDE Frameworks 6
-- TagLib ≥ 1.12 (TagLib 2.x works as well)
+- TagLib ≥ 1.12 (with TagLib 2.x covers are embedded in all formats)
 
 ### Optional: native encoder plugins
 
@@ -443,8 +446,8 @@ Audex marks such discs with a purple PRE-EMPHASIS badge in the main window
 dialog. The cue sheet of an image carries `FLAGS PRE` for every flagged
 track. Ripped files get a tag, by default `PRE_EMPHASIS=1`; the name is set
 on the _General settings_ page; an empty name writes no tag. An image is
-tagged only if all of its tracks are flagged. Note, that WAVE files cannot
-be tagged.
+tagged only if all of its tracks are flagged. Note, that WAVE files are not
+tagged.
 
 Audex does not de-emphasize. The rip stays bit-perfect and can be verified
 with AccurateRip and the CTDB. De-emphasis can be done afterwards, e.g. with
