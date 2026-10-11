@@ -14,6 +14,7 @@
 
 #include "candidate.h"
 #include "cdinfo.h"
+#include "online/responsecache.h"
 
 namespace Audex
 {
@@ -44,8 +45,35 @@ public:
         Q_UNUSED(requestId)
     }
 
+    // Answers kept on disk (online providers). With preferCache an answer
+    // from there is taken without asking the service; otherwise the service
+    // is asked and its answer kept. No cache: always the service, nothing kept.
+    void setCache(const std::optional<ResponseCache> &cache)
+    {
+        m_cache = cache;
+    }
+    void setPreferCache(bool prefer)
+    {
+        m_preferCache = prefer;
+    }
+
 Q_SIGNALS:
     void finished(int requestId, const Audex::MetadataCandidates &candidates, const QString &error);
+
+protected:
+    std::optional<QByteArray> cached(const QString &service, const QUrl &url) const
+    {
+        return m_cache && m_preferCache ? m_cache->find(service, url) : std::nullopt;
+    }
+    void keep(const QString &service, const QUrl &url, const QByteArray &data)
+    {
+        if (m_cache)
+            m_cache->insert(service, url, data);
+    }
+
+private:
+    std::optional<ResponseCache> m_cache;
+    bool m_preferCache = true;
 };
 
 // Delivers candidates that are already known, e.g. CD-Text read together with

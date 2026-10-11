@@ -128,6 +128,7 @@ set(audex_engine_SRCS
     online/gnudbprovider.cpp
     online/coverartarchive.cpp
     online/coverartfetcher.cpp
+    online/responsecache.cpp
     online/musicbrainzprovider.cpp
     models/cdinfomodel.cpp
     utils/ripjob.cpp

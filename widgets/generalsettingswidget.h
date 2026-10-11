@@ -27,4 +27,7 @@ class generalSettingsWidget : public generalSettingsWidgetUI
 public:
     explicit generalSettingsWidget(QWidget *parent = nullptr);
     ~generalSettingsWidget() override;
+
+private:
+    void updateCacheButton(); // shows the size on disk
 };

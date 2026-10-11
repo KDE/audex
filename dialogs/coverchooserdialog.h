@@ -21,6 +21,8 @@ class QNetworkAccessManager;
 
 // Size of fetched covers as set in the general settings
 Audex::CoverArtFetcher::Size preferredCoverSize();
+// The cache for answers of online services as set there; none if turned off
+std::optional<Audex::ResponseCache> onlineCache();
 
 // Shows all images the Cover Art Archive has for the release (and for the
 // release chosen for its release group) and downloads the one picked, in the

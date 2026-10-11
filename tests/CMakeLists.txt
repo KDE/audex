@@ -21,6 +21,7 @@ add_executable(
   test_cacheprobe.cpp
   test_coverartarchive.cpp
   test_gnudb.cpp
+  test_responsecache.cpp
   test_cdg.cpp
   test_encodercommand.cpp
   test_scheme.cpp
@@ -31,7 +32,8 @@ add_executable(
   ../utils/cuesheetwriter.cpp)
 
 # ${CMAKE_BINARY_DIR}: audex-version.h for the cue sheet writer
-target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/.. ${CMAKE_BINARY_DIR})
+target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..
+                                               ${CMAKE_BINARY_DIR})
 target_link_libraries(audex_tests PRIVATE audexengine)
 
 add_test(NAME audex_tests COMMAND audex_tests)

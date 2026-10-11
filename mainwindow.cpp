@@ -149,7 +149,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_lookup = new Audex::MetadataLookup(this);
     m_cdtextProvider = new Audex::PrecomputedProvider(u"cdtext"_s, i18n("CD-Text"), this);
     m_lookup->addProvider(m_cdtextProvider);
-    m_lookup->addProvider(new Audex::MusicBrainzProvider(m_network, this));
+    m_musicBrainzProvider = new Audex::MusicBrainzProvider(m_network, this);
+    m_lookup->addProvider(m_musicBrainzProvider);
     m_gnudbProvider = new Audex::GnudbProvider(m_network, this);
     m_lookup->addProvider(m_gnudbProvider);
     connect(m_lookup, &Audex::MetadataLookup::finished, this, &MainWindow::lookup_finished);
@@ -419,7 +420,7 @@ void MainWindow::setup_layout()
     m_cddaHeaderWidget = new CDDAHeaderWidget(m_cddaModel, m_cddaHeaderDock);
     connect(m_cddaHeaderWidget, &CDDAHeaderWidget::headerDataChanged, this, &MainWindow::update_layout);
     connect(m_cddaHeaderWidget, &CDDAHeaderWidget::coverFetchRequested, this, [this]() {
-        start_cover_fetch(m_coverCandidate);
+        start_cover_fetch(m_coverCandidate, false); // asked for again: from the archive
     });
     m_cddaHeaderDock->setWidget(m_cddaHeaderWidget);
     addDockWidget(Qt::LeftDockWidgetArea, m_cddaHeaderDock);
@@ -861,6 +862,16 @@ void MainWindow::start_metadata_lookup(const QString &providerId, bool automatic
     if (!providerId.isEmpty())
         providers << providerId;
 
+    // An automatic lookup takes kept answers, one the user started asks the
+    // services again: an entry may have been corrected since.
+    const QList<Audex::MetadataProvider *> online{m_musicBrainzProvider.data(), m_gnudbProvider.data()};
+    for (Audex::MetadataProvider *provider : online) {
+        if (provider) {
+            provider->setCache(onlineCache());
+            provider->setPreferCache(automatic);
+        }
+    }
+
     // read from the settings on every lookup: the dialog may have changed it
     if (m_gnudbProvider) {
         m_gnudbProvider->setEmail(Preferences::gnudbEmail());
@@ -918,16 +929,18 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
 
     // fetch the cover if the candidate knows one
     if (!m_lookupAuto || Preferences::coverLookupAuto())
-        start_cover_fetch(candidate);
+        start_cover_fetch(candidate, m_lookupAuto);
     else
         stop_cover_fetch(); // a result for the previous candidate would not fit
 }
 
 // The release's own cover, else (if allowed) the one chosen for its release group
-void MainWindow::start_cover_fetch(const Audex::MetadataCandidate &candidate)
+void MainWindow::start_cover_fetch(const Audex::MetadataCandidate &candidate, bool preferCache)
 {
     stop_cover_fetch();
     m_coverCandidate = candidate;
+    m_coverFetcher->setCache(onlineCache());
+    m_coverFetcher->setPreferCache(preferCache);
 
     for (const Audex::MetadataCandidate::Cover &cover : candidate.covers) {
         if (cover.releaseGroup && !Preferences::coverReleaseGroupFallback())

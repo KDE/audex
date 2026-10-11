@@ -22,16 +22,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_reading">
       <item>
-       <widget class="QCheckBox" name="kcfg_cddbLookupAuto">
-        <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Look up artist, album and track titles as soon as a disc is detected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="text">
-         <string>Fetch metadata automatically</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QCheckBox" name="kcfg_hdcdDetect">
         <property name="toolTip">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scan a few seconds of audio for HDCD control information when a disc is detected and mark HDCD discs in the header.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -48,6 +38,25 @@ SPDX-License-Identifier: GPL-3.0-or-later
         </property>
         <property name="text">
          <string>Detect CD+G graphics</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="groupBox_metadata">
+     <property name="title">
+      <string>Metadata</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_metadata">
+      <item>
+       <widget class="QCheckBox" name="kcfg_cddbLookupAuto">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Look up artist, album and track titles as soon as a disc is detected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>Fetch metadata automatically</string>
         </property>
        </widget>
       </item>
@@ -121,10 +130,79 @@ SPDX-License-Identifier: GPL-3.0-or-later
         </item>
        </layout>
       </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_onlineCache">
+        <item>
+         <widget class="QCheckBox" name="kcfg_onlineCache">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Response of MusicBrainz, gnudb and the Cover Art Archive are kept on this computer, so a disc inserted again is looked up without the remote service. A lookup started manually from the Fetch menu always reads the entry from remote.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Keep metadata in cache</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="kcfg_onlineCacheAge">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How long a cache entry is kept. Older entries are renewed. Besides, the oldest entries go once the cache grows beyond 200 MiB.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Never delete&lt;/b&gt; keeps entries until the cache is cleared, without a size limit.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>1 week</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1 month</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>3 months</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>1 year</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Never delete</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_onlineCache">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_clearCache">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear metadata cache now.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Clear Cache</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="2" column="0">
     <widget class="QGroupBox" name="groupBox_cover">
      <property name="title">
       <string>Cover</string>
@@ -133,7 +211,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <item>
        <widget class="QCheckBox" name="kcfg_coverLookupAuto">
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Also fetch the cover when the metadata is looked up automatically. After a lookup you started yourself, the cover is always fetched.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Also fetch the cover when the metadata is looked up automatically. After a manual lookup the cover is always fetched.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Fetch the cover with the automatic lookup</string>
@@ -223,7 +301,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </layout>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item row="3" column="0">
     <widget class="QGroupBox" name="groupBox_ripping">
      <property name="title">
       <string>Ripping and verification</string>
@@ -362,7 +440,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </layout>
     </widget>
    </item>
-   <item row="3" column="0">
+   <item row="4" column="0">
     <widget class="QGroupBox" name="groupBox_tagging">
      <property name="title">
       <string>Tagging</string>
@@ -503,7 +581,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </layout>
     </widget>
    </item>
-   <item row="4" column="0">
+   <item row="5" column="0">
     <widget class="QGroupBox" name="groupBox_after">
      <property name="title">
       <string>After ripping</string>
@@ -529,7 +607,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </layout>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="6" column="0">
     <widget class="QGroupBox" name="groupBox_3">
      <property name="title">
       <string>Paths</string>
@@ -552,7 +630,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </layout>
     </widget>
    </item>
-   <item row="6" column="0">
+   <item row="7" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Orientation::Vertical</enum>

@@ -136,17 +136,27 @@ void GnudbProvider::fail(int requestId, const QString &error)
     });
 }
 
+QUrl GnudbProvider::requestUrl(const Request &request) const
+{
+    if (request.nextMatch < 0)
+        return Gnudb::queryUrl(request.disc, hello(), m_server);
+    const Gnudb::QueryMatch &match = request.matches.at(request.nextMatch);
+    return Gnudb::readUrl(match.category, match.discId, hello(), m_server);
+}
+
 void GnudbProvider::schedule()
 {
     if (m_queue.isEmpty())
         return;
-    if (m_lastRequest.isValid() && m_lastRequest.elapsed() < m_interval) {
+    // an answer from the cache needs no break
+    const bool fromCache = cached(u"gnudb"_s, requestUrl(m_queue.head())).has_value();
+    if (!fromCache && m_lastRequest.isValid() && m_lastRequest.elapsed() < m_interval) {
         m_timer.start(int(m_interval - m_lastRequest.elapsed()));
         return;
     }
     send(m_queue.dequeue());
     if (!m_queue.isEmpty())
-        m_timer.start(m_interval);
+        m_timer.start(0); // the check above keeps the interval, cached answers need none
 }
 
 void GnudbProvider::send(Request request)
@@ -161,21 +171,24 @@ void GnudbProvider::send(Request request)
         return;
     }
 
-    QUrl url;
-    if (request.nextMatch < 0) {
-        url = Gnudb::queryUrl(request.disc, helloString, m_server);
-        if (!url.isValid()) {
+    const QUrl url = requestUrl(request);
+    if (!url.isValid()) {
+        if (request.nextMatch < 0) {
             fail(request.id, QString()); // no TOC: nothing to ask for
-            return;
-        }
-    } else {
-        const Gnudb::QueryMatch &match = request.matches.at(request.nextMatch);
-        url = Gnudb::readUrl(match.category, match.discId, helloString, m_server);
-        if (!url.isValid()) {
+        } else {
             ++request.nextMatch; // unusable entry, try the next one
             continueOrFinish(request);
-            return;
         }
+        return;
+    }
+
+    if (const std::optional<QByteArray> data = cached(u"gnudb"_s, url)) {
+        if (request.nextMatch < 0)
+            handleQuery(*data, request);
+        else
+            handleRead(*data, request);
+        continueOrFinish(request);
+        return;
     }
 
     QNetworkRequest nr(url);
@@ -226,10 +239,11 @@ void GnudbProvider::handleReply(QNetworkReply *reply, Request request)
     }
 
     const QByteArray data = reply->readAll();
-    if (request.nextMatch < 0)
-        handleQuery(data, request);
-    else
-        handleRead(data, request);
+    const QUrl url = reply->request().url();
+    // kept only if it found something: query matches, an entry read
+    const bool found = request.nextMatch < 0 ? (handleQuery(data, request), !request.matches.isEmpty()) : handleRead(data, request);
+    if (found)
+        keep(u"gnudb"_s, url, data);
     continueOrFinish(request);
 }
 
@@ -246,7 +260,7 @@ void GnudbProvider::handleQuery(const QByteArray &data, Request &request)
     request.attempts = 0;
 }
 
-void GnudbProvider::handleRead(const QByteArray &data, Request &request)
+bool GnudbProvider::handleRead(const QByteArray &data, Request &request)
 {
     const Gnudb::QueryMatch &match = request.matches.at(request.nextMatch);
     const Gnudb::ReadResult result = Gnudb::parseReadResponse(data, request.disc, match.category, match.discId, match.exact);
@@ -256,6 +270,7 @@ void GnudbProvider::handleRead(const QByteArray &data, Request &request)
         request.candidates.append(result.candidate);
     ++request.nextMatch;
     request.attempts = 0;
+    return result.found;
 }
 
 void GnudbProvider::continueOrFinish(Request request)

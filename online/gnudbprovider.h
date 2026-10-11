@@ -63,10 +63,11 @@ private:
     void send(Request request);
     void handleReply(QNetworkReply *reply, Request request);
     void handleQuery(const QByteArray &data, Request &request);
-    void handleRead(const QByteArray &data, Request &request);
+    bool handleRead(const QByteArray &data, Request &request); // the entry was found
     void continueOrFinish(Request request);
     void fail(int requestId, const QString &error);
     QString hello() const;
+    QUrl requestUrl(const Request &request) const; // query or read, by the state of the request
 
     QPointer<QNetworkAccessManager> m_network;
     QString m_email;

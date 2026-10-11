@@ -112,6 +112,14 @@ commands. It rips securely and the key points are (more details below):
   releases), from CD-Text or from gnudb (CDDB); the provider is chosen in the
   settings and each one can also be asked directly. Cover art comes from the
   Cover Art Archive.
+- **Answers of online services are kept** in `~/.cache/audex/online` (a month
+  by default, at most 200 MiB; _Never delete_ keeps them until the cache is
+  cleared), so a disc inserted again is looked up without the network. The key
+  is the whole request, which contains the table of contents, never the CDDB
+  disc ID alone, so discs whose CDDB IDs collide are not mixed up; the gnudb
+  email address is not part of it. Only answers that found something are kept.
+  A lookup started from the Fetch menu always asks the service again and
+  renews the kept answer.
 - **Profiles** control:
   - the output: one file per track, or the whole disc as one image file
     (FLAC or WAVE)

@@ -111,7 +111,22 @@
     </entry>
     <entry name="gnudbEmail" type="String">
       <label>Email address sent to gnudb (required by the service)</label>
-      <default></default>
+      <default/>
+    </entry>
+    <entry name="onlineCache" type="Bool">
+      <label>Keep metadata in cache (~/.cache/audex)</label>
+      <default>true</default>
+    </entry>
+    <entry name="onlineCacheAge" type="Enum">
+      <label>How long answers of online services are kept</label>
+      <choices>
+        <choice name="Week"/>
+        <choice name="Month"/>
+        <choice name="ThreeMonths"/>
+        <choice name="Year"/>
+        <choice name="Never"/>
+      </choices>
+      <default>ThreeMonths</default>
     </entry>
     <entry name="secureMode" type="Bool">
       <label>Secure mode</label>

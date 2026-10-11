@@ -44,6 +44,32 @@ Audex::CoverArtFetcher::Size preferredCoverSize()
     }
 }
 
+std::optional<Audex::ResponseCache> onlineCache()
+{
+    if (!Preferences::onlineCache())
+        return std::nullopt;
+    Audex::ResponseCache cache;
+    switch (Preferences::onlineCacheAge()) {
+    case Preferences::EnumOnlineCacheAge::Week:
+        cache.setMaximumAge(7);
+        break;
+    case Preferences::EnumOnlineCacheAge::ThreeMonths:
+        cache.setMaximumAge(91);
+        break;
+    case Preferences::EnumOnlineCacheAge::Year:
+        cache.setMaximumAge(365);
+        break;
+    case Preferences::EnumOnlineCacheAge::Never:
+        cache.setMaximumAge(Audex::ResponseCache::NoLimit);
+        cache.setMaximumSize(Audex::ResponseCache::NoLimit); // "never" means never
+        break;
+    default:
+        cache.setMaximumAge(30);
+        break;
+    }
+    return cache;
+}
+
 bool CoverChooserDialog::canChoose(const Audex::Metadata::Album &album)
 {
     return !album.text(Field::MusicBrainzReleaseId).isEmpty() || !album.text(Field::MusicBrainzReleaseGroupId).isEmpty();
@@ -56,6 +82,7 @@ CoverChooserDialog::CoverChooserDialog(const Audex::Metadata::Album &album, QWid
 
     m_network = new QNetworkAccessManager(this);
     m_fetcher = new Audex::CoverArtFetcher(m_network, this);
+    m_fetcher->setCache(onlineCache()); // the images of an ID never change
     connect(m_fetcher, &Audex::CoverArtFetcher::listingFinished, this, &CoverChooserDialog::listingFinished);
     connect(m_fetcher, &Audex::CoverArtFetcher::finished, this, &CoverChooserDialog::imageFinished);
 

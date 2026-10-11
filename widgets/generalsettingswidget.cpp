@@ -7,10 +7,14 @@
 
 #include "generalsettingswidget.h"
 
+#include "online/responsecache.h"
+
 #include <KFile>
 #include <KLineEdit>
+#include <KLocalizedString>
 
 #include <QCheckBox>
+#include <QLocale>
 
 generalSettingsWidget::generalSettingsWidget(QWidget *parent)
     : generalSettingsWidgetUI(parent)
@@ -31,6 +35,20 @@ generalSettingsWidget::generalSettingsWidget(QWidget *parent)
     follows(kcfg_hdcdDetect, kcfg_hdcdTag);
     follows(kcfg_cdgDetect, kcfg_cdgRead); // only discs the detection found with graphics are read
     follows(kcfg_embedCoverScale, kcfg_embedCoverMaxSize);
+    follows(kcfg_onlineCache, kcfg_onlineCacheAge);
+
+    connect(pushButton_clearCache, &QPushButton::clicked, this, [this]() {
+        Audex::ResponseCache().clear();
+        updateCacheButton();
+    });
+    updateCacheButton();
+}
+
+void generalSettingsWidget::updateCacheButton()
+{
+    const qint64 size = Audex::ResponseCache().size();
+    pushButton_clearCache->setEnabled(size > 0);
+    pushButton_clearCache->setText(size > 0 ? i18n("Clear Cache (%1)", QLocale().formattedDataSize(size)) : i18n("Clear Cache"));
 }
 
 generalSettingsWidget::~generalSettingsWidget()

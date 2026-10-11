@@ -38,6 +38,27 @@ void CoverArtFetcher::setMaximumBytes(qint64 bytes)
     m_maximumBytes = bytes;
 }
 
+void CoverArtFetcher::setCache(const std::optional<ResponseCache> &cache)
+{
+    m_cache = cache;
+}
+
+void CoverArtFetcher::setPreferCache(bool prefer)
+{
+    m_preferCache = prefer;
+}
+
+std::optional<QByteArray> CoverArtFetcher::cached(const QUrl &url) const
+{
+    return m_cache && m_preferCache ? m_cache->find(u"coverart"_s, url) : std::nullopt;
+}
+
+void CoverArtFetcher::keep(const QUrl &url, const QByteArray &data)
+{
+    if (m_cache)
+        m_cache->insert(u"coverart"_s, url, data);
+}
+
 QUrl CoverArtFetcher::sizedUrl(const QUrl &url, Size size)
 {
     if (size == Size::Original || !url.host().endsWith(u"coverartarchive.org"_s))
@@ -66,7 +87,20 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
         return id;
     }
 
-    QNetworkReply *reply = m_network->get(request(sizedUrl(url, size)));
+    const QUrl sized = sizedUrl(url, size);
+    if (const std::optional<QByteArray> data = cached(sized)) {
+        const auto cover = Metadata::CoverArt::fromData(*data, sized.toString());
+        if (cover) {
+            m_fromCache.insert(id);
+            QTimer::singleShot(0, this, [this, id, cover] {
+                if (m_fromCache.remove(id)) // not canceled
+                    Q_EMIT finished(id, *cover, QString());
+            });
+            return id;
+        }
+    }
+
+    QNetworkReply *reply = m_network->get(request(sized));
     m_replies.insert(id, reply);
 
     connect(reply, &QNetworkReply::downloadProgress, this, [this, id, reply](qint64 received, qint64 total) {
@@ -81,7 +115,7 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
         Q_EMIT progress(id, received, total);
     });
 
-    connect(reply, &QNetworkReply::finished, this, [this, id, reply] {
+    connect(reply, &QNetworkReply::finished, this, [this, id, reply, sized] {
         reply->deleteLater();
         if (m_replies.value(id) != reply)
             return; // canceled
@@ -96,11 +130,13 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
             Q_EMIT finished(id, Metadata::CoverArt(), u"Cover download failed: %1"_s.arg(reply->errorString()));
             return;
         }
-        const auto cover = Metadata::CoverArt::fromData(reply->readAll(), reply->url().toString());
+        const QByteArray data = reply->readAll();
+        const auto cover = Metadata::CoverArt::fromData(data, reply->url().toString());
         if (!cover) {
             Q_EMIT finished(id, Metadata::CoverArt(), u"The downloaded file is not an image"_s);
             return;
         }
+        keep(sized, data);
         Q_EMIT finished(id, *cover, QString());
     });
     return id;
@@ -145,6 +181,7 @@ int CoverArtFetcher::fetchListing(const QUrl &url)
 
 void CoverArtFetcher::cancel(int requestId)
 {
+    m_fromCache.remove(requestId);
     if (QPointer<QNetworkReply> reply = m_replies.take(requestId)) {
         disconnect(reply, nullptr, this, nullptr);
         reply->abort(); // closes the connection now, not only when the reply is deleted
@@ -154,7 +191,7 @@ void CoverArtFetcher::cancel(int requestId)
 
 bool CoverArtFetcher::isRunning(int requestId) const
 {
-    return m_replies.contains(requestId);
+    return m_replies.contains(requestId) || m_fromCache.contains(requestId);
 }
 
 QNetworkRequest CoverArtFetcher::request(const QUrl &url) const

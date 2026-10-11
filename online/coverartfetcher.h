@@ -10,10 +10,14 @@
 #include <QHash>
 #include <QObject>
 #include <QPointer>
+#include <QSet>
 #include <QUrl>
+
+#include <optional>
 
 #include "metadata/metadata.h"
 #include "online/coverartarchive.h"
+#include "online/responsecache.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -43,6 +47,11 @@ public:
 
     void setUserAgent(const QString &userAgent);
     void setMaximumBytes(qint64 bytes); // default 25 MiB
+    // Images kept on disk; as with the metadata providers, with preferCache a
+    // kept image is taken without asking the archive. Listings are always
+    // asked for: the archive may have new images.
+    void setCache(const std::optional<ResponseCache> &cache);
+    void setPreferCache(bool prefer);
 
     // Returns a request id; finished() is always emitted asynchronously.
     int fetch(const QUrl &url, Size size = Size::Original);
@@ -65,6 +74,11 @@ Q_SIGNALS:
 private:
     QPointer<QNetworkAccessManager> m_network;
     QNetworkRequest request(const QUrl &url) const;
+    std::optional<QByteArray> cached(const QUrl &url) const;
+    void keep(const QUrl &url, const QByteArray &data);
+    std::optional<ResponseCache> m_cache;
+    bool m_preferCache = true;
+    QSet<int> m_fromCache; // answered from the cache, not yet emitted
     QString m_userAgent;
     qint64 m_maximumBytes = 25 * 1024 * 1024;
     QHash<int, QPointer<QNetworkReply>> m_replies;

@@ -42,6 +42,7 @@ namespace Audex
 {
 class CDInfoModel;
 class GnudbProvider;
+class MusicBrainzProvider;
 class PrecomputedProvider;
 struct DiscReadResult;
 
@@ -100,7 +101,7 @@ private Q_SLOTS:
     void lookup_finished(int lookupId, const Audex::MetadataCandidates &candidates);
     void lookup_provider_failed(int lookupId, const QString &providerId, const QString &error);
     void cover_fetch_finished(int requestId, const Audex::Metadata::CoverArt &cover, const QString &error);
-    void start_cover_fetch(const Audex::MetadataCandidate &candidate);
+    void start_cover_fetch(const Audex::MetadataCandidate &candidate, bool preferCache);
     void stop_cover_fetch(); // cancels a running fetch, the cover state goes back to idle
     void fetch_next_cover();
 
@@ -137,6 +138,7 @@ private:
     QPointer<QNetworkAccessManager> m_network;
     QPointer<Audex::MetadataLookup> m_lookup;
     QPointer<Audex::PrecomputedProvider> m_cdtextProvider;
+    QPointer<Audex::MusicBrainzProvider> m_musicBrainzProvider;
     QPointer<Audex::GnudbProvider> m_gnudbProvider;
     QPointer<Audex::CoverArtFetcher> m_coverFetcher;
     QFutureWatcher<std::optional<Audex::Hdcd::Result>> m_hdcdWatcher; // empty: the drive could not be opened

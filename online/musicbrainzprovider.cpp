@@ -88,13 +88,15 @@ void MusicBrainzProvider::schedule()
 {
     if (m_queue.isEmpty())
         return;
-    if (m_lastRequest.isValid() && m_lastRequest.elapsed() < m_interval) {
+    // an answer from the cache needs no break
+    const bool fromCache = cached(u"musicbrainz"_s, MusicBrainz::discIdLookupUrl(m_queue.head().disc, m_server)).has_value();
+    if (!fromCache && m_lastRequest.isValid() && m_lastRequest.elapsed() < m_interval) {
         m_timer.start(int(m_interval - m_lastRequest.elapsed()));
         return;
     }
     send(m_queue.dequeue());
     if (!m_queue.isEmpty())
-        m_timer.start(m_interval);
+        m_timer.start(0); // the check above keeps the interval, cached answers need none
 }
 
 void MusicBrainzProvider::send(Request request)
@@ -106,6 +108,12 @@ void MusicBrainzProvider::send(Request request)
         QTimer::singleShot(0, this, [this, id, error] {
             Q_EMIT finished(id, {}, error);
         });
+        return;
+    }
+
+    if (const std::optional<QByteArray> data = cached(u"musicbrainz"_s, url)) {
+        const MusicBrainz::ParseResult parsed = MusicBrainz::parseDiscIdResponse(*data, request.disc);
+        Q_EMIT finished(request.id, parsed.candidates, parsed.error); // called by the timer, not by lookup()
         return;
     }
 
@@ -154,7 +162,10 @@ void MusicBrainzProvider::handleReply(QNetworkReply *reply, const Request &reque
         return;
     }
 
-    const MusicBrainz::ParseResult parsed = MusicBrainz::parseDiscIdResponse(reply->readAll(), request.disc);
+    const QByteArray data = reply->readAll();
+    const MusicBrainz::ParseResult parsed = MusicBrainz::parseDiscIdResponse(data, request.disc);
+    if (parsed.error.isEmpty() && !parsed.candidates.isEmpty())
+        keep(u"musicbrainz"_s, reply->request().url(), data);
     Q_EMIT finished(request.id, parsed.candidates, parsed.error);
 }
 
