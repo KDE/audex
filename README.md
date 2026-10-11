@@ -494,7 +494,8 @@ used, the number of corrected values and their positions (disc time). Audex
 then reads the repaired image back and verifies it again: the track CRCs and
 AccurateRip checksums in the log are those of the repaired image, each
 repaired track names its CRC from before, and AccurateRip and the CTDB are
-checked once more.
+checked once more. Only if the repaired image cannot be read back, the log
+says so and these values still refer to the image before the repair.
 
 How much can be repaired: the audio is split into rows of 10 sectors, and up
 to 8 wrong 16 bit values per column of this grid can be corrected. That is
@@ -543,8 +544,6 @@ original CUETools code, so it uses the same data as CUETools does.
 - The CTDB repair works for image rips only and needs the whole disc. It
   does not yet use the positions of suspicious sectors, which would allow
   repairing more damage.
-- After a CTDB repair the track CRCs and the AccurateRip results in the rip
-  log still refer to the image before the repair.
 
 ---
 
