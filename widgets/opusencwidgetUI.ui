@@ -123,7 +123,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          <string/>
         </property>
         <property name="minimum">
-         <number>4</number>
+         <number>32</number>
         </property>
         <property name="maximum">
          <number>510</number>
@@ -167,7 +167,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <item row="0" column="0" colspan="3">
        <widget class="QSlider" name="horizontalSlider_bitrate">
         <property name="minimum">
-         <number>4</number>
+         <number>32</number>
         </property>
         <property name="maximum">
          <number>510</number>
