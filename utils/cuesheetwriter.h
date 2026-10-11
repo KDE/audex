@@ -27,8 +27,19 @@ public:
     // single image file (single file rip); tracks = written TOC track numbers
     QStringList cueSheet(const QString &binFilename, const QList<int> &tracks, const bool writeMCN = false, const bool writeISRC = false) const;
 
-    // one audio file per track
-    QStringList cueSheet(const QStringList &filenames, const QList<int> &tracks, const bool writeMCN = false, const bool writeISRC = false) const;
+    // Where the pregap of a track lies in the track files
+    enum class Pregaps {
+        AppendedToPrevious, // end of the previous file ("gaps appended")
+        WithOwnTrack // start of the track's own file ("gaps prepended")
+    };
+
+    // one audio file per track, the names relative to the cue sheet; hidden
+    // track one audio (track 0) is the pregap of the first track
+    QStringList cueSheet(const QStringList &filenames,
+                         const QList<int> &tracks,
+                         const bool writeMCN = false,
+                         const bool writeISRC = false,
+                         Pregaps pregaps = Pregaps::AppendedToPrevious) const;
 
 private:
     QStringList header(const bool writeMCN) const;

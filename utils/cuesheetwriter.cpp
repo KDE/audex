@@ -134,36 +134,50 @@ QStringList CueSheetWriter::cueSheet(const QString &binFilename, const QList<int
     return result;
 }
 
-QStringList CueSheetWriter::cueSheet(const QStringList &filenames, const QList<int> &tracks, const bool writeMCN, const bool writeISRC) const
+QStringList CueSheetWriter::cueSheet(const QStringList &filenames, const QList<int> &tracks, const bool writeMCN, const bool writeISRC, Pregaps pregaps) const
 {
     QStringList result = header(writeMCN);
 
+    // the pregap of the first audio track is never in a track file, only
+    // hidden track one audio has its own one
+    const int firstAudio = info.toc().firstAudioTrackNumber();
     int position = 1;
-    int previous = -1; // TOC number and first sector of the previous file
-    int previousLba = 0;
+    int previous = -1; // TOC number of the previous file, 0 = hidden track one audio
+    int previousLba = 0; // and its first sector
     for (int i = 0; i < filenames.count() && i < tracks.count(); ++i) {
         const int number = tracks.at(i);
         const auto entry = info.entry(number);
         if (!entry || !entry->audio)
             continue;
-        const QFileInfo fileInfo(filenames.at(i));
-        const QString file = u"FILE \"%1\" %2"_s.arg(fileInfo.fileName(), p_filetype(filenames.at(i)));
-        const QString track = u"  TRACK %1 AUDIO"_s.arg(position, 2, 10, QLatin1Char('0'));
-        // the pregap lies at the end of the previous file (gaps appended to the previous track)
-        const int index00 = subchannel.index00.value(number, -1);
-        if (index00 >= 0 && previous == number - 1) {
-            result << track << trackLines(number, writeISRC);
-            result << u"    INDEX 00 %1"_s.arg(cueMsf(index00 - previousLba));
+        const QString file = u"FILE \"%1\" %2"_s.arg(filenames.at(i), p_filetype(filenames.at(i)));
+        if (entry->hidden) {
             result << file;
+            previous = 0;
+            previousLba = entry->firstLba;
+            continue;
+        }
+
+        const QString track = u"  TRACK %1 AUDIO"_s.arg(position, 2, 10, QLatin1Char('0'));
+        const int index00 = subchannel.index00.value(number, -1);
+        int fileLba = entry->firstLba; // first sector of this track's file
+        if (previous == 0 && number == firstAudio) {
+            // the hidden track one audio file is the pregap
+            result << track << trackLines(number, writeISRC) << u"    INDEX 00 00:00:00"_s << file;
+        } else if (pregaps == Pregaps::WithOwnTrack && number != firstAudio && index00 >= 0 && index00 < entry->firstLba) {
+            fileLba = index00;
+            result << file << track << trackLines(number, writeISRC) << u"    INDEX 00 00:00:00"_s;
+        } else if (pregaps == Pregaps::AppendedToPrevious && previous == number - 1 && index00 >= previousLba && index00 < entry->firstLba) {
+            // a pregap behind a track that was not ripped is in no file
+            result << track << trackLines(number, writeISRC) << u"    INDEX 00 %1"_s.arg(cueMsf(index00 - previousLba)) << file;
         } else {
             result << file << track << trackLines(number, writeISRC);
         }
-        result << u"    INDEX 01 00:00:00"_s;
+        result << u"    INDEX 01 %1"_s.arg(cueMsf(entry->firstLba - fileLba));
         const QList<int> indexes = subchannel.indexes.value(number);
         for (int k = 0; k < indexes.size(); ++k)
-            result << u"    INDEX %1 %2"_s.arg(k + 2, 2, 10, QLatin1Char('0')).arg(cueMsf(indexes.at(k) - entry->firstLba));
+            result << u"    INDEX %1 %2"_s.arg(k + 2, 2, 10, QLatin1Char('0')).arg(cueMsf(indexes.at(k) - fileLba));
         previous = number;
-        previousLba = entry->firstLba;
+        previousLba = fileLba;
         ++position;
     }
 
