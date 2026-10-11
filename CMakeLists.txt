@@ -50,10 +50,15 @@ find_package(
              WidgetsAddons
              XmlGui)
 
-# Sandboxed packages (e.g. Flatpak) cannot run the user's programs: without
-# the custom encoder and the command after the rip Audex starts none.
-option(AUDEX_SANDBOX "Build without features that start external programs (custom encoder, command after the rip)" OFF)
-add_feature_info(AUDEX_SANDBOX AUDEX_SANDBOX "No custom encoder and no command after the rip, for sandboxed packages")
+# Sandboxed packages (e.g. Flatpak) cannot run the user's programs: without the
+# custom encoder and the command after the rip Audex starts none.
+option(
+  AUDEX_SANDBOX
+  "Build without features that start external programs (custom encoder, command after the rip)"
+  OFF)
+add_feature_info(
+  AUDEX_SANDBOX AUDEX_SANDBOX
+  "No custom encoder and no command after the rip, for sandboxed packages")
 if(AUDEX_SANDBOX)
   add_compile_definitions(AUDEX_SANDBOX)
 endif()
@@ -135,7 +140,8 @@ set(audex_engine_SRCS
     utils/imagerepair.cpp
     utils/discsource.cpp
     utils/encodercommand.cpp
-    utils/scheme.cpp)
+    utils/scheme.cpp
+    utils/cuesheetwriter.cpp)
 
 add_library(audexengine STATIC ${audex_engine_SRCS})
 target_include_directories(audexengine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
@@ -252,7 +258,6 @@ set(audex_SRCS
     utils/playlist.cpp
     utils/encoderassistant.cpp
     utils/parameters.cpp
-    utils/cuesheetwriter.cpp
     utils/devicesettings.cpp
     utils/disccontroller.cpp
     utils/riprequestbuilder.cpp

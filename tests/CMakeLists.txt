@@ -28,12 +28,9 @@ add_executable(
   test_cover.cpp
   test_tagwriter.cpp
   test_cuesheet.cpp
-  test_ripreport.cpp
-  ../utils/cuesheetwriter.cpp)
+  test_ripreport.cpp)
 
-# ${CMAKE_BINARY_DIR}: audex-version.h for the cue sheet writer
-target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..
-                                               ${CMAKE_BINARY_DIR})
+target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 target_link_libraries(audex_tests PRIVATE audexengine)
 
 add_test(NAME audex_tests COMMAND audex_tests)
