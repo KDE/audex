@@ -12,9 +12,8 @@
 # - --device=all is the only way to reach /dev/sr* for SG_IO/MMC access;
 #   Flatpak cannot grant single devices.
 # - UDisks2 access lets Solid enumerate and watch optical drives.
-# - Custom encoder commands run inside the sandbox: only binaries bundled
-#   here (or in the runtime) are available. vorbis-tools is bundled so the
-#   Ogg Vorbis preset works out of the box; FLAC/MP3/Opus/WAVE are built in.
+# - Built with AUDEX_SANDBOX: no custom encoder and no command after the
+#   rip, Audex starts no programs. FLAC/MP3/Opus/WAVE are built in.
 app-id: org.kde.audex
 runtime: org.kde.Platform
 runtime-version: "6.10"
@@ -86,17 +85,11 @@ modules:
         url: https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz
         sha256: 8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9
 
-  - name: vorbis-tools # oggenc for the Ogg Vorbis custom-encoder preset
-    buildsystem: autotools
-    sources:
-      - type: archive
-        url: https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz
-        sha256: a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde
-
   - name: audex
     buildsystem: cmake
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DAUDEX_SANDBOX=ON
     sources:
       # development: build the working copy next to this manifest
       - type: dir

@@ -91,11 +91,6 @@ parts:
       - libasound2
       - libasound2-plugins
       - libasound2-data
-      - flac
-      - lame
-      - opus-tools
-      - vorbis-tools
-      - faac
       - libxkbcommon0
       - libaudio2
       - libflac12t64
@@ -108,6 +103,7 @@ parts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DQT_MAJOR_VERSION=6
       - -DBUILD_TESTING=OFF
+      - -DAUDEX_SANDBOX=ON # no custom encoder, no command after the rip
     prime:
       - -usr/lib/*/cmake/*
       - -usr/include/*
