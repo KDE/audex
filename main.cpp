@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
                         i18n("CUETools; the CTDB verification and repair follow its implementation"),
                         QString(),
                         QStringLiteral("https://github.com/gchudov/cuetools.net"));
+    aboutData.addCredit(i18n("René Mogensen"), i18n("gnudb.org; Provides online disc lookup database"), QString(), QStringLiteral("https://gnudb.org"));
     aboutData.addCredit(i18n("Thomas Schmitt"),
                         i18n("libburn; the CD-R/RW manufacturer codes follow its table"),
                         QString(),
