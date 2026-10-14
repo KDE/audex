@@ -231,6 +231,11 @@ void CDInfo::applyCandidate(const MetadataCandidate &candidate, Metadata::MergeP
     completeMetadata();
 }
 
+void CDInfo::clearMetadata()
+{
+    applyCandidate(MetadataCandidate());
+}
+
 void CDInfo::completeMetadata()
 {
     if (!m_cddbDiscId.isEmpty())

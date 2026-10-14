@@ -326,6 +326,13 @@ void MainWindow::setup_actions()
     actionCollection()->setDefaultShortcut(editAction, Qt::CTRL | Qt::Key_D);
     connect(editAction, &QAction::triggered, this, &MainWindow::edit);
 
+    auto *clearAction = new QAction(this);
+    clearAction->setText(i18n("Clear"));
+    clearAction->setIcon(QIcon::fromTheme(u"edit-clear"_s));
+    clearAction->setToolTip(i18n("Removes artist, titles and the cover of this disc"));
+    actionCollection()->addAction(u"clear_metadata"_s, clearAction);
+    connect(clearAction, &QAction::triggered, this, &MainWindow::clear_metadata);
+
     auto *extractAction = new QAction(this);
     extractAction->setText(i18n("Rip..."));
     extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
@@ -474,6 +481,33 @@ void MainWindow::fetch_metadata_gnudb()
 void MainWindow::edit()
 {
     m_cddaHeaderWidget->edit_data();
+}
+
+// Back to the state of a disc nobody looked up. The cache keeps its answers:
+// a later lookup may want them.
+void MainWindow::clear_metadata()
+{
+    if (m_cddaModel->isEmpty())
+        return;
+    if (KMessageBox::warningContinueCancel(this,
+                                           i18n("Do you really want to remove artist, titles and the cover of this disc?"),
+                                           i18n("Clear Metadata"),
+                                           KStandardGuiItem::clear(),
+                                           KStandardGuiItem::cancel(),
+                                           u"no_clear_metadata_warn"_s)
+        != KMessageBox::Continue)
+        return;
+
+    // a lookup or cover still on its way would fill it in again
+    if (m_lookupId > 0 && m_lookup->isRunning(m_lookupId)) {
+        m_lookup->cancel(m_lookupId);
+        enable_fetch_actions(m_layoutEnabled);
+    }
+    stop_cover_fetch();
+    m_coverCandidate = Audex::MetadataCandidate();
+
+    m_cddaModel->clearMetadata();
+    update_layout();
 }
 
 void MainWindow::rip()
@@ -963,10 +997,7 @@ void MainWindow::start_metadata_lookup(const QString &providerId, bool automatic
         }
     }
 
-    actionCollection()->action("cddbfetch")->setEnabled(false);
-    actionCollection()->action("cddbfetch_cdtext")->setEnabled(false);
-    actionCollection()->action("cddbfetch_musicbrainz")->setEnabled(false);
-    actionCollection()->action("cddbfetch_gnudb")->setEnabled(false);
+    enable_fetch_actions(false);
     m_lookupId = m_lookup->start(m_cddaModel->cdInfo(), providers);
 }
 
@@ -975,10 +1006,7 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
     if (lookupId != m_lookupId)
         return;
 
-    actionCollection()->action("cddbfetch")->setEnabled(m_layoutEnabled);
-    actionCollection()->action("cddbfetch_cdtext")->setEnabled(m_layoutEnabled);
-    actionCollection()->action("cddbfetch_musicbrainz")->setEnabled(m_layoutEnabled);
-    actionCollection()->action("cddbfetch_gnudb")->setEnabled(m_layoutEnabled);
+    enable_fetch_actions(m_layoutEnabled);
 
     if (candidates.isEmpty()) {
         if (!m_lookupErrors.isEmpty()) {
@@ -1039,6 +1067,12 @@ void MainWindow::start_cover_fetch(const Audex::MetadataCandidate &candidate, bo
     }
     m_cddaHeaderWidget->setCoverState(CDDAHeaderWidget::CoverState::Loading);
     fetch_next_cover();
+}
+
+void MainWindow::enable_fetch_actions(bool enabled)
+{
+    for (const char *name : {"cddbfetch", "cddbfetch_cdtext", "cddbfetch_musicbrainz", "cddbfetch_gnudb"})
+        actionCollection()->action(QString::fromLatin1(name))->setEnabled(enabled);
 }
 
 void MainWindow::stop_cover_fetch()
@@ -1230,11 +1264,9 @@ void MainWindow::enable_layout(bool enabled)
     actionCollection()->action("profile_label")->setEnabled((m_profileModel->rowCount() > 0) && (enabled));
     m_profileComboBox->setEnabled((m_profileModel->rowCount() > 0) && (enabled));
     actionCollection()->action("profile")->setEnabled((m_profileModel->rowCount() > 0) && (enabled));
-    actionCollection()->action("cddbfetch")->setEnabled(enabled);
-    actionCollection()->action("cddbfetch_cdtext")->setEnabled(enabled);
-    actionCollection()->action("cddbfetch_musicbrainz")->setEnabled(enabled);
-    actionCollection()->action("cddbfetch_gnudb")->setEnabled(enabled);
+    enable_fetch_actions(enabled);
     actionCollection()->action("edit")->setEnabled(enabled);
+    actionCollection()->action(u"clear_metadata"_s)->setEnabled(enabled);
     actionCollection()->action("eject")->setEnabled(enabled || !m_discController->currentDriveUdi().isEmpty());
     actionCollection()->action("splittitles")->setEnabled(enabled);
     actionCollection()->action("swapartistsandtitles")->setEnabled(enabled);

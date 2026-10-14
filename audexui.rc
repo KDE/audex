@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="audex" version="4">
+<kpartgui name="audex" version="5">
   <MenuBar>
     <Menu name="file" noMerge="1">
       <text>&amp;Audex</text>
@@ -21,6 +21,7 @@
       </Menu>
       <Separator/>
       <Action name="edit"/>
+      <Action name="clear_metadata"/>
       <Separator/>
       <Menu name="titlecorrectiontools">
         <text context="@title:menu">Title Correction Tools</text>

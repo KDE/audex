@@ -53,7 +53,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <item>
        <widget class="QCheckBox" name="kcfg_cddbLookupAuto">
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Look up artist, album and track titles as soon as a disc is detected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Look up artist, album and track titles when a disc is read: inserted, in the drive when Audex starts, or after switching the drive. Metadata that was cleared is not looked up again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Fetch metadata automatically</string>

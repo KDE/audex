@@ -145,6 +145,10 @@ public:
     // KeepExisting: only missing values are filled from the candidate.
     void applyCandidate(const MetadataCandidate &candidate, Metadata::MergePolicy policy = Metadata::MergePolicy::Overwrite);
 
+    // Removes the metadata and the cover. What belongs to the disc stays: disc
+    // identifiers, MCN and ISRCs.
+    void clearMetadata();
+
     // Fills derived values: disc identifiers, "various artists" guess (if not
     // decided yet) and the artist of the hidden track. Called by
     // applyCandidate(); does not confirm the modifications.

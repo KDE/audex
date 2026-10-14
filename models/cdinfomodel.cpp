@@ -476,6 +476,11 @@ void CDInfoModel::applyCandidate(const MetadataCandidate &candidate, Metadata::M
     Q_EMIT metadataChanged();
 }
 
+void CDInfoModel::clearMetadata()
+{
+    applyCandidate(MetadataCandidate());
+}
+
 void CDInfoModel::swapTrackArtistsAndTitles()
 {
     if (m_info.metadata().swapTrackArtistsAndTitles())

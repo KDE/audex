@@ -29,6 +29,7 @@ add_executable(
   test_cover.cpp
   test_tagwriter.cpp
   test_cuesheet.cpp
+  test_cdinfo.cpp
   test_ripreport.cpp
   test_ripverify.cpp)
 

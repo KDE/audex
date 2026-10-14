@@ -70,6 +70,7 @@ private Q_SLOTS:
     void fetch_metadata_musicbrainz();
     void fetch_metadata_gnudb();
     void edit();
+    void clear_metadata();
     void rip();
     void check_rip();
     void configure();
@@ -103,6 +104,7 @@ private Q_SLOTS:
     void lookup_provider_failed(int lookupId, const QString &providerId, const QString &error);
     void cover_fetch_finished(int requestId, const Audex::Metadata::CoverArt &cover, const QString &error);
     void start_cover_fetch(const Audex::MetadataCandidate &candidate, bool preferCache);
+    void enable_fetch_actions(bool enabled);
     void stop_cover_fetch(); // cancels a running fetch, the cover state goes back to idle
     void fetch_next_cover();
 

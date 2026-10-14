@@ -125,6 +125,7 @@ public:
 
     // --- bulk edits ---
     void applyCandidate(const MetadataCandidate &candidate, Metadata::MergePolicy policy = Metadata::MergePolicy::Overwrite);
+    void clearMetadata(); // see CDInfo::clearMetadata()
     void swapTrackArtistsAndTitles();
     void swapArtistAndAlbum();
     void splitTrackTitles(const QString &divider);
