@@ -5,8 +5,6 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-// audex-cli rip: track files as WAVE, cue sheet and log, AccurateRip
-
 #include "commands.h"
 #include "common.h"
 
@@ -133,10 +131,12 @@ int rip(const QStringList &arguments)
     const QCommandLineOption c2(u"c2"_s, u"Use the C2 error pointers of the drive (only if they are reliable)."_s);
     const QCommandLineOption overread(u"overread"_s, u"Read into the lead-in and lead-out (if the drive can)."_s);
     const QCommandLineOption speed(u"speed"_s, u"Read speed (default: the maximum)."_s, u"x"_s, u"0"_s);
-    const QCommandLineOption pregapsWithTrack(u"pregaps-with-track"_s, u"Put each pregap at the start of its own track's file (default: at the end of the previous one)."_s);
+    const QCommandLineOption pregapsWithTrack(u"pregaps-with-track"_s,
+                                              u"Put each pregap at the start of its own track's file (default: at the end of the previous one)."_s);
+    const QCommandLineOption cdg(u"cdg"_s, u"Save CD+G graphics as .cdg files next to the tracks, if the disc has them."_s);
     const QCommandLineOption overwrite(u"overwrite"_s, u"Overwrite existing files."_s);
     const QCommandLineOption quiet({u"q"_s, u"quiet"_s}, u"No progress and no messages, only warnings and the result."_s);
-    parser.addOptions({device, tracks, output, offset, noAccurateRip, fast, c2, overread, speed, pregapsWithTrack, overwrite, quiet});
+    parser.addOptions({device, tracks, output, offset, noAccurateRip, fast, c2, overread, speed, pregapsWithTrack, cdg, overwrite, quiet});
     parser.process(arguments);
 
     bool ok = false;
@@ -216,7 +216,10 @@ int rip(const QStringList &arguments)
     const QString logPath = dir.absoluteFilePath(u"disc.log"_s);
     if (!parser.isSet(overwrite)) {
         QStringList existing;
-        const QStringList paths = QStringList(filePaths.values()) << cuePath << logPath;
+        QStringList paths = QStringList(filePaths.values()) << cuePath << logPath;
+        if (parser.isSet(cdg))
+            for (const QString &path : filePaths)
+                paths << path.chopped(4) + u".cdg"_s; // next to the track: 01.cdg
         for (const QString &path : paths)
             if (QFile::exists(path))
                 existing << QDir::toNativeSeparators(path);
@@ -254,6 +257,7 @@ int rip(const QStringList &arguments)
     rq.scanSubchannel = true;
     rq.scanIsrcMcn = true;
     rq.pregapsWithTrack = parser.isSet(pregapsWithTrack);
+    rq.readCdg = parser.isSet(cdg); // the rip checks first whether the disc has graphics
     if (const std::optional<bool> stream = reportedAccurateStream(drive.id); stream && !*stream)
         rq.inaccurateStream = true;
     rq.logFilePath = logPath;
@@ -288,6 +292,13 @@ int rip(const QStringList &arguments)
                        .toLocal8Bit()
                        .constData(),
                    stderr);
+        std::fflush(stderr);
+        progressShown = true;
+    });
+    QObject::connect(&job, &RipJob::cdgProgress, &loop, [&](int pass, qint64 done, qint64 total, int, qint64) {
+        if (!progressLine || total <= 0)
+            return;
+        std::fputs(u"\r\033[KCD+G graphics, pass %1, %2 %"_s.arg(pass).arg(int(done * 100 / total)).toLocal8Bit().constData(), stderr);
         std::fflush(stderr);
         progressShown = true;
     });
@@ -347,10 +358,14 @@ int rip(const QStringList &arguments)
     }));
     QStringList out;
     out << u"Tracks:       %1 written to %2"_s.arg(summary.files.size()).arg(QDir::toNativeSeparators(dir.absolutePath()));
-    out << u"Cue sheet:    %1%2"_s.arg(QDir::toNativeSeparators(cuePath), summary.subchannel.supported ? QString() : u" (no pregaps: the drive gave no Q sub-channel)"_s);
+    out << u"Cue sheet:    %1%2"_s.arg(QDir::toNativeSeparators(cuePath),
+                                       summary.subchannel.supported ? QString() : u" (no pregaps: the drive gave no Q sub-channel)"_s);
+    if (parser.isSet(cdg))
+        out << u"CD+G:         %1"_s.arg(summary.cdgFiles.isEmpty() ? u"no graphics on the disc, no .cdg files"_s
+                                                                    : u"%1 .cdg file(s) next to the tracks"_s.arg(summary.cdgFiles.size()));
     out << u"Log:          %1"_s.arg(QDir::toNativeSeparators(summary.logFile.isEmpty() ? u"not written"_s : summary.logFile));
     out << u"Reading:      %1"_s.arg(summary.suspiciousPositions > 0 ? u"%1 suspicious position(s), see the log"_s.arg(summary.suspiciousPositions)
-                                                                         : u"no errors"_s);
+                                                                     : u"no errors"_s);
     int code = ExitOk;
     if (!accurateRip) {
         out << u"AccurateRip:  NOT CHECKED (--no-accuraterip)"_s;

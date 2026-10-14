@@ -328,10 +328,16 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
 
 // ---- verification ----------------------------------------------------------
 
-QStringList formatVerification(const QList<Response> &responses, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *inaccurateTracks)
+QStringList formatVerification(const QList<Response> &responses,
+                               const QList<Rip::SegmentResult> &segments,
+                               const Cdda::Toc &toc,
+                               int *inaccurateTracks,
+                               int *accurateTracks)
 {
     if (inaccurateTracks)
         *inaccurateTracks = 0;
+    if (accurateTracks)
+        *accurateTracks = 0;
 
     const QList<int> audio = toc.audioTrackNumbers();
 
@@ -403,6 +409,8 @@ QStringList formatVerification(const QList<Response> &responses, const QList<Rip
 
     if (inaccurateTracks)
         *inaccurateTracks = inaccurate;
+    if (accurateTracks)
+        *accurateTracks = accurate;
 
     l << QString();
     if (inaccurate > 0)

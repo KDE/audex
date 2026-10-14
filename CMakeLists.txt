@@ -113,6 +113,7 @@ set(audex_engine_SRCS
     core/subchannel.cpp
     core/hdcd.cpp
     core/toc.cpp
+    device/drivelock.cpp
     device/mmc.cpp
     device/mmcsectorreader.cpp
     device/scsidevice.cpp
@@ -138,6 +139,7 @@ set(audex_engine_SRCS
     models/cdinfomodel.cpp
     utils/ripjob.cpp
     utils/imagerepair.cpp
+    utils/ripverify.cpp
     utils/discsource.cpp
     utils/encodercommand.cpp
     utils/scheme.cpp
@@ -344,6 +346,12 @@ ecm_add_app_icon(
   icons/128-apps-org.kde.audex.png)
 
 install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
+
+# command line tool: the engine only, no KDE Frameworks
+add_executable(audex-cli cli/main.cpp cli/common.cpp cli/disc.cpp cli/rip.cpp)
+target_link_libraries(audex-cli PRIVATE audexengine)
+install(TARGETS audex-cli DESTINATION ${KDE_INSTALL_BINDIR})
+
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/org.kde.audex.desktop)
   install(PROGRAMS org.kde.audex.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 endif()

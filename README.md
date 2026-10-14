@@ -10,6 +10,7 @@ commands. It rips securely and the key points are (more details below):
 - optional C2 error pointers
 - AccurateRip verification
 - CUETools database (CTDB) support: Verification and repair (of image rips)
+- CLI interface
 
 ---
 
@@ -168,6 +169,11 @@ Distributions usually grant it through the `cdrom` or `optical` group or
 through systemd-logind's seat ACLs. Write access is needed for commands such
 as SET CD SPEED. Without it Audex cannot change the read speed.
 
+While Audex or audex-cli reads a drive, it holds an advisory lock on the
+device node, so the other one does not read in between: the GUI then shows
+the drive as in use, audex-cli stops with an error. Other programs do not
+look at this lock.
+
 ---
 
 ## Build and install
@@ -216,9 +222,10 @@ terminal.
 
 ## First steps
 
-1. **Set the read offset.** Open _Settings → Configure Audex..._, go to the
+1. **Set the read offset.** Open _Settings -> Configure Audex..._, go to the
    _Device settings_ page, select the drive and click _Fetch from
-   AccurateRip_. Without the correct offset AccurateRip cannot confirm your rips.
+   AccurateRip_. Without the correct offset AccurateRip cannot confirm your
+   rips.
 1. **Keep secure mode and cache defeat turned on** (the defaults). Turn on C2
    only if you know your drive reports C2 errors reliably.
 1. **Choose or create a profile.** A profile sets the output (one file per
@@ -371,6 +378,125 @@ track does not match.
 
 ---
 
+## audex-cli
+
+`audex-cli` is Audex without the user interface. It only needs the engine
+(Qt, no KDE Frameworks), so it also can run on desktop-less systems. Without
+`--device` it takes the only optical drive of the system.
+
+```sh
+audex-cli info                 # the drive and the disc
+audex-cli offset               # measure the read offset and save it
+audex-cli rip -o ~/music/disc  # rip the whole disc
+audex-cli verify <log>         # check a finished rip (see Verification)
+```
+
+### Read offset
+
+`audex-cli offset` measures the read offset of the drive with the disc in it,
+which must be in the AccurateRip database: The start of a few tracks is compared
+with the database, then one whole track is extracted and its checksum compared.
+The result is saved for the drive model (vendor and model, not the firmware) in
+`~/.config/audex-cli.conf` together with the discs it was measured with. The
+offset AccurateRip lists for the model is shown as a second opinion. But one
+disc is a good hint and not a proof: an entry of another pressing gives a
+different result, so measure with one or two other discs as well. A different
+result replaces the saved one with a note.
+
+The file has one line per model and can be edited:
+
+```
+HL-DT-ST BD-RE WH16NS60 = +6  # discs: <MusicBrainz disc IDs>
+```
+
+The GUI keeps its own offset per drive (_Device settings_).
+
+### Ripping
+
+`audex-cli rip` writes one WAVE file per track, a cue sheet and the rip log,
+with fixed names: `01.wav`, `02.wav`, ... (`00.wav` is audio before track 1),
+`disc.cue` and `disc.log`. There are no metadata, no profiles and no playlists.
+Pregaps, indexes, ISRCs and the catalog number are always read from the
+Q sub-channel for the cue sheet. Reading is secure, the drive cache is defeated
+(measured at the start of each rip), and the tracks are verified with
+AccurateRip; as in Audex, a track AccurateRip confirms after one read is not
+read a second time.
+
+```sh
+audex-cli rip -o ~/music/disc               # all tracks
+audex-cli rip -o ~/music/disc -t 1,2,5-7,9  # some tracks; "3-" to the last, 0 = audio before track 1
+audex-cli rip -o ~/music/disc --offset +6   # read offset given instead of the saved one
+```
+
+The read offset is required: Without one saved by `audex-cli offset` for the
+drive model or given with `--offset` nothing is ripped. A wrong offset gives
+files that look perfect and are shifted by a few samples.
+
+Options: `-d/--device <node>`, `-t/--tracks <list>`, `-o/--output <folder>`
+(default: the current one), `--offset <samples>`, `--fast` (read every sector
+once), `--c2` (trust the drive's C2 error pointers; only if they are reliable),
+`--overread` (lead-in and lead-out), `--speed <x>`, `--pregaps-with-track`
+(each pregap at the start of its own track's file instead of the end of the
+previous one), `--cdg` (CD+G graphics as `01.cdg` next to the tracks),
+`--overwrite`, `-q/--quiet`, `--no-accuraterip`.
+
+`audex-cli info` reads a few seconds of the disc to check for HDCD and CD+G
+graphics; `--toc-only` skips that.
+
+`--no-accuraterip` is not recommended: nothing then confirms that the rip is
+correct, matching reads only mean the drive delivered the same data twice.
+audex-cli warns before and after the rip and note that in the log. The
+AccurateRip checksums are in the log anyway, so `audex-cli verify` can check
+the rip later.
+
+Ctrl+C cancels: finished tracks are kept, the file of the running track is
+removed, and the log tells what was done.
+
+| Exit code | Description                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `0`       | every track ripped and confirmed by AccurateRip                                                                                  |
+| `1`       | AccurateRip contradicts a track, or sectors could not be read securely                                                           |
+| `2`       | nothing is wrong, but not every track is confirmed: not in the database, lookup failed, audio before track 1, `--no-accuraterip` |
+| `3`       | the rip failed (drive, disc, existing files, files not written)                                                                  |
+| `64`      | wrong usage, also: no read offset known                                                                                          |
+| `130`     | canceled with Ctrl+C                                                                                                             |
+
+### Verifying log
+
+For head-less environments or scripts use `audex-cli`. It requires only Qt 6.
+
+```sh
+# Display the verification report in the terminal
+audex-cli verify "Artist - Album.log"
+
+# Verify all logs in subdirectories offline and quietly (no database queries)
+audex-cli verify --offline --quiet */*.log
+
+# Output the results in JSON format for automated processing
+audex-cli verify --json "Artist - Album.log"
+```
+
+**Common Options:**
+
+- `--offline`: Skip online database lookups.
+- `--dir <folder>`: Specify a custom directory containing the audio files.
+- `--min-confidence <n>`: Set the required AccurateRip confidence threshold
+                          (default: `2`).
+- `--json`: Format output as JSON.
+- `--quiet`: Suppress non-essential output.
+
+| Exit Code | Description                                                                                                    |
+| --------- | -------------------------------------------------------------------------------------------------------------- |
+| `0`       | **Success:** All files are intact, and every track is verified against online databases.                       |
+| `1`       | **Error/Mismatch:** Files have been modified, or an online database contradicts the rip.                       |
+| `2`       | **Unconfirmed:** Files are intact, but one or more tracks could not be verified (e.g., unknown disc pressing). |
+| `3`       | **Failure:** Verification could not be run (e.g., missing log/audio files, or network error).                  |
+| `64`      | **Usage Error:** Invalid arguments or syntax.                                                                  |
+
+> **Note:** When verifying multiple logs in a single run, `audex-cli` returns the worst-case exit code (priority: `1` > `3` > `2` > `0`).
+
+---
+
 ## HDCD
 
 HDCD (High Definition Compatible Digital) was an audio encoding technology
@@ -455,10 +581,10 @@ preemphasis [at this page](<https://www.studio-nibble.com/cd/index.php?title=Pre
 
 Audex marks such discs with a purple PRE-EMPHASIS badge in the main window
 (the tooltip names the tracks) and shows the flag in the _Edit Data_
-dialog. The cue sheet carries `FLAGS PRE` for every flagged track. Ripped files get a tag, by default `PRE_EMPHASIS=1`; the name is set
-on the _General settings_ page; an empty name writes no tag. An image is
-tagged only if all of its tracks are flagged. Note, that WAVE files are not
-tagged.
+dialog. The cue sheet carries `FLAGS PRE` for every flagged track. Ripped
+files get a tag, by default `PRE_EMPHASIS=1`; the name is set on the
+_General settings_ page; an empty name writes no tag. An image is tagged
+only if all of its tracks are flagged. Note, that WAVE files are not tagged.
 
 Audex does not de-emphasize. The rip stays bit-perfect and can be verified
 with AccurateRip and the CTDB. De-emphasis can be done afterwards, e.g. with
@@ -523,15 +649,42 @@ original CUETools code, so it uses the same data as CUETools does.
 
 ---
 
-## Changes compared to Audex 0.x
+## Verifying a Rip
+
+You can re-verify an existing rip at any time using its log file. The
+process performs two main checks:
+
+- **Integrity check:** Reads the audio files and compares their CRC values
+  against the log to ensure they remain untampered.
+- **Database lookup:** Re-checks AccurateRip and CUETools. Because online
+  databases continuously grow, a previously unconfirmed rip (or unknown
+  pressing) may now be verified.
+
+Go to **Audex -> Check Rip...** and elect the `.log` file you want to verify.
+
+### Requirements & File Lookup
+
+- **Supported formats:** Lossless audio files only (e.g., FLAC, WAV).
+- **File location:** Audex first searches the directory path recorded in
+  the log. If moved, it looks in the log file's current directory—allowing
+  you to relocate an entire rip folder safely.
+- **Log preservation:** The original log file is never modified.
+
+The verification report uses the familiar rip log layout and can be saved to
+disk.
+
+---
+
+## Major changes compared to Audex 0.x
 
 - **cdparanoia is no longer used or needed.** All reading is done by the new
   engine.
 - **Encoding happens inside Audex.** The external `lame`, `flac` and `opusenc`
   binaries are no longer needed. The native plugins replace them.
 - **Ogg Vorbis and AAC (FAAC) profiles are no longer built in.** Use a custom
-  command instead, for example `oggenc -Q -q 6 -o $o -`.
-- **Custom commands receive the audio as WAVE on standard input.**
+  command instead, for example `oggenc -Q -q 6 -o $o -`. Note 1: custom
+  encoders might not be available in a sandbox environment like flatpak.
+  Note 2: Custom commands receive the audio only as WAVE on standard input.
 - **Metadata comes from MusicBrainz, CD-Text or gnudb.** The libkcddb
   dependency is gone; the gnudb (CDDB) lookup is built in.
 - **Multiple device support and device settings are stored per device.**
@@ -544,14 +697,13 @@ original CUETools code, so it uses the same data as CUETools does.
 - Drives without "accurate stream" (mostly CD-ROM drives from before about
   the year 2000) miss the position by a few samples after every seek. Audex
   does not realign such reads: secure rips flag almost every sector, fast
-  rips are shifted. The drive test finds such drives, and Audex warns
+  rips are shifted. The drive test finds such drives and Audex warns
   clearly.
 - Drives are read with the MMC command READ CD only; old SCSI drives that
   need vendor-specific read commands are not supported.
 - The gnudb (CDDB) lookup requires a contact address with every request, and
-  its entries carry one genre, no artist ids and no release country. It is
-  worth a try for discs MusicBrainz does not know. Audex does not submit
-  entries to gnudb.
+  its entries carry one genre, no artist ids and no release country.
+  Audex does not submit entries to gnudb.
 - The CTDB repair works for image rips only and needs the whole disc. It
   does not yet use the positions of suspicious sectors, which would allow
   repairing more damage.
@@ -686,7 +838,7 @@ deliver (`expectedAudio()` in `sim/`).
 | `encoding/`                       | Encoder and decoder interface and registry, WAVE and custom encoders, threaded `EncodedOutputs`, `TagWriter` (TagLib)                                                           |
 | `plugins/`                        | Native encoder plugins: FLAC, MP3 (LAME), Opus                                                                                                                                  |
 | `metadata/`, `online/`            | Disc model (`CDInfo`), metadata fields, CD-Text, MusicBrainz and gnudb (CDDB) import, Cover Art Archive, AccurateRip and CTDB clients                                           |
-| `utils/`                          | Rip job (worker thread), CTDB image repair, drive handling via Solid (`DiscController`), profile → request translation (`RipRequestBuilder`), cue sheets, playlists, hash lists |
+| `utils/`                          | Rip job (worker thread), CTDB image repair, drive handling via Solid (`DiscController`), profile -> request translation (`RipRequestBuilder`), cue sheets, playlists, hash lists |
 | `models/`, `widgets/`, `dialogs/` | KF6 user interface                                                                                                                                                              |
 
 The engine is built as a static library (`audexengine`) that depends only on

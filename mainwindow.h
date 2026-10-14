@@ -71,6 +71,7 @@ private Q_SLOTS:
     void fetch_metadata_gnudb();
     void edit();
     void rip();
+    void check_rip();
     void configure();
 
     // track list editing

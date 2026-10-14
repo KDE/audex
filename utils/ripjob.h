@@ -53,6 +53,9 @@ struct RipRequest {
     // look up the disc in the AccurateRip database before the extraction
     // (pressing offsets, keepConfirmedTracks) and verify the tracks afterwards
     bool accurateRipLookup = false;
+    // why AccurateRip is not asked; if set, the log and the messages say so
+    // with a warning instead of leaving the verification out silently
+    QString accurateRipSkipped;
 
     // look up the disc in the CUETools database before the extraction
     // (keepConfirmedTracks) and verify the rip afterwards
@@ -123,10 +126,13 @@ struct RipSummary {
     int tracks = 0;
     int suspiciousPositions = 0;
     int accurateRipMismatches = 0; // tracks the AccurateRip database contradicts
+    int accurateRipConfirmed = 0; // tracks the AccurateRip database confirms
+    QString accurateRipError; // the lookup failed (not: the disc is not in the database)
     int ctdbMismatches = 0; // tracks the CUETools database contradicts (0 after a repair)
     int ctdbCorrections = 0; // values the CUETools database repair corrected
     int measuredCacheDefeatReads = 0; // > 0: measured by this rip, to be stored per drive
     QStringList files;
+    QStringList cdgFiles; // readCdg: the .cdg files written
     QString logFile;
     QStringList report;
     Cdda::SubchannelScan subchannel; // scanSubchannel: pregaps etc. for the cue sheet

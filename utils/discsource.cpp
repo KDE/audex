@@ -8,6 +8,7 @@
 #include "discsource.h"
 
 #include "core/cdrmanufacturer.h"
+#include "device/drivelock.h"
 #include "device/mmc.h"
 #include "device/mmcsectorreader.h"
 #include "metadata/cdtextmetadata.h"
@@ -62,8 +63,9 @@ QString stalledMessage()
 class OwningMmcReader : public Mmc::MmcSectorReader
 {
 public:
-    OwningMmcReader(std::unique_ptr<Scsi::Device> device, bool c2Capable, const QString &name)
+    OwningMmcReader(std::unique_ptr<Scsi::Device> device, DriveLock lock, bool c2Capable, const QString &name)
         : Mmc::MmcSectorReader(*device, c2Capable, name)
+        , m_lock(std::move(lock))
         , m_device(std::move(device))
     {
     }
@@ -73,11 +75,13 @@ public:
     }
 
 private:
+    DriveLock m_lock; // released after the device is closed
     std::unique_ptr<Scsi::Device> m_device;
 };
 
 struct Identified {
     QString name;
+    QString model; // without the firmware revision
     std::optional<Mmc::Capabilities> capabilities;
 };
 
@@ -85,10 +89,12 @@ Identified identify(Scsi::Device &device, QStringList *notes)
 {
     Identified id;
     QString error;
-    if (const auto inq = Mmc::readInquiry(device, &error))
+    if (const auto inq = Mmc::readInquiry(device, &error)) {
         id.name = u"%1 %2 %3"_s.arg(inq->vendor, inq->model, inq->revision).simplified();
-    else if (notes)
+        id.model = u"%1 %2"_s.arg(inq->vendor, inq->model).simplified();
+    } else if (notes) {
         notes->append(error);
+    }
     id.capabilities = Mmc::readCapabilities(device, &error);
     if (!id.capabilities && notes)
         notes->append(error);
@@ -182,6 +188,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
     if (drive.isSimulated()) {
         const Cdda::Toc toc = Demo::toc();
         result.driveName = tr("Simulated drive");
+        result.driveModel = result.driveName;
         result.info = CDInfo(toc, drive.id);
         result.discCandidates = candidatesFromCdText(Demo::cdText(), result.info);
         result.htoaSilent = toc.htoaSectorCount() > 0 && isHtoaSilent(*Demo::reader(), toc);
@@ -191,6 +198,12 @@ DiscReadResult readDisc(const DriveEntry &drive)
 
     if (isDriveStalled(drive.id)) {
         result.error = stalledMessage();
+        return result;
+    }
+    QString lockError;
+    const DriveLock lock = DriveLock::acquire(drive.id, &lockError);
+    if (!lock.isLocked()) {
+        result.error = lockError;
         return result;
     }
     Scsi::Device device;
@@ -209,6 +222,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
         return fail(error);
     const Identified id = identify(device, &result.notes);
     result.driveName = id.name.isEmpty() ? drive.id : id.name;
+    result.driveModel = id.model;
     result.c2Known = id.capabilities.has_value();
     result.c2Capable = id.capabilities && id.capabilities->c2Pointers;
     if (id.capabilities) { // the rip warns about a drive without it (RipRequestBuilder::streamWarning())
@@ -278,8 +292,13 @@ OpenedReader openReader(const DriveEntry &drive)
         opened.error = stalledMessage();
         return opened;
     }
-    auto device = std::make_unique<Scsi::Device>();
     QString error;
+    DriveLock lock = DriveLock::acquire(drive.id, &error);
+    if (!lock.isLocked()) {
+        opened.error = error;
+        return opened;
+    }
+    auto device = std::make_unique<Scsi::Device>();
     if (!device->open(drive.id, &error) || !Mmc::waitUntilReady(*device, 30000, &error)) {
         if (device->timeouts() > 0) {
             markDriveStalled(drive.id);
@@ -291,7 +310,7 @@ OpenedReader openReader(const DriveEntry &drive)
     const Identified id = identify(*device, nullptr);
     const bool c2 = id.capabilities && id.capabilities->c2Pointers;
     const bool locked = Mmc::preventMediumRemoval(*device, true).ok();
-    auto reader = std::make_unique<OwningMmcReader>(std::move(device), c2, id.name.isEmpty() ? drive.id : id.name);
+    auto reader = std::make_unique<OwningMmcReader>(std::move(device), std::move(lock), c2, id.name.isEmpty() ? drive.id : id.name);
     OwningMmcReader *raw = reader.get();
     opened.driveName = reader->description();
     opened.release = [raw, locked, node = drive.id] {

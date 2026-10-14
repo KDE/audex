@@ -447,18 +447,104 @@ std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumReques
         *error = u"nothing to read"_s;
         return std::nullopt;
     }
-    const std::unique_ptr<Encoding::AudioDecoder> decoder = rq.encoder->createDecoder();
-    if (!decoder) {
-        *error = tr("%1 files cannot be read back.").arg(rq.encoder->displayName());
+    // the image starts with the first segment; audio beyond it is not read
+    const DiscAudioFile image{rq.path, rq.encoder, rq.segments.first().firstLba, rq.segments.last().lastLba};
+    return checksumFiles({image}, rq.segments, rq.options, error, isCanceled);
+}
+
+// ---- reading the disc audio back from files ---------------------------------------
+
+struct DiscAudioReader::Part {
+    std::unique_ptr<Encoding::AudioDecoder> decoder;
+    std::unique_ptr<ImageSectorReader> reader;
+};
+
+DiscAudioReader::DiscAudioReader(const QList<DiscAudioFile> &files)
+    : m_files(files)
+{
+}
+
+DiscAudioReader::~DiscAudioReader() = default;
+
+bool DiscAudioReader::open(QString *error)
+{
+    m_parts.clear();
+    for (const DiscAudioFile &file : std::as_const(m_files)) {
+        auto part = std::make_unique<Part>();
+        part->decoder = file.format ? file.format->createDecoder() : nullptr;
+        if (!part->decoder) {
+            *error = tr("%1 cannot be read back.").arg(QFileInfo(file.path).fileName());
+            return false;
+        }
+        if (!part->decoder->open(file.path, error))
+            return false;
+        part->reader = std::make_unique<ImageSectorReader>(*part->decoder, file.firstLba);
+        m_parts.push_back(std::move(part));
+    }
+    return true;
+}
+
+Rip::SectorReadResult DiscAudioReader::read(int lba, int count)
+{
+    Rip::SectorReadResult r;
+    r.audio = QByteArray(qsizetype(count) * Cdda::SectorBytes, '\0');
+    r.sectors.resize(count);
+    int i = 0;
+    while (i < count) {
+        const int at = lba + i;
+        qsizetype f = 0;
+        while (f < m_files.size() && (at < m_files.at(f).firstLba || at > m_files.at(f).lastLba))
+            ++f;
+        if (f == m_files.size() || size_t(f) >= m_parts.size()) {
+            ++i; // in no file: not ok
+            continue;
+        }
+        const int n = std::min(count - i, m_files.at(f).lastLba - at + 1);
+        const Rip::SectorReadResult part = m_parts.at(size_t(f))->reader->read(at, n);
+        std::memcpy(r.audio.data() + qsizetype(i) * Cdda::SectorBytes, part.audio.constData(), size_t(n) * Cdda::SectorBytes);
+        for (int k = 0; k < n; ++k)
+            r.sectors[i + k] = part.sectors.value(k);
+        if (!part.error.isEmpty())
+            m_error = part.error;
+        i += n;
+    }
+    if (!r.allOk())
+        r.error = m_error.isEmpty() ? u"beyond the decoded audio"_s : m_error;
+    return r;
+}
+
+int DiscAudioReader::maxSectorsPerRead() const
+{
+    return 64;
+}
+
+QString DiscAudioReader::description() const
+{
+    return u"audio files"_s;
+}
+
+QString DiscAudioReader::error() const
+{
+    return m_error;
+}
+
+std::optional<QList<Rip::SegmentResult>> checksumFiles(const QList<DiscAudioFile> &files,
+                                                       const QList<Rip::Segment> &segments,
+                                                       const Rip::RipOptions &ripOptions,
+                                                       QString *error,
+                                                       const std::function<bool()> &isCanceled)
+{
+    if (files.isEmpty() || segments.isEmpty()) {
+        *error = u"nothing to read"_s;
         return std::nullopt;
     }
-    if (!decoder->open(rq.path, error))
+    DiscAudioReader reader(files);
+    if (!reader.open(error))
         return std::nullopt;
 
-    ImageSectorReader reader(*decoder, rq.segments.first().firstLba);
-    Rip::RipOptions options = rq.options; // AccurateRip shifts, CTDB range
+    Rip::RipOptions options = ripOptions; // AccurateRip shifts, CTDB range
     options.mode = Rip::ReadMode::Fast;
-    options.readOffset = 0; // the image is corrected already
+    options.readOffset = 0; // the files are corrected already
     options.overread = false;
     options.burstSectors = 0;
     options.readErrorRetries = 0;
@@ -473,11 +559,11 @@ std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumReques
         return true;
     };
     callbacks.isCanceled = isCanceled;
-    const Rip::ReadableArea area{rq.segments.first().firstLba, rq.segments.last().lastLba + 1};
+    const Rip::ReadableArea area{files.first().firstLba, files.last().lastLba + 1};
     Rip::RipEngine engine(reader, area, options, std::move(callbacks));
-    const Rip::RipResult result = engine.run(rq.segments);
+    const Rip::RipResult result = engine.run(segments);
     if (!result.completed || result.hasSuspiciousPositions()) {
-        *error = result.canceled ? tr("canceled") : (!reader.error().isEmpty() ? reader.error() : tr("the image is shorter than the disc"));
+        *error = result.canceled ? tr("canceled") : (!reader.error().isEmpty() ? reader.error() : tr("the files are shorter than the disc"));
         return std::nullopt;
     }
     return result.segments;

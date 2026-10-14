@@ -22,15 +22,21 @@ add_executable(
   test_coverartarchive.cpp
   test_gnudb.cpp
   test_responsecache.cpp
+  test_drivelock.cpp
   test_cdg.cpp
   test_encodercommand.cpp
   test_scheme.cpp
   test_cover.cpp
   test_tagwriter.cpp
   test_cuesheet.cpp
-  test_ripreport.cpp)
+  test_ripreport.cpp
+  test_ripverify.cpp)
 
 target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 target_link_libraries(audex_tests PRIVATE audexengine)
 
 add_test(NAME audex_tests COMMAND audex_tests)
+
+# audex-cli with the simulated drive
+add_test(NAME audex_cli_rip COMMAND ${CMAKE_COMMAND} -DCLI=$<TARGET_FILE:audex-cli> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/cli_rip
+                                    -P ${CMAKE_CURRENT_SOURCE_DIR}/cli_rip.cmake)

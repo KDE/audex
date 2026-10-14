@@ -132,8 +132,12 @@ detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc, const QList<Re
 // outcome as log lines. An empty response list means the disc is not in the
 // database. The first line is a section heading; used in the rip report.
 // inaccurateTracks receives the number of tracks the database contradicts.
-QStringList
-formatVerification(const QList<Response> &responses, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *inaccurateTracks = nullptr);
+// accurateTracks the number it confirms.
+QStringList formatVerification(const QList<Response> &responses,
+                               const QList<Rip::SegmentResult> &segments,
+                               const Cdda::Toc &toc,
+                               int *inaccurateTracks = nullptr,
+                               int *accurateTracks = nullptr);
 
 // Synchronous lookup of the database entry for a disc, for worker threads
 // (RipJob). Sets notFound when the server answered 404 and error on network

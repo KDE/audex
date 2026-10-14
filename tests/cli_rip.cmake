@@ -28,8 +28,12 @@ function(expect_files folder)
 endfunction()
 
 run(0 info -d sim:demo)
-if(NOT output MATCHES "Simulated drive")
+if(NOT output MATCHES "Simulated drive" OR NOT output MATCHES "HDCD: +no" OR NOT output MATCHES "CD\\+G: +no")
   message(FATAL_ERROR "info: ${output}")
+endif()
+run(0 info -d sim:demo --toc-only)
+if(output MATCHES "HDCD:")
+  message(FATAL_ERROR "info --toc-only: ${output}")
 endif()
 
 # no read offset known for the drive
@@ -60,3 +64,10 @@ run(0 verify --offline --quiet ${WORK}/all/disc.log)
 run(2 rip -d sim:demo -o ${WORK}/some -q --offset 6 --no-accuraterip -t 1,3-)
 expect_files(${WORK}/some 01.wav 03.wav 04.wav disc.cue disc.log)
 run(64 rip -d sim:demo -o ${WORK}/none -q --offset 6 --no-accuraterip -t 7)
+
+# CD+G asked for, the demo disc has none
+run(2 rip -d sim:demo -o ${WORK}/cdg -q --offset 6 --no-accuraterip -t 1 --cdg)
+expect_files(${WORK}/cdg 01.wav disc.cue disc.log)
+if(NOT output MATCHES "no graphics on the disc")
+  message(FATAL_ERROR "--cdg: ${output}")
+endif()

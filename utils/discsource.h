@@ -42,6 +42,7 @@ struct DiscReadResult {
     QString error;
     QStringList notes;
     QString driveName;
+    QString driveModel; // vendor and model, without the firmware revision; empty if unknown
     bool c2Capable = false;
     bool c2Known = false; // false: the capability page could not be read
     CDInfo info;
@@ -54,6 +55,8 @@ struct DiscReadResult {
 bool isHtoaSilent(Rip::SectorReader &reader, const Cdda::Toc &toc);
 
 // Blocking: identification, TOC and CD-Text. Run it in a worker thread.
+// Like openReader() it fails at once if another Audex process holds the
+// drive (DriveLock); the lock is kept while the opened reader exists.
 DiscReadResult readDisc(const DriveEntry &drive);
 
 // Opens a sector reader for the drive. For real drives the returned object

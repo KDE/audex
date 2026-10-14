@@ -90,4 +90,40 @@ struct ImageChecksumRequest {
 
 std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumRequest &request, QString *error, const std::function<bool()> &isCanceled = {});
 
+// A finished file that holds a part of the disc audio
+struct DiscAudioFile {
+    QString path;
+    const Encoding::EncoderFactory *format = nullptr; // must be able to read the file back
+    int firstLba = 0; // the disc sectors it holds
+    int lastLba = -1;
+};
+
+// Reads the disc audio back from files (an image or track files) that follow
+// each other without a gap, like a drive reads the disc
+class DiscAudioReader : public Rip::SectorReader
+{
+public:
+    DiscAudioReader(const QList<DiscAudioFile> &files);
+    ~DiscAudioReader() override;
+
+    bool open(QString *error); // all decoders
+    Rip::SectorReadResult read(int lba, int count) override;
+    int maxSectorsPerRead() const override;
+    QString description() const override;
+    QString error() const;
+
+private:
+    struct Part;
+    QList<DiscAudioFile> m_files;
+    std::vector<std::unique_ptr<Part>> m_parts;
+    QString m_error;
+};
+
+// checksumImage() for files that follow each other without a gap
+std::optional<QList<Rip::SegmentResult>> checksumFiles(const QList<DiscAudioFile> &files,
+                                                       const QList<Rip::Segment> &segments,
+                                                       const Rip::RipOptions &options,
+                                                       QString *error,
+                                                       const std::function<bool()> &isCanceled = {});
+
 }

@@ -546,6 +546,7 @@ void RipJob::run()
             else
                 say(Rip::LogLevel::Warning, tr("Cannot write %1: %2").arg(path, file.errorString()));
         }
+        summary.cdgFiles = written;
         if (!written.isEmpty())
             say(Rip::LogLevel::Info,
                 written.size() == 1 ? tr("CD+G graphics saved to %1.").arg(written.first())
@@ -562,12 +563,17 @@ void RipJob::run()
     };
     QStringList accurateRipLines;
     if (rq.accurateRipLookup && result.completed) {
+        summary.accurateRipError = arError;
         if (!arError.isEmpty()) {
             accurateRipLines << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError);
         } else {
-            accurateRipLines = AccurateRip::formatVerification(arResponses, result.segments, toc, &summary.accurateRipMismatches);
+            accurateRipLines =
+                AccurateRip::formatVerification(arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed);
             sayAccurateRip(accurateRipLines);
         }
+    } else if (!rq.accurateRipLookup && !rq.accurateRipSkipped.isEmpty() && result.completed) {
+        accurateRipLines << u"AccurateRip verification"_s << QString() << u"     NOT PERFORMED: %1"_s.arg(rq.accurateRipSkipped);
+        say(Rip::LogLevel::Warning, tr("AccurateRip verification not performed: %1").arg(rq.accurateRipSkipped));
     }
 
     // --- CUETools database verification ---
@@ -643,7 +649,8 @@ void RipJob::run()
                     s.peakPercent = c.peakPercent;
                 }
                 if (rq.accurateRipLookup && arError.isEmpty()) {
-                    accurateRipLines = AccurateRip::formatVerification(arResponses, result.segments, toc, &summary.accurateRipMismatches);
+                    accurateRipLines =
+                        AccurateRip::formatVerification(arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed);
                     accurateRipLines.first() += u" (after the CTDB repair)"_s;
                     sayAccurateRip(accurateRipLines);
                 }
@@ -695,7 +702,10 @@ void RipJob::run()
     for (const QString &w : ctx.outputNotes)
         say(Rip::LogLevel::Warning, w);
     QStringList report = Rip::formatReport(ctx, result);
-    const QString heading = u"%1 – %2"_s.arg(disc.metadata().text(Field::Artist), disc.metadata().text(Field::Album));
+    const QString artist = disc.metadata().text(Field::Artist);
+    const QString album = disc.metadata().text(Field::Album);
+    // no metadata (audex-cli): the disc ID tells which disc it was
+    const QString heading = artist.isEmpty() && album.isEmpty() ? u"Disc %1"_s.arg(disc.musicBrainzDiscId()) : u"%1 – %2"_s.arg(artist, album);
     report.insert(1, QString());
     report.insert(2, heading);
 

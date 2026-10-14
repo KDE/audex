@@ -18,6 +18,7 @@
 #include "utils/devicesettings.h"
 #include "utils/disccontroller.h"
 #include "utils/encoderassistant.h"
+#include "utils/ripverify.h"
 
 #include "preferences.h"
 
@@ -30,6 +31,7 @@
 #include "dialogs/coverchooserdialog.h"
 #include "dialogs/errordialog.h"
 #include "dialogs/extractingprogressdialog.h"
+#include "dialogs/logviewdialog.h"
 #include "dialogs/metadatacandidatedialog.h"
 #include "dialogs/settingsdialog.h"
 
@@ -46,12 +48,15 @@
 #include <QCursor>
 #include <QDebug>
 #include <QDockWidget>
+#include <QEventLoop>
+#include <QFileDialog>
 #include <QIcon>
 #include <QInputDialog>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMenu>
 #include <QNetworkAccessManager>
+#include <QProgressDialog>
 #include <QStackedWidget>
 #include <QStatusBar>
 #include <QTimer>
@@ -328,6 +333,13 @@ void MainWindow::setup_actions()
     actionCollection()->setDefaultShortcut(extractAction, Qt::CTRL | Qt::Key_X);
     connect(extractAction, &QAction::triggered, this, &MainWindow::rip);
 
+    auto *checkAction = new QAction(this);
+    checkAction->setText(i18n("Check Rip..."));
+    checkAction->setIcon(QIcon::fromTheme(QStringLiteral("checkmark")));
+    checkAction->setToolTip(i18n("Reads a finished rip back and checks it against its rip log, AccurateRip and the CUETools database"));
+    actionCollection()->addAction(QStringLiteral("check_rip"), checkAction);
+    connect(checkAction, &QAction::triggered, this, &MainWindow::check_rip);
+
     actionCollection()->addAction("preferences", KStandardAction::preferences(this, &MainWindow::configure, this));
 
     auto *splitTitlesAction = new QAction(this);
@@ -512,6 +524,70 @@ void MainWindow::rip()
 
     if (Preferences::ejectCDTray())
         m_discController->eject();
+}
+
+void MainWindow::check_rip()
+{
+    const QString logPath = QFileDialog::getOpenFileName(this, i18n("Check Rip"), Preferences::basePath(), i18n("Rip logs (*.log);;All files (*)"));
+    if (logPath.isEmpty())
+        return;
+
+    // reading the files back takes a while: in the background, with progress
+    QProgressDialog progress(i18n("Checking the rip..."), i18n("Cancel"), 0, 0, this);
+    progress.setWindowTitle(i18n("Check Rip"));
+    progress.setWindowModality(Qt::WindowModal);
+    progress.setMinimumDuration(0);
+    auto canceled = std::make_shared<std::atomic_bool>(false);
+    connect(&progress, &QProgressDialog::canceled, this, [canceled]() {
+        *canceled = true;
+    });
+
+    Audex::Verify::Request rq;
+    rq.logPath = logPath;
+    rq.encoders = m_encoders;
+    const auto message = [&progress](const QString &text) {
+        QMetaObject::invokeMethod(
+            &progress,
+            [&progress, text]() {
+                progress.setLabelText(text);
+            },
+            Qt::QueuedConnection);
+    };
+    QFutureWatcher<Audex::Verify::Result> watcher;
+    QEventLoop loop;
+    connect(&watcher, &QFutureWatcherBase::finished, &loop, &QEventLoop::quit);
+    watcher.setFuture(QtConcurrent::run([rq, message, canceled]() {
+        return Audex::Verify::verifyRip(rq, message, [canceled]() {
+            return canceled->load();
+        });
+    }));
+    loop.exec();
+    progress.reset();
+
+    const Audex::Verify::Result result = watcher.result();
+    if (*canceled)
+        return;
+    if (result.report.isEmpty()) {
+        ErrorDialog::show(this, Error(i18n("The rip cannot be checked."), result.error), i18n("Check Rip"));
+        return;
+    }
+    QString title;
+    switch (result.verdict) {
+    case Audex::Verify::Verdict::Ok:
+        title = i18n("Check Rip: Everything Is Fine");
+        break;
+    case Audex::Verify::Verdict::Unconfirmed:
+        title = i18n("Check Rip: Not Confirmed");
+        break;
+    case Audex::Verify::Verdict::Failed:
+        title = i18n("Check Rip: Not Correct");
+        break;
+    case Audex::Verify::Verdict::Error:
+        title = i18n("Check Rip: Not Checked Completely");
+        break;
+    }
+    LogViewDialog dialog(result.report, title, this);
+    dialog.exec();
 }
 
 void MainWindow::configure()
