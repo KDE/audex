@@ -20,6 +20,11 @@
         "suffix": "m4a"
     },
     {
+        "name": "Monkey's Audio (APE, normal)",
+        "command": "mac - $o -c2000",
+        "suffix": "ape"
+    },
+    {
         "name": "WavPack (high)",
         "command": "wavpack -h -q -y -o $o -",
         "suffix": "wv"
