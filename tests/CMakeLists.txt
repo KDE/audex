@@ -30,11 +30,15 @@ add_executable(
   test_tagwriter.cpp
   test_cuesheet.cpp
   test_cdinfo.cpp
+  test_aiff.cpp
   test_ripreport.cpp
   test_ripverify.cpp)
 
 target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 target_link_libraries(audex_tests PRIVATE audexengine)
+# the AIFF plugin needs no codec library, so it is always there to test
+add_dependencies(audex_tests audex_aiff)
+target_compile_definitions(audex_tests PRIVATE AUDEX_TEST_PLUGIN_DIR="${AUDEX_ENCODER_PLUGIN_BUILD_DIR}")
 
 add_test(NAME audex_tests COMMAND audex_tests)
 

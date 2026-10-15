@@ -131,6 +131,8 @@ MainWindow::MainWindow(QWidget *parent)
         EncoderAssistant::setNativeBackend(EncoderAssistant::FLAC, f->version());
     if (auto *f = m_encoders->factory(u"opus"_s))
         EncoderAssistant::setNativeBackend(EncoderAssistant::OPUSENC, f->version());
+    if (auto *f = m_encoders->factory(u"aiff"_s))
+        EncoderAssistant::setNativeBackend(EncoderAssistant::AIFF, f->version());
 
     // after the plugins: loading migrates profiles, which depends on them
     m_profileModel = new ProfileModel(this);
@@ -534,7 +536,7 @@ void MainWindow::rip()
 
     if (m_profileModel->isImage(profileRow) && !EncoderAssistant::lossless(m_profileModel->getSelectedEncoderFromCurrentIndex())) {
         KMessageBox::error(this,
-                           i18n("The profile creates an image, which requires a lossless encoder (WAVE or FLAC). Please change the profile."),
+                           i18n("The profile creates an image, which requires a lossless encoder (FLAC, WAVE or AIFF). Please change the profile."),
                            i18n("Image rip"));
         return;
     }

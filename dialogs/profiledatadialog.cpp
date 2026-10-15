@@ -74,6 +74,8 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(flac_widget, &flacWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     wave_widget = new waveWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), this);
     connect(wave_widget, &waveWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
+    aiff_widget = new aiffWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_INDEX), this);
+    connect(aiff_widget, &aiffWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
     custom_widget = new customWidget(storedParameters(PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX), this);
     connect(custom_widget, &customWidget::triggerChanged, this, &ProfileDataDialog::trigger_changed);
 
@@ -81,16 +83,22 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     ui.stackedWidget_encoder->addWidget(opusenc_widget);
     ui.stackedWidget_encoder->addWidget(flac_widget);
     ui.stackedWidget_encoder->addWidget(wave_widget);
+    ui.stackedWidget_encoder->addWidget(aiff_widget);
     ui.stackedWidget_encoder->addWidget(custom_widget);
 
     // All encoders are listed: one without its plugin stays visible (the
     // profile may use it), but cannot be chosen (see update_encoder_items()).
-    for (int e = 0; e < EncoderAssistant::NUM; ++e) {
+    for (const EncoderAssistant::Encoder e : {EncoderAssistant::LAME,
+                                              EncoderAssistant::OPUSENC,
+                                              EncoderAssistant::FLAC,
+                                              EncoderAssistant::WAVE,
+                                              EncoderAssistant::AIFF,
+                                              EncoderAssistant::CUSTOM}) {
 #ifdef AUDEX_SANDBOX
         if (e == EncoderAssistant::CUSTOM)
             continue; // starts an external program
 #endif
-        ui.kcombobox_encoder->addItem(EncoderAssistant::name((EncoderAssistant::Encoder)e), e);
+        ui.kcombobox_encoder->addItem(EncoderAssistant::name(e), int(e));
     }
     connect(ui.kcombobox_encoder, &QComboBox::activated, this, &ProfileDataDialog::set_encoder_by_combobox);
 
@@ -381,7 +389,7 @@ void ProfileDataDialog::trigger_changed()
             || ui.checkBox_ctdb_repair->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_INDEX)).toBool()
             || ui.checkBox_ctdb_repair_keep_original->isChecked()
                 != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_CTDB_REPAIR_KEEP_ORIGINAL_INDEX)).toBool()
-            || lame_widget->isChanged() || opusenc_widget->isChanged() || flac_widget->isChanged() || wave_widget->isChanged() || custom_widget->isChanged());
+            || lame_widget->isChanged() || opusenc_widget->isChanged() || flac_widget->isChanged() || wave_widget->isChanged() || aiff_widget->isChanged() || custom_widget->isChanged());
     }
 }
 
@@ -465,6 +473,9 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
     case EncoderAssistant::WAVE:
         ui.stackedWidget_encoder->setCurrentWidget(wave_widget);
         break;
+    case EncoderAssistant::AIFF:
+        ui.stackedWidget_encoder->setCurrentWidget(aiff_widget);
+        break;
     case EncoderAssistant::CUSTOM:
         ui.stackedWidget_encoder->setCurrentWidget(custom_widget);
         break;
@@ -506,6 +517,12 @@ bool ProfileDataDialog::save()
         success = wave_widget->save();
         if (!success)
             error = wave_widget->lastError();
+    }
+
+    if (success) {
+        success = aiff_widget->save();
+        if (!success)
+            error = aiff_widget->lastError();
     }
 
     if (success) {
@@ -563,6 +580,9 @@ bool ProfileDataDialog::save()
     if (success)
         success =
             profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX), wave_widget->parameters().toString());
+    if (success)
+        success =
+            profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_INDEX), aiff_widget->parameters().toString());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX),
                                          custom_widget->parameters().toString());

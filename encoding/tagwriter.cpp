@@ -15,6 +15,7 @@
 #include <QImageWriter>
 #include <QPainter>
 
+#include <taglib/aifffile.h>
 #include <taglib/attachedpictureframe.h>
 #include <taglib/fileref.h>
 #include <taglib/flacfile.h>
@@ -262,6 +263,20 @@ bool saveXiph(TagLib::File &file, TagLib::Ogg::XiphComment *comment, const TagIn
 // Any other format TagLib knows (WavPack, APE, WMA, AIFF, WAV, ...): the
 // text tags through its property interface, which maps them to the tag type
 // of the format. The cover needs the picture interface of TagLib 2.
+// MP3 and AIFF
+void fillId3v2(TagLib::ID3v2::Tag *tag, const TagInfo &info, const std::optional<PreparedCover> &cover)
+{
+    tag->setProperties(toPropertyMap(combinedNumbers(TagWriter::properties(info))));
+    tag->removeFrames("APIC");
+    if (cover) {
+        auto *frame = new TagLib::ID3v2::AttachedPictureFrame;
+        frame->setType(TagLib::ID3v2::AttachedPictureFrame::FrontCover);
+        frame->setMimeType(toTag(cover->cover.mimeType));
+        frame->setPicture(toBytes(cover->cover.data));
+        tag->addFrame(frame);
+    }
+}
+
 bool writeGeneric(const QByteArray &name, const QString &suffix, const TagInfo &info, const std::optional<PreparedCover> &cover, QString *error)
 {
     TagLib::FileRef file(name.constData());
@@ -332,17 +347,16 @@ bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo 
         TagLib::MPEG::File file(name.constData());
         if (!file.isValid())
             return fail(error, tr("Cannot read %1 for tagging.").arg(path));
-        TagLib::ID3v2::Tag *tag = file.ID3v2Tag(true);
-        tag->setProperties(toPropertyMap(combinedNumbers(properties(info))));
-        tag->removeFrames("APIC");
-        if (cover) {
-            auto *frame = new TagLib::ID3v2::AttachedPictureFrame;
-            frame->setType(TagLib::ID3v2::AttachedPictureFrame::FrontCover);
-            frame->setMimeType(toTag(cover->cover.mimeType));
-            frame->setPicture(toBytes(cover->cover.data));
-            tag->addFrame(frame);
-        }
+        fillId3v2(file.ID3v2Tag(true), info, cover);
         return file.save(TagLib::MPEG::File::ID3v2, TagLib::File::StripOthers, TagLib::ID3v2::v4) || fail(error, tr("Cannot save the tags."));
+    }
+
+    if (s == u"aiff" || s == u"aif") {
+        TagLib::RIFF::AIFF::File file(name.constData());
+        if (!file.isValid())
+            return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+        fillId3v2(file.tag(), info, cover);
+        return file.save() || fail(error, tr("Cannot save the tags."));
     }
 
     if (s != u"m4a" && s != u"mp4" && s != u"m4b")

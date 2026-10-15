@@ -245,9 +245,17 @@ else()
   )
 endif()
 
+# AIFF needs no codec library: always built
+add_library(audex_aiff MODULE plugins/aiff/aiffencoder.cpp)
+target_include_directories(audex_aiff PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(audex_aiff PRIVATE Qt6::Core)
+set_target_properties(audex_aiff PROPERTIES LIBRARY_OUTPUT_DIRECTORY
+                                            ${AUDEX_ENCODER_PLUGIN_BUILD_DIR})
+install(TARGETS audex_aiff DESTINATION ${KDE_INSTALL_PLUGINDIR}/audex_encoders)
+
 message(
   STATUS
-    "Encoder plugins to build: FLAC=${FLAC_FOUND} MP3=${LAME_FOUND} OPUS=${OPUSENC_FOUND}"
+    "Encoder plugins to build: FLAC=${FLAC_FOUND} MP3=${LAME_FOUND} OPUS=${OPUSENC_FOUND} AIFF=TRUE"
 )
 
 # ---------------------------------------------------------------------------
@@ -273,6 +281,7 @@ set(audex_SRCS
     widgets/opusencwidget.cpp
     widgets/flacwidget.cpp
     widgets/wavewidget.cpp
+    widgets/aiffwidget.cpp
     widgets/customwidget.cpp
     widgets/schemeedit.cpp
     widgets/discplaceholder.cpp
@@ -301,6 +310,7 @@ ki18n_wrap_ui(
   widgets/opusencwidgetUI.ui
   widgets/flacwidgetUI.ui
   widgets/wavewidgetUI.ui
+  widgets/aiffwidgetUI.ui
   widgets/customwidgetUI.ui
   dialogs/cddaheaderdatawidgetUI.ui
   dialogs/profiledatawidgetUI.ui

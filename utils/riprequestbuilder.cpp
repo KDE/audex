@@ -147,6 +147,9 @@ void RipRequestBuilder::encoder(QString *id, QVariantMap *settings, QString *suf
     case EncoderAssistant::WAVE:
         *id = u"wav"_s;
         return;
+    case EncoderAssistant::AIFF:
+        *id = u"aiff"_s;
+        return;
     default:
         break;
     }

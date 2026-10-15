@@ -189,7 +189,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
         if (path.isEmpty())
             track.problem = tr("The file %1 was not found.").arg(QFileInfo(t.file).fileName());
         else if (!format || !format->createDecoder())
-            track.problem = tr("%1 files cannot be read back; only lossless files (FLAC, WAVE) can be checked.").arg(QFileInfo(t.file).suffix());
+            track.problem = tr("%1 files cannot be read back; only lossless files (FLAC, WAVE, AIFF) can be checked.").arg(QFileInfo(t.file).suffix());
         else
             track.path = path;
         result.tracks << track;

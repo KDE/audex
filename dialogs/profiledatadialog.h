@@ -10,6 +10,7 @@
 #include "ui_profiledatawidgetUI.h"
 
 #include "models/profilemodel.h"
+#include "widgets/aiffwidget.h"
 #include "widgets/customwidget.h"
 #include "widgets/flacwidget.h"
 #include "widgets/lamewidget.h"
@@ -66,6 +67,7 @@ private:
     opusencWidget *opusenc_widget = nullptr;
     flacWidget *flac_widget = nullptr;
     waveWidget *wave_widget = nullptr;
+    aiffWidget *aiff_widget = nullptr;
     customWidget *custom_widget = nullptr;
     void set_encoder_widget(const EncoderAssistant::Encoder encoder);
 

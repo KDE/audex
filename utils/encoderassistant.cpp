@@ -18,6 +18,8 @@ const QString EncoderAssistant::name(const EncoderAssistant::Encoder encoder)
         return ENCODER_FLAC_NAME;
     case EncoderAssistant::WAVE:
         return ENCODER_WAVE_NAME;
+    case EncoderAssistant::AIFF:
+        return ENCODER_AIFF_NAME;
     case EncoderAssistant::CUSTOM:
         return ENCODER_CUSTOM_NAME;
     default:
@@ -36,6 +38,8 @@ const QString EncoderAssistant::encoderName(const Encoder encoder)
         return ENCODER_FLAC_ENCODER_NAME;
     case EncoderAssistant::WAVE:
         return ENCODER_WAVE_ENCODER_NAME;
+    case EncoderAssistant::AIFF:
+        return ENCODER_AIFF_ENCODER_NAME;
     case EncoderAssistant::CUSTOM:
         return ENCODER_CUSTOM_ENCODER_NAME;
     default:
@@ -54,6 +58,8 @@ const QString EncoderAssistant::icon(const EncoderAssistant::Encoder encoder)
         return ENCODER_FLAC_ICON;
     case EncoderAssistant::WAVE:
         return ENCODER_WAVE_ICON;
+    case EncoderAssistant::AIFF:
+        return ENCODER_AIFF_ICON;
     case EncoderAssistant::CUSTOM:
         return ENCODER_CUSTOM_ICON;
     default:
@@ -79,6 +85,7 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder)
     case EncoderAssistant::LAME:
     case EncoderAssistant::OPUSENC:
     case EncoderAssistant::FLAC:
+    case EncoderAssistant::AIFF:
         // native encoder plugins only (no external commands)
         return hasNativeBackend(encoder);
     case EncoderAssistant::WAVE:
@@ -125,6 +132,8 @@ const QString EncoderAssistant::unavailableReason(const EncoderAssistant::Encode
         return i18n("The Opus encoder plugin is not installed (it requires %1).", pluginRequirement(encoder));
     case EncoderAssistant::FLAC:
         return i18n("The FLAC encoder plugin is not installed (it requires %1).", pluginRequirement(encoder));
+    case EncoderAssistant::AIFF:
+        return i18n("The AIFF encoder plugin is not installed.");
     default:
         return i18n("The encoder is not available.");
     }
@@ -153,6 +162,12 @@ Parameters EncoderAssistant::stdParameters(const Encoder encoder)
 
         parameters.setValue(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION);
         parameters.setValue(ENCODER_FLAC_EMBED_COVER_KEY, ENCODER_FLAC_EMBED_COVER);
+
+        break;
+
+    case EncoderAssistant::AIFF:
+
+        parameters.setValue(ENCODER_AIFF_EMBED_COVER_KEY, ENCODER_AIFF_EMBED_COVER);
 
         break;
 

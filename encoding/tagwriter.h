@@ -49,7 +49,8 @@ struct PreparedCover {
 };
 
 // Writes tags with TagLib after encoding, identical for all formats:
-// ID3v2.4 for MP3, Vorbis comments for FLAC/Opus/Vorbis, MP4 atoms for M4A.
+// ID3v2.4 for MP3 and AIFF, Vorbis comments for FLAC/Opus/Vorbis, MP4 atoms
+// for M4A.
 // Other formats get what TagLib's generic interface writes for them.
 class TagWriter
 {

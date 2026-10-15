@@ -106,6 +106,8 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const
             return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY];
         case PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY];
+        case PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_INDEX:
+            return p_cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY];
         case PROFILE_MODEL_COLUMN_OUTPUT_INDEX:
             return p_cache.at(index.row())[PROFILE_MODEL_OUTPUT_KEY];
         case PROFILE_MODEL_COLUMN_IMAGE_SCHEME_INDEX:
@@ -247,6 +249,9 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
             break;
         case PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX:
             p_cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY] = value;
+            break;
+        case PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_INDEX:
+            p_cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY] = value;
             break;
 
         case PROFILE_MODEL_COLUMN_OUTPUT_INDEX:
@@ -487,6 +492,9 @@ bool ProfileModel::validateData(const QModelIndex &index, const QVariant &value)
     case PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX:
         break;
 
+    case PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_INDEX:
+        break;
+
     case PROFILE_MODEL_COLUMN_OUTPUT_INDEX: {
         const int output = value.toInt();
         if (output != PROFILE_OUTPUT_TRACKS && output != PROFILE_OUTPUT_IMAGE) {
@@ -497,7 +505,7 @@ bool ProfileModel::validateData(const QModelIndex &index, const QVariant &value)
         const auto encoder = static_cast<EncoderAssistant::Encoder>(p_cache.at(index.row())[PROFILE_MODEL_ENCODER_SELECTED_KEY].toInt());
         if (output == PROFILE_OUTPUT_IMAGE && !EncoderAssistant::lossless(encoder)) {
             p_error = Error(i18n("An image requires a lossless encoder."),
-                            i18n("Please choose WAVE or FLAC as encoder, or rip one file per track."),
+                            i18n("Please choose FLAC, WAVE or AIFF as encoder, or rip one file per track."),
                             Error::ERROR,
                             this);
             return false;
@@ -766,6 +774,9 @@ const Parameters ProfileModel::getSelectedEncoderParametersFromCurrentIndex()
     case EncoderAssistant::CUSTOM:
         parameters.fromString(data(index(currentProfileRow(), PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX)).toString());
         break;
+    case EncoderAssistant::AIFF:
+        parameters.fromString(data(index(currentProfileRow(), PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_INDEX)).toString());
+        break;
     case EncoderAssistant::NUM:;
     }
 
@@ -788,6 +799,8 @@ const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex()
         return parameters.value(ENCODER_WAVE_SUFFIX_KEY, ENCODER_WAVE_SUFFIX).toString();
     case EncoderAssistant::CUSTOM:
         return parameters.value(ENCODER_CUSTOM_SUFFIX_KEY, ENCODER_CUSTOM_SUFFIX).toString();
+    case EncoderAssistant::AIFF:
+        return parameters.value(ENCODER_AIFF_SUFFIX_KEY, ENCODER_AIFF_SUFFIX).toString();
     case EncoderAssistant::NUM:
         return "";
     }
@@ -821,6 +834,8 @@ bool ProfileModel::isSelectedEncoderWithEmbedCover()
         return parameters.value(ENCODER_FLAC_EMBED_COVER_KEY, ENCODER_FLAC_EMBED_COVER).toBool();
     case EncoderAssistant::WAVE:
         return false;
+    case EncoderAssistant::AIFF:
+        return parameters.value(ENCODER_AIFF_EMBED_COVER_KEY, ENCODER_AIFF_EMBED_COVER).toBool();
     case EncoderAssistant::CUSTOM:
         return parameters.value(ENCODER_CUSTOM_TAGS_KEY, ENCODER_CUSTOM_TAGS).toBool()
             && parameters.value(ENCODER_CUSTOM_EMBED_COVER_KEY, ENCODER_CUSTOM_EMBED_COVER).toBool();
@@ -892,6 +907,7 @@ const Profile ProfileModel::p_new_profile()
     p[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
     p[PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
     p[PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
+    p[PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
 
     p[PROFILE_MODEL_OUTPUT_KEY] = DEFAULT_OUTPUT;
     p[PROFILE_MODEL_IMAGE_SCHEME_KEY] = DEFAULT_IMAGE_SCHEME;
@@ -925,6 +941,9 @@ Profile ProfileModel::p_new_encoder_profile(EncoderAssistant::Encoder encoder, b
         break;
     case EncoderAssistant::CUSTOM:
         p[PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY] = parameters;
+        break;
+    case EncoderAssistant::AIFF:
+        p[PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY] = parameters;
         break;
     case EncoderAssistant::NUM:
         break;
@@ -1086,6 +1105,7 @@ void ProfileModel::p_save(KConfig &config)
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY]);
+        subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY, p_cache[i][PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY]);
 
         subGroup.writeEntry(PROFILE_MODEL_OUTPUT_KEY, p_cache[i][PROFILE_MODEL_OUTPUT_KEY]);
         subGroup.writeEntry(PROFILE_MODEL_IMAGE_SCHEME_KEY, p_cache[i][PROFILE_MODEL_IMAGE_SCHEME_KEY]);
@@ -1148,6 +1168,7 @@ int ProfileModel::p_load(KConfig &config)
         p[PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
         p[PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY] =
             subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
+        p[PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_AIFF_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
 
         p[PROFILE_MODEL_OUTPUT_KEY] = subGroup.readEntry(PROFILE_MODEL_OUTPUT_KEY, DEFAULT_OUTPUT);
         p[PROFILE_MODEL_IMAGE_SCHEME_KEY] = subGroup.readEntry(PROFILE_MODEL_IMAGE_SCHEME_KEY, DEFAULT_IMAGE_SCHEME);

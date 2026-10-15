@@ -35,6 +35,9 @@
 
 #define ENCODER_WAVE_SUFFIX_KEY "suffix"
 
+#define ENCODER_AIFF_SUFFIX_KEY "suffix"
+#define ENCODER_AIFF_EMBED_COVER_KEY "embed_cover"
+
 #define ENCODER_CUSTOM_SUFFIX_KEY "suffix"
 #define ENCODER_CUSTOM_COMMAND_SCHEME_KEY "command_scheme"
 #define ENCODER_CUSTOM_TAGS_KEY "tags"
@@ -76,6 +79,12 @@
 #define ENCODER_WAVE_ICON "audio-x-wav"
 #define ENCODER_WAVE_SUFFIX "wav"
 
+#define ENCODER_AIFF_NAME i18n("AIFF (Raw Uncompressed)")
+#define ENCODER_AIFF_ENCODER_NAME "AIFF"
+#define ENCODER_AIFF_ICON "audio-x-aiff"
+#define ENCODER_AIFF_SUFFIX "aiff"
+#define ENCODER_AIFF_EMBED_COVER true
+
 #define ENCODER_CUSTOM_NAME i18n("Custom (External Encoder)")
 #define ENCODER_CUSTOM_ENCODER_NAME i18n("Custom")
 #define ENCODER_CUSTOM_ICON "audio-x-generic"
@@ -92,6 +101,7 @@ enum Encoder {
     FLAC,
     WAVE,
     CUSTOM,
+    AIFF, // after CUSTOM: profiles store the number
     NUM
 };
 
@@ -114,10 +124,10 @@ bool hasNativeBackend(const Encoder encoder);
 
 Parameters stdParameters(const Encoder encoder);
 
-// Image profiles are restricted to these (WAVE, FLAC)
+// Image profiles are restricted to these (WAVE, AIFF, FLAC)
 inline bool lossless(const Encoder encoder)
 {
-    return encoder == FLAC || encoder == WAVE;
+    return encoder == FLAC || encoder == WAVE || encoder == AIFF;
 }
 
 };

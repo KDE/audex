@@ -57,14 +57,23 @@ Audex runs exclusively on Linux and requires kernel SG_IO interface access (`/de
 - **Frameworks:** Qt ≥ 6.5 (Core, Gui, Widgets, Concurrent, Network, DBus) and KDE Frameworks 6.
 - **Tagging:** TagLib ≥ 1.12 (TagLib 2.x required for cover art embedding across all formats).
 
-### Optional Native Encoder Plugins
-Each plugin builds automatically if CMake detects its required library. Missing plugins disable corresponding profiles without removing settings.
+### Encoders
 
-| Plugin | Library | Debian / Ubuntu | Fedora | Arch |
+WAVE is built into Audex. All other formats come as plugins. A plugin that needs a library is built only if CMake finds that library; if the plugin is missing later on, its profiles are disabled but keep their settings.
+
+| Format | Library | Debian / Ubuntu | Fedora | Arch |
 | --- | --- | --- | --- | --- |
+| WAVE | built in | – | – | – |
+| AIFF | none (always built) | – | – | – |
 | FLAC | libFLAC | `libflac-dev` | `flac-devel` | `flac` |
 | MP3 | LAME | `libmp3lame-dev` | `lame-devel` | `lame` |
 | Opus | libopusenc | `libopusenc-dev` | `libopusenc-devel` | `libopusenc` |
+
+All of them also work in a sandbox (Flatpak, Snap).
+
+### Custom Encoders
+
+Other formats (such as Ogg Vorbis, AAC, ALAC, WavPack, or Monkey's Audio) rely on custom encoders—command-line tools that accept WAVE input via stdout/stdin. Because sandboxed Audex instances cannot execute external binaries, custom encoding is unsupported. It is recommend ripping to FLAC first and converting the files post-rip outside the sandbox. FLAC preserves the lossless audio, metadata tags and embedded cover art.
 
 ### Drive Access
 The user account requires read/write access to the optical device node (typically via the `cdrom` or `optical` group, or systemd-logind seat ACLs). Write access is required for commands like `SET CD SPEED`.
