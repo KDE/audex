@@ -137,6 +137,7 @@ QSize CDDAHeaderWidget::sizeHint() const
 void CDDAHeaderWidget::setEnabled(bool enabled)
 {
     this->enabled = enabled;
+    updateAccessibleText();
     repaint();
 }
 
@@ -221,21 +222,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
 
         // flags of the disc as small badges in one row; their colors do not
         // depend on the color scheme, so the text is always white
-        struct Badge {
-            QString text;
-            QColor fill;
-            QColor border; // invalid: none
-        };
-        QList<Badge> badges;
-        if (m_hdcd.value_or(false))
-            badges.append({QStringLiteral("HDCD"), palette().accent().color(), QColor()});
-        if (!cdda_model->cdInfo().preEmphasisTracks().isEmpty())
-            badges.append({i18nc("badge in the disc header", "PRE-EMPHASIS"), QColor(0x8e, 0x44, 0xad), QColor()}); // purple
-        if (m_cdg.value_or(false))
-            badges.append({QStringLiteral("CD+G"), QColor(0x3b, 0x3f, 0x45), QColor(0x9a, 0xa0, 0xa6)}); // dark grey, visible on dark schemes too
-        const Audex::CDInfo::Medium medium = cdda_model->cdInfo().medium();
-        if (medium == Audex::CDInfo::Medium::CdR || medium == Audex::CDInfo::Medium::CdRw)
-            badges.append({medium == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R"), QColor(0x7f, 0x8c, 0x8d), QColor()}); // grey
+        const QList<Badge> badges = this->badges();
         if (!badges.isEmpty()) {
             y += 8;
             const QFontMetrics fm(font());
@@ -269,6 +256,44 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
     }
 
     painter.end();
+}
+
+QList<CDDAHeaderWidget::Badge> CDDAHeaderWidget::badges() const
+{
+    QList<Badge> result;
+    if (m_hdcd.value_or(false))
+        result.append({QStringLiteral("HDCD"), palette().accent().color(), QColor()});
+    if (!cdda_model->cdInfo().preEmphasisTracks().isEmpty())
+        result.append({i18nc("badge in the disc header", "PRE-EMPHASIS"), QColor(0x8e, 0x44, 0xad), QColor()}); // purple
+    if (m_cdg.value_or(false))
+        result.append({QStringLiteral("CD+G"), QColor(0x3b, 0x3f, 0x45), QColor(0x9a, 0xa0, 0xa6)}); // dark grey, visible on dark schemes too
+    const Audex::CDInfo::Medium medium = cdda_model->cdInfo().medium();
+    if (medium == Audex::CDInfo::Medium::CdR || medium == Audex::CDInfo::Medium::CdRw)
+        result.append({medium == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R"), QColor(0x7f, 0x8c, 0x8d), QColor()}); // grey
+    return result;
+}
+
+// What is drawn, for screen readers: the header is painted, it has no
+// child widgets they could read
+void CDDAHeaderWidget::updateAccessibleText()
+{
+    if (!enabled || !cdda_model || cdda_model->isEmpty()) {
+        setAccessibleName(i18n("No audio CD detected"));
+        setAccessibleDescription(QString());
+        return;
+    }
+    const QString album = cdda_model->album().isEmpty() ? i18n("Unknown Album") : cdda_model->album();
+    const QString artist = cdda_model->artist().isEmpty() ? i18n("Unknown Artist") : cdda_model->artist();
+    setAccessibleName(i18nc("accessible name of the disc header: album, artist", "%1 by %2", album, artist));
+
+    QStringList description;
+    const QString facts = factsText();
+    if (!facts.isEmpty())
+        description << facts;
+    for (const Badge &badge : badges())
+        description << badge.text;
+    description << (cdda_model->cover().isNull() ? i18n("No cover") : i18n("With cover"));
+    setAccessibleDescription(description.join(u", "_s));
 }
 
 // "1975 · Disc 1 of 2 · 9 tracks · 44:28"; what is not known is left out
@@ -470,6 +495,7 @@ void CDDAHeaderWidget::update()
     action_collection->action("remove")->setEnabled(activate);
 
     construct_cd_case();
+    updateAccessibleText();
     repaint();
 }
 

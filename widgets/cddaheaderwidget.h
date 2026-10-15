@@ -10,6 +10,7 @@
 #include "dialogs/errordialog.h"
 #include "models/cdinfomodel.h"
 
+#include <QColor>
 #include <QElapsedTimer>
 #include <QImage>
 #include <QPointer>
@@ -113,6 +114,13 @@ private Q_SLOTS:
 private:
     void remember_cover(); // or forget it, without a cover
     QString factsText() const; // year, disc, tracks, length
+    struct Badge {
+        QString text;
+        QColor fill;
+        QColor border; // invalid: none
+    };
+    QList<Badge> badges() const; // HDCD, pre-emphasis, CD+G, CD-R(W)
+    void updateAccessibleText();
 
     QPointer<Audex::CDInfoModel> cdda_model;
     KActionCollection *action_collection = nullptr;
@@ -137,7 +145,7 @@ private:
 
     void setup_actions();
 
-    bool enabled;
+    bool enabled = false;
 
     std::optional<bool> m_hdcd;
     std::optional<bool> m_cdg;
