@@ -31,7 +31,7 @@ ResponseCache::ResponseCache(const QString &directory)
 
 QString ResponseCache::defaultDirectory()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + u"/audex/online"_s;
+    return QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + u"/audex/metadata"_s;
 }
 
 void ResponseCache::setMaximumAge(int days)

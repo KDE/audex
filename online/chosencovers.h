@@ -21,7 +21,7 @@ namespace Audex
 namespace ChosenCovers
 {
 
-inline constexpr auto Service = "chosen-covers";
+inline constexpr auto Service = "local-covers";
 
 std::optional<Metadata::CoverArt> find(const ResponseCache &cache, const QString &discId);
 void keep(ResponseCache &cache, const QString &discId, const Metadata::CoverArt &cover);

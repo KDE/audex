@@ -29,7 +29,7 @@ class ResponseCache
 public:
     explicit ResponseCache(const QString &directory = defaultDirectory());
 
-    static QString defaultDirectory(); // ~/.cache/audex/online
+    static QString defaultDirectory(); // ~/.cache/audex/metadata
 
     static constexpr int NoLimit = -1;
 
