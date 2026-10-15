@@ -112,6 +112,7 @@ private Q_SLOTS:
 
 private:
     void remember_cover(); // or forget it, without a cover
+    QString factsText() const; // year, disc, tracks, length
 
     QPointer<Audex::CDInfoModel> cdda_model;
     KActionCollection *action_collection = nullptr;

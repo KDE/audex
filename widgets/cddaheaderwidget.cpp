@@ -30,6 +30,7 @@
 #include <QStandardPaths>
 #include <QStyle>
 #include <QTemporaryDir>
+#include <QTextLayout>
 #include <QToolTip>
 
 #include <cmath>
@@ -39,6 +40,39 @@ using namespace Qt::StringLiterals;
 
 namespace
 {
+
+void scaleFont(QFont &font, qreal factor)
+{
+    if (font.pixelSize() == -1)
+        font.setPointSizeF(font.pointSizeF() * factor);
+    else
+        font.setPixelSize(qRound(font.pixelSize() * factor));
+}
+
+// Wraps text at word boundaries into at most maxLines lines, the last one
+// elided; returns the y below the text
+int drawWrappedText(QPainter &painter, const QString &text, const QFont &font, int x, int y, int width, int maxLines)
+{
+    const QFontMetrics fm(font);
+    painter.setFont(font);
+    QTextLayout layout(text, font);
+    layout.beginLayout();
+    for (int lines = 1;; ++lines) {
+        QTextLine line = layout.createLine();
+        if (!line.isValid())
+            break;
+        line.setLineWidth(width);
+        QString part = text.mid(line.textStart(), line.textLength());
+        if (lines == maxLines)
+            part = fm.elidedText(text.mid(line.textStart()), Qt::ElideRight, width);
+        painter.drawText(x, y + fm.ascent(), part.trimmed());
+        y += fm.height();
+        if (lines == maxLines)
+            break;
+    }
+    layout.endLayout();
+    return y;
+}
 
 // where construct_cd_case() draws the cover into the case image
 constexpr QRectF CaseCover(125, 15, 1110, 1080);
@@ -145,86 +179,77 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         painter.drawImage(QPoint(x, y), scaled_cd_case);
         paintCoverState(painter);
 
-        QFont artistFont;
-        artistFont.setBold(true);
-        if (artistFont.pixelSize() == -1) {
-            artistFont.setPointSizeF(artistFont.pointSizeF() * 1.2);
-        } else {
-            artistFont.setPixelSize(artistFont.pixelSize() * 1.2);
-        }
-
-        QFont titleFont;
-        titleFont.setItalic(true);
-        if (titleFont.pixelSize() == -1) {
-            titleFont.setPointSizeF(titleFont.pointSizeF() * 1.6);
-        } else {
-            titleFont.setPixelSize(titleFont.pixelSize() * 1.6);
-        }
-
-        QFont cdNumberFont;
-
         painter.setRenderHint(QPainter::Antialiasing);
 
-        y += scaled_cd_case.height() + padding * 2;
+        // below the cover, as wide as the cover: album, artist, a line of
+        // facts, the badges
+        const int textWidth = qMax(scaled_cd_case.width(), 1);
+        y += scaled_cd_case.height() + padding;
+        const int yOffsetLabel = y;
 
-        int xOffsetLabel = x;
-        int yOffsetLabel = y;
+        const QColor textColor = palette().color(QPalette::WindowText);
+        const QColor secondaryColor = KColorScheme(QPalette::Active, KColorScheme::Window).foreground(KColorScheme::InactiveText).color();
 
-        // Künstlername
-        painter.setFont(artistFont);
-        QFontMetrics fm1(artistFont);
-        painter.drawText(x, y, fm1.elidedText(cdda_model->artist(), Qt::ElideRight, width() - padding));
-        y += fm1.height() + 5;
+        QFont albumFont = font();
+        albumFont.setBold(true);
+        scaleFont(albumFont, 1.3);
+        QFont artistFont = font();
+        scaleFont(artistFont, 1.1);
+        QFont factsFont = font();
+        scaleFont(factsFont, 0.9);
 
-        painter.setFont(titleFont);
-        QFontMetrics fm2(titleFont);
-        QString fullTitle = cdda_model->album();
-        if (!cdda_model->year().isEmpty()) {
-            fullTitle += QString(" (%1)").arg(cdda_model->year());
+        const QString album = cdda_model->album();
+        const QString artist = cdda_model->artist();
+        painter.setPen(album.isEmpty() ? secondaryColor : textColor);
+        y = drawWrappedText(painter, album.isEmpty() ? i18n("Unknown Album") : album, albumFont, x, y, textWidth, 2);
+        y += 2;
+        painter.setPen(artist.isEmpty() ? secondaryColor : textColor);
+        y = drawWrappedText(painter, artist.isEmpty() ? i18n("Unknown Artist") : artist, artistFont, x, y, textWidth, 1);
+
+        const QString facts = factsText();
+        if (!facts.isEmpty()) {
+            y += 4;
+            painter.setPen(secondaryColor);
+            y = drawWrappedText(painter, facts, factsFont, x, y, textWidth, 1);
         }
-        painter.drawText(x, y, fm2.elidedText(fullTitle, Qt::ElideRight, width() - padding));
-        y += fm2.height();
 
-        // flags of the disc as small badges in one row
-        QList<QPair<QString, QBrush>> badges;
+        // label_rect: where a click edits the data (not the badges)
+        label_rect = QRect(x, yOffsetLabel, textWidth, y - yOffsetLabel);
+
+        // flags of the disc as small badges in one row; their colors do not
+        // depend on the color scheme, so the text is always white
+        struct Badge {
+            QString text;
+            QColor fill;
+            QColor border; // invalid: none
+        };
+        QList<Badge> badges;
         if (m_hdcd.value_or(false))
-            badges.append({QStringLiteral("HDCD"), palette().accent()});
+            badges.append({QStringLiteral("HDCD"), palette().accent().color(), QColor()});
         if (!cdda_model->cdInfo().preEmphasisTracks().isEmpty())
-            badges.append({i18nc("badge in the disc header", "PRE-EMPHASIS"), QColor(0x8e, 0x44, 0xad)}); // purple
+            badges.append({i18nc("badge in the disc header", "PRE-EMPHASIS"), QColor(0x8e, 0x44, 0xad), QColor()}); // purple
         if (m_cdg.value_or(false))
-            badges.append({QStringLiteral("CD+G"), QColor(Qt::black)});
+            badges.append({QStringLiteral("CD+G"), QColor(0x3b, 0x3f, 0x45), QColor(0x9a, 0xa0, 0xa6)}); // dark grey, visible on dark schemes too
         const Audex::CDInfo::Medium medium = cdda_model->cdInfo().medium();
         if (medium == Audex::CDInfo::Medium::CdR || medium == Audex::CDInfo::Medium::CdRw)
-            badges.append({medium == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R"), QColor(0x7f, 0x8c, 0x8d)}); // grey
+            badges.append({medium == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R"), QColor(0x7f, 0x8c, 0x8d), QColor()}); // grey
         if (!badges.isEmpty()) {
-            y += padding;
-            QFontMetrics fm3(cdNumberFont);
+            y += 8;
+            const QFontMetrics fm(font());
             int badgeX = x;
             painter.save();
-            painter.setFont(cdNumberFont);
-            for (const auto &[text, brush] : std::as_const(badges)) {
-                const QRect badge(badgeX, y - fm3.ascent(), fm3.horizontalAdvance(text) + 12, fm3.height() + 4);
-                painter.setBrush(brush);
-                painter.setPen(Qt::NoPen);
-                painter.drawRoundedRect(badge, 4, 4);
-                painter.setPen(palette().color(QPalette::BrightText));
-                painter.drawText(badge, Qt::AlignCenter, text);
-                badgeX = badge.right() + 6;
+            painter.setFont(font());
+            for (const Badge &badge : std::as_const(badges)) {
+                const QRectF box(badgeX + 0.5, y + 0.5, fm.horizontalAdvance(badge.text) + 12, fm.height() + 4);
+                painter.setBrush(badge.fill);
+                painter.setPen(badge.border.isValid() ? QPen(badge.border, 1) : QPen(Qt::NoPen));
+                painter.drawRoundedRect(box, 4, 4);
+                painter.setPen(Qt::white);
+                painter.drawText(box, Qt::AlignCenter, badge.text);
+                badgeX = qRound(box.right()) + 6;
             }
             painter.restore();
-            y += fm3.height() + 4;
         }
-
-        if (cdda_model->discNumber() > 0) {
-            painter.setFont(cdNumberFont);
-            y += padding;
-            painter.drawText(x, y, QString("[%1%2]").arg(i18n("CD Number: ")).arg(cdda_model->discNumber()));
-        }
-
-        label_rect = QRect(xOffsetLabel,
-                           yOffsetLabel - fm1.height(),
-                           qMax(fm1.horizontalAdvance(cdda_model->artist()), fm2.horizontalAdvance(fullTitle)),
-                           y - yOffsetLabel);
 
     } else { // disabled
 
@@ -241,6 +266,37 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
     }
 
     painter.end();
+}
+
+// "1975 · Disc 1 of 2 · 9 tracks · 44:28"; what is not known is left out
+QString CDDAHeaderWidget::factsText() const
+{
+    QStringList facts;
+    if (!cdda_model->year().isEmpty())
+        facts << cdda_model->year();
+    const int disc = cdda_model->discNumber();
+    const int discs = cdda_model->discCount();
+    if (disc > 0 && discs > 1)
+        facts << i18nc("disc number in the disc header", "Disc %1 of %2", disc, discs);
+    else if (disc > 0)
+        facts << i18nc("disc number in the disc header", "Disc %1", disc);
+
+    const Audex::Cdda::Toc toc = cdda_model->cdInfo().toc();
+    int tracks = 0;
+    qint64 sectors = 0;
+    for (const Audex::Cdda::Track &track : toc.tracks) {
+        if (!track.audio)
+            continue;
+        ++tracks;
+        sectors += track.sectorCount();
+    }
+    if (tracks > 0) {
+        facts << i18np("%1 track", "%1 tracks", tracks);
+        const qint64 seconds = (sectors + Audex::Cdda::SectorsPerSecond / 2) / Audex::Cdda::SectorsPerSecond;
+        facts << (seconds >= 3600 ? u"%1:%2:%3"_s.arg(seconds / 3600).arg(seconds / 60 % 60, 2, 10, QLatin1Char('0')).arg(seconds % 60, 2, 10, QLatin1Char('0'))
+                                  : u"%1:%2"_s.arg(seconds / 60).arg(seconds % 60, 2, 10, QLatin1Char('0')));
+    }
+    return facts.join(u" · "_s);
 }
 
 void CDDAHeaderWidget::construct_cd_case()
