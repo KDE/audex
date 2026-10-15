@@ -127,6 +127,7 @@ private:
     QImage m_scaledCase;
     qint64 m_scaledCaseKey = 0;
     QSize m_scaledCaseSize;
+    qreal m_scaledCaseDpr = 1.0;
     QString coverToolTip() const; // where the cover comes from, its size
 
     QRect cover_rect;

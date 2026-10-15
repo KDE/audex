@@ -158,13 +158,18 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         const bool vertical = this->frameGeometry().width() > this->frameGeometry().height();
         const QSize caseSize = vertical ? QSize(qMin(rect().height() - padding * 2, cover_size_max), qMin(rect().height() - padding * 2, cover_size_max))
                                         : QSize(qMin(rect().width() - padding * 2, cover_size_max), qMin(rect().width() - padding * 2, cover_size_max));
-        // scaled once per case and size: the dots repaint the cover often
-        if (m_scaledCaseKey != cd_case.cacheKey() || m_scaledCaseSize != caseSize) {
-            m_scaledCase = cd_case.isNull() ? QImage() : cd_case.scaled(caseSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        // scaled once per case, size and screen: the dots repaint the cover
+        // often. In device pixels, so the cover stays sharp on scaled screens.
+        const qreal dpr = devicePixelRatioF();
+        if (m_scaledCaseKey != cd_case.cacheKey() || m_scaledCaseSize != caseSize || m_scaledCaseDpr != dpr) {
+            m_scaledCase = cd_case.isNull() ? QImage() : cd_case.scaled(caseSize * dpr, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+            m_scaledCase.setDevicePixelRatio(dpr);
             m_scaledCaseKey = cd_case.cacheKey();
             m_scaledCaseSize = caseSize;
+            m_scaledCaseDpr = dpr;
         }
         const QImage &scaled_cd_case = m_scaledCase;
+        const QSize caseLogicalSize = scaled_cd_case.deviceIndependentSize().toSize();
 
         int xOffsetCover = padding;
         int yOffsetCover = padding;
@@ -173,7 +178,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         int y = yOffsetCover;
 
         // QImage scaled_cover = cover.scaled(cover_size, cover_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        cover_rect = QRect(x, y, scaled_cd_case.width(), scaled_cd_case.height());
+        cover_rect = QRect(QPoint(x, y), caseLogicalSize);
         painter.drawImage(QPoint(x, y), scaled_cd_case);
         paintCoverState(painter);
 
@@ -181,8 +186,8 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
 
         // below the cover, as wide as the cover: album, artist, a line of
         // facts, the badges
-        const int textWidth = qMax(scaled_cd_case.width(), 1);
-        y += scaled_cd_case.height() + padding;
+        const int textWidth = qMax(caseLogicalSize.width(), 1);
+        y += caseLogicalSize.height() + padding;
         const int yOffsetLabel = y;
 
         const QColor textColor = palette().color(QPalette::WindowText);
