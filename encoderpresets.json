@@ -10,6 +10,11 @@
         "suffix": "m4a"
     },
     {
+        "name": "AAC (ffmpeg, 192 kbit/s)",
+        "command": "ffmpeg -loglevel error -y -f wav -i - -c:a aac -b:a 192k $o",
+        "suffix": "m4a"
+    },
+    {
         "name": "ALAC (ffmpeg)",
         "command": "ffmpeg -loglevel error -y -f wav -i - -c:a alac $o",
         "suffix": "m4a"
