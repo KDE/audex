@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 
 #include <QDir>
+#include <QFile>
 #include <QStringList>
 
 Playlist::Playlist()
@@ -25,31 +26,26 @@ void Playlist::appendItem(const PlaylistItem &item)
     p_playlist.append(item);
 }
 
+// The paths are written as the file system stores them (as QFile does), so a
+// player finds the files whatever the setting; only the titles are Latin-1
+// without UTF-8 (the classic M3U), characters outside it become "?".
 QByteArray Playlist::toM3U(const QString &playlistPath, const bool utf8) const
 {
-    QStringList playlist;
-    playlist.append("#EXTM3U");
+    const auto text = [utf8](const QString &line) {
+        return utf8 ? line.toUtf8() : line.toLatin1();
+    };
 
-    for (int i = 0; i < p_playlist.count(); ++i) {
-        PlaylistItem pi = p_playlist[i];
-        if (pi.filename().isEmpty())
-            continue;
-
-        if (!pi.artist().isEmpty()) {
-            playlist.append(QString("#EXTINF:%1,%2 - %3").arg(QString::number(pi.length()), pi.artist(), pi.title()));
-        } else {
-            playlist.append(QString("#EXTINF:%1,%2").arg(QString::number(pi.length()), pi.title()));
-        }
-        if (!playlistPath.isEmpty()) {
-            QDir dir(playlistPath);
-            playlist.append(dir.relativeFilePath(pi.filename()));
-        } else {
-            playlist.append(pi.filename());
-        }
+    QByteArray playlist = "#EXTM3U\n";
+    for (PlaylistItem pi : p_playlist) { // a copy: the getters are not const
+        if (!pi.artist().isEmpty())
+            playlist += text(QString("#EXTINF:%1,%2 - %3").arg(QString::number(pi.length()), pi.artist(), pi.title()));
+        else
+            playlist += text(QString("#EXTINF:%1,%2").arg(QString::number(pi.length()), pi.title()));
+        playlist += '\n';
+        const QString path = playlistPath.isEmpty() ? pi.filename() : QDir(playlistPath).relativeFilePath(pi.filename());
+        playlist += QFile::encodeName(path);
+        playlist += '\n';
     }
 
-    if (utf8)
-        return playlist.join("\n").append("\n").toUtf8();
-    else
-        return playlist.join("\n").append("\n").toLatin1();
+    return playlist;
 }

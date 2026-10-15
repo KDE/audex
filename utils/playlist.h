@@ -74,7 +74,7 @@ private:
     QString p_filename;
     QString p_artist;
     QString p_title;
-    int p_length; // sec
+    int p_length; // seconds
 };
 
 typedef QList<PlaylistItem> PlaylistItemList;
