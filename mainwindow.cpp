@@ -13,6 +13,7 @@
 #include "encoding/registry.h"
 #include "models/cdinfomodel.h"
 #include "models/profilemodel.h"
+#include "online/chosencovers.h"
 #include "online/gnudbprovider.h"
 #include "online/musicbrainzprovider.h"
 #include "utils/devicesettings.h"
@@ -441,6 +442,7 @@ void MainWindow::setup_layout()
     connect(m_cddaHeaderWidget, &CDDAHeaderWidget::coverFetchRequested, this, [this]() {
         start_cover_fetch(m_coverCandidate, false); // asked for again: from the archive
     });
+    connect(m_cddaHeaderWidget, &CDDAHeaderWidget::coverSetByUser, this, &MainWindow::stop_cover_fetch);
     m_cddaHeaderDock->setWidget(m_cddaHeaderWidget);
     addDockWidget(Qt::LeftDockWidgetArea, m_cddaHeaderDock);
 
@@ -1009,6 +1011,7 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
     enable_fetch_actions(m_layoutEnabled);
 
     if (candidates.isEmpty()) {
+        apply_chosen_cover(); // the databases do not know the disc, the user's cover still fits
         if (!m_lookupErrors.isEmpty()) {
             ErrorDialog::show(this, i18n("The metadata lookup failed."), m_lookupErrors.join(u'\n'), i18n("Metadata Lookup"));
         } else if (!m_lookupAuto) {
@@ -1030,6 +1033,12 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
     const Audex::MetadataCandidate candidate = candidates.at(selected);
     m_cddaModel->applyCandidate(candidate);
     update_layout();
+
+    // the cover the user chose for this disc wins over the archive's
+    if (apply_chosen_cover()) {
+        m_coverCandidate = candidate;
+        return;
+    }
 
     // fetch the cover if the candidate knows one
     if (!m_lookupAuto || Preferences::coverLookupAuto())
@@ -1067,6 +1076,21 @@ void MainWindow::start_cover_fetch(const Audex::MetadataCandidate &candidate, bo
     }
     m_cddaHeaderWidget->setCoverState(CDDAHeaderWidget::CoverState::Loading);
     fetch_next_cover();
+}
+
+// The cover the user chose for the disc, if one is kept: comes with every
+// lookup, whatever the provider
+bool MainWindow::apply_chosen_cover()
+{
+    const std::optional<Audex::ResponseCache> cache = onlineCache();
+    if (!cache || m_cddaModel->isEmpty())
+        return false;
+    const std::optional<Audex::Metadata::CoverArt> cover = Audex::ChosenCovers::find(*cache, m_cddaModel->cdInfo().musicBrainzDiscId());
+    if (!cover)
+        return false;
+    stop_cover_fetch();
+    m_cddaModel->setCover(*cover);
+    return true;
 }
 
 void MainWindow::enable_fetch_actions(bool enabled)

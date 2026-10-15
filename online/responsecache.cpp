@@ -63,11 +63,50 @@ QString ResponseCache::path(const QString &service, const QUrl &url) const
     return QDir(m_directory).filePath(service + u'/' + key(url));
 }
 
+QString ResponseCache::namedPath(const QString &service, const QString &name) const
+{
+    const QByteArray hash = QCryptographicHash::hash(name.toUtf8(), QCryptographicHash::Sha256).toHex();
+    return QDir(m_directory).filePath(service + u'/' + QString::fromLatin1(hash));
+}
+
 std::optional<QByteArray> ResponseCache::find(const QString &service, const QUrl &url) const
 {
-    if (m_maximumAge == 0 || service.isEmpty() || !url.isValid())
+    if (service.isEmpty() || !url.isValid())
         return std::nullopt;
-    const QString file = path(service, url);
+    return read(path(service, url));
+}
+
+void ResponseCache::insert(const QString &service, const QUrl &url, const QByteArray &data)
+{
+    if (service.isEmpty() || !url.isValid())
+        return;
+    write(path(service, url), data);
+}
+
+std::optional<QByteArray> ResponseCache::findNamed(const QString &service, const QString &name) const
+{
+    if (service.isEmpty() || name.isEmpty())
+        return std::nullopt;
+    return read(namedPath(service, name));
+}
+
+void ResponseCache::insertNamed(const QString &service, const QString &name, const QByteArray &data)
+{
+    if (service.isEmpty() || name.isEmpty())
+        return;
+    write(namedPath(service, name), data);
+}
+
+void ResponseCache::removeNamed(const QString &service, const QString &name)
+{
+    if (!service.isEmpty() && !name.isEmpty())
+        QFile::remove(namedPath(service, name));
+}
+
+std::optional<QByteArray> ResponseCache::read(const QString &file) const
+{
+    if (m_maximumAge == 0)
+        return std::nullopt;
     const QFileInfo info(file);
     if (!info.exists())
         return std::nullopt;
@@ -81,11 +120,10 @@ std::optional<QByteArray> ResponseCache::find(const QString &service, const QUrl
     return f.readAll();
 }
 
-void ResponseCache::insert(const QString &service, const QUrl &url, const QByteArray &data)
+void ResponseCache::write(const QString &file, const QByteArray &data)
 {
-    if (m_maximumAge == 0 || service.isEmpty() || !url.isValid() || data.isEmpty())
+    if (m_maximumAge == 0 || data.isEmpty())
         return;
-    const QString file = path(service, url);
     if (!QDir().mkpath(QFileInfo(file).path()))
         return;
     QSaveFile f(file);

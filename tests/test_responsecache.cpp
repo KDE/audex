@@ -7,6 +7,7 @@
 
 #include "metadata/gnudb.h"
 #include "metadata/musicbrainz.h"
+#include "online/chosencovers.h"
 #include "online/responsecache.h"
 
 #include <QDateTime>
@@ -135,4 +136,39 @@ AUDEX_TEST("response cache: without limits answers stay")
     AUDEX_CHECK(t, cache.find(u"coverart"_s, first).has_value());
     AUDEX_CHECK(t, cache.find(u"coverart"_s, second).has_value());
     AUDEX_EQUAL(t, cache.size(), qint64(400));
+}
+
+AUDEX_TEST("response cache: the cover chosen for a disc is remembered and forgotten")
+{
+    QTemporaryDir dir;
+    ResponseCache cache(dir.path());
+    const QString discId = disc(5000).musicBrainzDiscId();
+    const QString otherId = disc(5010).musicBrainzDiscId();
+    AUDEX_CHECK(t, !ChosenCovers::find(cache, discId).has_value());
+
+    Metadata::CoverArt cover;
+    cover.data = QByteArray("\x89PNG\r\n\x1a\n", 8) + QByteArray(100, 'p');
+    cover.mimeType = u"image/png"_s;
+    cover.source = u"https://coverartarchive.org/release/1/2-500.png"_s;
+    cover.origin = u"Cover Art Archive: back cover"_s;
+    cover.originPage = QUrl(u"https://musicbrainz.org/release/1/cover-art"_s);
+    ChosenCovers::keep(cache, discId, cover);
+
+    const std::optional<Metadata::CoverArt> found = ChosenCovers::find(cache, discId);
+    AUDEX_CHECK(t, found.has_value());
+    if (found) {
+        AUDEX_CHECK(t, *found == cover);
+        AUDEX_EQUAL(t, found->source, cover.source);
+        AUDEX_EQUAL(t, found->origin, cover.origin);
+        AUDEX_EQUAL(t, found->originPage.toString(), cover.originPage.toString());
+    }
+    AUDEX_CHECK(t, !ChosenCovers::find(cache, otherId).has_value());
+
+    ChosenCovers::forget(cache, discId);
+    AUDEX_CHECK(t, !ChosenCovers::find(cache, discId).has_value());
+    AUDEX_EQUAL(t, cache.size(), qint64(0));
+
+    ChosenCovers::keep(cache, discId, cover);
+    cache.setMaximumAge(0); // keeping turned off
+    AUDEX_CHECK(t, !ChosenCovers::find(cache, discId).has_value());
 }

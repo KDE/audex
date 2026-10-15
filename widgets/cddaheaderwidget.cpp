@@ -9,6 +9,7 @@
 
 #include "dialogs/cddaheaderdatadialog.h"
 #include "dialogs/coverchooserdialog.h"
+#include "online/chosencovers.h"
 
 #include <KActionCollection>
 #include <KColorScheme>
@@ -323,8 +324,24 @@ void CDDAHeaderWidget::choose_cover()
     if (!cdda_model)
         return;
     CoverChooserDialog dialog(cdda_model->cdInfo().metadata(), this);
-    if (dialog.exec() == QDialog::Accepted)
+    if (dialog.exec() == QDialog::Accepted) {
         cdda_model->setCover(dialog.cover());
+        remember_cover();
+    }
+}
+
+// A cover the user chose comes with every later lookup of the disc
+void CDDAHeaderWidget::remember_cover()
+{
+    Q_EMIT coverSetByUser(); // a download still on its way must not replace it
+    std::optional<Audex::ResponseCache> cache = onlineCache();
+    if (!cache)
+        return;
+    const QString discId = cdda_model->cdInfo().musicBrainzDiscId();
+    if (cdda_model->cover().isNull())
+        Audex::ChosenCovers::forget(*cache, discId);
+    else
+        Audex::ChosenCovers::keep(*cache, discId, cdda_model->cover());
 }
 
 void CDDAHeaderWidget::show_cover_source()
@@ -414,7 +431,9 @@ void CDDAHeaderWidget::load()
         QString error;
         if (!cdda_model->loadCoverFromFile(filename, &error)) {
             ErrorDialog::show(this, i18n("Cannot load the cover."), error);
+            return;
         }
+        remember_cover();
     }
 }
 
@@ -460,6 +479,7 @@ void CDDAHeaderWidget::remove()
     }
 
     cdda_model->removeCover();
+    remember_cover(); // forgets it
     update();
 }
 

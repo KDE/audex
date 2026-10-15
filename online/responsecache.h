@@ -17,7 +17,8 @@ namespace Audex
 {
 
 // Answers of online services on disk, so that a disc inserted again needs no
-// network: MusicBrainz and gnudb answers, Cover Art Archive images.
+// network: MusicBrainz and gnudb answers, Cover Art Archive images. Named
+// entries hold what is remembered per disc (the covers chosen by the user).
 // The key is the request URL, which holds the whole table of contents (or the
 // MusicBrainz disc ID, an ID of an entry), so discs whose CDDB IDs collide are
 // never mixed up. Personal parts (the gnudb email address) are left out.
@@ -42,6 +43,11 @@ public:
     std::optional<QByteArray> find(const QString &service, const QUrl &url) const;
     void insert(const QString &service, const QUrl &url, const QByteArray &data);
 
+    // entries under a name instead of a URL, e.g. a disc ID
+    std::optional<QByteArray> findNamed(const QString &service, const QString &name) const;
+    void insertNamed(const QString &service, const QString &name, const QByteArray &data);
+    void removeNamed(const QString &service, const QString &name);
+
     qint64 size() const; // bytes on disk
     void clear();
 
@@ -49,6 +55,9 @@ public:
 
 private:
     QString path(const QString &service, const QUrl &url) const;
+    QString namedPath(const QString &service, const QString &name) const;
+    std::optional<QByteArray> read(const QString &file) const;
+    void write(const QString &file, const QByteArray &data);
     void trim() const;
 
     QString m_directory;

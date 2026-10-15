@@ -121,7 +121,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <item>
          <widget class="QLineEdit" name="kcfg_gnudbEmail">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;gnudb requires a contact address with every request and blocks clients that send none. It is needed whenever gnudb is asked, as the preferred provider or from the Fetch menu. The address is only sent to gnudb.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;gnudb requires a contact address for queries and blocks requests without one. The address is only sent to gnudb when fetching data.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="placeholderText">
            <string>you@example.org</string>
@@ -135,7 +135,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <item>
          <widget class="QCheckBox" name="kcfg_onlineCache">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Response of MusicBrainz, gnudb and the Cover Art Archive are kept on this computer, so a disc inserted again is looked up without the remote service. A lookup started manually from the Fetch menu always reads the entry from remote.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Responses from MusicBrainz, gnudb, and Cover Art Archive are cached locally for faster re-lookups. Using the Fetch menu forces a fresh online lookup.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>Keep metadata in cache</string>

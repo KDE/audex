@@ -135,6 +135,7 @@ set(audex_engine_SRCS
     online/coverartarchive.cpp
     online/coverartfetcher.cpp
     online/responsecache.cpp
+    online/chosencovers.cpp
     online/musicbrainzprovider.cpp
     models/cdinfomodel.cpp
     utils/ripjob.cpp

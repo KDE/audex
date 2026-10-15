@@ -89,6 +89,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void headerDataChanged();
     void coverFetchRequested(); // "Fetch Cover Again" after a failure
+    void coverSetByUser(); // chosen, loaded or removed by the user
 
 protected:
     bool event(QEvent *event) override; // tool tip of the cover
@@ -110,6 +111,8 @@ private Q_SLOTS:
     void context_menu(const QPoint &point);
 
 private:
+    void remember_cover(); // or forget it, without a cover
+
     QPointer<Audex::CDInfoModel> cdda_model;
     KActionCollection *action_collection = nullptr;
     int cover_size_min;

@@ -104,7 +104,6 @@ private Q_SLOTS:
     void lookup_provider_failed(int lookupId, const QString &providerId, const QString &error);
     void cover_fetch_finished(int requestId, const Audex::Metadata::CoverArt &cover, const QString &error);
     void start_cover_fetch(const Audex::MetadataCandidate &candidate, bool preferCache);
-    void enable_fetch_actions(bool enabled);
     void stop_cover_fetch(); // cancels a running fetch, the cover state goes back to idle
     void fetch_next_cover();
 
@@ -124,6 +123,8 @@ private:
     void setup_layout();
 
     void start_metadata_lookup(const QString &providerId, bool automatic);
+    void enable_fetch_actions(bool enabled);
+    bool apply_chosen_cover(); // false if none is kept for the disc shown
     void profileChanged();
     void applyImageMode(bool image);
     void updateProfileMessage();
