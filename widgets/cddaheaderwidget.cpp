@@ -114,8 +114,6 @@ CDDAHeaderWidget ::CDDAHeaderWidget(Audex::CDInfoModel *cddaModel, QWidget *pare
     this->padding = padding;
 
     setMouseTracking(true);
-    cursor_on_cover = false;
-    cursor_on_label = false;
 
     connect(this, &QWidget::customContextMenuRequested, this, &CDDAHeaderWidget::context_menu);
 
@@ -406,26 +404,23 @@ void CDDAHeaderWidget::show_cover_source()
         QDesktopServices::openUrl(cdda_model->cover().originPage);
 }
 
+bool CDDAHeaderWidget::onCover(const QPoint &pos) const
+{
+    return enabled && cover_rect.contains(pos);
+}
+
+bool CDDAHeaderWidget::onLabel(const QPoint &pos) const
+{
+    return enabled && label_rect.contains(pos);
+}
+
+// The widget's own cursor: it ends with the widget, whatever the mouse does
 void CDDAHeaderWidget::mouseMoveEvent(QMouseEvent *event)
 {
-    if (cover_rect.contains(event->pos())) {
-        if (!cursor_on_cover) {
-            QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor));
-            cursor_on_cover = true;
-        }
-    } else if (label_rect.contains(event->pos())) {
-        if (!cursor_on_label) {
-            QApplication::setOverrideCursor(QCursor(Qt::PointingHandCursor));
-            cursor_on_label = true;
-        }
-    } else {
-        QApplication::restoreOverrideCursor();
-        if (cursor_on_cover) {
-            cursor_on_cover = false;
-        } else if (cursor_on_label) {
-            cursor_on_label = false;
-        }
-    }
+    if (onCover(event->pos()) || onLabel(event->pos()))
+        setCursor(Qt::PointingHandCursor);
+    else
+        unsetCursor();
 }
 
 void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
@@ -437,16 +432,15 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
     }
 
     if (event->button() == Qt::LeftButton) {
-        if (cursor_on_cover) {
-            QApplication::restoreOverrideCursor();
+        if (onCover(event->pos())) {
+            unsetCursor();
             if (cdda_model->cover().isNull()) {
                 load();
             } else {
                 view_cover();
             }
-        }
-        if (cursor_on_label) {
-            QApplication::restoreOverrideCursor();
+        } else if (onLabel(event->pos())) {
+            unsetCursor();
             edit_data();
         }
     }
@@ -547,9 +541,6 @@ void CDDAHeaderWidget::edit_data()
         return;
     }
 
-    QApplication::restoreOverrideCursor();
-    cursor_on_label = false;
-
     auto dialog(CDDAHeaderDataDialog(cdda_model, m_hdcd, this));
 
     if (dialog.exec() != QDialog::Accepted)
@@ -586,9 +577,8 @@ QString CDDAHeaderWidget::preEmphasisText(const Audex::CDInfo &info)
 void CDDAHeaderWidget::context_menu(const QPoint &point)
 {
     qDebug() << "context menu requested at point" << point;
-    if (cursor_on_cover) {
-        QApplication::restoreOverrideCursor();
-        cursor_on_cover = false;
+    if (onCover(point)) {
+        unsetCursor();
         QMenu contextMenu(this);
         contextMenu.clear();
         if (m_coverState == CoverState::Failed) {

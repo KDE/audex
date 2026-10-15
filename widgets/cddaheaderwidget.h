@@ -130,10 +130,9 @@ private:
     QString coverToolTip() const; // where the cover comes from, its size
 
     QRect cover_rect;
-    bool cursor_on_cover;
-
-    QRect label_rect;
-    bool cursor_on_label;
+    QRect label_rect; // the text below the cover: a click edits it
+    bool onCover(const QPoint &pos) const;
+    bool onLabel(const QPoint &pos) const;
 
     void setup_actions();
 
