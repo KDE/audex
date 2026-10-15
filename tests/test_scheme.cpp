@@ -7,6 +7,8 @@
 
 #include "utils/scheme.h"
 
+#include <QFile>
+
 using namespace Audex::Scheme;
 using namespace Qt::StringLiterals;
 
@@ -89,4 +91,32 @@ AUDEX_TEST("scheme: stored key value lists")
                 u"oggenc -o \"$o\" \"$i\""_s);
     AUDEX_EQUAL(t, parseKeyValues(u"a='it's',b=1"_s, u',').value(0).second.toString(), u"it's"_s);
     AUDEX_EQUAL(t, parseKeyValues(u"suffix=001"_s, u',').value(0).second.toString(), u"001"_s);
+}
+
+AUDEX_TEST("scheme: long names are shortened to 255 bytes, the suffix kept")
+{
+    using Audex::Scheme::limitNameLength;
+    // 3 bytes per character in UTF-8: 120 characters are 360 bytes
+    const QString title = QString(120, QChar(0x4E2D));
+    const QString path = u"Artist/"_s + title + u"/01 - "_s + title + u".flac"_s;
+    const QString limited = limitNameLength(path, u"flac"_s);
+    const QStringList parts = limited.split(u'/');
+    AUDEX_EQUAL(t, parts.size(), qsizetype(3));
+    AUDEX_EQUAL(t, parts.at(0), u"Artist"_s);
+    for (const QString &part : parts)
+        AUDEX_CHECK(t, QFile::encodeName(part).size() <= 255);
+    AUDEX_EQUAL(t, QFile::encodeName(parts.at(1)).size(), qsizetype(255)); // 85 whole characters
+    AUDEX_CHECK(t, parts.at(2).startsWith(u"01 - "_s));
+    AUDEX_CHECK(t, parts.at(2).endsWith(u".flac"_s));
+
+    // short names stay as they are
+    AUDEX_EQUAL(t, limitNameLength(u"A/B/01 - Title.mp3"_s, u"mp3"_s), u"A/B/01 - Title.mp3"_s);
+
+    // a character outside the BMP is never cut in half
+    const QString emoji = QString::fromUcs4(U"\U0001F3B5");
+    const QString many = QString(emoji).repeated(70) + u".ogg"_s; // 280 + 4 bytes
+    const QString cut = limitNameLength(many, u"ogg"_s);
+    AUDEX_CHECK(t, QFile::encodeName(cut).size() <= 255);
+    AUDEX_CHECK(t, !cut.chopped(4).back().isHighSurrogate());
+    AUDEX_CHECK(t, cut.endsWith(u".ogg"_s));
 }

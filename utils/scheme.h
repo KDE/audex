@@ -132,4 +132,10 @@ Rendered renderFileName(const QString &scheme, const QMap<QString, QString> &val
 // reserved device names (CON, NUL, ...); at most 255 characters
 QString fat32Compatible(const QString &name);
 
+// File systems allow 255 bytes per name (ext4, btrfs, XFS; FAT32 255
+// characters), as the name is stored, not as many characters: a long
+// title in UTF-8 reaches that early. Each part of a relative path is
+// shortened at a character boundary to fit; the last keeps its suffix.
+QString limitNameLength(const QString &path, const QString &suffix, int maxBytes = 255);
+
 }

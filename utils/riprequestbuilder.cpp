@@ -282,7 +282,8 @@ QString RipRequestBuilder::fileName(const QString &scheme, const Placeholders &v
     const QString name = segments.join(u'/');
     // a scheme may spell the extension out instead of using $suffix
     const bool hasSuffix = name.endsWith(u'.' + suffix, Qt::CaseInsensitive) || (suffix == u"jpg"_s && name.endsWith(u".jpeg"_s, Qt::CaseInsensitive));
-    return hasSuffix ? name : name + u'.' + suffix;
+    // a long title would make the file system refuse the file at the end of the rip
+    return Audex::Scheme::limitNameLength(hasSuffix ? name : name + u'.' + suffix, name.endsWith(u".jpeg"_s, Qt::CaseInsensitive) ? u"jpeg"_s : suffix);
 }
 
 QString RipRequestBuilder::resolveNameScheme(const QString &scheme, const QString &suffix) const

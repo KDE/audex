@@ -7,6 +7,8 @@
 
 #include "scheme.h"
 
+#include <QFile>
+
 using namespace Qt::StringLiterals;
 
 namespace Audex::Scheme
@@ -308,6 +310,42 @@ Rendered renderFileName(const QString &scheme, const QMap<QString, QString> &val
     }
     result.text = text;
     return result;
+}
+
+namespace
+{
+
+// one name without "/", at most maxBytes in the file system's encoding
+QString shortenName(QString name, int maxBytes)
+{
+    while (!name.isEmpty() && QFile::encodeName(name).size() > maxBytes) {
+        name.chop(1);
+        if (!name.isEmpty() && name.back().isHighSurrogate())
+            name.chop(1); // never half a character
+    }
+    while (name.endsWith(u' '))
+        name.chop(1);
+    return name;
+}
+
+}
+
+QString limitNameLength(const QString &path, const QString &suffix, int maxBytes)
+{
+    QStringList parts = path.split(u'/');
+    for (qsizetype i = 0; i < parts.size(); ++i) {
+        QString &part = parts[i];
+        if (QFile::encodeName(part).size() <= maxBytes)
+            continue;
+        const QString ending = u'.' + suffix;
+        if (i == parts.size() - 1 && !suffix.isEmpty() && part.endsWith(ending, Qt::CaseInsensitive)) {
+            const QString kept = part.right(ending.size());
+            part = shortenName(part.chopped(ending.size()), maxBytes - int(QFile::encodeName(kept).size())) + kept;
+        } else {
+            part = shortenName(part, maxBytes);
+        }
+    }
+    return parts.join(u'/');
 }
 
 QString fat32Compatible(const QString &name)
