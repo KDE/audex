@@ -1057,3 +1057,55 @@ AUDEX_TEST("pregaps with their own track: a file with an unconfirmed pregap is r
     for (qsizetype i = 0; i < segments.size(); ++i)
         AUDEX_EQUAL_DATA(t, capture.segments.at(i), expected(reader, segments.at(i), options, area));
 }
+
+AUDEX_TEST("an unplugged drive ends the rip at once")
+{
+    // every command fails at once after the unplug; without noticing it the
+    // engine would give up every remaining sector, one by one
+    const auto disc = SimulatedDisc::generate({3000, 3000}, 0, 31);
+    for (const ReadMode mode : {ReadMode::Fast, ReadMode::Secure}) {
+        DriveModel model;
+        model.unpluggedAfterCommands = 40;
+        SimulatedSectorReader reader(disc, model);
+
+        RipOptions options;
+        options.mode = mode;
+        options.cacheDefeat = false;
+
+        RipCapture capture;
+        const RipResult result = runRip(reader, ReadableArea{0, 6000}, options, {makeSegment(1, 0, 2999), makeSegment(2, 3000, 5999)}, capture);
+
+        AUDEX_CHECK(t, result.driveLost);
+        AUDEX_CHECK(t, !result.completed);
+        AUDEX_CHECK(t, !result.canceled);
+        AUDEX_CHECK_MSG(t, result.error.contains(QStringLiteral("disconnected")), result.error);
+        // the failed burst is read sector by sector once, then it stops
+        AUDEX_CHECK_MSG(t, reader.statistics().commands <= 40 + 64, QString::number(reader.statistics().commands));
+    }
+}
+
+AUDEX_TEST("a disc with many unreadable sectors does not flood the log")
+{
+    const auto disc = SimulatedDisc::generate({600}, 0, 32);
+    DriveModel model;
+    SimulatedSectorReader reader(disc, model);
+    for (int lba = 100; lba < 400; ++lba)
+        reader.addDefect(lba, Defect{DefectKind::Unreadable, 1.0, 0});
+
+    RipOptions options;
+    options.mode = ReadMode::Fast;
+    options.cacheDefeat = false;
+    options.readErrorRetries = 1;
+
+    RipCapture capture;
+    const RipResult result = runRip(reader, ReadableArea{0, 600}, options, {makeSegment(1, 0, 599)}, capture);
+
+    AUDEX_CHECK(t, result.completed);
+    AUDEX_EQUAL(t, result.segments.value(0).suspicious.size(), qsizetype(300)); // all of them in the result
+    qsizetype logged = 0;
+    for (const QString &line : std::as_const(capture.log))
+        if (line.startsWith(QStringLiteral("Suspicious position")))
+            ++logged;
+    AUDEX_EQUAL(t, logged, qsizetype(50));
+    AUDEX_CHECK(t, capture.log.filter(QStringLiteral("not logged one by one")).size() == 1);
+}

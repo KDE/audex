@@ -272,11 +272,8 @@ void DiscController::onDeviceRemoved(const QString &udi)
     if (udi == m_readingUdi)
         m_readingUdi.clear(); // result is ignored when it arrives
 
-    bool retry = false;
-    if (udi == m_failedUdi) {
-        m_failedUdi.clear();
-        retry = true; // the failed disc is gone: a new attempt may be due
-    }
+    if (udi == m_failedUdi)
+        m_failedUdi.clear(); // the failed disc is gone: a new attempt may be due
 
     bool driveGone = false;
     for (const DriveInfo &d : m_drives) {
@@ -291,15 +288,29 @@ void DiscController::onDeviceRemoved(const QString &udi)
         Q_EMIT discRemoved(); // the current drive keeps its selection
     }
 
-    adoptScan(scanDrives());
+    // Solid emits deviceRemoved before it forgets the device: a scan from
+    // here would still find the drive or the disc (an unplugged drive stayed
+    // listed as empty). The device is left out now, the scan follows once
+    // Solid is done with it.
+    QList<DriveInfo> drives = m_drives;
+    drives.removeIf([&udi](const DriveInfo &d) {
+        return d.udi == udi;
+    });
+    for (DriveInfo &d : drives) {
+        if (m_volumeByDrive.value(d.udi) == udi) {
+            m_volumeByDrive.remove(d.udi);
+            d.medium = Medium::None;
+        }
+    }
+    m_volumeByDrive.remove(udi);
+    adoptScan(drives);
 
     if (driveGone && udi == m_driveUdi) {
         setCurrentDriveInternal(QString());
         pickCurrentDrive();
     }
 
-    if (retry)
-        QTimer::singleShot(0, this, &DiscController::rescan);
+    QTimer::singleShot(0, this, &DiscController::rescan);
 }
 
 void DiscController::startRead(const QString &udi)

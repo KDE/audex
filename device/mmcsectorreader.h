@@ -28,6 +28,7 @@ public:
     QByteArray readSubchannelQ(int lba, int count) override;
     QByteArray readSubchannelRaw(int lba, int count) override;
     int commandTimeouts() const override;
+    bool deviceLost() const override;
     QString description() const override;
 
 private:
@@ -44,6 +45,7 @@ private:
     QString m_description;
     int m_maxTransferBytes;
     int m_timeouts = 0;
+    bool m_deviceLost = false;
     bool m_probeMode = false;
 };
 

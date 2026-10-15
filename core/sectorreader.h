@@ -107,6 +107,13 @@ public:
         return 0;
     }
 
+    // The drive is gone (unplugged, switched off): no command can succeed
+    // any more, every one fails at once.
+    virtual bool deviceLost() const
+    {
+        return false;
+    }
+
     virtual QString description() const = 0;
 };
 

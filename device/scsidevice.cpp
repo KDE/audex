@@ -32,6 +32,7 @@ constexpr quint16 DriverStatusMask = 0x0F;
 constexpr quint16 DriverSense = 0x08; // sense buffer valid
 constexpr quint16 DriverTimeout = 0x06;
 constexpr quint16 HostTimeout = 0x03; // DID_TIME_OUT
+constexpr quint16 HostNoConnect = 0x01; // DID_NO_CONNECT: the device went away
 constexpr quint8 StatusCheckCondition = 0x02;
 }
 
@@ -54,6 +55,11 @@ bool Result::recovered() const
 bool Result::timedOut() const
 {
     return transportErrno == ETIMEDOUT || hostStatus == HostTimeout || (driverStatus & DriverStatusMask) == DriverTimeout;
+}
+
+bool Result::deviceGone() const
+{
+    return transportErrno == ENODEV || transportErrno == ENXIO || hostStatus == HostNoConnect;
 }
 
 QString Result::toString() const

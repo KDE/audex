@@ -21,6 +21,7 @@
 #include "core/hdcd.h" // Audex::Hdcd::Result - must be complete for m_hdcdWatcher
 #include "metadata/lookup.h" // Audex::MetadataCandidates (slot signature)
 #include "online/coverartfetcher.h" // Audex::Metadata::CoverArt (slot signature)
+#include "utils/discsource.h" // Audex::DiscReadResult (deferred while ripping)
 
 class QDockWidget;
 class QLabel;
@@ -175,6 +176,10 @@ private:
 
     // ui state
     bool m_layoutEnabled = false;
+    // disc events while the rip dialog is open, taken over when it closes
+    bool m_ripping = false;
+    bool m_discRemovedWhileRipping = false;
+    std::optional<Audex::DiscReadResult> m_discDetectedWhileRipping;
     bool m_imageMode = false;
     QList<int> m_savedSelection; // track selection before image mode forced all tracks
     bool m_htoaSilent = false; // the hidden track one audio of the disc is silence

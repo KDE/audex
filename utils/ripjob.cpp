@@ -270,6 +270,10 @@ void RipJob::run()
     cb.isCanceled = [this] {
         return m_cancel.load();
     };
+    // an unplugged drive ends what still reads from it (the engine stops by itself)
+    const std::function<bool()> readCanceled = [this, &opened] {
+        return m_cancel.load() || opened.reader->deviceLost();
+    };
 
     const Rip::ReadableArea area{toc.audioStartLba(), toc.audioEndLba()};
     Rip::RipOptions options = rq.options;
@@ -410,8 +414,8 @@ void RipJob::run()
     bool cdgPresent = false;
     if (rq.readCdg && result.completed && !m_cancel) {
         // not checked when the disc was inserted (yet): a few seconds tell before the whole disc is read
-        cdgPresent = rq.cdgDetected || Cdda::detectCdg(*opened.reader, toc, cb.isCanceled);
-        if (!cdgPresent && !m_cancel)
+        cdgPresent = rq.cdgDetected || Cdda::detectCdg(*opened.reader, toc, readCanceled);
+        if (!cdgPresent && !readCanceled())
             say(Rip::LogLevel::Info, tr("The disc carries no CD+G graphics; no .cdg files are written."));
     }
     if (cdgPresent && !m_cancel) {
@@ -443,7 +447,7 @@ void RipJob::run()
         const auto cdgMessage = [&](const QString &text) {
             say(Rip::LogLevel::Info, text);
         };
-        cdg = Cdda::extractCdg(*opened.reader, toc, segments.first().firstLba, segments.last().lastLba, cdgMessage, cb.isCanceled, reportCdg);
+        cdg = Cdda::extractCdg(*opened.reader, toc, segments.first().firstLba, segments.last().lastLba, cdgMessage, readCanceled, reportCdg);
         if (!cdg.error.isEmpty())
             say(Rip::LogLevel::Warning, tr("CD+G: %1").arg(cdg.error));
         if (cdg.found) {
@@ -458,7 +462,14 @@ void RipJob::run()
             say(Rip::LogLevel::Info, tr("The disc carries no CD+G graphics; no .cdg files are written."));
         }
     }
-    if (result.driveStalled) {
+    if (result.driveLost) {
+        // every further command would fail at once; there is no tray to unlock
+        result.error = tr("The drive was disconnected, the rip was aborted.");
+        say(Rip::LogLevel::Error, result.error);
+    } else if (opened.reader->deviceLost()) {
+        // after the audio: the files are complete, only the CD+G graphics are not
+        say(Rip::LogLevel::Warning, tr("The drive was disconnected after the audio was read; the CD+G graphics were not read completely."));
+    } else if (result.driveStalled) {
         // every further command (unlocking the tray...) would wait for its
         // timeout; Audex leaves the drive alone until it is switched off and on
         markDriveStalled(rq.drive.id);
@@ -502,7 +513,7 @@ void RipJob::run()
         }
     } else {
         files.abortAll();
-        if (!files.error().isEmpty() && !result.driveStalled)
+        if (!files.error().isEmpty() && !result.driveStalled && !result.driveLost)
             result.error = files.error(); // more precise than the engine's message
     }
 

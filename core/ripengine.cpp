@@ -228,6 +228,8 @@ RipResult RipEngine::run(const QList<Segment> &segments)
     m_segments = segments;
     m_segmentStates.clear();
     m_aborted = false;
+    m_timeoutsInRow = 0;
+    m_suspiciousLogged = 0;
     m_doneSectors = 0;
     m_totalSectors = 0;
 
@@ -506,6 +508,16 @@ SectorReadResult RipEngine::readRaw(int lba, int count)
         delivered = delivered || s.ok;
         if (s.recovered)
             ++m_result.statistics.recoveredByDrive;
+    }
+
+    // without the drive every further command fails at once: the rip would
+    // run through the disc giving up every sector
+    if (m_reader.deviceLost() && !m_aborted) {
+        m_aborted = true;
+        m_result.driveLost = true;
+        m_result.error = u"The drive was disconnected while reading"_s;
+        log(LogLevel::Error, m_result.error);
+        return r;
     }
 
     // a read error is an answer; only timeouts without any data count
@@ -979,7 +991,14 @@ void RipEngine::markSuspicious(int driveSector, bool zeroFilled, const QString &
         p.reason = reason;
         m_result.segments[seg].suspicious.append(p);
     }
-    log(LogLevel::Warning, u"Suspicious position at LBA %1 (drive sector %2): %3"_s.arg(lba).arg(driveSector).arg(reason));
+    // A damaged disc can have thousands of them: the first ones are logged one by
+    // one, the rest only counted in the result (and listed by the rip report)
+    constexpr int MaxLogged = 50;
+    if (m_suspiciousLogged < MaxLogged)
+        log(LogLevel::Warning, u"Suspicious position at LBA %1 (drive sector %2): %3"_s.arg(lba).arg(driveSector).arg(reason));
+    else if (m_suspiciousLogged == MaxLogged)
+        log(LogLevel::Warning, u"More suspicious positions follow; they are not logged one by one, the rip log lists them."_s);
+    ++m_suspiciousLogged;
 }
 
 void RipEngine::noteReread(int driveSector)

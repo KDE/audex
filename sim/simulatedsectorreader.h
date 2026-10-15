@@ -93,6 +93,7 @@ struct DriveModel {
     bool overreadTimesOut = false; // reads outside the readable area (instead of ILLEGAL REQUEST)
     bool subchannelTimesOut = false; // READ CD with Q sub-channel
     int stallsAfterTimeouts = 0; // after that many timeouts no command is answered any more (0: never)
+    int unpluggedAfterCommands = -1; // after that many commands the drive is gone: every command fails at once (-1: never)
     // read commands [slowFrom, slowFrom + slowCommands) take slowUs longer:
     // the drive changes its speed or spins up again
     int slowFrom = -1;
@@ -136,6 +137,7 @@ public:
     QByteArray readSubchannelQ(int lba, int count) override;
     QByteArray readSubchannelRaw(int lba, int count) override;
     int commandTimeouts() const override;
+    bool deviceLost() const override;
 
     const SimulatedStatistics &statistics() const
     {

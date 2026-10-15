@@ -181,6 +181,7 @@ struct RipResult {
     bool completed = false;
     bool canceled = false;
     bool driveStalled = false; // aborted: the drive stopped answering
+    bool driveLost = false; // aborted: the drive was unplugged or switched off
     QString error;
     QList<SegmentResult> segments; // same order as passed to run()
     RipStatistics statistics;
@@ -340,6 +341,7 @@ private:
     qint64 m_doneSectors = 0;
     bool m_aborted = false;
     int m_timeoutsInRow = 0; // read commands that timed out without data
+    int m_suspiciousLogged = 0; // suspicious positions logged one by one
 };
 
 // Pre-gaps with their own track (EAC: "append gaps to next track"): the file

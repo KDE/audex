@@ -41,6 +41,7 @@ struct Result {
         return ok() || recovered();
     }
     bool timedOut() const; // no answer in time: the kernel aborted the command
+    bool deviceGone() const; // the device was removed (unplugged): nothing can succeed any more
     QString toString() const;
 };
 

@@ -554,13 +554,30 @@ void MainWindow::rip()
             return;
     }
 
+    // The dialog works on the disc shown: a disc that goes away (a USB drive
+    // unplugged) or comes in meanwhile is taken over after it.
+    const QString driveUdi = m_discController->currentDriveUdi();
+    m_ripping = true;
     {
-        ExtractingProgressDialog dialog(m_profileModel, m_cddaModel, m_encoders, m_discController->currentDrive(), m_discController->currentDriveUdi(), this);
+        ExtractingProgressDialog dialog(m_profileModel, m_cddaModel, m_encoders, m_discController->currentDrive(), driveUdi, this);
         dialog.setWindowModality(Qt::ApplicationModal);
         dialog.exec();
     }
+    m_ripping = false;
 
-    if (Preferences::ejectCDTray())
+    const bool discChanged = m_discRemovedWhileRipping || m_discDetectedWhileRipping;
+    if (m_discRemovedWhileRipping) {
+        m_discRemovedWhileRipping = false;
+        disc_removed();
+    }
+    if (m_discDetectedWhileRipping) {
+        const Audex::DiscReadResult result = *m_discDetectedWhileRipping;
+        m_discDetectedWhileRipping.reset();
+        disc_detected(result);
+    }
+
+    // only the disc that was ripped, never one in another drive
+    if (Preferences::ejectCDTray() && !discChanged && m_discController->currentDriveUdi() == driveUdi)
         m_discController->eject();
 }
 
@@ -819,6 +836,10 @@ void MainWindow::current_drive_updated()
 
 void MainWindow::disc_detected(const Audex::DiscReadResult &result)
 {
+    if (m_ripping) {
+        m_discDetectedWhileRipping = result; // taken over after the rip
+        return;
+    }
     stop_cover_fetch(); // a cover or a message of the previous disc
     m_cddaModel->setCDInfo(result.info); // selects all audio, the hidden track included
     m_htoaSilent = result.htoaSilent;
@@ -864,6 +885,11 @@ void MainWindow::disc_detected(const Audex::DiscReadResult &result)
 
 void MainWindow::disc_removed()
 {
+    if (m_ripping) {
+        m_discRemovedWhileRipping = true; // the rip dialog still shows it
+        m_discDetectedWhileRipping.reset();
+        return;
+    }
     if (m_lookupId > 0 && m_lookup->isRunning(m_lookupId))
         m_lookup->cancel(m_lookupId);
     stop_cover_fetch();

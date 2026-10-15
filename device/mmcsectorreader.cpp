@@ -128,10 +128,17 @@ int MmcSectorReader::commandTimeouts() const
     return m_timeouts;
 }
 
+bool MmcSectorReader::deviceLost() const
+{
+    return m_deviceLost;
+}
+
 const Scsi::Result &MmcSectorReader::note(const Scsi::Result &result)
 {
     if (result.timedOut())
         ++m_timeouts;
+    if (result.deviceGone())
+        m_deviceLost = true;
     return result;
 }
 

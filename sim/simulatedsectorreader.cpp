@@ -109,6 +109,11 @@ int SimulatedSectorReader::commandTimeouts() const
     return int(m_stats.timeouts);
 }
 
+bool SimulatedSectorReader::deviceLost() const
+{
+    return m_model.unpluggedAfterCommands >= 0 && m_stats.commands > m_model.unpluggedAfterCommands;
+}
+
 bool SimulatedSectorReader::stalled() const
 {
     return m_model.stallsAfterTimeouts > 0 && m_stats.timeouts >= m_model.stallsAfterTimeouts;
@@ -279,6 +284,8 @@ Rip::SectorReadResult SimulatedSectorReader::splitIntoSingleReads(int lba, int c
 Rip::SectorReadResult SimulatedSectorReader::read(int lba, int count)
 {
     const qint64 command = m_stats.commands++;
+    if (deviceLost())
+        return commandFailed(count, u"transport error: No such device"_s, 50);
 
     Rip::SectorReadResult r;
     r.audio = QByteArray(qsizetype(count) * SectorBytes, '\0');
@@ -414,6 +421,8 @@ QByteArray SimulatedSectorReader::readSubchannelQ(int lba, int count)
     if (!m_model.subchannel)
         return {};
     ++m_stats.commands;
+    if (deviceLost())
+        return {};
     if (m_model.subchannelTimesOut || stalled()) {
         noteTimeout();
         return {};
@@ -432,6 +441,8 @@ QByteArray SimulatedSectorReader::readSubchannelRaw(int lba, int count)
     if (!m_model.rwSubchannel)
         return {};
     ++m_stats.commands;
+    if (deviceLost())
+        return {};
     if (stalled()) {
         noteTimeout();
         return {};
