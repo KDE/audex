@@ -13,22 +13,24 @@
 #   Flatpak cannot grant single devices.
 # - UDisks2 access lets Solid enumerate and watch optical drives.
 # - Built with AUDEX_SANDBOX: no custom encoder and no command after the
-#   rip, Audex starts no programs. FLAC/MP3/Opus/WAVE are built in.
+#   rip, Audex starts no programs. FLAC/MP3/Opus/AIFF/WAVE are built in.
 app-id: org.kde.audex
 runtime: org.kde.Platform
-runtime-version: "6.10"
+runtime-version: "6.11"
 sdk: org.kde.Sdk
 command: audex
 finish-args:
   - --share=ipc
   - --socket=wayland
   - --socket=fallback-x11
-  - --share=network # MusicBrainz, AccurateRip, CTDB, Cover Art Archive
+  - --share=network # MusicBrainz, gnudb, AccurateRip, CTDB, Cover Art Archive
   - --device=all # optical drives (/dev/sr*) via SG_IO
   - --system-talk-name=org.freedesktop.UDisks2 # drive enumeration via Solid
   - --filesystem=xdg-music:create # default output folder
 cleanup:
+  - /bin/taglib-config
   - /include
+  - /lib/cmake
   - /lib/pkgconfig
   - /share/pkgconfig
   - /share/man
@@ -62,8 +64,8 @@ modules:
       - -DBUILD_BINDINGS=OFF
     sources:
       - type: archive
-        url: https://taglib.org/releases/taglib-2.1.tar.gz
-        sha256: 95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c
+        url: https://taglib.org/releases/taglib-2.3.2.tar.gz
+        sha256: 3ca2d8afaa7f1cf7f6ed10e511ebc368bfacd6dcaa3dbfa690b89e502e8963dc
 
   - name: opus
     buildsystem: autotools

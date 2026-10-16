@@ -23,10 +23,24 @@ apps:
       - hardware-observe
       - raw-usb
       - removable-media
+      - udisks2 # drive enumeration via Solid, not auto-connected
     environment:
+      # the encoder plugins (FLAC, MP3, Opus, AIFF) live inside $SNAP
+      AUDEX_ENCODER_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins/audex_encoders"
       QT_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET/plugins/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins"
       QML_IMPORT_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qml:/snap/kf6-core24/current/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/qml"
       ALSA_CONFIG_PATH: "$SNAP/kf6/etc/asound.conf"
+  cli:
+    extensions:
+      - kde-neon-6
+    command: usr/bin/audex-cli
+    plugs:
+      - home
+      - optical-drive
+      - hardware-observe
+      - removable-media
+    environment:
+      AUDEX_ENCODER_PLUGIN_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins/audex_encoders"
 layout:
   /usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib:
     bind: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/alsa-lib
@@ -52,8 +66,8 @@ parts:
     after:
       - utfcpp
     plugin: cmake
-    source: https://taglib.org/releases/taglib-2.1.tar.gz
-    source-checksum: sha256/95b788b39eaebab41f7e6d1c1d05ceee01a5d1225e4b6d11ed8976e96ba90b0c
+    source: https://taglib.org/releases/taglib-2.3.2.tar.gz
+    source-checksum: sha256/3ca2d8afaa7f1cf7f6ed10e511ebc368bfacd6dcaa3dbfa690b89e502e8963dc
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
@@ -104,6 +118,7 @@ parts:
       - -DQT_MAJOR_VERSION=6
       - -DBUILD_TESTING=OFF
       - -DAUDEX_SANDBOX=ON # no custom encoder, no command after the rip
+      - -DKDE_INSTALL_PLUGINDIR=lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/plugins
     prime:
       - -usr/lib/*/cmake/*
       - -usr/include/*
