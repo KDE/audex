@@ -273,6 +273,7 @@ set(audex_SRCS
     utils/disccontroller.cpp
     utils/riprequestbuilder.cpp
     utils/genres.cpp
+    utils/enginetranslator.cpp
     widgets/cddaheaderwidget.cpp
     widgets/generalsettingswidget.cpp
     widgets/devicewidget.cpp
