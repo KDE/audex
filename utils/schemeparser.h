@@ -40,6 +40,7 @@ public:
     }
 
     static QString errorText(const Audex::Scheme::Error &error);
+    static QString missingProgramText(const QString &program); // the encoder program cannot be started
     static QString commandIssueText(const Audex::Encoding::CommandIssue &issue);
 
     // scheme: 1 == PerTrackFilename, 2 == PerTrackCommand, 3 == Filename, 4 == HookCommand

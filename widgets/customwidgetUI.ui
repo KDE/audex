@@ -21,16 +21,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
    </size>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QLabel" name="label_hint">
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-     <property name="text">
-      <string>The command reads the audio as WAVE from standard input (that is what $i becomes); $o is the file it has to write.</string>
-     </property>
-    </widget>
-   </item>
    <item row="1" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="sizePolicy">

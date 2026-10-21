@@ -9,6 +9,7 @@
 
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -135,7 +136,7 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
                 // parameters are a feature of the filename schemes
                 addIssue(&result.issues, CommandIssue::Kind::HasParameters, token.text);
             } else if (name == Var::InputFile) {
-                out += u"-"_s; // the engine writes the WAVE data to stdin
+                out += u"-"_s; // old profiles: the engine writes the WAVE data to stdin
                 continue;
             } else if (name == Var::OutputFile) {
                 out += u"%o"_s;
@@ -160,6 +161,18 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
     if (!result.arguments.isEmpty() && !hasOutputFilePlaceholder(result.arguments))
         result.arguments << u"-"_s << u"%o"_s;
     return result;
+}
+
+QString missingProgram(const QStringList &arguments)
+{
+    if (arguments.isEmpty() || arguments.first().isEmpty())
+        return {};
+    const QString program = arguments.first();
+    if (program.contains(u'/')) {
+        const QFileInfo info(program);
+        return info.isFile() && info.isExecutable() ? QString() : program;
+    }
+    return QStandardPaths::findExecutable(program).isEmpty() ? program : QString();
 }
 
 bool hasOutputFilePlaceholder(const QStringList &arguments)

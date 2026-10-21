@@ -15,9 +15,11 @@
 //
 // This happens in two steps, because the album is known before the rip and
 // the track only when its file is opened:
-//   parseCommandScheme()  album values, $i and $o        (before the rip)
+//   parseCommandScheme()  album values and $o            (before the rip)
 //   substituteValues()    $ttitle and the other track    (per output file)
 //                         placeholders
+//
+// $i, the input of the old profiles, still becomes "-"; it is no longer offered.
 //
 // Syntax and placeholder names are the ones of utils/scheme.h.
 
@@ -59,6 +61,11 @@ QMap<QString, QString> trackValues(const QString &artist, const QString &title, 
 // a space in a title cannot change the command line; % and $ in a value and
 // in the scheme's own text are escaped for the steps that follow.
 CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QString> &values);
+
+// The program of a command (its first argument) if it cannot be started:
+// not found in PATH, or a path that is no executable file. Empty if it is
+// there (or there are no arguments).
+QString missingProgram(const QStringList &arguments);
 
 // Looks for %o with %% as an escaped percent sign. Values are escaped when
 // they are filled in, so a value can never look like the placeholder.

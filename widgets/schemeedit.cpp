@@ -106,7 +106,10 @@ void SchemeEdit::setScheme(const QString &scheme)
 
 void SchemeEdit::applyKind()
 {
-    setPlaceholderText(m_kind == Command || m_kind == HookCommand ? i18n("Please set a command") : i18n("Please set a scheme"));
+    if (m_kind == Command)
+        setPlaceholderText(i18nc("example of an encoder command: - is standard input, $o the output file", "e.g. opusenc --quiet - $o"));
+    else
+        setPlaceholderText(m_kind == HookCommand ? i18n("Please set a command") : i18n("Please set a scheme"));
     rebuildMenu();
     validate();
 }
@@ -152,7 +155,6 @@ void SchemeEdit::rebuildMenu()
 
     if (m_kind == Command) {
         m_insertMenu->addSection(i18n("Command"));
-        addVariable(i18n("Audio Input"), Var::InputFile);
         addVariable(i18n("Output File"), Var::OutputFile);
     } else if (m_kind == HookCommand) {
         m_insertMenu->addSection(i18n("Hook"));
@@ -172,12 +174,13 @@ void SchemeEdit::validate()
     if (!schemeText.isEmpty()) {
         if (m_kind == Command) {
             const Audex::Encoding::CommandScheme command = Audex::Encoding::parseCommandScheme(schemeText, exampleAlbumValues());
-            if (!command.issues.isEmpty()) {
-                QStringList messages;
-                for (const Audex::Encoding::CommandIssue &issue : command.issues)
-                    messages << SchemeParser::commandIssueText(issue);
-                warning = messages.join(u'\n');
-            }
+            QStringList messages;
+            for (const Audex::Encoding::CommandIssue &issue : command.issues)
+                messages << SchemeParser::commandIssueText(issue);
+            const QString missing = Audex::Encoding::missingProgram(command.arguments);
+            if (!missing.isEmpty())
+                messages << SchemeParser::missingProgramText(missing);
+            warning = messages.join(u'\n');
         } else if (m_kind == HookCommand) {
             const QList<Audex::Encoding::CommandIssue> issues = Audex::Encoding::checkHookCommand(schemeText, exampleAlbumValues());
             if (!issues.isEmpty()) {

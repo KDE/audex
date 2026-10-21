@@ -1263,7 +1263,7 @@ void ProfileModel::p_migrateLegacyProfile(Profile &profile, const KConfigGroup &
     // reports "No encoder command configured" instead of failing silently
 
     if (!command.isEmpty())
-        command += QStringLiteral(" -o \"$o\" \"$i\"");
+        command += QStringLiteral(" -o \"$o\" -");
 
     parameters.setValue(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, command);
     parameters.setValue(ENCODER_CUSTOM_SUFFIX_KEY, suffix);

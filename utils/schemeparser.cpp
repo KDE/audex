@@ -47,6 +47,11 @@ QString SchemeParser::errorText(const Audex::Scheme::Error &error)
     return QString();
 }
 
+QString SchemeParser::missingProgramText(const QString &program)
+{
+    return i18n("%1 was not found. Is it installed?", program);
+}
+
 QString SchemeParser::commandIssueText(const Audex::Encoding::CommandIssue &issue)
 {
     switch (issue.kind) {
@@ -138,14 +143,12 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
         result.append(
             i18n("<table>"
                  "<tr><th>Placeholder</th><th>Description</th></tr>"
-                 "<tr><td><tt>$i</tt></td><td>The audio data. Audex does not write a temporary file any more: it sends the audio to the command as "
-                 "WAVE (RIFF WAVE) on standard input, and <tt>$i</tt> becomes the single <tt>-</tt> that tells most encoders to read from there. If "
-                 "your encoder wants the input somewhere else (for example <tt>-i -</tt> or <tt>pipe:0</tt>), write that instead of "
-                 "<tt>$i</tt>.</td></tr>"
                  "<tr><td><tt>$o</tt></td><td>The file the command has to write.</td></tr>"
                  "<tr><td><tt>$tartist</tt>, <tt>$ttitle</tt>, <tt>$trackno</tt>, <tt>$isrc</tt></td><td>Track data. They are filled in when the "
                  "file of that track is opened. A single file rip (disc image) has no track of its own and uses the album data.</td></tr>"
                  "</table>"
+                 "<p>The command gets the audio as WAVE on standard input: most encoders read it with <tt>-</tt>, some with <tt>-i -</tt> or "
+                 "<tt>pipe:0</tt>.</p>"
                  "<p>A command is not run in a shell: it is split into arguments once, and the values are put into those arguments afterwards. A quote "
                  "or a space in a track title can therefore not change the command line, and <tt>$$</tt> is a plain dollar sign. Parameters in "
                  "placeholders (<tt>${title lowercase=true}</tt>) are not supported here, and <tt>$cover</tt> cannot be filled in because Audex embeds the "
@@ -163,7 +166,7 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
                  "</table>"
                  "<p>The command runs after a successfully finished rip. It is not run in a shell: it is split into arguments once, and the values "
                  "are put into those arguments afterwards, so no quoting is needed for them. Only the album values above are available here — there "
-                 "is no single track and no <tt>$i</tt>/<tt>$o</tt> — parameters in placeholders (<tt>${title lowercase=true}</tt>) are not "
+                 "is no single track and no <tt>$o</tt> — parameters in placeholders (<tt>${title lowercase=true}</tt>) are not "
                  "supported, and a name Audex does not know is left in the command as it is.</p>"));
     }
 

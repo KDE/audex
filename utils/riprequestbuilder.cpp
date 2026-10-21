@@ -403,6 +403,12 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles, QSt
             *error = i18n("No encoder command configured.");
             return false;
         }
+        // before the rip, not after the first track
+        const QString missing = Audex::Encoding::missingProgram(settings.value(u"commandArgs"_s).toStringList());
+        if (!missing.isEmpty()) {
+            *error = SchemeParser::missingProgramText(missing);
+            return false;
+        }
         if (suffix.trimmed().isEmpty()) {
             *error = i18n("Please set a file suffix for the custom encoder in the profile.");
             return false;

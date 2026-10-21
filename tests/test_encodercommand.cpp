@@ -7,6 +7,9 @@
 
 #include "utils/encodercommand.h"
 
+#include <QFile>
+#include <QTemporaryDir>
+
 using namespace Audex::Encoding;
 using namespace Qt::StringLiterals;
 
@@ -73,4 +76,26 @@ AUDEX_TEST("encoder command: parameters and syntax errors are reported")
     const CommandScheme syntax = parseCommandScheme(u"enc ${title $o"_s, {});
     AUDEX_CHECK(t, syntax.issues.value(0).kind == CommandIssue::Kind::Syntax);
     AUDEX_CHECK(t, checkHookCommand(u"tool ${dir"_s, {}).value(0).kind == CommandIssue::Kind::Syntax);
+}
+
+AUDEX_TEST("command: $i of old profiles still becomes standard input")
+{
+    const CommandScheme command = parseCommandScheme(u"oggenc -o $o $i"_s, {});
+    AUDEX_CHECK(t, command.issues.isEmpty());
+    AUDEX_EQUAL(t, command.arguments, QStringList({u"oggenc"_s, u"-o"_s, u"%o"_s, u"-"_s}));
+}
+
+AUDEX_TEST("command: a program that cannot be started is named")
+{
+    AUDEX_EQUAL(t, missingProgram({u"sh"_s, u"-c"_s, u"true"_s}), QString());
+    AUDEX_EQUAL(t, missingProgram({u"/bin/sh"_s}), QString());
+    AUDEX_EQUAL(t, missingProgram({u"audex-no-such-encoder"_s, u"-"_s}), u"audex-no-such-encoder"_s);
+    AUDEX_EQUAL(t, missingProgram({u"/nonexistent/encoder"_s}), u"/nonexistent/encoder"_s);
+    QTemporaryDir dir;
+    const QString plain = dir.filePath(u"encoder"_s);
+    QFile file(plain);
+    AUDEX_CHECK(t, file.open(QIODevice::WriteOnly));
+    file.close();
+    AUDEX_EQUAL(t, missingProgram({plain}), plain); // not executable
+    AUDEX_EQUAL(t, missingProgram({}), QString());
 }
