@@ -238,6 +238,8 @@ void RipJob::run()
     {
         std::lock_guard lock(m_outputsMutex);
         m_outputs = &files;
+        if (m_cancel)
+            files.cancel();
     }
     QElapsedTimer throttle;
     throttle.start();

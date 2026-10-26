@@ -91,15 +91,19 @@ public:
     static QString partialPath(const QString &path);
 
 private:
-    EncoderWorker *workerFor(int segment);
+    using Workers = std::map<QString, std::shared_ptr<EncoderWorker>>;
+
+    std::shared_ptr<EncoderWorker> workerFor(int segment);
+    Workers snapshotWorkers();
 
     const EncoderFactory &m_factory;
     QVariantMap m_settings;
     QList<OutputTarget> m_targets;
     bool m_writeTags;
     ByteBudget m_budget;
-    std::map<QString, std::unique_ptr<EncoderWorker>> m_workers;
-    std::mutex m_workersMutex; // guards inserting into m_workers against cancel()
+    Workers m_workers;
+    std::mutex m_workersMutex; // guards m_workers and m_canceled
+    bool m_canceled = false;
     QString m_error;
     QStringList m_written;
     QStringList m_warnings;

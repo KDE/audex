@@ -331,40 +331,59 @@ QString EncodedOutputs::partialPath(const QString &path)
     return QDir(info.path()).filePath(info.completeBaseName() + u".part."_s + info.suffix());
 }
 
-EncoderWorker *EncodedOutputs::workerFor(int segment)
+std::shared_ptr<EncoderWorker> EncodedOutputs::workerFor(int segment)
 {
     const QString path = m_targets.value(segment).path;
     if (path.isEmpty())
-        return nullptr;
-    const auto it = m_workers.find(path);
-    if (it != m_workers.end())
-        return it->second.get();
-
-    // segments arrive in order: the previous file is complete and can
-    // finish in the background while the extraction continues
-    for (auto &[p, worker] : m_workers)
-        worker->close();
+        return {};
+    {
+        std::lock_guard lock(m_workersMutex);
+        if (m_canceled)
+            return {};
+        const auto it = m_workers.find(path);
+        if (it != m_workers.end())
+            return it->second;
+    }
 
     qint64 frames = 0;
     for (const OutputTarget &t : std::as_const(m_targets))
         if (t.path == path)
             frames += t.frames;
 
-    auto worker = std::make_unique<EncoderWorker>(m_factory.create(m_settings), path, frames, m_targets.value(segment).tags, m_writeTags, m_budget);
-    EncoderWorker *raw = worker.get();
+    auto worker = std::make_shared<EncoderWorker>(m_factory.create(m_settings), path, frames, m_targets.value(segment).tags, m_writeTags, m_budget);
     {
         std::lock_guard lock(m_workersMutex);
-        m_workers.emplace(path, std::move(worker));
+        if (m_canceled)
+            return {};
+        const auto [it, inserted] = m_workers.emplace(path, worker);
+        if (!inserted)
+            return it->second;
+
+        // segments arrive in order: the previous file is complete and can
+        // finish in the background while the extraction continues
+        for (auto &[p, previous] : m_workers)
+            if (p != path)
+                previous->close();
+        worker->start();
     }
-    raw->start();
-    return raw;
+    return worker;
+}
+
+EncodedOutputs::Workers EncodedOutputs::snapshotWorkers()
+{
+    std::lock_guard lock(m_workersMutex);
+    return m_workers;
 }
 
 bool EncodedOutputs::write(int segment, QByteArrayView pcm)
 {
-    EncoderWorker *worker = workerFor(segment);
-    if (!worker)
-        return true; // dry run
+    std::shared_ptr<EncoderWorker> worker = workerFor(segment);
+    if (!worker) {
+        if (m_targets.value(segment).path.isEmpty())
+            return true; // dry run
+        m_error = tr("Encoding was aborted.");
+        return false;
+    }
     if (worker->push(pcm))
         return true;
     m_error = worker->error();
@@ -377,7 +396,8 @@ bool EncodedOutputs::write(int segment, QByteArrayView pcm)
 
 bool EncodedOutputs::finishAll()
 {
-    for (auto &[path, worker] : m_workers)
+    const Workers workers = snapshotWorkers();
+    for (auto &[path, worker] : workers)
         worker->close();
     bool ok = true;
     // report in the order of the targets
@@ -386,8 +406,8 @@ bool EncodedOutputs::finishAll()
         if (!t.path.isEmpty() && !order.contains(t.path))
             order << t.path;
     for (const QString &path : std::as_const(order)) {
-        const auto it = m_workers.find(path);
-        if (it == m_workers.end())
+        const auto it = workers.find(path);
+        if (it == workers.end())
             continue;
         EncoderWorker &w = *it->second;
         w.wait();
@@ -406,7 +426,8 @@ bool EncodedOutputs::finishAll()
 
 void EncodedOutputs::abortAll()
 {
-    for (auto &[path, worker] : m_workers)
+    const Workers workers = snapshotWorkers();
+    for (auto &[path, worker] : workers)
         if (!worker->succeeded())
             worker->abort();
 }
@@ -419,16 +440,18 @@ bool EncodedOutputs::discard(int segment)
     for (int i = 0; i < m_targets.size(); ++i)
         if (i != segment && m_targets.at(i).path == path)
             return false;
-    const auto it = m_workers.find(path);
-    if (it == m_workers.end())
-        return true;
-    it->second->abort();
-    if (it->second->succeeded())
-        QFile::remove(path);
+    std::shared_ptr<EncoderWorker> worker;
     {
         std::lock_guard lock(m_workersMutex);
+        const auto it = m_workers.find(path);
+        if (it == m_workers.end())
+            return true;
+        worker = std::move(it->second);
         m_workers.erase(it);
     }
+    worker->abort();
+    if (worker->succeeded())
+        QFile::remove(path);
     m_written.removeAll(path);
     return true;
 }
@@ -436,8 +459,13 @@ bool EncodedOutputs::discard(int segment)
 void EncodedOutputs::cancel()
 {
     m_budget.cancel();
-    std::lock_guard lock(m_workersMutex);
-    for (auto &[path, worker] : m_workers)
+    Workers workers;
+    {
+        std::lock_guard lock(m_workersMutex);
+        m_canceled = true;
+        workers = m_workers;
+    }
+    for (auto &[path, worker] : workers)
         worker->interrupt();
 }
 
