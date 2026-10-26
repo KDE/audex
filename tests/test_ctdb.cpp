@@ -7,12 +7,94 @@
 
 #include "core/checksums.h"
 #include "core/ripengine.h"
+#include "online/blockingfetch.h"
 #include "online/ctdb.h"
 #include "sim/simulatedsectorreader.h"
+
+#include <QHostAddress>
+#include <QTcpServer>
+#include <QTcpSocket>
 
 using namespace Audex;
 using namespace Audex::Rip;
 using namespace Audex::Sim;
+using namespace Qt::StringLiterals;
+
+AUDEX_TEST("CTDB uses HTTPS and restricts recovery URLs")
+{
+    const SimulatedDisc disc = SimulatedDisc::generate({500}, 0, 1);
+    const QUrl lookup = Ctdb::lookupUrl(disc.toc);
+    AUDEX_EQUAL(t, lookup.scheme(), u"https"_s);
+    AUDEX_EQUAL(t, lookup.host(), u"db.cue.tools"_s);
+    AUDEX_EQUAL(t, lookup.path(), u"/lookup2.php"_s);
+
+    const auto parity = [](const QString &address) {
+        const QByteArray xml = u"<ctdb><entry crc32=\"12345678\" toc=\"0:500\" npar=\"1\" syndrome=\"AQA=\" hasparity=\"%1\"/></ctdb>"_s
+                                   .arg(address.toHtmlEscaped()).toUtf8();
+        const QList<Ctdb::Entry> entries = Ctdb::parseResponse(xml);
+        return entries.isEmpty() ? Ctdb::Entry{} : entries.first();
+    };
+    AUDEX_EQUAL(t, parity(u"/parity/123"_s).parityUrl, u"https://db.cue.tools/parity/123"_s);
+    AUDEX_EQUAL(t, parity(u"parity/123"_s).parityUrl, u"https://db.cue.tools/parity/123"_s);
+    AUDEX_EQUAL(t, parity(u"https://db.cue.tools/parity/123"_s).parityUrl, u"https://db.cue.tools/parity/123"_s);
+    AUDEX_EQUAL(t, parity(u"http://p.cuetools.net/123"_s).parityUrl, u"http://p.cuetools.net/123"_s);
+
+    const QStringList rejected = {
+        u"http://db.cuetools.net/parity/123"_s,
+        u"http://db.cue.tools/parity/123"_s,
+        u"https://evil.example/parity/123"_s,
+        u"http://p.cuetools.net.evil.example/123"_s,
+        u"http://p.cuetools.net:8080/123"_s,
+        u"http://user@p.cuetools.net/123"_s,
+        u"file:///etc/passwd"_s,
+        u"//evil.example/parity/123"_s,
+    };
+    for (const QString &address : rejected) {
+        const Ctdb::Entry entry = parity(address);
+        AUDEX_CHECK_MSG(t, !entry.hasParity(), address);
+        QString error;
+        Ctdb::Entry forged = entry;
+        forged.parityUrl = address;
+        AUDEX_CHECK(t, Ctdb::fetchParity(forged, &error).isEmpty());
+        AUDEX_CHECK_MSG(t, !error.isEmpty(), address);
+    }
+}
+
+AUDEX_TEST("CTDB redirect policy checks every destination")
+{
+    QTcpServer server;
+    AUDEX_CHECK(t, server.listen(QHostAddress::LocalHost));
+    if (!server.isListening())
+        return;
+
+    int requests = 0;
+    QObject::connect(&server, &QTcpServer::newConnection, &server, [&] {
+        while (QTcpSocket *socket = server.nextPendingConnection()) {
+            ++requests;
+            if (requests == 1 || requests == 2)
+                socket->write("HTTP/1.1 302 Found\r\nLocation: /result\r\nContent-Length: 0\r\nConnection: close\r\n\r\n");
+            else
+                socket->write("HTTP/1.1 200 OK\r\nContent-Length: 2\r\nConnection: close\r\n\r\nOK");
+            socket->disconnectFromHost();
+        }
+    });
+
+    const QUrl url(u"http://127.0.0.1:%1/test"_s.arg(server.serverPort()));
+    QString error;
+    const QByteArray blocked = Online::fetchBlocking(url, &error, nullptr, 5000, {}, {}, [](const QUrl &) {
+        return false;
+    });
+    AUDEX_CHECK(t, blocked.isEmpty());
+    AUDEX_CHECK_MSG(t, error.contains(u"redirect"_s), error);
+    AUDEX_EQUAL(t, requests, 1);
+
+    const QByteArray followed = Online::fetchBlocking(url, &error, nullptr, 5000, {}, {}, [&](const QUrl &next) {
+        return next.scheme() == u"http"_s && next.host() == u"127.0.0.1"_s && next.port() == server.serverPort();
+    });
+    AUDEX_EQUAL_DATA(t, followed, QByteArray("OK"));
+    AUDEX_CHECK_MSG(t, error.isEmpty(), error);
+    AUDEX_EQUAL(t, requests, 3);
+}
 
 AUDEX_TEST("CTDB finds another pressing without AccurateRip")
 {

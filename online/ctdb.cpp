@@ -27,7 +27,16 @@ namespace Audex::Ctdb
 namespace
 {
 
-const char server[] = "http://db.cuetools.net";
+const char server[] = "https://db.cue.tools";
+
+bool allowedParityUrl(const QUrl &url)
+{
+    if (!url.isValid() || !url.userInfo().isEmpty() || url.hasFragment())
+        return false;
+    if (url.scheme() == u"https"_s && url.host() == u"db.cue.tools"_s)
+        return url.port(443) == 443;
+    return url.scheme() == u"http"_s && url.host() == u"p.cuetools.net"_s && url.port(80) == 80;
+}
 
 QString hex8(quint32 v)
 {
@@ -153,8 +162,11 @@ QList<Entry> parseResponse(const QByteArray &xml, QString *error)
             e.syndromes = Parity::syndromesFromParity(words);
         }
         const QString parityUrl = a.value("hasparity"_L1).toString();
-        if (!parityUrl.isEmpty() && !e.syndromes.isEmpty())
-            e.parityUrl = parityUrl.startsWith(u'/') ? QLatin1String(server) + parityUrl : parityUrl;
+        if (!parityUrl.isEmpty() && !e.syndromes.isEmpty()) {
+            const QUrl url = QUrl(QString::fromLatin1(server)).resolved(QUrl(parityUrl));
+            if (allowedParityUrl(url))
+                e.parityUrl = url.toString();
+        }
         for (const QStringView crc : a.value("trackcrcs"_L1).split(u' ', Qt::SkipEmptyParts)) {
             e.trackCrcs.append(crc.toUInt(&ok, 16));
             if (!ok) {
@@ -174,7 +186,9 @@ QList<Entry> parseResponse(const QByteArray &xml, QString *error)
 QList<Entry> lookup(const Cdda::Toc &toc, QString *error, int timeoutMs, const std::function<bool()> &isCanceled)
 {
     bool notFound = false;
-    const QByteArray data = Online::fetchBlocking(lookupUrl(toc), error, &notFound, timeoutMs, isCanceled);
+    const QByteArray data = Online::fetchBlocking(lookupUrl(toc), error, &notFound, timeoutMs, isCanceled, {}, [](const QUrl &) {
+        return false;
+    });
     if (data.isEmpty())
         return {};
     return parseResponse(data, error);
@@ -187,9 +201,15 @@ bool isSameAudio(const Entry &entry, const Cdda::Toc &toc)
 
 QByteArray fetchParity(const Entry &entry, QString *error, int timeoutMs, const std::function<bool()> &isCanceled)
 {
+    const QUrl url(entry.parityUrl);
+    if (!allowedParityUrl(url)) {
+        if (error)
+            *error = u"untrusted CTDB recovery URL"_s;
+        return {};
+    }
     const qint64 size = qint64(entry.syndromes.size()) * Stride * 2;
     const QByteArray range = "bytes=0-" + QByteArray::number(size - 1);
-    QByteArray data = Online::fetchBlocking(QUrl(entry.parityUrl), error, nullptr, timeoutMs, isCanceled, {{"Range", range}});
+    QByteArray data = Online::fetchBlocking(url, error, nullptr, timeoutMs, isCanceled, {{"Range", range}}, allowedParityUrl);
     if (data.size() < size) {
         if (error && error->isEmpty())
             *error = u"incomplete recovery data (%1 of %2 bytes)"_s.arg(data.size()).arg(size);

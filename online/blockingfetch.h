@@ -26,6 +26,7 @@ QByteArray fetchBlocking(const QUrl &url,
                          bool *notFound = nullptr,
                          int timeoutMs = 30000,
                          const std::function<bool()> &isCanceled = {},
-                         const QList<std::pair<QByteArray, QByteArray>> &headers = {});
+                         const QList<std::pair<QByteArray, QByteArray>> &headers = {},
+                         const std::function<bool(const QUrl &)> &allowRedirect = {});
 
 }
