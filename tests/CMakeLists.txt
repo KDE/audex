@@ -48,3 +48,28 @@ add_test(NAME audex_tests COMMAND audex_tests)
 # audex-cli with the simulated drive
 add_test(NAME audex_cli_rip COMMAND ${CMAKE_COMMAND} -DCLI=$<TARGET_FILE:audex-cli> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/cli_rip
                                     -P ${CMAKE_CURRENT_SOURCE_DIR}/cli_rip.cmake)
+
+# Exercise the Qt engine translator with the same KDE gettext catalog as the GUI.
+find_package(Gettext REQUIRED)
+
+set(audex_i18n_test_catalogs)
+foreach(lang de fr)
+  set(po "${CMAKE_CURRENT_SOURCE_DIR}/i18n/${lang}/audex.po")
+  set(mo "${CMAKE_CURRENT_BINARY_DIR}/i18n/${lang}/LC_MESSAGES/audex.mo")
+  get_filename_component(mo_dir "${mo}" DIRECTORY)
+  add_custom_command(
+    OUTPUT "${mo}"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${mo_dir}"
+    COMMAND "${GETTEXT_MSGFMT_EXECUTABLE}" -o "${mo}" "${po}"
+    DEPENDS "${po}"
+    VERBATIM)
+  list(APPEND audex_i18n_test_catalogs ${mo})
+endforeach()
+
+add_custom_target(audex_i18n_catalogs DEPENDS ${audex_i18n_test_catalogs})
+add_executable(audex_i18n_tests test_main.cpp test_i18n.cpp ../utils/enginetranslator.cpp)
+add_dependencies(audex_i18n_tests audex_i18n_catalogs)
+target_include_directories(audex_i18n_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
+target_compile_definitions(audex_i18n_tests PRIVATE AUDEX_TEST_LOCALE_DIR="${CMAKE_CURRENT_BINARY_DIR}/i18n")
+target_link_libraries(audex_i18n_tests PRIVATE Qt6::Core KF6::I18n)
+add_test(NAME audex_i18n_tests COMMAND audex_i18n_tests)

@@ -1,0 +1,22 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Rip And Encode"
+msgstr "Extraire et encoder"
+
+msgctxt "@info"
+msgid "Audio ripping application"
+msgstr "Application d'extraction audio"
+
+msgid "timeout after %1 s"
+msgstr "Délai dépassé après %1 s"
+
+msgid "Compression level"
+msgstr "Niveau de compression"
+
+msgctxt "short status"
+msgid "canceled"
+msgstr "Annulé (bref)"
