@@ -9,10 +9,12 @@
 
 #include "test_framework.h"
 
+#include <QCoreApplication>
 #include <QStringList>
 
 int main(int argc, char **argv)
 {
+    QCoreApplication app(argc, argv);
     using namespace Audex::Tests;
 
     QStringList filters;
