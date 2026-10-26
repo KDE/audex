@@ -17,6 +17,7 @@
 
 #include <QByteArray>
 #include <QList>
+#include <QSet>
 #include <QString>
 #include <QStringList>
 #include <QUrl>
@@ -81,6 +82,6 @@ bool canConfirmTracks(const QList<Entry> &entries, const Cdda::Toc &toc);
 // shift derived from SegmentResult::ctdbHead/ctdbTail) with the database entries and
 // formats the outcome as log lines, the first line being the section heading.
 // mismatches receives the number of tracks the database contradicts.
-QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches = nullptr);
+QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches = nullptr, QSet<int> *confirmedTracks = nullptr);
 
 }

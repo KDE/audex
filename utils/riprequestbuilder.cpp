@@ -26,6 +26,7 @@
 #include <QImage>
 #include <QPointer>
 #include <QProcess>
+#include <QSaveFile>
 #include <QSet>
 #include <QStorageInfo>
 #include <QTemporaryFile>
@@ -646,25 +647,26 @@ PostProcessPlan RipRequestBuilder::plan() const
 
 // ---- post processing ------------------------------------------------------------
 
-void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
-                                       const Audex::RipSummary &summary,
-                                       const Audex::CDInfo &disc,
-                                       const QList<int> &tracks,
-                                       QObject *parent,
-                                       const std::function<void(int, const QString &)> &log)
+PostProcessResult RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
+                                                    const Audex::RipSummary &summary,
+                                                    const Audex::CDInfo &disc,
+                                                    const QList<int> &tracks,
+                                                    QObject *parent,
+                                                    const std::function<void(int, const QString &)> &log)
 {
     Q_UNUSED(parent);
-
+    PostProcessResult result;
     if (!summary.completed)
-        return;
+        return result;
 
-    auto writeTextFile = [&log](const QString &path, const QStringList &lines) {
-        QFile file(path);
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+    auto writeTextFile = [&log, &result](const QString &path, const QStringList &lines) {
+        QSaveFile file(path);
+        const QByteArray data = lines.join(u'\n').toUtf8() + '\n';
+        if (!file.open(QIODevice::WriteOnly) || file.write(data) != data.size() || !file.commit()) {
+            ++result.failedTasks;
             log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot write %1: %2", path, file.errorString()));
             return false;
         }
-        file.write(lines.join(u'\n').toUtf8() + '\n');
         return true;
     };
 
@@ -672,14 +674,18 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
     if (plan.saveCover) {
         QImage image = QImage::fromData(disc.metadata().cover().data);
         if (image.isNull()) {
+            ++result.failedTasks;
             log(int(Audex::Rip::LogLevel::Warning), i18n("The cover cannot be decoded and is not saved."));
         } else {
             if (plan.coverScale && plan.coverSize.isValid())
                 image = image.scaled(plan.coverSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-            if (image.save(plan.coverFilePath, plan.coverFormat.toLatin1().constData()))
+            QSaveFile file(plan.coverFilePath);
+            if (file.open(QIODevice::WriteOnly) && image.save(&file, plan.coverFormat.toLatin1().constData()) && file.commit()) {
                 log(int(Audex::Rip::LogLevel::Info), i18n("Cover saved to %1.", plan.coverFilePath));
-            else
+            } else {
+                ++result.failedTasks;
                 log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot save the cover to %1.", plan.coverFilePath));
+            }
         }
     }
 
@@ -710,13 +716,18 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
             playlist.appendItem(item);
         }
         const QByteArray data = playlist.toM3U(playlistDir.path(), plan.playlistUtf8);
-        QFile file(plan.playlistFilePath);
-        if (file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-            file.write(data);
+        QSaveFile file(plan.playlistFilePath);
+        if (file.open(QIODevice::WriteOnly) && file.write(data) == data.size() && file.commit()) {
             log(int(Audex::Rip::LogLevel::Info), i18n("Playlist saved to %1.", plan.playlistFilePath));
         } else {
+            ++result.failedTasks;
             log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot write %1: %2", plan.playlistFilePath, file.errorString()));
         }
+    }
+
+    if (plan.writePlaylist && summary.files.isEmpty()) {
+        ++result.failedTasks;
+        log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot write the playlist: no audio files were saved."));
     }
 
     // cue sheet
@@ -744,6 +755,11 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
         writeTextFile(plan.cueFilePath, cue);
     }
 
+    if (plan.writeCue && summary.files.isEmpty()) {
+        ++result.failedTasks;
+        log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot write the CUE sheet: no audio files were saved."));
+    }
+
 #ifndef AUDEX_SANDBOX
     // user command hook: runs as a child process, its completion is logged.
     // The process belongs to the application, so it keeps running when the
@@ -752,8 +768,10 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
         const QStringList args = Audex::Encoding::hookCommandArguments(plan.hookCommand, plan.hookVars, summary.files, plan.outputDir);
         const QString display = Audex::Encoding::commandToString(args);
         if (args.isEmpty()) {
+            ++result.failedTasks;
             log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot start command: %1", plan.hookCommand));
         } else {
+            result.hookPending = true;
             const QPointer<QObject> logTo(parent);
             auto *process = new QProcess(QCoreApplication::instance());
             process->setStandardOutputFile(QProcess::nullDevice());
@@ -793,4 +811,5 @@ void RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
         }
     }
 #endif
+    return result;
 }

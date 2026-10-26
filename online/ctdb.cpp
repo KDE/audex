@@ -245,10 +245,12 @@ int trackConfidence(const QList<Entry> &entries, const Rip::SegmentResult &track
     return confidence;
 }
 
-QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches)
+QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches, QSet<int> *confirmedTracks)
 {
     if (mismatches)
         *mismatches = 0;
+    if (confirmedTracks)
+        confirmedTracks->clear();
 
     QStringList l;
     l << u"CUETools database (CTDB) verification"_s << QString();
@@ -420,6 +422,8 @@ QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::Seg
         const QString track = u"Track %1"_s.arg(audio.at(i), 2, 10, QLatin1Char('0'));
         if (confidence > 0) {
             ++accurate;
+            if (confirmedTracks)
+                confirmedTracks->insert(audio.at(i));
             l << u"     %1: accurately ripped (confidence %2 of %3)"_s.arg(track).arg(confidence).arg(total);
         } else if (checked) {
             ++contradicted;

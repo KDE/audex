@@ -332,12 +332,15 @@ QStringList formatVerification(const QList<Response> &responses,
                                const QList<Rip::SegmentResult> &segments,
                                const Cdda::Toc &toc,
                                int *inaccurateTracks,
-                               int *accurateTracks)
+                               int *accurateTracks,
+                               QSet<int> *confirmedTracks)
 {
     if (inaccurateTracks)
         *inaccurateTracks = 0;
     if (accurateTracks)
         *accurateTracks = 0;
+    if (confirmedTracks)
+        confirmedTracks->clear();
 
     const QList<int> audio = toc.audioTrackNumbers();
 
@@ -389,11 +392,15 @@ QStringList formatVerification(const QList<Response> &responses,
         const QString track = u"Track %1"_s.arg(s.segment.trackNumber, 2, 10, QLatin1Char('0'));
         if (confidenceV1 > 0 || confidenceV2 > 0) {
             ++accurate;
+            if (confirmedTracks)
+                confirmedTracks->insert(s.segment.trackNumber);
             const int confidence = std::max(confidenceV1, confidenceV2);
             const QString version = confidenceV2 >= confidenceV1 ? u"v2"_s : u"v1"_s;
             l << u"     %1: accurately ripped (%2, confidence %3 of %4 submissions)"_s.arg(track, version).arg(confidence).arg(submissions);
         } else if (shiftedConfidence > 0) {
             ++accurate;
+            if (confirmedTracks)
+                confirmedTracks->insert(s.segment.trackNumber);
             l << u"     %1: accurately ripped, other pressing with offset %2 (confidence %3 of %4 submissions)"_s.arg(track)
                      .arg(shift > 0 ? u"+%1"_s.arg(shift) : QString::number(shift))
                      .arg(shiftedConfidence)

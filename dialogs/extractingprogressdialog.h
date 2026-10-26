@@ -55,7 +55,7 @@ private Q_SLOTS:
     void onMessage(int level, const QString &text);
     void onFinished(const Audex::RipSummary &summary);
 
-    void conclusion(bool successful, bool warnings);
+    void conclusion(const PostProcessResult &post);
 
     void show_info(const QString &message);
     void show_warning(const QString &message);

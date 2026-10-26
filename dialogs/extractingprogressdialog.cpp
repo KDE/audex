@@ -14,6 +14,7 @@
 
 #include <QDBusConnection>
 #include <QDialogButtonBox>
+#include <QIcon>
 #include <QLocale>
 #include <QPointer>
 #include <QPushButton>
@@ -47,6 +48,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model,
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
+    ui.result_summary->hide();
 
     this->profile_model = profile_model;
     this->cdda_model = cdda_model;
@@ -439,8 +441,9 @@ void ExtractingProgressDialog::onFinished(const Audex::RipSummary &summary)
     if (summary.measuredCacheDefeatReads > 0)
         DeviceSettings::setCacheDefeatReads(m_driveUdi, summary.measuredCacheDefeatReads);
 
+    PostProcessResult post;
     if (summary.completed && !summary.canceled) {
-        RipRequestBuilder::runPostProcess(m_plan, summary, cdda_model->cdInfo(), m_tracks, this, [this](int level, const QString &text) {
+        post = RipRequestBuilder::runPostProcess(m_plan, summary, cdda_model->cdInfo(), m_tracks, this, [this](int level, const QString &text) {
             onMessage(level, text);
         });
     }
@@ -450,24 +453,110 @@ void ExtractingProgressDialog::onFinished(const Audex::RipSummary &summary)
     else if (!summary.completed)
         show_error(summary.error.isEmpty() ? i18n("Ripping failed.") : summary.error, QString());
 
-    // a completed rip may still contain damaged audio
-    const bool successful = summary.completed && !summary.canceled;
-    if (successful && summary.suspiciousPositions > 0)
+    if (summary.suspiciousPositions > 0)
         show_warning(i18np("%1 position could not be read reliably; the audio may contain errors.",
                            "%1 positions could not be read reliably; the audio may contain errors.",
                            summary.suspiciousPositions));
-    if (successful && summary.accurateRipMismatches > 0)
+    if (summary.accurateRipMismatches > 0)
         show_warning(
             i18np("%1 track does not match the AccurateRip database.", "%1 tracks do not match the AccurateRip database.", summary.accurateRipMismatches));
-
-    if (successful && summary.ctdbMismatches > 0)
+    if (summary.ctdbMismatches > 0)
         show_warning(i18np("%1 track does not match the CUETools database.", "%1 tracks do not match the CUETools database.", summary.ctdbMismatches));
 
-    conclusion(successful, summary.suspiciousPositions > 0 || summary.accurateRipMismatches > 0 || summary.ctdbMismatches > 0);
+    conclusion(post);
 }
 
-void ExtractingProgressDialog::conclusion(bool successful, bool warnings)
+void ExtractingProgressDialog::conclusion(const PostProcessResult &post)
 {
+    using Audex::JobStatus;
+
+    if (post.failedTasks > 0 && m_summary.output.status == JobStatus::Success)
+        m_summary.output.status = JobStatus::Warning;
+
+    const auto describe = [&](JobStatus status, const QString &success, const QString &warning, const QString &failure) {
+        switch (status) {
+        case JobStatus::Success:
+            return success;
+        case JobStatus::Warning:
+            return warning;
+        case JobStatus::Failed:
+            return failure;
+        case JobStatus::Canceled:
+            return i18n("Canceled.");
+        case JobStatus::Skipped:
+            return i18n("Not performed.");
+        }
+        return QString();
+    };
+    const QString extraction = describe(
+        m_summary.extraction.status,
+        i18np("%1 track extracted without read errors.", "%1 tracks extracted without read errors.", m_summary.tracks),
+        m_summary.suspiciousPositions > 0
+            ? i18np("Extracted with %1 unreliable position.", "Extracted with %1 unreliable positions.", m_summary.suspiciousPositions)
+            : i18n("Extracted with warnings. See rip log."),
+        m_summary.error.isEmpty() ? i18n("Extraction failed.") : m_summary.error);
+
+    QString verification;
+    if (m_summary.verification.status == JobStatus::Skipped) {
+        verification = m_summary.verificationRequested ? i18n("Not performed.") : i18n("Not requested.");
+    } else if (m_summary.verification.status == JobStatus::Failed) {
+        verification = i18n("The repaired image could not be verified.");
+    } else if (m_summary.verification.status == JobStatus::Success) {
+        verification = i18np("%1 track confirmed by AccurateRip or CTDB.", "%1 tracks confirmed by AccurateRip or CTDB.", m_summary.verifiedTracks);
+    } else {
+        QStringList details;
+        if (m_summary.verifiedTracks < m_summary.verifiableTracks)
+            details << i18n("%1 of %2 tracks confirmed.", m_summary.verifiedTracks, m_summary.verifiableTracks);
+        if (m_summary.accurateRipMismatches > 0 || m_summary.ctdbMismatches > 0)
+            details << i18n("Database mismatches detected.");
+        if (!m_summary.accurateRipError.isEmpty() || !m_summary.ctdbError.isEmpty())
+            details << i18n("Database lookup failed.");
+        if (details.isEmpty())
+            details << i18n("Verification incomplete. See rip log.");
+        verification = details.join(u" "_s);
+    }
+
+    QString output;
+    if (post.failedTasks > 0 && m_summary.output.status != JobStatus::Failed) {
+        output = i18np("%1 optional output task failed.", "%1 optional output tasks failed.", post.failedTasks);
+    } else {
+        output = describe(m_summary.output.status,
+                          i18n("Audio and requested files saved."),
+                          i18n("Audio saved; some output operations failed. See rip log."),
+                          m_summary.error.isEmpty() ? i18n("Audio output failed.") : m_summary.error);
+    }
+    if (post.hookPending)
+        output += u" "_s + i18n("External command running separately; result pending.");
+
+    const auto setResult = [](QLabel *icon, QLabel *label, JobStatus status, const QString &heading, const QString &message) {
+        QString name;
+        switch (status) {
+        case JobStatus::Success:
+            name = u"dialog-ok-apply"_s;
+            break;
+        case JobStatus::Warning:
+            name = u"dialog-warning"_s;
+            break;
+        case JobStatus::Failed:
+        case JobStatus::Canceled:
+            name = u"dialog-error"_s;
+            break;
+        case JobStatus::Skipped:
+            name = u"dialog-information"_s;
+            break;
+        }
+        icon->setPixmap(QIcon::fromTheme(name).pixmap(16, 16));
+        label->setText(u"<b>%1</b> %2"_s.arg(heading.toHtmlEscaped(), message.toHtmlEscaped()));
+    };
+    setResult(ui.extraction_icon, ui.extraction_result, m_summary.extraction.status, i18n("Extraction:"), extraction);
+    setResult(ui.verification_icon, ui.verification_result, m_summary.verification.status, i18n("Verification:"), verification);
+    setResult(ui.output_icon, ui.output_result, m_summary.output.status, i18n("Output:"), output);
+    ui.result_summary->show();
+
+    const JobStatus status = Audex::overallStatus(m_summary.extraction, m_summary.verification, m_summary.output);
+    const bool successful = status == JobStatus::Success || status == JobStatus::Warning;
+    const bool warnings = status == JobStatus::Warning;
+
     // Remove the cancel button
     buttonBox->clear();
     // Add the new close button
@@ -481,7 +570,7 @@ void ExtractingProgressDialog::conclusion(bool successful, bool warnings)
     QPalette pal(ui.label_extracting->palette());
     KColorScheme kcs(QPalette::Active);
     if (successful && !warnings) {
-        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-ok-apply"), i18n("All jobs successfully done."));
+        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-ok-apply"), i18n("Extraction, verification and output finished successfully."));
         ui.klistwidget->addItem(item);
         ui.klistwidget->scrollToItem(item);
         pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
@@ -497,11 +586,13 @@ void ExtractingProgressDialog::conclusion(bool successful, bool warnings)
         ui.label_extracting->setText(text);
 
     } else {
-        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-cancel"), i18n("At least one job failed."));
+        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-cancel"),
+                                                     status == JobStatus::Canceled ? i18n("Ripping canceled.") : i18n("At least one job failed."));
         pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
         ui.klistwidget->addItem(item);
         ui.klistwidget->scrollToItem(item);
-        ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">" + i18n("Failed!") + "</font>");
+        ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">"
+                                     + (status == JobStatus::Canceled ? i18n("Canceled") : i18n("Failed!")) + "</font>");
     }
 
     if (m_summary.report.count() > 0) {

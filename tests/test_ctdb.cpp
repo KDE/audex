@@ -138,7 +138,10 @@ AUDEX_TEST("CTDB finds another pressing without AccurateRip")
             crcOf(qint64(s.firstLba) * Cdda::SamplesPerSector + s.ctdbSkipFirst, qint64(s.lastLba + 1) * Cdda::SamplesPerSector - s.ctdbSkipLast));
 
     int mismatches = -1;
-    const QStringList lines = Ctdb::formatVerification({entry}, result.segments, toc, &mismatches);
+    QSet<int> confirmed{99};
+    const QStringList lines = Ctdb::formatVerification({entry}, result.segments, toc, &mismatches, &confirmed);
+    AUDEX_EQUAL(t, int(confirmed.size()), 3);
+    AUDEX_CHECK(t, !confirmed.contains(99));
     AUDEX_EQUAL(t, mismatches, 0);
     AUDEX_CHECK_MSG(t, lines.join(u'\n').contains(QStringLiteral("other pressing with offset -1234")), lines.join(u'\n'));
     AUDEX_CHECK_MSG(t, lines.last() == QStringLiteral("All tracks accurately ripped."), lines.last());
@@ -146,7 +149,9 @@ AUDEX_TEST("CTDB finds another pressing without AccurateRip")
     // one track differs: the others still reveal the offset
     entry.crc ^= 1;
     entry.trackCrcs[1] ^= 1;
-    const QStringList partial = Ctdb::formatVerification({entry}, result.segments, toc, &mismatches);
+    const QStringList partial = Ctdb::formatVerification({entry}, result.segments, toc, &mismatches, &confirmed);
+    AUDEX_EQUAL(t, int(confirmed.size()), 2);
+    AUDEX_CHECK(t, !confirmed.contains(2));
     AUDEX_EQUAL(t, mismatches, 1);
     AUDEX_CHECK_MSG(t, partial.join(u'\n').contains(QStringLiteral("Track 01: accurately ripped")), partial.join(u'\n'));
     AUDEX_CHECK_MSG(t, partial.join(u'\n').contains(QStringLiteral("Track 02: NOT accurately ripped")), partial.join(u'\n'));

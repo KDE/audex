@@ -47,6 +47,11 @@ struct PostProcessPlan {
     QString outputDir;
 };
 
+struct PostProcessResult {
+    int failedTasks = 0;
+    bool hookPending = false;
+};
+
 class RipRequestBuilder
 {
 public:
@@ -98,7 +103,7 @@ public:
 
     // Executes the plan after a successfully finished rip (GUI thread).
     // log(level, text) receives Rip::LogLevel-compatible levels.
-    static void runPostProcess(const PostProcessPlan &plan,
+    static PostProcessResult runPostProcess(const PostProcessPlan &plan,
                                const Audex::RipSummary &summary,
                                const Audex::CDInfo &disc,
                                const QList<int> &tracks,

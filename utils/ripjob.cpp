@@ -94,14 +94,21 @@ bool RipJob::wait(int timeoutMs)
 void RipJob::run()
 {
     RipSummary summary;
+    summary.extraction.status = JobStatus::Failed;
     const RipRequest &rq = m_request;
+    bool extractionWarning = rq.inaccurateStream;
+    summary.verificationRequested = rq.accurateRipLookup || rq.ctdbLookup || !rq.accurateRipSkipped.isEmpty();
     const CDInfo &disc = rq.disc;
     const Cdda::Toc &toc = disc.toc();
 
     auto say = [this](Rip::LogLevel level, const QString &text) {
         Q_EMIT message(int(level), text);
     };
-    auto fail = [&](const QString &error) {
+    auto fail = [&](const QString &error, bool outputFailure = false) {
+        if (outputFailure) {
+            summary.extraction.status = JobStatus::Skipped;
+            summary.output.status = JobStatus::Failed;
+        }
         summary.error = error;
         say(Rip::LogLevel::Error, error);
         Q_EMIT finished(summary);
@@ -110,7 +117,7 @@ void RipJob::run()
     // --- output format ---
     const Encoding::EncoderFactory *encoder = rq.encoders ? rq.encoders->factory(rq.encoderId) : nullptr;
     if (!encoder)
-        return fail(tr("The output format \"%1\" is not available.").arg(rq.encoderId));
+        return fail(tr("The output format \"%1\" is not available.").arg(rq.encoderId), true);
 
     // --- segments and files ---
     QList<int> tracks = rq.tracks;
@@ -125,6 +132,7 @@ void RipJob::run()
     for (int number : std::as_const(tracks)) {
         const auto entry = disc.entry(number);
         if (!entry || !entry->audio) {
+            extractionWarning = true;
             say(Rip::LogLevel::Warning, tr("Track %1 is not an audio track and is skipped.").arg(number));
             continue;
         }
@@ -141,7 +149,7 @@ void RipJob::run()
         segments.append(s);
         const QString name = rq.filePaths.value(number);
         if (name.isEmpty())
-            return fail(tr("No output file for track %1.").arg(number));
+            return fail(tr("No output file for track %1.").arg(number), true);
         fileNames.append(name); // one entry per segment (ReportContext::fileNames)
 
         Encoding::OutputTarget target;
@@ -170,12 +178,12 @@ void RipJob::run()
         QSet<QString> paths;
         for (const Encoding::OutputTarget &target : std::as_const(targets)) {
             if (paths.contains(target.path))
-                return fail(tr("Several tracks would be written to %1. Use a file name scheme that contains the track number.").arg(target.path));
+                return fail(tr("Several tracks would be written to %1. Use a file name scheme that contains the track number.").arg(target.path), true);
             paths.insert(target.path);
         }
     }
     if (!QDir().mkpath(rq.outputDirectory))
-        return fail(tr("Cannot create the output folder %1.").arg(rq.outputDirectory));
+        return fail(tr("Cannot create the output folder %1.").arg(rq.outputDirectory), true);
 
     const Metadata::CoverArt &cover = disc.metadata().cover();
     if (!cover.isNull())
@@ -286,12 +294,15 @@ void RipJob::run()
         const Rip::CacheDefeatCalibration calibration =
             Rip::calibrateCacheDefeat(*opened.reader, area, options.cacheDefeatDistance, options.cacheDefeatSectors);
         options.cacheDefeatReads = calibration.reads;
-        if (calibration.timedOut)
+        if (calibration.timedOut) {
+            extractionWarning = true;
             say(Rip::LogLevel::Warning, tr("The drive did not answer while its cache was measured."));
-        else if (calibration.defeated)
+        } else if (calibration.defeated) {
             summary.measuredCacheDefeatReads = calibration.reads;
-        else
+        } else {
+            extractionWarning = true;
             say(Rip::LogLevel::Warning, tr("The drive cache could not be defeated reliably; re-reads may be served from the cache."));
+        }
     }
 
     // --- AccurateRip: database and pressing, before the extraction ---
@@ -391,6 +402,8 @@ void RipJob::run()
 
     Rip::RipEngine engine(*opened.reader, area, options, cb);
     Rip::RipResult result = engine.run(segments);
+    const bool extractionCompleted = result.completed;
+    bool outputWarning = false;
 
     QMap<int, QStringList> trackNotes; // segment -> further lines in the rip log
     QList<int> hdcdSegments;
@@ -470,6 +483,7 @@ void RipJob::run()
         say(Rip::LogLevel::Error, result.error);
     } else if (opened.reader->deviceLost()) {
         // after the audio: the files are complete, only the CD+G graphics are not
+        extractionWarning = true;
         say(Rip::LogLevel::Warning, tr("The drive was disconnected after the audio was read; the CD+G graphics were not read completely."));
     } else if (result.driveStalled) {
         // every further command (unlocking the tray...) would wait for its
@@ -531,8 +545,10 @@ void RipJob::run()
             const Encoding::OutputTarget &target = targets.at(rq.imageFile ? 0 : i);
             const QString suffix = QFileInfo(target.path).suffix();
             QString tagError;
-            if (!Encoding::TagWriter::write(target.path, suffix, target.tags, &tagError))
+            if (!Encoding::TagWriter::write(target.path, suffix, target.tags, &tagError)) {
+                outputWarning = true;
                 say(Rip::LogLevel::Warning, tr("Cannot write the HDCD tag into %1: %2").arg(QFileInfo(target.path).fileName(), tagError));
+            }
             if (rq.imageFile)
                 break; // one file
         }
@@ -553,11 +569,13 @@ void RipJob::run()
             const int to = rq.imageFile ? segments.last().lastLba : segments.at(i).lastLba;
             const QString path = cdgPath(targets.at(i).path);
             QSaveFile file(path);
-            if (file.open(QIODevice::WriteOnly)
-                && file.write(cdg.packs.mid(qsizetype(from - first) * Cdda::SubcodeBytes, qsizetype(to - from + 1) * Cdda::SubcodeBytes)) >= 0 && file.commit())
+            const QByteArray data = cdg.packs.mid(qsizetype(from - first) * Cdda::SubcodeBytes, qsizetype(to - from + 1) * Cdda::SubcodeBytes);
+            if (file.open(QIODevice::WriteOnly) && file.write(data) == data.size() && file.commit())
                 written << path;
-            else
+            else {
+                outputWarning = true;
                 say(Rip::LogLevel::Warning, tr("Cannot write %1: %2").arg(path, file.errorString()));
+            }
         }
         summary.cdgFiles = written;
         if (!written.isEmpty())
@@ -575,13 +593,15 @@ void RipJob::run()
         }
     };
     QStringList accurateRipLines;
+    QSet<int> accurateRipConfirmedTracks;
+    QSet<int> ctdbConfirmedTracks;
     if (rq.accurateRipLookup && result.completed) {
         summary.accurateRipError = arError;
         if (!arError.isEmpty()) {
             accurateRipLines << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError);
         } else {
-            accurateRipLines =
-                AccurateRip::formatVerification(arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed);
+            accurateRipLines = AccurateRip::formatVerification(
+                arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed, &accurateRipConfirmedTracks);
             sayAccurateRip(accurateRipLines);
         }
     } else if (!rq.accurateRipLookup && !rq.accurateRipSkipped.isEmpty() && result.completed) {
@@ -597,11 +617,12 @@ void RipJob::run()
             say(Rip::LogLevel::Info, u"CTDB: "_s + lines.last().trimmed());
     };
     QStringList ctdbLines;
+    summary.ctdbError = ctdbError;
     if (rq.ctdbLookup && result.completed && !m_cancel) {
         if (!ctdbError.isEmpty()) {
             ctdbLines << u"CUETools database (CTDB) verification"_s << QString() << u"     Lookup failed: %1"_s.arg(ctdbError);
         } else {
-            ctdbLines = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches);
+            ctdbLines = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches, &ctdbConfirmedTracks);
             sayCtdb(ctdbLines);
         }
     }
@@ -662,15 +683,18 @@ void RipJob::run()
                     s.peakPercent = c.peakPercent;
                 }
                 if (rq.accurateRipLookup && arError.isEmpty()) {
-                    accurateRipLines =
-                        AccurateRip::formatVerification(arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed);
+                    accurateRipLines = AccurateRip::formatVerification(
+                        arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed, &accurateRipConfirmedTracks);
                     accurateRipLines.first() += u" (after the CTDB repair)"_s;
                     sayAccurateRip(accurateRipLines);
                 }
-                const QStringList again = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches);
+                const QStringList again = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches, &ctdbConfirmedTracks);
                 ctdbLines << QString() << again.first() + u" after the repair"_s << again.mid(1);
                 sayCtdb(again);
             } else {
+                summary.repairCheckFailed = true;
+                accurateRipConfirmedTracks.clear();
+                ctdbConfirmedTracks.clear();
                 ctdbLines
                     << u"     The repaired image could not be read back (%1); the track CRCs and AccurateRip results above refer to the image before the repair."_s
                            .arg(checkError);
@@ -709,6 +733,7 @@ void RipJob::run()
     if (!settingsText.isEmpty())
         ctx.encoder += u", "_s + settingsText.join(u", "_s);
     ctx.outputNotes = files.warnings();
+    outputWarning = outputWarning || !ctx.outputNotes.isEmpty() || !cdg.error.isEmpty() || cdg.unresolvedSectors > 0;
     ctx.accurateRip = accurateRipLines;
     ctx.ctdb = ctdbLines;
     ctx.subchannel = subchannelLines;
@@ -724,15 +749,18 @@ void RipJob::run()
 
     if (!rq.logFilePath.isEmpty()) {
         QDir().mkpath(QFileInfo(rq.logFilePath).absolutePath());
-        QFile log(rq.logFilePath);
-        if (log.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
-            log.write(report.join(u'\n').toUtf8() + '\n');
+        QSaveFile log(rq.logFilePath);
+        const QByteArray data = report.join(u'\n').toUtf8() + '\n';
+        if (log.open(QIODevice::WriteOnly) && log.write(data) == data.size() && log.commit()) {
             summary.logFile = rq.logFilePath;
         } else {
+            outputWarning = true;
             say(Rip::LogLevel::Warning, tr("Cannot write the rip log %1: %2").arg(rq.logFilePath, log.errorString()));
         }
     }
 
+    summary.extraction.status = !extractionCompleted ? (result.canceled ? JobStatus::Canceled : JobStatus::Failed)
+                                                      : JobStatus::Success;
     summary.completed = result.completed;
     summary.canceled = result.canceled;
     summary.error = result.error;
@@ -741,6 +769,19 @@ void RipJob::run()
     summary.report = report;
     for (const Rip::SegmentResult &s : std::as_const(result.segments))
         summary.suspiciousPositions += int(s.suspicious.size());
+    if (summary.extraction.status == JobStatus::Success && (summary.suspiciousPositions > 0 || extractionWarning))
+        summary.extraction.status = JobStatus::Warning;
+
+    summary.output.status = result.canceled ? JobStatus::Canceled
+                                           : result.completed ? (outputWarning ? JobStatus::Warning : JobStatus::Success)
+                                                              : extractionCompleted || !files.error().isEmpty() ? JobStatus::Failed : JobStatus::Skipped;
+
+    for (const Rip::Segment &segment : std::as_const(segments))
+        if (segment.accurateRip)
+            ++summary.verifiableTracks;
+    accurateRipConfirmedTracks.unite(ctdbConfirmedTracks);
+    summary.verifiedTracks = int(accurateRipConfirmedTracks.size());
+    summary.verification.status = verificationStatus(summary, extractionCompleted, !rq.accurateRipSkipped.isEmpty());
     Q_EMIT finished(summary);
 }
 

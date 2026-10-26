@@ -119,15 +119,40 @@ struct RipRequest {
     QMap<int, QString> filePaths;
 };
 
+enum class JobStatus { Success, Warning, Failed, Skipped, Canceled };
+
+struct PhaseResult {
+    JobStatus status = JobStatus::Skipped;
+};
+
+inline JobStatus overallStatus(const PhaseResult &extraction, const PhaseResult &verification, const PhaseResult &output)
+{
+    if (extraction.status == JobStatus::Canceled || output.status == JobStatus::Canceled)
+        return JobStatus::Canceled;
+    if (extraction.status == JobStatus::Failed || verification.status == JobStatus::Failed || output.status == JobStatus::Failed)
+        return JobStatus::Failed;
+    if (extraction.status == JobStatus::Warning || verification.status == JobStatus::Warning || output.status == JobStatus::Warning)
+        return JobStatus::Warning;
+    return JobStatus::Success;
+}
+
 struct RipSummary {
     bool completed = false;
     bool canceled = false;
+    PhaseResult extraction;
+    PhaseResult verification;
+    PhaseResult output;
     QString error;
     int tracks = 0;
     int suspiciousPositions = 0;
     int accurateRipMismatches = 0; // tracks the AccurateRip database contradicts
     int accurateRipConfirmed = 0; // tracks the AccurateRip database confirms
     QString accurateRipError; // the lookup failed (not: the disc is not in the database)
+    QString ctdbError;
+    int verifiedTracks = 0; // confirmed by at least one database
+    int verifiableTracks = 0; // selected audio tracks, excluding HTOA
+    bool verificationRequested = false;
+    bool repairCheckFailed = false;
     int ctdbMismatches = 0; // tracks the CUETools database contradicts (0 after a repair)
     int ctdbCorrections = 0; // values the CUETools database repair corrected
     int measuredCacheDefeatReads = 0; // > 0: measured by this rip, to be stored per drive
@@ -173,6 +198,18 @@ private:
     std::mutex m_outputsMutex;
     Encoding::EncodedOutputs *m_outputs = nullptr; // set while run() may block in it
 };
+
+inline JobStatus verificationStatus(const RipSummary &summary, bool extractionCompleted, bool unavailable)
+{
+    if (summary.repairCheckFailed)
+        return JobStatus::Failed;
+    if (!summary.verificationRequested || !extractionCompleted || !summary.completed || summary.canceled || summary.verifiableTracks == 0)
+        return JobStatus::Skipped;
+    if (unavailable || !summary.accurateRipError.isEmpty() || !summary.ctdbError.isEmpty() || summary.accurateRipMismatches > 0
+        || summary.ctdbMismatches > 0 || summary.verifiedTracks < summary.verifiableTracks)
+        return JobStatus::Warning;
+    return JobStatus::Success;
+}
 
 }
 

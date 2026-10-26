@@ -10,6 +10,7 @@
 #include <QByteArray>
 #include <QList>
 #include <QMap>
+#include <QSet>
 #include <QObject>
 #include <QString>
 #include <QStringList>
@@ -137,7 +138,7 @@ QStringList formatVerification(const QList<Response> &responses,
                                const QList<Rip::SegmentResult> &segments,
                                const Cdda::Toc &toc,
                                int *inaccurateTracks = nullptr,
-                               int *accurateTracks = nullptr);
+                               int *accurateTracks = nullptr, QSet<int> *confirmedTracks = nullptr);
 
 // Synchronous lookup of the database entry for a disc, for worker threads
 // (RipJob). Sets notFound when the server answered 404 and error on network
