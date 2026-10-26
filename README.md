@@ -54,7 +54,7 @@ Audex runs exclusively on Linux and requires kernel SG_IO interface access (`/de
 
 ### Build Dependencies
 - **Build System & Compiler:** CMake ≥ 3.16 and a C++20 compiler (GCC or Clang).
-- **Frameworks:** Qt ≥ 6.5 (Core, Gui, Widgets, Concurrent, Network, DBus) and KDE Frameworks 6.
+- **Frameworks:** Qt ≥ 6.6 (Core, Gui, Widgets, Concurrent, Network, DBus) and KDE Frameworks 6.
 - **Tagging:** TagLib ≥ 1.12 (TagLib 2.x required for cover art embedding across all formats).
 
 ### Encoders
