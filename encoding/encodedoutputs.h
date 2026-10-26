@@ -62,8 +62,8 @@ class EncoderWorker;
 
 // Maps the segments of a rip to files and encodes them in worker threads.
 // Several segments may share one path (image). Every file is written as
-// "<name>.part.<suffix>", tagged, and renamed when complete. Aborted or
-// failed files are removed.
+// "<name>.part.<suffix>", tagged, and renamed when complete. A completed
+// partial file is kept if the final replacement fails.
 class EncodedOutputs
 {
 public:

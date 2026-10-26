@@ -10,6 +10,7 @@
 #include "core/checksums.h"
 #include "core/ctdbparity.h"
 #include "encoding/encodedoutputs.h"
+#include "utils/fileops.h"
 
 #include <QCoreApplication>
 #include <QDir>
@@ -341,18 +342,25 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
     if (rq.writeTags && !Encoding::TagWriter::write(part, suffix, rq.tags, &error))
         note(u"Tagging the repaired image failed: %1"_s.arg(error));
 
+    QString backup;
     if (rq.keepOriginal) {
-        result.originalPath = unrepairedPath(rq.path);
-        QFile::remove(result.originalPath);
-        ok = QFile::rename(rq.path, result.originalPath);
-    } else {
-        ok = QFile::remove(rq.path);
+        const QFileInfo info(unrepairedPath(rq.path));
+        backup = info.filePath();
+        for (int number = 1; QFileInfo::exists(backup) || QFileInfo(backup).isSymLink(); ++number)
+            backup = QDir(info.path()).filePath(info.completeBaseName() + u".%1."_s.arg(number) + info.suffix());
+        if (!backupFile(rq.path, backup)) {
+            note(u"Backing up %1 failed; the repaired image is %2"_s.arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName()));
+            return result;
+        }
     }
-    if (!ok || !QFile::rename(part, rq.path)) {
+    if (!replaceFile(part, rq.path)) {
+        if (!backup.isEmpty())
+            QFile::remove(backup);
         note(u"Replacing %1 failed; the repaired image is %2"_s.arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName()));
         return result;
     }
 
+    result.originalPath = backup;
     result.repaired = true;
     result.corrections = int(corrections.size());
     note(u"Repaired: the image matches the database entry now."_s);
@@ -429,7 +437,7 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
     if (rq.writeTags)
         Encoding::TagWriter::write(part, suffix, rq.tags, &tagError); // the old image had them; a failure is not fatal
 
-    if (!QFile::remove(rq.path) || !QFile::rename(part, rq.path)) {
+    if (!replaceFile(part, rq.path)) {
         *error = u"replacing %1 failed; the complete image is %2"_s.arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName());
         return false;
     }

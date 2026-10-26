@@ -133,15 +133,21 @@ AUDEX_TEST("image repair restores a damaged WAVE image")
         AUDEX_CHECK(t, writeWav(path, rip));
         ImageRepairRequest rq = request(path, database(clean, pressing), factory);
         rq.keepOriginal = pressing != 0;
+        const QString previousBackup = unrepairedPath(path);
+        if (rq.keepOriginal)
+            AUDEX_CHECK(t, writeWav(previousBackup, clean));
+        const QByteArray backupBefore = readFile(previousBackup);
         const ImageRepairResult result = repairImage(rq);
 
         AUDEX_CHECK_MSG(t, result.repaired, result.log.join(u'\n'));
         AUDEX_EQUAL(t, result.corrections, 30 * WordsPerSector + 1);
         AUDEX_EQUAL_DATA(t, readFile(path), readFile(cleanPath));
         AUDEX_CHECK(t, !QFile::exists(QDir(dir.path()).filePath(u"disc.part.wav"_s)));
-        if (rq.keepOriginal)
+        if (rq.keepOriginal) {
+            AUDEX_CHECK(t, result.originalPath != previousBackup);
+            AUDEX_EQUAL_DATA(t, readFile(previousBackup), backupBefore);
             AUDEX_EQUAL_DATA(t, readFile(result.originalPath), damaged);
-        else
+        } else
             AUDEX_CHECK(t, !QFile::exists(unrepairedPath(path)));
         AUDEX_CHECK_MSG(t, pressing == 0 || result.log.join(u'\n').contains(u"other pressing with offset -2345"_s), result.log.join(u'\n'));
     }

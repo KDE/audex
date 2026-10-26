@@ -8,6 +8,7 @@
 #include "encodedoutputs.h"
 
 #include "utils/encodercommand.h"
+#include "utils/fileops.h"
 
 #include <deque>
 #include <thread>
@@ -273,10 +274,8 @@ private:
             m_warnings << QFileInfo(m_path).fileName() + u": "_s + error;
         }
 
-        QFile::remove(m_path);
-        if (!QFile::rename(m_partPath, m_path)) {
+        if (!replaceFile(m_partPath, m_path)) {
             setFailed(tr("cannot rename %1").arg(m_partPath));
-            QFile::remove(m_partPath);
             return;
         }
         std::lock_guard lock(m_mutex);

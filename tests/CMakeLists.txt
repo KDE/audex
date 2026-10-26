@@ -16,6 +16,7 @@ add_executable(
   test_ctdb.cpp
   test_ctdbparity.cpp
   test_imagerepair.cpp
+  test_fileops.cpp
   test_preemphasis.cpp
   test_drivefeatures.cpp
   test_cacheprobe.cpp
