@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-08 00:43+0000\n"
-"PO-Revision-Date: 2026-06-22 22:28+0200\n"
+"PO-Revision-Date: 2026-10-31 22:42+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -1714,10 +1714,9 @@ msgid "Ripping OK (Track %1)."
 msgstr "Beolvasás OK (%1. szám)."
 
 #: utils/cddaextractthread.cpp:280
-#, fuzzy, kde-format
-#| msgid "Ripping of track %2 successfully finished"
+#, kde-format
 msgid "Ripping of track %1 successfully finished"
-msgstr "A(z) %2. szám beolvasása sikeresen befejeződött"
+msgstr "A(z) %1. szám beolvasása sikeresen befejeződött"
 
 #: utils/cddaextractthread.cpp:282
 #, kde-format
