@@ -696,7 +696,7 @@ PostProcessResult RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
         for (int i = 0; i < summary.files.count(); ++i) {
             const QString &file = summary.files.at(i);
             PlaylistItem item;
-            item.setFilename(plan.playlistAbsolutePaths ? file : playlistDir.relativeFilePath(file));
+            item.setFilename(file);
             const int number = plan.imageFile ? -1 : tracks.value(i, -1);
             const Audex::Metadata::Track &track = disc.metadata().track(number);
             QString artist = track.text(Field::Artist);
@@ -715,7 +715,7 @@ PostProcessResult RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
             item.setLength(sectors / Audex::Cdda::SectorsPerSecond);
             playlist.appendItem(item);
         }
-        const QByteArray data = playlist.toM3U(playlistDir.path(), plan.playlistUtf8);
+        const QByteArray data = playlist.toM3U(plan.playlistAbsolutePaths ? QString() : playlistDir.path(), plan.playlistUtf8);
         QSaveFile file(plan.playlistFilePath);
         if (file.open(QIODevice::WriteOnly) && file.write(data) == data.size() && file.commit()) {
             log(int(Audex::Rip::LogLevel::Info), i18n("Playlist saved to %1.", plan.playlistFilePath));

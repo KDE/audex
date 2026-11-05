@@ -73,3 +73,9 @@ target_include_directories(audex_i18n_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/
 target_compile_definitions(audex_i18n_tests PRIVATE AUDEX_TEST_LOCALE_DIR="${CMAKE_CURRENT_BINARY_DIR}/i18n")
 target_link_libraries(audex_i18n_tests PRIVATE Qt6::Core KF6::I18n)
 add_test(NAME audex_i18n_tests COMMAND audex_i18n_tests)
+
+# GUI playlist generation uses KDE I18n and is tested separately from the engine.
+add_executable(audex_playlist_tests test_main.cpp test_playlist.cpp ../utils/playlist.cpp)
+target_include_directories(audex_playlist_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
+target_link_libraries(audex_playlist_tests PRIVATE Qt6::Core KF6::I18n)
+add_test(NAME audex_playlist_tests COMMAND audex_playlist_tests)
