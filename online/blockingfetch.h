@@ -12,6 +12,8 @@
 #include <QString>
 #include <QUrl>
 
+#include "core/text.h"
+
 #include <functional>
 
 namespace Audex::Online
@@ -22,7 +24,7 @@ QString userAgent();
 // Synchronous GET for worker threads (runs its own event loop). Sets notFound
 // when the server answered 404 and error on network or protocol failures.
 QByteArray fetchBlocking(const QUrl &url,
-                         QString *error,
+                         Text *error,
                          bool *notFound = nullptr,
                          int timeoutMs = 30000,
                          const std::function<bool()> &isCanceled = {},

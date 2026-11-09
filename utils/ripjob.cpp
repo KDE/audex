@@ -307,13 +307,13 @@ void RipJob::run()
 
     // --- AccurateRip: database and pressing, before the extraction ---
     QList<AccurateRip::Response> arResponses;
-    QString arError;
+    Text arError;
     if (rq.accurateRipLookup && !m_cancel) {
         say(Rip::LogLevel::Info, tr("Looking up the disc in the AccurateRip database..."));
         bool notFound = false;
         arResponses = AccurateRip::lookupDiscEntry(toc, &arError, &notFound, 30000, cb.isCanceled);
         if (!arError.isEmpty())
-            say(Rip::LogLevel::Warning, tr("AccurateRip lookup failed: %1").arg(arError));
+            say(Rip::LogLevel::Warning, tr("AccurateRip lookup failed: %1").arg(arError.toString()));
         else if (arResponses.isEmpty())
             say(Rip::LogLevel::Info, tr("Disc not found in the AccurateRip database."));
     }
@@ -334,12 +334,12 @@ void RipJob::run()
     }
     // --- CUETools database: looked up before the extraction as well ---
     QList<Ctdb::Entry> entries;
-    QString ctdbError;
+    Text ctdbError;
     if (rq.ctdbLookup && !m_cancel) {
         say(Rip::LogLevel::Info, tr("Looking up the disc in the CUETools database..."));
         entries = Ctdb::lookup(toc, &ctdbError, 30000, cb.isCanceled);
         if (!ctdbError.isEmpty())
-            say(Rip::LogLevel::Warning, tr("CUETools database lookup failed: %1").arg(ctdbError));
+            say(Rip::LogLevel::Warning, tr("CUETools database lookup failed: %1").arg(ctdbError.toString()));
     }
     const bool ctdbConfirms = Ctdb::canConfirmTracks(entries, toc);
 
@@ -585,24 +585,25 @@ void RipJob::run()
     }
 
     // --- AccurateRip verification ---
-    const auto sayAccurateRip = [&](const QStringList &lines) {
-        for (const QString &line : lines) {
-            const QString trimmed = line.trimmed();
-            if (trimmed.startsWith(u"Track") || trimmed.startsWith(u"Warning") || trimmed.startsWith(u"All tracks"))
-                say(line.startsWith(u"Warning") ? Rip::LogLevel::Warning : Rip::LogLevel::Info, trimmed);
+    const auto sayAccurateRip = [&](const QList<Text> &lines) {
+        for (const Text &line : lines) {
+            const QString english = line.toEnglish().trimmed();
+            if (english.startsWith(u"Track") || english.startsWith(u"Warning") || english.startsWith(u"All tracks"))
+                say(english.startsWith(u"Warning") ? Rip::LogLevel::Warning : Rip::LogLevel::Info, line.toString().trimmed());
         }
     };
     QStringList accurateRipLines;
     QSet<int> accurateRipConfirmedTracks;
     QSet<int> ctdbConfirmedTracks;
     if (rq.accurateRipLookup && result.completed) {
-        summary.accurateRipError = arError;
+        summary.accurateRipError = arError.toString();
         if (!arError.isEmpty()) {
-            accurateRipLines << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError);
+            accurateRipLines << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError.toEnglish());
         } else {
-            accurateRipLines = AccurateRip::formatVerification(
+            const QList<Text> verification = AccurateRip::formatVerification(
                 arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed, &accurateRipConfirmedTracks);
-            sayAccurateRip(accurateRipLines);
+            accurateRipLines = toEnglish(verification);
+            sayAccurateRip(verification);
         }
     } else if (!rq.accurateRipLookup && !rq.accurateRipSkipped.isEmpty() && result.completed) {
         accurateRipLines << u"AccurateRip verification"_s << QString() << u"     NOT PERFORMED: %1"_s.arg(rq.accurateRipSkipped);
@@ -610,20 +611,21 @@ void RipJob::run()
     }
 
     // --- CUETools database verification ---
-    const auto sayCtdb = [&](const QStringList &lines) {
+    const auto sayCtdb = [&](const QList<Text> &lines) {
         if (summary.ctdbMismatches > 0)
-            say(Rip::LogLevel::Warning, lines.last());
+            say(Rip::LogLevel::Warning, lines.last().toString());
         else
-            say(Rip::LogLevel::Info, u"CTDB: "_s + lines.last().trimmed());
+            say(Rip::LogLevel::Info, u"CTDB: "_s + lines.last().toString().trimmed());
     };
     QStringList ctdbLines;
-    summary.ctdbError = ctdbError;
+    summary.ctdbError = ctdbError.toString();
     if (rq.ctdbLookup && result.completed && !m_cancel) {
         if (!ctdbError.isEmpty()) {
-            ctdbLines << u"CUETools database (CTDB) verification"_s << QString() << u"     Lookup failed: %1"_s.arg(ctdbError);
+            ctdbLines << u"CUETools database (CTDB) verification"_s << QString() << u"     Lookup failed: %1"_s.arg(ctdbError.toEnglish());
         } else {
-            ctdbLines = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches, &ctdbConfirmedTracks);
-            sayCtdb(ctdbLines);
+            const QList<Text> verification = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches, &ctdbConfirmedTracks);
+            ctdbLines = toEnglish(verification);
+            sayCtdb(verification);
         }
     }
 
@@ -683,13 +685,14 @@ void RipJob::run()
                     s.peakPercent = c.peakPercent;
                 }
                 if (rq.accurateRipLookup && arError.isEmpty()) {
-                    accurateRipLines = AccurateRip::formatVerification(
+                    const QList<Text> verification = AccurateRip::formatVerification(
                         arResponses, result.segments, toc, &summary.accurateRipMismatches, &summary.accurateRipConfirmed, &accurateRipConfirmedTracks);
+                    accurateRipLines = toEnglish(verification);
                     accurateRipLines.first() += u" (after the CTDB repair)"_s;
-                    sayAccurateRip(accurateRipLines);
+                    sayAccurateRip(verification);
                 }
-                const QStringList again = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches, &ctdbConfirmedTracks);
-                ctdbLines << QString() << again.first() + u" after the repair"_s << again.mid(1);
+                const QList<Text> again = Ctdb::formatVerification(entries, result.segments, toc, &summary.ctdbMismatches, &ctdbConfirmedTracks);
+                ctdbLines << QString() << again.first().toEnglish() + u" after the repair"_s << toEnglish(again.mid(1));
                 sayCtdb(again);
             } else {
                 summary.repairCheckFailed = true;
@@ -710,7 +713,7 @@ void RipJob::run()
     ctx.application = rq.application;
     ctx.drive = opened.driveName;
     ctx.device = rq.drive.id;
-    ctx.medium = disc.mediumDescription();
+    ctx.medium = disc.mediumDescription().toEnglish();
     ctx.gapHandling = gapHandling;
     ctx.trackNotes = trackNotes;
     ctx.confirmedBy = confirmedBy;

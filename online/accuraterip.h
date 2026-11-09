@@ -17,6 +17,7 @@
 #include <QUrl>
 
 #include "core/ripengine.h"
+#include "core/text.h"
 #include "core/toc.h"
 
 class QNetworkAccessManager;
@@ -130,11 +131,11 @@ detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc, const QList<Re
 
 // Compares the AccurateRip checksums computed while ripping (segments with
 // the accurateRip flag set) against the database responses and formats the
-// outcome as log lines. An empty response list means the disc is not in the
-// database. The first line is a section heading; used in the rip report.
+// outcome as lines of the rip log (toEnglish()). An empty response list means
+// the disc is not in the database. The first line is a section heading.
 // inaccurateTracks receives the number of tracks the database contradicts.
 // accurateTracks the number it confirms.
-QStringList formatVerification(const QList<Response> &responses,
+QList<Text> formatVerification(const QList<Response> &responses,
                                const QList<Rip::SegmentResult> &segments,
                                const Cdda::Toc &toc,
                                int *inaccurateTracks = nullptr,
@@ -144,7 +145,7 @@ QStringList formatVerification(const QList<Response> &responses,
 // (RipJob). Sets notFound when the server answered 404 and error on network
 // or protocol failures; both are not fatal for a rip.
 QList<Response>
-lookupDiscEntry(const Cdda::Toc &toc, QString *error, bool *notFound = nullptr, int timeoutMs = 30000, const std::function<bool()> &isCanceled = {});
+lookupDiscEntry(const Cdda::Toc &toc, Text *error, bool *notFound = nullptr, int timeoutMs = 30000, const std::function<bool()> &isCanceled = {});
 
 // ---- asynchronous access (GUI thread) --------------------------------------
 

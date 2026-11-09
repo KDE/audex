@@ -7,6 +7,7 @@
 
 #include "coverartarchive.h"
 
+#include <QCoreApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -18,6 +19,10 @@ namespace Audex
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::CoverArtArchive)
+};
 
 QUrl secure(const QString &address)
 {
@@ -46,7 +51,7 @@ std::optional<CoverArtListing> parseCoverArtListing(const QByteArray &json, QStr
     const QJsonDocument doc = QJsonDocument::fromJson(json, &parseError);
     if (!doc.isObject() || !doc.object().value("images"_L1).isArray()) {
         if (error)
-            *error = parseError.error != QJsonParseError::NoError ? parseError.errorString() : u"not a Cover Art Archive listing"_s;
+            *error = parseError.error != QJsonParseError::NoError ? parseError.errorString() : Tr::tr("not a Cover Art Archive listing");
         return std::nullopt;
     }
 

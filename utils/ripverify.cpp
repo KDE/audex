@@ -228,9 +228,9 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     // --- the databases, and other pressings ---
     Rip::RipOptions options;
     QList<AccurateRip::Response> arResponses;
-    QString arError;
+    Text arError;
     QList<Ctdb::Entry> entries;
-    QString ctdbError;
+    Text ctdbError;
     if (rq.online) {
         say(Tr::tr("Looking up the disc in the AccurateRip database..."));
         arResponses = AccurateRip::lookupDiscEntry(toc, &arError, nullptr, 30000, isCanceled);
@@ -335,14 +335,14 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     }
     if (rq.online) {
         if (!arError.isEmpty())
-            l << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError);
+            l << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError.toString());
         else
-            l << AccurateRip::formatVerification(arResponses, checked, toc, &result.accurateRipMismatches);
+            l << toStrings(AccurateRip::formatVerification(arResponses, checked, toc, &result.accurateRipMismatches));
         l << QString();
         if (!ctdbError.isEmpty())
-            l << u"CUETools database (CTDB) verification"_s << QString() << u"     Lookup failed: %1"_s.arg(ctdbError);
+            l << u"CUETools database (CTDB) verification"_s << QString() << u"     Lookup failed: %1"_s.arg(ctdbError.toString());
         else
-            l << Ctdb::formatVerification(entries, checked, toc, &result.ctdbMismatches);
+            l << toStrings(Ctdb::formatVerification(entries, checked, toc, &result.ctdbMismatches));
         l << QString();
     }
 
@@ -368,7 +368,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     } else if (!confirmed && (!arError.isEmpty() || !ctdbError.isEmpty())) {
         // not "unconfirmed": the databases may well know the disc
         result.verdict = Verdict::Error;
-        result.error = Tr::tr("The databases could not be asked: %1").arg(arError.isEmpty() ? ctdbError : arError);
+        result.error = Tr::tr("The databases could not be asked: %1").arg((arError.isEmpty() ? ctdbError : arError).toString());
     } else {
         result.verdict = confirmed ? Verdict::Ok : Verdict::Unconfirmed;
     }

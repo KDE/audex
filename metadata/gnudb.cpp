@@ -7,6 +7,7 @@
 
 #include "gnudb.h"
 
+#include <QCoreApplication>
 #include <QMap>
 #include <QStringConverter>
 
@@ -21,6 +22,10 @@ using Metadata::Field;
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::Gnudb)
+};
 
 // An exact disc id match is good, but the CDDB disc id is only 32 bits wide;
 // MusicBrainz (90/100) stays ahead of it, its fuzzy TOC match (70) does not.
@@ -212,7 +217,7 @@ QueryResult parseQueryResponse(const QByteArray &raw)
     case 202: // nothing found - not an error
         break;
     case 0:
-        result.error = u"gnudb: unexpected answer"_s;
+        result.error = Tr::tr("gnudb: unexpected answer");
         break;
     default:
         result.error = u"gnudb: %1 %2"_s.arg(QString::number(response.code), response.status);
@@ -323,7 +328,7 @@ ReadResult parseXmcd(const QStringList &lines, const CDInfo &disc, const QString
     }
 
     if (titles.isEmpty() && discTitle.isEmpty()) {
-        result.error = u"gnudb: the entry contains no titles"_s;
+        result.error = Tr::tr("gnudb: the entry contains no titles");
         return result;
     }
 
@@ -427,7 +432,7 @@ ReadResult parseReadResponse(const QByteArray &raw, const CDInfo &disc, const QS
     case 401: // no such entry - not an error
         break;
     case 0:
-        result.error = u"gnudb: unexpected answer"_s;
+        result.error = Tr::tr("gnudb: unexpected answer");
         break;
     default:
         result.error = u"gnudb: %1 %2"_s.arg(QString::number(response.code), response.status);

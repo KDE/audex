@@ -343,6 +343,8 @@ Audex has two translation catalogs, as usual in KDE for code that depends on Qt 
 
 `Messages.sh` extracts both (`$XGETTEXT` and `$EXTRACT_TR_STRINGS`). The text of a Qt message is looked up together with its context, so every `tr()` must have a context lupdate can determine: a `Q_OBJECT` class, `Q_DECLARE_TR_FUNCTIONS()` or a literal context in `QCoreApplication::translate()`. Building from a release tarball with `poqm/` needs the Qt Linguist tools (`lconvert`, `lrelease`).
 
+The rip log is always english. It is read back by `audex-cli verify` and shared with others. A text that is shown to the user and also goes into the log is an `Audex::Text` (`core/text.h`): `Text::translate()` is extracted like `QCoreApplication::translate()` and keeps the English source text next to the translation (`toString()` for the user interface, `toEnglish()` for the log). Messages of the system (`strerror()`, `QIODevice::errorString()` and the like) are passed on as they are.
+
 #### Integration Testing
 
 The integration test (`tests/test_i18n.cpp`) checks the Qt catalog as it is installed and loaded by the ECM loader. CTest runs it once each with `LANGUAGE=de`, `fr` and `en`, the variable the application language of KXmlGui uses, which KI18n follows as well. It covers:

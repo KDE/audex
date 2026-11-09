@@ -26,7 +26,7 @@ QString userAgent()
 }
 
 QByteArray fetchBlocking(const QUrl &url,
-                         QString *error,
+                         Text *error,
                          bool *notFound,
                          int timeoutMs,
                          const std::function<bool()> &isCanceled,
@@ -36,7 +36,7 @@ QByteArray fetchBlocking(const QUrl &url,
     if (notFound)
         *notFound = false;
     if (error)
-        error->clear();
+        *error = {};
 
     QNetworkAccessManager network;
     QElapsedTimer elapsed;
@@ -47,7 +47,7 @@ QByteArray fetchBlocking(const QUrl &url,
         const int remaining = timeoutMs - int(elapsed.elapsed());
         if (remaining <= 0) {
             if (error)
-                *error = QCoreApplication::translate("Audex::Online", "timeout after %1 s").arg(timeoutMs / 1000);
+                *error = Text::translate("Audex::Online", "timeout after %1 s").arg(timeoutMs / 1000);
             return {};
         }
         QNetworkRequest request(current);
@@ -79,9 +79,9 @@ QByteArray fetchBlocking(const QUrl &url,
         if (!reply->isFinished()) {
             reply->abort();
             if (error && isCanceled && isCanceled())
-                *error = QCoreApplication::translate("Audex::Online", "canceled");
+                *error = Text::translate("Audex::Online", "canceled");
             else if (error)
-                *error = QCoreApplication::translate("Audex::Online", "timeout after %1 s").arg(timeoutMs / 1000);
+                *error = Text::translate("Audex::Online", "timeout after %1 s").arg(timeoutMs / 1000);
         } else if (allowRedirect && reply->attribute(QNetworkRequest::RedirectionTargetAttribute).isValid()) {
             const QUrl next = current.resolved(reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toUrl());
             if (redirects < 5 && allowRedirect(next)) {
@@ -89,14 +89,14 @@ QByteArray fetchBlocking(const QUrl &url,
                 ++redirects;
                 follow = true;
             } else if (error) {
-                *error = QCoreApplication::translate("Audex::Online", "redirect not allowed");
+                *error = Text::translate("Audex::Online", "redirect not allowed");
             }
         } else if (reply->error() == QNetworkReply::ContentNotFoundError) {
             if (notFound)
                 *notFound = true;
         } else if (reply->error() != QNetworkReply::NoError) {
             if (error)
-                *error = reply->errorString();
+                *error = Text::plain(reply->errorString());
         } else {
             data = reply->readAll();
         }

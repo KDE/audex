@@ -29,6 +29,11 @@ namespace
 
 const char server[] = "https://db.cue.tools";
 
+Text indented(const Text &text)
+{
+    return Text::plain(u"     %1"_s).arg(text);
+}
+
 bool allowedParityUrl(const QUrl &url)
 {
     if (!url.isValid() || !url.userInfo().isEmpty() || url.hasFragment())
@@ -124,7 +129,7 @@ QUrl lookupUrl(const Cdda::Toc &toc)
     return url;
 }
 
-QList<Entry> parseResponse(const QByteArray &xml, QString *error)
+QList<Entry> parseResponse(const QByteArray &xml, Text *error)
 {
     QList<Entry> entries;
     bool root = false;
@@ -177,13 +182,13 @@ QList<Entry> parseResponse(const QByteArray &xml, QString *error)
         entries.append(e);
     }
     if (error && reader.hasError())
-        *error = reader.errorString();
+        *error = Text::plain(reader.errorString());
     else if (error && !root)
-        *error = u"unexpected response"_s;
+        *error = Text::translate("Audex::Ctdb", "unexpected response");
     return reader.hasError() || !root ? QList<Entry>() : entries;
 }
 
-QList<Entry> lookup(const Cdda::Toc &toc, QString *error, int timeoutMs, const std::function<bool()> &isCanceled)
+QList<Entry> lookup(const Cdda::Toc &toc, Text *error, int timeoutMs, const std::function<bool()> &isCanceled)
 {
     bool notFound = false;
     const QByteArray data = Online::fetchBlocking(lookupUrl(toc), error, &notFound, timeoutMs, isCanceled, {}, [](const QUrl &) {
@@ -209,7 +214,10 @@ QByteArray fetchParity(const Entry &entry, QString *error, int timeoutMs, const 
     }
     const qint64 size = qint64(entry.syndromes.size()) * Stride * 2;
     const QByteArray range = "bytes=0-" + QByteArray::number(size - 1);
-    QByteArray data = Online::fetchBlocking(url, error, nullptr, timeoutMs, isCanceled, {{"Range", range}}, allowedParityUrl);
+    Text fetchError;
+    QByteArray data = Online::fetchBlocking(url, &fetchError, nullptr, timeoutMs, isCanceled, {{"Range", range}}, allowedParityUrl);
+    if (error)
+        *error = fetchError.toString();
     if (data.size() < size) {
         if (error && error->isEmpty())
             *error = u"incomplete recovery data (%1 of %2 bytes)"_s.arg(data.size()).arg(size);
@@ -245,18 +253,18 @@ int trackConfidence(const QList<Entry> &entries, const Rip::SegmentResult &track
     return confidence;
 }
 
-QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches, QSet<int> *confirmedTracks)
+QList<Text> formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches, QSet<int> *confirmedTracks)
 {
     if (mismatches)
         *mismatches = 0;
     if (confirmedTracks)
         confirmedTracks->clear();
 
-    QStringList l;
-    l << u"CUETools database (CTDB) verification"_s << QString();
-    l << u"     TOC ID %1"_s.arg(tocId(toc));
+    QList<Text> l;
+    l << Text::translate("Audex::Ctdb", "CUETools database (CTDB) verification") << Text();
+    l << indented(Text::translate("Audex::Ctdb", "TOC ID %1").arg(tocId(toc)));
     if (entries.isEmpty()) {
-        l << u"     Disc not found in the CUETools database."_s;
+        l << indented(Text::translate("Audex::Ctdb", "Disc not found in the CUETools database."));
         return l;
     }
 
@@ -364,12 +372,12 @@ QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::Seg
     bool comparable = false; // at least one entry could be compared as a whole
     for (const Entry &e : entries) {
         std::optional<int> shift;
-        QString status;
+        Text status;
         sameAudio.append(isSameAudio(e, toc));
         if (!sameAudio.last()) {
-            status = u"different audio length or format"_s;
+            status = Text::translate("Audex::Ctdb", "different audio length or format");
         } else if (!complete) {
-            status = u"not compared, not all tracks were ripped"_s;
+            status = Text::translate("Audex::Ctdb", "not compared, not all tracks were ripped");
         } else {
             comparable = true;
             for (int s : std::as_const(shifts)) {
@@ -379,20 +387,20 @@ QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::Seg
                 }
             }
             if (!shift)
-                status = u"no match"_s;
+                status = Text::translate("Audex::Ctdb", "no match");
             else if (*shift == 0)
-                status = u"accurately ripped"_s;
+                status = Text::translate("Audex::Ctdb", "accurately ripped");
             else
-                status = u"accurately ripped, other pressing with offset %1"_s.arg(offsetText(*shift));
+                status = Text::translate("Audex::Ctdb", "accurately ripped, other pressing with offset %1").arg(offsetText(*shift));
         }
         matched.append(shift);
-        l << u"     [%1] (%2/%3) %4"_s.arg(hex8(e.crc)).arg(e.confidence).arg(total).arg(status);
+        l << indented(Text::plain(u"[%1] (%2/%3) %4"_s).arg(hex8(e.crc)).arg(e.confidence).arg(total).arg(status));
     }
     const bool anyMatch = std::any_of(matched.cbegin(), matched.cend(), [](const std::optional<int> &m) {
         return m.has_value();
     });
     const qsizetype hintAt = l.size();
-    l << QString();
+    l << Text();
 
     // single tracks: entries that match as a whole, or their track CRCs
     int accurate = 0;
@@ -419,32 +427,32 @@ QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::Seg
                 }
             }
         }
-        const QString track = u"Track %1"_s.arg(audio.at(i), 2, 10, QLatin1Char('0'));
+        const Text track = Text::translate("Audex::Ctdb", "Track %1").arg(u"%1"_s.arg(audio.at(i), 2, 10, QLatin1Char('0')));
         if (confidence > 0) {
             ++accurate;
             if (confirmedTracks)
                 confirmedTracks->insert(audio.at(i));
-            l << u"     %1: accurately ripped (confidence %2 of %3)"_s.arg(track).arg(confidence).arg(total);
+            l << indented(Text::translate("Audex::Ctdb", "%1: accurately ripped (confidence %2 of %3)").arg(track).arg(confidence).arg(total));
         } else if (checked) {
             ++contradicted;
-            l << u"     %1: NOT accurately ripped"_s.arg(track);
+            l << indented(Text::translate("Audex::Ctdb", "%1: NOT accurately ripped").arg(track));
         } else {
             ++unknown;
-            l << u"     %1: cannot be verified (no track checksums in the database)"_s.arg(track);
+            l << indented(Text::translate("Audex::Ctdb", "%1: cannot be verified (no track checksums in the database)").arg(track));
         }
     }
 
     if (comparable && !anyMatch && accurate == 0 && shifts.size() == 1 && !searchable)
-        l.insert(hintAt, u"     Other pressings are only recognized when AccurateRip knows the disc."_s);
+        l.insert(hintAt, indented(Text::translate("Audex::Ctdb", "Other pressings are only recognized when AccurateRip knows the disc.")));
     if (mismatches)
         *mismatches = contradicted;
-    l << QString();
+    l << Text();
     if (contradicted > 0)
-        l << u"Warning: %1 track(s) do not match the CUETools database."_s.arg(contradicted);
+        l << Text::translate("Audex::Ctdb", "Warning: %1 track(s) do not match the CUETools database.").arg(contradicted);
     else if (accurate > 0 && unknown == 0)
-        l << u"All tracks accurately ripped."_s;
+        l << Text::translate("Audex::Ctdb", "All tracks accurately ripped.");
     else
-        l << u"%1 track(s) accurately ripped, %2 cannot be verified."_s.arg(accurate).arg(unknown);
+        l << Text::translate("Audex::Ctdb", "%1 track(s) accurately ripped, %2 cannot be verified.").arg(accurate).arg(unknown);
     return l;
 }
 

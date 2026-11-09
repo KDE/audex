@@ -103,7 +103,7 @@ void MusicBrainzProvider::send(Request request)
 {
     const QUrl url = MusicBrainz::discIdLookupUrl(request.disc, m_server);
     if (!url.isValid() || !m_network) {
-        const QString error = m_network ? QString() : u"No network access manager"_s;
+        const QString error = m_network ? QString() : tr("No network access manager");
         const int id = request.id;
         QTimer::singleShot(0, this, [this, id, error] {
             Q_EMIT finished(id, {}, error);

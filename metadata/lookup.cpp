@@ -75,7 +75,7 @@ void MetadataLookup::addProvider(MetadataProvider *provider)
         const QList<int> requests = m_requestProvider.keys(provider);
         for (int requestId : requests) {
             m_requestProvider[requestId] = nullptr;
-            onProviderFinished(nullptr, requestId, {}, u"Provider was deleted"_s);
+            onProviderFinished(nullptr, requestId, {}, tr("Provider was deleted"));
         }
     });
 }

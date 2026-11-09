@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include "core/text.h"
 #include "core/toc.h"
 #include "metadata/candidate.h"
 #include "metadata/metadata.h"
@@ -116,7 +117,7 @@ public:
         m_medium = medium;
         m_mediumDetails = details;
     }
-    QString mediumDescription() const; // for logs: "CD-R (lead-in ...)", "pressed CD", "unknown"
+    Text mediumDescription() const; // "CD-R (lead-in ...)", "pressed CD", "unknown"
     // CD+G graphics in the sub-channel (background detection); nothing = not checked
     std::optional<bool> cdg() const
     {

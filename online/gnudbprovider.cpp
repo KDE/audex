@@ -163,11 +163,11 @@ void GnudbProvider::send(Request request)
 {
     const QString helloString = hello();
     if (helloString.isEmpty()) {
-        fail(request.id, u"gnudb needs an email address; see the settings"_s);
+        fail(request.id, tr("gnudb needs an email address; see the settings"));
         return;
     }
     if (!m_network) {
-        fail(request.id, u"No network access manager"_s);
+        fail(request.id, tr("No network access manager"));
         return;
     }
 

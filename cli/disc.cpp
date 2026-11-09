@@ -60,7 +60,7 @@ int info(const QStringList &arguments)
     QStringList out;
     out << u"Drive:        %1 (%2)"_s.arg(disc.driveName, drive.id);
     out << u"Read offset:  %1"_s.arg(savedOffsetText(disc.driveModel));
-    out << u"Medium:       %1"_s.arg(disc.info.mediumDescription());
+    out << u"Medium:       %1"_s.arg(disc.info.mediumDescription().toString());
     out << u"Audio:        %1 track(s), %2"_s.arg(audio.size()).arg(duration(toc.audioEndLba() - toc.audioStartLba()));
     out << u"Disc IDs:     CDDB %1, MusicBrainz %2"_s.arg(disc.info.cddbDiscId(), disc.info.musicBrainzDiscId());
     if (!disc.discCandidates.isEmpty()) {
@@ -133,14 +133,14 @@ int offset(const QStringList &arguments)
     }
 
     print(stderr, u"Looking up the disc in the AccurateRip database..."_s);
-    QString error;
+    Text error;
     bool notFound = false;
     const QList<AccurateRip::Response> responses = AccurateRip::lookupDiscEntry(toc, &error, &notFound, 30000, canceled);
     if (canceled())
         return ExitCanceled;
     if (responses.isEmpty()) {
         if (!error.isEmpty() && !notFound) {
-            print(stderr, u"AccurateRip lookup failed: %1"_s.arg(error));
+            print(stderr, u"AccurateRip lookup failed: %1"_s.arg(error.toString()));
             return ExitError;
         }
         print(stderr, u"This disc is not in the AccurateRip database. Try a more common one."_s);
@@ -169,12 +169,12 @@ int offset(const QStringList &arguments)
     out << u"              %1"_s.arg(detection.details);
 
     // what other users of the model submitted, as a second opinion
-    QString listError;
+    Text listError;
     const QByteArray list = Online::fetchBlocking(AccurateRip::driveOffsetsUrl(), &listError, nullptr, 30000, canceled);
     const std::optional<AccurateRip::DriveOffset> listed =
         list.isEmpty() ? std::nullopt : AccurateRip::findDriveOffset(AccurateRip::parseDriveOffsets(list), disc.driveModel);
     if (list.isEmpty()) {
-        out << u"Drive list:   not reachable%1"_s.arg(listError.isEmpty() ? QString() : u" (%1)"_s.arg(listError));
+        out << u"Drive list:   not reachable%1"_s.arg(listError.isEmpty() ? QString() : u" (%1)"_s.arg(listError.toString()));
     } else if (!listed) {
         out << u"Drive list:   this model is not listed at AccurateRip"_s;
     } else {
@@ -197,8 +197,9 @@ int offset(const QStringList &arguments)
         if (!entry.discs.contains(discId))
             entry.discs << discId;
         store.set(disc.driveModel, entry);
-        if (!store.save(&error)) {
-            print(stderr, u"Cannot save %1: %2"_s.arg(OffsetStore::path(), error));
+        QString saveError;
+        if (!store.save(&saveError)) {
+            print(stderr, u"Cannot save %1: %2"_s.arg(OffsetStore::path(), saveError));
             return ExitError;
         }
         out << u"Saved:        %1 samples for \"%2\", measured with %3 disc(s)"_s.arg(signedNumber(entry.offset), disc.driveModel).arg(entry.discs.size());

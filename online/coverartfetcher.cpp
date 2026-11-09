@@ -80,7 +80,7 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
 {
     const int id = m_nextId++;
     if (!url.isValid() || !m_network) {
-        const QString error = !m_network ? u"No network access manager"_s : u"Invalid cover URL"_s;
+        const QString error = !m_network ? tr("No network access manager") : tr("Invalid cover URL");
         QTimer::singleShot(0, this, [this, id, error] {
             Q_EMIT finished(id, Metadata::CoverArt(), error);
         });
@@ -109,7 +109,7 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
             m_replies.remove(id);
             reply->abort();
             reply->deleteLater();
-            Q_EMIT finished(id, Metadata::CoverArt(), u"Cover image exceeds %1 MiB"_s.arg(m_maximumBytes / (1024 * 1024)));
+            Q_EMIT finished(id, Metadata::CoverArt(), tr("Cover image exceeds %1 MiB").arg(m_maximumBytes / (1024 * 1024)));
             return;
         }
         Q_EMIT progress(id, received, total);
@@ -127,13 +127,13 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
             return;
         }
         if (reply->error() != QNetworkReply::NoError) {
-            Q_EMIT finished(id, Metadata::CoverArt(), u"Cover download failed: %1"_s.arg(reply->errorString()));
+            Q_EMIT finished(id, Metadata::CoverArt(), tr("Cover download failed: %1").arg(reply->errorString()));
             return;
         }
         const QByteArray data = reply->readAll();
         const auto cover = Metadata::CoverArt::fromData(data, reply->url().toString());
         if (!cover) {
-            Q_EMIT finished(id, Metadata::CoverArt(), u"The downloaded file is not an image"_s);
+            Q_EMIT finished(id, Metadata::CoverArt(), tr("The downloaded file is not an image"));
             return;
         }
         keep(sized, data);
@@ -146,7 +146,7 @@ int CoverArtFetcher::fetchListing(const QUrl &url)
 {
     const int id = m_nextId++;
     if (!url.isValid() || !m_network) {
-        const QString error = !m_network ? u"No network access manager"_s : u"Invalid listing URL"_s;
+        const QString error = !m_network ? tr("No network access manager") : tr("Invalid listing URL");
         QTimer::singleShot(0, this, [this, id, error] {
             Q_EMIT listingFinished(id, CoverArtListing(), error);
         });
@@ -169,12 +169,12 @@ int CoverArtFetcher::fetchListing(const QUrl &url)
             return;
         }
         if (reply->error() != QNetworkReply::NoError) {
-            Q_EMIT listingFinished(id, CoverArtListing(), u"Cover listing failed: %1"_s.arg(reply->errorString()));
+            Q_EMIT listingFinished(id, CoverArtListing(), tr("Cover listing failed: %1").arg(reply->errorString()));
             return;
         }
         QString error;
         const std::optional<CoverArtListing> listing = parseCoverArtListing(reply->readAll(), &error);
-        Q_EMIT listingFinished(id, listing.value_or(CoverArtListing()), listing ? QString() : u"Cover listing unreadable: %1"_s.arg(error));
+        Q_EMIT listingFinished(id, listing.value_or(CoverArtListing()), listing ? QString() : tr("Cover listing unreadable: %1").arg(error));
     });
     return id;
 }

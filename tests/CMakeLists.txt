@@ -35,7 +35,8 @@ add_executable(
   test_aiff.cpp
   test_ripreport.cpp
   test_ripverify.cpp
-  test_ripstatus.cpp)
+  test_ripstatus.cpp
+  test_text.cpp)
 
 target_include_directories(audex_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 target_link_libraries(audex_tests PRIVATE audexengine)

@@ -224,10 +224,10 @@ void deviceWidget::detectOffset()
             result.details = disc.error;
             return result;
         }
-        QString error;
+        Audex::Text error;
         const QList<Audex::AccurateRip::Response> responses = Audex::AccurateRip::lookupDiscEntry(disc.info.toc(), &error, nullptr, 30000, isCanceled);
         if (responses.isEmpty()) {
-            result.details = error; // empty: not in the database
+            result.details = error.toString(); // empty: not in the database
             return result;
         }
         Audex::OpenedReader opened = Audex::openReader(drive);

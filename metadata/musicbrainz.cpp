@@ -7,6 +7,7 @@
 
 #include "musicbrainz.h"
 
+#include <QCoreApplication>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
@@ -45,6 +46,10 @@ QString artistCreditString(const QJsonArray &credit)
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::MusicBrainz)
+};
 
 QString firstArtistId(const QJsonArray &credit)
 {
@@ -91,7 +96,7 @@ ParseResult parseDiscIdResponse(const QByteArray &json, const CDInfo &disc)
     QJsonParseError parseError;
     const QJsonDocument doc = QJsonDocument::fromJson(json, &parseError);
     if (parseError.error != QJsonParseError::NoError || !doc.isObject()) {
-        result.error = u"Invalid MusicBrainz response: %1"_s.arg(parseError.errorString());
+        result.error = Tr::tr("Invalid MusicBrainz response: %1").arg(parseError.errorString());
         return result;
     }
     const QJsonObject root = doc.object();

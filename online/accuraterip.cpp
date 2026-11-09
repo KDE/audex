@@ -27,6 +27,15 @@ namespace
 
 const char baseUrl[] = "https://www.accuraterip.com/accuraterip/";
 
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::AccurateRip)
+};
+
+Text indented(const Text &text)
+{
+    return Text::plain(u"     %1"_s).arg(text);
+}
+
 quint32 readLE32(const QByteArray &data, qsizetype pos)
 {
     const auto *p = reinterpret_cast<const uchar *>(data.constData() + pos);
@@ -277,14 +286,14 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
     const QMap<int, QList<quint32>> probed = probeFrame450(reader, toc, 0, 5, isCanceled);
     const QList<PressingOffset> matches = matchFrame450(responses, probed);
     if (probed.isEmpty() || matches.isEmpty()) {
-        d.details = u"No frame 450 match in %1 probed track(s)."_s.arg(probed.size());
+        d.details = Tr::tr("No frame 450 match in %1 probed track(s).").arg(probed.size());
         return d;
     }
     const PressingOffset best = matches.first();
     d.offset = best.shift;
     d.tracks = best.tracks;
     if (best.tracks < std::min<int>(2, probed.size())) {
-        d.details = u"Only %1 of %2 probed tracks match at offset %3."_s.arg(best.tracks).arg(probed.size()).arg(best.shift);
+        d.details = Tr::tr("Only %1 of %2 probed tracks match at offset %3.").arg(best.tracks).arg(probed.size()).arg(best.shift);
         return d;
     }
 
@@ -311,24 +320,25 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
     Rip::RipEngine engine(reader, {toc.audioStartLba(), toc.audioEndLba()}, options, callbacks);
     const Rip::RipResult r = engine.run({segment});
     if (!r.completed) {
-        d.details = u"Extracting track %1 failed: %2"_s.arg(t->number).arg(r.error);
+        d.details = Tr::tr("Extracting track %1 failed: %2").arg(t->number).arg(r.error);
         return d;
     }
     d.confidence = matchConfidence(responses, confirmIndex, r.segments.first().accurateRipV1, r.segments.first().accurateRipV2);
     d.found = d.confidence > 0;
     d.details = d.found
-        ? u"Offset %1: %2 of %3 probed tracks match, track %4 accurately ripped (confidence %5)."_s.arg(best.shift)
+        ? Tr::tr("Offset %1: %2 of %3 probed tracks match, track %4 accurately ripped (confidence %5).")
+              .arg(best.shift)
               .arg(best.tracks)
               .arg(probed.size())
               .arg(t->number)
               .arg(d.confidence)
-        : u"Offset %1 matched frame 450 in %2 track(s), but track %3 does not match the database."_s.arg(best.shift).arg(best.tracks).arg(t->number);
+        : Tr::tr("Offset %1 matched frame 450 in %2 track(s), but track %3 does not match the database.").arg(best.shift).arg(best.tracks).arg(t->number);
     return d;
 }
 
 // ---- verification ----------------------------------------------------------
 
-QStringList formatVerification(const QList<Response> &responses,
+QList<Text> formatVerification(const QList<Response> &responses,
                                const QList<Rip::SegmentResult> &segments,
                                const Cdda::Toc &toc,
                                int *inaccurateTracks,
@@ -344,12 +354,12 @@ QStringList formatVerification(const QList<Response> &responses,
 
     const QList<int> audio = toc.audioTrackNumbers();
 
-    QStringList l;
-    l << u"AccurateRip verification"_s;
-    l << QString();
+    QList<Text> l;
+    l << Text::translate("Audex::AccurateRip", "AccurateRip verification");
+    l << Text();
 
     if (responses.isEmpty()) {
-        l << u"     Disc not found in the AccurateRip database."_s;
+        l << indented(Text::translate("Audex::AccurateRip", "Disc not found in the AccurateRip database."));
         return l;
     }
 
@@ -389,28 +399,36 @@ QStringList formatVerification(const QList<Response> &responses,
             }
         }
 
-        const QString track = u"Track %1"_s.arg(s.segment.trackNumber, 2, 10, QLatin1Char('0'));
+        const Text track = Text::translate("Audex::AccurateRip", "Track %1").arg(u"%1"_s.arg(s.segment.trackNumber, 2, 10, QLatin1Char('0')));
         if (confidenceV1 > 0 || confidenceV2 > 0) {
             ++accurate;
             if (confirmedTracks)
                 confirmedTracks->insert(s.segment.trackNumber);
             const int confidence = std::max(confidenceV1, confidenceV2);
             const QString version = confidenceV2 >= confidenceV1 ? u"v2"_s : u"v1"_s;
-            l << u"     %1: accurately ripped (%2, confidence %3 of %4 submissions)"_s.arg(track, version).arg(confidence).arg(submissions);
+            l << indented(Text::translate("Audex::AccurateRip", "%1: accurately ripped (%2, confidence %3 of %4 submissions)")
+                              .arg(track)
+                              .arg(version)
+                              .arg(confidence)
+                              .arg(submissions));
         } else if (shiftedConfidence > 0) {
             ++accurate;
             if (confirmedTracks)
                 confirmedTracks->insert(s.segment.trackNumber);
-            l << u"     %1: accurately ripped, other pressing with offset %2 (confidence %3 of %4 submissions)"_s.arg(track)
-                     .arg(shift > 0 ? u"+%1"_s.arg(shift) : QString::number(shift))
-                     .arg(shiftedConfidence)
-                     .arg(submissions);
+            l << indented(Text::translate("Audex::AccurateRip", "%1: accurately ripped, other pressing with offset %2 (confidence %3 of %4 submissions)")
+                              .arg(track)
+                              .arg(shift > 0 ? u"+%1"_s.arg(shift) : QString::number(shift))
+                              .arg(shiftedConfidence)
+                              .arg(submissions));
         } else if (maxConfidence > 0) {
             ++inaccurate;
-            l << u"     %1: NOT accurately ripped (database expects %2, confidence %3)"_s.arg(track, hex8(maxConfidenceCrc)).arg(maxConfidence);
+            l << indented(Text::translate("Audex::AccurateRip", "%1: NOT accurately ripped (database expects %2, confidence %3)")
+                              .arg(track)
+                              .arg(hex8(maxConfidenceCrc))
+                              .arg(maxConfidence));
         } else {
             ++unknown;
-            l << u"     %1: not in database"_s.arg(track);
+            l << indented(Text::translate("Audex::AccurateRip", "%1: not in database").arg(track));
         }
     }
 
@@ -419,20 +437,20 @@ QStringList formatVerification(const QList<Response> &responses,
     if (accurateTracks)
         *accurateTracks = accurate;
 
-    l << QString();
+    l << Text();
     if (inaccurate > 0)
-        l << u"Warning: %1 track(s) could NOT be verified as accurate."_s.arg(inaccurate);
+        l << Text::translate("Audex::AccurateRip", "Warning: %1 track(s) could NOT be verified as accurate.").arg(inaccurate);
     else if (accurate > 0 && unknown == 0)
-        l << u"All tracks accurately ripped."_s;
+        l << Text::translate("Audex::AccurateRip", "All tracks accurately ripped.");
     else if (accurate > 0)
-        l << u"%1 track(s) accurately ripped, %2 not present in the database."_s.arg(accurate).arg(unknown);
+        l << Text::translate("Audex::AccurateRip", "%1 track(s) accurately ripped, %2 not present in the database.").arg(accurate).arg(unknown);
     else
-        l << u"No track is present in the AccurateRip database."_s;
+        l << Text::translate("Audex::AccurateRip", "No track is present in the AccurateRip database.");
 
     return l;
 }
 
-QList<Response> lookupDiscEntry(const Cdda::Toc &toc, QString *error, bool *notFound, int timeoutMs, const std::function<bool()> &isCanceled)
+QList<Response> lookupDiscEntry(const Cdda::Toc &toc, Text *error, bool *notFound, int timeoutMs, const std::function<bool()> &isCanceled)
 {
     const QByteArray data = Online::fetchBlocking(databaseUrl(discIds(toc)), error, notFound, timeoutMs, isCanceled);
     if (data.isEmpty())

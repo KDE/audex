@@ -80,19 +80,19 @@ AUDEX_TEST("CTDB redirect policy checks every destination")
     });
 
     const QUrl url(u"http://127.0.0.1:%1/test"_s.arg(server.serverPort()));
-    QString error;
+    Text error;
     const QByteArray blocked = Online::fetchBlocking(url, &error, nullptr, 5000, {}, {}, [](const QUrl &) {
         return false;
     });
     AUDEX_CHECK(t, blocked.isEmpty());
-    AUDEX_CHECK_MSG(t, error.contains(u"redirect"_s), error);
+    AUDEX_CHECK_MSG(t, error.toEnglish().contains(u"redirect"_s), error.toEnglish());
     AUDEX_EQUAL(t, requests, 1);
 
     const QByteArray followed = Online::fetchBlocking(url, &error, nullptr, 5000, {}, {}, [&](const QUrl &next) {
         return next.scheme() == u"http"_s && next.host() == u"127.0.0.1"_s && next.port() == server.serverPort();
     });
     AUDEX_EQUAL_DATA(t, followed, QByteArray("OK"));
-    AUDEX_CHECK_MSG(t, error.isEmpty(), error);
+    AUDEX_CHECK_MSG(t, error.isEmpty(), error.toEnglish());
     AUDEX_EQUAL(t, requests, 3);
 }
 
@@ -139,7 +139,7 @@ AUDEX_TEST("CTDB finds another pressing without AccurateRip")
 
     int mismatches = -1;
     QSet<int> confirmed{99};
-    const QStringList lines = Ctdb::formatVerification({entry}, result.segments, toc, &mismatches, &confirmed);
+    const QStringList lines = toEnglish(Ctdb::formatVerification({entry}, result.segments, toc, &mismatches, &confirmed));
     AUDEX_EQUAL(t, int(confirmed.size()), 3);
     AUDEX_CHECK(t, !confirmed.contains(99));
     AUDEX_EQUAL(t, mismatches, 0);
@@ -149,7 +149,7 @@ AUDEX_TEST("CTDB finds another pressing without AccurateRip")
     // one track differs: the others still reveal the offset
     entry.crc ^= 1;
     entry.trackCrcs[1] ^= 1;
-    const QStringList partial = Ctdb::formatVerification({entry}, result.segments, toc, &mismatches, &confirmed);
+    const QStringList partial = toEnglish(Ctdb::formatVerification({entry}, result.segments, toc, &mismatches, &confirmed));
     AUDEX_EQUAL(t, int(confirmed.size()), 2);
     AUDEX_CHECK(t, !confirmed.contains(2));
     AUDEX_EQUAL(t, mismatches, 1);

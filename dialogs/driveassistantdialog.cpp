@@ -183,11 +183,12 @@ void DriveAssistantDialog::startOrStop()
         if (withOffset) {
             callbacks.offset = [&] {
                 Audex::Rip::FeatureCheck check;
-                QString error;
+                Audex::Text error;
                 const QList<Audex::AccurateRip::Response> responses =
                     Audex::AccurateRip::lookupDiscEntry(disc.info.toc(), &error, nullptr, 30000, cb.isCanceled);
                 if (responses.isEmpty()) {
-                    check.summary = error.isEmpty() ? u"not measured: this disc is not in the AccurateRip database"_s : u"not measured: %1"_s.arg(error);
+                    check.summary =
+                        error.isEmpty() ? u"not measured: this disc is not in the AccurateRip database"_s : u"not measured: %1"_s.arg(error.toString());
                     return check;
                 }
                 const Audex::AccurateRip::OffsetDetection detection =

@@ -13,6 +13,7 @@
 
 #include "core/ctdbparity.h"
 #include "core/ripengine.h"
+#include "core/text.h"
 #include "core/toc.h"
 
 #include <QByteArray>
@@ -55,7 +56,7 @@ struct Entry {
     }
 };
 
-QList<Entry> parseResponse(const QByteArray &xml, QString *error = nullptr);
+QList<Entry> parseResponse(const QByteArray &xml, Text *error = nullptr);
 
 // The entry describes a disc with the same audio (length and CRC windows)
 bool isSameAudio(const Entry &entry, const Cdda::Toc &toc);
@@ -66,7 +67,7 @@ QByteArray fetchParity(const Entry &entry, QString *error, int timeoutMs = 60000
 
 // Synchronous lookup for worker threads. An empty list without error means
 // the disc is not in the database.
-QList<Entry> lookup(const Cdda::Toc &toc, QString *error, int timeoutMs = 30000, const std::function<bool()> &isCanceled = {});
+QList<Entry> lookup(const Cdda::Toc &toc, Text *error, int timeoutMs = 30000, const std::function<bool()> &isCanceled = {});
 
 // Confidence with which the database confirms a single ripped track: the
 // summed confidence of the entries with the same audio whose track CRC matches
@@ -80,8 +81,9 @@ bool canConfirmTracks(const QList<Entry> &entries, const Cdda::Toc &toc);
 // Compares the CTDB CRCs computed while ripping (SegmentResult::ctdbCrc, the
 // shifted variants and, with RipOptions::ctdbShiftRange, the CRCs at every
 // shift derived from SegmentResult::ctdbHead/ctdbTail) with the database entries and
-// formats the outcome as log lines, the first line being the section heading.
-// mismatches receives the number of tracks the database contradicts.
-QStringList formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches = nullptr, QSet<int> *confirmedTracks = nullptr);
+// formats the outcome as lines of the rip log (toEnglish()), the first line
+// being the section heading. mismatches receives the number of tracks the
+// database contradicts.
+QList<Text> formatVerification(const QList<Entry> &entries, const QList<Rip::SegmentResult> &segments, const Cdda::Toc &toc, int *mismatches = nullptr, QSet<int> *confirmedTracks = nullptr);
 
 }

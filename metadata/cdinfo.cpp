@@ -68,12 +68,12 @@ void CDInfo::clear()
     *this = CDInfo();
 }
 
-QString CDInfo::mediumDescription() const
+Text CDInfo::mediumDescription() const
 {
     QString text;
     switch (m_medium) {
     case Medium::Pressed:
-        return u"pressed CD"_s;
+        return Text::translate("Audex::CDInfo", "pressed CD");
     case Medium::CdR:
         text = u"CD-R"_s;
         break;
@@ -81,9 +81,9 @@ QString CDInfo::mediumDescription() const
         text = u"CD-RW"_s;
         break;
     case Medium::Unknown:
-        return u"unknown"_s;
+        return Text::translate("Audex::CDInfo", "unknown", "medium");
     }
-    return m_mediumDetails.isEmpty() ? text : u"%1 (%2)"_s.arg(text, m_mediumDetails);
+    return Text::plain(m_mediumDetails.isEmpty() ? text : u"%1 (%2)"_s.arg(text, m_mediumDetails));
 }
 
 bool CDInfo::hasHtoa() const
