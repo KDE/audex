@@ -286,14 +286,14 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
     const QMap<int, QList<quint32>> probed = probeFrame450(reader, toc, 0, 5, isCanceled);
     const QList<PressingOffset> matches = matchFrame450(responses, probed);
     if (probed.isEmpty() || matches.isEmpty()) {
-        d.details = Tr::tr("No frame 450 match in %1 probed track(s).").arg(probed.size());
+        d.details = Tr::tr("No frame 450 match in %n probed track(s).", nullptr, int(probed.size()));
         return d;
     }
     const PressingOffset best = matches.first();
     d.offset = best.shift;
     d.tracks = best.tracks;
     if (best.tracks < std::min<int>(2, probed.size())) {
-        d.details = Tr::tr("Only %1 of %2 probed tracks match at offset %3.").arg(best.tracks).arg(probed.size()).arg(best.shift);
+        d.details = Tr::tr("Only %1 of %n probed track(s) match at offset %2.", nullptr, int(probed.size())).arg(best.tracks).arg(best.shift);
         return d;
     }
 
@@ -326,13 +326,12 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
     d.confidence = matchConfidence(responses, confirmIndex, r.segments.first().accurateRipV1, r.segments.first().accurateRipV2);
     d.found = d.confidence > 0;
     d.details = d.found
-        ? Tr::tr("Offset %1: %2 of %3 probed tracks match, track %4 accurately ripped (confidence %5).")
+        ? Tr::tr("Offset %1: %2 of %n probed track(s) match, track %3 accurately ripped (confidence %4).", nullptr, int(probed.size()))
               .arg(best.shift)
               .arg(best.tracks)
-              .arg(probed.size())
               .arg(t->number)
               .arg(d.confidence)
-        : Tr::tr("Offset %1 matched frame 450 in %2 track(s), but track %3 does not match the database.").arg(best.shift).arg(best.tracks).arg(t->number);
+        : Tr::tr("Offset %1 matched frame 450 in %n track(s), but track %2 does not match the database.", nullptr, best.tracks).arg(best.shift).arg(t->number);
     return d;
 }
 
@@ -439,11 +438,11 @@ QList<Text> formatVerification(const QList<Response> &responses,
 
     l << Text();
     if (inaccurate > 0)
-        l << Text::translate("Audex::AccurateRip", "Warning: %1 track(s) could NOT be verified as accurate.").arg(inaccurate);
+        l << Text::translate("Audex::AccurateRip", "Warning: %n track(s) could NOT be verified as accurate.", nullptr, inaccurate);
     else if (accurate > 0 && unknown == 0)
         l << Text::translate("Audex::AccurateRip", "All tracks accurately ripped.");
     else if (accurate > 0)
-        l << Text::translate("Audex::AccurateRip", "%1 track(s) accurately ripped, %2 not present in the database.").arg(accurate).arg(unknown);
+        l << Text::translate("Audex::AccurateRip", "%n track(s) accurately ripped, %1 not present in the database.", nullptr, accurate).arg(unknown);
     else
         l << Text::translate("Audex::AccurateRip", "No track is present in the AccurateRip database.");
 

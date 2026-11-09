@@ -257,8 +257,8 @@ FeatureCheck checkBurst(Context &ctx, DriveFeatures &f)
         f.burstSectors = sectors;
         ctx.burst = sectors;
         c.verdict = sectors >= BurstCandidates.constFirst() ? Feature::Yes : Feature::No;
-        c.summary = sectors >= BurstCandidates.constFirst() ? Tr::tr("up to %1 sectors per command (no limit found)").arg(sectors)
-                                                            : Tr::tr("up to %1 sectors per command").arg(sectors);
+        c.summary = sectors >= BurstCandidates.constFirst() ? Tr::tr("up to %n sector(s) per command (no limit found)", nullptr, sectors)
+                                                            : Tr::tr("up to %n sector(s) per command", nullptr, sectors);
         return c;
     }
     c.summary = Tr::tr("not tested");
@@ -386,7 +386,9 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
             c.verdict = Feature::No;
             c.summary = timedOut ? Tr::tr("advertised by the drive, but reads with C2 pointers get no answer")
                                  : Tr::tr("advertised by the drive, but reads with C2 pointers fail");
-            c.details << Tr::tr("LBA %1: read of %2 sectors with C2 pointers: %3").arg(p).arg(ctx.block()).arg(r.error.isEmpty() ? Tr::tr("no data") : r.error);
+            c.details << Tr::tr("LBA %1: read of %n sector(s) with C2 pointers: %2", nullptr, ctx.block())
+                             .arg(p)
+                             .arg(r.error.isEmpty() ? Tr::tr("no data") : r.error);
             return c;
         }
         if (!r.allOk()) {
@@ -427,7 +429,7 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
             ++cleanFlagged;
         }
     }
-    c.details << Tr::tr("%1 reads of LBA %2: %3 faulty, %4 of them flagged by C2").arg(copies.size()).arg(p).arg(faulty).arg(faultyFlagged);
+    c.details << Tr::tr("%n read(s) of LBA %1: %2 faulty, %3 of them flagged by C2", nullptr, int(copies.size())).arg(p).arg(faulty).arg(faultyFlagged);
     if (cleanFlagged > 0)
         c.details << Tr::tr("%n read(s) carried C2 pointers although the data was correct", nullptr, cleanFlagged);
 

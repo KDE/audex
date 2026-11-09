@@ -167,7 +167,7 @@ QVariant CDInfoModel::data(const QModelIndex &index, int role) const
         if (!entry.audio)
             lines << tr("Data track (session %1), cannot be ripped").arg(entry.session);
         if (column == LengthColumn) {
-            lines << tr("%1 sectors, LBA %2 – %3").arg(entry.sectorCount()).arg(entry.firstLba).arg(entry.lastLba);
+            lines << tr("%n sector(s), LBA %1 – %2", nullptr, entry.sectorCount()).arg(entry.firstLba).arg(entry.lastLba);
         } else {
             const QList<std::pair<Field, QString>> details{
                 {Field::Composer, tr("Composer")},

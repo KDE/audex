@@ -445,11 +445,11 @@ QList<Text> formatVerification(const QList<Entry> &entries, const QList<Rip::Seg
         *mismatches = contradicted;
     l << Text();
     if (contradicted > 0)
-        l << Text::translate("Audex::Ctdb", "Warning: %1 track(s) do not match the CUETools database.").arg(contradicted);
+        l << Text::translate("Audex::Ctdb", "Warning: %n track(s) do not match the CUETools database.", nullptr, contradicted);
     else if (accurate > 0 && unknown == 0)
         l << Text::translate("Audex::Ctdb", "All tracks accurately ripped.");
     else
-        l << Text::translate("Audex::Ctdb", "%1 track(s) accurately ripped, %2 cannot be verified.").arg(accurate).arg(unknown);
+        l << Text::translate("Audex::Ctdb", "%n track(s) accurately ripped, %1 cannot be verified.", nullptr, accurate).arg(unknown);
     return l;
 }
 

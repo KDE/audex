@@ -169,7 +169,7 @@ void DriveAssistantDialog::startOrStop()
             return result;
         }
         if (disc.info.toc().audioTrackNumbers().isEmpty()) {
-            result.error = u"The disc in the drive has no audio tracks."_s;
+            result.error = i18n("The disc in the drive has no audio tracks.");
             return result;
         }
         Audex::OpenedReader opened = Audex::openReader(drive);
@@ -187,8 +187,8 @@ void DriveAssistantDialog::startOrStop()
                 const QList<Audex::AccurateRip::Response> responses =
                     Audex::AccurateRip::lookupDiscEntry(disc.info.toc(), &error, nullptr, 30000, cb.isCanceled);
                 if (responses.isEmpty()) {
-                    check.summary =
-                        error.isEmpty() ? u"not measured: this disc is not in the AccurateRip database"_s : u"not measured: %1"_s.arg(error.toString());
+                    check.summary = error.isEmpty() ? i18n("not measured: this disc is not in the AccurateRip database")
+                                                    : i18nc("@info %1 is the reason", "not measured: %1", error.toString());
                     return check;
                 }
                 const Audex::AccurateRip::OffsetDetection detection =
@@ -196,7 +196,7 @@ void DriveAssistantDialog::startOrStop()
                 result.offsetFound = detection.found;
                 result.offset = detection.offset;
                 check.verdict = detection.found ? Audex::Rip::Feature::Yes : Audex::Rip::Feature::Unknown;
-                check.summary = detection.found ? u"%1 samples"_s.arg(detection.offset) : u"not measured"_s;
+                check.summary = detection.found ? i18np("%1 sample", "%1 samples", detection.offset) : i18n("not measured");
                 if (!detection.details.isEmpty())
                     check.details << detection.details;
                 return check;

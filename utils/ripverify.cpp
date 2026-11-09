@@ -288,7 +288,8 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
             blockTracks << trackOfSegment.at(i);
         }
 
-        say(block.size() == 1 ? Tr::tr("Reading %1...").arg(QFileInfo(block.first().path).fileName()) : Tr::tr("Reading %1 files...").arg(block.size()));
+        say(block.size() == 1 ? Tr::tr("Reading %1...").arg(QFileInfo(block.first().path).fileName())
+                              : Tr::tr("Reading %n file(s)...", nullptr, int(block.size())));
         Text readError;
         const std::optional<QList<Rip::SegmentResult>> read = checksumFiles(block, blockSegments, options, &readError, isCanceled);
         for (qsizetype i = 0; i < blockSegments.size(); ++i) {

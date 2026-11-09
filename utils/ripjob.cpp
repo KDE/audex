@@ -467,12 +467,12 @@ void RipJob::run()
             say(Rip::LogLevel::Warning, tr("CD+G: %1").arg(cdg.error));
         if (cdg.found) {
             say(Rip::LogLevel::Info,
-                tr("CD+G: %1 graphics packs, sub-channel %2 sector(s) off, %3 by the drive; %4 sector(s) read again, %5 without agreement.")
-                    .arg(cdg.graphicsPacks)
-                    .arg(cdg.shift)
-                    .arg(cdg.deinterleavedByDrive ? tr("de-interleaved") : tr("not de-interleaved"))
-                    .arg(cdg.rereadSectors)
-                    .arg(cdg.unresolvedSectors));
+                (cdg.deinterleavedByDrive
+                     ? tr("CD+G: %n graphics pack(s), the sub-channel is %1 sector(s) off and de-interleaved by the drive.", nullptr, cdg.graphicsPacks)
+                     : tr("CD+G: %n graphics pack(s), the sub-channel is %1 sector(s) off and not de-interleaved by the drive.", nullptr, cdg.graphicsPacks))
+                    .arg(cdg.shift));
+            if (cdg.rereadSectors > 0)
+                say(Rip::LogLevel::Info, tr("CD+G: %n sector(s) read again, %1 without agreement.", nullptr, cdg.rereadSectors).arg(cdg.unresolvedSectors));
         } else if (cdg.error.isEmpty() && !m_cancel) {
             say(Rip::LogLevel::Info, tr("The disc carries no CD+G graphics; no .cdg files are written."));
         }
@@ -585,7 +585,7 @@ void RipJob::run()
         if (!written.isEmpty())
             say(Rip::LogLevel::Info,
                 written.size() == 1 ? tr("CD+G graphics saved to %1.").arg(written.first())
-                                    : tr("CD+G graphics saved as %1 .cdg files next to the tracks.").arg(written.size()));
+                                    : tr("CD+G graphics saved as %n .cdg file(s) next to the tracks.", nullptr, int(written.size())));
     }
 
     // --- AccurateRip verification ---
@@ -658,7 +658,7 @@ void RipJob::run()
         if (repaired.repaired) {
             summary.ctdbMismatches = 0;
             summary.ctdbCorrections = repaired.corrections;
-            say(Rip::LogLevel::Info, tr("The image was repaired with the CUETools database (%1 values corrected).").arg(repaired.corrections));
+            say(Rip::LogLevel::Info, tr("The image was repaired with the CUETools database (%n value(s) corrected).", nullptr, repaired.corrections));
 
             // the log shows the repaired image: its checksums, verified again
             say(Rip::LogLevel::Info, tr("Verifying the repaired image..."));

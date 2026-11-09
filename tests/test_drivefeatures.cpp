@@ -97,7 +97,7 @@ AUDEX_TEST("drive features: C2 check of a working drive")
     model.c2Capable = true;
     const C2Run run = runC2(model);
     AUDEX_CHECK(t, run.features.c2Supported);
-    AUDEX_CHECK_MSG(t, run.check.details.join(u'\n').contains(QStringLiteral("6 reads")), run.check.details.join(u'\n'));
+    AUDEX_CHECK_MSG(t, run.check.details.join(u'\n').contains(QStringLiteral("6 read(s) of LBA")), run.check.details.join(u'\n'));
     AUDEX_CHECK_MSG(t, run.check.summary.contains(QStringLiteral("no read errors")), run.check.summary);
 }
 
