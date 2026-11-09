@@ -237,11 +237,11 @@ RipResult RipEngine::run(const QList<Segment> &segments)
     for (int i = 0; i < m_segments.size(); ++i) {
         const Segment &s = m_segments.at(i);
         if (s.lastLba < s.firstLba) {
-            m_result.error = u"Segment %1 has an empty range"_s.arg(i);
+            m_result.error = Text::plain(u"Segment %1 has an empty range"_s.arg(i));
             return m_result;
         }
         if (i > 0 && s.firstLba <= m_segments.at(i - 1).lastLba) {
-            m_result.error = u"Segments must be sorted and must not overlap"_s;
+            m_result.error = Text::plain(u"Segments must be sorted and must not overlap"_s);
             return m_result;
         }
     }
@@ -432,8 +432,8 @@ void RipEngine::segmentComplete(int index)
     }
     if (!m_callbacks.discard(index)) {
         m_aborted = true;
-        m_result.error = u"Track %1 could not be discarded for a secure extraction"_s.arg(track);
-        log(LogLevel::Error, m_result.error);
+        m_result.error = Text::translate("Audex::RipEngine", "Track %1 could not be discarded for a secure extraction").arg(track);
+        log(LogLevel::Error, m_result.error.toString());
         return;
     }
     if (forced)
@@ -457,8 +457,8 @@ void RipEngine::segmentComplete(int index)
         confirmed.acceptedAfterOnePass = false;
         if (!m_callbacks.discard(other)) {
             m_aborted = true;
-            m_result.error = u"Track %1 could not be discarded for a secure extraction"_s.arg(o.trackNumber);
-            log(LogLevel::Error, m_result.error);
+            m_result.error = Text::translate("Audex::RipEngine", "Track %1 could not be discarded for a secure extraction").arg(o.trackNumber);
+            log(LogLevel::Error, m_result.error.toString());
             return;
         }
         log(LogLevel::Info,
@@ -515,8 +515,8 @@ SectorReadResult RipEngine::readRaw(int lba, int count)
     if (m_reader.deviceLost() && !m_aborted) {
         m_aborted = true;
         m_result.driveLost = true;
-        m_result.error = u"The drive was disconnected while reading"_s;
-        log(LogLevel::Error, m_result.error);
+        m_result.error = Text::translate("Audex::RipEngine", "The drive was disconnected while reading");
+        log(LogLevel::Error, m_result.error.toString());
         return r;
     }
 
@@ -528,8 +528,8 @@ SectorReadResult RipEngine::readRaw(int lba, int count)
     if (m_options.maxTimeoutsInRow > 0 && m_timeoutsInRow >= m_options.maxTimeoutsInRow && !m_aborted) {
         m_aborted = true; // canceled() stops everything from here on
         m_result.driveStalled = true;
-        m_result.error = u"The drive stopped answering: %1 read commands in a row timed out"_s.arg(m_timeoutsInRow);
-        log(LogLevel::Error, m_result.error);
+        m_result.error = Text::translate("Audex::RipEngine", "The drive stopped answering: %1 read commands in a row timed out").arg(m_timeoutsInRow);
+        log(LogLevel::Error, m_result.error.toString());
     }
     return r;
 }
@@ -577,7 +577,7 @@ RipEngine::Copy RipEngine::acquire(int lba, int count, const QList<bool> *needed
             // out of their checksums anyway.
             if (kind == SectorKind::Overread && !r.allOk()) {
                 for (int j = 0; j < n; ++j)
-                    dropOverread(c, i + j, r.error);
+                    dropOverread(c, i + j, Text::plain(r.error));
             }
         }
         i += n;
@@ -586,12 +586,12 @@ RipEngine::Copy RipEngine::acquire(int lba, int count, const QList<bool> *needed
 }
 
 // The drive cannot overread reliably on this side: silence from now on.
-void RipEngine::dropOverread(Copy &copy, int index, const QString &reason)
+void RipEngine::dropOverread(Copy &copy, int index, const Text &reason)
 {
     const bool leadIn = copy.lba + index < m_area.firstLba;
     (leadIn ? m_leadInUnreadable : m_leadOutUnreadable) = true;
     if (!m_overreadWarningShown) {
-        log(LogLevel::Warning, u"Drive cannot read into the %1 (%2). Using silence instead."_s.arg(leadIn ? u"lead-in"_s : u"lead-out"_s, reason));
+        log(LogLevel::Warning, u"Drive cannot read into the %1 (%2). Using silence instead."_s.arg(leadIn ? u"lead-in"_s : u"lead-out"_s, reason.toString()));
         m_overreadWarningShown = true;
     }
     std::memset(copy.audio.data() + qsizetype(index) * SectorBytes, 0, SectorBytes);
@@ -645,8 +645,8 @@ bool RipEngine::emitCopy(const Copy &copy, Stream &stream)
         if (canceled())
             return false; // canceled while waiting for the encoders
         m_aborted = true;
-        m_result.error = u"Writing the extracted audio failed"_s;
-        log(LogLevel::Error, m_result.error);
+        m_result.error = Text::translate("Audex::RipEngine", "Writing the extracted audio failed");
+        log(LogLevel::Error, m_result.error.toString());
         return false;
     }
     return true;
@@ -669,7 +669,7 @@ bool RipEngine::extractFast(const ReadPlan &plan, Stream &stream)
             if (c.padded.at(i) || trustworthy(c.status.at(i)))
                 continue;
             if (!m_area.contains(s + i)) {
-                dropOverread(c, i, u"C2 errors"_s);
+                dropOverread(c, i, Text::translate("Audex::RipEngine", "C2 errors"));
                 continue;
             }
             setErrorSpeed(true);
@@ -696,7 +696,7 @@ void RipEngine::recoverFast(int lba, Copy &copy, int index)
     char *dst = copy.audio.data() + qsizetype(index) * SectorBytes;
     bool haveUsable = copy.status.at(index).ok;
     quint16 bestC2 = haveUsable ? copy.status.at(index).c2Errors : 0xFFFF;
-    QString lastError = u"read error"_s;
+    Text lastError = Text::translate("Audex::RipEngine", "read error");
 
     for (int attempt = 1; attempt <= m_options.readErrorRetries && !canceled(); ++attempt) {
         defeatCache(lba, 1);
@@ -704,7 +704,7 @@ void RipEngine::recoverFast(int lba, Copy &copy, int index)
         const SectorStatus st = r.sectors.value(0);
         if (!st.ok) {
             if (!r.error.isEmpty())
-                lastError = r.error;
+                lastError = Text::plain(r.error);
             continue;
         }
         if (trustworthy(st)) {
@@ -722,11 +722,11 @@ void RipEngine::recoverFast(int lba, Copy &copy, int index)
     }
 
     if (haveUsable) {
-        markSuspicious(lba, false, u"C2 errors reported in every copy (best: %1 bytes)"_s.arg(bestC2));
+        markSuspicious(lba, false, Text::translate("Audex::RipEngine", "C2 errors reported in every copy (best: %1 bytes)").arg(bestC2));
     } else {
         std::memset(dst, 0, SectorBytes);
         copy.status[index] = SectorStatus{};
-        markSuspicious(lba, true, u"unreadable after %1 retries (%2)"_s.arg(m_options.readErrorRetries).arg(lastError));
+        markSuspicious(lba, true, Text::translate("Audex::RipEngine", "unreadable after %1 retries (%2)").arg(m_options.readErrorRetries).arg(lastError));
     }
 }
 
@@ -776,7 +776,7 @@ bool RipEngine::extractSecure(const ReadPlan &plan, Stream &stream)
         // Overread data that is not confirmed is not worth an error recovery
         for (int i = 0; i < n; ++i) {
             if (!accepted.at(i) && !m_area.contains(w + i)) {
-                dropOverread(a, i, m_c2 ? u"C2 errors"_s : u"copies differ"_s);
+                dropOverread(a, i, m_c2 ? Text::translate("Audex::RipEngine", "C2 errors") : Text::translate("Audex::RipEngine", "copies differ"));
                 accepted[i] = true;
             }
         }
@@ -938,7 +938,7 @@ void RipEngine::resolveSecure(int lba, int count, Copy &result, int offset)
         if (cands.isEmpty()) {
             std::memset(result.audio.data() + qsizetype(offset + j) * SectorBytes, 0, SectorBytes);
             result.status[offset + j] = SectorStatus{};
-            markSuspicious(lba + j, true, u"unreadable in %1 attempts"_s.arg(failed.at(j)));
+            markSuspicious(lba + j, true, Text::translate("Audex::RipEngine", "unreadable in %1 attempts").arg(failed.at(j)));
             continue;
         }
         auto best = std::max_element(cands.cbegin(), cands.cend(), [](const Candidate &x, const Candidate &y) {
@@ -949,7 +949,10 @@ void RipEngine::resolveSecure(int lba, int count, Copy &result, int offset)
         store(j, best->data, SectorStatus{true, false, best->minC2});
         markSuspicious(lba + j,
                        false,
-                       u"no reliable copy: best copy seen %1 times in %2 reads, %3 different copies"_s.arg(best->votes).arg(reads).arg(cands.size()));
+                       Text::translate("Audex::RipEngine", "no reliable copy: best copy seen %1 times in %2 reads, %3 different copies")
+                           .arg(best->votes)
+                           .arg(reads)
+                           .arg(cands.size()));
     }
 
     log(LogLevel::Info,
@@ -980,7 +983,7 @@ QList<int> RipEngine::segmentsForDriveSector(int driveSector) const
     return result; // empty for the margin around a run
 }
 
-void RipEngine::markSuspicious(int driveSector, bool zeroFilled, const QString &reason)
+void RipEngine::markSuspicious(int driveSector, bool zeroFilled, const Text &reason)
 {
     const int lba = correctedLbaForDriveSector(driveSector, m_options.readOffset);
     for (int seg : segmentsForDriveSector(driveSector)) {
@@ -995,7 +998,7 @@ void RipEngine::markSuspicious(int driveSector, bool zeroFilled, const QString &
     // one, the rest only counted in the result (and listed by the rip report)
     constexpr int MaxLogged = 50;
     if (m_suspiciousLogged < MaxLogged)
-        log(LogLevel::Warning, u"Suspicious position at LBA %1 (drive sector %2): %3"_s.arg(lba).arg(driveSector).arg(reason));
+        log(LogLevel::Warning, u"Suspicious position at LBA %1 (drive sector %2): %3"_s.arg(lba).arg(driveSector).arg(reason.toString()));
     else if (m_suspiciousLogged == MaxLogged)
         log(LogLevel::Warning, u"More suspicious positions follow; they are not logged one by one, the rip log lists them."_s);
     ++m_suspiciousLogged;

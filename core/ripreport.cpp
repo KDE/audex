@@ -119,7 +119,7 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
         for (const Rip::SuspiciousPosition &p : s.suspicious) {
             l << u"     Suspicious position %1%2 (%3)"_s.arg(Cdda::sectorsToTime(p.lba - seg.firstLba))
                      .arg(p.zeroFilled ? u", filled with silence"_s : QString())
-                     .arg(p.reason);
+                     .arg(p.reason.toEnglish());
         }
         l << u"     "_s + readDescription(o, s, ctx.confirmedBy.value(i));
         l << u"     Copy CRC %1 (w/o null samples %2)"_s.arg(hex8(s.crc32), hex8(s.crc32NoNull));
@@ -167,7 +167,7 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
     if (result.canceled)
         l << u"Extraction was canceled."_s;
     else if (!result.completed)
-        l << u"Extraction failed: %1"_s.arg(result.error);
+        l << u"Extraction failed: %1"_s.arg(result.error.toEnglish());
     else if (result.hasSuspiciousPositions() && ctx.repaired)
         l << u"There were errors; the image was repaired with the CUETools database."_s;
     else if (result.hasSuspiciousPositions())

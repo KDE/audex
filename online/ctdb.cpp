@@ -204,23 +204,20 @@ bool isSameAudio(const Entry &entry, const Cdda::Toc &toc)
     return entry.stride == StrideSamples && audioSectors(entry.toc) == audioSectors(toc);
 }
 
-QByteArray fetchParity(const Entry &entry, QString *error, int timeoutMs, const std::function<bool()> &isCanceled)
+QByteArray fetchParity(const Entry &entry, Text *error, int timeoutMs, const std::function<bool()> &isCanceled)
 {
     const QUrl url(entry.parityUrl);
     if (!allowedParityUrl(url)) {
         if (error)
-            *error = u"untrusted CTDB recovery URL"_s;
+            *error = Text::translate("Audex::Ctdb", "untrusted CTDB recovery URL");
         return {};
     }
     const qint64 size = qint64(entry.syndromes.size()) * Stride * 2;
     const QByteArray range = "bytes=0-" + QByteArray::number(size - 1);
-    Text fetchError;
-    QByteArray data = Online::fetchBlocking(url, &fetchError, nullptr, timeoutMs, isCanceled, {{"Range", range}}, allowedParityUrl);
-    if (error)
-        *error = fetchError.toString();
+    QByteArray data = Online::fetchBlocking(url, error, nullptr, timeoutMs, isCanceled, {{"Range", range}}, allowedParityUrl);
     if (data.size() < size) {
         if (error && error->isEmpty())
-            *error = u"incomplete recovery data (%1 of %2 bytes)"_s.arg(data.size()).arg(size);
+            *error = Text::translate("Audex::Ctdb", "incomplete recovery data (%1 of %2 bytes)").arg(data.size()).arg(size);
         return {};
     }
     data.truncate(size);

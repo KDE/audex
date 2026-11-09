@@ -41,14 +41,14 @@ struct ImageRepairRequest {
     QList<Ctdb::Entry> entries;
 
     // downloads the recovery data; Ctdb::fetchParity() if not set
-    std::function<QByteArray(const Ctdb::Entry &entry, QString *error)> fetchParity;
+    std::function<QByteArray(const Ctdb::Entry &entry, Text *error)> fetchParity;
 };
 
 struct ImageRepairResult {
     bool repaired = false;
     int corrections = 0; // 16 bit values
     QString originalPath; // keepOriginal
-    QStringList log; // rip log section, the first line being its heading
+    QList<Text> log; // rip log section (toEnglish()), the first line being its heading
 };
 
 ImageRepairResult
@@ -75,7 +75,7 @@ struct ImagePatchRequest {
     QList<ImagePatch> patches; // ascending, not overlapping
 };
 
-bool patchImage(const ImagePatchRequest &request, QString *error, const std::function<bool()> &isCanceled = {});
+bool patchImage(const ImagePatchRequest &request, Text *error, const std::function<bool()> &isCanceled = {});
 
 // Checksums of a finished image as the extraction computes them (copy CRCs,
 // AccurateRip, CTDB, also for other pressings): the image is read back and
@@ -88,7 +88,7 @@ struct ImageChecksumRequest {
     Rip::RipOptions options; // of the extraction: shifts and CTDB range are used
 };
 
-std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumRequest &request, QString *error, const std::function<bool()> &isCanceled = {});
+std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumRequest &request, Text *error, const std::function<bool()> &isCanceled = {});
 
 // A finished file that holds a part of the disc audio
 struct DiscAudioFile {
@@ -106,24 +106,24 @@ public:
     DiscAudioReader(const QList<DiscAudioFile> &files);
     ~DiscAudioReader() override;
 
-    bool open(QString *error); // all decoders
+    bool open(Text *error); // all decoders
     Rip::SectorReadResult read(int lba, int count) override;
     int maxSectorsPerRead() const override;
     QString description() const override;
-    QString error() const;
+    Text error() const;
 
 private:
     struct Part;
     QList<DiscAudioFile> m_files;
     std::vector<std::unique_ptr<Part>> m_parts;
-    QString m_error;
+    Text m_error;
 };
 
 // checksumImage() for files that follow each other without a gap
 std::optional<QList<Rip::SegmentResult>> checksumFiles(const QList<DiscAudioFile> &files,
                                                        const QList<Rip::Segment> &segments,
                                                        const Rip::RipOptions &options,
-                                                       QString *error,
+                                                       Text *error,
                                                        const std::function<bool()> &isCanceled = {});
 
 }

@@ -34,7 +34,7 @@ struct Tr {
     Q_DECLARE_TR_FUNCTIONS(Audex::Encoding)
 };
 
-bool fail(QString *error, const QString &message)
+bool fail(Text *error, const Text &message)
 {
     if (error)
         *error = message;
@@ -76,31 +76,31 @@ namespace
 class WavEncoder : public AudioEncoder
 {
 public:
-    bool open(const QString &path, qint64 totalFrames, QString *error) override
+    bool open(const QString &path, qint64 totalFrames, Text *error) override
     {
         m_file.setFileName(path);
         if (!m_file.open(QIODevice::WriteOnly | QIODevice::Truncate))
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         m_bytes = 0;
         const QByteArray h = wavHeader(totalFrames * BytesPerFrame);
         if (m_file.write(h) != h.size())
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         return true;
     }
 
-    bool write(QByteArrayView pcm, QString *error) override
+    bool write(QByteArrayView pcm, Text *error) override
     {
         if (m_file.write(pcm.constData(), pcm.size()) != pcm.size())
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         m_bytes += pcm.size();
         return true;
     }
 
-    bool finish(QString *error) override
+    bool finish(Text *error) override
     {
         const QByteArray h = wavHeader(m_bytes); // in case fewer bytes arrived than announced
         const bool ok = m_file.seek(0) && m_file.write(h) == h.size() && m_file.flush();
-        const QString message = m_file.errorString();
+        const Text message = Text::plain(m_file.errorString());
         m_file.close();
         return ok || fail(error, message);
     }
@@ -124,19 +124,19 @@ namespace
 class WavDecoder : public AudioDecoder
 {
 public:
-    bool open(const QString &path, QString *error) override
+    bool open(const QString &path, Text *error) override
     {
         m_file.setFileName(path);
         if (!m_file.open(QIODevice::ReadOnly))
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         const QByteArray riff = m_file.read(12);
         if (riff.size() != 12 || !riff.startsWith("RIFF") || riff.mid(8, 4) != "WAVE")
-            return fail(error, Tr::tr("%1 is not a WAVE file.").arg(path));
+            return fail(error, Text::translate("Audex::Encoding", "%1 is not a WAVE file.").arg(path));
         bool format = false;
         while (true) {
             const QByteArray header = m_file.read(8);
             if (header.size() != 8)
-                return fail(error, Tr::tr("%1 contains no audio data.").arg(path));
+                return fail(error, Text::translate("Audex::Encoding", "%1 contains no audio data.").arg(path));
             const qint64 size = qFromLittleEndian<quint32>(header.constData() + 4);
             if (header.startsWith("fmt ")) {
                 const QByteArray fmt = m_file.read(size + (size & 1));
@@ -144,12 +144,12 @@ public:
                     && qFromLittleEndian<quint32>(fmt.constData() + 4) == quint32(SampleRate) && qFromLittleEndian<quint16>(fmt.constData() + 14) == 16;
             } else if (header.startsWith("data")) {
                 if (!format)
-                    return fail(error, Tr::tr("%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
+                    return fail(error, Text::translate("Audex::Encoding", "%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
                 m_remaining = std::min(size, m_file.size() - m_file.pos());
                 m_frames = m_remaining / BytesPerFrame;
                 return true;
             } else if (!m_file.seek(m_file.pos() + size + (size & 1))) {
-                return fail(error, m_file.errorString());
+                return fail(error, Text::plain(m_file.errorString()));
             }
         }
     }
@@ -159,12 +159,12 @@ public:
         return m_frames;
     }
 
-    bool read(QByteArray &pcm, QString *error) override
+    bool read(QByteArray &pcm, Text *error) override
     {
         const qint64 n = std::min<qint64>(m_remaining - m_remaining % BytesPerFrame, 1 << 20);
         pcm = n > 0 ? m_file.read(n) : QByteArray();
         if (pcm.size() != n)
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         m_remaining -= n;
         return true;
     }
@@ -191,7 +191,7 @@ QString WavEncoderFactory::fileSuffix(const QVariantMap &) const
 }
 QString WavEncoderFactory::version() const
 {
-    return Tr::tr("built-in");
+    return u"built-in"_s;
 }
 QList<EncoderOption> WavEncoderFactory::options() const
 {
@@ -231,44 +231,46 @@ public:
         m_trackValues = values;
     }
 
-    bool open(const QString &path, qint64 totalFrames, QString *error) override
+    bool open(const QString &path, qint64 totalFrames, Text *error) override
     {
         // QProcess is created here: it must live in the worker thread
         const QStringList arguments = substituteValues(m_arguments, m_trackValues);
         const QStringList cmd = ExternalEncoderFactory::commandLine(arguments, path);
         if (cmd.isEmpty())
-            return fail(error, Tr::tr("No encoder command configured."));
+            return fail(error, Text::translate("Audex::Encoding", "No encoder command configured."));
         if (!hasOutputFilePlaceholder(m_arguments))
-            return fail(error, Tr::tr("The encoder command must contain $o for the output file."));
+            return fail(error, Text::translate("Audex::Encoding", "The encoder command must contain $o for the output file."));
 
         m_process = std::make_unique<QProcess>();
         m_process->setStandardOutputFile(QProcess::nullDevice());
         m_process->start(cmd.first(), cmd.mid(1));
         if (!m_process->waitForStarted(10000))
-            return fail(error, Tr::tr("Cannot start \"%1\": %2").arg(cmd.first(), m_process->errorString()));
+            return fail(error, Text::translate("Audex::Encoding", "Cannot start \"%1\": %2").arg(cmd.first(), m_process->errorString()));
         return send(wavHeader(totalFrames * BytesPerFrame), error);
     }
 
-    bool write(QByteArrayView pcm, QString *error) override
+    bool write(QByteArrayView pcm, Text *error) override
     {
         return send(pcm, error);
     }
 
-    bool finish(QString *error) override
+    bool finish(Text *error) override
     {
         if (!m_process)
-            return fail(error, Tr::tr("The encoder is not running."));
+            return fail(error, Text::translate("Audex::Encoding", "The encoder is not running."));
         m_process->closeWriteChannel();
         while (!m_process->waitForFinished(100) && m_process->state() != QProcess::NotRunning) {
             if (m_interrupted) {
                 abort();
-                return fail(error, Tr::tr("Encoding was aborted."));
+                return fail(error, Text::translate("Audex::Encoding", "Encoding was aborted."));
             }
             collectErrors();
         }
         collectErrors();
         const bool ok = m_process->exitStatus() == QProcess::NormalExit && m_process->exitCode() == 0;
-        const QString message = Tr::tr("The encoder failed (exit code %1): %2").arg(m_process->exitCode()).arg(QString::fromLocal8Bit(m_stderr).trimmed());
+        const Text message = Text::translate("Audex::Encoding", "The encoder failed (exit code %1): %2")
+                                 .arg(m_process->exitCode())
+                                 .arg(QString::fromLocal8Bit(m_stderr).trimmed());
         m_process.reset();
         return ok || fail(error, message);
     }
@@ -288,17 +290,18 @@ public:
     }
 
 private:
-    bool send(QByteArrayView data, QString *error)
+    bool send(QByteArrayView data, Text *error)
     {
         if (m_process->write(data.constData(), data.size()) != data.size())
-            return fail(error, Tr::tr("Cannot send data to the encoder: %1").arg(m_process->errorString()));
+            return fail(error, Text::translate("Audex::Encoding", "Cannot send data to the encoder: %1").arg(m_process->errorString()));
         while (m_process->bytesToWrite() > 0) {
             if (m_interrupted)
-                return fail(error, Tr::tr("Encoding was aborted."));
+                return fail(error, Text::translate("Audex::Encoding", "Encoding was aborted."));
             if (!m_process->waitForBytesWritten(100) && m_process->state() != QProcess::Running) {
                 collectErrors();
                 return fail(error,
-                            Tr::tr("The encoder stopped accepting data: %1 %2").arg(m_process->errorString(), QString::fromLocal8Bit(m_stderr).trimmed()));
+                            Text::translate("Audex::Encoding", "The encoder stopped accepting data: %1 %2")
+                                .arg(m_process->errorString(), QString::fromLocal8Bit(m_stderr).trimmed()));
             }
             collectErrors(); // keep the stderr pipe from filling up
         }
@@ -327,7 +330,7 @@ QString ExternalEncoderFactory::id() const
 }
 QString ExternalEncoderFactory::displayName() const
 {
-    return Tr::tr("External command");
+    return u"External command"_s;
 }
 QString ExternalEncoderFactory::fileSuffix(const QVariantMap &settings) const
 {
@@ -336,7 +339,7 @@ QString ExternalEncoderFactory::fileSuffix(const QVariantMap &settings) const
 }
 QString ExternalEncoderFactory::version() const
 {
-    return Tr::tr("built-in");
+    return u"built-in"_s;
 }
 
 QList<EncoderOption> ExternalEncoderFactory::options() const

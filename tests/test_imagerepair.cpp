@@ -57,7 +57,7 @@ bool writeWav(const QString &path, const QByteArray &audio)
 {
     Encoding::WavEncoderFactory factory;
     const auto encoder = factory.create({});
-    QString error;
+    Text error;
     return encoder->open(path, audio.size() / 4, &error) && encoder->write(audio, &error) && encoder->finish(&error);
 }
 
@@ -108,7 +108,7 @@ ImageRepairRequest request(const QString &path, const Database &db, const Encodi
     rq.toc = toc();
     rq.firstLba = 0;
     rq.entries = {db.entry};
-    rq.fetchParity = [parity = db.parity](const Ctdb::Entry &, QString *) {
+    rq.fetchParity = [parity = db.parity](const Ctdb::Entry &, Text *) {
         return parity;
     };
     return rq;
@@ -139,7 +139,7 @@ AUDEX_TEST("image repair restores a damaged WAVE image")
         const QByteArray backupBefore = readFile(previousBackup);
         const ImageRepairResult result = repairImage(rq);
 
-        AUDEX_CHECK_MSG(t, result.repaired, result.log.join(u'\n'));
+        AUDEX_CHECK_MSG(t, result.repaired, toEnglish(result.log).join(u'\n'));
         AUDEX_EQUAL(t, result.corrections, 30 * WordsPerSector + 1);
         AUDEX_EQUAL_DATA(t, readFile(path), readFile(cleanPath));
         AUDEX_CHECK(t, !QFile::exists(QDir(dir.path()).filePath(u"disc.part.wav"_s)));
@@ -149,7 +149,9 @@ AUDEX_TEST("image repair restores a damaged WAVE image")
             AUDEX_EQUAL_DATA(t, readFile(result.originalPath), damaged);
         } else
             AUDEX_CHECK(t, !QFile::exists(unrepairedPath(path)));
-        AUDEX_CHECK_MSG(t, pressing == 0 || result.log.join(u'\n').contains(u"other pressing with offset -2345"_s), result.log.join(u'\n'));
+        AUDEX_CHECK_MSG(t,
+                        pressing == 0 || toEnglish(result.log).join(u'\n').contains(u"other pressing with offset -2345"_s),
+                        toEnglish(result.log).join(u'\n'));
     }
 }
 
@@ -167,19 +169,19 @@ AUDEX_TEST("image repair leaves an image alone it cannot restore")
     const ImageRepairResult result = repairImage(request(path, database(clean, 0), factory));
     AUDEX_CHECK(t, !result.repaired);
     AUDEX_EQUAL_DATA(t, readFile(path), before);
-    AUDEX_CHECK_MSG(t, result.log.last().contains(u"could not be repaired"_s), result.log.join(u'\n'));
+    AUDEX_CHECK_MSG(t, result.log.last().toEnglish().contains(u"could not be repaired"_s), toEnglish(result.log).join(u'\n'));
 
     // the database confirms an undamaged image: nothing is downloaded or written
     AUDEX_CHECK(t, writeWav(path, clean));
     ImageRepairRequest rq = request(path, database(clean, 0), factory);
     bool downloaded = false;
-    rq.fetchParity = [&downloaded](const Ctdb::Entry &, QString *) {
+    rq.fetchParity = [&downloaded](const Ctdb::Entry &, Text *) {
         downloaded = true;
         return QByteArray();
     };
     const ImageRepairResult unchanged = repairImage(rq);
     AUDEX_CHECK(t, !unchanged.repaired && !downloaded);
-    AUDEX_CHECK_MSG(t, unchanged.log.last().contains(u"nothing to repair"_s), unchanged.log.join(u'\n'));
+    AUDEX_CHECK_MSG(t, unchanged.log.last().toEnglish().contains(u"nothing to repair"_s), toEnglish(unchanged.log).join(u'\n'));
 }
 
 AUDEX_TEST("tracks read again replace their first read in the image")
@@ -207,8 +209,8 @@ AUDEX_TEST("tracks read again replace their first read in the image")
     rq.encoder = &factory;
     rq.writeTags = false;
     rq.patches = {reread(32, 699, u"t1.pcm"_s), reread(1500, 2344, u"t3.pcm"_s)};
-    QString error;
-    AUDEX_CHECK_MSG(t, patchImage(rq, &error), error);
+    Text error;
+    AUDEX_CHECK_MSG(t, patchImage(rq, &error), error.toEnglish());
 
     const QString cleanPath = dir.filePath(u"clean.wav"_s);
     AUDEX_CHECK(t, writeWav(cleanPath, clean));
@@ -257,7 +259,7 @@ AUDEX_TEST("an image read back has the checksums of its extraction")
     const Rip::ReadableArea area{segments.first().firstLba, segments.last().lastLba + 1};
     Rip::RipEngine engine(reader, area, options, std::move(callbacks));
     const Rip::RipResult ripped = engine.run(segments);
-    AUDEX_CHECK_MSG(t, ripped.completed, ripped.error);
+    AUDEX_CHECK_MSG(t, ripped.completed, ripped.error.toEnglish());
 
     QTemporaryDir dir;
     const QString path = dir.filePath(u"disc.wav"_s);
@@ -269,9 +271,9 @@ AUDEX_TEST("an image read back has the checksums of its extraction")
     rq.encoder = &factory;
     rq.segments = segments;
     rq.options = options;
-    QString error;
+    Text error;
     const auto checked = checksumImage(rq, &error);
-    AUDEX_CHECK_MSG(t, checked.has_value(), error);
+    AUDEX_CHECK_MSG(t, checked.has_value(), error.toEnglish());
     AUDEX_EQUAL(t, checked->size(), ripped.segments.size());
     for (qsizetype i = 0; i < ripped.segments.size(); ++i) {
         const Rip::SegmentResult &a = ripped.segments.at(i);
@@ -298,7 +300,7 @@ AUDEX_TEST("an image read back has the checksums of its extraction")
     changed[at] = char(changed.at(at) ^ 0x11);
     AUDEX_CHECK(t, writeWav(path, changed));
     const auto again = checksumImage(rq, &error);
-    AUDEX_CHECK_MSG(t, again.has_value(), error);
+    AUDEX_CHECK_MSG(t, again.has_value(), error.toEnglish());
     AUDEX_EQUAL(t, again->at(0).crc32, ripped.segments.at(0).crc32);
     AUDEX_CHECK(t, again->at(1).crc32 != ripped.segments.at(1).crc32);
     AUDEX_EQUAL(t, again->at(2).crc32, ripped.segments.at(2).crc32);

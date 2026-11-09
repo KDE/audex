@@ -20,10 +20,6 @@ namespace Audex::Encoding
 
 namespace
 {
-struct Tr {
-    Q_DECLARE_TR_FUNCTIONS(Audex::EncodedOutputs)
-};
-
 // what a command line encoder may put into its arguments; an image file has
 // no track of its own, so it uses the album data
 QMap<QString, QString> commandValues(const TagInfo &tags)
@@ -166,12 +162,12 @@ public:
         std::lock_guard lock(m_mutex);
         return m_succeeded;
     }
-    QString error() const
+    Text error() const
     {
         std::lock_guard lock(m_mutex);
         return m_error;
     }
-    QStringList warnings() const
+    QList<Text> warnings() const
     {
         std::lock_guard lock(m_mutex);
         return m_warnings;
@@ -182,11 +178,16 @@ public:
     }
 
 private:
-    void setFailed(const QString &error)
+    void setFailed(const Text &error)
     {
         std::lock_guard lock(m_mutex);
         m_failed = true;
-        m_error = QFileInfo(m_path).fileName() + u": "_s + error;
+        m_error = withFileName(error);
+    }
+
+    Text withFileName(const Text &message) const
+    {
+        return Text::plain(u"%1: %2"_s).arg(QFileInfo(m_path).fileName()).arg(message);
     }
 
     void dropQueue()
@@ -206,7 +207,7 @@ private:
 
     void run()
     {
-        QString error;
+        Text error;
         QDir().mkpath(QFileInfo(m_partPath).absolutePath());
         m_encoder->setTrackValues(commandValues(m_tags));
         if (!m_encoder->open(m_partPath, m_frames, &error)) {
@@ -263,18 +264,18 @@ private:
         }
 
         if (!QFile::exists(m_partPath)) {
-            setFailed(Tr::tr("the encoder did not create %1").arg(m_partPath));
+            setFailed(Text::translate("Audex::EncodedOutputs", "the encoder did not create %1").arg(m_partPath));
             return;
         }
 
         const QString suffix = QFileInfo(m_path).suffix();
         if (m_writeTags && !TagWriter::write(m_partPath, suffix, m_tags, &error)) {
             std::lock_guard lock(m_mutex);
-            m_warnings << QFileInfo(m_path).fileName() + u": "_s + error;
+            m_warnings << withFileName(error);
         }
 
         if (!replaceFile(m_partPath, m_path)) {
-            setFailed(Tr::tr("cannot rename %1").arg(m_partPath));
+            setFailed(Text::translate("Audex::EncodedOutputs", "cannot rename %1").arg(m_partPath));
             return;
         }
         std::lock_guard lock(m_mutex);
@@ -298,8 +299,8 @@ private:
     bool m_abort = false;
     bool m_failed = false;
     bool m_succeeded = false;
-    QString m_error;
-    QStringList m_warnings;
+    Text m_error;
+    QList<Text> m_warnings;
 };
 
 // ---- EncodedOutputs ----------------------------------------------------------------------------
@@ -380,16 +381,16 @@ bool EncodedOutputs::write(int segment, QByteArrayView pcm)
     if (!worker) {
         if (m_targets.value(segment).path.isEmpty())
             return true; // dry run
-        m_error = Tr::tr("Encoding was aborted.");
+        m_error = Text::translate("Audex::EncodedOutputs", "Encoding was aborted.");
         return false;
     }
     if (worker->push(pcm))
         return true;
     m_error = worker->error();
     if (m_error.isEmpty() && worker->isClosed())
-        m_error = Tr::tr("%1 is already complete; segments of one file must be consecutive.").arg(worker->path());
+        m_error = Text::translate("Audex::EncodedOutputs", "%1 is already complete; segments of one file must be consecutive.").arg(worker->path());
     if (m_error.isEmpty())
-        m_error = Tr::tr("Encoding was aborted.");
+        m_error = Text::translate("Audex::EncodedOutputs", "Encoding was aborted.");
     return false;
 }
 
@@ -468,7 +469,7 @@ void EncodedOutputs::cancel()
         worker->interrupt();
 }
 
-QString EncodedOutputs::error() const
+Text EncodedOutputs::error() const
 {
     return m_error;
 }
@@ -478,7 +479,7 @@ QStringList EncodedOutputs::writtenFiles() const
     return m_written;
 }
 
-QStringList EncodedOutputs::warnings() const
+QList<Text> EncodedOutputs::warnings() const
 {
     return m_warnings;
 }

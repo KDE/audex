@@ -63,7 +63,7 @@ bool isSameAudio(const Entry &entry, const Cdda::Toc &toc);
 
 // Downloads the recovery data of an entry: the syndromes of all columns for
 // entry.syndromes.size() parity words (Parity::syndromeData() layout)
-QByteArray fetchParity(const Entry &entry, QString *error, int timeoutMs = 60000, const std::function<bool()> &isCanceled = {});
+QByteArray fetchParity(const Entry &entry, Text *error, int timeoutMs = 60000, const std::function<bool()> &isCanceled = {});
 
 // Synchronous lookup for worker threads. An empty list without error means
 // the disc is not in the database.

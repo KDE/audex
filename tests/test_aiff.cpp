@@ -52,12 +52,12 @@ AUDEX_TEST("aiff: header, big endian samples and reading back")
     QTemporaryDir dir;
     const QString path = dir.filePath(u"track.aiff"_s);
     const QByteArray audio = pcm(1000);
-    QString error;
+    Text error;
     std::unique_ptr<AudioEncoder> encoder = factory->create({});
-    AUDEX_CHECK_MSG(t, encoder->open(path, 1000, &error), error);
-    AUDEX_CHECK_MSG(t, encoder->write(QByteArrayView(audio).first(1600), &error), error);
-    AUDEX_CHECK_MSG(t, encoder->write(QByteArrayView(audio).sliced(1600), &error), error);
-    AUDEX_CHECK_MSG(t, encoder->finish(&error), error);
+    AUDEX_CHECK_MSG(t, encoder->open(path, 1000, &error), error.toEnglish());
+    AUDEX_CHECK_MSG(t, encoder->write(QByteArrayView(audio).first(1600), &error), error.toEnglish());
+    AUDEX_CHECK_MSG(t, encoder->write(QByteArrayView(audio).sliced(1600), &error), error.toEnglish());
+    AUDEX_CHECK_MSG(t, encoder->finish(&error), error.toEnglish());
 
     QFile file(path);
     AUDEX_CHECK(t, file.open(QIODevice::ReadOnly));
@@ -83,7 +83,7 @@ AUDEX_TEST("aiff: header, big endian samples and reading back")
     info.trackNumber = 1;
     info.displayTrackNumber = 1;
     info.trackTotal = 2;
-    AUDEX_CHECK_MSG(t, TagWriter::write(path, u"aiff"_s, info, &error), error);
+    AUDEX_CHECK_MSG(t, TagWriter::write(path, u"aiff"_s, info, &error), error.toEnglish());
     {
         TagLib::FileRef ref(QFile::encodeName(path).constData());
         AUDEX_CHECK(t, !ref.isNull());
@@ -96,12 +96,12 @@ AUDEX_TEST("aiff: header, big endian samples and reading back")
 
     std::unique_ptr<AudioDecoder> decoder = factory->createDecoder();
     AUDEX_CHECK(t, decoder != nullptr);
-    AUDEX_CHECK_MSG(t, decoder->open(path, &error), error);
+    AUDEX_CHECK_MSG(t, decoder->open(path, &error), error.toEnglish());
     AUDEX_EQUAL(t, decoder->totalFrames(), qint64(1000));
     QByteArray decoded;
     QByteArray part;
     do {
-        AUDEX_CHECK_MSG(t, decoder->read(part, &error), error);
+        AUDEX_CHECK_MSG(t, decoder->read(part, &error), error.toEnglish());
         decoded += part;
     } while (!part.isEmpty());
     AUDEX_CHECK(t, decoded == audio);
@@ -115,13 +115,13 @@ AUDEX_TEST("aiff: fewer frames than announced fix the header")
         return;
     QTemporaryDir dir;
     const QString path = dir.filePath(u"short.aiff"_s);
-    QString error;
+    Text error;
     std::unique_ptr<AudioEncoder> encoder = factory->create({});
     AUDEX_CHECK(t, encoder->open(path, 1000, &error));
     AUDEX_CHECK(t, encoder->write(pcm(10), &error));
     AUDEX_CHECK(t, encoder->finish(&error));
 
     std::unique_ptr<AudioDecoder> decoder = factory->createDecoder();
-    AUDEX_CHECK_MSG(t, decoder->open(path, &error), error);
+    AUDEX_CHECK_MSG(t, decoder->open(path, &error), error.toEnglish());
     AUDEX_EQUAL(t, decoder->totalFrames(), qint64(10));
 }

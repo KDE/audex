@@ -48,12 +48,12 @@ bool decodeFile(const Encoding::EncoderFactory &factory,
                 const QString &path,
                 const std::function<bool(QByteArrayView)> &consume,
                 const std::function<bool()> &isCanceled,
-                QString *error,
+                Text *error,
                 qint64 *frames = nullptr)
 {
     const std::unique_ptr<Encoding::AudioDecoder> decoder = factory.createDecoder();
     if (!decoder) {
-        *error = Tr::tr("%1 files cannot be read back.").arg(factory.displayName());
+        *error = Text::translate("Audex::ImageRepair", "%1 files cannot be read back.").arg(factory.displayName());
         return false;
     }
     if (!decoder->open(path, error))
@@ -63,7 +63,7 @@ bool decodeFile(const Encoding::EncoderFactory &factory,
     QByteArray pcm;
     while (true) {
         if (isCanceled && isCanceled()) {
-            *error = Tr::tr("canceled");
+            *error = Text::translate("Audex::ImageRepair", "canceled");
             return false;
         }
         if (!decoder->read(pcm, error))
@@ -137,7 +137,7 @@ public:
             r.sectors[i].ok = true;
         }
         if (!r.allOk())
-            r.error = m_error.isEmpty() ? u"beyond the decoded audio"_s : m_error;
+            r.error = m_error.isEmpty() ? u"beyond the decoded audio"_s : m_error.toEnglish();
         // keep a margin behind this read
         const qint64 keepFrom = begin - qint64(KeepSectors) * Cdda::SectorBytes;
         if (keepFrom > m_start) {
@@ -157,7 +157,7 @@ public:
         return u"image file"_s;
     }
 
-    QString error() const
+    Text error() const
     {
         return m_error;
     }
@@ -169,7 +169,7 @@ private:
     QByteArray m_buffer;
     qint64 m_start = 0; // image byte of m_buffer[0]
     bool m_end = false;
-    QString m_error;
+    Text m_error;
 };
 
 }
@@ -183,9 +183,9 @@ QString unrepairedPath(const QString &path)
 ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<void(const QString &)> &message, const std::function<bool()> &isCanceled)
 {
     ImageRepairResult result;
-    result.log << u"CUETools database (CTDB) repair"_s << QString();
-    const auto note = [&](const QString &line) {
-        result.log << u"     "_s + line;
+    result.log << Text::translate("Audex::ImageRepair", "CUETools database (CTDB) repair") << Text();
+    const auto note = [&](const Text &line) {
+        result.log << Text::plain(u"     %1"_s).arg(line);
     };
     const auto say = [&](const QString &text) {
         if (message)
@@ -195,13 +195,13 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
     const Cdda::Track *first = rq.toc.track(rq.toc.firstAudioTrackNumber());
     const Cdda::Track *last = rq.toc.track(rq.toc.lastAudioTrackNumber());
     if (!rq.encoder || !first || !last || first->firstLba < rq.firstLba) {
-        note(u"Not possible for this image."_s);
+        note(Text::translate("Audex::ImageRepair", "Not possible for this image."));
         return result;
     }
     const qint64 offsetWords = qint64(first->firstLba - rq.firstLba) * WordsPerSector;
     Ctdb::Parity parity(offsetWords, qint64(last->lastLba + 1 - first->firstLba) * WordsPerSector);
     if (!parity.isValid()) {
-        note(u"Not possible: the disc is too short or too long."_s);
+        note(Text::translate("Audex::ImageRepair", "Not possible: the disc is too short or too long."));
         return result;
     }
 
@@ -213,13 +213,13 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
         return a.confidence > b.confidence;
     });
     if (candidates.isEmpty()) {
-        note(u"The database has no recovery data for this disc."_s);
+        note(Text::translate("Audex::ImageRepair", "The database has no recovery data for this disc."));
         return result;
     }
 
     // --- read the image back ---
     say(Tr::tr("Reading the image for the repair..."));
-    QString error;
+    Text error;
     if (!decodeFile(
             *rq.encoder,
             rq.path,
@@ -230,50 +230,52 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
             isCanceled,
             &error)
         || !parity.isComplete()) {
-        note(u"Reading %1 failed: %2"_s.arg(QFileInfo(rq.path).fileName(), error.isEmpty() ? u"the image is too short"_s : error));
+        note(Text::translate("Audex::ImageRepair", "Reading %1 failed: %2")
+                 .arg(QFileInfo(rq.path).fileName())
+                 .arg(error.isEmpty() ? Text::translate("Audex::ImageRepair", "the image is too short") : error));
         return result;
     }
 
     // --- an entry the image can be restored to ---
-    const auto fetch = rq.fetchParity ? rq.fetchParity : [&isCanceled](const Ctdb::Entry &e, QString *err) {
+    const auto fetch = rq.fetchParity ? rq.fetchParity : [&isCanceled](const Ctdb::Entry &e, Text *err) {
         return Ctdb::fetchParity(e, err, 60000, isCanceled);
     };
     const Ctdb::Entry *chosen = nullptr;
     int shift = 0;
     QList<Ctdb::Correction> corrections;
-    QStringList skipped;
+    QList<Text> skipped;
     for (const Ctdb::Entry &e : std::as_const(candidates)) {
-        const QString name = u"[%1] (confidence %2)"_s.arg(hex8(e.crc)).arg(e.confidence);
+        const Text name = Text::translate("Audex::ImageRepair", "[%1] (confidence %2)").arg(hex8(e.crc)).arg(e.confidence);
         const std::optional<Ctdb::ShiftMatch> match = parity.findShift(e.syndromes, e.crc);
         if (!match) {
-            skipped << u"%1: too different"_s.arg(name);
+            skipped << Text::translate("Audex::ImageRepair", "%1: too different").arg(name);
             continue;
         }
         if (!match->errors) {
-            note(u"The image matches %1, nothing to repair."_s.arg(name));
+            note(Text::translate("Audex::ImageRepair", "The image matches %1, nothing to repair.").arg(name));
             return result;
         }
         if (!e.hasParity()) {
-            skipped << u"%1: no recovery data"_s.arg(name);
+            skipped << Text::translate("Audex::ImageRepair", "%1: no recovery data").arg(name);
             continue;
         }
         say(Tr::tr("Downloading the recovery data of the CUETools database..."));
-        QString fetchError;
+        Text fetchError;
         const QByteArray data = fetch(e, &fetchError);
         if (data.size() < e.syndromes.size() * Ctdb::Stride * 2) {
-            skipped << u"%1: download failed (%2)"_s.arg(name, fetchError);
+            skipped << Text::translate("Audex::ImageRepair", "%1: download failed (%2)").arg(name).arg(fetchError);
             continue;
         }
         bool consistent = true; // the recovery data belongs to the entry
         for (int i = 0; i < e.syndromes.size(); ++i)
             consistent = consistent && qFromLittleEndian<quint16>(data.constData() + qsizetype(i) * Ctdb::Stride * 2) == e.syndromes.at(i);
         if (!consistent) {
-            skipped << u"%1: recovery data does not fit the entry"_s.arg(name);
+            skipped << Text::translate("Audex::ImageRepair", "%1: recovery data does not fit the entry").arg(name);
             continue;
         }
         const auto fix = parity.corrections(data, int(e.syndromes.size()), match->shift, e.crc);
         if (!fix) {
-            skipped << u"%1: too much damage"_s.arg(name);
+            skipped << Text::translate("Audex::ImageRepair", "%1: too much damage").arg(name);
             continue;
         }
         chosen = &e;
@@ -281,16 +283,20 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
         corrections = *fix;
         break;
     }
-    for (const QString &line : std::as_const(skipped))
+    for (const Text &line : std::as_const(skipped))
         note(line);
     if (!chosen) {
-        note(u"The image could not be repaired."_s);
+        note(Text::translate("Audex::ImageRepair", "The image could not be repaired."));
         return result;
     }
-    note(u"Entry [%1] (confidence %2)%3"_s.arg(hex8(chosen->crc))
-             .arg(chosen->confidence)
-             .arg(shift == 0 ? QString() : u", other pressing with offset %1%2"_s.arg(shift > 0 ? u"+"_s : QString()).arg(shift)));
-    note(u"Corrections: %1 values at %2"_s.arg(corrections.size()).arg(positions(corrections, rq.firstLba)));
+    if (shift == 0)
+        note(Text::translate("Audex::ImageRepair", "Entry [%1] (confidence %2)").arg(hex8(chosen->crc)).arg(chosen->confidence));
+    else
+        note(Text::translate("Audex::ImageRepair", "Entry [%1] (confidence %2), other pressing with offset %3")
+                 .arg(hex8(chosen->crc))
+                 .arg(chosen->confidence)
+                 .arg((shift > 0 ? u"+"_s : QString()) + QString::number(shift)));
+    note(Text::translate("Audex::ImageRepair", "Corrections: %1 values at %2").arg(corrections.size()).arg(positions(corrections, rq.firstLba)));
 
     // --- write the repaired image ---
     say(Tr::tr("Writing the repaired image..."));
@@ -328,18 +334,18 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
         && opened && encoder->finish(&error);
     if (ok && crc.value() != chosen->crc) {
         ok = false;
-        error = u"the repaired audio does not match the entry"_s;
+        error = Text::translate("Audex::ImageRepair", "the repaired audio does not match the entry");
     }
     if (!ok) {
         encoder->abort();
         QFile::remove(part);
-        note(u"Writing the repaired image failed: %1"_s.arg(error));
+        note(Text::translate("Audex::ImageRepair", "Writing the repaired image failed: %1").arg(error));
         return result;
     }
 
     const QString suffix = QFileInfo(rq.path).suffix();
     if (rq.writeTags && !Encoding::TagWriter::write(part, suffix, rq.tags, &error))
-        note(u"Tagging the repaired image failed: %1"_s.arg(error));
+        note(Text::translate("Audex::ImageRepair", "Tagging the repaired image failed: %1").arg(error));
 
     QString backup;
     if (rq.keepOriginal) {
@@ -348,30 +354,32 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
         for (int number = 1; QFileInfo::exists(backup) || QFileInfo(backup).isSymLink(); ++number)
             backup = QDir(info.path()).filePath(info.completeBaseName() + u".%1."_s.arg(number) + info.suffix());
         if (!backupFile(rq.path, backup)) {
-            note(u"Backing up %1 failed; the repaired image is %2"_s.arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName()));
+            note(Text::translate("Audex::ImageRepair", "Backing up %1 failed; the repaired image is %2")
+                     .arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName()));
             return result;
         }
     }
     if (!replaceFile(part, rq.path)) {
         if (!backup.isEmpty())
             QFile::remove(backup);
-        note(u"Replacing %1 failed; the repaired image is %2"_s.arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName()));
+        note(Text::translate("Audex::ImageRepair", "Replacing %1 failed; the repaired image is %2")
+                 .arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName()));
         return result;
     }
 
     result.originalPath = backup;
     result.repaired = true;
     result.corrections = int(corrections.size());
-    note(u"Repaired: the image matches the database entry now."_s);
+    note(Text::translate("Audex::ImageRepair", "Repaired: the image matches the database entry now."));
     if (rq.keepOriginal)
-        note(u"The unrepaired image was kept as %1"_s.arg(QFileInfo(result.originalPath).fileName()));
+        note(Text::translate("Audex::ImageRepair", "The unrepaired image was kept as %1").arg(QFileInfo(result.originalPath).fileName()));
     return result;
 }
 
-bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function<bool()> &isCanceled)
+bool patchImage(const ImagePatchRequest &rq, Text *error, const std::function<bool()> &isCanceled)
 {
     if (!rq.encoder) {
-        *error = u"no encoder"_s;
+        *error = Text::plain(u"no encoder"_s);
         return false;
     }
 
@@ -384,7 +392,7 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
     for (const ImagePatch &patch : rq.patches) {
         auto file = std::make_unique<QFile>(patch.pcmPath);
         if (!file->open(QIODevice::ReadOnly)) {
-            *error = u"%1: %2"_s.arg(patch.pcmPath, file->errorString());
+            *error = Text::plain(u"%1: %2"_s.arg(patch.pcmPath, file->errorString()));
             return false;
         }
         const qint64 size = file->size();
@@ -410,7 +418,7 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
                           if (from >= to)
                               continue;
                           if (!source.file->seek(from - source.begin) || source.file->read(pcm.data() + (from - position), to - from) != to - from) {
-                              *error = u"%1: %2"_s.arg(source.file->fileName(), source.file->errorString());
+                              *error = Text::plain(u"%1: %2"_s.arg(source.file->fileName(), source.file->errorString()));
                               return false;
                           }
                       }
@@ -423,7 +431,7 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
         && opened && encoder->finish(error);
     if (ok && !sources.empty() && sources.back().end > position) {
         ok = false;
-        *error = u"the audio read again reaches beyond the end of the image"_s;
+        *error = Text::translate("Audex::ImageRepair", "the audio read again reaches beyond the end of the image");
     }
     if (!ok) {
         encoder->abort();
@@ -432,12 +440,13 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
     }
 
     const QString suffix = QFileInfo(rq.path).suffix();
-    QString tagError;
+    Text tagError;
     if (rq.writeTags)
         Encoding::TagWriter::write(part, suffix, rq.tags, &tagError); // the old image had them; a failure is not fatal
 
     if (!replaceFile(part, rq.path)) {
-        *error = u"replacing %1 failed; the complete image is %2"_s.arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName());
+        *error = Text::translate("Audex::ImageRepair", "replacing %1 failed; the complete image is %2")
+                     .arg(QFileInfo(rq.path).fileName(), QFileInfo(part).fileName());
         return false;
     }
     return true;
@@ -448,10 +457,10 @@ bool patchImage(const ImagePatchRequest &rq, QString *error, const std::function
 namespace Audex
 {
 
-std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumRequest &rq, QString *error, const std::function<bool()> &isCanceled)
+std::optional<QList<Rip::SegmentResult>> checksumImage(const ImageChecksumRequest &rq, Text *error, const std::function<bool()> &isCanceled)
 {
     if (!rq.encoder || rq.segments.isEmpty()) {
-        *error = u"nothing to read"_s;
+        *error = Text::plain(u"nothing to read"_s);
         return std::nullopt;
     }
     // the image starts with the first segment; audio beyond it is not read
@@ -473,14 +482,14 @@ DiscAudioReader::DiscAudioReader(const QList<DiscAudioFile> &files)
 
 DiscAudioReader::~DiscAudioReader() = default;
 
-bool DiscAudioReader::open(QString *error)
+bool DiscAudioReader::open(Text *error)
 {
     m_parts.clear();
     for (const DiscAudioFile &file : std::as_const(m_files)) {
         auto part = std::make_unique<Part>();
         part->decoder = file.format ? file.format->createDecoder() : nullptr;
         if (!part->decoder) {
-            *error = Tr::tr("%1 cannot be read back.").arg(QFileInfo(file.path).fileName());
+            *error = Text::translate("Audex::ImageRepair", "%1 cannot be read back.").arg(QFileInfo(file.path).fileName());
             return false;
         }
         if (!part->decoder->open(file.path, error))
@@ -512,11 +521,11 @@ Rip::SectorReadResult DiscAudioReader::read(int lba, int count)
         for (int k = 0; k < n; ++k)
             r.sectors[i + k] = part.sectors.value(k);
         if (!part.error.isEmpty())
-            m_error = part.error;
+            m_error = m_parts.at(size_t(f))->reader->error();
         i += n;
     }
     if (!r.allOk())
-        r.error = m_error.isEmpty() ? u"beyond the decoded audio"_s : m_error;
+        r.error = m_error.isEmpty() ? u"beyond the decoded audio"_s : m_error.toEnglish();
     return r;
 }
 
@@ -530,7 +539,7 @@ QString DiscAudioReader::description() const
     return u"audio files"_s;
 }
 
-QString DiscAudioReader::error() const
+Text DiscAudioReader::error() const
 {
     return m_error;
 }
@@ -538,11 +547,11 @@ QString DiscAudioReader::error() const
 std::optional<QList<Rip::SegmentResult>> checksumFiles(const QList<DiscAudioFile> &files,
                                                        const QList<Rip::Segment> &segments,
                                                        const Rip::RipOptions &ripOptions,
-                                                       QString *error,
+                                                       Text *error,
                                                        const std::function<bool()> &isCanceled)
 {
     if (files.isEmpty() || segments.isEmpty()) {
-        *error = u"nothing to read"_s;
+        *error = Text::plain(u"nothing to read"_s);
         return std::nullopt;
     }
     DiscAudioReader reader(files);
@@ -570,7 +579,8 @@ std::optional<QList<Rip::SegmentResult>> checksumFiles(const QList<DiscAudioFile
     Rip::RipEngine engine(reader, area, options, std::move(callbacks));
     const Rip::RipResult result = engine.run(segments);
     if (!result.completed || result.hasSuspiciousPositions()) {
-        *error = result.canceled ? Tr::tr("canceled") : (!reader.error().isEmpty() ? reader.error() : Tr::tr("the files are shorter than the disc"));
+        *error = result.canceled ? Text::translate("Audex::ImageRepair", "canceled")
+                                 : (!reader.error().isEmpty() ? reader.error() : Text::translate("Audex::ImageRepair", "the files are shorter than the disc"));
         return std::nullopt;
     }
     return result.segments;

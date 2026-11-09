@@ -16,6 +16,7 @@
 #include <thread>
 
 using namespace Audex::Encoding;
+using Audex::Text;
 using namespace Qt::StringLiterals;
 using namespace std::chrono_literals;
 
@@ -77,12 +78,12 @@ public:
     {
     }
 
-    bool open(const QString &, qint64, QString *) override
+    bool open(const QString &, qint64, Text *) override
     {
         return true;
     }
 
-    bool write(QByteArrayView, QString *) override
+    bool write(QByteArrayView, Text *) override
     {
         std::unique_lock lock(m_gate.mutex);
         m_gate.entered = true;
@@ -93,7 +94,7 @@ public:
         return true;
     }
 
-    bool finish(QString *) override
+    bool finish(Text *) override
     {
         return true;
     }

@@ -81,7 +81,7 @@ AUDEX_TEST("encoding replaces existing output after finishing")
     output.frames = audio.size() / Encoding::BytesPerFrame;
     Encoding::EncodedOutputs files(factory, {}, {output}, false);
     AUDEX_CHECK(t, files.write(0, audio));
-    AUDEX_CHECK_MSG(t, files.finishAll(), files.error());
+    AUDEX_CHECK_MSG(t, files.finishAll(), files.error().toEnglish());
     AUDEX_CHECK(t, readFile(target).startsWith("RIFF"));
     AUDEX_CHECK(t, readFile(target).endsWith(audio));
     AUDEX_CHECK(t, !QFile::exists(Encoding::EncodedOutputs::partialPath(target)));

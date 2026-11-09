@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include "core/text.h"
 #include "metadata/metadata.h"
 
 #include <QMap>
@@ -61,7 +62,7 @@ public:
 
     // false (with the reason) also for formats TagLib does not know
 
-    static bool write(const QString &path, const QString &suffix, const TagInfo &info, QString *error = nullptr);
+    static bool write(const QString &path, const QString &suffix, const TagInfo &info, Text *error = nullptr);
 
     // Tag names follow the Vorbis comment / Picard conventions; TagLib maps
     // them to the frames of each format.

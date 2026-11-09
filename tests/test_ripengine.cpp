@@ -108,7 +108,7 @@ AUDEX_TEST("secure rip with offset and cache")
     RipCapture capture;
     const RipResult result = runRip(reader, area, options, {segment}, capture);
 
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_EQUAL(t, result.segments.size(), 1);
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, options, area));
     AUDEX_EQUAL(t, result.statistics.passMismatches, 0LL);
@@ -143,7 +143,7 @@ AUDEX_TEST("secure mode recovers a noisy sector")
     RipCapture capture;
     const RipResult result = runRip(reader, area, options, {segment}, capture);
 
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, options, area));
     AUDEX_CHECK(t, result.segments.at(0).suspicious.isEmpty());
     AUDEX_EQUAL(t, result.statistics.passMismatches, 1LL);
@@ -301,7 +301,7 @@ AUDEX_TEST("a drive that stops answering aborts the rip after a few timeouts")
     AUDEX_CHECK(t, result.driveStalled);
     AUDEX_CHECK(t, !result.completed);
     AUDEX_CHECK(t, !result.canceled);
-    AUDEX_CHECK_MSG(t, result.error.contains(QStringLiteral("stopped answering")), result.error);
+    AUDEX_CHECK_MSG(t, result.error.toEnglish().contains(QStringLiteral("stopped answering")), result.error.toEnglish());
     // three read commands without data (each: the block and its first single sector)
     AUDEX_CHECK_MSG(t, reader.statistics().timeouts <= 6, QString::number(reader.statistics().timeouts));
 }
@@ -418,7 +418,7 @@ AUDEX_TEST("lead-out overread supplies the offset margin")
     RipCapture capture;
     const RipResult result = runRip(reader, area, options, {segment}, capture);
 
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, options, area));
     AUDEX_CHECK(t, result.segments.at(0).suspicious.isEmpty());
     AUDEX_EQUAL(t, result.segments.at(0).paddedSectors, 0);
@@ -448,7 +448,7 @@ AUDEX_TEST("lead-in overread supplies the offset margin")
     RipCapture capture;
     const RipResult result = runRip(reader, area, options, {segment}, capture);
 
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, options, area));
     AUDEX_CHECK(t, result.segments.at(0).suspicious.isEmpty());
     AUDEX_EQUAL(t, result.segments.at(0).paddedSectors, 0);
@@ -506,7 +506,7 @@ AUDEX_TEST("missing overread capability falls back to silence")
     RipCapture capture;
     const RipResult result = runRip(reader, area, options, {segment}, capture);
 
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, options, area));
     AUDEX_CHECK(t, result.segments.at(0).suspicious.isEmpty());
     AUDEX_EQUAL(t, result.segments.at(0).paddedSectors, 1);
@@ -917,7 +917,7 @@ AUDEX_TEST("unstable overread data falls back to silence")
 
     RipOptions withoutOverread = options;
     withoutOverread.overread = false;
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_EQUAL_DATA(t, capture.segments.at(0), expected(reader, segment, withoutOverread, area));
     AUDEX_CHECK(t, result.segments.at(0).suspicious.isEmpty());
     AUDEX_EQUAL(t, result.segments.at(0).paddedSectors, 1);
@@ -968,7 +968,7 @@ AUDEX_TEST("pregaps with their own track: the files move, the checksums stay")
     SimulatedSectorReader readerB(disc, model);
     RipCapture own;
     const RipResult b = runRip(readerB, area, options, moved, own);
-    AUDEX_CHECK_MSG(t, a.completed && b.completed, b.error);
+    AUDEX_CHECK_MSG(t, a.completed && b.completed, b.error.toEnglish());
     for (qsizetype i = 0; i < moved.size(); ++i) {
         AUDEX_EQUAL_DATA(t, own.segments.at(i), expected(readerB, moved.at(i), options, area));
         const SegmentResult &x = a.segments.at(i);
@@ -1049,7 +1049,7 @@ AUDEX_TEST("pregaps with their own track: a file with an unconfirmed pregap is r
     RipEngine engine(reader, area, options, std::move(callbacks));
     const RipResult result = engine.run(segments);
 
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
     AUDEX_CHECK_MSG(t, discarded == QList<int>({1, 2}), QString::number(discarded.size()));
     AUDEX_CHECK(t, unconfirmed == QList<int>({1, 2}));
     AUDEX_CHECK(t, result.segments.at(0).acceptedAfterOnePass);
@@ -1078,7 +1078,7 @@ AUDEX_TEST("an unplugged drive ends the rip at once")
         AUDEX_CHECK(t, result.driveLost);
         AUDEX_CHECK(t, !result.completed);
         AUDEX_CHECK(t, !result.canceled);
-        AUDEX_CHECK_MSG(t, result.error.contains(QStringLiteral("disconnected")), result.error);
+        AUDEX_CHECK_MSG(t, result.error.toEnglish().contains(QStringLiteral("disconnected")), result.error.toEnglish());
         // the failed burst is read sector by sector once, then it stops
         AUDEX_CHECK_MSG(t, reader.statistics().commands <= 40 + 64, QString::number(reader.statistics().commands));
     }

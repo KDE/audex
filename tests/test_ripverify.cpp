@@ -47,7 +47,7 @@ bool writeWav(const QString &path, const QByteArray &audio)
 {
     Encoding::WavEncoderFactory factory;
     const auto encoder = factory.create({});
-    QString error;
+    Text error;
     return encoder->open(path, audio.size() / 4, &error) && encoder->write(audio, &error) && encoder->finish(&error);
 }
 
@@ -91,7 +91,7 @@ QString rip(const QDir &dir, const QList<Layout> &layout, bool image = false)
         segments << s;
         names << path;
     }
-    QString error;
+    Text error;
     Rip::RipResult result;
     result.segments = *checksumFiles(files, segments, Rip::RipOptions(), &error);
     result.completed = true;

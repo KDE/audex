@@ -52,7 +52,7 @@ AUDEX_TEST("CTDB uses HTTPS and restricts recovery URLs")
     for (const QString &address : rejected) {
         const Ctdb::Entry entry = parity(address);
         AUDEX_CHECK_MSG(t, !entry.hasParity(), address);
-        QString error;
+        Text error;
         Ctdb::Entry forged = entry;
         forged.parityUrl = address;
         AUDEX_CHECK(t, Ctdb::fetchParity(forged, &error).isEmpty());
@@ -120,7 +120,7 @@ AUDEX_TEST("CTDB finds another pressing without AccurateRip")
     options.ctdbShiftRange = Ctdb::ShiftRange;
     RipEngine engine(reader, {toc.audioStartLba(), toc.audioEndLba()}, options, {});
     const RipResult result = engine.run(segments);
-    AUDEX_CHECK_MSG(t, result.completed, result.error);
+    AUDEX_CHECK_MSG(t, result.completed, result.error.toEnglish());
 
     // the database knows a pressing whose sample i is our sample i + shift
     constexpr int shift = -1234;
@@ -202,7 +202,7 @@ AUDEX_TEST("CTDB confirms single tracks at the read offset and at AccurateRip sh
     const Ctdb::Entry other = entryAt(shift, 4);
 
     const RipResult plain = rip({});
-    AUDEX_CHECK_MSG(t, plain.completed, plain.error);
+    AUDEX_CHECK_MSG(t, plain.completed, plain.error.toEnglish());
     for (const SegmentResult &r : plain.segments) {
         AUDEX_EQUAL(t, Ctdb::trackConfidence({same}, r, toc), 3);
         AUDEX_EQUAL(t, Ctdb::trackConfidence({same, other}, r, toc), 3); // no search over all shifts
@@ -210,7 +210,7 @@ AUDEX_TEST("CTDB confirms single tracks at the read offset and at AccurateRip sh
 
     // the shift of another pressing found via AccurateRip is taken into account
     const RipResult shifted = rip({shift});
-    AUDEX_CHECK_MSG(t, shifted.completed, shifted.error);
+    AUDEX_CHECK_MSG(t, shifted.completed, shifted.error.toEnglish());
     for (const SegmentResult &r : shifted.segments)
         AUDEX_EQUAL(t, Ctdb::trackConfidence({same, other}, r, toc), 7);
 

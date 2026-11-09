@@ -10,6 +10,7 @@
 #include "core/checksums.h"
 #include "core/readplan.h"
 #include "core/sectorreader.h"
+#include "core/text.h"
 
 #include <QByteArray>
 #include <QList>
@@ -138,7 +139,7 @@ struct Segment {
 struct SuspiciousPosition {
     int lba = 0; // disc position (offset corrected)
     bool zeroFilled = false; // no usable copy at all
-    QString reason;
+    Text reason;
 };
 
 struct ShiftedChecksums {
@@ -182,7 +183,7 @@ struct RipResult {
     bool canceled = false;
     bool driveStalled = false; // aborted: the drive stopped answering
     bool driveLost = false; // aborted: the drive was unplugged or switched off
-    QString error;
+    Text error;
     QList<SegmentResult> segments; // same order as passed to run()
     RipStatistics statistics;
 
@@ -298,7 +299,7 @@ private:
     // leaves sectors out of the read; they come back as "no data".
     Copy acquire(int lba, int count, const QList<bool> *needed = nullptr);
     SectorReadResult readRaw(int lba, int count);
-    void dropOverread(Copy &copy, int index, const QString &reason);
+    void dropOverread(Copy &copy, int index, const Text &reason);
     void defeatCache(int lba, int count);
     void recoverFast(int lba, Copy &copy, int index);
     void resolveSecure(int lba, int count, Copy &result, int offset);
@@ -306,7 +307,7 @@ private:
 
     bool trustworthy(const SectorStatus &status) const;
     QList<int> segmentsForDriveSector(int driveSector) const;
-    void markSuspicious(int driveSector, bool zeroFilled, const QString &reason);
+    void markSuspicious(int driveSector, bool zeroFilled, const Text &reason);
     void noteReread(int driveSector);
     void setErrorSpeed(bool recovering);
 

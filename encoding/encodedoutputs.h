@@ -84,9 +84,9 @@ public:
     // file is shared with other segments (image).
     bool discard(int segment);
 
-    QString error() const;
+    Text error() const;
     QStringList writtenFiles() const;
-    QStringList warnings() const; // e.g. tagging problems
+    QList<Text> warnings() const; // e.g. tagging problems
 
     static QString partialPath(const QString &path);
 
@@ -104,9 +104,9 @@ private:
     Workers m_workers;
     std::mutex m_workersMutex; // guards m_workers and m_canceled
     bool m_canceled = false;
-    QString m_error;
+    Text m_error;
     QStringList m_written;
-    QStringList m_warnings;
+    QList<Text> m_warnings;
 };
 
 }

@@ -88,8 +88,8 @@ AUDEX_TEST("tags: other formats through TagLib's generic interface")
     const QString path = dir.filePath(u"track.wav"_s);
     AUDEX_CHECK(t, writeWave(path));
 
-    QString error;
-    AUDEX_CHECK_MSG(t, TagWriter::write(path, u"wav"_s, tagInfo(), &error), error);
+    Text error;
+    AUDEX_CHECK_MSG(t, TagWriter::write(path, u"wav"_s, tagInfo(), &error), error.toEnglish());
 
     TagLib::FileRef file(QFile::encodeName(path).constData());
     AUDEX_CHECK(t, !file.isNull());
@@ -113,7 +113,7 @@ AUDEX_TEST("tags: unknown formats are reported")
     AUDEX_CHECK(t, file.open(QIODevice::WriteOnly) && file.write(QByteArray(64, 'x')) == 64);
     file.close();
 
-    QString error;
+    Text error;
     AUDEX_CHECK(t, !TagWriter::write(path, u"xyz"_s, tagInfo(), &error));
     AUDEX_CHECK(t, !error.isEmpty());
 }

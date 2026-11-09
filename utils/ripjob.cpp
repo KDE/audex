@@ -479,8 +479,8 @@ void RipJob::run()
     }
     if (result.driveLost) {
         // every further command would fail at once; there is no tray to unlock
-        result.error = tr("The drive was disconnected, the rip was aborted.");
-        say(Rip::LogLevel::Error, result.error);
+        result.error = Text::translate("Audex::RipJob", "The drive was disconnected, the rip was aborted.");
+        say(Rip::LogLevel::Error, result.error.toString());
     } else if (opened.reader->deviceLost()) {
         // after the audio: the files are complete, only the CD+G graphics are not
         extractionWarning = true;
@@ -489,8 +489,10 @@ void RipJob::run()
         // every further command (unlocking the tray...) would wait for its
         // timeout; Audex leaves the drive alone until it is switched off and on
         markDriveStalled(rq.drive.id);
-        result.error = tr("The drive stopped answering, the rip was aborted. Switch the drive off and on again (a USB drive: unplug it) before using it.");
-        say(Rip::LogLevel::Error, result.error);
+        result.error =
+            Text::translate("Audex::RipJob",
+                            "The drive stopped answering, the rip was aborted. Switch the drive off and on again (a USB drive: unplug it) before using it.");
+        say(Rip::LogLevel::Error, result.error.toString());
     } else {
         opened.release();
     }
@@ -518,13 +520,15 @@ void RipJob::run()
                 patch.patches.append(ImagePatch{offset, file->fileName()});
                 numbers << QString::number(disc.displayTrackNumber(segments.at(segment).trackNumber));
             }
-            QString patchError;
+            Text patchError;
             if (patchImage(patch, &patchError, cb.isCanceled)) {
                 say(Rip::LogLevel::Info, tr("Tracks %1 were replaced in the image by their secure extraction.").arg(numbers.join(u", "_s)));
             } else {
                 result.completed = false;
                 result.canceled = m_cancel.load();
-                result.error = tr("The tracks read again could not be written into the image (%1). It still contains their first read.").arg(patchError);
+                result.error =
+                    Text::translate("Audex::RipJob", "The tracks read again could not be written into the image (%1). It still contains their first read.")
+                        .arg(patchError);
             }
         }
     } else {
@@ -544,10 +548,10 @@ void RipJob::run()
         for (int i : std::as_const(hdcdSegments)) {
             const Encoding::OutputTarget &target = targets.at(rq.imageFile ? 0 : i);
             const QString suffix = QFileInfo(target.path).suffix();
-            QString tagError;
+            Text tagError;
             if (!Encoding::TagWriter::write(target.path, suffix, target.tags, &tagError)) {
                 outputWarning = true;
-                say(Rip::LogLevel::Warning, tr("Cannot write the HDCD tag into %1: %2").arg(QFileInfo(target.path).fileName(), tagError));
+                say(Rip::LogLevel::Warning, tr("Cannot write the HDCD tag into %1: %2").arg(QFileInfo(target.path).fileName(), tagError.toString()));
             }
             if (rq.imageFile)
                 break; // one file
@@ -650,7 +654,7 @@ void RipJob::run()
                 say(Rip::LogLevel::Info, text);
             },
             cb.isCanceled);
-        ctdbLines << QString() << repaired.log;
+        ctdbLines << QString() << toEnglish(repaired.log);
         if (repaired.repaired) {
             summary.ctdbMismatches = 0;
             summary.ctdbCorrections = repaired.corrections;
@@ -663,7 +667,7 @@ void RipJob::run()
             check.encoder = encoder;
             check.segments = segments;
             check.options = options;
-            QString checkError;
+            Text checkError;
             const std::optional<QList<Rip::SegmentResult>> checked = checksumImage(check, &checkError, cb.isCanceled);
             if (checked && checked->size() == result.segments.size()) {
                 repairChecked = true;
@@ -700,11 +704,11 @@ void RipJob::run()
                 ctdbConfirmedTracks.clear();
                 ctdbLines
                     << u"     The repaired image could not be read back (%1); the track CRCs and AccurateRip results above refer to the image before the repair."_s
-                           .arg(checkError);
-                say(Rip::LogLevel::Warning, tr("The repaired image could not be verified: %1").arg(checkError));
+                           .arg(checkError.toEnglish());
+                say(Rip::LogLevel::Warning, tr("The repaired image could not be verified: %1").arg(checkError.toString()));
             }
         } else {
-            say(Rip::LogLevel::Warning, tr("The image could not be repaired: %1").arg(repaired.log.last().trimmed()));
+            say(Rip::LogLevel::Warning, tr("The image could not be repaired: %1").arg(repaired.log.last().toString().trimmed()));
         }
     }
 
@@ -735,13 +739,13 @@ void RipJob::run()
     ctx.encoder = u"%1 (%2)"_s.arg(encoder->displayName(), encoder->version());
     if (!settingsText.isEmpty())
         ctx.encoder += u", "_s + settingsText.join(u", "_s);
-    ctx.outputNotes = files.warnings();
+    ctx.outputNotes = toEnglish(files.warnings());
     outputWarning = outputWarning || !ctx.outputNotes.isEmpty() || !cdg.error.isEmpty() || cdg.unresolvedSectors > 0;
     ctx.accurateRip = accurateRipLines;
     ctx.ctdb = ctdbLines;
     ctx.subchannel = subchannelLines;
-    for (const QString &w : ctx.outputNotes)
-        say(Rip::LogLevel::Warning, w);
+    for (const Text &w : files.warnings())
+        say(Rip::LogLevel::Warning, w.toString());
     QStringList report = Rip::formatReport(ctx, result);
     const QString artist = disc.metadata().text(Field::Artist);
     const QString album = disc.metadata().text(Field::Album);
@@ -766,7 +770,7 @@ void RipJob::run()
                                                       : JobStatus::Success;
     summary.completed = result.completed;
     summary.canceled = result.canceled;
-    summary.error = result.error;
+    summary.error = result.error.toString();
     summary.tracks = int(segments.size());
     summary.files = files.writtenFiles();
     summary.report = report;

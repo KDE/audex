@@ -18,6 +18,7 @@
 
 using namespace Qt::StringLiterals;
 using namespace Audex::Encoding;
+using Audex::Text;
 
 namespace
 {
@@ -26,7 +27,7 @@ struct Tr {
     Q_DECLARE_TR_FUNCTIONS(AiffEncoder)
 };
 
-bool fail(QString *error, const QString &message)
+bool fail(Text *error, const Text &message)
 {
     if (error)
         *error = message;
@@ -70,33 +71,33 @@ void swapSamples(const char *in, char *out, qsizetype bytes)
 class AiffEncoder : public AudioEncoder
 {
 public:
-    bool open(const QString &path, qint64 totalFrames, QString *error) override
+    bool open(const QString &path, qint64 totalFrames, Text *error) override
     {
         m_file.setFileName(path);
         if (!m_file.open(QIODevice::WriteOnly | QIODevice::Truncate))
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         m_bytes = 0;
         const QByteArray h = aiffHeader(totalFrames * BytesPerFrame);
         if (m_file.write(h) != h.size())
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         return true;
     }
 
-    bool write(QByteArrayView pcm, QString *error) override
+    bool write(QByteArrayView pcm, Text *error) override
     {
         m_buffer.resize(pcm.size());
         swapSamples(pcm.constData(), m_buffer.data(), pcm.size());
         if (m_file.write(m_buffer) != m_buffer.size())
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         m_bytes += pcm.size();
         return true;
     }
 
-    bool finish(QString *error) override
+    bool finish(Text *error) override
     {
         const QByteArray h = aiffHeader(m_bytes); // in case fewer bytes arrived than announced
         const bool ok = m_file.seek(0) && m_file.write(h) == h.size() && m_file.flush();
-        const QString message = m_file.errorString();
+        const Text message = Text::plain(m_file.errorString());
         m_file.close();
         return ok || fail(error, message);
     }
@@ -117,19 +118,19 @@ private:
 class AiffDecoder : public AudioDecoder
 {
 public:
-    bool open(const QString &path, QString *error) override
+    bool open(const QString &path, Text *error) override
     {
         m_file.setFileName(path);
         if (!m_file.open(QIODevice::ReadOnly))
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         const QByteArray form = m_file.read(12);
         if (form.size() != 12 || !form.startsWith("FORM") || form.mid(8, 4) != "AIFF")
-            return fail(error, Tr::tr("%1 is not an AIFF file.").arg(path));
+            return fail(error, Text::translate("AiffEncoder", "%1 is not an AIFF file.").arg(path));
         bool format = false;
         while (true) {
             const QByteArray header = m_file.read(8);
             if (header.size() != 8)
-                return fail(error, Tr::tr("%1 contains no audio data.").arg(path));
+                return fail(error, Text::translate("AiffEncoder", "%1 contains no audio data.").arg(path));
             const qint64 size = qFromBigEndian<quint32>(header.constData() + 4);
             if (header.startsWith("COMM")) {
                 const QByteArray comm = m_file.read(size + (size & 1));
@@ -137,16 +138,16 @@ public:
                     && std::memcmp(comm.constData() + 8, SampleRate80, 10) == 0;
             } else if (header.startsWith("SSND")) {
                 if (!format)
-                    return fail(error, Tr::tr("%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
+                    return fail(error, Text::translate("AiffEncoder", "%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
                 const QByteArray offset = m_file.read(8);
                 if (offset.size() != 8 || !m_file.seek(m_file.pos() + qFromBigEndian<quint32>(offset.constData())))
-                    return fail(error, Tr::tr("%1 contains no audio data.").arg(path));
+                    return fail(error, Text::translate("AiffEncoder", "%1 contains no audio data.").arg(path));
                 m_remaining = std::min(size - 8 - qint64(qFromBigEndian<quint32>(offset.constData())), m_file.size() - m_file.pos());
                 m_remaining = std::max<qint64>(0, m_remaining);
                 m_frames = m_remaining / BytesPerFrame;
                 return true;
             } else if (!m_file.seek(m_file.pos() + size + (size & 1))) {
-                return fail(error, m_file.errorString());
+                return fail(error, Text::plain(m_file.errorString()));
             }
         }
     }
@@ -156,12 +157,12 @@ public:
         return m_frames;
     }
 
-    bool read(QByteArray &pcm, QString *error) override
+    bool read(QByteArray &pcm, Text *error) override
     {
         const qint64 n = std::min<qint64>(m_remaining - m_remaining % BytesPerFrame, 1 << 20);
         const QByteArray data = n > 0 ? m_file.read(n) : QByteArray();
         if (data.size() != n)
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         pcm.resize(data.size());
         swapSamples(data.constData(), pcm.data(), data.size());
         m_remaining -= n;
@@ -197,7 +198,7 @@ public:
     }
     QString version() const override
     {
-        return Tr::tr("built-in");
+        return u"built-in"_s;
     }
     QList<EncoderOption> options() const override
     {

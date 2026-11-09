@@ -238,7 +238,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
         result.accurateRipKnown = !arResponses.isEmpty();
         if (!arResponses.isEmpty()) {
             DiscAudioReader probeReader(files);
-            QString probeError;
+            Text probeError;
             if (probeReader.open(&probeError)) {
                 const QMap<int, QList<quint32>> probe = AccurateRip::probeFrame450(probeReader, toc, 0, 3, isCanceled);
                 const int required = std::min<int>(2, int(probe.size()));
@@ -289,12 +289,12 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
         }
 
         say(block.size() == 1 ? Tr::tr("Reading %1...").arg(QFileInfo(block.first().path).fileName()) : Tr::tr("Reading %1 files...").arg(block.size()));
-        QString readError;
+        Text readError;
         const std::optional<QList<Rip::SegmentResult>> read = checksumFiles(block, blockSegments, options, &readError, isCanceled);
         for (qsizetype i = 0; i < blockSegments.size(); ++i) {
             TrackResult &track = result.tracks[blockTracks.at(i)];
             if (!read) {
-                track.problem = Tr::tr("The file could not be read: %1").arg(readError);
+                track.problem = Tr::tr("The file could not be read: %1").arg(readError.toString());
                 continue;
             }
             const Rip::SegmentResult &r = read->at(i);

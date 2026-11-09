@@ -320,7 +320,7 @@ OffsetDetection detectReadOffset(Rip::SectorReader &reader, const Cdda::Toc &toc
     Rip::RipEngine engine(reader, {toc.audioStartLba(), toc.audioEndLba()}, options, callbacks);
     const Rip::RipResult r = engine.run({segment});
     if (!r.completed) {
-        d.details = Tr::tr("Extracting track %1 failed: %2").arg(t->number).arg(r.error);
+        d.details = Tr::tr("Extracting track %1 failed: %2").arg(t->number).arg(r.error.toString());
         return d;
     }
     d.confidence = matchConfidence(responses, confirmIndex, r.segments.first().accurateRipV1, r.segments.first().accurateRipV2);

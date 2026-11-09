@@ -26,6 +26,8 @@
 #include <QtEndian>
 #include <QtPlugin>
 
+#include "core/text.h"
+
 #include <algorithm>
 #include <memory>
 #include <vector>
@@ -46,9 +48,10 @@ public:
     virtual ~AudioEncoder() = default;
 
     // totalFrames: number of stereo frames that will be written (exact)
-    virtual bool open(const QString &path, qint64 totalFrames, QString *error) = 0;
-    virtual bool write(QByteArrayView pcm, QString *error) = 0;
-    virtual bool finish(QString *error) = 0; // file complete and closed
+    // errors are Text: they go into the rip log in English
+    virtual bool open(const QString &path, qint64 totalFrames, Text *error) = 0;
+    virtual bool write(QByteArrayView pcm, Text *error) = 0;
+    virtual bool finish(Text *error) = 0; // file complete and closed
     virtual void abort() = 0; // close without caring about the result
 
     // Thread-safe. A blocking write() or finish() should return false soon.
@@ -72,10 +75,10 @@ class AudioDecoder
 public:
     virtual ~AudioDecoder() = default;
 
-    virtual bool open(const QString &path, QString *error) = 0;
+    virtual bool open(const QString &path, Text *error) = 0;
     virtual qint64 totalFrames() const = 0; // after open()
     // Next part of the audio, whole frames; empty at the end of the file
-    virtual bool read(QByteArray &pcm, QString *error) = 0;
+    virtual bool read(QByteArray &pcm, Text *error) = 0;
 };
 
 struct EncoderOption {
@@ -154,5 +157,5 @@ inline void toInt16(QByteArrayView pcm, std::vector<qint16> &out)
 
 }
 
-#define AudexEncoderFactory_iid "org.kde.audex.EncoderFactory/1.2"
+#define AudexEncoderFactory_iid "org.kde.audex.EncoderFactory/1.3"
 Q_DECLARE_INTERFACE(Audex::Encoding::EncoderFactory, AudexEncoderFactory_iid)

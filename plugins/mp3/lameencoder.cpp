@@ -15,6 +15,7 @@
 
 using namespace Qt::StringLiterals;
 using namespace Audex::Encoding;
+using Audex::Text;
 
 namespace
 {
@@ -75,12 +76,12 @@ public:
         abort();
     }
 
-    bool open(const QString &path, qint64 totalFrames, QString *error) override
+    bool open(const QString &path, qint64 totalFrames, Text *error) override
     {
         // LAME cannot be re-initialized: one lame_t per file
         m_lame = lame_init();
         if (!m_lame)
-            return fail(error, Tr::tr("Cannot create the LAME encoder."));
+            return fail(error, Text::translate("LameEncoder", "Cannot create the LAME encoder."));
 
         lame_set_num_channels(m_lame, Channels);
         lame_set_in_samplerate(m_lame, SampleRate);
@@ -107,33 +108,33 @@ public:
         lame_set_bWriteVbrTag(m_lame, 1);
 
         if (lame_init_params(m_lame) < 0)
-            return fail(error, Tr::tr("Invalid LAME encoder settings."));
+            return fail(error, Text::translate("LameEncoder", "Invalid LAME encoder settings."));
 
         m_file.setFileName(path);
         if (!m_file.open(QIODevice::WriteOnly | QIODevice::Truncate))
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         return true;
     }
 
-    bool write(QByteArrayView pcm, QString *error) override
+    bool write(QByteArrayView pcm, Text *error) override
     {
         toInt16(pcm, m_samples);
         const int frames = int(pcm.size() / BytesPerFrame);
         m_output.resize(size_t(frames + frames / 4 + 7200)); // documented worst case
         const int bytes = lame_encode_buffer_interleaved(m_lame, m_samples.data(), frames, m_output.data(), int(m_output.size()));
         if (bytes < 0)
-            return fail(error, Tr::tr("LAME encoder error %1.").arg(bytes));
+            return fail(error, Text::translate("LameEncoder", "LAME encoder error %1.").arg(bytes));
         return writeBytes(bytes, error);
     }
 
-    bool finish(QString *error) override
+    bool finish(Text *error) override
     {
         if (!m_lame)
-            return fail(error, Tr::tr("The LAME encoder is not open."));
+            return fail(error, Text::translate("LameEncoder", "The LAME encoder is not open."));
         m_output.resize(7200);
         const int bytes = lame_encode_flush(m_lame, m_output.data(), int(m_output.size()));
         if (bytes < 0)
-            return fail(error, Tr::tr("LAME encoder error %1.").arg(bytes));
+            return fail(error, Text::translate("LameEncoder", "LAME encoder error %1.").arg(bytes));
         if (!writeBytes(bytes, error))
             return false;
 
@@ -146,13 +147,13 @@ public:
         }
         if (tagSize > 0) {
             if (!m_file.seek(0) || m_file.write(reinterpret_cast<const char *>(tag.data()), qint64(tagSize)) != qint64(tagSize))
-                return fail(error, m_file.errorString());
+                return fail(error, Text::plain(m_file.errorString()));
         }
         const bool ok = m_file.flush();
         m_file.close();
         release();
         if (!ok)
-            return fail(error, Tr::tr("Cannot write the MP3 file."));
+            return fail(error, Text::translate("LameEncoder", "Cannot write the MP3 file."));
         return true;
     }
 
@@ -164,17 +165,17 @@ public:
     }
 
 private:
-    static bool fail(QString *error, const QString &message)
+    static bool fail(Text *error, const Text &message)
     {
         if (error)
             *error = message;
         return false;
     }
 
-    bool writeBytes(int bytes, QString *error)
+    bool writeBytes(int bytes, Text *error)
     {
         if (bytes > 0 && m_file.write(reinterpret_cast<const char *>(m_output.data()), bytes) != bytes)
-            return fail(error, m_file.errorString());
+            return fail(error, Text::plain(m_file.errorString()));
         return true;
     }
 

@@ -58,6 +58,14 @@ public:
         return arg(plain(a));
     }
 
+    Text arg(const QString &a1, const QString &a2) const
+    {
+        Text t;
+        t.m_translated = m_translated.arg(a1, a2);
+        t.m_english = m_english.arg(a1, a2);
+        return t;
+    }
+
     template<std::integral T>
     Text arg(T a) const
     {

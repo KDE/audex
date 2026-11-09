@@ -17,6 +17,7 @@
 
 using namespace Qt::StringLiterals;
 using namespace Audex::Encoding;
+using Audex::Text;
 
 namespace
 {
@@ -60,11 +61,11 @@ public:
         abort();
     }
 
-    bool open(const QString &path, qint64 totalFrames, QString *error) override
+    bool open(const QString &path, qint64 totalFrames, Text *error) override
     {
         m_encoder = FLAC__stream_encoder_new();
         if (!m_encoder)
-            return fail(error, Tr::tr("Cannot create the FLAC encoder."));
+            return fail(error, Text::translate("FlacEncoder", "Cannot create the FLAC encoder."));
 
         bool ok = FLAC__stream_encoder_set_verify(m_encoder, m_verify);
         ok &= FLAC__stream_encoder_set_compression_level(m_encoder, m_level);
@@ -82,17 +83,19 @@ public:
             ok &= FLAC__stream_encoder_set_metadata(m_encoder, &m_padding, 1);
         }
         if (!ok)
-            return fail(error, Tr::tr("Cannot configure the FLAC encoder."));
+            return fail(error, Text::translate("FlacEncoder", "Cannot configure the FLAC encoder."));
 
         const QByteArray name = QFile::encodeName(path);
         const FLAC__StreamEncoderInitStatus status = FLAC__stream_encoder_init_file(m_encoder, name.constData(), nullptr, nullptr);
         if (status != FLAC__STREAM_ENCODER_INIT_STATUS_OK)
-            return fail(error, Tr::tr("Cannot start the FLAC encoder: %1").arg(QString::fromLatin1(FLAC__StreamEncoderInitStatusString[status])));
+            return fail(
+                error,
+                Text::translate("FlacEncoder", "Cannot start the FLAC encoder: %1").arg(QString::fromLatin1(FLAC__StreamEncoderInitStatusString[status])));
         m_initialized = true;
         return true;
     }
 
-    bool write(QByteArrayView pcm, QString *error) override
+    bool write(QByteArrayView pcm, Text *error) override
     {
         const qsizetype frames = pcm.size() / BytesPerFrame;
         m_buffer.resize(size_t(frames * Channels));
@@ -103,12 +106,12 @@ public:
         return true;
     }
 
-    bool finish(QString *error) override
+    bool finish(Text *error) override
     {
         if (!m_encoder)
-            return fail(error, Tr::tr("The FLAC encoder is not open."));
+            return fail(error, Text::translate("FlacEncoder", "The FLAC encoder is not open."));
         const bool ok = FLAC__stream_encoder_finish(m_encoder);
-        const QString message = ok ? QString() : stateError();
+        const Text message = ok ? Text() : stateError();
         m_initialized = false;
         release();
         if (!ok)
@@ -125,19 +128,19 @@ public:
     }
 
 private:
-    static bool fail(QString *error, const QString &message)
+    static bool fail(Text *error, const Text &message)
     {
         if (error)
             *error = message;
         return false;
     }
 
-    QString stateError() const
+    Text stateError() const
     {
         const FLAC__StreamEncoderState state = FLAC__stream_encoder_get_state(m_encoder);
         if (state == FLAC__STREAM_ENCODER_VERIFY_MISMATCH_IN_AUDIO_DATA)
-            return Tr::tr("FLAC verification failed: the encoded audio differs from the input.");
-        return Tr::tr("FLAC encoder error: %1").arg(QString::fromLatin1(FLAC__StreamEncoderStateString[state]));
+            return Text::translate("FlacEncoder", "FLAC verification failed: the encoded audio differs from the input.");
+        return Text::translate("FlacEncoder", "FLAC encoder error: %1").arg(QString::fromLatin1(FLAC__StreamEncoderStateString[state]));
     }
 
     void release()
@@ -167,20 +170,20 @@ public:
             FLAC__stream_decoder_delete(m_decoder);
     }
 
-    bool open(const QString &path, QString *error) override
+    bool open(const QString &path, Text *error) override
     {
         m_decoder = FLAC__stream_decoder_new();
         if (!m_decoder)
-            return fail(error, Tr::tr("Cannot create the FLAC decoder."));
+            return fail(error, Text::translate("FlacEncoder", "Cannot create the FLAC decoder."));
         FLAC__stream_decoder_set_md5_checking(m_decoder, true);
         const QByteArray name = QFile::encodeName(path);
         if (FLAC__stream_decoder_init_file(m_decoder, name.constData(), writeCallback, metadataCallback, errorCallback, this)
             != FLAC__STREAM_DECODER_INIT_STATUS_OK)
-            return fail(error, Tr::tr("Cannot open %1 for reading.").arg(path));
+            return fail(error, Text::translate("FlacEncoder", "Cannot open %1 for reading.").arg(path));
         if (!FLAC__stream_decoder_process_until_end_of_metadata(m_decoder) || !m_error.isEmpty())
             return fail(error, m_error.isEmpty() ? stateError() : m_error);
         if (!m_formatOk)
-            return fail(error, Tr::tr("%1 is not 16 bit stereo audio at 44.1 kHz.").arg(path));
+            return fail(error, Text::translate("FlacEncoder", "%1 is not 16 bit stereo audio at 44.1 kHz.").arg(path));
         return true;
     }
 
@@ -189,14 +192,14 @@ public:
         return m_frames;
     }
 
-    bool read(QByteArray &pcm, QString *error) override
+    bool read(QByteArray &pcm, Text *error) override
     {
         m_buffer.clear();
         while (m_buffer.isEmpty()) {
             if (FLAC__stream_decoder_get_state(m_decoder) == FLAC__STREAM_DECODER_END_OF_STREAM) {
                 // the MD5 checksum of the stream info is compared at the end
                 if (!FLAC__stream_decoder_finish(m_decoder))
-                    return fail(error, Tr::tr("FLAC decoding failed: the MD5 checksum does not match."));
+                    return fail(error, Text::translate("FlacEncoder", "FLAC decoding failed: the MD5 checksum does not match."));
                 break;
             }
             if (!FLAC__stream_decoder_process_single(m_decoder) || !m_error.isEmpty())
@@ -207,23 +210,24 @@ public:
     }
 
 private:
-    static bool fail(QString *error, const QString &message)
+    static bool fail(Text *error, const Text &message)
     {
         if (error)
             *error = message;
         return false;
     }
 
-    QString stateError() const
+    Text stateError() const
     {
-        return Tr::tr("FLAC decoder error: %1").arg(QString::fromLatin1(FLAC__StreamDecoderStateString[FLAC__stream_decoder_get_state(m_decoder)]));
+        return Text::translate("FlacEncoder", "FLAC decoder error: %1")
+            .arg(QString::fromLatin1(FLAC__StreamDecoderStateString[FLAC__stream_decoder_get_state(m_decoder)]));
     }
 
     static FLAC__StreamDecoderWriteStatus writeCallback(const FLAC__StreamDecoder *, const FLAC__Frame *frame, const FLAC__int32 *const buffer[], void *data)
     {
         auto *self = static_cast<FlacDecoder *>(data);
         if (frame->header.channels != Channels || frame->header.bits_per_sample != 16) {
-            self->m_error = Tr::tr("Unexpected FLAC frame format.");
+            self->m_error = Text::translate("FlacEncoder", "Unexpected FLAC frame format.");
             return FLAC__STREAM_DECODER_WRITE_STATUS_ABORT;
         }
         const qsizetype start = self->m_buffer.size();
@@ -248,12 +252,13 @@ private:
 
     static void errorCallback(const FLAC__StreamDecoder *, FLAC__StreamDecoderErrorStatus status, void *data)
     {
-        static_cast<FlacDecoder *>(data)->m_error = Tr::tr("FLAC decoding error: %1").arg(QString::fromLatin1(FLAC__StreamDecoderErrorStatusString[status]));
+        static_cast<FlacDecoder *>(data)->m_error =
+            Text::translate("FlacEncoder", "FLAC decoding error: %1").arg(QString::fromLatin1(FLAC__StreamDecoderErrorStatusString[status]));
     }
 
     FLAC__StreamDecoder *m_decoder = nullptr;
     QByteArray m_buffer;
-    QString m_error;
+    Text m_error;
     qint64 m_frames = 0;
     bool m_formatOk = false;
 };
