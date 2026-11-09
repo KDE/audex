@@ -10,6 +10,7 @@
 #include "sectorreader.h"
 #include "subchannel.h"
 
+#include <QCoreApplication>
 #include <QHash>
 #include <QMap>
 
@@ -24,6 +25,10 @@ namespace Audex::Cdda
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::Cdg)
+};
 
 constexpr int ScrambledPairs[3][2] = {{1, 18}, {2, 5}, {3, 23}};
 constexpr int InterleaveDepth = 8; // packs
@@ -211,29 +216,29 @@ CdgExtraction extractCdg(Rip::SectorReader &reader,
         progress(where);
     };
 
-    say(u"Reading the CD+G sub-channel (1 of 2)..."_s);
+    say(Tr::tr("Reading the CD+G sub-channel (1 of 2)..."));
     report(1, readFirst, 0);
     QByteArray first = readRange(reader, readFirst, readEnd, canceled, [&](int lba) {
         report(1, lba, lba - readFirst);
     });
     if (timedOut()) {
-        result.error = u"the drive did not answer a read of the raw sub-channel in time"_s;
+        result.error = Tr::tr("the drive did not answer a read of the raw sub-channel in time");
         return result;
     }
     if (first.isEmpty()) {
-        result.error = u"the drive does not deliver the raw sub-channel"_s;
+        result.error = Tr::tr("the drive does not deliver the raw sub-channel");
         return result;
     }
     if (canceled())
         return result;
-    say(u"Reading the CD+G sub-channel (2 of 2)..."_s);
+    say(Tr::tr("Reading the CD+G sub-channel (2 of 2)..."));
     report(2, readFirst, sectors);
     const QByteArray second = readRange(reader, readFirst, readEnd, canceled, [&](int lba) {
         report(2, lba, qint64(sectors) + lba - readFirst);
     });
     const int complete = int(std::min(first.size(), second.size()) / SubcodeBytes);
     if (complete < sectors)
-        result.error = u"the sub-channel could be read up to LBA %1 only"_s.arg(readFirst + complete - 1);
+        result.error = Tr::tr("the sub-channel could be read up to LBA %1 only").arg(readFirst + complete - 1);
 
     // --- the drive's shift: the Q channel of the same data tells where a block belongs ---
     QHash<int, int> shifts;
@@ -255,7 +260,7 @@ CdgExtraction extractCdg(Rip::SectorReader &reader,
             differing << j;
     result.rereadSectors = int(differing.size());
     if (!differing.isEmpty()) {
-        say(u"Reading %1 sector(s) of the CD+G sub-channel again: the two reads differ..."_s.arg(differing.size()));
+        say(Tr::tr("Reading %n sector(s) of the CD+G sub-channel again: the two reads differ...", nullptr, int(differing.size())));
         where.total = 2 * qint64(sectors) + differing.size();
     }
     qint64 reread = 0;

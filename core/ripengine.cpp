@@ -7,6 +7,7 @@
 
 #include "ripengine.h"
 
+#include <QCoreApplication>
 #include <QElapsedTimer>
 
 #include <algorithm>
@@ -20,6 +21,13 @@ namespace Audex::Rip
 {
 
 using Cdda::SectorBytes;
+
+namespace
+{
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::RipEngine)
+};
+}
 
 // Copies the part of data (at stream position begin) that falls into buffer
 // (at stream position at).
@@ -256,7 +264,7 @@ RipResult RipEngine::run(const QList<Segment> &segments)
     // --- reader setup ---
     m_c2 = m_options.useC2 && m_reader.supportsC2();
     if (m_options.useC2 && !m_c2)
-        log(LogLevel::Warning, u"C2 error pointers requested, but not supported by the drive. Ignoring."_s);
+        log(LogLevel::Warning, Tr::tr("C2 error pointers requested, but not supported by the drive. Ignoring."));
     m_reader.setC2Enabled(m_c2);
 
     // C2 data enlarges each sector, so ask for the burst size afterwards
@@ -265,7 +273,7 @@ RipResult RipEngine::run(const QList<Segment> &segments)
 
     // always set: 0 (maximum) also replaces a speed left over by an earlier rip
     if (!m_reader.setReadSpeed(m_options.readSpeed) && m_options.readSpeed > 0)
-        log(LogLevel::Warning, u"Unable to set read speed to %1x."_s.arg(m_options.readSpeed));
+        log(LogLevel::Warning, Tr::tr("Unable to set read speed to %1x.").arg(m_options.readSpeed));
     m_recoverySpeedActive = false;
 
     const bool verifyFirst = m_options.verifyFirst && m_options.mode == ReadMode::Secure && m_callbacks.verify && m_callbacks.discard;
@@ -426,7 +434,7 @@ void RipEngine::segmentComplete(int index)
     const bool forced = m_forceRetry.contains(index);
     if (!forced && m_callbacks.verify(index, r)) {
         r.acceptedAfterOnePass = true;
-        log(LogLevel::Info, u"Track %1 confirmed after one read."_s.arg(track));
+        log(LogLevel::Info, Tr::tr("Track %1 confirmed after one read.").arg(track));
         reportStatus(index, SegmentStatus::Confirmed);
         return;
     }
@@ -437,9 +445,9 @@ void RipEngine::segmentComplete(int index)
         return;
     }
     if (forced)
-        log(LogLevel::Info, u"Track %1 holds audio the checksums of another track did not confirm; it is extracted again in secure mode."_s.arg(track));
+        log(LogLevel::Info, Tr::tr("Track %1 holds audio the checksums of another track did not confirm; it is extracted again in secure mode.").arg(track));
     else
-        log(LogLevel::Info, u"Track %1 not confirmed after one read; it is extracted again in secure mode."_s.arg(track));
+        log(LogLevel::Info, Tr::tr("Track %1 not confirmed after one read; it is extracted again in secure mode.").arg(track));
     scheduleRetry(index);
 
     // Other files holding part of this checksum range (a pre-gap kept with
@@ -462,7 +470,7 @@ void RipEngine::segmentComplete(int index)
             return;
         }
         log(LogLevel::Info,
-            u"Track %1 holds audio the checksums of track %2 did not confirm; it is extracted again in secure mode."_s.arg(o.trackNumber).arg(track));
+            Tr::tr("Track %1 holds audio the checksums of track %2 did not confirm; it is extracted again in secure mode.").arg(o.trackNumber).arg(track));
         scheduleRetry(other);
     }
 }
@@ -591,7 +599,10 @@ void RipEngine::dropOverread(Copy &copy, int index, const Text &reason)
     const bool leadIn = copy.lba + index < m_area.firstLba;
     (leadIn ? m_leadInUnreadable : m_leadOutUnreadable) = true;
     if (!m_overreadWarningShown) {
-        log(LogLevel::Warning, u"Drive cannot read into the %1 (%2). Using silence instead."_s.arg(leadIn ? u"lead-in"_s : u"lead-out"_s, reason.toString()));
+        log(LogLevel::Warning,
+            (leadIn ? Tr::tr("Drive cannot read into the lead-in (%1). Using silence instead.")
+                    : Tr::tr("Drive cannot read into the lead-out (%1). Using silence instead."))
+                .arg(reason.toString()));
         m_overreadWarningShown = true;
     }
     std::memset(copy.audio.data() + qsizetype(index) * SectorBytes, 0, SectorBytes);
@@ -612,7 +623,9 @@ void RipEngine::defeatCache(int lba, int count)
         const int target = cacheDefeatTarget(m_area, lba, count, i, reads, distance, n, &fits);
         if (!fits && !m_shortDiscWarningShown) {
             log(LogLevel::Warning,
-                u"Audio area is too short for %1 cache defeat reads %2 sectors apart; re-reads may be served from the drive cache."_s.arg(reads).arg(distance));
+                Tr::tr("Audio area is too short for %1 cache defeat reads %2 sectors apart; re-reads may be served from the drive cache.")
+                    .arg(reads)
+                    .arg(distance));
             m_shortDiscWarningShown = true;
         }
         readRaw(target, n);
@@ -710,7 +723,7 @@ void RipEngine::recoverFast(int lba, Copy &copy, int index)
         if (trustworthy(st)) {
             std::memcpy(dst, r.audio.constData(), SectorBytes);
             copy.status[index] = st;
-            log(LogLevel::Info, u"Sector %1 recovered after %2 retr%3."_s.arg(lba).arg(attempt).arg(attempt == 1 ? u"y"_s : u"ies"_s));
+            log(LogLevel::Info, Tr::tr("Sector %1 recovered after %n retry(s).", nullptr, attempt).arg(lba));
             return;
         }
         if (st.c2Errors < bestC2) {
@@ -955,13 +968,16 @@ void RipEngine::resolveSecure(int lba, int count, Copy &result, int offset)
                            .arg(cands.size()));
     }
 
-    log(LogLevel::Info,
-        u"Error recovery for sectors %1..%2: %3 of %4 resolved after %5 reads%6"_s.arg(lba)
-            .arg(lba + count - 1)
-            .arg(resolved)
-            .arg(count)
-            .arg(reads)
-            .arg(givenUp > 0 ? u", %1 given up (no data at all)"_s.arg(givenUp) : QString()));
+    QString recovery = (givenUp > 0 ? Tr::tr("Error recovery for sectors %1..%2: %3 of %4 resolved after %5 reads, %6 given up (no data at all)")
+                                    : Tr::tr("Error recovery for sectors %1..%2: %3 of %4 resolved after %5 reads"))
+                           .arg(lba)
+                           .arg(lba + count - 1)
+                           .arg(resolved)
+                           .arg(count)
+                           .arg(reads);
+    if (givenUp > 0)
+        recovery = recovery.arg(givenUp);
+    log(LogLevel::Info, recovery);
 }
 
 // ---------------------------------------------------------------------------
@@ -998,9 +1014,9 @@ void RipEngine::markSuspicious(int driveSector, bool zeroFilled, const Text &rea
     // one, the rest only counted in the result (and listed by the rip report)
     constexpr int MaxLogged = 50;
     if (m_suspiciousLogged < MaxLogged)
-        log(LogLevel::Warning, u"Suspicious position at LBA %1 (drive sector %2): %3"_s.arg(lba).arg(driveSector).arg(reason.toString()));
+        log(LogLevel::Warning, Tr::tr("Suspicious position at LBA %1 (drive sector %2): %3").arg(lba).arg(driveSector).arg(reason.toString()));
     else if (m_suspiciousLogged == MaxLogged)
-        log(LogLevel::Warning, u"More suspicious positions follow; they are not logged one by one, the rip log lists them."_s);
+        log(LogLevel::Warning, Tr::tr("More suspicious positions follow; they are not logged one by one, the rip log lists them."));
     ++m_suspiciousLogged;
 }
 

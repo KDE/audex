@@ -36,6 +36,8 @@ void print(FILE *stream, const QString &text);
 QString hex8(quint32 v);
 QString signedNumber(int v); // "+6", "-12", "0"
 QString duration(int sectors); // "4:12.33" (minutes:seconds.frames)
+// "Label:" padded to the value column of the result tables
+QString field(const QString &label, const QString &value);
 
 // Ctrl+C sets a flag the long operations look at; a second one ends the
 // program at once.

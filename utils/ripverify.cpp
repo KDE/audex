@@ -321,26 +321,27 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     l << Tr::tr("Checked on %1, the log was written by %2").arg(QDateTime::currentDateTime().toString(Qt::ISODate), log->application);
     l << QString();
     for (const TrackResult &t : std::as_const(result.tracks)) {
-        l << (t.number == 0 ? u"Hidden track one audio"_s : u"Track %1"_s.arg(t.number, 2, 10, QLatin1Char('0')));
+        l << (t.number == 0 ? Tr::tr("Hidden track one audio") : Tr::tr("Track %1").arg(t.number, 2, 10, QLatin1Char('0')));
         if (!t.path.isEmpty())
-            l << u"     File %1"_s.arg(QDir::toNativeSeparators(t.path));
+            l << u"     "_s + Tr::tr("File %1").arg(QDir::toNativeSeparators(t.path));
         if (t.crc && t.loggedCrc)
-            l << (t.changed() ? u"     Copy CRC %1, CHANGED (the log says %2)"_s.arg(hex8(*t.crc), hex8(*t.loggedCrc))
-                              : u"     Copy CRC %1, unchanged"_s.arg(hex8(*t.crc)));
+            l << u"     "_s
+                    + (t.changed() ? Tr::tr("Copy CRC %1, CHANGED (the log says %2)").arg(hex8(*t.crc), hex8(*t.loggedCrc))
+                                   : Tr::tr("Copy CRC %1, unchanged").arg(hex8(*t.crc)));
         else if (t.crc)
-            l << u"     Copy CRC %1 (none in the log)"_s.arg(hex8(*t.crc));
+            l << u"     "_s + Tr::tr("Copy CRC %1 (none in the log)").arg(hex8(*t.crc));
         if (!t.problem.isEmpty())
             l << u"     "_s + t.problem;
         l << QString();
     }
     if (rq.online) {
         if (!arError.isEmpty())
-            l << u"AccurateRip verification"_s << QString() << u"     Lookup failed: %1"_s.arg(arError.toString());
+            l << Tr::tr("AccurateRip verification") << QString() << u"     "_s + Tr::tr("Lookup failed: %1").arg(arError.toString());
         else
             l << toStrings(AccurateRip::formatVerification(arResponses, checked, toc, &result.accurateRipMismatches));
         l << QString();
         if (!ctdbError.isEmpty())
-            l << u"CUETools database (CTDB) verification"_s << QString() << u"     Lookup failed: %1"_s.arg(ctdbError.toString());
+            l << Tr::tr("CUETools database (CTDB) verification") << QString() << u"     "_s + Tr::tr("Lookup failed: %1").arg(ctdbError.toString());
         else
             l << toStrings(Ctdb::formatVerification(entries, checked, toc, &result.ctdbMismatches));
         l << QString();

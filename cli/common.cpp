@@ -10,6 +10,7 @@
 #include "core/cdda.h"
 
 #include <QCommandLineOption>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -17,6 +18,7 @@
 #include <QStandardPaths>
 #include <QTextStream>
 
+#include <algorithm>
 #include <atomic>
 #include <csignal>
 
@@ -27,6 +29,10 @@ namespace Audex::Cli
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::Cli)
+};
 
 std::atomic<bool> s_canceled{false};
 
@@ -62,6 +68,13 @@ QString duration(int sectors)
     return u"%1:%2.%3"_s.arg(seconds / 60).arg(seconds % 60, 2, 10, QLatin1Char('0')).arg(frames, 2, 10, QLatin1Char('0'));
 }
 
+QString field(const QString &label, const QString &value)
+{
+    constexpr int Column = 14;
+    const QString head = label.isEmpty() ? QString() : label + u':';
+    return head + QString(std::max<qsizetype>(1, Column - head.size()), u' ') + value;
+}
+
 void installCancelHandler()
 {
     std::signal(SIGINT, onInterrupt);
@@ -87,15 +100,15 @@ std::optional<DriveEntry> chooseDrive(const QString &device, QString *error)
         QStringList paths;
         for (const QString &node : nodes)
             paths << u"/dev/"_s + node;
-        *error = nodes.isEmpty() ? u"No optical drive found; name one with --device."_s
-                                 : u"Several drives found (%1); choose one with --device."_s.arg(paths.join(u", "_s));
+        *error = nodes.isEmpty() ? Tr::tr("No optical drive found; name one with --device.")
+                                 : Tr::tr("Several drives found (%1); choose one with --device.").arg(paths.join(u", "_s));
     }
     return std::nullopt;
 }
 
 QCommandLineOption deviceOption()
 {
-    return QCommandLineOption({u"d"_s, u"device"_s}, u"The drive, e.g. /dev/sr0 (default: the only one)."_s, u"node"_s);
+    return QCommandLineOption({u"d"_s, u"device"_s}, Tr::tr("The drive, e.g. /dev/sr0 (default: the only one)."), Tr::tr("node", "value of --device"));
 }
 
 int openDisc(const QString &device, DriveEntry *drive, DriveLock *lock, DiscReadResult *disc)

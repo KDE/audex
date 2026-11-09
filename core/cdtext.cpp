@@ -7,6 +7,7 @@
 
 #include "cdtext.h"
 
+#include <QCoreApplication>
 #include <QStringDecoder>
 #include <QtEndian>
 
@@ -19,6 +20,10 @@ namespace Audex::Cdda
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::CdText)
+};
 
 constexpr int PackSize = 18;
 constexpr int PayloadSize = 12;
@@ -47,9 +52,9 @@ public:
         if (m_code == CdTextCharset::MsJis) {
             m_decoder = QStringDecoder("Shift_JIS");
             if (!m_decoder.isValid())
-                warnings << u"MS-JIS (Shift_JIS) text cannot be decoded: no codec available"_s;
+                warnings << Tr::tr("MS-JIS (Shift_JIS) text cannot be decoded: no codec available");
         } else if (m_code != CdTextCharset::Iso8859_1 && m_code != CdTextCharset::Ascii) {
-            warnings << u"Unsupported CD-Text character code 0x%1, text ignored"_s.arg(m_code, 2, 16, QLatin1Char('0'));
+            warnings << Tr::tr("Unsupported CD-Text character code 0x%1, text ignored").arg(m_code, 2, 16, QLatin1Char('0'));
         }
     }
 
@@ -186,7 +191,7 @@ std::optional<CdText> parseCdText(QByteArrayView response, QString *error)
     });
     if (!anyCrcOk) {
         result.crcIgnored = true;
-        result.warnings << u"The drive delivered no valid CD-Text checksums; data used unchecked"_s;
+        result.warnings << Tr::tr("The drive delivered no valid CD-Text checksums; data used unchecked");
     } else {
         QList<Pack> valid;
         for (qsizetype i = 0; i < packs.size(); ++i) {
@@ -197,7 +202,7 @@ std::optional<CdText> parseCdText(QByteArrayView response, QString *error)
         }
         packs = valid;
         if (result.crcErrors > 0)
-            result.warnings << u"%1 CD-Text pack(s) dropped because of CRC errors"_s.arg(result.crcErrors);
+            result.warnings << Tr::tr("%n CD-Text pack(s) dropped because of CRC errors", nullptr, result.crcErrors);
     }
 
     for (int b = 0; b < 8; ++b) {

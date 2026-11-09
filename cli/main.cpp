@@ -19,6 +19,9 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QLibraryInfo>
+#include <QLocale>
+#include <QTranslator>
 
 using namespace Qt::StringLiterals;
 
@@ -27,6 +30,27 @@ namespace Audex::Cli
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::Cli)
+};
+
+QString usage()
+{
+    const auto command = [](const char *name, const QString &description) {
+        return u"  %1 %2"_s.arg(QLatin1String(name), -8).arg(description);
+    };
+    return QStringList{Tr::tr("Usage: audex-cli <command> [options]"),
+                       QString(),
+                       Tr::tr("Commands:"),
+                       command("info", Tr::tr("Show information about the drive and the inserted disc")),
+                       command("offset", Tr::tr("Measure the read offset of the drive with AccurateRip and save it")),
+                       command("rip", Tr::tr("Rip the disc as WAV files with cue sheet and log, verified with AccurateRip")),
+                       command("verify", Tr::tr("Check finished rips against their rip log, AccurateRip and the CUETools database")),
+                       QString(),
+                       Tr::tr("Use 'audex-cli <command> --help' to show options for a specific command.")}
+        .join(u'\n');
+}
 
 int exitCode(Verify::Verdict verdict)
 {
@@ -91,16 +115,16 @@ int verify(const QStringList &arguments)
 {
     QCommandLineParser parser;
     parser.setApplicationDescription(
-        u"Checks finished rips: the files are read back and compared with the copy CRCs "
-        "of the rip log. AccurateRip and the CUETools database are checked again."_s);
+        Tr::tr("Checks finished rips: the files are read back and compared with the copy CRCs "
+               "of the rip log. AccurateRip and the CUETools database are checked again."));
     parser.addHelpOption();
-    parser.addPositionalArgument(u"verify"_s, u"The command."_s);
-    parser.addPositionalArgument(u"log"_s, u"Rip log(s) of Audex."_s, u"log..."_s);
-    const QCommandLineOption offline(u"offline"_s, u"Only compare the files with the log without querying online databases."_s);
-    const QCommandLineOption directory(u"dir"_s, u"Look for the files in <folder> (one log only)."_s, u"folder"_s);
-    const QCommandLineOption confidence(u"min-confidence"_s, u"Minimum database confidence required for a track (default: 2)."_s, u"n"_s, u"2"_s);
-    const QCommandLineOption json(u"json"_s, u"Print the results as JSON."_s);
-    const QCommandLineOption quiet(u"quiet"_s, u"Print only the result of each log."_s);
+    parser.addPositionalArgument(u"verify"_s, Tr::tr("The command."));
+    parser.addPositionalArgument(u"log"_s, Tr::tr("Rip log(s) of Audex."), u"log..."_s);
+    const QCommandLineOption offline(u"offline"_s, Tr::tr("Only compare the files with the log without querying online databases."));
+    const QCommandLineOption directory(u"dir"_s, Tr::tr("Look for the files in <folder> (one log only)."), u"folder"_s);
+    const QCommandLineOption confidence(u"min-confidence"_s, Tr::tr("Minimum database confidence required for a track (default: 2)."), u"n"_s, u"2"_s);
+    const QCommandLineOption json(u"json"_s, Tr::tr("Print the results as JSON."));
+    const QCommandLineOption quiet(u"quiet"_s, Tr::tr("Print only the result of each log."));
     parser.addOptions({offline, directory, confidence, json, quiet});
     parser.process(arguments);
 
@@ -153,6 +177,10 @@ int main(int argc, char **argv)
     QCoreApplication app(argc, argv);
     QCoreApplication::setApplicationName(u"audex-cli"_s);
     QCoreApplication::setApplicationVersion(QStringLiteral(AUDEX_VERSION_STRING));
+    // the texts of QCommandLineParser itself ("Usage:", "Options:", ...)
+    QTranslator qtTranslator;
+    if (qtTranslator.load(QLocale(), u"qtbase"_s, u"_"_s, QLibraryInfo::path(QLibraryInfo::TranslationsPath)))
+        QCoreApplication::installTranslator(&qtTranslator);
 
     const QStringList arguments = app.arguments();
     const QString command = arguments.value(1);
@@ -168,13 +196,6 @@ int main(int argc, char **argv)
         print(stdout, u"audex-cli "_s + QCoreApplication::applicationVersion());
         return ExitOk;
     }
-    print(command == u"--help"_s || command == u"-h"_s ? stdout : stderr,
-          u"Usage: audex-cli <command> [options]\n\n"
-          "Commands:\n"
-          "  info     Show information about the drive and the inserted disc\n"
-          "  offset   Measure the read offset of the drive with AccurateRip and save it\n"
-          "  rip      Rip the disc as WAV files with cue sheet and log, verified with AccurateRip\n"
-          "  verify   Check finished rips against their rip log, AccurateRip and the CUETools database\n\n"
-          "Use 'audex-cli <command> --help' to show options for a specific command."_s);
+    print(command == u"--help"_s || command == u"-h"_s ? stdout : stderr, usage());
     return command == u"--help"_s || command == u"-h"_s ? ExitOk : ExitUsage;
 }

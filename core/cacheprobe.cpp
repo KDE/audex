@@ -7,6 +7,8 @@
 
 #include "cacheprobe.h"
 
+#include <QCoreApplication>
+
 #include <algorithm>
 
 using namespace Qt::StringLiterals;
@@ -16,6 +18,10 @@ namespace Audex::Rip
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::CacheProbe)
+};
 
 constexpr int Positions = 3; // at 30, 50 and 70 % of the audio area
 constexpr int WarmUpReads = 4;
@@ -52,7 +58,7 @@ CacheDefeatCalibration calibrateCacheDefeat(SectorReader &reader, ReadableArea a
     const auto stop = [&] {
         result.timedOut = true;
         result.cachingDetected = false;
-        result.details << u"The drive did not answer a read in time; measurement stopped."_s;
+        result.details << Tr::tr("The drive did not answer a read in time; measurement stopped.");
         return result;
     };
 
@@ -83,8 +89,12 @@ CacheDefeatCalibration calibrateCacheDefeat(SectorReader &reader, ReadableArea a
             if (cachedBase < 0)
                 cachedBase = base;
         }
-        result.details << u"Block of %1 sectors at LBA %2: first read %3 us, re-read %4 us%5"_s.arg(block).arg(base).arg(coldUs).arg(hotUs).arg(
-            hit ? u" (cached)"_s : QString());
+        result.details << (hit ? Tr::tr("Block of %1 sectors at LBA %2: first read %3 us, re-read %4 us (cached)")
+                               : Tr::tr("Block of %1 sectors at LBA %2: first read %3 us, re-read %4 us"))
+                              .arg(block)
+                              .arg(base)
+                              .arg(coldUs)
+                              .arg(hotUs);
         if (timedOut())
             return stop();
     }
@@ -104,7 +114,7 @@ CacheDefeatCalibration calibrateCacheDefeat(SectorReader &reader, ReadableArea a
         if (timedOut())
             return stop();
         const qint64 t = median(times);
-        result.details << u"Re-read after %1 far read(s): %2 us"_s.arg(n).arg(t);
+        result.details << Tr::tr("Re-read after %n far read(s): %1 us", nullptr, n).arg(t);
         if (t * 4 >= coldUs) {
             result.reads = n;
             return result;

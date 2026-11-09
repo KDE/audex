@@ -55,7 +55,7 @@ struct RipRequest {
     bool accurateRipLookup = false;
     // why AccurateRip is not asked; if set, the log and the messages say so
     // with a warning instead of leaving the verification out silently
-    QString accurateRipSkipped;
+    Text accurateRipSkipped;
 
     // look up the disc in the CUETools database before the extraction
     // (keepConfirmedTracks) and verify the rip afterwards

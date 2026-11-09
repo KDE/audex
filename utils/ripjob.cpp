@@ -610,8 +610,8 @@ void RipJob::run()
             sayAccurateRip(verification);
         }
     } else if (!rq.accurateRipLookup && !rq.accurateRipSkipped.isEmpty() && result.completed) {
-        accurateRipLines << u"AccurateRip verification"_s << QString() << u"     NOT PERFORMED: %1"_s.arg(rq.accurateRipSkipped);
-        say(Rip::LogLevel::Warning, tr("AccurateRip verification not performed: %1").arg(rq.accurateRipSkipped));
+        accurateRipLines << u"AccurateRip verification"_s << QString() << u"     NOT PERFORMED: %1"_s.arg(rq.accurateRipSkipped.toEnglish());
+        say(Rip::LogLevel::Warning, tr("AccurateRip verification not performed: %1").arg(rq.accurateRipSkipped.toString()));
     }
 
     // --- CUETools database verification ---

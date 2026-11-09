@@ -187,7 +187,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
     if (drive.isSimulated()) {
         const Cdda::Toc toc = Demo::toc();
         result.driveName = Tr::tr("Simulated drive");
-        result.driveModel = result.driveName;
+        result.driveModel = u"Simulated drive"_s; // a key, e.g. of the saved read offsets
         result.info = CDInfo(toc, drive.id);
         result.discCandidates = candidatesFromCdText(Demo::cdText(), result.info);
         result.htoaSilent = toc.htoaSectorCount() > 0 && isHtoaSilent(*Demo::reader(), toc);

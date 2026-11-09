@@ -11,6 +11,7 @@
 #include "core/cdg.h"
 #include "core/subchannel.h"
 
+#include <QCoreApplication>
 #include <QHash>
 
 #include <algorithm>
@@ -23,6 +24,10 @@ namespace Audex::Rip
 
 namespace
 {
+
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::DriveFeatures)
+};
 
 using Cdda::BytesPerSample;
 using Cdda::SamplesPerSector;
@@ -194,7 +199,7 @@ struct Context {
 
     QString noPosition() const
     {
-        return positionTimedOut ? u"not tested: the drive did not answer in time"_s : u"not tested: no usable position on this disc"_s;
+        return positionTimedOut ? Tr::tr("not tested: the drive did not answer in time") : Tr::tr("not tested: no usable position on this disc");
     }
 };
 
@@ -245,18 +250,18 @@ FeatureCheck checkBurst(Context &ctx, DriveFeatures &f)
         for (const int p : std::as_const(positions))
             ok = ok && burstWorks(ctx, p, sectors);
         if (!ok) {
-            c.details << u"%1 sectors per command: failed"_s.arg(sectors);
+            c.details << Tr::tr("%1 sectors per command: failed").arg(sectors);
             continue;
         }
-        c.details << u"%1 sectors per command: ok"_s.arg(sectors);
+        c.details << Tr::tr("%1 sectors per command: ok").arg(sectors);
         f.burstSectors = sectors;
         ctx.burst = sectors;
         c.verdict = sectors >= BurstCandidates.constFirst() ? Feature::Yes : Feature::No;
-        c.summary = sectors >= BurstCandidates.constFirst() ? u"up to %1 sectors per command (no limit found)"_s.arg(sectors)
-                                                            : u"up to %1 sectors per command"_s.arg(sectors);
+        c.summary = sectors >= BurstCandidates.constFirst() ? Tr::tr("up to %1 sectors per command (no limit found)").arg(sectors)
+                                                            : Tr::tr("up to %1 sectors per command").arg(sectors);
         return c;
     }
-    c.summary = u"not tested"_s;
+    c.summary = Tr::tr("not tested");
     return c;
 }
 
@@ -266,19 +271,20 @@ FeatureCheck checkCache(Context &ctx, DriveFeatures &f)
     const CacheDefeatCalibration cal = calibrateCacheDefeat(ctx.reader, ctx.area, DefeatDistance);
     c.details = cal.details;
     if (cal.timedOut) {
-        c.summary = u"not tested: the drive did not answer in time"_s;
+        c.summary = Tr::tr("not tested: the drive did not answer in time");
         return c;
     }
     f.caching = cal.cachingDetected ? Feature::Yes : Feature::No;
     c.verdict = f.caching;
     if (!cal.cachingDetected) {
         f.cacheDefeatReads = 0;
-        c.summary = u"none: every read reaches the disc"_s;
+        c.summary = Tr::tr("none: every read reaches the disc");
         return c;
     }
     f.cacheDefeatReads = cal.reads;
     ctx.defeatReads = cal.reads;
-    c.summary = cal.defeated ? u"caches audio, %1 far read(s) flush it"_s.arg(cal.reads) : u"caches audio, %1 far reads did not flush it"_s.arg(cal.reads);
+    c.summary = cal.defeated ? Tr::tr("caches audio, %n far read(s) flush it", nullptr, cal.reads)
+                             : Tr::tr("caches audio, %n far read(s) did not flush it", nullptr, cal.reads);
     return c;
 }
 
@@ -309,26 +315,26 @@ FeatureCheck checkStream(Context &ctx, DriveFeatures &f)
         const std::optional<int> shift = alignShift(b.audio, qint64(LeadSectors) * SamplesPerSector, needle);
         if (!shift) {
             ++unusable;
-            c.details << u"LBA %1: the two reads have no samples in common"_s.arg(p);
+            c.details << Tr::tr("LBA %1: the two reads have no samples in common").arg(p);
         } else if (*shift == 0) {
             ++aligned;
-            c.details << u"LBA %1: both reads deliver the same samples"_s.arg(p);
+            c.details << Tr::tr("LBA %1: both reads deliver the same samples").arg(p);
         } else {
             ++shifted;
             f.jitterSamples = std::max(f.jitterSamples, std::abs(*shift));
-            c.details << u"LBA %1: the second read is shifted by %2 samples"_s.arg(p).arg(*shift);
+            c.details << Tr::tr("LBA %1: the second read is shifted by %2 samples").arg(p).arg(*shift);
         }
     }
 
     if (shifted > 0) {
         f.accurateStream = Feature::No;
-        c.summary =
-            u"no: reads are up to %1 samples off after a seek; Audex cannot compensate for this, rips with this drive are not reliable"_s.arg(f.jitterSamples);
+        c.summary = Tr::tr("no: reads are up to %1 samples off after a seek; Audex cannot compensate for this, rips with this drive are not reliable")
+                        .arg(f.jitterSamples);
     } else if (aligned >= 2) {
         f.accurateStream = Feature::Yes;
-        c.summary = u"yes: repeated reads line up exactly"_s;
+        c.summary = Tr::tr("yes: repeated reads line up exactly");
     } else {
-        c.summary = u"not tested: %1 of %2 positions could not be compared"_s.arg(unusable).arg(Positions);
+        c.summary = Tr::tr("not tested: %1 of %2 positions could not be compared").arg(unusable).arg(Positions);
     }
     c.verdict = f.accurateStream;
     return c;
@@ -343,7 +349,7 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
     if (!f.c2Supported) {
         f.c2Reliable = Feature::No;
         c.verdict = Feature::No;
-        c.summary = u"not supported by this drive"_s;
+        c.summary = Tr::tr("not supported by this drive");
         return c;
     }
     const int p = ctx.position(1);
@@ -378,15 +384,15 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
             f.c2Supported = false;
             f.c2Reliable = Feature::No;
             c.verdict = Feature::No;
-            c.summary = timedOut ? u"advertised by the drive, but reads with C2 pointers get no answer"_s
-                                 : u"advertised by the drive, but reads with C2 pointers fail"_s;
-            c.details << u"LBA %1: read of %2 sectors with C2 pointers: %3"_s.arg(p).arg(ctx.block()).arg(r.error.isEmpty() ? u"no data"_s : r.error);
+            c.summary = timedOut ? Tr::tr("advertised by the drive, but reads with C2 pointers get no answer")
+                                 : Tr::tr("advertised by the drive, but reads with C2 pointers fail");
+            c.details << Tr::tr("LBA %1: read of %2 sectors with C2 pointers: %3").arg(p).arg(ctx.block()).arg(r.error.isEmpty() ? Tr::tr("no data") : r.error);
             return c;
         }
         if (!r.allOk()) {
             // a failed read is no copy (its sectors are zero-filled); another
             // attempt would most likely only wait for the same error again
-            c.details << u"LBA %1: read with C2 pointers failed: %2"_s.arg(p).arg(r.error.isEmpty() ? u"no data"_s : r.error);
+            c.details << Tr::tr("LBA %1: read with C2 pointers failed: %2").arg(p).arg(r.error.isEmpty() ? Tr::tr("no data") : r.error);
             break;
         }
         int c2 = 0;
@@ -396,7 +402,7 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
         flags << c2;
     }
     if (copies.size() < 2) {
-        c.summary = ctx.canceled() ? u"not tested: stopped"_s : u"not tested: the block could not be read repeatedly"_s;
+        c.summary = ctx.canceled() ? Tr::tr("not tested: stopped") : Tr::tr("not tested: the block could not be read repeatedly");
         return c;
     }
 
@@ -421,19 +427,19 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
             ++cleanFlagged;
         }
     }
-    c.details << u"%1 reads of LBA %2: %3 faulty, %4 of them flagged by C2"_s.arg(copies.size()).arg(p).arg(faulty).arg(faultyFlagged);
+    c.details << Tr::tr("%1 reads of LBA %2: %3 faulty, %4 of them flagged by C2").arg(copies.size()).arg(p).arg(faulty).arg(faultyFlagged);
     if (cleanFlagged > 0)
-        c.details << u"%1 read(s) carried C2 pointers although the data was correct"_s.arg(cleanFlagged);
+        c.details << Tr::tr("%n read(s) carried C2 pointers although the data was correct", nullptr, cleanFlagged);
 
     if (faulty == 0) {
-        c.summary = cleanFlagged > 0 ? u"supported, but C2 errors are reported for correct data"_s
-                                     : u"supported; this disc produced no read errors, so nothing could be checked"_s;
+        c.summary = cleanFlagged > 0 ? Tr::tr("supported, but C2 errors are reported for correct data")
+                                     : Tr::tr("supported; this disc produced no read errors, so nothing could be checked");
     } else if (faultyFlagged == faulty) {
         f.c2Reliable = Feature::Yes;
-        c.summary = u"supported and reliable: every faulty read was flagged"_s;
+        c.summary = Tr::tr("supported and reliable: every faulty read was flagged");
     } else {
         f.c2Reliable = Feature::No;
-        c.summary = u"unreliable: %1 of %2 faulty reads were not flagged"_s.arg(faulty - faultyFlagged).arg(faulty);
+        c.summary = Tr::tr("unreliable: %1 of %2 faulty reads were not flagged").arg(faulty - faultyFlagged).arg(faulty);
     }
     c.verdict = f.c2Reliable;
     return c;
@@ -442,41 +448,45 @@ FeatureCheck checkC2(Context &ctx, DriveFeatures &f)
 FeatureCheck checkOverread(Context &ctx, DriveFeatures &f)
 {
     FeatureCheck c;
-    const auto probe = [&](int lba, const QString &what) {
+    const auto probe = [&](int lba, bool leadIn) {
         SectorReadResult r;
         {
             const Probing probing(ctx.reader);
             r = ctx.reader.read(lba, 1);
         }
         const bool ok = r.error.isEmpty() && r.allOk();
-        c.details << (ok ? u"%1 (LBA %2): readable%3"_s.arg(what).arg(lba).arg(isSilent(r.audio) ? u", digital silence"_s : QString())
-                         : u"%1 (LBA %2): %3"_s.arg(what).arg(lba).arg(r.error));
+        if (!ok)
+            c.details << (leadIn ? Tr::tr("lead-in (LBA %1): %2") : Tr::tr("lead-out (LBA %1): %2")).arg(lba).arg(r.error);
+        else if (isSilent(r.audio))
+            c.details << (leadIn ? Tr::tr("lead-in (LBA %1): readable, digital silence") : Tr::tr("lead-out (LBA %1): readable, digital silence")).arg(lba);
+        else
+            c.details << (leadIn ? Tr::tr("lead-in (LBA %1): readable") : Tr::tr("lead-out (LBA %1): readable")).arg(lba);
         return ok ? Feature::Yes : Feature::No;
     };
 
     if (ctx.area.firstLba == 0)
-        f.leadIn = probe(-1, u"lead-in"_s);
+        f.leadIn = probe(-1, true);
     else
-        c.details << u"lead-in not tested: the audio area does not start at the beginning of the disc"_s;
+        c.details << Tr::tr("lead-in not tested: the audio area does not start at the beginning of the disc");
     if (ctx.canceled())
         return c;
     if (ctx.answering())
-        f.leadOut = probe(ctx.area.endLba, u"lead-out"_s);
+        f.leadOut = probe(ctx.area.endLba, false);
     else if (ctx.stalled)
-        c.details << u"lead-out not tested: the drive stopped answering after the lead-in read"_s;
+        c.details << Tr::tr("lead-out not tested: the drive stopped answering after the lead-in read");
 
     if (f.leadIn == Feature::Yes && f.leadOut == Feature::Yes) {
         c.verdict = Feature::Yes;
-        c.summary = u"lead-in and lead-out can be read"_s;
+        c.summary = Tr::tr("lead-in and lead-out can be read");
     } else if (f.leadOut == Feature::Yes) {
         c.verdict = Feature::Yes;
-        c.summary = u"only the lead-out can be read"_s;
+        c.summary = Tr::tr("only the lead-out can be read");
     } else if (f.leadIn == Feature::Yes) {
         c.verdict = Feature::Yes;
-        c.summary = u"only the lead-in can be read"_s;
+        c.summary = Tr::tr("only the lead-in can be read");
     } else {
         c.verdict = Feature::No;
-        c.summary = u"not possible: the drive refuses to read outside the audio area"_s;
+        c.summary = Tr::tr("not possible: the drive refuses to read outside the audio area");
     }
     return c;
 }
@@ -500,11 +510,11 @@ FeatureCheck checkSubchannel(Context &ctx, DriveFeatures &f)
         f.subchannelQ = Feature::No;
         c.verdict = Feature::No;
         if (ctx.timedOutSince(timeouts)) {
-            c.summary = u"not delivered: the drive does not answer reads of the Q sub-channel"_s;
-            c.details << u"READ CD with formatted Q sub-channel: no answer in time (timeout)"_s;
+            c.summary = Tr::tr("not delivered: the drive does not answer reads of the Q sub-channel");
+            c.details << Tr::tr("READ CD with formatted Q sub-channel: no answer in time (timeout)");
         } else {
-            c.summary = u"not delivered by this drive"_s;
-            c.details << u"READ CD with formatted Q sub-channel returned no data"_s;
+            c.summary = Tr::tr("not delivered by this drive");
+            c.details << Tr::tr("READ CD with formatted Q sub-channel returned no data");
         }
         return c;
     }
@@ -519,10 +529,10 @@ FeatureCheck checkSubchannel(Context &ctx, DriveFeatures &f)
         if (frame->adr == 1 && std::abs(frame->absoluteLba - (p + int(i / SubQBytes))) <= 4)
             ++positional;
     }
-    c.details << u"%1 of %2 frames valid, %3 with the requested position"_s.arg(valid).arg(q.size() / SubQBytes).arg(positional);
+    c.details << Tr::tr("%1 of %2 frames valid, %3 with the requested position").arg(valid).arg(q.size() / SubQBytes).arg(positional);
     f.subchannelQ = positional > 0 ? Feature::Yes : Feature::No;
     c.verdict = f.subchannelQ;
-    c.summary = positional > 0 ? u"delivered: pregaps, indexes and ISRCs can be read"_s : u"delivered, but the frames are unusable"_s;
+    c.summary = positional > 0 ? Tr::tr("delivered: pregaps, indexes and ISRCs can be read") : Tr::tr("delivered, but the frames are unusable");
     return c;
 }
 
@@ -547,11 +557,11 @@ FeatureCheck checkRw(Context &ctx, DriveFeatures &f)
         f.rwSubchannel = Feature::No;
         c.verdict = Feature::No;
         if (ctx.timedOutSince(timeouts)) {
-            c.summary = u"not delivered: the drive does not answer reads of the raw sub-channel"_s;
-            c.details << u"READ CD with raw P-W sub-channel: no answer in time (timeout)"_s;
+            c.summary = Tr::tr("not delivered: the drive does not answer reads of the raw sub-channel");
+            c.details << Tr::tr("READ CD with raw P-W sub-channel: no answer in time (timeout)");
         } else {
-            c.summary = u"not delivered by this drive: CD+G graphics cannot be read"_s;
-            c.details << u"READ CD with raw P-W sub-channel returned no data"_s;
+            c.summary = Tr::tr("not delivered by this drive: CD+G graphics cannot be read");
+            c.details << Tr::tr("READ CD with raw P-W sub-channel returned no data");
         }
         return c;
     }
@@ -569,7 +579,7 @@ FeatureCheck checkRw(Context &ctx, DriveFeatures &f)
     if (valid == 0) {
         f.rwSubchannel = Feature::No;
         c.verdict = Feature::No;
-        c.summary = u"delivered, but unusable: no valid Q frame in it"_s;
+        c.summary = Tr::tr("delivered, but unusable: no valid Q frame in it");
         return c;
     }
     int shift = shifts.cbegin().key();
@@ -579,18 +589,19 @@ FeatureCheck checkRw(Context &ctx, DriveFeatures &f)
     f.rwSubchannel = Feature::Yes;
     f.rwShift = shift;
     c.verdict = Feature::Yes;
-    c.details << u"%1 of %2 blocks with a valid Q frame, the sub-channel is %3 sector(s) off"_s.arg(valid).arg(blocks).arg(shift);
+    c.details << Tr::tr("%1 of %2 blocks with a valid Q frame, the sub-channel is %3 sector(s) off").arg(valid).arg(blocks).arg(shift);
 
     const QByteArray rw = Cdda::rwFromSubcode(raw);
     const int asDelivered = Cdda::cdgGraphicsPacks(rw);
     const int deinterleaved = Cdda::cdgGraphicsPacks(Cdda::deinterleaveCdg(rw));
     if (asDelivered + deinterleaved == 0)
-        c.details << u"No CD+G graphics at this position of the disc."_s;
+        c.details << Tr::tr("No CD+G graphics at this position of the disc.");
     else if (asDelivered > deinterleaved)
-        c.details << u"CD+G graphics on this disc, delivered already de-interleaved."_s;
+        c.details << Tr::tr("CD+G graphics on this disc, delivered already de-interleaved.");
     else
-        c.details << u"CD+G graphics on this disc, delivered as on the disc (de-interleaved by Audex)."_s;
-    c.summary = shift == 0 ? u"delivered: CD+G graphics can be read"_s : u"delivered, %1 sector(s) off (corrected): CD+G graphics can be read"_s.arg(shift);
+        c.details << Tr::tr("CD+G graphics on this disc, delivered as on the disc (de-interleaved by Audex).");
+    c.summary =
+        shift == 0 ? Tr::tr("delivered: CD+G graphics can be read") : Tr::tr("delivered, %1 sector(s) off (corrected): CD+G graphics can be read").arg(shift);
     return c;
 }
 
@@ -610,17 +621,17 @@ DriveFeatures detectDriveFeatures(SectorReader &reader, const Cdda::Toc &toc, co
     // checks that can hang a drive (or its USB bridge) until it is switched
     // off come last: reads outside the audio area, and C2 pointers, which some
     // bridges do not survive.
-    QList<Step> steps{{u"burst"_s, u"Read command size"_s, &checkBurst},
-                      {u"cache"_s, u"Audio cache"_s, &checkCache},
-                      {u"stream"_s, u"Accurate stream"_s, &checkStream},
-                      {u"subchannel"_s, u"Q sub-channel"_s, &checkSubchannel}};
+    QList<Step> steps{{u"burst"_s, Tr::tr("Read command size"), &checkBurst},
+                      {u"cache"_s, Tr::tr("Audio cache"), &checkCache},
+                      {u"stream"_s, Tr::tr("Accurate stream"), &checkStream},
+                      {u"subchannel"_s, Tr::tr("Q sub-channel"), &checkSubchannel}};
     if (callbacks.offset)
-        steps.append({u"offset"_s, u"Read offset"_s, [&callbacks](Context &, DriveFeatures &) {
+        steps.append({u"offset"_s, Tr::tr("Read offset"), [&callbacks](Context &, DriveFeatures &) {
                           return callbacks.offset();
                       }});
-    steps.append({u"rw"_s, u"R-W sub-channel"_s, &checkRw});
-    steps.append({u"overread"_s, u"Overread"_s, &checkOverread});
-    steps.append({u"c2"_s, u"C2 error pointers"_s, &checkC2});
+    steps.append({u"rw"_s, Tr::tr("R-W sub-channel"), &checkRw});
+    steps.append({u"overread"_s, Tr::tr("Overread"), &checkOverread});
+    steps.append({u"c2"_s, Tr::tr("C2 error pointers"), &checkC2});
 
     DriveFeatures features;
     Context ctx{reader, ReadableArea{toc.audioStartLba(), toc.audioEndLba()}, callbacks.isCanceled, ProbeSectors, 4};
@@ -645,7 +656,7 @@ DriveFeatures detectDriveFeatures(SectorReader &reader, const Cdda::Toc &toc, co
             if (ctx.timedOutSince(timeouts))
                 lastTimeout = check.id;
         } else {
-            result.summary = ctx.canceled() ? u"not tested: stopped"_s : u"not tested: the drive stopped answering after a timeout"_s;
+            result.summary = ctx.canceled() ? Tr::tr("not tested: stopped") : Tr::tr("not tested: the drive stopped answering after a timeout");
         }
         noteStall();
         check.verdict = result.verdict;
