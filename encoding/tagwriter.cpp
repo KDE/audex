@@ -43,10 +43,9 @@ using Metadata::Field;
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::TagWriter", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::TagWriter)
+};
 
 bool fail(QString *error, const QString &message)
 {
@@ -252,12 +251,12 @@ TagLib::FLAC::Picture *flacPicture(const PreparedCover &c)
 bool saveXiph(TagLib::File &file, TagLib::Ogg::XiphComment *comment, const TagInfo &info, const std::optional<PreparedCover> &cover, QString *error)
 {
     if (!comment)
-        return fail(error, tr("The file has no Vorbis comment block."));
+        return fail(error, Tr::tr("The file has no Vorbis comment block."));
     file.setProperties(toPropertyMap(TagWriter::properties(info)));
     comment->removeAllPictures();
     if (cover)
         comment->addPicture(flacPicture(*cover));
-    return file.save() || fail(error, tr("Cannot save the tags."));
+    return file.save() || fail(error, Tr::tr("Cannot save the tags."));
 }
 
 // Any other format TagLib knows (WavPack, APE, WMA, AIFF, WAV, ...): the
@@ -281,7 +280,7 @@ bool writeGeneric(const QByteArray &name, const QString &suffix, const TagInfo &
 {
     TagLib::FileRef file(name.constData());
     if (file.isNull())
-        return fail(error, tr("TagLib does not know .%1 files, they stay untagged.").arg(suffix));
+        return fail(error, Tr::tr("TagLib does not know .%1 files, they stay untagged.").arg(suffix));
     file.file()->setProperties(toPropertyMap(combinedNumbers(TagWriter::properties(info))));
 #if TAGLIB_MAJOR_VERSION >= 2
     TagLib::List<TagLib::VariantMap> pictures;
@@ -297,7 +296,7 @@ bool writeGeneric(const QByteArray &name, const QString &suffix, const TagInfo &
 #else
     Q_UNUSED(cover)
 #endif
-    return file.save() || fail(error, tr("Cannot save the tags."));
+    return file.save() || fail(error, Tr::tr("Cannot save the tags."));
 }
 
 }
@@ -320,43 +319,43 @@ bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo 
     if (s == u"flac") {
         TagLib::FLAC::File file(name.constData());
         if (!file.isValid())
-            return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+            return fail(error, Tr::tr("Cannot read %1 for tagging.").arg(path));
         file.xiphComment(true);
         file.setProperties(toPropertyMap(properties(info)));
         file.removePictures();
         if (cover)
             file.addPicture(flacPicture(*cover));
-        return file.save() || fail(error, tr("Cannot save the tags."));
+        return file.save() || fail(error, Tr::tr("Cannot save the tags."));
     }
 
     if (s == u"opus") {
         TagLib::Ogg::Opus::File file(name.constData());
         if (!file.isValid())
-            return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+            return fail(error, Tr::tr("Cannot read %1 for tagging.").arg(path));
         return saveXiph(file, file.tag(), info, cover, error);
     }
 
     if (s == u"ogg" || s == u"oga") {
         TagLib::Ogg::Vorbis::File file(name.constData());
         if (!file.isValid())
-            return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+            return fail(error, Tr::tr("Cannot read %1 for tagging.").arg(path));
         return saveXiph(file, file.tag(), info, cover, error);
     }
 
     if (s == u"mp3") {
         TagLib::MPEG::File file(name.constData());
         if (!file.isValid())
-            return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+            return fail(error, Tr::tr("Cannot read %1 for tagging.").arg(path));
         fillId3v2(file.ID3v2Tag(true), info, cover);
-        return file.save(TagLib::MPEG::File::ID3v2, TagLib::File::StripOthers, TagLib::ID3v2::v4) || fail(error, tr("Cannot save the tags."));
+        return file.save(TagLib::MPEG::File::ID3v2, TagLib::File::StripOthers, TagLib::ID3v2::v4) || fail(error, Tr::tr("Cannot save the tags."));
     }
 
     if (s == u"aiff" || s == u"aif") {
         TagLib::RIFF::AIFF::File file(name.constData());
         if (!file.isValid())
-            return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+            return fail(error, Tr::tr("Cannot read %1 for tagging.").arg(path));
         fillId3v2(file.tag(), info, cover);
-        return file.save() || fail(error, tr("Cannot save the tags."));
+        return file.save() || fail(error, Tr::tr("Cannot save the tags."));
     }
 
     if (s != u"m4a" && s != u"mp4" && s != u"m4b")
@@ -365,7 +364,7 @@ bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo 
     // MP4 container
     TagLib::MP4::File file(name.constData());
     if (!file.isValid())
-        return fail(error, tr("Cannot read %1 for tagging.").arg(path));
+        return fail(error, Tr::tr("Cannot read %1 for tagging.").arg(path));
     TagLib::MP4::Tag *tag = file.tag();
     const TagLib::PropertyMap unsupported = tag->setProperties(toPropertyMap(combinedNumbers(properties(info))));
     // keys without an MP4 atom of their own (e.g. the pre-emphasis tag)
@@ -380,7 +379,7 @@ bool TagWriter::write(const QString &path, const QString &suffix, const TagInfo 
     } else {
         tag->removeItem("covr");
     }
-    return file.save() || fail(error, tr("Cannot save the tags."));
+    return file.save() || fail(error, Tr::tr("Cannot save the tags."));
 }
 
 }

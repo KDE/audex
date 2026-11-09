@@ -29,10 +29,9 @@ namespace Audex::Verify
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::Verify", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::Verify)
+};
 
 QString hex8(quint32 v)
 {
@@ -108,16 +107,16 @@ std::optional<RipLog> parseRipLog(const QString &text, QString *error)
     }
 
     if (log.toc.isEmpty() || log.toc.leadOutLba <= 0) {
-        *error = tr("This is not a rip log of Audex: it has no table of contents of the disc.");
+        *error = Tr::tr("This is not a rip log of Audex: it has no table of contents of the disc.");
         return std::nullopt;
     }
     if (log.tracks.isEmpty()) {
-        *error = tr("The rip log lists no tracks.");
+        *error = Tr::tr("The rip log lists no tracks.");
         return std::nullopt;
     }
     for (const LoggedTrack &t : std::as_const(log.tracks)) {
         if (t.file.isEmpty() || t.lastLba < t.firstLba) {
-            *error = tr("The rip log is incomplete: track %1 has no file or no range.").arg(t.number);
+            *error = Tr::tr("The rip log is incomplete: track %1 has no file or no range.").arg(t.number);
             return std::nullopt;
         }
     }
@@ -151,7 +150,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
 
     QFile logFile(rq.logPath);
     if (!logFile.open(QIODevice::ReadOnly)) {
-        result.error = tr("Cannot read %1: %2").arg(rq.logPath, logFile.errorString());
+        result.error = Tr::tr("Cannot read %1: %2").arg(rq.logPath, logFile.errorString());
         return result;
     }
     QString parseError;
@@ -187,9 +186,9 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
         const QString path = resolve(t.file);
         const Encoding::EncoderFactory *format = rq.encoders ? rq.encoders->factory(QFileInfo(t.file).suffix().toLower()) : nullptr;
         if (path.isEmpty())
-            track.problem = tr("The file %1 was not found.").arg(QFileInfo(t.file).fileName());
+            track.problem = Tr::tr("The file %1 was not found.").arg(QFileInfo(t.file).fileName());
         else if (!format || !format->createDecoder())
-            track.problem = tr("%1 files cannot be read back; only lossless files (FLAC, WAVE, AIFF) can be checked.").arg(QFileInfo(t.file).suffix());
+            track.problem = Tr::tr("%1 files cannot be read back; only lossless files (FLAC, WAVE, AIFF) can be checked.").arg(QFileInfo(t.file).suffix());
         else
             track.path = path;
         result.tracks << track;
@@ -233,7 +232,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     QList<Ctdb::Entry> entries;
     QString ctdbError;
     if (rq.online) {
-        say(tr("Looking up the disc in the AccurateRip database..."));
+        say(Tr::tr("Looking up the disc in the AccurateRip database..."));
         arResponses = AccurateRip::lookupDiscEntry(toc, &arError, nullptr, 30000, isCanceled);
         result.accurateRipAsked = arError.isEmpty();
         result.accurateRipKnown = !arResponses.isEmpty();
@@ -251,7 +250,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
                 }
             }
         }
-        say(tr("Looking up the disc in the CUETools database..."));
+        say(Tr::tr("Looking up the disc in the CUETools database..."));
         entries = Ctdb::lookup(toc, &ctdbError, 30000, isCanceled);
         result.ctdbAsked = ctdbError.isEmpty();
         result.ctdbKnown = !entries.isEmpty();
@@ -263,7 +262,7 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     qsizetype first = 0;
     while (first < files.size()) {
         if (isCanceled && isCanceled()) {
-            result.error = tr("canceled");
+            result.error = Tr::tr("canceled");
             return result;
         }
         qsizetype last = first;
@@ -283,19 +282,19 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
                 // part of its checksum range lies in a file that is missing
                 s.accurateRip = false;
                 s.checksumFirstLba = s.checksumLastLba = -1;
-                result.tracks[trackOfSegment.at(i)].problem = tr("Not checked with the databases: the file next to it is missing.");
+                result.tracks[trackOfSegment.at(i)].problem = Tr::tr("Not checked with the databases: the file next to it is missing.");
             }
             blockSegments << s;
             blockTracks << trackOfSegment.at(i);
         }
 
-        say(block.size() == 1 ? tr("Reading %1...").arg(QFileInfo(block.first().path).fileName()) : tr("Reading %1 files...").arg(block.size()));
+        say(block.size() == 1 ? Tr::tr("Reading %1...").arg(QFileInfo(block.first().path).fileName()) : Tr::tr("Reading %1 files...").arg(block.size()));
         QString readError;
         const std::optional<QList<Rip::SegmentResult>> read = checksumFiles(block, blockSegments, options, &readError, isCanceled);
         for (qsizetype i = 0; i < blockSegments.size(); ++i) {
             TrackResult &track = result.tracks[blockTracks.at(i)];
             if (!read) {
-                track.problem = tr("The file could not be read: %1").arg(readError);
+                track.problem = Tr::tr("The file could not be read: %1").arg(readError);
                 continue;
             }
             const Rip::SegmentResult &r = read->at(i);
@@ -318,8 +317,8 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
 
     // --- report ---
     QStringList &l = result.report;
-    l << tr("Verification of the rip log %1").arg(QDir::toNativeSeparators(QFileInfo(rq.logPath).absoluteFilePath()));
-    l << tr("Checked on %1, the log was written by %2").arg(QDateTime::currentDateTime().toString(Qt::ISODate), log->application);
+    l << Tr::tr("Verification of the rip log %1").arg(QDir::toNativeSeparators(QFileInfo(rq.logPath).absoluteFilePath()));
+    l << Tr::tr("Checked on %1, the log was written by %2").arg(QDateTime::currentDateTime().toString(Qt::ISODate), log->application);
     l << QString();
     for (const TrackResult &t : std::as_const(result.tracks)) {
         l << (t.number == 0 ? u"Hidden track one audio"_s : u"Track %1"_s.arg(t.number, 2, 10, QLatin1Char('0')));
@@ -369,25 +368,25 @@ Result verifyRip(const Request &rq, const std::function<void(const QString &)> &
     } else if (!confirmed && (!arError.isEmpty() || !ctdbError.isEmpty())) {
         // not "unconfirmed": the databases may well know the disc
         result.verdict = Verdict::Error;
-        result.error = tr("The databases could not be asked: %1").arg(arError.isEmpty() ? ctdbError : arError);
+        result.error = Tr::tr("The databases could not be asked: %1").arg(arError.isEmpty() ? ctdbError : arError);
     } else {
         result.verdict = confirmed ? Verdict::Ok : Verdict::Unconfirmed;
     }
     if (result.verdict == Verdict::Error && result.error.isEmpty())
-        result.error = tr("Not every track could be checked.");
+        result.error = Tr::tr("Not every track could be checked.");
 
     switch (result.verdict) {
     case Verdict::Ok:
-        l << (rq.online ? tr("Result: every file is unchanged, and every track is confirmed by a database.") : tr("Result: every file is unchanged."));
+        l << (rq.online ? Tr::tr("Result: every file is unchanged, and every track is confirmed by a database.") : Tr::tr("Result: every file is unchanged."));
         break;
     case Verdict::Unconfirmed:
-        l << tr("Result: nothing is wrong, but not every track could be confirmed.");
+        l << Tr::tr("Result: nothing is wrong, but not every track could be confirmed.");
         break;
     case Verdict::Failed:
-        l << tr("Result: the rip is not correct (anymore).");
+        l << Tr::tr("Result: the rip is not correct (anymore).");
         break;
     case Verdict::Error:
-        l << tr("Result: %1").arg(result.error);
+        l << Tr::tr("Result: %1").arg(result.error);
         break;
     }
     return result;

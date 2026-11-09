@@ -30,10 +30,9 @@ namespace Audex
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::DiscSource", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::DiscSource)
+};
 
 // never deleted: a drive thread may still use them while Audex quits; the
 // mutex guards the other drive registries as well
@@ -57,7 +56,7 @@ QHash<QString, bool> &reportedStreams()
 
 QString stalledMessage()
 {
-    return tr("The drive stopped answering. Switch it off and on again (a USB drive: unplug it and plug it in again).");
+    return Tr::tr("The drive stopped answering. Switch it off and on again (a USB drive: unplug it and plug it in again).");
 }
 
 class OwningMmcReader : public Mmc::MmcSectorReader
@@ -187,7 +186,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
 
     if (drive.isSimulated()) {
         const Cdda::Toc toc = Demo::toc();
-        result.driveName = tr("Simulated drive");
+        result.driveName = Tr::tr("Simulated drive");
         result.driveModel = result.driveName;
         result.info = CDInfo(toc, drive.id);
         result.discCandidates = candidatesFromCdText(Demo::cdText(), result.info);
@@ -230,7 +229,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
         reportedStreams().insert(drive.id, id.capabilities->accurateStream);
     }
     if (!device.isWritable())
-        result.notes << tr("%1 is opened read-only; the read speed cannot be changed.").arg(drive.id);
+        result.notes << Tr::tr("%1 is opened read-only; the read speed cannot be changed.").arg(drive.id);
 
     const auto toc = Mmc::readToc(device, &error, &result.notes);
     if (!toc)

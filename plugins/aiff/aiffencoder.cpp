@@ -22,10 +22,9 @@ using namespace Audex::Encoding;
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("AiffEncoder", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(AiffEncoder)
+};
 
 bool fail(QString *error, const QString &message)
 {
@@ -125,12 +124,12 @@ public:
             return fail(error, m_file.errorString());
         const QByteArray form = m_file.read(12);
         if (form.size() != 12 || !form.startsWith("FORM") || form.mid(8, 4) != "AIFF")
-            return fail(error, tr("%1 is not an AIFF file.").arg(path));
+            return fail(error, Tr::tr("%1 is not an AIFF file.").arg(path));
         bool format = false;
         while (true) {
             const QByteArray header = m_file.read(8);
             if (header.size() != 8)
-                return fail(error, tr("%1 contains no audio data.").arg(path));
+                return fail(error, Tr::tr("%1 contains no audio data.").arg(path));
             const qint64 size = qFromBigEndian<quint32>(header.constData() + 4);
             if (header.startsWith("COMM")) {
                 const QByteArray comm = m_file.read(size + (size & 1));
@@ -138,10 +137,10 @@ public:
                     && std::memcmp(comm.constData() + 8, SampleRate80, 10) == 0;
             } else if (header.startsWith("SSND")) {
                 if (!format)
-                    return fail(error, tr("%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
+                    return fail(error, Tr::tr("%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
                 const QByteArray offset = m_file.read(8);
                 if (offset.size() != 8 || !m_file.seek(m_file.pos() + qFromBigEndian<quint32>(offset.constData())))
-                    return fail(error, tr("%1 contains no audio data.").arg(path));
+                    return fail(error, Tr::tr("%1 contains no audio data.").arg(path));
                 m_remaining = std::min(size - 8 - qint64(qFromBigEndian<quint32>(offset.constData())), m_file.size() - m_file.pos());
                 m_remaining = std::max<qint64>(0, m_remaining);
                 m_frames = m_remaining / BytesPerFrame;
@@ -198,7 +197,7 @@ public:
     }
     QString version() const override
     {
-        return tr("built-in");
+        return Tr::tr("built-in");
     }
     QList<EncoderOption> options() const override
     {

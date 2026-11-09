@@ -33,6 +33,10 @@ struct Held {
     int count = 0;
 };
 
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::DriveLock)
+};
+
 // never deleted: a drive thread may still release a lock while Audex quits
 QMutex &mutex()
 {
@@ -44,11 +48,6 @@ QHash<QString, Held> &held()
 {
     static auto *h = new QHash<QString, Held>;
     return *h;
-}
-
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::DriveLock", text);
 }
 
 }
@@ -89,15 +88,15 @@ DriveLock DriveLock::acquire(const QString &device, QString *error)
     h.fd = ::open(QFile::encodeName(device).constData(), O_RDONLY | O_NONBLOCK | O_CLOEXEC);
     if (h.fd < 0) {
         if (error)
-            *error = tr("Cannot open %1: %2").arg(device, QString::fromLocal8Bit(std::strerror(errno)));
+            *error = Tr::tr("Cannot open %1: %2").arg(device, QString::fromLocal8Bit(std::strerror(errno)));
         return lock;
     }
     if (::flock(h.fd, LOCK_EX | LOCK_NB) != 0) {
         const int e = errno;
         ::close(h.fd);
         if (error)
-            *error = e == EWOULDBLOCK ? tr("%1 is in use by another Audex program (Audex or audex-cli).").arg(device)
-                                      : tr("Cannot lock %1: %2").arg(device, QString::fromLocal8Bit(std::strerror(e)));
+            *error = e == EWOULDBLOCK ? Tr::tr("%1 is in use by another Audex program (Audex or audex-cli).").arg(device)
+                                      : Tr::tr("Cannot lock %1: %2").arg(device, QString::fromLocal8Bit(std::strerror(e)));
         return lock;
     }
 #endif

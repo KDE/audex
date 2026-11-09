@@ -20,10 +20,9 @@ namespace Audex::Encoding
 
 namespace
 {
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::EncodedOutputs", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::EncodedOutputs)
+};
 
 // what a command line encoder may put into its arguments; an image file has
 // no track of its own, so it uses the album data
@@ -264,7 +263,7 @@ private:
         }
 
         if (!QFile::exists(m_partPath)) {
-            setFailed(tr("the encoder did not create %1").arg(m_partPath));
+            setFailed(Tr::tr("the encoder did not create %1").arg(m_partPath));
             return;
         }
 
@@ -275,7 +274,7 @@ private:
         }
 
         if (!replaceFile(m_partPath, m_path)) {
-            setFailed(tr("cannot rename %1").arg(m_partPath));
+            setFailed(Tr::tr("cannot rename %1").arg(m_partPath));
             return;
         }
         std::lock_guard lock(m_mutex);
@@ -381,16 +380,16 @@ bool EncodedOutputs::write(int segment, QByteArrayView pcm)
     if (!worker) {
         if (m_targets.value(segment).path.isEmpty())
             return true; // dry run
-        m_error = tr("Encoding was aborted.");
+        m_error = Tr::tr("Encoding was aborted.");
         return false;
     }
     if (worker->push(pcm))
         return true;
     m_error = worker->error();
     if (m_error.isEmpty() && worker->isClosed())
-        m_error = tr("%1 is already complete; segments of one file must be consecutive.").arg(worker->path());
+        m_error = Tr::tr("%1 is already complete; segments of one file must be consecutive.").arg(worker->path());
     if (m_error.isEmpty())
-        m_error = tr("Encoding was aborted.");
+        m_error = Tr::tr("Encoding was aborted.");
     return false;
 }
 

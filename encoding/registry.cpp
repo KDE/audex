@@ -30,10 +30,9 @@ namespace Audex::Encoding
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::Encoding", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::Encoding)
+};
 
 bool fail(QString *error, const QString &message)
 {
@@ -132,12 +131,12 @@ public:
             return fail(error, m_file.errorString());
         const QByteArray riff = m_file.read(12);
         if (riff.size() != 12 || !riff.startsWith("RIFF") || riff.mid(8, 4) != "WAVE")
-            return fail(error, tr("%1 is not a WAVE file.").arg(path));
+            return fail(error, Tr::tr("%1 is not a WAVE file.").arg(path));
         bool format = false;
         while (true) {
             const QByteArray header = m_file.read(8);
             if (header.size() != 8)
-                return fail(error, tr("%1 contains no audio data.").arg(path));
+                return fail(error, Tr::tr("%1 contains no audio data.").arg(path));
             const qint64 size = qFromLittleEndian<quint32>(header.constData() + 4);
             if (header.startsWith("fmt ")) {
                 const QByteArray fmt = m_file.read(size + (size & 1));
@@ -145,7 +144,7 @@ public:
                     && qFromLittleEndian<quint32>(fmt.constData() + 4) == quint32(SampleRate) && qFromLittleEndian<quint16>(fmt.constData() + 14) == 16;
             } else if (header.startsWith("data")) {
                 if (!format)
-                    return fail(error, tr("%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
+                    return fail(error, Tr::tr("%1 is not 16 bit stereo PCM at 44.1 kHz.").arg(path));
                 m_remaining = std::min(size, m_file.size() - m_file.pos());
                 m_frames = m_remaining / BytesPerFrame;
                 return true;
@@ -192,7 +191,7 @@ QString WavEncoderFactory::fileSuffix(const QVariantMap &) const
 }
 QString WavEncoderFactory::version() const
 {
-    return tr("built-in");
+    return Tr::tr("built-in");
 }
 QList<EncoderOption> WavEncoderFactory::options() const
 {
@@ -238,15 +237,15 @@ public:
         const QStringList arguments = substituteValues(m_arguments, m_trackValues);
         const QStringList cmd = ExternalEncoderFactory::commandLine(arguments, path);
         if (cmd.isEmpty())
-            return fail(error, tr("No encoder command configured."));
+            return fail(error, Tr::tr("No encoder command configured."));
         if (!hasOutputFilePlaceholder(m_arguments))
-            return fail(error, tr("The encoder command must contain $o for the output file."));
+            return fail(error, Tr::tr("The encoder command must contain $o for the output file."));
 
         m_process = std::make_unique<QProcess>();
         m_process->setStandardOutputFile(QProcess::nullDevice());
         m_process->start(cmd.first(), cmd.mid(1));
         if (!m_process->waitForStarted(10000))
-            return fail(error, tr("Cannot start \"%1\": %2").arg(cmd.first(), m_process->errorString()));
+            return fail(error, Tr::tr("Cannot start \"%1\": %2").arg(cmd.first(), m_process->errorString()));
         return send(wavHeader(totalFrames * BytesPerFrame), error);
     }
 
@@ -258,18 +257,18 @@ public:
     bool finish(QString *error) override
     {
         if (!m_process)
-            return fail(error, tr("The encoder is not running."));
+            return fail(error, Tr::tr("The encoder is not running."));
         m_process->closeWriteChannel();
         while (!m_process->waitForFinished(100) && m_process->state() != QProcess::NotRunning) {
             if (m_interrupted) {
                 abort();
-                return fail(error, tr("Encoding was aborted."));
+                return fail(error, Tr::tr("Encoding was aborted."));
             }
             collectErrors();
         }
         collectErrors();
         const bool ok = m_process->exitStatus() == QProcess::NormalExit && m_process->exitCode() == 0;
-        const QString message = tr("The encoder failed (exit code %1): %2").arg(m_process->exitCode()).arg(QString::fromLocal8Bit(m_stderr).trimmed());
+        const QString message = Tr::tr("The encoder failed (exit code %1): %2").arg(m_process->exitCode()).arg(QString::fromLocal8Bit(m_stderr).trimmed());
         m_process.reset();
         return ok || fail(error, message);
     }
@@ -292,13 +291,14 @@ private:
     bool send(QByteArrayView data, QString *error)
     {
         if (m_process->write(data.constData(), data.size()) != data.size())
-            return fail(error, tr("Cannot send data to the encoder: %1").arg(m_process->errorString()));
+            return fail(error, Tr::tr("Cannot send data to the encoder: %1").arg(m_process->errorString()));
         while (m_process->bytesToWrite() > 0) {
             if (m_interrupted)
-                return fail(error, tr("Encoding was aborted."));
+                return fail(error, Tr::tr("Encoding was aborted."));
             if (!m_process->waitForBytesWritten(100) && m_process->state() != QProcess::Running) {
                 collectErrors();
-                return fail(error, tr("The encoder stopped accepting data: %1 %2").arg(m_process->errorString(), QString::fromLocal8Bit(m_stderr).trimmed()));
+                return fail(error,
+                            Tr::tr("The encoder stopped accepting data: %1 %2").arg(m_process->errorString(), QString::fromLocal8Bit(m_stderr).trimmed()));
             }
             collectErrors(); // keep the stderr pipe from filling up
         }
@@ -327,7 +327,7 @@ QString ExternalEncoderFactory::id() const
 }
 QString ExternalEncoderFactory::displayName() const
 {
-    return tr("External command");
+    return Tr::tr("External command");
 }
 QString ExternalEncoderFactory::fileSuffix(const QVariantMap &settings) const
 {
@@ -336,21 +336,21 @@ QString ExternalEncoderFactory::fileSuffix(const QVariantMap &settings) const
 }
 QString ExternalEncoderFactory::version() const
 {
-    return tr("built-in");
+    return Tr::tr("built-in");
 }
 
 QList<EncoderOption> ExternalEncoderFactory::options() const
 {
     EncoderOption command;
     command.key = u"command"_s;
-    command.label = tr("Command");
+    command.label = Tr::tr("Command");
     command.type = EncoderOption::Type::Text;
     command.defaultValue = u"fdkaac --silent -m 5 -o %o -"_s;
-    command.toolTip = tr("Reads WAVE from standard input. %o is the output file.");
+    command.toolTip = Tr::tr("Reads WAVE from standard input. %o is the output file.");
 
     EncoderOption suffix;
     suffix.key = u"suffix"_s;
-    suffix.label = tr("File suffix");
+    suffix.label = Tr::tr("File suffix");
     suffix.type = EncoderOption::Type::Text;
     suffix.defaultValue = u"m4a"_s;
 
@@ -447,22 +447,22 @@ void EncoderRegistry::loadPlugins(const QStringList &directories)
                 continue;
             QPluginLoader loader(path);
             if (loader.metaData().value("IID"_L1).toString() != QLatin1StringView(AudexEncoderFactory_iid)) {
-                m_diagnostics << tr("%1: not an Audex encoder plugin").arg(name);
+                m_diagnostics << Tr::tr("%1: not an Audex encoder plugin").arg(name);
                 continue;
             }
             QObject *instance = loader.instance(); // stays loaded
             auto *factory = qobject_cast<EncoderFactory *>(instance);
             if (!factory) {
-                m_diagnostics << tr("%1: cannot be loaded (%2)").arg(name, loader.errorString());
+                m_diagnostics << Tr::tr("%1: cannot be loaded (%2)").arg(name, loader.errorString());
                 continue;
             }
             if (this->factory(factory->id())) {
-                m_diagnostics << tr("%1: \"%2\" already loaded, skipped").arg(name, factory->id());
+                m_diagnostics << Tr::tr("%1: \"%2\" already loaded, skipped").arg(name, factory->id());
                 continue;
             }
             // owned by the plugin loader, never deleted here
             addFactory(std::shared_ptr<EncoderFactory>(factory, [](EncoderFactory *) { }));
-            m_diagnostics << tr("%1: %2 (%3)").arg(name, factory->displayName(), factory->version());
+            m_diagnostics << Tr::tr("%1: %2 (%3)").arg(name, factory->displayName(), factory->version());
         }
     }
 }

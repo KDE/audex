@@ -19,38 +19,37 @@ using namespace Audex::Encoding;
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("LameEncoder", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(LameEncoder)
+};
 
 QList<EncoderOption> lameOptions()
 {
     EncoderOption mode;
     mode.key = u"mode"_s;
-    mode.label = tr("Mode");
+    mode.label = Tr::tr("Mode");
     mode.type = EncoderOption::Type::Choice;
     mode.choices = {u"vbr"_s, u"abr"_s, u"cbr"_s};
-    mode.choiceLabels = {tr("Variable bitrate"), tr("Average bitrate"), tr("Constant bitrate")};
+    mode.choiceLabels = {Tr::tr("Variable bitrate"), Tr::tr("Average bitrate"), Tr::tr("Constant bitrate")};
     mode.defaultValue = u"vbr"_s;
 
     EncoderOption quality;
     quality.key = u"vbrQuality"_s;
-    quality.label = tr("VBR quality (V0 = best)");
+    quality.label = Tr::tr("VBR quality (V0 = best)");
     quality.type = EncoderOption::Type::Integer;
     quality.minimum = 0;
     quality.maximum = 9;
     quality.defaultValue = 0;
-    quality.toolTip = tr("V0 ≈ 245 kbit/s, V2 ≈ 190 kbit/s, V5 ≈ 130 kbit/s");
+    quality.toolTip = Tr::tr("V0 ≈ 245 kbit/s, V2 ≈ 190 kbit/s, V5 ≈ 130 kbit/s");
 
     EncoderOption bitrate;
     bitrate.key = u"bitrate"_s;
-    bitrate.label = tr("ABR/CBR bitrate (kbit/s)");
+    bitrate.label = Tr::tr("ABR/CBR bitrate (kbit/s)");
     bitrate.type = EncoderOption::Type::Integer;
     bitrate.minimum = 32;
     bitrate.maximum = 320;
     bitrate.defaultValue = 320;
-    bitrate.toolTip = tr("Constant bitrate uses the nearest MP3 bitrate.");
+    bitrate.toolTip = Tr::tr("Constant bitrate uses the nearest MP3 bitrate.");
 
     return {mode, quality, bitrate};
 }
@@ -81,7 +80,7 @@ public:
         // LAME cannot be re-initialized: one lame_t per file
         m_lame = lame_init();
         if (!m_lame)
-            return fail(error, tr("Cannot create the LAME encoder."));
+            return fail(error, Tr::tr("Cannot create the LAME encoder."));
 
         lame_set_num_channels(m_lame, Channels);
         lame_set_in_samplerate(m_lame, SampleRate);
@@ -108,7 +107,7 @@ public:
         lame_set_bWriteVbrTag(m_lame, 1);
 
         if (lame_init_params(m_lame) < 0)
-            return fail(error, tr("Invalid LAME encoder settings."));
+            return fail(error, Tr::tr("Invalid LAME encoder settings."));
 
         m_file.setFileName(path);
         if (!m_file.open(QIODevice::WriteOnly | QIODevice::Truncate))
@@ -123,18 +122,18 @@ public:
         m_output.resize(size_t(frames + frames / 4 + 7200)); // documented worst case
         const int bytes = lame_encode_buffer_interleaved(m_lame, m_samples.data(), frames, m_output.data(), int(m_output.size()));
         if (bytes < 0)
-            return fail(error, tr("LAME encoder error %1.").arg(bytes));
+            return fail(error, Tr::tr("LAME encoder error %1.").arg(bytes));
         return writeBytes(bytes, error);
     }
 
     bool finish(QString *error) override
     {
         if (!m_lame)
-            return fail(error, tr("The LAME encoder is not open."));
+            return fail(error, Tr::tr("The LAME encoder is not open."));
         m_output.resize(7200);
         const int bytes = lame_encode_flush(m_lame, m_output.data(), int(m_output.size()));
         if (bytes < 0)
-            return fail(error, tr("LAME encoder error %1.").arg(bytes));
+            return fail(error, Tr::tr("LAME encoder error %1.").arg(bytes));
         if (!writeBytes(bytes, error))
             return false;
 
@@ -153,7 +152,7 @@ public:
         m_file.close();
         release();
         if (!ok)
-            return fail(error, tr("Cannot write the MP3 file."));
+            return fail(error, Tr::tr("Cannot write the MP3 file."));
         return true;
     }
 

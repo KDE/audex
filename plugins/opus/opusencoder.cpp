@@ -19,25 +19,24 @@ using namespace Audex::Encoding;
 namespace
 {
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("OpusEncoder", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(OpusEncoder)
+};
 
 QList<EncoderOption> opusOptions()
 {
     EncoderOption bitrate;
     bitrate.key = u"bitrate"_s;
-    bitrate.label = tr("Bitrate (kbit/s)");
+    bitrate.label = Tr::tr("Bitrate (kbit/s)");
     bitrate.type = EncoderOption::Type::Integer;
     bitrate.minimum = 32;
     bitrate.maximum = 510;
     bitrate.defaultValue = 160;
-    bitrate.toolTip = tr("Variable bitrate target. 128–192 kbit/s is transparent for most music.");
+    bitrate.toolTip = Tr::tr("Variable bitrate target. 128–192 kbit/s is transparent for most music.");
 
     EncoderOption complexity;
     complexity.key = u"complexity"_s;
-    complexity.label = tr("Complexity");
+    complexity.label = Tr::tr("Complexity");
     complexity.type = EncoderOption::Type::Integer;
     complexity.minimum = 0;
     complexity.maximum = 10;
@@ -64,19 +63,19 @@ public:
         Q_UNUSED(totalFrames)
         m_comments = ope_comments_create();
         if (!m_comments)
-            return fail(error, tr("Cannot create the Opus comment block."));
+            return fail(error, Tr::tr("Cannot create the Opus comment block."));
 
         int status = OPE_OK;
         const QByteArray name = QFile::encodeName(path);
         m_encoder = ope_encoder_create_file(name.constData(), m_comments, SampleRate, Channels, 0, &status);
         if (!m_encoder)
-            return fail(error, tr("Cannot create the Opus file: %1").arg(QString::fromUtf8(ope_strerror(status))));
+            return fail(error, Tr::tr("Cannot create the Opus file: %1").arg(QString::fromUtf8(ope_strerror(status))));
 
         status = ope_encoder_ctl(m_encoder, OPUS_SET_BITRATE(m_bitrate * 1000));
         if (status == OPE_OK)
             status = ope_encoder_ctl(m_encoder, OPUS_SET_COMPLEXITY(m_complexity));
         if (status != OPE_OK)
-            return fail(error, tr("Invalid Opus encoder settings: %1").arg(QString::fromUtf8(ope_strerror(status))));
+            return fail(error, Tr::tr("Invalid Opus encoder settings: %1").arg(QString::fromUtf8(ope_strerror(status))));
         return true;
     }
 
@@ -85,18 +84,18 @@ public:
         toInt16(pcm, m_samples);
         const int status = ope_encoder_write(m_encoder, m_samples.data(), int(pcm.size() / BytesPerFrame));
         if (status != OPE_OK)
-            return fail(error, tr("Opus encoder error: %1").arg(QString::fromUtf8(ope_strerror(status))));
+            return fail(error, Tr::tr("Opus encoder error: %1").arg(QString::fromUtf8(ope_strerror(status))));
         return true;
     }
 
     bool finish(QString *error) override
     {
         if (!m_encoder)
-            return fail(error, tr("The Opus encoder is not open."));
+            return fail(error, Tr::tr("The Opus encoder is not open."));
         const int status = ope_encoder_drain(m_encoder);
         release();
         if (status != OPE_OK)
-            return fail(error, tr("Opus encoder error: %1").arg(QString::fromUtf8(ope_strerror(status))));
+            return fail(error, Tr::tr("Opus encoder error: %1").arg(QString::fromUtf8(ope_strerror(status))));
         return true;
     }
 

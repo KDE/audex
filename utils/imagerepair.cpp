@@ -33,10 +33,9 @@ namespace
 
 constexpr int WordsPerSector = Cdda::SectorBytes / 2;
 
-QString tr(const char *text)
-{
-    return QCoreApplication::translate("Audex::ImageRepair", text);
-}
+struct Tr {
+    Q_DECLARE_TR_FUNCTIONS(Audex::ImageRepair)
+};
 
 QString hex8(quint32 v)
 {
@@ -54,7 +53,7 @@ bool decodeFile(const Encoding::EncoderFactory &factory,
 {
     const std::unique_ptr<Encoding::AudioDecoder> decoder = factory.createDecoder();
     if (!decoder) {
-        *error = tr("%1 files cannot be read back.").arg(factory.displayName());
+        *error = Tr::tr("%1 files cannot be read back.").arg(factory.displayName());
         return false;
     }
     if (!decoder->open(path, error))
@@ -64,7 +63,7 @@ bool decodeFile(const Encoding::EncoderFactory &factory,
     QByteArray pcm;
     while (true) {
         if (isCanceled && isCanceled()) {
-            *error = tr("canceled");
+            *error = Tr::tr("canceled");
             return false;
         }
         if (!decoder->read(pcm, error))
@@ -219,7 +218,7 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
     }
 
     // --- read the image back ---
-    say(tr("Reading the image for the repair..."));
+    say(Tr::tr("Reading the image for the repair..."));
     QString error;
     if (!decodeFile(
             *rq.encoder,
@@ -258,7 +257,7 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
             skipped << u"%1: no recovery data"_s.arg(name);
             continue;
         }
-        say(tr("Downloading the recovery data of the CUETools database..."));
+        say(Tr::tr("Downloading the recovery data of the CUETools database..."));
         QString fetchError;
         const QByteArray data = fetch(e, &fetchError);
         if (data.size() < e.syndromes.size() * Ctdb::Stride * 2) {
@@ -294,7 +293,7 @@ ImageRepairResult repairImage(const ImageRepairRequest &rq, const std::function<
     note(u"Corrections: %1 values at %2"_s.arg(corrections.size()).arg(positions(corrections, rq.firstLba)));
 
     // --- write the repaired image ---
-    say(tr("Writing the repaired image..."));
+    say(Tr::tr("Writing the repaired image..."));
     const QString part = Encoding::EncodedOutputs::partialPath(rq.path);
     const std::unique_ptr<Encoding::AudioEncoder> encoder = rq.encoder->create(rq.encoderSettings);
     const qint64 windowBegin = (offsetWords + Ctdb::Stride + 2 * qint64(shift)) * 2; // bytes
@@ -481,7 +480,7 @@ bool DiscAudioReader::open(QString *error)
         auto part = std::make_unique<Part>();
         part->decoder = file.format ? file.format->createDecoder() : nullptr;
         if (!part->decoder) {
-            *error = tr("%1 cannot be read back.").arg(QFileInfo(file.path).fileName());
+            *error = Tr::tr("%1 cannot be read back.").arg(QFileInfo(file.path).fileName());
             return false;
         }
         if (!part->decoder->open(file.path, error))
@@ -571,7 +570,7 @@ std::optional<QList<Rip::SegmentResult>> checksumFiles(const QList<DiscAudioFile
     Rip::RipEngine engine(reader, area, options, std::move(callbacks));
     const Rip::RipResult result = engine.run(segments);
     if (!result.completed || result.hasSuspiciousPositions()) {
-        *error = result.canceled ? tr("canceled") : (!reader.error().isEmpty() ? reader.error() : tr("the files are shorter than the disc"));
+        *error = result.canceled ? Tr::tr("canceled") : (!reader.error().isEmpty() ? reader.error() : Tr::tr("the files are shorter than the disc"));
         return std::nullopt;
     }
     return result.segments;
