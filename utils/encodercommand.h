@@ -11,13 +11,13 @@
 // for the external encoder and for the command hook that runs after a rip.
 // Commands are started without a shell, so a scheme is translated into a
 // list of arguments once, before the rip: the WAVE data arrives on standard
-// input ("-") and %o stands for the output file.
+// input ("-") and $o stands for the output file.
 //
 // This happens in two steps, because the album is known before the rip and
-// the track only when its file is opened:
-//   parseCommandScheme()  album values and $o            (before the rip)
-//   substituteValues()    $ttitle and the other track    (per output file)
-//                         placeholders
+// the track and its file only when the file is opened:
+//   parseCommandScheme()  album values                   (before the rip)
+//   substituteValues()    $o, $ttitle and the other      (per output file)
+//                         track placeholders
 //
 // $i, the input of the old profiles, still becomes "-"; it is no longer offered.
 //
@@ -58,8 +58,8 @@ QMap<QString, QString> trackValues(const QString &artist, const QString &title, 
 // The name is read as a whole, so $isrc is not $i followed by "src"; unknown
 // names and placeholders with parameters stay as they are and are reported.
 // Values are put into the arguments after the scheme was split, so a quote or
-// a space in a title cannot change the command line; % and $ in a value and
-// in the scheme's own text are escaped for the steps that follow.
+// a space in a title cannot change the command line; a dollar sign in a value
+// and in the scheme's own text is doubled, so the next step reads it as text.
 CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QString> &values);
 
 // The program of a command (its first argument) if it cannot be started:
@@ -67,12 +67,12 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
 // there (or there are no arguments).
 QString missingProgram(const QStringList &arguments);
 
-// Looks for %o with %% as an escaped percent sign. Values are escaped when
-// they are filled in, so a value can never look like the placeholder.
+// Looks for $o in the arguments of parseCommandScheme(). A dollar sign in a
+// value is doubled there, so a value can never look like the placeholder.
 bool hasOutputFilePlaceholder(const QStringList &arguments);
 
-// The last step: fills in `values`, turns $$ into a dollar sign and leaves
-// everything else alone.
+// The last step: fills in `values` (for the encoder the track values and $o)
+// as they are, turns $$ into a dollar sign and leaves everything else alone.
 QStringList substituteValues(const QStringList &arguments, const QMap<QString, QString> &values);
 
 // The arguments as one line, for the log. Quoting is the one

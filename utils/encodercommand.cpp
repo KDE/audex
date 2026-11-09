@@ -89,13 +89,10 @@ void addIssue(QList<CommandIssue> *issues, CommandIssue::Kind kind, const QStrin
     issues->append({kind, written, {}});
 }
 
-// A value becomes a whole argument or part of one. The engine reads %o as the
-// output file, so a percent sign has to be doubled; a dollar sign is doubled
-// as long as another step still reads the arguments.
-QString escapeValue(QString value, bool escapeDollar)
+// Text that substituteValues() has to read as text, not as a placeholder
+QString escapeDollar(QString text)
 {
-    value.replace(u'%', u"%%"_s);
-    return escapeDollar ? value.replace(u'$', u"$$"_s) : value;
+    return text.replace(u'$', u"$$"_s);
 }
 
 }
@@ -126,7 +123,7 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
         QString out;
         for (const Scheme::Token &token : argument) {
             if (!token.placeholder) {
-                out += escapeValue(token.text, true); // a literal % or $ stays one
+                out += escapeDollar(token.text); // a literal $ stays one
                 continue;
             }
             const QString &name = token.placeholder->name;
@@ -138,20 +135,17 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
             } else if (name == Var::InputFile) {
                 out += u"-"_s; // old profiles: the engine writes the WAVE data to stdin
                 continue;
-            } else if (name == Var::OutputFile) {
-                out += u"%o"_s;
-                continue;
-            } else if (tracks.contains(name)) {
+            } else if (name == Var::OutputFile || tracks.contains(name)) {
                 out += u"${"_s + name + u'}'; // filled in when the output file is opened
                 continue;
             } else if (values.contains(name)) {
-                out += escapeValue(values.value(name), true);
+                out += escapeDollar(values.value(name));
                 continue;
             } else {
                 // an unknown name is a typo or a value Audex does not have
                 addIssue(&result.issues, CommandIssue::Kind::UnknownName, token.text);
             }
-            out += escapeValue(token.text, true);
+            out += escapeDollar(token.text);
         }
         result.arguments.append(out);
     }
@@ -159,7 +153,7 @@ CommandScheme parseCommandScheme(const QString &scheme, const QMap<QString, QStr
     // a scheme that names no output file gets the old default: WAVE on stdin,
     // output file at the end
     if (!result.arguments.isEmpty() && !hasOutputFilePlaceholder(result.arguments))
-        result.arguments << u"-"_s << u"%o"_s;
+        result.arguments << u"-"_s << u"${"_s + Var::OutputFile + u'}';
     return result;
 }
 
@@ -178,14 +172,11 @@ QString missingProgram(const QStringList &arguments)
 bool hasOutputFilePlaceholder(const QStringList &arguments)
 {
     for (const QString &argument : arguments) {
-        for (qsizetype i = 0; i + 1 < argument.size(); ++i) {
-            if (argument.at(i) != u'%')
-                continue;
-            if (argument.at(i + 1) == u'%') {
-                ++i;
-                continue;
-            }
-            if (argument.at(i + 1) == u'o')
+        const Scheme::Parsed parsed = Scheme::parse(argument);
+        if (parsed.error) // substituteValues() keeps such an argument as it is
+            continue;
+        for (const Scheme::Token &token : parsed.tokens) {
+            if (token.placeholder && token.placeholder->name == Var::OutputFile && token.placeholder->parameters.isEmpty())
                 return true;
         }
     }
@@ -204,7 +195,7 @@ QStringList substituteValues(const QStringList &arguments, const QMap<QString, Q
         QString out;
         for (const Scheme::Token &token : parsed.tokens) {
             if (token.placeholder && token.placeholder->parameters.isEmpty() && values.contains(token.placeholder->name))
-                out += escapeValue(values.value(token.placeholder->name), false);
+                out += values.value(token.placeholder->name);
             else
                 out += token.text;
         }

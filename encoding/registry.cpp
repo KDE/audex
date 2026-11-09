@@ -234,12 +234,13 @@ public:
     bool open(const QString &path, qint64 totalFrames, Text *error) override
     {
         // QProcess is created here: it must live in the worker thread
-        const QStringList arguments = substituteValues(m_arguments, m_trackValues);
-        const QStringList cmd = ExternalEncoderFactory::commandLine(arguments, path);
-        if (cmd.isEmpty())
+        if (m_arguments.isEmpty())
             return fail(error, Text::translate("Audex::Encoding", "No encoder command configured."));
         if (!hasOutputFilePlaceholder(m_arguments))
             return fail(error, Text::translate("Audex::Encoding", "The encoder command must contain $o for the output file."));
+        QMap<QString, QString> values = m_trackValues;
+        values.insert(Scheme::Var::OutputFile, path);
+        const QStringList cmd = substituteValues(m_arguments, values);
 
         m_process = std::make_unique<QProcess>();
         m_process->setStandardOutputFile(QProcess::nullDevice());
@@ -344,59 +345,18 @@ QString ExternalEncoderFactory::version() const
 
 QList<EncoderOption> ExternalEncoderFactory::options() const
 {
-    EncoderOption command;
-    command.key = u"command"_s;
-    command.label = Tr::tr("Command");
-    command.type = EncoderOption::Type::Text;
-    command.defaultValue = u"fdkaac --silent -m 5 -o %o -"_s;
-    command.toolTip = Tr::tr("Reads WAVE from standard input. %o is the output file.");
-
     EncoderOption suffix;
     suffix.key = u"suffix"_s;
     suffix.label = Tr::tr("File suffix");
     suffix.type = EncoderOption::Type::Text;
     suffix.defaultValue = u"m4a"_s;
 
-    return {command, suffix};
+    return {suffix};
 }
 
 std::unique_ptr<AudioEncoder> ExternalEncoderFactory::create(const QVariantMap &settings) const
 {
-    return std::make_unique<ExternalEncoder>(arguments(settings));
-}
-
-QStringList ExternalEncoderFactory::arguments(const QVariantMap &settings) const
-{
-    const QStringList split = settings.value(u"commandArgs"_s).toStringList();
-    if (!split.isEmpty())
-        return split;
-    return QProcess::splitCommand(optionValue(options(), settings, u"command"_s).toString());
-}
-
-QStringList ExternalEncoderFactory::commandLine(const QStringList &arguments, const QString &outputPath)
-{
-    QStringList args = arguments;
-    for (QString &arg : args) {
-        QString out;
-        for (qsizetype i = 0; i < arg.size(); ++i) {
-            if (arg.at(i) == u'%' && i + 1 < arg.size()) {
-                const QChar next = arg.at(i + 1);
-                if (next == u'o') {
-                    out += outputPath;
-                    ++i;
-                    continue;
-                }
-                if (next == u'%') {
-                    out += u'%';
-                    ++i;
-                    continue;
-                }
-            }
-            out += arg.at(i);
-        }
-        arg = out;
-    }
-    return args;
+    return std::make_unique<ExternalEncoder>(settings.value(u"commandArgs"_s).toStringList());
 }
 #endif
 

@@ -61,10 +61,13 @@ public:
 
 #ifndef AUDEX_SANDBOX
 // Any command line encoder that reads WAVE from stdin, e.g.
-//   fdkaac --silent -m 5 -o %o -
-//   ffmpeg -loglevel error -f wav -i - -c:a alac %o
-// %o is replaced by the output file, %% by a percent sign. The WAVE header
-// carries the exact length, so encoders that need it work as well.
+//   fdkaac --silent -m 5 -o $o -
+//   ffmpeg -loglevel error -f wav -i - -c:a alac $o
+// The setting "commandArgs" holds the arguments of parseCommandScheme()
+// (utils/encodercommand.h), already split: values in them can no longer
+// change the command line. $o and the track values are filled in when the
+// output file is opened. The WAVE header carries the exact length, so
+// encoders that need it work as well.
 class ExternalEncoderFactory : public EncoderFactory
 {
 public:
@@ -74,13 +77,6 @@ public:
     QString version() const override;
     QList<EncoderOption> options() const override;
     std::unique_ptr<AudioEncoder> create(const QVariantMap &settings) const override;
-
-    // "commandArgs" (a QStringList, already split: values in it can no longer
-    // change the command line) or, if it is empty, the "command" string
-    QStringList arguments(const QVariantMap &settings) const;
-
-    // {"fdkaac", "-o", "%o", "-"} + path -> program and arguments
-    static QStringList commandLine(const QStringList &arguments, const QString &outputPath);
 };
 #endif
 
