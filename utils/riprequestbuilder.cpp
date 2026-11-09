@@ -355,7 +355,11 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
             trackArtist = album.text(Field::Artist);
         QString trackTitle = track.text(Field::Title);
         if (trackTitle.isEmpty())
-            trackTitle = number == 0 ? i18n("Hidden Track") : i18n("Track %1", number);
+            trackTitle = number == 0
+                // i18n: title of audio hidden before track 1 (in its pregap), used when the disc names none
+                ? i18n("Hidden Track")
+                // i18n: title of a track the disc names none for; %1 is its number
+                : i18n("Track %1", number);
         const int trackNo = info.displayTrackNumber(number);
 
         values.insert(Var::TrackArtist, fileNameValue(trackArtist));
@@ -436,6 +440,7 @@ bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles, QSt
         extras.append({PROFILE_MODEL_COLUMN_PL_INDEX, PROFILE_MODEL_COLUMN_PL_NAME_INDEX, u"m3u"_s});
     for (const Extra &extra : extras) {
         if (columnBool(extra.enabled) && fileName(column(extra.scheme), fileNameValues(extra.suffix), extra.suffix, &schemeError).isEmpty()) {
+            // i18n: %1 is the scheme, %2 the error in it
             *error = i18n("The name scheme \"%1\" is invalid: %2", column(extra.scheme), schemeError);
             return false;
         }
@@ -664,6 +669,7 @@ PostProcessResult RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
         const QByteArray data = lines.join(u'\n').toUtf8() + '\n';
         if (!file.open(QIODevice::WriteOnly) || file.write(data) != data.size() || !file.commit()) {
             ++result.failedTasks;
+            // i18n: %1 is a file, %2 the reason the system gives
             log(int(Audex::Rip::LogLevel::Warning), i18n("Cannot write %1: %2", path, file.errorString()));
             return false;
         }
@@ -803,6 +809,7 @@ PostProcessResult RipRequestBuilder::runPostProcess(const PostProcessPlan &plan,
                     else if (err.isEmpty())
                         log(int(Audex::Rip::LogLevel::Warning), i18n("The command failed (exit code %1): %2", exitCode, display));
                     else
+                        // i18n: %2 is the command line, %3 what the command wrote as error output
                         log(int(Audex::Rip::LogLevel::Warning), i18n("The command failed (exit code %1): %2 — %3", exitCode, display, err));
                 }
                 process->deleteLater();

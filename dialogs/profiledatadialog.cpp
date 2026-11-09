@@ -355,6 +355,7 @@ void ProfileDataDialog::update_encoder_message()
         encoder_message->hide();
         return;
     }
+    // i18n: %1 is a sentence naming the missing plugin
     encoder_message->setText(i18n("%1 The settings are kept, but the profile cannot be used until the plugin is installed.", reason));
     encoder_message->show();
 }

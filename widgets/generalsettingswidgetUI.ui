@@ -27,7 +27,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Scan a few seconds of audio for HDCD control information when a disc is detected and mark HDCD discs in the header.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>Detect HDCD encoded discs</string>
+         <string extracomment="HDCD (High Definition Compatible Digital): an encoding hidden in the audio of some CDs">Detect HDCD encoded discs</string>
         </property>
        </widget>
       </item>
@@ -37,7 +37,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Read a few seconds of the sub-channel when a disc is detected and mark discs with CD+G graphics (karaoke) in the header. Skipped for drives on which the drive test found no raw sub-channel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>Detect CD+G graphics</string>
+         <string extracomment="CD+G: karaoke graphics stored in the sub-channel of a CD">Detect CD+G graphics</string>
         </property>
        </widget>
       </item>
@@ -81,7 +81,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
           </item>
           <item>
            <property name="text">
-            <string>CD-Text</string>
+            <string extracomment="CD term: titles stored on the disc itself">CD-Text</string>
            </property>
           </item>
           <item>
@@ -341,7 +341,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Read the per-track ISRCs and the media catalog number. Needed only for tags and cue sheets; reading takes a few extra seconds per track.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Read ISRCs and the media catalog number</string>
+           <string extracomment="ISRC: International Standard Recording Code; media catalog number: the barcode of the disc">Read ISRCs and the media catalog number</string>
           </property>
          </widget>
         </item>
@@ -368,7 +368,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <item>
          <widget class="QLabel" name="label_gapHandling">
           <property name="text">
-           <string>Pregaps in track files:</string>
+           <string extracomment="pregap: CD term for the part before index 1 of a track, often silence">Pregaps in track files:</string>
           </property>
           <property name="buddy">
            <cstring>kcfg_gapHandling</cstring>
@@ -501,7 +501,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <item>
          <widget class="QSpinBox" name="kcfg_embedCoverMaxSize">
           <property name="suffix">
-           <string> px</string>
+           <string extracomment="unit after the number of a spin box; keep the leading space if your language puts one there"> px</string>
           </property>
           <property name="minimum">
            <number>100</number>

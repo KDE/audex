@@ -174,8 +174,10 @@ void deviceWidget::updateFeatureSummary()
         parts << i18np("%1 sector per read command", "%1 sectors per read command", f.burstSectors);
     if (f.accurateStream != Feature::Unknown)
         parts << (f.accurateStream == Feature::Yes ? i18n("Accurate stream")
+                                                   // i18n: %1 is how many samples the reads of the drive are off
                                                    : i18np("No accurate stream, %1 sample off", "No accurate stream, %1 samples off", f.jitterSamples));
     if (f.caching == Feature::Yes)
+        // i18n: %1 is how many reads far away on the disc empty the audio cache of the drive
         parts << i18np("Audio cache, %1 far read flushes it", "Audio cache, %1 far reads flush it", f.cacheDefeatReads);
     else if (f.caching == Feature::No)
         parts << i18n("No audio cache");
@@ -186,18 +188,21 @@ void deviceWidget::updateFeatureSummary()
     else if (f.c2Reliable == Feature::No)
         parts << i18n("Unreliable C2 error pointers");
     if (f.leadIn == Feature::Yes && f.leadOut == Feature::Yes)
+        // i18n: lead-in, lead-out: CD terms for the areas before the first and after the last track
         parts << i18n("Reads the lead-in and the lead-out");
     else if (f.leadOut == Feature::Yes)
         parts << i18n("Reads the lead-out");
     else if (f.leadIn == Feature::Yes)
         parts << i18n("Reads the lead-in");
     else if (f.leadOut == Feature::No)
+        // i18n: the drive cannot read into the lead-in or the lead-out
         parts << i18n("Cannot overread");
     if (f.subchannelQ == Feature::No)
         parts << i18n("No Q sub-channel");
     if (f.rwSubchannel == Feature::No)
         parts << i18n("No CD+G graphics (raw sub-channel)");
 
+    // i18n: %1 is the date and time of the drive test; the features of the drive follow, one per line
     parts.prepend(i18n("Tested on %1:", QLocale().toString(f.measured, QLocale::ShortFormat)));
     label_features->setText(parts.join(u'\n'));
 }
@@ -254,6 +259,7 @@ void deviceWidget::offsetDetectionFinished()
     if (d.found) {
         spinBox_sampleShift->setValue(d.offset);
         m_fetchMessage->setMessageType(KMessageWidget::Positive);
+        // i18n: %1 is a number of samples, %2 a sentence with details of the measurement
         m_fetchMessage->setText(i18n("Read offset %1 detected and entered. %2 Confirm it with a second CD: a disc from another pressing can shift the result.",
                                      d.offset,
                                      d.details));
@@ -333,6 +339,7 @@ void deviceWidget::offsetFetchFinished(const QList<Audex::AccurateRip::DriveOffs
     if (!match) {
         m_fetchMessage->setMessageType(KMessageWidget::Information);
         m_fetchMessage->setText(i18n(
+            // i18n: %1 is the model name of the drive
             "The drive \"%1\" was not found in the AccurateRip drive database. Look up a similar model name via the link below and enter the offset manually.",
             m_offsetDriveName));
         m_fetchMessage->animatedShow();
@@ -341,6 +348,7 @@ void deviceWidget::offsetFetchFinished(const QList<Audex::AccurateRip::DriveOffs
     spinBox_sampleShift->setValue(match->offset);
     m_fetchMessage->setMessageType(KMessageWidget::Positive);
     m_fetchMessage->setText(
+        // i18n: %1 is the drive model, %2 a number of samples with sign, e.g. +6
         i18n("The read offset of \"%1\" is %2 samples (AccurateRip drive database). The value has been entered.", match->name, match->offset));
     m_fetchMessage->animatedShow();
 }

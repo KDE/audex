@@ -338,8 +338,10 @@ Direct test execution:
 
 Audex has two translation catalogs, as usual in KDE for code that depends on Qt only:
 
-- `audex` (gettext): the KDE GUI, marked with `i18n()` and `i18nc()` from KLocalizedString. Installed from `po/` with `ki18n_install()`.
-- `audex_qt` (Qt): the extraction engine, the native encoder plugins and `audex-cli`, marked with `tr()` and `QCoreApplication::translate()` so that they do not depend on KDE Frameworks. Installed as `.qm` files from `poqm/` with `ecm_install_po_files_as_qm()` and loaded at startup by the loader of `ecm_create_qm_loader()` in `audex` and `audex-cli`.
+`audex` (gettext): the KDE GUI, marked with `i18n()` and `i18nc()` from KLocalizedString. Installed from `po/` with `ki18n_install()`.
+`audex_qt` (Qt): the extraction engine, the native encoder plugins and `audex-cli`, marked with `tr()` and `QCoreApplication::translate()` so that they do not depend on KDE Frameworks. Installed as `.qm` files from `poqm/` with `ecm_install_po_files_as_qm()` and loaded at startup by the loader of `ecm_create_qm_loader()` in `audex` and `audex-cli`.
+
+Explanations for translators, such as what a CD term means or what a placeholder stands for, go into a `// i18n:` comment on the line right before the one with the text (xgettext attaches it there), in `.ui` files into the attribute `extracomment`. A comment never makes an existing translation fuzzy.
 
 `Messages.sh` extracts both (`$XGETTEXT` and `$EXTRACT_TR_STRINGS`). The text of a Qt message is looked up together with its context, so every `tr()` must have a context lupdate can determine: a `Q_OBJECT` class, `Q_DECLARE_TR_FUNCTIONS()` or a literal context in `QCoreApplication::translate()`. Building from a release tarball with `poqm/` needs the Qt Linguist tools (`lconvert`, `lrelease`).
 

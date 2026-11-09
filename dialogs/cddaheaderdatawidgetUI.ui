@@ -25,7 +25,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
                   <item row="0" column="2">
                         <widget class="QCheckBox" name="checkBox_multicd">
                               <property name="text">
-                                    <string>Multi CD</string>
+                                    <string extracomment="the disc is part of a set of several CDs">Multi CD</string>
                               </property>
                         </widget>
                   </item>
@@ -41,7 +41,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
                               <item>
                                     <widget class="QCheckBox" name="checkBox_preemphasis">
                                           <property name="text">
-                                                <string>Pre-emphasis</string>
+                                                <string extracomment="CD term: the treble was raised at mastering and has to be lowered for playback">Pre-emphasis</string>
                                           </property>
                                     </widget>
                               </item>
@@ -96,7 +96,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
                   <item row="4" column="0">
                         <widget class="QLabel" name="label">
                               <property name="text">
-                                    <string>Track Offset:</string>
+                                    <string extracomment="added to the track numbers, e.g. 12 when a second disc continues the numbering; not the read offset">Track Offset:</string>
                               </property>
                         </widget>
                   </item>
@@ -182,7 +182,7 @@ Information:</string>
                                     </sizepolicy>
                               </property>
                               <property name="text">
-                                    <string>CDDB disc ID:</string>
+                                    <string extracomment="the identifier of the disc in CDDB databases such as gnudb">CDDB disc ID:</string>
                               </property>
                         </widget>
                   </item>

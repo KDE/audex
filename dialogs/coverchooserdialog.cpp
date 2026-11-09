@@ -42,15 +42,19 @@ QString coverTypeName(const QString &type)
         // i18n: the disc itself
         return i18nc("@item cover art type", "Medium");
     if (type == u"Tray"_s)
+        // i18n: the inlay behind the disc in a jewel case
         return i18nc("@item cover art type", "Tray");
     if (type == u"Obi"_s)
         // i18n: the paper strip around Japanese releases
         return i18nc("@item cover art type", "Obi");
     if (type == u"Spine"_s)
+        // i18n: the narrow side of the case
         return i18nc("@item cover art type", "Spine");
     if (type == u"Track"_s)
+        // i18n: the image for a single track
         return i18nc("@item cover art type", "Track");
     if (type == u"Liner"_s)
+        // i18n: an inner sleeve
         return i18nc("@item cover art type", "Liner");
     if (type == u"Sticker"_s)
         return i18nc("@item cover art type", "Sticker");
@@ -64,10 +68,13 @@ QString coverTypeName(const QString &type)
     if (type == u"Bottom"_s)
         return i18nc("@item cover art type", "Bottom");
     if (type == u"Panel"_s)
+        // i18n: a panel of a fold-out package such as a digipak
         return i18nc("@item cover art type", "Panel");
     if (type == u"Watermark"_s)
+        // i18n: a scan with a watermark
         return i18nc("@item cover art type", "Watermark");
     if (type == u"Raw/Unedited"_s)
+        // i18n: a scan that has not been edited
         return i18nc("@item cover art type", "Raw/Unedited");
     if (type == u"Other"_s)
         return i18nc("@item cover art type", "Other");
@@ -211,6 +218,7 @@ void CoverChooserDialog::listingFinished(int requestId, const Audex::CoverArtLis
         const int index = int(m_entries.size());
         m_entries.append(Entry{image, page, group});
 
+        // i18n: a cover image without a type
         QString label = image.types.isEmpty() ? i18n("Image") : coverTypeNames(image.types);
         if (group)
             label += u'\n' + i18n("(other release)");

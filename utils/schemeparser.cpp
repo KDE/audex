@@ -20,8 +20,10 @@ const QString SchemeParser::parseScheme(const QString &scheme, const Placeholder
         return QString();
     }
     for (const QString &name : rendered.unknownNames)
+        // i18n: %1 is the name of a placeholder
         p_warnings << i18n("%1 is not available in this scheme and is left out.", name);
     for (const auto &[placeholder, key] : rendered.unknownParameters)
+        // i18n: %1 is a placeholder as written in the scheme, %2 the name of the parameter
         p_warnings << i18n("%1: the parameter %2 is unknown and ignored.", placeholder, key);
     return rendered.text;
 }
@@ -40,6 +42,7 @@ QString SchemeParser::errorText(const Audex::Scheme::Error &error)
     case Kind::MissingValue:
         return i18n("Parameter without a value at position %1.", position);
     case Kind::ReplaceCharsLength:
+        // i18n: replace_char_list_from and replace_char_list_to are parameter names, do not translate them
         return i18n("Position %1: replace_char_list_from and replace_char_list_to must have the same number of characters.", position);
     case Kind::None:
         break;
@@ -49,6 +52,7 @@ QString SchemeParser::errorText(const Audex::Scheme::Error &error)
 
 QString SchemeParser::missingProgramText(const QString &program)
 {
+    // i18n: %1 is a program, e.g. opusenc
     return i18n("%1 was not found. Is it installed?", program);
 }
 
@@ -56,14 +60,17 @@ QString SchemeParser::commandIssueText(const Audex::Encoding::CommandIssue &issu
 {
     switch (issue.kind) {
     case Audex::Encoding::CommandIssue::Kind::HasParameters:
+        // i18n: %1 is a placeholder as written, e.g. ${title lowercase=true}
         return i18n("%1: parameters are not supported in a command.", issue.written);
     case Audex::Encoding::CommandIssue::Kind::CoverFile:
+        // i18n: %1 is a placeholder as written in the command, e.g. $cover
         return i18n("%1 cannot be filled in: Audex embeds the cover itself and does not write a cover file.", issue.written);
     case Audex::Encoding::CommandIssue::Kind::Syntax:
         return errorText(issue.syntax);
     case Audex::Encoding::CommandIssue::Kind::UnknownName:
         break;
     }
+    // i18n: %1 is a placeholder as written, e.g. $tittle
     return i18n("%1 is not a known placeholder.", issue.written);
 }
 
@@ -82,6 +89,7 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
         "<body>";
 
     result.append(
+        // i18n: keep the HTML tags and the placeholders ($artist, ${title ...}) as they are
         i18n("<p>The following placeholders will be replaced with their particular meaning:</p>"
              "<table>"
              "<tr><th>Placeholder</th><th>Description</th></tr>"
@@ -103,6 +111,7 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
     // parameters are a feature of the filename schemes; commands have none
     if (scheme == 1 || scheme == 3)
         result.append(i18n(
+            // i18n: keep the HTML tags and the placeholders ($artist, ${title ...}) as they are
             "<p>Placeholders in Audex can have parameters in the form key=value. E.g. <tt>${title lowercase=true}</tt>. In this example "
             "the title will be lowercased. The parameters are applied in the order they are written, <tt>pre</tt> and <tt>post</tt> are "
             "added last. The following general parameters can be used with placeholders:</p>"
@@ -129,6 +138,7 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
 
     if (scheme == 1) {
         result.append(
+            // i18n: keep the HTML tags and the placeholders ($artist, ${title ...}) as they are
             i18n("<table>"
                  "<tr><th>Placeholder</th><th>Description</th></tr>"
                  "<tr><td><tt>$tartist</tt></td><td>This is the artist of every track. It is especially useful on compilation CDs.</td></tr>"
@@ -141,6 +151,7 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
 
     if (scheme == 2) {
         result.append(
+            // i18n: keep the HTML tags and the placeholders ($artist, ${title ...}) as they are
             i18n("<table>"
                  "<tr><th>Placeholder</th><th>Description</th></tr>"
                  "<tr><td><tt>$o</tt></td><td>The file the command has to write.</td></tr>"
@@ -157,6 +168,7 @@ QString SchemeParser::helpHTMLDoc(const int scheme)
 
     if (scheme == 4) {
         result.append(
+            // i18n: keep the HTML tags and the placeholders ($artist, ${title ...}) as they are
             i18n("<table>"
                  "<tr><th>Placeholder</th><th>Description</th></tr>"
                  "<tr><td><tt>$files</tt></td><td>The list of the written audio files. As an argument of its own it becomes one argument per file, "

@@ -27,6 +27,7 @@ MetadataCandidateDialog::MetadataCandidateDialog(const Audex::MetadataCandidates
     for (const Audex::MetadataCandidate &candidate : candidates) {
         auto *item = new QListWidgetItem(u"%1: %2"_s.arg(candidate.providerName, candidate.description()), list);
         if (candidate.score > 0)
+            // i18n: %1 is a number from 0 to 100; write the percent sign as usual in your language
             item->setToolTip(i18n("Match quality: %1%", candidate.score));
     }
     list->setCurrentRow(0);

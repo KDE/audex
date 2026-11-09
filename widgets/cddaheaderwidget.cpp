@@ -264,6 +264,7 @@ QList<CDDAHeaderWidget::Badge> CDDAHeaderWidget::badges() const
     if (m_hdcd.value_or(false))
         result.append({QStringLiteral("HDCD"), palette().accent().color(), QColor()});
     if (!cdda_model->cdInfo().preEmphasisTracks().isEmpty())
+        // i18n: CD term: the treble was raised at mastering; a short badge in capital letters
         result.append({i18nc("badge in the disc header", "PRE-EMPHASIS"), QColor(0x8e, 0x44, 0xad), QColor()}); // purple
     if (m_cdg.value_or(false))
         result.append({QStringLiteral("CD+G"), QColor(0x3b, 0x3f, 0x45), QColor(0x9a, 0xa0, 0xa6)}); // dark grey, visible on dark schemes too
@@ -392,6 +393,7 @@ QString CDDAHeaderWidget::coverToolTip() const
     if (origin.isEmpty() && QDir::isAbsolutePath(cover.source))
         origin = i18n("From the file %1.", cover.source);
     else if (origin.isEmpty() && !cover.source.isEmpty())
+        // i18n: %1 is where the cover comes from, e.g. a web address
         origin = i18n("From %1.", cover.source);
     else if (origin.isEmpty())
         origin = i18n("Origin unknown.");
@@ -399,7 +401,11 @@ QString CDDAHeaderWidget::coverToolTip() const
     const QImage image = cdda_model->coverImage();
     const QString format = cover.suffix().toUpper();
     const QString size = QLocale().formattedDataSize(cover.data.size());
-    const QString details = image.isNull() ? i18n("%1, %2", format, size) : i18n("%1 × %2 pixels, %3, %4", image.width(), image.height(), format, size);
+    const QString details = image.isNull()
+        // i18n: image format and file size of the cover, e.g. JPEG, 120 KB
+        ? i18n("%1, %2", format, size)
+        // i18n: width, height, image format and file size of the cover
+        : i18n("%1 × %2 pixels, %3, %4", image.width(), image.height(), format, size);
     return u"<p>%1</p><p>%2</p>"_s.arg(origin.toHtmlEscaped(), details.toHtmlEscaped());
 }
 
@@ -782,7 +788,9 @@ void CDDAHeaderWidget::updateToolTip()
         const Audex::CDInfo &info = cdda_model->cdInfo();
         if (info.medium() == Audex::CDInfo::Medium::CdR || info.medium() == Audex::CDInfo::Medium::CdRw) {
             const QString kind = info.medium() == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R");
-            QString tip = info.mediumDetails().isEmpty() ? i18n("Recordable disc (%1).", kind) : i18n("Recordable disc (%1, %2).", kind, info.mediumDetails());
+            QString tip = info.mediumDetails().isEmpty() ? i18n("Recordable disc (%1).", kind)
+                                                         // i18n: %1 is CD-R or CD-RW, %2 details of the disc such as its manufacturer
+                                                         : i18n("Recordable disc (%1, %2).", kind, info.mediumDetails());
             tip += u' '
                 + i18n("Usually a copy: AccurateRip confirms it only if it was burned bit-exact from a pressing. Burned discs age and can be harder to read.");
             tips << tip;

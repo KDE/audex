@@ -100,7 +100,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reads every sector twice and reads again what differs until the copies agree. Slower, but reading errors do not go unnoticed. With AccurateRip or CTDB verification turned on, a track a database confirms after the first read is not read a second time (not for image profiles).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>Secure mode</string>
+         <string extracomment="the reading mode that reads every sector at least twice; not a security feature">Secure mode</string>
         </property>
        </widget>
       </item>
@@ -128,7 +128,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use the C2 error pointers of the drive: a copy is only trusted if the drive reports no C2 errors. In secure mode this replaces the second pass. Not all drives support C2 pointers.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Use C2 error pointers</string>
+           <string extracomment="C2 error pointers: CD drive term, flags the drive sets for bytes it could not correct">Use C2 error pointers</string>
           </property>
          </widget>
         </item>
@@ -138,7 +138,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Force the drive to really re-read sectors instead of serving them from its cache: before every re-read a sector far away is read. Recommended for secure mode.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Defeat drive cache</string>
+           <string extracomment="make the drive read again instead of answering from its cache">Defeat drive cache</string>
           </property>
          </widget>
         </item>
@@ -150,7 +150,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Try to read into the lead-in and lead-out areas. Only useful with a matching sample shift; most drives cannot overread.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
-         <string>Overread into lead-in and lead-out</string>
+         <string extracomment="lead-in, lead-out: CD terms for the areas before the first and after the last track">Overread into lead-in and lead-out</string>
         </property>
        </widget>
       </item>
@@ -196,7 +196,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <item>
     <widget class="QGroupBox" name="groupBox_offset">
      <property name="title">
-      <string>Read offset</string>
+      <string extracomment="read offset: the shift, in samples, by which a drive model delivers the audio too early or too late">Read offset</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_offset">
       <item>
@@ -207,7 +207,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Some drives have a sample offset when reading audio CDs. To determine the correct offset for your drive model, you can check the &lt;a href="https://www.accuraterip.com/driveoffsets.htm"&gt;&lt;span style=" text-decoration: underline; color:#2980b9;"&gt;Accuraterip&lt;/span&gt;&lt;/a&gt; database.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
-           <string>Sample shift:</string>
+           <string extracomment="the read offset of the drive, in samples">Sample shift:</string>
           </property>
          </widget>
         </item>

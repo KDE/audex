@@ -155,6 +155,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_network = new QNetworkAccessManager(this);
 
     m_lookup = new Audex::MetadataLookup(this);
+    // i18n: CD term: titles stored on the disc itself
     m_cdtextProvider = new Audex::PrecomputedProvider(u"cdtext"_s, i18n("CD-Text"), this);
     m_lookup->addProvider(m_cdtextProvider);
     m_musicBrainzProvider = new Audex::MusicBrainzProvider(m_network, this);
@@ -250,6 +251,7 @@ void MainWindow::setup_actions()
     connect(m_driveComboBox, &QComboBox::currentIndexChanged, this, &MainWindow::current_drive_updated_from_ui);
 
     auto *driveAction = new QWidgetAction(this);
+    // i18n: the drive selection in the toolbar
     driveAction->setText(i18n("Drive"));
     driveAction->setIcon(QIcon::fromTheme("drive-optical"));
     driveAction->setDefaultWidget(m_driveComboBox);
@@ -275,6 +277,7 @@ void MainWindow::setup_actions()
     actionCollection()->addAction("profile_label", plabelAction);
 
     auto *profileAction = new QWidgetAction(this);
+    // i18n: the profile selection in the toolbar
     profileAction->setText(i18n("Profile"));
     profileAction->setDefaultWidget(m_profileComboBox);
     actionCollection()->addAction("profile", profileAction);
@@ -304,6 +307,7 @@ void MainWindow::setup_actions()
     fetchButton->setPopupMode(QToolButton::MenuButtonPopup);
 
     auto *fetchAction = new QAction(this);
+    // i18n: look up the album information online
     fetchAction->setText(i18n("Fetch"));
     fetchAction->setIcon(QIcon::fromTheme("view-list-text"));
     connect(fetchAction, &QAction::triggered, this, &MainWindow::fetch_metadata);
@@ -323,6 +327,7 @@ void MainWindow::setup_actions()
     actionCollection()->setDefaultShortcut(fetchAction, Qt::CTRL | Qt::Key_F);
 
     auto *editAction = new QAction(this);
+    // i18n: edit the album information of the disc
     editAction->setText(i18n("Edit"));
     editAction->setIcon(QIcon::fromTheme("document-edit"));
     actionCollection()->addAction("edit", editAction);
@@ -330,6 +335,7 @@ void MainWindow::setup_actions()
     connect(editAction, &QAction::triggered, this, &MainWindow::edit);
 
     auto *clearAction = new QAction(this);
+    // i18n: remove artist, titles and cover of the disc
     clearAction->setText(i18n("Clear"));
     clearAction->setIcon(QIcon::fromTheme(u"edit-clear"_s));
     clearAction->setToolTip(i18n("Removes artist, titles and the cover of this disc"));
@@ -337,6 +343,7 @@ void MainWindow::setup_actions()
     connect(clearAction, &QAction::triggered, this, &MainWindow::clear_metadata);
 
     auto *extractAction = new QAction(this);
+    // i18n: rip: copy the audio of the CD into files
     extractAction->setText(i18n("Rip..."));
     extractAction->setIcon(QIcon::fromTheme("media-optical-audio"));
     actionCollection()->addAction("rip", extractAction);
@@ -414,6 +421,7 @@ void MainWindow::setup_layout()
     m_profileMessage->setMessageType(KMessageWidget::Warning);
     m_profileMessage->setPosition(KMessageWidget::Header);
     m_profileMessage->setWordWrap(true);
+    // i18n: %1 is a list of folders, one per line; AUDEX_ENCODER_PLUGIN_PATH is the name of an environment variable
     m_profileMessage->setToolTip(i18n("Encoder plugins are searched in:\n%1\n\nThe environment variable AUDEX_ENCODER_PLUGIN_PATH adds further folders.",
                                       Audex::Encoding::EncoderRegistry::defaultPluginDirectories().join(u'\n')));
     m_profileMessage->hide();
@@ -537,6 +545,7 @@ void MainWindow::rip()
     if (m_profileModel->isImage(profileRow) && !EncoderAssistant::lossless(m_profileModel->getSelectedEncoderFromCurrentIndex())) {
         KMessageBox::error(this,
                            i18n("The profile creates an image, which requires a lossless encoder (FLAC, WAVE or AIFF). Please change the profile."),
+                           // i18n: a rip of the whole disc into one image file
                            i18n("Image rip"));
         return;
     }
@@ -673,6 +682,7 @@ void MainWindow::split_titles()
     bool ok;
     QString divider = QInputDialog::getText(this,
                                             i18n("Split titles"),
+                                            // i18n: the divider splits each title into artist and title, e.g. " - "
                                             i18n("Please set a divider string. Be aware of empty spaces.\n\nDivider:"),
                                             QLineEdit::Normal,
                                             " - ",
@@ -1097,6 +1107,7 @@ void MainWindow::start_cover_fetch(const Audex::MetadataCandidate &candidate, bo
 
     if (m_coverQueue.isEmpty()) {
         const QString detail = candidate.covers.isEmpty()
+            // i18n: %1 is the name of a metadata service, e.g. MusicBrainz
             ? i18n("%1 offers no cover for this album.", candidate.providerName)
             : i18n("Only the release group has a cover, and its use is turned off in the settings.");
         m_cddaHeaderWidget->setCoverState(CDDAHeaderWidget::CoverState::NotFound, detail);
@@ -1285,6 +1296,7 @@ void MainWindow::updateProfileMessage()
     }
 
     // shown again only if something changed after the user closed it
+    // i18n: %1 is one sentence or more naming the missing plugins
     const QString text = i18n("Profiles that need a missing encoder plugin are disabled. %1", reasons.join(u' '));
     if (text != m_profileMessage->text()) {
         m_profileMessage->setText(text);

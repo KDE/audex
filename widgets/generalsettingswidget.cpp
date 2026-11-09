@@ -48,6 +48,7 @@ void generalSettingsWidget::updateCacheButton()
 {
     const qint64 size = Audex::ResponseCache().size();
     pushButton_clearCache->setEnabled(size > 0);
+    // i18n: %1 is the size of the cache, e.g. 2.4 MB
     pushButton_clearCache->setText(size > 0 ? i18n("Clear Cache (%1)", QLocale().formattedDataSize(size)) : i18n("Clear Cache"));
 }
 

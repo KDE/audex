@@ -30,7 +30,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Command Scheme:</string>
+      <string extracomment="the encoder command, with placeholders such as $o">Command Scheme:</string>
      </property>
     </widget>
    </item>

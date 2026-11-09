@@ -183,6 +183,7 @@ int ExtractingProgressDialog::exec()
     if (!space.enough()) {
         const QLocale locale;
         if (KMessageBox::warningContinueCancel(this,
+                                               // i18n: %1 is a folder, %2 and %3 are data sizes such as 1.2 GB
                                                i18n("The output folder %1 has %2 free, but the rip needs about %3. Start it anyway?",
                                                     space.folder,
                                                     locale.formattedDataSize(space.available),
@@ -308,6 +309,7 @@ void ExtractingProgressDialog::onProgress(qint64 doneSectors, qint64 totalSector
         speed_ema = (speed_ema <= 0.0) ? speed : (0.3 * speed + 0.7 * speed_ema);
         last_sectors = doneSectors;
         speed_timer.restart();
+        // i18n: %1 is the read speed as a multiple of the normal playback speed of a CD
         ui.label_speed_extracting->setText(i18n("<i>Speed: %1×</i>", QLocale().toString(speed_ema, 'f', 2)));
         // the read position on the disc: stays within the disc and follows
         // the drive back when a track is read again
@@ -502,6 +504,7 @@ void ExtractingProgressDialog::conclusion(const PostProcessResult &post)
     } else if (m_summary.verification.status == JobStatus::Failed) {
         verification = i18n("The repaired image could not be verified.");
     } else if (m_summary.verification.status == JobStatus::Success) {
+        // i18n: AccurateRip and CTDB (CUETools database) are names of online databases
         verification = i18np("%1 track confirmed by AccurateRip or CTDB.", "%1 tracks confirmed by AccurateRip or CTDB.", m_summary.verifiedTracks);
     } else {
         QStringList details;

@@ -127,7 +127,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
                </font>
               </property>
               <property name="text">
-               <string>Scheme:</string>
+               <string extracomment="a scheme is a file name pattern with placeholders such as $artist">Scheme:</string>
               </property>
              </widget>
             </item>
@@ -175,7 +175,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <item row="3" column="0">
            <widget class="QCheckBox" name="checkBox_2digitstracknum">
             <property name="toolTip">
-             <string>A length parameter in the scheme, e.g. ${trackno length=3}, takes precedence.</string>
+             <string extracomment="keep ${trackno length=3} as it is">A length parameter in the scheme, e.g. ${trackno length=3}, takes precedence.</string>
             </property>
             <property name="text">
              <string>Set 2 digits track number (e.g. 01, 02, 03)...</string>
@@ -202,7 +202,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </widget>
      <widget class="QWidget" name="tab_image">
       <attribute name="title">
-       <string>Image</string>
+       <string extracomment="the tab for ripping the whole disc into one image file, not a picture">Image</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_image_tab">
        <item row="0" column="0">
@@ -214,7 +214,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <item row="0" column="0">
            <widget class="QLabel" name="label_image_scheme">
             <property name="text">
-             <string>Image scheme:</string>
+             <string extracomment="a scheme is a file name pattern with placeholders such as $artist">Image scheme:</string>
             </property>
            </widget>
           </item>
@@ -256,7 +256,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <item>
              <widget class="QCheckBox" name="checkBox_ctdb_repair_keep_original">
               <property name="toolTip">
-               <string>Keep the image as it was read next to the repaired one, as &quot;&lt;name&gt;.unrepaired.&lt;suffix&gt;&quot;.</string>
+               <string extracomment="keep &lt;name&gt;.unrepaired.&lt;suffix&gt; as it is">Keep the image as it was read next to the repaired one, as &quot;&lt;name&gt;.unrepaired.&lt;suffix&gt;&quot;.</string>
               </property>
               <property name="text">
                <string>Keep the unrepaired image file</string>

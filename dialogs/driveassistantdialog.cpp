@@ -30,20 +30,28 @@ namespace
 QString checkLabel(const Audex::Rip::FeatureCheck &check)
 {
     if (check.id == u"burst")
+        // i18n: how many sectors the drive delivers per read command
         return i18n("Read command size");
     if (check.id == u"cache")
+        // i18n: a cache in the drive that holds audio it has read; secure re-reads have to bypass it
         return i18n("Audio cache");
     if (check.id == u"stream")
+        // i18n: accurate stream: CD drive term, the drive delivers the same audio at the same position after a seek
         return i18n("Accurate stream");
     if (check.id == u"c2")
+        // i18n: C2 error pointers: CD drive term, flags the drive sets for bytes it could not correct
         return i18n("C2 error pointers");
     if (check.id == u"overread")
+        // i18n: reading into the lead-in or lead-out, the areas before the first and after the last track
         return i18n("Overread");
     if (check.id == u"subchannel")
+        // i18n: CD term: the sub-channel that carries positions, pregaps and ISRCs
         return i18n("Q sub-channel");
     if (check.id == u"offset")
+        // i18n: read offset: the shift, in samples, by which a drive model delivers the audio too early or too late
         return i18n("Read offset");
     if (check.id == u"rw")
+        // i18n: CD term: the sub-channels R to W, which carry the CD+G graphics
         return i18n("R-W sub-channel (CD+G)");
     return check.name;
 }
@@ -88,6 +96,7 @@ DriveAssistantDialog::DriveAssistantDialog(const Audex::DriveEntry &drive, QWidg
     connect(&m_watcher, &QFutureWatcherBase::finished, this, &DriveAssistantDialog::testFinished);
     connect(ui.groupBox_details, &QGroupBox::toggled, ui.plainTextEdit_details, &QWidget::setVisible);
 
+    // i18n: %1 is the name of the drive
     ui.label_drive->setText(i18n("Drive: %1", drive.displayName.isEmpty() ? drive.id : drive.displayName));
     ui.treeWidget_checks->setHeaderLabels({i18n("Check"), i18n("Result")});
     ui.treeWidget_checks->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
@@ -219,6 +228,7 @@ void DriveAssistantDialog::checkStarted(int index, int total, const Audex::Rip::
 {
     ui.progressBar->setRange(0, std::max(total, m_steps));
     ui.progressBar->setValue(index);
+    // i18n: %1 is the name of a check, e.g. Audio cache
     ui.label_status->setText(i18n("Measuring: %1...", checkLabel(check)));
 
     auto *item = new QTreeWidgetItem(ui.treeWidget_checks);
@@ -285,6 +295,8 @@ void DriveAssistantDialog::testFinished()
     }
     ui.label_status->setText(
         m_result.offsetFound
+            // i18n: Apply is the button of this dialog; use its usual translation
             ? i18n("Done. Apply stores the results for this drive, fills in the settings that follow from them and enters the read offset %1.", m_result.offset)
+            // i18n: Apply is the button of this dialog; use its usual translation
             : i18n("Done. Apply stores the results for this drive and fills in the settings that follow from them."));
 }

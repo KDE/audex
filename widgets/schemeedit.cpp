@@ -107,9 +107,12 @@ void SchemeEdit::setScheme(const QString &scheme)
 void SchemeEdit::applyKind()
 {
     if (m_kind == Command)
+        // i18n: keep the command line as it is
         setPlaceholderText(i18nc("example of an encoder command: - is standard input, $o the output file", "e.g. opusenc --quiet - $o"));
     else
-        setPlaceholderText(m_kind == HookCommand ? i18n("Please set a command") : i18n("Please set a scheme"));
+        setPlaceholderText(m_kind == HookCommand ? i18n("Please set a command")
+                                                 // i18n: a scheme is a file name pattern with placeholders such as $artist
+                                                 : i18n("Please set a scheme"));
     rebuildMenu();
     validate();
 }
@@ -142,7 +145,9 @@ void SchemeEdit::rebuildMenu()
     addVariable(i18n("Album Title"), Var::AlbumTitle);
     addVariable(i18n("Date"), Var::Date);
     addVariable(i18n("Genre"), Var::Genre);
+    // i18n: the number of the disc in a set
     addVariable(i18n("CD #"), Var::CdNo);
+    // i18n: the number of tracks on the disc
     addVariable(i18n("# of Tracks"), Var::NoOfTracks);
     addVariable(i18n("Today"), Var::Today);
 
@@ -150,13 +155,16 @@ void SchemeEdit::rebuildMenu()
         m_insertMenu->addSection(i18n("Track"));
         addVariable(i18n("Track Artist"), Var::TrackArtist);
         addVariable(i18n("Track Title"), Var::TrackTitle);
+        // i18n: the number of the track
         addVariable(i18n("Track #"), Var::TrackNo);
     }
 
     if (m_kind == Command) {
+        // i18n: the placeholders of the encoder command
         m_insertMenu->addSection(i18n("Command"));
         addVariable(i18n("Output File"), Var::OutputFile);
     } else if (m_kind == HookCommand) {
+        // i18n: the placeholders of the command a profile runs after the rip
         m_insertMenu->addSection(i18n("Hook"));
         addVariable(i18n("Written Files"), Var::HookFiles);
         addVariable(i18n("Output Directory"), Var::HookOutputDir);
