@@ -73,7 +73,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          <string>If you have extremely good hearing and similar equipment, this preset will generally provide slightly higher quality than the "standard" mode</string>
         </property>
         <property name="text">
-         <string>Extreme (220...260 kbits/s)</string>
+         <string>Extreme (220...260 kbit/s)</string>
         </property>
        </widget>
       </item>

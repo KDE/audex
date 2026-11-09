@@ -168,35 +168,38 @@ void deviceWidget::updateFeatureSummary()
         return;
     }
 
+    // one line per feature, so that every line stands on its own
     QStringList parts;
     if (f.burstSectors > 0)
         parts << i18np("%1 sector per read command", "%1 sectors per read command", f.burstSectors);
     if (f.accurateStream != Feature::Unknown)
-        parts << (f.accurateStream == Feature::Yes ? i18n("accurate stream") : i18n("no accurate stream, %1 samples off", f.jitterSamples));
+        parts << (f.accurateStream == Feature::Yes ? i18n("Accurate stream")
+                                                   : i18np("No accurate stream, %1 sample off", "No accurate stream, %1 samples off", f.jitterSamples));
     if (f.caching == Feature::Yes)
-        parts << i18np("audio cache, %1 far read flushes it", "audio cache, %1 far reads flush it", f.cacheDefeatReads);
+        parts << i18np("Audio cache, %1 far read flushes it", "Audio cache, %1 far reads flush it", f.cacheDefeatReads);
     else if (f.caching == Feature::No)
-        parts << i18n("no audio cache");
+        parts << i18n("No audio cache");
     if (!f.c2Supported)
-        parts << i18n("no C2 error pointers");
+        parts << i18n("No C2 error pointers");
     else if (f.c2Reliable == Feature::Yes)
-        parts << i18n("reliable C2 error pointers");
+        parts << i18n("Reliable C2 error pointers");
     else if (f.c2Reliable == Feature::No)
-        parts << i18n("unreliable C2 error pointers");
+        parts << i18n("Unreliable C2 error pointers");
     if (f.leadIn == Feature::Yes && f.leadOut == Feature::Yes)
-        parts << i18n("reads lead-in and lead-out");
+        parts << i18n("Reads the lead-in and the lead-out");
     else if (f.leadOut == Feature::Yes)
-        parts << i18n("reads the lead-out");
+        parts << i18n("Reads the lead-out");
     else if (f.leadIn == Feature::Yes)
-        parts << i18n("reads the lead-in");
+        parts << i18n("Reads the lead-in");
     else if (f.leadOut == Feature::No)
-        parts << i18n("cannot overread");
+        parts << i18n("Cannot overread");
     if (f.subchannelQ == Feature::No)
-        parts << i18n("no Q sub-channel");
+        parts << i18n("No Q sub-channel");
     if (f.rwSubchannel == Feature::No)
-        parts << i18n("no CD+G graphics (raw sub-channel)");
+        parts << i18n("No CD+G graphics (raw sub-channel)");
 
-    label_features->setText(i18n("Tested on %1: %2.", QLocale().toString(f.measured, QLocale::ShortFormat), parts.join(QStringLiteral(", "))));
+    parts.prepend(i18n("Tested on %1:", QLocale().toString(f.measured, QLocale::ShortFormat)));
+    label_features->setText(parts.join(u'\n'));
 }
 
 void deviceWidget::detectOffset()

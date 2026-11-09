@@ -28,6 +28,59 @@ using Audex::Metadata::Field;
 namespace
 {
 constexpr int ThumbnailSize = 160; // shown; loaded as 250 pixel thumbnails
+
+// The image types of the Cover Art Archive, translated; an unknown one as it is
+QString coverTypeName(const QString &type)
+{
+    if (type == u"Front"_s)
+        return i18nc("@item cover art type", "Front");
+    if (type == u"Back"_s)
+        return i18nc("@item cover art type", "Back");
+    if (type == u"Booklet"_s)
+        return i18nc("@item cover art type", "Booklet");
+    if (type == u"Medium"_s)
+        // i18n: the disc itself
+        return i18nc("@item cover art type", "Medium");
+    if (type == u"Tray"_s)
+        return i18nc("@item cover art type", "Tray");
+    if (type == u"Obi"_s)
+        // i18n: the paper strip around Japanese releases
+        return i18nc("@item cover art type", "Obi");
+    if (type == u"Spine"_s)
+        return i18nc("@item cover art type", "Spine");
+    if (type == u"Track"_s)
+        return i18nc("@item cover art type", "Track");
+    if (type == u"Liner"_s)
+        return i18nc("@item cover art type", "Liner");
+    if (type == u"Sticker"_s)
+        return i18nc("@item cover art type", "Sticker");
+    if (type == u"Poster"_s)
+        return i18nc("@item cover art type", "Poster");
+    if (type == u"Matrix/Runout"_s)
+        // i18n: the inscription in the inner ring of the disc
+        return i18nc("@item cover art type", "Matrix/Runout");
+    if (type == u"Top"_s)
+        return i18nc("@item cover art type", "Top");
+    if (type == u"Bottom"_s)
+        return i18nc("@item cover art type", "Bottom");
+    if (type == u"Panel"_s)
+        return i18nc("@item cover art type", "Panel");
+    if (type == u"Watermark"_s)
+        return i18nc("@item cover art type", "Watermark");
+    if (type == u"Raw/Unedited"_s)
+        return i18nc("@item cover art type", "Raw/Unedited");
+    if (type == u"Other"_s)
+        return i18nc("@item cover art type", "Other");
+    return type;
+}
+
+QString coverTypeNames(const QStringList &types)
+{
+    QStringList names;
+    for (const QString &type : types)
+        names << coverTypeName(type);
+    return names.join(i18nc("@item separator in a list of cover art types", ", "));
+}
 }
 
 Audex::CoverArtFetcher::Size preferredCoverSize()
@@ -158,7 +211,7 @@ void CoverChooserDialog::listingFinished(int requestId, const Audex::CoverArtLis
         const int index = int(m_entries.size());
         m_entries.append(Entry{image, page, group});
 
-        QString label = image.types.isEmpty() ? i18n("Image") : image.types.join(u", "_s);
+        QString label = image.types.isEmpty() ? i18n("Image") : coverTypeNames(image.types);
         if (group)
             label += u'\n' + i18n("(other release)");
         auto *item = new QListWidgetItem(QIcon::fromTheme(u"image-x-generic"_s), label);
@@ -239,7 +292,14 @@ void CoverChooserDialog::updateStatus()
 
 QString CoverChooserDialog::originText(const Entry &entry) const
 {
-    const QString types = entry.image.types.isEmpty() ? i18n("untyped") : entry.image.types.join(u", "_s);
-    return entry.otherRelease ? i18n("Cover Art Archive: %1 image of another release of “%2”.", types, m_title)
-                              : i18n("Cover Art Archive: %1 image of the release “%2”.", types, m_title);
+    const QStringList &types = entry.image.types;
+    if (types.isEmpty())
+        return entry.otherRelease ? i18n("Cover Art Archive: image of another release of “%1”.", m_title)
+                                  : i18n("Cover Art Archive: image of the release “%1”.", m_title);
+    const QString names = coverTypeNames(types);
+    if (entry.otherRelease)
+        // i18n: %2 is the list of image types, e.g. "Front, Booklet"
+        return i18n("Cover Art Archive: image of another release of “%1” (%2).", m_title, names);
+    // i18n: %2 is the list of image types, e.g. "Front, Booklet"
+    return i18n("Cover Art Archive: image of the release “%1” (%2).", m_title, names);
 }

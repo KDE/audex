@@ -9,7 +9,6 @@
 
 #include <KLocalizedString>
 
-#include <QDateTime>
 #include <QDialogButtonBox>
 #include <QFile>
 #include <QFileDialog>
@@ -53,14 +52,12 @@ void LogViewDialog::slotSaveLog()
 
 void LogViewDialog::save()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save %1", title), QDir::homePath(), "*.log");
+    QString fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save Log"), QDir::homePath(), "*.log");
     if (!fileName.isEmpty()) {
         QFile data(fileName);
         if (data.open(QFile::WriteOnly | QFile::Truncate)) {
+            // as shown: both the rip log and the check report name program and date
             QTextStream out(&data);
-            out << "AUDEX " << title << Qt::endl;
-            out << i18n("created on ") << QDateTime::currentDateTime().toString() << Qt::endl;
-            out << Qt::endl;
             for (int i = 0; i < log.count(); i++) {
                 out << log.at(i) << Qt::endl;
             }

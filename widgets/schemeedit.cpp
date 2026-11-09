@@ -129,7 +129,7 @@ void SchemeEdit::rebuildMenu()
 
     // an entry carries the text it inserts, the label shows it in brackets
     const auto addEntry = [this](const QString &label, const QString &text) {
-        m_insertMenu->addAction(label + QStringLiteral(" (") + text + QLatin1Char(')'), this, [this, text]() {
+        m_insertMenu->addAction(i18nc("@action:inmenu placeholder name, the text it inserts", "%1 (%2)", label, text), this, [this, text]() {
             insertText(text);
         });
     };

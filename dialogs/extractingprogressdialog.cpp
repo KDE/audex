@@ -506,7 +506,7 @@ void ExtractingProgressDialog::conclusion(const PostProcessResult &post)
     } else {
         QStringList details;
         if (m_summary.verifiedTracks < m_summary.verifiableTracks)
-            details << i18n("%1 of %2 tracks confirmed.", m_summary.verifiedTracks, m_summary.verifiableTracks);
+            details << i18np("%2 of %1 track confirmed.", "%2 of %1 tracks confirmed.", m_summary.verifiableTracks, m_summary.verifiedTracks);
         if (m_summary.accurateRipMismatches > 0 || m_summary.ctdbMismatches > 0)
             details << i18n("Database mismatches detected.");
         if (!m_summary.accurateRipError.isEmpty() || !m_summary.ctdbError.isEmpty())

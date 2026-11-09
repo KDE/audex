@@ -329,7 +329,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
              </font>
             </property>
             <property name="text">
-             <string>Settings..</string>
+             <string>Settings...</string>
             </property>
            </widget>
           </item>
@@ -355,7 +355,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
              </font>
             </property>
             <property name="text">
-             <string>Settings..</string>
+             <string>Settings...</string>
             </property>
            </widget>
           </item>
@@ -372,14 +372,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <item row="2" column="1">
            <widget class="QPushButton" name="kpushbutton_cue">
             <property name="text">
-             <string>Settings..</string>
+             <string>Settings...</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
            <widget class="QPushButton" name="kpushbutton_logfile">
             <property name="text">
-             <string>Settings..</string>
+             <string>Settings...</string>
             </property>
            </widget>
           </item>
@@ -400,7 +400,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <item row="4" column="1">
            <widget class="QPushButton" name="kpushbutton_hook">
             <property name="text">
-             <string>Settings..</string>
+             <string>Settings...</string>
             </property>
            </widget>
           </item>
