@@ -192,7 +192,7 @@ Information:</string>
                                     <bool>true</bool>
                               </property>
                               <property name="text">
-                                    <string>0x00000000</string>
+                                    <string notr="true">0x00000000</string>
                               </property>
                               <property name="readOnly">
                                     <bool>true</bool>

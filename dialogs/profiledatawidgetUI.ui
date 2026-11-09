@@ -202,7 +202,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </widget>
      <widget class="QWidget" name="tab_image">
       <attribute name="title">
-       <string extracomment="the tab for ripping the whole disc into one image file, not a picture">Image</string>
+       <string comment="@title:tab" extracomment="the tab for ripping the whole disc into one image file, not a picture">Image</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_image_tab">
        <item row="0" column="0">

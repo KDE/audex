@@ -74,6 +74,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model,
     } else {
         ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->selectedTracks().count()));
     }
+    ui.label_speed_extracting->clear(); // filled in by the first progress report
 
     connect(ui.details_button, &QToolButton::clicked, this, &ExtractingProgressDialog::toggle_details);
 

@@ -219,7 +219,7 @@ void CoverChooserDialog::listingFinished(int requestId, const Audex::CoverArtLis
         m_entries.append(Entry{image, page, group});
 
         // i18n: a cover image without a type
-        QString label = image.types.isEmpty() ? i18n("Image") : coverTypeNames(image.types);
+        QString label = image.types.isEmpty() ? i18nc("@item:inlistbox", "Image") : coverTypeNames(image.types);
         if (group)
             label += u'\n' + i18n("(other release)");
         auto *item = new QListWidgetItem(QIcon::fromTheme(u"image-x-generic"_s), label);

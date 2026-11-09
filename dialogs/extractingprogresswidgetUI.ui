@@ -33,7 +33,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <string>Show/hide details</string>
      </property>
      <property name="text">
-      <string>...</string>
+      <string notr="true">...</string>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonStyle::ToolButtonIconOnly</enum>
@@ -118,7 +118,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Ripping track 8 of 12...</string>
+        <string notr="true">Ripping track 8 of 12...</string>
        </property>
       </widget>
      </item>
@@ -131,7 +131,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         </sizepolicy>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-style:italic;"&gt;Speed: 0×&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-style:italic;"&gt;Speed: 0×&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>

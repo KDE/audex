@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <item>
     <widget class="QLabel" name="label_drive">
      <property name="text">
-      <string>Drive</string>
+      <string notr="true">Drive</string>
      </property>
     </widget>
    </item>
