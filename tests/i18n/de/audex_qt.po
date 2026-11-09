@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Qt-Contexts: true\n"
+
+msgctxt "Audex::Online|"
+msgid "timeout after %1 s"
+msgstr "Zeitüberschreitung nach %1 s"
+
+msgctxt "Audex::Online|short status"
+msgid "canceled"
+msgstr "Kurz abgebrochen"
+
+msgctxt "Audex::RipJob|"
+msgid "Extracting %n track(s) to %1"
+msgid_plural "Extracting %n track(s) to %1"
+msgstr[0] "%n Titel wird nach %1 ausgelesen"
+msgstr[1] "%n Titel werden nach %1 ausgelesen"
+
+msgctxt "FlacEncoder|"
+msgid "Compression level"
+msgstr "Kompressionsstufe"

@@ -1,0 +1,12 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Qt-Contexts: true\n"
+
+msgctxt "Audex::RipJob|"
+msgid "Extracting %n track(s) to %1"
+msgid_plural "Extracting %n track(s) to %1"
+msgstr[0] "Extracting %n track to %1"
+msgstr[1] "Extracting %n tracks to %1"

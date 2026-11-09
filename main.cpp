@@ -14,7 +14,6 @@
 
 #include "audex-version.h"
 #include "mainwindow.h"
-#include "utils/enginetranslator.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,8 +22,6 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 
     KLocalizedString::setApplicationDomain("audex");
-    // the texts of the engine and the encoder plugins (Qt only, no KI18n there)
-    app.installTranslator(new EngineTranslator(&app));
 
     KAboutData aboutData("audex",
                          i18n("Audex"),

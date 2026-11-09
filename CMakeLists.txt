@@ -31,6 +31,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
+include(ECMPoQmTools)
 include(FeatureSummary)
 include(KDEClangFormat)
 
@@ -273,7 +274,6 @@ set(audex_SRCS
     utils/disccontroller.cpp
     utils/riprequestbuilder.cpp
     utils/genres.cpp
-    utils/enginetranslator.cpp
     widgets/cddaheaderwidget.cpp
     widgets/generalsettingswidget.cpp
     widgets/devicewidget.cpp
@@ -328,6 +328,9 @@ kconfig_add_kcfg_files(audex_SRCS preferences.kcfgc)
 qt_add_resources(audex_SRCS audex.qrc)
 
 add_executable(audex ${audex_SRCS})
+# texts of the engine and the encoder plugins (Qt tr, catalog audex_qt); the
+# loader goes into the executables, a static library would drop it
+ecm_create_qm_loader(audex audex_qt)
 target_link_libraries(
   audex
   audexengine
@@ -361,6 +364,7 @@ install(TARGETS audex DESTINATION ${KDE_INSTALL_BINDIR})
 
 # command line tool: the engine only, no KDE Frameworks
 add_executable(audex-cli cli/main.cpp cli/common.cpp cli/disc.cpp cli/rip.cpp)
+ecm_create_qm_loader(audex-cli audex_qt)
 target_link_libraries(audex-cli PRIVATE audexengine)
 install(TARGETS audex-cli DESTINATION ${KDE_INSTALL_BINDIR})
 
@@ -383,11 +387,12 @@ add_subdirectory(images)
 enable_testing()
 add_subdirectory(tests)
 
-# Install translations (the po directory is maintained by KDE l10n and may not
-# be present in every checkout)
+# Install translations (the po and poqm directories are maintained by KDE l10n
+# and may not be present in every checkout)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/po)
   ki18n_install(po)
 endif()
+ecm_install_po_files_as_qm(poqm)
 
 install(FILES audex.kcfg DESTINATION ${KDE_INSTALL_KCFGDIR})
 

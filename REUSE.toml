@@ -40,7 +40,8 @@ path = [
     "**.xml",
     "**.yaml",
     "Messages.sh",
-    "README.md"
+    "README.md",
+    "tests/i18n/**"
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2007-2026 Marco Nelles"

@@ -8,6 +8,7 @@
 file(REMOVE_RECURSE ${WORK})
 file(MAKE_DIRECTORY ${WORK})
 set(ENV{XDG_CONFIG_HOME} ${WORK}/config) # no saved offsets
+set(ENV{LANGUAGE} en) # English output, even with an installed audex_qt catalog
 
 function(run expected)
   execute_process(COMMAND ${CLI} ${ARGN} RESULT_VARIABLE code OUTPUT_VARIABLE out ERROR_VARIABLE err)

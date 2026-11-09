@@ -54,7 +54,7 @@ Audex runs exclusively on Linux and requires kernel SG_IO interface access (`/de
 
 ### Build Dependencies
 - **Build System & Compiler:** CMake ≥ 3.16 and a C++20 compiler (GCC or Clang).
-- **Frameworks:** Qt ≥ 6.6 (Core, Gui, Widgets, Concurrent, Network, DBus) and KDE Frameworks 6.
+- **Frameworks:** Qt ≥ 6.6 (Core, Gui, Widgets, Concurrent, Network, DBus; Linguist tools for the tests and the engine translations) and KDE Frameworks 6.
 - **Tagging:** TagLib ≥ 1.12 (TagLib 2.x required for cover art embedding across all formats).
 
 ### Encoders
@@ -334,32 +334,33 @@ Direct test execution:
 | `utils/` | Worker threads, CTDB image repair, Solid drive detection (`DiscController`), profile request builders, cue/playlist generators. |
 | `models/`, `widgets/`, `dialogs/` | KF6 graphical user interface. |
 
-### Translation Bridge and Localization Tests
+### Translations and Localization Tests
 
-Audex uses two translation mechanisms: the KDE GUI uses `i18n()` and `i18nc()` from KLocalizedString, while the extraction engine and native encoder plugins use Qt's `QCoreApplication::translate()` to avoid dependencies on KDE Frameworks.
+Audex has two translation catalogs, as usual in KDE for code that depends on Qt only:
 
-The `EngineTranslator` (`utils/enginetranslator.cpp`) bridges these mechanisms. It is installed at application startup and forwards translations from recognized Qt contexts (`Audex::...` and the native encoder contexts) to the KDE gettext domain `audex`. Contextual translations and Qt placeholders such as `%1` are preserved. Unrelated Qt translation contexts remain untouched.
+- `audex` (gettext): the KDE GUI, marked with `i18n()` and `i18nc()` from KLocalizedString. Installed from `po/` with `ki18n_install()`.
+- `audex_qt` (Qt): the extraction engine, the native encoder plugins and `audex-cli`, marked with `tr()` and `QCoreApplication::translate()` so that they do not depend on KDE Frameworks. Installed as `.qm` files from `poqm/` with `ecm_install_po_files_as_qm()` and loaded at startup by the loader of `ecm_create_qm_loader()` in `audex` and `audex-cli`.
+
+`Messages.sh` extracts both (`$XGETTEXT` and `$EXTRACT_TR_STRINGS`). The text of a Qt message is looked up together with its context, so every `tr()` must have a context lupdate can determine: a `Q_OBJECT` class, `Q_DECLARE_TR_FUNCTIONS()` or a literal context in `QCoreApplication::translate()`. Building from a release tarball with `poqm/` needs the Qt Linguist tools (`lconvert`, `lrelease`).
 
 #### Integration Testing
 
-The integration test (`tests/test_i18n.cpp`) verifies that GUI, engine and encoder messages use the same translations. It covers:
+The integration test (`tests/test_i18n.cpp`) checks the Qt catalog as it is installed and loaded by the ECM loader. CTest runs it once each with `LANGUAGE=de`, `fr` and `en`, the variable the application language of KXmlGui uses, which KI18n follows as well. It covers:
 
-- German and French translations.
-- English fallback when no translation is available.
-- Runtime language switching between German, French and English.
-- Contextual translations and placeholder substitution.
+- German and French translations, and the English plural forms of the catalog.
+- Plural forms (`%n`), contexts with disambiguation and placeholder substitution.
 - Isolation of unrelated Qt translation contexts.
 
-The test uses dedicated `.po` catalogs in `tests/i18n/`, compiled into `.mo` files by CMake using GNU gettext. These fixtures are independent of installed system translations, ensuring reproducible results.
+The test uses dedicated catalogs in `tests/i18n/`, compiled with `lconvert` and `lrelease` like `ecm_install_po_files_as_qm()` does. `XDG_DATA_DIRS` points to the build directory, so installed system translations do not affect the results.
 
 Build and run the test with:
 
 ```sh
 cmake --build build --target audex_i18n_tests
-ctest --test-dir build -R '^audex_i18n_tests$' --output-on-failure
+ctest --test-dir build -R '^audex_i18n_tests_' --output-on-failure
 ```
 
-**Note:** The integration test validates the translation bridge, not the completeness of the production catalogs in `po/`. New engine and encoder messages must still be included in the regular translation extraction and localization process.
+**Note:** The integration test validates the translation setup, not the completeness of the production catalogs.
 
 ### Platform Support
 The extraction engine builds as a static library (`audexengine`) depending on Qt Core, Gui, Network, and TagLib. Non-Linux builds compile SCSI device access as a stub while maintaining full simulation test coverage (e.g., on FreeBSD).

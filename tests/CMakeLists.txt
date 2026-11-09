@@ -49,30 +49,43 @@ add_test(NAME audex_tests COMMAND audex_tests)
 add_test(NAME audex_cli_rip COMMAND ${CMAKE_COMMAND} -DCLI=$<TARGET_FILE:audex-cli> -DWORK=${CMAKE_CURRENT_BINARY_DIR}/cli_rip
                                     -P ${CMAKE_CURRENT_SOURCE_DIR}/cli_rip.cmake)
 
-# Exercise the Qt engine translator with the same KDE gettext catalog as the GUI.
-find_package(Gettext REQUIRED)
+# The Qt catalog (engine and plugins) as installed and loaded by the ECM qm
+# loader. The language comes from LANGUAGE, as with the application language of
+# KXmlGui; LANG=C.UTF-8 keeps Qt from ignoring it.
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS LinguistTools)
 
+set(audex_i18n_share "${CMAKE_CURRENT_BINARY_DIR}/i18n")
 set(audex_i18n_test_catalogs)
-foreach(lang de fr)
-  set(po "${CMAKE_CURRENT_SOURCE_DIR}/i18n/${lang}/audex.po")
-  set(mo "${CMAKE_CURRENT_BINARY_DIR}/i18n/${lang}/LC_MESSAGES/audex.mo")
-  get_filename_component(mo_dir "${mo}" DIRECTORY)
+foreach(lang de fr en)
+  set(po "${CMAKE_CURRENT_SOURCE_DIR}/i18n/${lang}/audex_qt.po")
+  set(ts_dir "${CMAKE_CURRENT_BINARY_DIR}/i18n-ts/${lang}")
+  set(qm_dir "${audex_i18n_share}/locale/${lang}/LC_MESSAGES")
+  # the same steps as ecm_install_po_files_as_qm()
   add_custom_command(
-    OUTPUT "${mo}"
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${mo_dir}"
-    COMMAND "${GETTEXT_MSGFMT_EXECUTABLE}" -o "${mo}" "${po}"
+    OUTPUT "${qm_dir}/audex_qt.qm"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${ts_dir}" "${qm_dir}"
+    COMMAND Qt6::lconvert -i "${po}" -o "${ts_dir}/audex_qt.ts" -target-language ${lang}
+    COMMAND Qt6::lrelease -removeidentical -nounfinished -silent "${ts_dir}/audex_qt.ts" -qm "${qm_dir}/audex_qt.qm"
     DEPENDS "${po}"
     VERBATIM)
-  list(APPEND audex_i18n_test_catalogs ${mo})
+  list(APPEND audex_i18n_test_catalogs "${qm_dir}/audex_qt.qm")
 endforeach()
 
 add_custom_target(audex_i18n_catalogs DEPENDS ${audex_i18n_test_catalogs})
-add_executable(audex_i18n_tests test_main.cpp test_i18n.cpp ../utils/enginetranslator.cpp)
+add_executable(audex_i18n_tests test_main.cpp test_i18n.cpp)
+ecm_create_qm_loader(audex_i18n_tests audex_qt)
 add_dependencies(audex_i18n_tests audex_i18n_catalogs)
 target_include_directories(audex_i18n_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
-target_compile_definitions(audex_i18n_tests PRIVATE AUDEX_TEST_LOCALE_DIR="${CMAKE_CURRENT_BINARY_DIR}/i18n")
-target_link_libraries(audex_i18n_tests PRIVATE Qt6::Core KF6::I18n)
-add_test(NAME audex_i18n_tests COMMAND audex_i18n_tests)
+target_link_libraries(audex_i18n_tests PRIVATE Qt6::Core)
+foreach(lang de fr en)
+  add_test(NAME audex_i18n_tests_${lang} COMMAND audex_i18n_tests)
+  set_tests_properties(
+    audex_i18n_tests_${lang}
+    PROPERTIES
+      ENVIRONMENT
+      "XDG_DATA_HOME=${audex_i18n_share};XDG_DATA_DIRS=${audex_i18n_share};LC_ALL=;LC_MESSAGES=;LANG=C.UTF-8;LANGUAGE=${lang}"
+  )
+endforeach()
 
 # GUI playlist generation uses KDE I18n and is tested separately from the engine.
 add_executable(audex_playlist_tests test_main.cpp test_playlist.cpp ../utils/playlist.cpp)
