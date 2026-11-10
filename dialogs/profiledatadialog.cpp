@@ -501,6 +501,7 @@ bool ProfileDataDialog::save()
     custom_widget->save();
 
     error.clear();
+    const Profile before = profile_model->profile(profile_row);
     bool success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
@@ -556,8 +557,10 @@ bool ProfileDataDialog::save()
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX),
                                          custom_widget->parameters().toString());
 
-    if (!success)
+    if (!success) {
         error = profile_model->lastError();
+        profile_model->restoreProfile(profile_row, before);
+    }
 
     if (success) {
         profile_model->commit();

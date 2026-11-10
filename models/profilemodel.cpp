@@ -303,6 +303,20 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
     return false;
 }
 
+Profile ProfileModel::profile(int row) const
+{
+    return p_cache.value(row);
+}
+
+void ProfileModel::restoreProfile(int row, const Profile &profile)
+{
+    if ((row < 0) || (row >= p_cache.count()) || profile.isEmpty())
+        return;
+
+    p_cache[row] = profile;
+    Q_EMIT dataChanged(index(row, 0), index(row, PROFILE_MODEL_COLUMN_NUM - 1));
+}
+
 bool ProfileModel::removeRows(int row, int count, const QModelIndex &parent)
 {
     // flat table model: rows only exist below the root

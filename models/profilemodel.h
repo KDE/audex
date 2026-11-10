@@ -199,6 +199,11 @@ public:
 
     bool validateData(const QModelIndex &index, const QVariant &value);
 
+    // All values of a row, to put back when a dialog cannot save every
+    // field: a failed save must not leave half of its changes behind.
+    Profile profile(int row) const; // empty for an invalid row
+    void restoreProfile(int row, const Profile &profile);
+
     int currentProfileRow() const;
     int getRowByIndex(int profile_index) const;
 

@@ -149,6 +149,7 @@ bool ProfileDataCoverDialog::save()
     const QString scheme = ui.schemeedit_scheme->scheme();
 
     error.clear();
+    const Profile before = profile_model->profile(profile_row);
     bool success = true;
 
     if (success)
@@ -160,8 +161,10 @@ bool ProfileDataCoverDialog::save()
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX), scheme);
 
-    if (!success)
+    if (!success) {
         error = profile_model->lastError();
+        profile_model->restoreProfile(profile_row, before);
+    }
 
     if (success) {
         profile_model->commit();
