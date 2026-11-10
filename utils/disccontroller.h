@@ -117,6 +117,7 @@ private:
     Audex::DriveEntry m_drive;
     QFutureWatcher<Audex::DiscReadResult> m_watcher;
     QString m_readingUdi;
+    QString m_readingDriveUdi; // the drive of the last read started
     QString m_failedUdi; // reading failed; skip until the disc is removed or retry()
     QString m_failedMessage;
     QString m_failedDetails;

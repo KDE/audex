@@ -326,6 +326,7 @@ void DiscController::startRead(const QString &udi)
         name = block->device();
 
     m_readingUdi = udi;
+    m_readingDriveUdi = drive.udi();
     m_drive = Audex::DriveEntry{block->device(), name};
     m_driveUdi = drive.udi();
 
@@ -344,6 +345,10 @@ void DiscController::onDiscRead()
     m_readingUdi.clear();
 
     const Audex::DiscReadResult result = m_watcher.result();
+    // known from the capability page even if the disc could not be read or
+    // the drive was switched meanwhile
+    if (result.c2Known)
+        m_c2CapableByDrive.insert(m_readingDriveUdi, result.c2Capable);
     if (udi.isEmpty())
         return; // the device went away or the drive was switched while reading
 
