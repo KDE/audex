@@ -37,6 +37,12 @@ public:
                              QWidget *parent = nullptr);
     ~ExtractingProgressDialog() override;
 
+    // the rip ran and read the disc completely (not canceled, not failed)
+    bool ripCompleted() const
+    {
+        return m_summary.completed && !m_summary.canceled;
+    }
+
 public Q_SLOTS:
     int exec() override;
     void reject() override;

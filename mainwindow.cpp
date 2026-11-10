@@ -558,10 +558,12 @@ void MainWindow::rip()
     // unplugged) or comes in meanwhile is taken over after it.
     const QString driveUdi = m_discController->currentDriveUdi();
     m_ripping = true;
+    bool ripped = false;
     {
         ExtractingProgressDialog dialog(m_profileModel, m_cddaModel, m_encoders, m_discController->currentDrive(), driveUdi, this);
         dialog.setWindowModality(Qt::ApplicationModal);
         dialog.exec();
+        ripped = dialog.ripCompleted();
     }
     m_ripping = false;
 
@@ -576,8 +578,9 @@ void MainWindow::rip()
         disc_detected(result);
     }
 
-    // only the disc that was ripped, never one in another drive
-    if (Preferences::ejectCDTray() && !discChanged && m_discController->currentDriveUdi() == driveUdi)
+    // only a disc that was ripped, never one in another drive; not after a
+    // canceled or failed rip, or when the rip did not even start
+    if (Preferences::ejectCDTray() && ripped && !discChanged && m_discController->currentDriveUdi() == driveUdi)
         m_discController->eject();
 }
 
