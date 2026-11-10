@@ -25,10 +25,11 @@ QString cueMsf(const qint64 sectors)
     return msf;
 }
 
+// A cue sheet knows no escapes: readers take a value up to the next double
+// quote, so one inside it is written as a single quote.
 QString quoted(QString text)
 {
-    text.replace(u'\\', u"\\\\"_s);
-    text.replace(u'"', u"\\\""_s);
+    text.replace(u'"', u'\'');
     return u"\"%1\""_s.arg(text);
 }
 

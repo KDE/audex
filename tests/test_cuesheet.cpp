@@ -112,3 +112,15 @@ AUDEX_TEST("cue sheet: hidden track one audio is the pregap of the first track")
         AUDEX_CHECK(t, cue.contains(u"TRACK 02 AUDIO"_s) && !cue.contains(u"TRACK 03 AUDIO"_s));
     }
 }
+
+AUDEX_TEST("cue sheet: double quotes in values become single quotes, backslashes stay")
+{
+    CDInfo info = disc();
+    info.metadata().setText(Metadata::Field::Artist, u"The \"Band\""_s);
+    info.metadata().setText(Metadata::Field::Album, u"AC\\DC"_s);
+    info.metadata().track(1).setText(Metadata::Field::Title, u"Say \"Hi\""_s);
+    const QStringList cue = writer(info).cueSheet(Files, {1, 2, 3});
+    AUDEX_CHECK(t, cue.contains(u"PERFORMER \"The 'Band'\""_s));
+    AUDEX_CHECK(t, cue.contains(u"TITLE \"AC\\DC\""_s));
+    AUDEX_CHECK(t, cue.contains(u"    TITLE \"Say 'Hi'\""_s));
+}
