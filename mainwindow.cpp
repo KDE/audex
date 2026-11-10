@@ -542,13 +542,15 @@ void MainWindow::rip()
     if ((m_profileModel->isSelectedEncoderWithEmbedCover()
          || (m_profileModel->data(m_profileModel->index(m_profileModel->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool()))
         && m_cddaModel->cover().isNull()) {
-        if (KMessageBox::warningTwoActions(this,
-                                           i18n("No cover was set. Do you really want to continue?"),
-                                           i18n("Cover is empty"),
-                                           KStandardGuiItem::cont(),
-                                           KStandardGuiItem::cancel(),
-                                           "empty_cover_warn")
-            == KMessageBox::SecondaryAction)
+        // Continue/Cancel: "do not ask again" only remembers Continue. New
+        // names, so a Cancel remembered by the old two-action boxes is dropped.
+        if (KMessageBox::warningContinueCancel(this,
+                                               i18n("No cover was set. Do you really want to continue?"),
+                                               i18n("Cover is empty"),
+                                               KStandardGuiItem::cont(),
+                                               KStandardGuiItem::cancel(),
+                                               u"empty_cover_continue"_s)
+            != KMessageBox::Continue)
             return;
     }
 
@@ -683,13 +685,13 @@ void MainWindow::split_titles()
 
 void MainWindow::swap_artists_and_titles()
 {
-    if (KMessageBox::warningTwoActions(this,
-                                       i18n("Do you really want to swap all artists and titles?"),
-                                       i18n("Swap artists and titles"),
-                                       KStandardGuiItem::ok(),
-                                       KStandardGuiItem::cancel(),
-                                       "no_swap_artists_and_titles_warn")
-        == KMessageBox::SecondaryAction)
+    if (KMessageBox::warningContinueCancel(this,
+                                           i18n("Do you really want to swap all artists and titles?"),
+                                           i18n("Swap artists and titles"),
+                                           KStandardGuiItem::ok(),
+                                           KStandardGuiItem::cancel(),
+                                           u"swap_artists_and_titles_continue"_s)
+        != KMessageBox::Continue)
         return;
 
     m_cddaModel->swapArtistAndAlbum();
@@ -698,13 +700,13 @@ void MainWindow::swap_artists_and_titles()
 
 void MainWindow::capitalize()
 {
-    if (KMessageBox::warningTwoActions(this,
-                                       i18n("Do you really want to capitalize all artists and titles?"),
-                                       i18n("Capitalize artists and titles"),
-                                       KStandardGuiItem::ok(),
-                                       KStandardGuiItem::cancel(),
-                                       "no_capitalize_warn")
-        == KMessageBox::SecondaryAction)
+    if (KMessageBox::warningContinueCancel(this,
+                                           i18n("Do you really want to capitalize all artists and titles?"),
+                                           i18n("Capitalize artists and titles"),
+                                           KStandardGuiItem::ok(),
+                                           KStandardGuiItem::cancel(),
+                                           u"capitalize_continue"_s)
+        != KMessageBox::Continue)
         return;
 
     m_cddaModel->capitalizeAlbum();
@@ -713,13 +715,13 @@ void MainWindow::capitalize()
 
 void MainWindow::auto_fill_artists()
 {
-    if (KMessageBox::warningTwoActions(this,
-                                       i18n("Do you really want to autofill track artists?"),
-                                       i18n("Autofill artists"),
-                                       KStandardGuiItem::ok(),
-                                       KStandardGuiItem::cancel(),
-                                       "no_autofill_warn")
-        == KMessageBox::SecondaryAction)
+    if (KMessageBox::warningContinueCancel(this,
+                                           i18n("Do you really want to autofill track artists?"),
+                                           i18n("Autofill artists"),
+                                           KStandardGuiItem::ok(),
+                                           KStandardGuiItem::cancel(),
+                                           u"autofill_artists_continue"_s)
+        != KMessageBox::Continue)
         return;
 
     m_cddaModel->setTrackArtistsFromAlbum();
