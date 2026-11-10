@@ -80,7 +80,6 @@ struct FieldInfo {
 };
 
 const FieldInfo &fieldInfo(Field field);
-QList<Field> allFields();
 QString tagName(Field field);
 
 enum class MergePolicy {
@@ -120,7 +119,6 @@ public:
     bool isModified() const;
     bool isModified(Field field) const;
     bool isModified(std::initializer_list<Field> fields) const;
-    bool isCustomModified(const QString &key) const;
     void confirm(); // current state becomes the unmodified state
 
     bool merge(const Fields &other, MergePolicy policy = MergePolicy::Overwrite);

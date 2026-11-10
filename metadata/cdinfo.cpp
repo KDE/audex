@@ -52,9 +52,8 @@ void sortCandidates(MetadataCandidates &candidates)
 
 // ---- CDInfo --------------------------------------------------------------------
 
-CDInfo::CDInfo(const Cdda::Toc &toc, const QString &discUdi)
+CDInfo::CDInfo(const Cdda::Toc &toc)
     : m_toc(toc)
-    , m_discUdi(discUdi)
 {
     if (!m_toc.isEmpty()) {
         m_cddbDiscId = Cdda::cddbDiscIdString(m_toc);
@@ -168,12 +167,6 @@ int CDInfo::trackNumberForAudioPosition(int position) const
     return audio.at(position - 1);
 }
 
-int CDInfo::audioPositionOfTrack(int number) const
-{
-    const qsizetype i = m_toc.audioTrackNumbers().indexOf(number);
-    return i < 0 ? 0 : int(i) + 1;
-}
-
 int CDInfo::displayTrackNumber(int number) const
 {
     if (number == 0)
@@ -253,7 +246,7 @@ void CDInfo::completeMetadata()
 
 bool CDInfo::operator==(const CDInfo &other) const
 {
-    return m_toc == other.m_toc && m_discUdi == other.m_discUdi && m_metadata == other.m_metadata;
+    return m_toc == other.m_toc && m_metadata == other.m_metadata;
 }
 
 }

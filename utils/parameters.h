@@ -14,8 +14,6 @@
 class QString;
 class QChar;
 
-typedef QList<QString> KeyList;
-
 // Key value list as the profiles store it, read with the syntax of utils/scheme.h
 class Parameters
 {
@@ -39,8 +37,6 @@ public:
         return p_parameters.value(key.toLower(), def);
     }
 
-    bool contains(const QString &key) const;
-    const KeyList keys() const;
 
     inline bool error() const
     {

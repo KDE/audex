@@ -43,17 +43,13 @@ opusencWidget::~opusencWidget()
 {
 }
 
-bool opusencWidget::save()
+void opusencWidget::save()
 {
-    bool success = true;
-
     p_parameters.setValue(ENCODER_OPUSENC_BITRATE_KEY, horizontalSlider_bitrate->value());
     p_parameters.setValue(ENCODER_OPUSENC_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
     p_parameters.setValue(ENCODER_OPUSENC_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
-
-    return success;
 }
 
 void opusencWidget::bitrate_changed_by_slider(int bitrate)

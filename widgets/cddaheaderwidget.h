@@ -24,24 +24,6 @@
 
 class KActionCollection;
 
-// fixed point defines
-#define FP_BITS 10
-#define FP_FACTOR (1 << FP_BITS)
-
-enum FadeStyle {
-    NoFade,
-    FadeDown,
-    FadeRight,
-    FadeUp,
-    FadeLeft
-};
-
-enum MirrorStyle {
-    NoMirror,
-    MirrorOverX,
-    MirrorOverY
-};
-
 class CDDAHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -78,10 +60,6 @@ public:
         Failed
     };
     void setCoverState(CoverState state, const QString &detail = QString());
-    CoverState coverState() const
-    {
-        return m_coverState;
-    }
 
 public Q_SLOTS:
     void setEnabled(bool enabled);

@@ -524,17 +524,6 @@ void MainWindow::clear_metadata()
 
 void MainWindow::rip()
 {
-    if (m_cddaModel->isEmpty()) {
-        if (KMessageBox::warningTwoActions(this,
-                                           i18n("No disc information set. Do you really want to continue?"),
-                                           i18n("Disc information not found"),
-                                           KStandardGuiItem::cont(),
-                                           KStandardGuiItem::cancel(),
-                                           "no_disc_info_warn")
-            == KMessageBox::SecondaryAction)
-            return;
-    }
-
     const int profileRow = m_profileModel->currentProfileRow();
     if (!m_profileModel->isAvailable(profileRow)) {
         const QString reason = m_profileModel->unavailableReason(profileRow);

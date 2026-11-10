@@ -58,10 +58,6 @@ public:
     bool open(const QString &path, QString *error = nullptr);
     void close();
 
-    bool isOpen() const
-    {
-        return m_fd >= 0;
-    }
     bool isWritable() const
     {
         return m_writable;

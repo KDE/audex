@@ -49,12 +49,6 @@ struct CoverArt {
     }
 };
 
-struct DiscHint {
-    int number = 0;
-    int count = 0; // 0 if unknown
-    QString album; // album title without the disc suffix
-};
-
 // Metadata of one disc. Tracks are keyed by TOC track number; track 0 is the
 // hidden track one audio (HTOA). Data tracks may have entries as well.
 class Album : public Fields
@@ -99,8 +93,6 @@ public:
 
     // At least two tracks with different, non-empty artists
     bool guessVariousArtists() const;
-    // "Album (CD 2)", "Album - Disc 1 of 2", "Album [disk 3]"
-    std::optional<DiscHint> guessMultiDisc() const;
 
     bool swapTrackArtistsAndTitles();
     bool swapArtistAndAlbum();

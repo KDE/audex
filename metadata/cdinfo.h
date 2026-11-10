@@ -43,7 +43,7 @@ class CDInfo
 {
 public:
     CDInfo() = default;
-    explicit CDInfo(const Cdda::Toc &toc, const QString &discUdi = QString());
+    explicit CDInfo(const Cdda::Toc &toc);
 
     bool isEmpty() const
     {
@@ -54,14 +54,6 @@ public:
     const Cdda::Toc &toc() const
     {
         return m_toc;
-    }
-    QString discUdi() const
-    {
-        return m_discUdi;
-    }
-    void setDiscUdi(const QString &udi)
-    {
-        m_discUdi = udi;
     }
 
     // --- identifiers (computed from the TOC) ---
@@ -92,7 +84,6 @@ public:
     // Databases count audio tracks 1..n, the TOC may not (Mixed Mode CD:
     // data track 1, audio from track 2). position is 1-based.
     int trackNumberForAudioPosition(int position) const; // 0 if invalid
-    int audioPositionOfTrack(int number) const; // 0 if not an audio track
 
     // Track number as shown and tagged: TrackNumberOffset applied, HTOA stays 0
     int displayTrackNumber(int number) const;
@@ -165,7 +156,6 @@ private:
     void pruneMetadata();
 
     Cdda::Toc m_toc;
-    QString m_discUdi;
     QString m_cddbDiscId;
     QString m_musicBrainzDiscId;
     QString m_musicBrainzToc;

@@ -79,10 +79,8 @@ lameWidget::~lameWidget()
 {
 }
 
-bool lameWidget::save()
+void lameWidget::save()
 {
-    bool success = true;
-
     p_parameters.setValue(ENCODER_LAME_PRESET_KEY, preset);
     p_parameters.setValue(ENCODER_LAME_BITRATE_KEY, real_bitrate);
     p_parameters.setValue(ENCODER_LAME_CBR_KEY, checkBox_cbr->isChecked());
@@ -90,8 +88,6 @@ bool lameWidget::save()
     p_parameters.setValue(ENCODER_LAME_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
-
-    return success;
 }
 
 void lameWidget::enable_medium(bool enable)

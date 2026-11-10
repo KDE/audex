@@ -35,7 +35,6 @@ public:
 
     // 0 days: nothing is kept or found; NoLimit: kept until cleared
     void setMaximumAge(int days);
-    int maximumAge() const;
     // the oldest answers go first; default 200 MiB, NoLimit: no limit
     void setMaximumSize(qint64 bytes);
 

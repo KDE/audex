@@ -79,6 +79,4 @@ struct FeatureCallbacks {
 // result per drive.
 DriveFeatures detectDriveFeatures(SectorReader &reader, const Cdda::Toc &toc, const FeatureCallbacks &callbacks = {});
 
-QStringList formatDriveFeatures(const DriveFeatures &features);
-
 }

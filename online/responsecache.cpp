@@ -39,11 +39,6 @@ void ResponseCache::setMaximumAge(int days)
     m_maximumAge = std::max(NoLimit, days);
 }
 
-int ResponseCache::maximumAge() const
-{
-    return m_maximumAge;
-}
-
 void ResponseCache::setMaximumSize(qint64 bytes)
 {
     m_maximumSize = std::max<qint64>(NoLimit, bytes);

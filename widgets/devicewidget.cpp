@@ -300,10 +300,6 @@ void deviceWidget::fetchOffset()
         connect(m_arClient, &Audex::AccurateRip::Client::driveOffsetsFetched, this, &deviceWidget::offsetFetchFinished);
         connect(m_arClient, &Audex::AccurateRip::Client::failed, this, &deviceWidget::offsetFetchFailed);
     }
-    if (!m_arClient) {
-        qWarning() << "deviceWidget::fetchOffset() could not initialize AccurateRip client";
-        return;
-    }
     if (m_arClient->isBusy())
         return;
     m_offsetDriveName = name;

@@ -11,7 +11,6 @@
 
 #include <QWidget>
 
-#include "utils/error.h"
 #include "utils/parameters.h"
 
 class flacWidgetUI : public QWidget, public Ui::FLACWidgetUI
@@ -34,16 +33,12 @@ public:
     {
         return p_parameters;
     }
-    inline Error lastError() const
-    {
-        return error;
-    }
     inline bool isChanged() const
     {
         return changed;
     }
 public Q_SLOTS:
-    bool save();
+    void save();
 Q_SIGNALS:
     void triggerChanged();
 private Q_SLOTS:
@@ -53,6 +48,5 @@ private Q_SLOTS:
 
 private:
     Parameters p_parameters;
-    Error error;
     bool changed;
 };

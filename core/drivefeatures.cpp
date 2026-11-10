@@ -73,19 +73,6 @@ std::optional<int> alignShift(QByteArrayView haystack, qint64 nominalSamples, QB
     return std::nullopt;
 }
 
-QString verdictWord(Feature f)
-{
-    switch (f) {
-    case Feature::Yes:
-        return u"yes"_s;
-    case Feature::No:
-        return u"no"_s;
-    case Feature::Unknown:
-        break;
-    }
-    return u"unknown"_s;
-}
-
 // Commands a drive or its USB bridge may not answer at all are sent with a
 // short timeout and without the single-sector retries of a failed read.
 class Probing
@@ -680,27 +667,6 @@ DriveFeatures detectDriveFeatures(SectorReader &reader, const Cdda::Toc &toc, co
     if (!features.canceled)
         features.measured = QDateTime::currentDateTime();
     return features;
-}
-
-QStringList formatDriveFeatures(const DriveFeatures &features)
-{
-    QStringList l;
-    l << u"Drive features"_s << QString();
-    if (!features.measured.isValid()) {
-        l << u"     Not measured."_s;
-        return l;
-    }
-    for (const FeatureCheck &c : features.checks) {
-        l << u"     %1: %2"_s.arg(c.name.leftJustified(20), c.summary);
-        for (const QString &d : c.details)
-            l << u"          %1"_s.arg(d);
-    }
-    l << QString();
-    l << u"Measured on %1 (read command %2 sectors, accurate stream %3, cache defeat %4 read(s))"_s.arg(features.measured.toString(Qt::ISODate))
-             .arg(features.burstSectors)
-             .arg(verdictWord(features.accurateStream))
-             .arg(features.cacheDefeatReads);
-    return l;
 }
 
 }

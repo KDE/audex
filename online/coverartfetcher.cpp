@@ -33,11 +33,6 @@ void CoverArtFetcher::setUserAgent(const QString &userAgent)
     m_userAgent = userAgent;
 }
 
-void CoverArtFetcher::setMaximumBytes(qint64 bytes)
-{
-    m_maximumBytes = bytes;
-}
-
 void CoverArtFetcher::setCache(const std::optional<ResponseCache> &cache)
 {
     m_cache = cache;
@@ -104,12 +99,12 @@ int CoverArtFetcher::fetch(const QUrl &url, Size size)
     m_replies.insert(id, reply);
 
     connect(reply, &QNetworkReply::downloadProgress, this, [this, id, reply](qint64 received, qint64 total) {
-        if (received > m_maximumBytes || total > m_maximumBytes) {
+        if (received > MaximumBytes || total > MaximumBytes) {
             disconnect(reply, nullptr, this, nullptr);
             m_replies.remove(id);
             reply->abort();
             reply->deleteLater();
-            Q_EMIT finished(id, Metadata::CoverArt(), tr("Cover image exceeds %1 MiB").arg(m_maximumBytes / (1024 * 1024)));
+            Q_EMIT finished(id, Metadata::CoverArt(), tr("Cover image exceeds %1 MiB").arg(MaximumBytes / (1024 * 1024)));
             return;
         }
         Q_EMIT progress(id, received, total);

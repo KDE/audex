@@ -40,10 +40,8 @@ public:
 
     void setEmail(const QString &email);
     QString email() const;
-    void setClient(const QString &client, const QString &version);
     void setServer(const QUrl &server);
     void setMinimumInterval(int ms); // default 1000 ms
-    void setMaximumReads(int count); // entries read per disc, default 5
 
     void lookup(int requestId, const CDInfo &disc) override;
     void cancel(int requestId) override;
@@ -71,11 +69,9 @@ private:
 
     QPointer<QNetworkAccessManager> m_network;
     QString m_email;
-    QString m_client;
-    QString m_version;
     QUrl m_server;
     int m_interval = 1000;
-    int m_maximumReads = 5;
+    static constexpr int MaximumReads = 5; // entries read per disc
 
     QQueue<Request> m_queue;
     QHash<int, QPointer<QNetworkReply>> m_active;

@@ -46,7 +46,6 @@ public:
     explicit CoverArtFetcher(QNetworkAccessManager *network, QObject *parent = nullptr);
 
     void setUserAgent(const QString &userAgent);
-    void setMaximumBytes(qint64 bytes); // default 25 MiB
     // Images kept on disk; as with the metadata providers, with preferCache a
     // kept image is taken without asking the archive. Listings are always
     // asked for: the archive may have new images.
@@ -80,7 +79,7 @@ private:
     bool m_preferCache = true;
     QSet<int> m_fromCache; // answered from the cache, not yet emitted
     QString m_userAgent;
-    qint64 m_maximumBytes = 25 * 1024 * 1024;
+    static constexpr qint64 MaximumBytes = 25 * 1024 * 1024;
     QHash<int, QPointer<QNetworkReply>> m_replies;
     int m_nextId = 1;
 };

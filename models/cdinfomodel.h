@@ -89,7 +89,6 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     // --- album values ---
-    QVariant albumValue(Metadata::Field field) const;
     bool setAlbumValue(Metadata::Field field, const QVariant &value);
 
     QString artist() const;
@@ -112,7 +111,6 @@ public:
     void setVariousArtists(bool value);
 
     // --- track values ---
-    QVariant trackValue(int number, Metadata::Field field) const;
     bool setTrackValue(int number, Metadata::Field field, const QVariant &value);
 
     // --- cover ---
@@ -148,14 +146,6 @@ public:
     // cannot be toggled and are not shown (the main window hides their
     // column as well); setSelected() still works.
     void setSelectionLocked(bool locked);
-    bool isSelectionLocked() const
-    {
-        return m_selectionLocked;
-    }
-
-    // --- modification state ---
-    bool isModified() const;
-    void confirm();
 
 Q_SIGNALS:
     void albumChanged();

@@ -78,14 +78,6 @@ const FieldInfo &fieldInfo(Field field)
     return fieldTable[int(field)];
 }
 
-QList<Field> allFields()
-{
-    QList<Field> result;
-    for (const FieldInfo &i : fieldTable)
-        result.append(i.field);
-    return result;
-}
-
 QString tagName(Field field)
 {
     return QString::fromLatin1(fieldInfo(field).tag);
@@ -252,11 +244,6 @@ bool Fields::isModified(std::initializer_list<Field> fields) const
         if (isModified(f))
             return true;
     return false;
-}
-
-bool Fields::isCustomModified(const QString &key) const
-{
-    return m_modifiedCustom.contains(key);
 }
 
 void Fields::confirm()

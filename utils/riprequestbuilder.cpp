@@ -556,7 +556,6 @@ Audex::RipRequest RipRequestBuilder::request() const
     // second pass cannot add anything to that. In an image, the tracks read
     // again replace their first read after the rip (see RipJob).
     rq.keepConfirmedTracks = (rq.accurateRipLookup || rq.ctdbLookup) && device.secureMode;
-    // ISRCs and MCN are collected by the same Q sub-channel scan
     // ISRCs and MCN are collected by the same Q sub-channel scan. A drive the
     // drive test found without usable Q data is not asked: it may only time out.
     const bool noSubchannel = DeviceSettings::features(m_driveUdi).subchannelQ == Audex::Rip::Feature::No;

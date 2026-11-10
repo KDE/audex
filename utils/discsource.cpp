@@ -188,7 +188,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
         const Cdda::Toc toc = Demo::toc();
         result.driveName = Tr::tr("Simulated drive");
         result.driveModel = u"Simulated drive"_s; // a key, e.g. of the saved read offsets
-        result.info = CDInfo(toc, drive.id);
+        result.info = CDInfo(toc);
         result.discCandidates = candidatesFromCdText(Demo::cdText(), result.info);
         result.htoaSilent = toc.htoaSectorCount() > 0 && isHtoaSilent(*Demo::reader(), toc);
         result.ok = true;
@@ -234,7 +234,7 @@ DiscReadResult readDisc(const DriveEntry &drive)
     const auto toc = Mmc::readToc(device, &error, &result.notes);
     if (!toc)
         return fail(error);
-    result.info = CDInfo(*toc, drive.id);
+    result.info = CDInfo(*toc);
 
     QByteArray raw;
     const Scsi::Result r = Mmc::readTocPmaAtip(device, 5, false, 0, raw);

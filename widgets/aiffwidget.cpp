@@ -30,12 +30,11 @@ aiffWidget::~aiffWidget()
 {
 }
 
-bool aiffWidget::save()
+void aiffWidget::save()
 {
     p_parameters.setValue(ENCODER_AIFF_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
     p_parameters.setValue(ENCODER_AIFF_SUFFIX_KEY, qlineedit_suffix->text());
     changed = false;
-    return true;
 }
 
 void aiffWidget::trigger_changed()

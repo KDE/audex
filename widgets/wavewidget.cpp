@@ -29,15 +29,11 @@ waveWidget::~waveWidget()
 {
 }
 
-bool waveWidget::save()
+void waveWidget::save()
 {
-    bool success = true;
-
     p_parameters.setValue(ENCODER_WAVE_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
-
-    return success;
 }
 
 void waveWidget::trigger_changed()

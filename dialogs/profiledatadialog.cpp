@@ -493,47 +493,15 @@ bool ProfileDataDialog::save()
         return false;
     }
 
-    bool success = true;
+    lame_widget->save();
+    opusenc_widget->save();
+    flac_widget->save();
+    wave_widget->save();
+    aiff_widget->save();
+    custom_widget->save();
 
     error.clear();
-
-    if (success)
-        success = lame_widget->save();
-    if (!success)
-        error = lame_widget->lastError();
-
-    if (success) {
-        success = opusenc_widget->save();
-        if (!success)
-            error = opusenc_widget->lastError();
-    }
-
-    if (success) {
-        success = flac_widget->save();
-        if (!success)
-            error = flac_widget->lastError();
-    }
-
-    if (success) {
-        success = wave_widget->save();
-        if (!success)
-            error = wave_widget->lastError();
-    }
-
-    if (success) {
-        success = aiff_widget->save();
-        if (!success)
-            error = aiff_widget->lastError();
-    }
-
-    if (success) {
-        success = custom_widget->save();
-        if (!success)
-            error = custom_widget->lastError();
-    }
-
-    if (success)
-        success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
+    bool success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.qlineedit_name->text());
     if (success)
         success = profile_model->setData(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
     if (success && ui.kcombobox_encoder->currentIndex() >= 0)

@@ -288,11 +288,6 @@ QHash<int, QByteArray> CDInfoModel::roleNames() const
 
 // ---- album values -------------------------------------------------------------------
 
-QVariant CDInfoModel::albumValue(Field field) const
-{
-    return m_info.metadata().value(field);
-}
-
 bool CDInfoModel::setAlbumValue(Field field, const QVariant &value)
 {
     if (!m_info.metadata().setValue(field, value))
@@ -378,11 +373,6 @@ void CDInfoModel::setVariousArtists(bool value)
 }
 
 // ---- track values -------------------------------------------------------------------
-
-QVariant CDInfoModel::trackValue(int number, Field field) const
-{
-    return m_info.metadata().track(number).value(field);
-}
 
 bool CDInfoModel::setTrackValue(int number, Field field, const QVariant &value)
 {
@@ -602,18 +592,6 @@ void CDInfoModel::invertSelection()
             inverted.insert(number);
     m_selected = inverted;
     emitSelectionChanged(before);
-}
-
-// ---- modification state ------------------------------------------------------------------
-
-bool CDInfoModel::isModified() const
-{
-    return m_info.metadata().isModified();
-}
-
-void CDInfoModel::confirm()
-{
-    m_info.metadata().confirm();
 }
 
 }

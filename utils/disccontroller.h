@@ -91,7 +91,6 @@ public Q_SLOTS:
 Q_SIGNALS:
     void discDetected(const Audex::DiscReadResult &result);
     void discRemoved();
-    void failed(const QString &message, const QString &details);
     void drivesChanged();
     void currentDriveChanged();
     void stateChanged();

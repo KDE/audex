@@ -27,5 +27,4 @@ private:
     Ui::LogViewWidgetUI ui;
 
     QStringList log;
-    QString title;
 };

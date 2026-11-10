@@ -248,22 +248,6 @@ bool Album::guessVariousArtists() const
     return false;
 }
 
-std::optional<DiscHint> Album::guessMultiDisc() const
-{
-    static const QRegularExpression rx(uR"(^(.*?)[\s\-:,]*[\(\[]?\s*\b(?:cd|disc|disk)\s*(\d{1,2})(?:\s*(?:of|/)\s*(\d{1,2}))?\s*[\)\]]?\s*$)"_s,
-                                       QRegularExpression::CaseInsensitiveOption);
-    const QRegularExpressionMatch m = rx.match(text(Field::Album));
-    if (!m.hasMatch())
-        return std::nullopt;
-    DiscHint hint;
-    hint.album = m.captured(1).trimmed();
-    hint.number = m.captured(2).toInt();
-    hint.count = m.captured(3).toInt();
-    if (hint.number < 1 || hint.album.isEmpty() || (hint.count > 0 && hint.number > hint.count))
-        return std::nullopt;
-    return hint;
-}
-
 bool Album::swapTrackArtistsAndTitles()
 {
     bool changed = false;

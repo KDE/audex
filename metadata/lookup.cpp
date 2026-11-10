@@ -93,26 +93,13 @@ MetadataProvider *MetadataLookup::provider(const QString &id) const
     return nullptr;
 }
 
-void MetadataLookup::setProviderEnabled(const QString &id, bool enabled)
-{
-    if (enabled)
-        m_disabled.remove(id);
-    else
-        m_disabled.insert(id);
-}
-
-bool MetadataLookup::isProviderEnabled(const QString &id) const
-{
-    return !m_disabled.contains(id);
-}
-
 int MetadataLookup::start(const CDInfo &disc, const QStringList &providerIds)
 {
     const int lookupId = m_nextLookupId++;
     Running &running = m_running[lookupId];
 
     for (MetadataProvider *p : std::as_const(m_providers)) {
-        const bool selected = providerIds.isEmpty() ? (isProviderEnabled(p->id()) && p->isAvailable()) : providerIds.contains(p->id());
+        const bool selected = providerIds.isEmpty() ? p->isAvailable() : providerIds.contains(p->id());
         if (!selected)
             continue;
         const int requestId = m_nextRequestId++;
@@ -184,8 +171,6 @@ void MetadataLookup::onProviderFinished(MetadataProvider *provider, int requestI
     runningIt->candidates += received;
 
     const QString providerId = provider ? provider->id() : storedProviderId;
-    if (!received.isEmpty())
-        Q_EMIT candidatesFound(lookupId, received);
     if (!error.isEmpty())
         Q_EMIT providerFailed(lookupId, providerId, error);
 

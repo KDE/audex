@@ -178,7 +178,6 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
         int x = xOffsetCover;
         int y = yOffsetCover;
 
-        // QImage scaled_cover = cover.scaled(cover_size, cover_size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         cover_rect = QRect(QPoint(x, y), caseLogicalSize);
         painter.drawImage(QPoint(x, y), scaled_cd_case);
         paintCoverState(painter);

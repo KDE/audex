@@ -37,7 +37,6 @@ LogViewDialog::LogViewDialog(const QStringList &log, const QString &title, QWidg
     ui.ktextedit->setPlainText(log.join("\n"));
 
     this->log = log;
-    this->title = title;
 }
 
 void LogViewDialog::slotClosed()

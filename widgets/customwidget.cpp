@@ -70,18 +70,14 @@ customWidget::~customWidget()
 {
 }
 
-bool customWidget::save()
+void customWidget::save()
 {
-    bool success = true;
-
     p_parameters.setValue(ENCODER_CUSTOM_COMMAND_SCHEME_KEY, schemeedit_command->scheme());
     p_parameters.setValue(ENCODER_CUSTOM_SUFFIX_KEY, qlineedit_suffix->text().trimmed());
     p_parameters.setValue(ENCODER_CUSTOM_TAGS_KEY, checkBox_tags->isChecked());
     p_parameters.setValue(ENCODER_CUSTOM_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
 
     changed = false;
-
-    return success;
 }
 
 void customWidget::trigger_changed()

@@ -41,11 +41,6 @@ namespace Audex
 
 using Metadata::Field;
 
-namespace
-{
-
-}
-
 RipJob::RipJob(RipRequest request, QObject *parent)
     : QObject(parent)
     , m_request(std::move(request))

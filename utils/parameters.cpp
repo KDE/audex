@@ -70,12 +70,3 @@ const QString Parameters::toString(const QChar &sep) const
     return string;
 }
 
-bool Parameters::contains(const QString &key) const
-{
-    return p_parameters.contains(key.toLower());
-}
-
-const KeyList Parameters::keys() const
-{
-    return p_parameters.keys();
-}

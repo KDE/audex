@@ -43,17 +43,13 @@ flacWidget::~flacWidget()
 {
 }
 
-bool flacWidget::save()
+void flacWidget::save()
 {
-    bool success = true;
-
     p_parameters.setValue(ENCODER_FLAC_COMPRESSION_KEY, horizontalSlider_compression->value());
     p_parameters.setValue(ENCODER_FLAC_EMBED_COVER_KEY, checkBox_embedcover->isChecked());
     p_parameters.setValue(ENCODER_FLAC_SUFFIX_KEY, qlineedit_suffix->text());
 
     changed = false;
-
-    return success;
 }
 
 void flacWidget::compression_changed_by_slider(int compression)

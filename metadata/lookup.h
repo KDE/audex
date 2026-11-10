@@ -121,18 +121,13 @@ public:
     QList<MetadataProvider *> providers() const;
     MetadataProvider *provider(const QString &id) const;
 
-    void setProviderEnabled(const QString &id, bool enabled);
-    bool isProviderEnabled(const QString &id) const;
-
     // Returns the lookup id; all signals are delivered asynchronously.
-    // providerIds empty = all enabled and available providers.
+    // providerIds empty = all available providers.
     int start(const CDInfo &disc, const QStringList &providerIds = QStringList());
     void cancel(int lookupId);
     bool isRunning(int lookupId) const;
 
 Q_SIGNALS:
-    // Candidates of one provider, as soon as they arrive
-    void candidatesFound(int lookupId, const Audex::MetadataCandidates &candidates);
     void providerFailed(int lookupId, const QString &providerId, const QString &error);
     // All providers are done; candidates sorted by score
     void finished(int lookupId, const Audex::MetadataCandidates &candidates);
@@ -147,7 +142,6 @@ private:
     };
 
     QList<MetadataProvider *> m_providers;
-    QSet<QString> m_disabled;
     QHash<int, Running> m_running;
     QHash<int, int> m_requestToLookup;
     QHash<int, MetadataProvider *> m_requestProvider;

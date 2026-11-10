@@ -45,8 +45,6 @@ void sortMatches(QList<Gnudb::QueryMatch> &matches)
 GnudbProvider::GnudbProvider(QNetworkAccessManager *network, QObject *parent)
     : MetadataProvider(parent)
     , m_network(network)
-    , m_client(DefaultClient)
-    , m_version(QCoreApplication::applicationVersion())
     , m_server(QString::fromLatin1(Gnudb::DefaultServer))
 {
     m_timer.setSingleShot(true);
@@ -78,12 +76,6 @@ QString GnudbProvider::email() const
     return m_email;
 }
 
-void GnudbProvider::setClient(const QString &client, const QString &version)
-{
-    m_client = client;
-    m_version = version;
-}
-
 void GnudbProvider::setServer(const QUrl &server)
 {
     m_server = server;
@@ -94,14 +86,9 @@ void GnudbProvider::setMinimumInterval(int ms)
     m_interval = std::max(0, ms);
 }
 
-void GnudbProvider::setMaximumReads(int count)
-{
-    m_maximumReads = std::max(1, count);
-}
-
 QString GnudbProvider::hello() const
 {
-    return Gnudb::helloString(m_email, m_client, m_version);
+    return Gnudb::helloString(m_email, DefaultClient, QCoreApplication::applicationVersion());
 }
 
 void GnudbProvider::lookup(int requestId, const CDInfo &disc)
@@ -254,8 +241,8 @@ void GnudbProvider::handleQuery(const QByteArray &data, Request &request)
         request.error = result.error;
     request.matches = result.matches;
     sortMatches(request.matches);
-    if (request.matches.size() > m_maximumReads)
-        request.matches.resize(m_maximumReads);
+    if (request.matches.size() > MaximumReads)
+        request.matches.resize(MaximumReads);
     request.nextMatch = 0;
     request.attempts = 0;
 }

@@ -8,7 +8,6 @@
 #include "discid.h"
 
 #include <QCryptographicHash>
-#include <QRegularExpression>
 #include <QStringList>
 
 using namespace Qt::StringLiterals;
@@ -123,43 +122,6 @@ QString musicBrainzTocString(const Toc &toc, QChar separator)
 {
     const auto mb = musicBrainzToc(toc);
     return mb ? musicBrainzTocString(*mb, separator) : QString();
-}
-
-std::optional<Toc> tocFromMusicBrainzTocString(const QString &text)
-{
-    static const QRegularExpression separators(u"[\\s+]+"_s);
-    const QStringList parts = text.trimmed().split(separators, Qt::SkipEmptyParts);
-    if (parts.size() < 4)
-        return std::nullopt;
-
-    QList<int> values;
-    for (const QString &p : parts) {
-        bool ok = false;
-        const int v = p.toInt(&ok);
-        if (!ok || v < 0)
-            return std::nullopt;
-        values.append(v);
-    }
-    const int first = values.at(0);
-    const int last = values.at(1);
-    const int leadOut = values.at(2);
-    if (first < 1 || last < first || last > 99 || values.size() != 3 + (last - first + 1))
-        return std::nullopt;
-
-    Toc toc;
-    toc.source = u"TOC string"_s;
-    for (int i = 0; i <= last - first; ++i) {
-        Track t;
-        t.number = first + i;
-        t.firstLba = values.at(3 + i) - PregapSectors;
-        const int nextAbsolute = (i < last - first) ? values.at(4 + i) : leadOut;
-        t.lastLba = nextAbsolute - PregapSectors - 1;
-        toc.tracks.append(t);
-    }
-    toc.leadOutLba = leadOut - PregapSectors;
-    if (!toc.isValid())
-        return std::nullopt;
-    return toc;
 }
 
 }

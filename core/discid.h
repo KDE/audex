@@ -47,7 +47,4 @@ QString musicBrainzDiscId(const Toc &toc); // empty if the disc has no audio tra
 QString musicBrainzTocString(const MusicBrainzToc &toc, QChar separator = u' ');
 QString musicBrainzTocString(const Toc &toc, QChar separator = u' ');
 
-// Builds an audio-only TOC from such a string (tests, CLI without a drive).
-std::optional<Toc> tocFromMusicBrainzTocString(const QString &text);
-
 }

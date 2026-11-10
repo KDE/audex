@@ -12,7 +12,6 @@
 #include <QList>
 #include <QWidget>
 
-#include "utils/error.h"
 #include "utils/parameters.h"
 
 class lameWidgetUI : public QWidget, public Ui::LAMEWidgetUI
@@ -35,10 +34,6 @@ public:
     {
         return p_parameters;
     }
-    inline Error lastError() const
-    {
-        return error;
-    }
     inline bool isChanged() const
     {
         return changed;
@@ -46,7 +41,7 @@ public:
 Q_SIGNALS:
     void triggerChanged();
 public Q_SLOTS:
-    bool save();
+    void save();
 private Q_SLOTS:
     void enable_medium(bool enable);
     void enable_standard(bool enable);
@@ -60,7 +55,6 @@ private Q_SLOTS:
 
 private:
     Parameters p_parameters;
-    Error error;
     bool changed;
     bool p_cbr_flag;
     QList<int> bitrates;

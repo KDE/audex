@@ -80,5 +80,3 @@ private:
     QString p_message;
     QString p_details;
 };
-
-typedef QList<Error> ErrorList;

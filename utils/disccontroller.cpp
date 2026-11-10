@@ -353,7 +353,6 @@ void DiscController::onDiscRead()
         m_failedUdi = udi;
         m_failedMessage = result.error;
         m_failedDetails = result.notes.join(u'\n');
-        Q_EMIT failed(m_failedMessage, m_failedDetails);
         return;
     }
 
