@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <QDateTime>
 #include <QMap>
 #include <QSize>
 #include <QString>
@@ -143,4 +144,7 @@ private:
     Audex::DriveEntry m_drive;
     QString m_driveUdi;
     QString m_application;
+    // $today and $now: one moment for all files of the rip, whenever the
+    // names are worked out
+    QDateTime m_started = QDateTime::currentDateTime();
 };

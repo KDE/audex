@@ -19,7 +19,6 @@
 #include <KLocalizedString>
 
 #include <QCoreApplication>
-#include <QDate>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -30,7 +29,6 @@
 #include <QSet>
 #include <QStorageInfo>
 #include <QTemporaryFile>
-#include <QTime>
 
 using namespace Qt::StringLiterals;
 using Audex::Metadata::Field;
@@ -226,8 +224,8 @@ QMap<QString, QString> RipRequestBuilder::albumVars() const
     vars[Var::Encoder] = profile_model->getSelectedEncoderNameAndVersion().trimmed();
     vars[Var::DiscId] = info.cddbDiscId();
     vars[Var::Mcn] = album.text(Field::MCN);
-    vars[Var::Today] = QDate::currentDate().toString(Qt::ISODate);
-    vars[Var::Now] = QTime::currentTime().toString(u"hh-mm-ss"_s);
+    vars[Var::Today] = m_started.date().toString(Qt::ISODate);
+    vars[Var::Now] = m_started.time().toString(u"hh-mm-ss"_s);
     vars[Var::Application] = m_application;
     vars[Var::CdSize] = QString::number(qint64(audioSectors) * Audex::Cdda::SectorBytes / (1024 * 1024)) + u" MiB"_s;
     vars[Var::CdLength] = Audex::Cdda::sectorsToTime(audioSectors);
