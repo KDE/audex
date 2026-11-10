@@ -531,7 +531,13 @@ void CDDAHeaderWidget::save()
         return;
     }
 
-    QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), QDir::homePath() + '/' + cdda_model->album() + ".jpg");
+    // the album as file name: a slash in it would be a folder
+    QString name = cdda_model->album().replace(u'/', u'-').trimmed();
+    if (name.isEmpty() || name.startsWith(u'.'))
+        name.prepend(u"cover"_s);
+    const QString suffix = cdda_model->cover().suffix();
+    const QString suggested = QDir::homePath() + u'/' + name + u'.' + (suffix.isEmpty() ? u"jpg"_s : suffix);
+    QString filename = QFileDialog::getSaveFileName(this, i18n("Save Cover"), suggested);
     if (!filename.isEmpty()) {
         QString error;
         if (!cdda_model->saveCoverToFile(filename, &error)) {
@@ -548,7 +554,8 @@ void CDDAHeaderWidget::view_cover()
         return;
     }
 
-    QString filename = tmp_dir.filePath(QString("%1.jpeg").arg(cdda_model->coverImage().cacheKey(), 8, 16));
+    const QString suffix = cdda_model->cover().suffix();
+    QString filename = tmp_dir.filePath(QString("%1.%2").arg(cdda_model->coverImage().cacheKey(), 8, 16).arg(suffix.isEmpty() ? u"jpg"_s : suffix));
     cdda_model->saveCoverToFile(filename);
 
     qDebug() << "Open" << filename;

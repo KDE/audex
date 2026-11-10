@@ -6,9 +6,13 @@
 #include "test_framework.h"
 
 #include "encoding/tagwriter.h"
+#include "models/cdinfomodel.h"
 
 #include <QBuffer>
+#include <QFile>
 #include <QImage>
+#include <QMimeDatabase>
+#include <QTemporaryDir>
 
 using namespace Audex;
 using namespace Audex::Encoding;
@@ -82,4 +86,38 @@ AUDEX_TEST("cover: lossless savings when re-encoded")
     gray.save(&buffer, "PNG");
     const auto grayPng = TagWriter::prepareCover({data, u"image/png"_s, QString(), QString(), QUrl()}, 200, CoverFormat::Png);
     AUDEX_CHECK(t, QImage::fromData(grayPng->cover.data).isGrayscale());
+}
+
+AUDEX_TEST("cover: saved in the format the file name asks for")
+{
+    QTemporaryDir dir;
+    CDInfoModel model;
+    const Metadata::CoverArt jpeg = cover(64, "JPEG");
+    model.setCover(jpeg);
+    const auto read = [](const QString &path) {
+        QFile file(path);
+        return file.open(QIODevice::ReadOnly) ? file.readAll() : QByteArray();
+    };
+    const auto type = [&](const QString &path) {
+        return QMimeDatabase().mimeTypeForData(read(path)).name();
+    };
+
+    // same format or no image suffix: the bytes as they are
+    AUDEX_CHECK(t, model.saveCoverToFile(dir.filePath(u"a.jpg"_s)));
+    AUDEX_CHECK(t, read(dir.filePath(u"a.jpg"_s)) == jpeg.data);
+    AUDEX_CHECK(t, model.saveCoverToFile(dir.filePath(u"a.cover"_s)));
+    AUDEX_CHECK(t, read(dir.filePath(u"a.cover"_s)) == jpeg.data);
+
+    // another format: converted
+    AUDEX_CHECK(t, model.saveCoverToFile(dir.filePath(u"b.png"_s)));
+    AUDEX_EQUAL(t, type(dir.filePath(u"b.png"_s)), u"image/png"_s);
+
+    // transparency on white for JPEG
+    model.setCover(cover(64, "PNG", true));
+    AUDEX_CHECK(t, model.saveCoverToFile(dir.filePath(u"c.jpg"_s)));
+    AUDEX_EQUAL(t, type(dir.filePath(u"c.jpg"_s)), u"image/jpeg"_s);
+    const QImage opaque(dir.filePath(u"c.jpg"_s));
+    AUDEX_CHECK(t, !opaque.hasAlphaChannel() && qRed(opaque.pixel(0, 0)) > 240 && qGreen(opaque.pixel(0, 0)) > 100);
+
+    AUDEX_CHECK(t, !model.saveCoverToFile(dir.filePath(u"missing/d.png"_s)));
 }

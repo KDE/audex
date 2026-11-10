@@ -10,7 +10,11 @@
 #include <QColor>
 #include <QFont>
 #include <QGuiApplication>
+#include <QImageWriter>
+#include <QMimeDatabase>
+#include <QPainter>
 #include <QPalette>
+#include <QSaveFile>
 
 using namespace Qt::StringLiterals;
 
@@ -426,9 +430,32 @@ bool CDInfoModel::loadCoverFromFile(const QString &path, QString *error)
     return true;
 }
 
+// In the format the name asks for: "cover.png" for a JPEG cover is
+// converted. A name without an image suffix Qt can write gets the cover as
+// it is, and so does a cover Qt cannot decode.
 bool CDInfoModel::saveCoverToFile(const QString &path, QString *error) const
 {
-    return m_info.metadata().cover().saveToFile(path, error);
+    const Metadata::CoverArt &cover = m_info.metadata().cover();
+    const QMimeType wanted = QMimeDatabase().mimeTypeForFile(path, QMimeDatabase::MatchExtension);
+    const QList<QByteArray> formats = QImageWriter::imageFormatsForMimeType(wanted.name().toLatin1());
+    QImage image = coverImage();
+    if (cover.isNull() || wanted.name() == cover.mimeType || formats.isEmpty() || image.isNull())
+        return cover.saveToFile(path, error);
+
+    if (image.hasAlphaChannel() && wanted.name() == u"image/jpeg") { // no transparency in JPEG
+        QImage opaque(image.size(), QImage::Format_RGB32);
+        opaque.fill(Qt::white);
+        QPainter(&opaque).drawImage(0, 0, image);
+        image = opaque;
+    }
+    QSaveFile file(path);
+    QImageWriter writer(&file, formats.first());
+    if (!file.open(QIODevice::WriteOnly) || !writer.write(image) || !file.commit()) {
+        if (error)
+            *error = writer.error() != QImageWriter::UnknownError ? writer.errorString() : file.errorString();
+        return false;
+    }
+    return true;
 }
 
 bool CDInfoModel::removeCover()
