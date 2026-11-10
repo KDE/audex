@@ -52,11 +52,12 @@ int snapLameBitrate(int bitrate)
 }
 
 RipRequestBuilder::RipRequestBuilder(ProfileModel *profileModel,
-                                     Audex::CDInfoModel *cdInfoModel,
+                                     const Audex::CDInfoModel *cdInfoModel,
                                      std::shared_ptr<const Audex::Encoding::EncoderRegistry> encoders)
 {
     profile_model = profileModel;
-    cdda_model = cdInfoModel;
+    m_disc = cdInfoModel->cdInfo();
+    m_tracks = cdInfoModel->selectedTracks();
     m_encoders = std::move(encoders);
     m_application = u"Audex "_s + QStringLiteral(AUDEX_VERSION_STRING);
 }
@@ -200,13 +201,13 @@ bool RipRequestBuilder::replaceSpaces() const
 // checked by the rip first
 bool RipRequestBuilder::wantsCdg() const
 {
-    return Preferences::cdgDetect() && Preferences::cdgRead() && cdda_model->cdInfo().cdg().value_or(true);
+    return Preferences::cdgDetect() && Preferences::cdgRead() && m_disc.cdg().value_or(true);
 }
 
 // The values a scheme can fill in, by placeholder name (Audex::Scheme::Var)
 QMap<QString, QString> RipRequestBuilder::albumVars() const
 {
-    const Audex::CDInfo &info = cdda_model->cdInfo();
+    const Audex::CDInfo &info = m_disc;
     const Audex::Metadata::Album &album = info.metadata();
     const int cdNo = album.number(Field::DiscNumber);
     int audioSectors = 0;
@@ -315,7 +316,7 @@ QString RipRequestBuilder::outputDirectory() const
 
 QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
 {
-    const Audex::CDInfo &info = cdda_model->cdInfo();
+    const Audex::CDInfo &info = m_disc;
     const Audex::Metadata::Album &album = info.metadata();
 
     QString id, suffix;
@@ -326,7 +327,6 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
 
     const QDir base(Preferences::basePath());
     QMap<int, QString> result;
-    const QList<int> tracks = cdda_model->selectedTracks();
     Placeholders values = fileNameValues(suffix);
 
     if (isImageFile()) {
@@ -336,7 +336,7 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
         const QString name = fileName(scheme, values, suffix, error);
         if (name.isEmpty())
             return {};
-        for (const int number : tracks)
+        for (const int number : m_tracks)
             result.insert(number, base.filePath(name));
         return result;
     }
@@ -346,7 +346,7 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
         scheme = QStringLiteral(DEFAULT_SCHEME);
     const bool twoDigits = columnBool(PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX);
 
-    for (const int number : tracks) {
+    for (const int number : m_tracks) {
         const Audex::Metadata::Track &track = album.track(number);
         QString trackArtist = track.text(Field::Artist);
         if (trackArtist.isEmpty())
@@ -375,12 +375,11 @@ QMap<int, QString> RipRequestBuilder::filePaths(QString *error) const
 
 bool RipRequestBuilder::validate(QString *error, QStringList *existingFiles, QString *details) const
 {
-    if (cdda_model->isEmpty()) {
+    if (m_disc.isEmpty()) {
         *error = i18n("No disc in drive.");
         return false;
     }
-    const QList<int> tracks = cdda_model->selectedTracks();
-    if (tracks.isEmpty()) {
+    if (m_tracks.isEmpty()) {
         *error = i18n("No tracks selected.");
         return false;
     }
@@ -503,9 +502,8 @@ RipRequestBuilder::DiskSpace RipRequestBuilder::diskSpace() const
     space.folder = outputDirectory();
 
     qint64 audio = 0;
-    const Audex::CDInfo &info = cdda_model->cdInfo();
-    for (const int number : cdda_model->selectedTracks()) {
-        const auto entry = info.entry(number);
+    for (const int number : m_tracks) {
+        const auto entry = m_disc.entry(number);
         if (entry && entry->audio)
             audio += qint64(entry->sectorCount()) * Audex::Cdda::SectorBytes;
     }
@@ -528,8 +526,8 @@ Audex::RipRequest RipRequestBuilder::request() const
 {
     Audex::RipRequest rq;
     rq.drive = m_drive;
-    rq.disc = cdda_model->cdInfo();
-    rq.tracks = cdda_model->selectedTracks();
+    rq.disc = m_disc;
+    rq.tracks = m_tracks;
 
     // read options are per drive (Device settings page)
     const DeviceSettings::Values device = DeviceSettings::load(m_driveUdi);
@@ -567,7 +565,7 @@ Audex::RipRequest RipRequestBuilder::request() const
     const bool noRawSubchannel = DeviceSettings::features(m_driveUdi).rwSubchannel == Audex::Rip::Feature::No;
     rq.readCdg = wantsCdg() && !noRawSubchannel;
     rq.cdgSkipped = wantsCdg() && noRawSubchannel;
-    rq.cdgDetected = cdda_model->cdInfo().cdg().value_or(false);
+    rq.cdgDetected = m_disc.cdg().value_or(false);
 
     const StreamWarning stream = streamWarning();
     rq.inaccurateStream = stream.warn;
@@ -610,7 +608,7 @@ PostProcessPlan RipRequestBuilder::plan() const
     const QDir outDir(outputDirectory());
     p.imageFile = isImageFile();
 
-    p.saveCover = columnBool(PROFILE_MODEL_COLUMN_SC_INDEX) && !cdda_model->cover().isNull();
+    p.saveCover = columnBool(PROFILE_MODEL_COLUMN_SC_INDEX) && !m_disc.metadata().cover().isNull();
     if (p.saveCover) {
         p.coverScale = columnBool(PROFILE_MODEL_COLUMN_SC_SCALE_INDEX);
         p.coverSize = columnVariant(PROFILE_MODEL_COLUMN_SC_SIZE_INDEX).toSize();

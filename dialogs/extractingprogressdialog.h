@@ -87,6 +87,7 @@ private:
     QPointer<Audex::RipJob> m_job;
     Audex::RipSummary m_summary;
     PostProcessPlan m_plan;
+    Audex::CDInfo m_disc; // as the rip was started
     QList<int> m_tracks;
 
     bool finished;

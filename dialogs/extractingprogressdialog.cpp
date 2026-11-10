@@ -107,13 +107,18 @@ int ExtractingProgressDialog::exec()
     KConfigGroup grp(KSharedConfig::openConfig(), "ExtractingProgressDialog");
 
     resize(600, 400);
-    m_tracks = cdda_model->selectedTracks();
+
+    // works on a copy: the model may change while the rip runs
+    RipRequestBuilder builder(profile_model, cdda_model, m_encoders);
+    builder.setDrive(m_drive);
+    builder.setDriveUdi(m_driveUdi);
+    m_disc = builder.disc();
+    m_tracks = builder.tracks();
 
     m_mapTracks.clear();
     m_mapSectors = 0;
-    const Audex::CDInfo mapInfo = cdda_model->cdInfo();
     for (const int number : std::as_const(m_tracks)) {
-        const auto entry = mapInfo.entry(number);
+        const auto entry = m_disc.entry(number);
         if (!entry)
             continue;
         m_mapTracks.append({entry->sectorCount(), number});
@@ -125,10 +130,6 @@ int ExtractingProgressDialog::exec()
     toggle_details();
     show();
     setModal(true);
-
-    RipRequestBuilder builder(profile_model, cdda_model, m_encoders);
-    builder.setDrive(m_drive);
-    builder.setDriveUdi(m_driveUdi);
 
     QString error, details;
     QStringList existing;
@@ -282,12 +283,6 @@ void ExtractingProgressDialog::cancel()
 
 void ExtractingProgressDialog::onProgress(qint64 doneSectors, qint64 totalSectors, int trackNumber, qint64 trackSectors)
 {
-    if (!cdda_model) {
-        qWarning() << "ExtractingProgressDialog::onProgress() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     m_percent = totalSectors > 0 ? int(doneSectors * 100 / totalSectors) : 0;
     ui.discMap->setTrackProgress(trackNumber, trackSectors);
     ui.discMap->setPercent(m_percent);
@@ -433,12 +428,6 @@ void ExtractingProgressDialog::onMessage(int level, const QString &text)
 
 void ExtractingProgressDialog::onFinished(const Audex::RipSummary &summary)
 {
-    if (!cdda_model) {
-        qWarning() << "ExtractingProgressDialog::onFinished() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     m_summary = summary;
     ui.discMap->setScanPosition(-1, 0); // a canceled CD+G pass
     if (summary.measuredCacheDefeatReads > 0)
@@ -446,7 +435,7 @@ void ExtractingProgressDialog::onFinished(const Audex::RipSummary &summary)
 
     PostProcessResult post;
     if (summary.completed && !summary.canceled) {
-        post = RipRequestBuilder::runPostProcess(m_plan, summary, cdda_model->cdInfo(), m_tracks, this, [this](int level, const QString &text) {
+        post = RipRequestBuilder::runPostProcess(m_plan, summary, m_disc, m_tracks, this, [this](int level, const QString &text) {
             onMessage(level, text);
         });
     }

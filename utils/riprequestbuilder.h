@@ -21,7 +21,9 @@
 // Translates an Audex profile (ProfileModel), the disc model (CDInfoModel)
 // and the application settings (Preferences) into a RipRequest for the
 // extraction engine, plus a plan for the additional files the profile asks
-// for (cover file, playlist, info, cue sheet, log).
+// for (cover file, playlist, info, cue sheet, log). The disc and the track
+// selection are copied when the builder is made: lookups and cover fetches
+// may still change the model while the rip runs.
 
 struct PostProcessPlan {
     bool imageFile = false;
@@ -56,10 +58,20 @@ struct PostProcessResult {
 class RipRequestBuilder
 {
 public:
-    RipRequestBuilder(ProfileModel *profileModel, Audex::CDInfoModel *cdInfoModel, std::shared_ptr<const Audex::Encoding::EncoderRegistry> encoders);
+    RipRequestBuilder(ProfileModel *profileModel, const Audex::CDInfoModel *cdInfoModel, std::shared_ptr<const Audex::Encoding::EncoderRegistry> encoders);
 
     void setDrive(const Audex::DriveEntry &drive);
     void setDriveUdi(const QString &udi); // Solid UDI: selects the per-drive read settings
+
+    // the copy everything is made from; the post-process takes it as well
+    const Audex::CDInfo &disc() const
+    {
+        return m_disc;
+    }
+    const QList<int> &tracks() const
+    {
+        return m_tracks;
+    }
 
     // Checks selection and output directory. existingFiles receives the
     // target files that already exist (overwrite confirmation is up to the
@@ -139,7 +151,8 @@ private:
     bool wantsCdg() const; // .cdg files wanted, and the disc may carry graphics
 
     ProfileModel *profile_model;
-    Audex::CDInfoModel *cdda_model;
+    Audex::CDInfo m_disc;
+    QList<int> m_tracks; // selected, ascending TOC numbers
     std::shared_ptr<const Audex::Encoding::EncoderRegistry> m_encoders;
     Audex::DriveEntry m_drive;
     QString m_driveUdi;
