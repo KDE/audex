@@ -303,6 +303,7 @@ void deviceWidget::fetchOffset()
     if (m_arClient->isBusy())
         return;
     m_offsetDriveName = name;
+    m_offsetUdi = currentUdi();
     m_fetchMessage->hide();
     pushButton_fetchOffset->setEnabled(false);
     pushButton_fetchOffset->setText(i18n("Fetching..."));
@@ -330,6 +331,8 @@ void deviceWidget::offsetFetchFinished(const QList<Audex::AccurateRip::DriveOffs
 {
     pushButton_fetchOffset->setEnabled(true);
     pushButton_fetchOffset->setText(i18n("Fetch from AccurateRip"));
+    if (m_offsetUdi != m_shownUdi)
+        return; // another drive is on screen now
 
     const auto match = Audex::AccurateRip::findDriveOffset(offsets, m_offsetDriveName);
     if (!match) {
@@ -353,6 +356,8 @@ void deviceWidget::offsetFetchFailed(const QString &message)
 {
     pushButton_fetchOffset->setEnabled(true);
     pushButton_fetchOffset->setText(i18n("Fetch from AccurateRip"));
+    if (m_offsetUdi != m_shownUdi)
+        return;
     m_fetchMessage->setMessageType(KMessageWidget::Error);
     m_fetchMessage->setText(i18n("Could not fetch the AccurateRip drive database: %1", message));
     m_fetchMessage->animatedShow();

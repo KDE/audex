@@ -89,6 +89,7 @@ private:
     QString m_shownUdi;
     Audex::AccurateRip::Client *m_arClient = nullptr;
     QString m_offsetDriveName; // drive the running offset fetch was started for
+    QString m_offsetUdi;
     KMessageWidget *m_fetchMessage = nullptr; // inline feedback for offset fetch and detection
     KMessageWidget *m_streamMessage = nullptr; // the drive test found no accurate stream
     QString m_c2ToolTip; // original tooltip from the .ui file
