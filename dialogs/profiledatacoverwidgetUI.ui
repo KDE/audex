@@ -69,9 +69,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
    </item>
    <item row="1" column="0" colspan="5">
     <widget class="QCheckBox" name="checkBox_png">
-     <property name="toolTip">
-      <string>Covers are stored as JPEG by default. PNG is lossless and supports transparency, but produces larger files.</string>
-     </property>
      <property name="text">
       <string>Store as PNG instead of JPEG</string>
      </property>

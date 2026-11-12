@@ -38,7 +38,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <item row="1" column="0" colspan="3">
     <widget class="QCheckBox" name="checkBox_mcn_isrc">
      <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Write Media Catalog Number (MCN) and International Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet (if your drive have the capability).&lt;/p&gt;&lt;p&gt;Depending in your drive it could take a few seconds at the end of your ripping process to fetch those numbers and codes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Write Media Catalog Number (MCN) and International Standard Recording Codes (ISRC, ISO 3901) of the tracks into the cue sheet (if your drive have the capability).&lt;/p&gt;&lt;p&gt;Depending on your drive it could take a few seconds at the end of your ripping process.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="text">
       <string extracomment="MCN: media catalog number (the barcode of the disc); ISRC: International Standard Recording Code">Add MCN and ISRC values (if available)</string>
