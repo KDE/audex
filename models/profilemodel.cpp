@@ -995,6 +995,7 @@ void ProfileModel::revert()
     if (migrate && version < PROFILE_MODEL_VERSION_IMAGE_PROFILES)
         p_migrateImageSettings();
     endResetModel();
+    Q_EMIT profilesRemovedOrInserted();
 
     if (migrate)
         commit(); // persist migrated profiles right away
@@ -1064,6 +1065,7 @@ bool ProfileModel::loadProfilesFromFile(const QString &filename)
     beginResetModel();
     p_load(config);
     endResetModel();
+    Q_EMIT profilesRemovedOrInserted();
     commit();
 
     // AUDEX_SANDBOX: imported, but not everything works (see p_load())
@@ -1218,7 +1220,6 @@ int ProfileModel::p_load(KConfig &config)
         // unset or refers to a profile index that does not exist (anymore).
         if (!indexExists(p_current_profile_index))
             p_current_profile_index = p_cache.at(0)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt();
-        Q_EMIT profilesRemovedOrInserted();
     } else {
         // no profiles, no current profile
         p_current_profile_index = -1;

@@ -264,7 +264,7 @@ private:
     void p_new_name(QString &name);
 
     void p_save(KConfig &config);
-    int p_load(KConfig &config); // returns the format version that was stored
+    int p_load(KConfig &config); // returns the format version that was stored; call inside a model reset
     void p_migrateLegacyProfile(Profile &profile, const KConfigGroup &subGroup);
     void p_migrateImageSettings();
 
