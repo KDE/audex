@@ -9,33 +9,15 @@
 
 #include "ui_profiledataplaylistwidgetUI.h"
 
-#include "dialogs/errordialog.h"
-#include "models/profilemodel.h"
+#include "dialogs/profiledatasubdialog.h"
 
-#include <QDialog>
-#include <QPointer>
-
-class ProfileDataPlaylistDialog : public QDialog
+class ProfileDataPlaylistDialog : public ProfileDataSubDialog
 {
     Q_OBJECT
 
 public:
     ProfileDataPlaylistDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
 
-private Q_SLOTS:
-    void trigger_changed();
-    void slotAccepted();
-    void slotApplied();
-
 private:
     Ui::ProfileDataPlaylistWidgetUI ui;
-    QPushButton *applyButton = nullptr;
-
-    QPointer<ProfileModel> profile_model;
-    int profile_row;
-    bool new_profile_mode;
-
-    bool save();
-
-    Error error;
 };

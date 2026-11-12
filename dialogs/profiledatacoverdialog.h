@@ -9,15 +9,9 @@
 
 #include "ui_profiledatacoverwidgetUI.h"
 
-#include "dialogs/errordialog.h"
-#include "models/profilemodel.h"
+#include "dialogs/profiledatasubdialog.h"
 
-#include <QDialog>
-#include <QPointer>
-
-class QPushButton;
-
-class ProfileDataCoverDialog : public QDialog
+class ProfileDataCoverDialog : public ProfileDataSubDialog
 {
     Q_OBJECT
 
@@ -25,21 +19,8 @@ public:
     ProfileDataCoverDialog(ProfileModel *profile_model, const int profile_row, const bool new_profile_mode, QWidget *parent = nullptr);
 
 private Q_SLOTS:
-    void trigger_changed();
     void enable_scale(bool enabled);
-
-    void slotAccepted();
-    void slotApplied();
 
 private:
     Ui::ProfileDataCoverWidgetUI ui;
-    QPushButton *applyButton = nullptr;
-
-    QPointer<ProfileModel> profile_model;
-    int profile_row;
-    bool new_profile_mode;
-
-    bool save();
-
-    Error error;
 };

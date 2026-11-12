@@ -291,6 +291,7 @@ set(audex_SRCS
     dialogs/metadatacandidatedialog.cpp
     dialogs/coverchooserdialog.cpp
     dialogs/profiledatadialog.cpp
+    dialogs/profiledatasubdialog.cpp
     dialogs/profiledatacoverdialog.cpp
     dialogs/profiledataplaylistdialog.cpp
     dialogs/profiledatacuedialog.cpp
