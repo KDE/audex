@@ -840,6 +840,8 @@ void MainWindow::current_drive_updated()
 
 void MainWindow::disc_detected(const Audex::DiscReadResult &result)
 {
+    if (m_candidateDialog)
+        m_candidateDialog->reject(); // its candidates belong to the disc just replaced
     if (m_ripping) {
         m_discDetectedWhileRipping = result; // taken over after the rip
         return;
@@ -889,6 +891,8 @@ void MainWindow::disc_detected(const Audex::DiscReadResult &result)
 
 void MainWindow::disc_removed()
 {
+    if (m_candidateDialog)
+        m_candidateDialog->reject(); // its candidates belong to the disc just removed
     if (m_ripping) {
         m_discRemovedWhileRipping = true; // the rip dialog still shows it
         m_discDetectedWhileRipping.reset();
@@ -1055,6 +1059,7 @@ void MainWindow::lookup_finished(int lookupId, const Audex::MetadataCandidates &
     int selected = 0;
     if (candidates.count() > 1) {
         MetadataCandidateDialog dialog(candidates, this);
+        m_candidateDialog = &dialog; // cleared when the dialog is destroyed
         if (dialog.exec() != QDialog::Accepted)
             return;
         selected = dialog.selectedCandidate();

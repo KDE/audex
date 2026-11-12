@@ -36,6 +36,7 @@ class KMessageWidget;
 class CDDAHeaderWidget;
 class DiscController;
 class DiscPlaceholder;
+class MetadataCandidateDialog;
 class ProfileFilterModel;
 class ProfileModel;
 
@@ -164,6 +165,7 @@ private:
     int m_lookupId = 0;
     QStringList m_lookupErrors; // one per failed provider
     bool m_lookupAuto = false;
+    QPointer<MetadataCandidateDialog> m_candidateDialog; // while the user picks; closed when the disc changes
     int m_coverFetchId = 0;
     struct PendingCover {
         QUrl url;
