@@ -62,7 +62,6 @@ public:
     void setCoverState(CoverState state, const QString &detail = QString());
 
 public Q_SLOTS:
-    void setEnabled(bool enabled);
     void edit_data();
 
 Q_SIGNALS:
@@ -72,13 +71,13 @@ Q_SIGNALS:
 
 protected:
     bool event(QEvent *event) override; // tool tip of the cover
+    void changeEvent(QEvent *event) override; // disabled: "No audio CD detected"
     void paintEvent(QPaintEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
 
 private Q_SLOTS:
-
-    void update();
+    void refresh(); // the disc, its metadata or its cover changed
 
     void choose_cover();
     void load();
@@ -106,9 +105,12 @@ private:
     int cover_size_max;
     int padding;
 
-    QImage cd_case;
+    QImage case_image; // the empty case and its latches, from the data files
+    QImage latches_image;
+    QImage cd_case; // the case with the cover in it
+    qint64 case_cover_key = -1; // QImage::cacheKey() of the cover drawn into it
     QRectF case_cover; // where the cover lies in cd_case
-    void construct_cd_case();
+    void construct_cd_case(); // only when the cover changed
     // the case scaled to the widget, scaled again only if it or the size changes
     QImage m_scaledCase;
     qint64 m_scaledCaseKey = 0;
@@ -122,8 +124,6 @@ private:
     bool onLabel(const QPoint &pos) const;
 
     void setup_actions();
-
-    bool enabled = false;
 
     std::optional<bool> m_hdcd;
     std::optional<bool> m_cdg;

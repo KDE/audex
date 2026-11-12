@@ -92,9 +92,12 @@ CDDAHeaderWidget ::CDDAHeaderWidget(Audex::CDInfoModel *cddaModel, QWidget *pare
         return;
     }
 
-    connect(cdda_model, &Audex::CDInfoModel::modelReset, this, &CDDAHeaderWidget::update);
-    connect(cdda_model, &Audex::CDInfoModel::coverChanged, this, &CDDAHeaderWidget::update);
-    connect(cdda_model, &Audex::CDInfoModel::albumChanged, this, &CDDAHeaderWidget::update);
+    connect(cdda_model, &Audex::CDInfoModel::modelReset, this, &CDDAHeaderWidget::refresh);
+    connect(cdda_model, &Audex::CDInfoModel::coverChanged, this, &CDDAHeaderWidget::refresh);
+    connect(cdda_model, &Audex::CDInfoModel::albumChanged, this, &CDDAHeaderWidget::refresh);
+
+    case_image = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("audex/images/cdcase_wo_latches.png")));
+    latches_image = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("audex/images/latches.png")));
 
     setup_actions();
 
@@ -105,8 +108,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(Audex::CDInfoModel *cddaModel, QWidget *pare
     });
     m_dotsTimer.setInterval(50);
     connect(&m_dotsTimer, &QTimer::timeout, this, [this]() {
-        // QWidget::update(): this class's update() would build the case anew
-        QWidget::update(coverArea().toAlignedRect().adjusted(-1, -1, 1, 1));
+        update(coverArea().toAlignedRect().adjusted(-1, -1, 1, 1));
     });
 
     this->cover_size_min = cover_size_min;
@@ -121,7 +123,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(Audex::CDInfoModel *cddaModel, QWidget *pare
 
     setMinimumSize(QSize(cover_size_min + (padding * 2), cover_size_min + (padding * 2)));
 
-    update();
+    refresh();
 }
 
 CDDAHeaderWidget::~CDDAHeaderWidget()
@@ -134,11 +136,13 @@ QSize CDDAHeaderWidget::sizeHint() const
     return QSize(cover_size_min + (padding * 2), cover_size_min + (padding * 2));
 }
 
-void CDDAHeaderWidget::setEnabled(bool enabled)
+void CDDAHeaderWidget::changeEvent(QEvent *event)
 {
-    this->enabled = enabled;
-    updateAccessibleText();
-    repaint();
+    QWidget::changeEvent(event);
+    if (event->type() == QEvent::EnabledChange) {
+        updateAccessibleText();
+        update();
+    }
 }
 
 void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
@@ -155,7 +159,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
 
     painter.begin(this);
 
-    if (enabled) {
+    if (isEnabled()) {
         const bool vertical = this->frameGeometry().width() > this->frameGeometry().height();
         const QSize caseSize = vertical ? QSize(qMin(rect().height() - padding * 2, cover_size_max), qMin(rect().height() - padding * 2, cover_size_max))
                                         : QSize(qMin(rect().width() - padding * 2, cover_size_max), qMin(rect().width() - padding * 2, cover_size_max));
@@ -240,7 +244,9 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
             painter.restore();
         }
 
-    } else { // disabled
+    } else { // disabled: no disc
+        cover_rect = QRect();
+        label_rect = QRect();
 
         QFont font(QApplication::font());
         if (font.pixelSize() == -1) {
@@ -277,7 +283,7 @@ QList<CDDAHeaderWidget::Badge> CDDAHeaderWidget::badges() const
 // child widgets they could read
 void CDDAHeaderWidget::updateAccessibleText()
 {
-    if (!enabled || !cdda_model || cdda_model->isEmpty()) {
+    if (!isEnabled() || !cdda_model || cdda_model->isEmpty()) {
         setAccessibleName(i18n("No audio CD detected"));
         setAccessibleDescription(QString());
         return;
@@ -335,9 +341,11 @@ void CDDAHeaderWidget::construct_cd_case()
         return;
     }
 
-    QImage cdcase_wo_latches = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/cdcase_wo_latches.png")));
-    QImage latches = QImage(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QString("audex/images/latches.png")));
-    QImage cdcase_covered = QImage(cdcase_wo_latches.size(), QImage::Format_ARGB32_Premultiplied);
+    const QImage cover = cdda_model->coverImage();
+    if (!cd_case.isNull() && cover.cacheKey() == case_cover_key)
+        return; // the case still shows this cover
+
+    QImage cdcase_covered = QImage(case_image.size(), QImage::Format_ARGB32_Premultiplied);
 
     QPainter cover_painter(&cdcase_covered);
     cover_painter.setRenderHint(QPainter::Antialiasing);
@@ -346,18 +354,19 @@ void CDDAHeaderWidget::construct_cd_case()
     cover_painter.fillRect(cdcase_covered.rect(), Qt::transparent);
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    cover_painter.drawImage(0, 0, cdcase_wo_latches);
+    cover_painter.drawImage(0, 0, case_image);
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    if (!cdda_model->coverImage().isNull())
-        cover_painter.drawImage(CaseCover.topLeft(), cdda_model->coverImage().scaled(CaseCover.size().toSize(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    if (!cover.isNull())
+        cover_painter.drawImage(CaseCover.topLeft(), cover.scaled(CaseCover.size().toSize(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     cover_painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
-    cover_painter.drawImage(259, 0, latches);
+    cover_painter.drawImage(259, 0, latches_image);
 
     cover_painter.end();
 
     this->cd_case = cdcase_covered;
+    this->case_cover_key = cover.cacheKey();
     this->case_cover = CaseCover;
 }
 
@@ -441,12 +450,12 @@ void CDDAHeaderWidget::show_cover_source()
 
 bool CDDAHeaderWidget::onCover(const QPoint &pos) const
 {
-    return enabled && cover_rect.contains(pos);
+    return isEnabled() && cover_rect.contains(pos);
 }
 
 bool CDDAHeaderWidget::onLabel(const QPoint &pos) const
 {
-    return enabled && label_rect.contains(pos);
+    return isEnabled() && label_rect.contains(pos);
 }
 
 // The widget's own cursor: it ends with the widget, whatever the mouse does
@@ -481,10 +490,10 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
     }
 }
 
-void CDDAHeaderWidget::update()
+void CDDAHeaderWidget::refresh()
 {
     if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::update() called with null model pointers";
+        qWarning() << "CDDAHeaderWidget::refresh() called with null model pointers";
         Q_ASSERT(cdda_model);
         return;
     }
@@ -501,7 +510,7 @@ void CDDAHeaderWidget::update()
 
     construct_cd_case();
     updateAccessibleText();
-    repaint();
+    update();
 }
 
 void CDDAHeaderWidget::load()
@@ -573,7 +582,7 @@ void CDDAHeaderWidget::remove()
 
     cdda_model->removeCover();
     remember_cover(); // forgets it
-    update();
+    refresh();
 }
 
 void CDDAHeaderWidget::edit_data()
@@ -589,7 +598,7 @@ void CDDAHeaderWidget::edit_data()
     if (dialog.exec() != QDialog::Accepted)
         return;
 
-    update();
+    refresh();
     Q_EMIT headerDataChanged();
 }
 
@@ -598,7 +607,7 @@ void CDDAHeaderWidget::setHdcd(std::optional<bool> detected)
     m_hdcd = detected;
     // called for every new disc as well: its pre-emphasis flags come along
     updateToolTip();
-    update();
+    refresh();
 }
 
 QString CDDAHeaderWidget::preEmphasisText(const Audex::CDInfo &info)
@@ -655,7 +664,7 @@ void CDDAHeaderWidget::setCoverState(CoverState state, const QString &detail)
         m_dotsTimer.stop();
     }
     action_collection->action("refetch")->setEnabled(state == CoverState::Failed);
-    QWidget::update(); // the case itself is unchanged
+    update(); // the case itself is unchanged
 }
 
 QRectF CDDAHeaderWidget::coverArea() const
@@ -780,7 +789,7 @@ void CDDAHeaderWidget::setCdg(std::optional<bool> detected)
 {
     m_cdg = detected;
     updateToolTip();
-    update();
+    refresh();
 }
 
 void CDDAHeaderWidget::updateToolTip()
