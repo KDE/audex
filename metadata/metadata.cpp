@@ -7,6 +7,7 @@
 
 #include "metadata.h"
 
+#include <QCoreApplication>
 #include <QFile>
 #include <QFileInfo>
 #include <QMimeDatabase>
@@ -52,7 +53,7 @@ std::optional<CoverArt> CoverArt::fromFile(const QString &path, QString *error)
     }
     auto cover = fromData(file.readAll(), path);
     if (!cover && error)
-        *error = u"%1 is not an image"_s.arg(path);
+        *error = QCoreApplication::translate("Audex::CoverArt", "%1 is not an image.").arg(path);
     return cover;
 }
 
@@ -60,7 +61,7 @@ bool CoverArt::saveToFile(const QString &path, QString *error) const
 {
     if (isNull()) {
         if (error)
-            *error = u"No cover image"_s;
+            *error = QCoreApplication::translate("Audex::CoverArt", "There is no cover to save.");
         return false;
     }
     QSaveFile file(path);

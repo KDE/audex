@@ -718,7 +718,7 @@ void CDDAHeaderWidget::paintCoverState(QPainter &painter)
             color = KColorScheme(QPalette::Active, KColorScheme::Window).foreground(KColorScheme::NegativeText).color();
         }
         QFont font = painter.font();
-        font.setPointSizeF(font.pointSizeF() * 0.9);
+        scaleFont(font, 0.9);
         painter.setFont(font);
         const QFontMetricsF fm(font);
         const qreal maxWidth = area.width() * 0.8;

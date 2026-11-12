@@ -7,11 +7,13 @@
 
 #include "logviewdialog.h"
 
+#include "dialogs/errordialog.h"
+
 #include <KLocalizedString>
 
 #include <QDialogButtonBox>
-#include <QFile>
 #include <QFileDialog>
+#include <QSaveFile>
 #include <QTextStream>
 #include <QVBoxLayout>
 
@@ -51,15 +53,18 @@ void LogViewDialog::slotSaveLog()
 
 void LogViewDialog::save()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save Log"), QDir::homePath(), "*.log");
-    if (!fileName.isEmpty()) {
-        QFile data(fileName);
-        if (data.open(QFile::WriteOnly | QFile::Truncate)) {
-            // as shown: both the rip log and the check report name program and date
-            QTextStream out(&data);
-            for (int i = 0; i < log.count(); i++) {
-                out << log.at(i) << Qt::endl;
-            }
-        }
+    const QString fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save Log"), QDir::homePath(), "*.log");
+    if (fileName.isEmpty())
+        return;
+
+    // as shown: both the rip log and the check report name program and date
+    QSaveFile data(fileName);
+    if (data.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        QTextStream out(&data);
+        for (int i = 0; i < log.count(); i++)
+            out << log.at(i) << Qt::endl;
+        out.flush();
     }
+    if (data.error() != QFileDevice::NoError || !data.commit())
+        ErrorDialog::show(this, i18n("The log could not be saved to %1.", fileName), data.errorString(), i18nc("@title:window", "Save Log"));
 }
