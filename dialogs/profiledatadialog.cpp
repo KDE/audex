@@ -26,15 +26,9 @@
 
 ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent)
     : QDialog(parent)
+    , profile_model(profileModel)
 {
-    Q_UNUSED(parent);
-
-    profile_model = profileModel;
-    if (!profile_model) {
-        qWarning() << "ProfileDataDialog() called with null model pointers";
-        Q_ASSERT(profile_model);
-        return;
-    }
+    Q_ASSERT(profileModel);
 
     if (profileRow < 0) { // find next free row index
         int row = 0;
@@ -269,12 +263,6 @@ void ProfileDataDialog::slotApplied()
 
 void ProfileDataDialog::slotRejected()
 {
-    if (!profile_model) {
-        qWarning() << "ProfileDataDialog::slotRejected() called with null model pointers";
-        Q_ASSERT(profile_model);
-        return;
-    }
-
     if (new_profile_mode)
         profile_model->removeRows(profile_row, 1);
 }
@@ -362,12 +350,6 @@ void ProfileDataDialog::update_encoder_message()
 
 void ProfileDataDialog::trigger_changed()
 {
-    if (!profile_model) {
-        qWarning() << "ProfileDataDialog::trigger_changed() called with null model pointers";
-        Q_ASSERT(profile_model);
-        return;
-    }
-
     if (applyButton) {
         applyButton->setEnabled(
             ui.qlineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString()
@@ -487,12 +469,6 @@ void ProfileDataDialog::set_encoder_widget(const EncoderAssistant::Encoder encod
 
 bool ProfileDataDialog::save()
 {
-    if (!profile_model) {
-        qWarning() << "ProfileDataDialog::save() called with null model pointers";
-        Q_ASSERT(profile_model);
-        return false;
-    }
-
     lame_widget->save();
     opusenc_widget->save();
     flac_widget->save();

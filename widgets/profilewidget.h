@@ -9,7 +9,6 @@
 
 #include "ui_profilewidgetUI.h"
 
-#include <QPointer>
 #include <QWidget>
 
 class ProfileModel;
@@ -41,5 +40,5 @@ private Q_SLOTS:
     void load_profiles();
 
 private:
-    QPointer<ProfileModel> profile_model;
+    ProfileModel *profile_model;
 };

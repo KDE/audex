@@ -15,7 +15,6 @@
 
 #include <QFutureWatcher>
 #include <QHash>
-#include <QPointer>
 
 #include <atomic>
 #include <memory>
@@ -83,7 +82,7 @@ private:
     void updateAccuracyEnabling();
     bool m_c2Unsupported = false;
 
-    QPointer<DiscController> m_discController;
+    DiscController *m_discController;
     QHash<QString, DeviceSettings::Values> m_edited; // per drive, not yet applied
     QHash<QString, Audex::Rip::DriveFeatures> m_measured; // ... same for the assistant results
     QString m_shownUdi;

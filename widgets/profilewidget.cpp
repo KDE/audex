@@ -24,11 +24,7 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent)
     : profileWidgetUI(parent)
     , profile_model(profileModel)
 {
-    if (!profile_model) {
-        qWarning() << "profileWidget() called with null model pointers";
-        Q_ASSERT(profile_model);
-        return;
-    }
+    Q_ASSERT(profileModel);
 
     listView->setModel(profile_model);
     listView->setModelColumn(1);

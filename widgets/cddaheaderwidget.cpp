@@ -84,13 +84,9 @@ constexpr int DotsPeriodMs = 1200;
 
 CDDAHeaderWidget ::CDDAHeaderWidget(Audex::CDInfoModel *cddaModel, QWidget *parent, const int cover_size_min, const int cover_size_max, const int padding)
     : QWidget(parent)
+    , cdda_model(cddaModel)
 {
-    cdda_model = cddaModel;
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
+    Q_ASSERT(cddaModel);
 
     connect(cdda_model, &Audex::CDInfoModel::modelReset, this, &CDDAHeaderWidget::refresh);
     connect(cdda_model, &Audex::CDInfoModel::coverChanged, this, &CDDAHeaderWidget::refresh);
@@ -103,7 +99,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(Audex::CDInfoModel *cddaModel, QWidget *pare
 
     // a cover set by any means ends "nothing found" or "failed"
     connect(cdda_model, &Audex::CDInfoModel::coverChanged, this, [this]() {
-        if (cdda_model && !cdda_model->coverImage().isNull() && m_coverState != CoverState::Loading)
+        if (!cdda_model->coverImage().isNull() && m_coverState != CoverState::Loading)
             setCoverState(CoverState::Idle);
     });
     m_dotsTimer.setInterval(50);
@@ -147,12 +143,6 @@ void CDDAHeaderWidget::changeEvent(QEvent *event)
 
 void CDDAHeaderWidget::paintEvent(QPaintEvent *event)
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::paintEvent() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     Q_UNUSED(event);
 
     QPainter painter;
@@ -283,7 +273,7 @@ QList<CDDAHeaderWidget::Badge> CDDAHeaderWidget::badges() const
 // child widgets they could read
 void CDDAHeaderWidget::updateAccessibleText()
 {
-    if (!isEnabled() || !cdda_model || cdda_model->isEmpty()) {
+    if (!isEnabled() || cdda_model->isEmpty()) {
         setAccessibleName(i18n("No audio CD detected"));
         setAccessibleDescription(QString());
         return;
@@ -335,12 +325,6 @@ QString CDDAHeaderWidget::factsText() const
 
 void CDDAHeaderWidget::construct_cd_case()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::construct_cd_case() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     const QImage cover = cdda_model->coverImage();
     if (!cd_case.isNull() && cover.cacheKey() == case_cover_key)
         return; // the case still shows this cover
@@ -372,7 +356,7 @@ void CDDAHeaderWidget::construct_cd_case()
 
 bool CDDAHeaderWidget::event(QEvent *event)
 {
-    if (event->type() == QEvent::ToolTip && cdda_model) {
+    if (event->type() == QEvent::ToolTip) {
         const auto *help = static_cast<QHelpEvent *>(event);
         if (cover_rect.contains(help->pos())) {
             QToolTip::showText(help->globalPos(), coverToolTip(), this, cover_rect);
@@ -419,8 +403,6 @@ QString CDDAHeaderWidget::coverToolTip() const
 
 void CDDAHeaderWidget::choose_cover()
 {
-    if (!cdda_model)
-        return;
     CoverChooserDialog dialog(cdda_model->cdInfo().metadata(), this);
     if (dialog.exec() == QDialog::Accepted) {
         cdda_model->setCover(dialog.cover());
@@ -444,7 +426,7 @@ void CDDAHeaderWidget::remember_cover()
 
 void CDDAHeaderWidget::show_cover_source()
 {
-    if (cdda_model && cdda_model->cover().originPage.isValid())
+    if (cdda_model->cover().originPage.isValid())
         QDesktopServices::openUrl(cdda_model->cover().originPage);
 }
 
@@ -469,12 +451,6 @@ void CDDAHeaderWidget::mouseMoveEvent(QMouseEvent *event)
 
 void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::mousePressEvent() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     if (event->button() == Qt::LeftButton) {
         if (onCover(event->pos())) {
             unsetCursor();
@@ -492,12 +468,6 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event)
 
 void CDDAHeaderWidget::refresh()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::refresh() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     bool activate = false;
     if (!cdda_model->coverImage().isNull()) {
         activate = true;
@@ -515,12 +485,6 @@ void CDDAHeaderWidget::refresh()
 
 void CDDAHeaderWidget::load()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::load() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     QString filename = QFileDialog::getOpenFileName(this, i18n("Load Cover"), QDir::homePath(), i18n("Images (*.jpg *.jpeg *.png *.gif *.webp *.bmp)"));
     if (!filename.isEmpty()) {
         QString error;
@@ -534,12 +498,6 @@ void CDDAHeaderWidget::load()
 
 void CDDAHeaderWidget::save()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::save() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     // the album as file name: a slash in it would be a folder
     QString name = cdda_model->album().replace(u'/', u'-').trimmed();
     if (name.isEmpty() || name.startsWith(u'.'))
@@ -557,12 +515,6 @@ void CDDAHeaderWidget::save()
 
 void CDDAHeaderWidget::view_cover()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::view_cover() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     const QString suffix = cdda_model->cover().suffix();
     QString filename = tmp_dir.filePath(QString("%1.%2").arg(cdda_model->coverImage().cacheKey(), 8, 16).arg(suffix.isEmpty() ? u"jpg"_s : suffix));
     cdda_model->saveCoverToFile(filename);
@@ -574,12 +526,6 @@ void CDDAHeaderWidget::view_cover()
 
 void CDDAHeaderWidget::remove()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::remove() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     cdda_model->removeCover();
     remember_cover(); // forgets it
     refresh();
@@ -587,12 +533,6 @@ void CDDAHeaderWidget::remove()
 
 void CDDAHeaderWidget::edit_data()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderWidget::edit_data() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     auto dialog(CDDAHeaderDataDialog(cdda_model, m_hdcd, this));
 
     if (dialog.exec() != QDialog::Accepted)
@@ -799,20 +739,18 @@ void CDDAHeaderWidget::updateToolTip()
         tips << i18n("HDCD encoded disc. The bit-perfect rip preserves all HDCD information; see the README for decoding with FFmpeg.");
     if (m_cdg.value_or(false))
         tips << i18n("CD+G disc: graphics in the sub-channel. Turn on \"Save CD+G graphics as .cdg files\" in the general settings to keep them.");
-    if (cdda_model) {
-        const Audex::CDInfo &info = cdda_model->cdInfo();
-        if (info.medium() == Audex::CDInfo::Medium::CdR || info.medium() == Audex::CDInfo::Medium::CdRw) {
-            const QString kind = info.medium() == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R");
-            QString tip = info.mediumDetails().isEmpty() ? i18n("Recordable disc (%1).", kind)
-                                                         // i18n: %1 is CD-R or CD-RW, %2 details of the disc such as its manufacturer
-                                                         : i18n("Recordable disc (%1, %2).", kind, info.mediumDetails());
-            tip += u' '
-                + i18n("Usually a copy: AccurateRip confirms it only if it was burned bit-exact from a pressing. Burned discs age and can be harder to read.");
-            tips << tip;
-        }
-        const QString emphasis = preEmphasisText(cdda_model->cdInfo());
-        if (!emphasis.isEmpty())
-            tips << emphasis;
+    const Audex::CDInfo &info = cdda_model->cdInfo();
+    if (info.medium() == Audex::CDInfo::Medium::CdR || info.medium() == Audex::CDInfo::Medium::CdRw) {
+        const QString kind = info.medium() == Audex::CDInfo::Medium::CdRw ? QStringLiteral("CD-RW") : QStringLiteral("CD-R");
+        QString tip = info.mediumDetails().isEmpty() ? i18n("Recordable disc (%1).", kind)
+                                                     // i18n: %1 is CD-R or CD-RW, %2 details of the disc such as its manufacturer
+                                                     : i18n("Recordable disc (%1, %2).", kind, info.mediumDetails());
+        tip +=
+            u' ' + i18n("Usually a copy: AccurateRip confirms it only if it was burned bit-exact from a pressing. Burned discs age and can be harder to read.");
+        tips << tip;
     }
+    const QString emphasis = preEmphasisText(info);
+    if (!emphasis.isEmpty())
+        tips << emphasis;
     setToolTip(tips.join(QStringLiteral("\n\n")));
 }

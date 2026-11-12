@@ -21,11 +21,7 @@ ProfileDataSubDialog::ProfileDataSubDialog(ProfileModel *profileModel, const int
     , m_row(profileRow)
     , m_newProfile(newProfileMode)
 {
-    if (!m_model) {
-        qWarning() << "ProfileDataSubDialog() called with null model pointers";
-        Q_ASSERT(m_model);
-        return;
-    }
+    Q_ASSERT(profileModel);
 
     setWindowTitle(title);
 
@@ -55,8 +51,6 @@ ProfileDataSubDialog::ProfileDataSubDialog(ProfileModel *profileModel, const int
 
 QVariant ProfileDataSubDialog::storedValue(const int column) const
 {
-    if (!m_model)
-        return QVariant();
     return m_model->data(m_model->index(m_row, column));
 }
 
@@ -104,12 +98,6 @@ void ProfileDataSubDialog::trigger_changed()
 
 bool ProfileDataSubDialog::save(Error *error)
 {
-    if (!m_model) {
-        qWarning() << "ProfileDataSubDialog::save() called with null model pointers";
-        Q_ASSERT(m_model);
-        return false;
-    }
-
     const Profile before = m_model->profile(m_row);
     for (const Field &field : std::as_const(m_fields)) {
         if (!m_model->setData(m_model->index(m_row, field.column), field.value())) {

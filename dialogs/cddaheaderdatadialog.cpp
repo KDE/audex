@@ -24,15 +24,9 @@ using namespace Qt::StringLiterals;
 
 CDDAHeaderDataDialog::CDDAHeaderDataDialog(Audex::CDInfoModel *cddaModel, std::optional<bool> hdcd, QWidget *parent)
     : QDialog(parent)
+    , cdda_model(cddaModel)
 {
-    Q_UNUSED(parent);
-
-    cdda_model = cddaModel;
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderDataDialog() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
+    Q_ASSERT(cddaModel);
 
     setWindowTitle(i18n("Edit Data"));
 
@@ -149,12 +143,6 @@ void CDDAHeaderDataDialog::slotApplied()
 
 void CDDAHeaderDataDialog::save()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderDataDialog::save() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     cdda_model->setVariousArtists(ui.checkBox_various->isChecked());
     cdda_model->setAlbumValue(Audex::Metadata::Field::MultiDisc, ui.checkBox_multicd->isChecked());
     cdda_model->setArtist(ui.qlineedit_artist->text());
@@ -169,12 +157,6 @@ void CDDAHeaderDataDialog::save()
 
 void CDDAHeaderDataDialog::trigger_changed()
 {
-    if (!cdda_model) {
-        qWarning() << "CDDAHeaderDataDialog::trigger_changed() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        return;
-    }
-
     if (ui.checkBox_various->isChecked() != cdda_model->variousArtists()) {
         applyButton->setEnabled(true);
         return;

@@ -10,7 +10,6 @@
 #include "models/profilemodel.h"
 
 #include <QDialog>
-#include <QPointer>
 
 #include <functional>
 
@@ -58,7 +57,7 @@ private:
         std::function<QVariant()> value;
     };
 
-    QPointer<ProfileModel> m_model;
+    ProfileModel *m_model;
     int m_row;
     bool m_newProfile;
     QWidget *m_content = nullptr;

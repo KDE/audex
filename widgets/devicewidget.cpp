@@ -28,11 +28,7 @@ deviceWidget::deviceWidget(DiscController *discController, QWidget *parent)
     : deviceWidgetUI(parent)
     , m_discController(discController)
 {
-    if (!m_discController) {
-        qWarning() << "deviceWidget() called with null disc controller pointers";
-        Q_ASSERT(m_discController);
-        return;
-    }
+    Q_ASSERT(discController);
 
     // inline feedback for the AccurateRip offset fetch and detection,
     // inserted between the button row and the hint label
@@ -89,12 +85,6 @@ deviceWidget::~deviceWidget()
 
 Audex::DriveEntry deviceWidget::currentDrive() const
 {
-    if (!m_discController) {
-        qWarning() << "deviceWidget::currentDrive() called with null disc controller pointers";
-        Q_ASSERT(m_discController);
-        return {};
-    }
-
     for (const DiscController::DriveInfo &d : m_discController->drives())
         if (d.udi == currentUdi())
             return d.entry;
@@ -273,12 +263,6 @@ void deviceWidget::offsetDetectionFinished()
 
 QString deviceWidget::currentDriveName() const
 {
-    if (!m_discController) {
-        qWarning() << "deviceWidget::currentDriveName() called with null disc controller pointers";
-        Q_ASSERT(m_discController);
-        return {};
-    }
-
     const QString udi = currentUdi();
     for (const DiscController::DriveInfo &d : m_discController->drives())
         if (d.udi == udi)
@@ -312,12 +296,6 @@ void deviceWidget::fetchOffset()
 
 void deviceWidget::updateC2Availability()
 {
-    if (!m_discController) {
-        qWarning() << "deviceWidget::updateC2Availability() called with null disc controller pointers";
-        Q_ASSERT(m_discController);
-        return;
-    }
-
     const std::optional<bool> c2 = m_discController->driveSupportsC2(m_shownUdi);
     const bool unsupported = c2.has_value() && !c2.value();
     m_c2Unsupported = unsupported;
@@ -421,12 +399,6 @@ void deviceWidget::drivesChanged()
 
 void deviceWidget::fillDriveList()
 {
-    if (!m_discController) {
-        qWarning() << "deviceWidget::fillDriveList() called with null disc controller pointers";
-        Q_ASSERT(m_discController);
-        return;
-    }
-
     // keep the drive on screen, initially the active drive
     const QString selected = m_shownUdi.isEmpty() ? m_discController->currentDriveUdi() : m_shownUdi;
     const QSignalBlocker blocker(comboBox_device);

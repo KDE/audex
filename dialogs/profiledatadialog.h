@@ -18,7 +18,6 @@
 #include "widgets/wavewidget.h"
 
 #include <QDialog>
-#include <QPointer>
 
 class KMessageWidget;
 
@@ -54,7 +53,7 @@ private Q_SLOTS:
 
 private:
     Ui::ProfileDataWidgetUI ui;
-    QPointer<ProfileModel> profile_model;
+    ProfileModel *profile_model;
 
     QPushButton *applyButton = nullptr;
 

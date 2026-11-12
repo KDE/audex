@@ -50,15 +50,10 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model,
     ui.setupUi(widget);
     ui.result_summary->hide();
 
+    Q_ASSERT(profile_model);
+    Q_ASSERT(cdda_model);
     this->profile_model = profile_model;
     this->cdda_model = cdda_model;
-
-    if (!cdda_model || !profile_model) {
-        qWarning() << "ExtractingProgressDialog() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        Q_ASSERT(profile_model);
-        return;
-    }
 
     m_encoders = std::move(encoders);
     m_drive = drive;
@@ -97,13 +92,6 @@ ExtractingProgressDialog::~ExtractingProgressDialog()
 
 int ExtractingProgressDialog::exec()
 {
-    if (!cdda_model || !profile_model) {
-        qWarning() << "ExtractingProgressDialog::exec() called with null model pointers";
-        Q_ASSERT(cdda_model);
-        Q_ASSERT(profile_model);
-        return QDialog::Rejected;
-    }
-
     KConfigGroup grp(KSharedConfig::openConfig(), "ExtractingProgressDialog");
 
     resize(600, 400);

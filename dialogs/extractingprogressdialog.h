@@ -78,8 +78,8 @@ private:
     qint64 discPosition(int trackNumber, qint64 trackSectors) const; // read position on the disc map
     void update_unity();
 
-    QPointer<ProfileModel> profile_model;
-    QPointer<Audex::CDInfoModel> cdda_model;
+    ProfileModel *profile_model = nullptr;
+    Audex::CDInfoModel *cdda_model = nullptr;
     std::shared_ptr<const Audex::Encoding::EncoderRegistry> m_encoders;
     Audex::DriveEntry m_drive;
     QString m_driveUdi;

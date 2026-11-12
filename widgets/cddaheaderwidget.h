@@ -13,7 +13,6 @@
 #include <QColor>
 #include <QElapsedTimer>
 #include <QImage>
-#include <QPointer>
 #include <QRect>
 #include <QSize>
 #include <QTemporaryDir>
@@ -99,7 +98,7 @@ private:
     QList<Badge> badges() const; // HDCD, pre-emphasis, CD+G, CD-R(W)
     void updateAccessibleText();
 
-    QPointer<Audex::CDInfoModel> cdda_model;
+    Audex::CDInfoModel *cdda_model; // outlives the widget
     KActionCollection *action_collection = nullptr;
     int cover_size_min;
     int cover_size_max;

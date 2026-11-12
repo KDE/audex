@@ -12,7 +12,6 @@
 #include "models/cdinfomodel.h"
 
 #include <QDialog>
-#include <QPointer>
 #include <QPushButton>
 
 #include <optional>
@@ -38,7 +37,7 @@ private Q_SLOTS:
 
 private:
     Ui::CDDAHeaderDataWidgetUI ui;
-    QPointer<Audex::CDInfoModel> cdda_model;
+    Audex::CDInfoModel *cdda_model;
     QPushButton *okButton = nullptr;
     QPushButton *applyButton = nullptr;
 };
