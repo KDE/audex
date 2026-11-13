@@ -82,22 +82,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </widget>
    </item>
    <item row="2" column="0" colspan="2">
-    <widget class="QWidget" name="result_summary">
-     <layout class="QGridLayout" name="result_layout">
-      <property name="leftMargin"><number>0</number></property>
-      <property name="topMargin"><number>0</number></property>
-      <property name="rightMargin"><number>0</number></property>
-      <property name="bottomMargin"><number>0</number></property>
-      <item row="0" column="0"><widget class="QLabel" name="extraction_icon"/></item>
-      <item row="0" column="1"><widget class="QLabel" name="extraction_result"><property name="wordWrap"><bool>true</bool></property></widget></item>
-      <item row="1" column="0"><widget class="QLabel" name="verification_icon"/></item>
-      <item row="1" column="1"><widget class="QLabel" name="verification_result"><property name="wordWrap"><bool>true</bool></property></widget></item>
-      <item row="2" column="0"><widget class="QLabel" name="output_icon"/></item>
-      <item row="2" column="1"><widget class="QLabel" name="output_result"><property name="wordWrap"><bool>true</bool></property></widget></item>
-     </layout>
-    </widget>
-   </item>
-   <item row="3" column="0" colspan="2">
     <widget class="DiscMapWidget" name="discMap">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -107,31 +91,33 @@ SPDX-License-Identifier: GPL-3.0-or-later
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
-    <layout class="QHBoxLayout" name="horizontalLayout">
+   <item row="3" column="0" colspan="2">
+    <layout class="QHBoxLayout" name="status_layout">
      <item>
-      <widget class="QLabel" name="label_extracting">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+      <widget class="QLabel" name="label_status">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
-        <string notr="true">Ripping track 8 of 12...</string>
+        <string notr="true">Ripping…</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_speed_extracting">
+      <widget class="QLabel" name="label_time">
        <property name="sizePolicy">
         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="toolTip">
+        <string>Time since the rip started</string>
+       </property>
        <property name="text">
-        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-style:italic;"&gt;Speed: 0×&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string notr="true">4:32</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -139,6 +125,144 @@ SPDX-License-Identifier: GPL-3.0-or-later
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="4" column="0" colspan="2">
+    <widget class="QWidget" name="stages" native="true">
+     <layout class="QGridLayout" name="stages_layout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>6</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>8</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="stage_extraction_icon">
+        <property name="minimumSize">
+         <size>
+          <width>22</width>
+          <height>22</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="stage_extraction_name">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Extraction</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="KSqueezedTextLabel" name="stage_extraction_text">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::TextElideMode::ElideRight</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="stage_verification_icon">
+        <property name="minimumSize">
+         <size>
+          <width>22</width>
+          <height>22</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="stage_verification_name">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Verification</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="KSqueezedTextLabel" name="stage_verification_text">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::TextElideMode::ElideRight</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="stage_output_icon">
+        <property name="minimumSize">
+         <size>
+          <width>22</width>
+          <height>22</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="stage_output_name">
+        <property name="font">
+         <font>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Output</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="KSqueezedTextLabel" name="stage_output_text">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::TextElideMode::ElideMiddle</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </item>
    <item row="5" column="0" colspan="2">
     <spacer name="verticalSpacer">

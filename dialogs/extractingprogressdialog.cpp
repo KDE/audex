@@ -13,17 +13,24 @@
 #include "utils/devicesettings.h"
 
 #include <QDBusConnection>
+#include <QDesktopServices>
 #include <QDialogButtonBox>
+#include <QDir>
+#include <QFileInfo>
 #include <QIcon>
 #include <QLocale>
 #include <QPointer>
 #include <QPushButton>
+#include <QTime>
+#include <QUrl>
 #include <QVBoxLayout>
 
+#include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KShell>
 
 using namespace Qt::StringLiterals;
 
@@ -48,7 +55,11 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model,
     mainLayout->addWidget(widget);
     mainLayout->addWidget(buttonBox);
     ui.setupUi(widget);
-    ui.result_summary->hide();
+
+    // shares the icon cell of the extraction row; set_stage() shows one of the two
+    m_busy = new KBusyIndicatorWidget(ui.stages);
+    ui.stages_layout->addWidget(m_busy, 0, 0, Qt::AlignCenter);
+    m_busy->hide();
 
     Q_ASSERT(profile_model);
     Q_ASSERT(cdda_model);
@@ -64,13 +75,14 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model,
 
     p_image_file = profile_model->isCurrentImage();
 
-    if (p_image_file) {
-        ui.label_extracting->setText(i18n("Ripping whole CD as image file"));
-    } else {
-        ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->selectedTracks().count()));
-    }
-    ui.label_speed_extracting->clear(); // filled in by the first progress report
+    ui.label_status->setText(i18n("Ripping..."));
+    ui.label_time->clear(); // runs once the job has started
+    set_stage(Stage::Extraction, StageState::Pending, i18n("Starting..."));
+    set_stage(Stage::Verification, StageState::Pending, QString());
+    set_stage(Stage::Output, StageState::Pending, QString());
 
+    m_clockTimer.setInterval(1000);
+    connect(&m_clockTimer, &QTimer::timeout, this, &ExtractingProgressDialog::update_time);
     connect(ui.details_button, &QToolButton::clicked, this, &ExtractingProgressDialog::toggle_details);
 
     finished = false;
@@ -185,14 +197,23 @@ int ExtractingProgressDialog::exec()
     }
 
     m_plan = builder.plan();
+    const Audex::RipRequest request = builder.request();
+    m_verificationRequested = request.accurateRipLookup || request.ctdbLookup;
 
-    m_job = new Audex::RipJob(builder.request(), this);
+    set_stage(Stage::Extraction, StageState::Running, i18n("Starting..."));
+    update_verification_row();
+    set_stage(Stage::Output, StageState::Pending, KShell::tildeCollapse(outputFolder()));
+
+    m_job = new Audex::RipJob(request, this);
     connect(m_job, &Audex::RipJob::progress, this, &ExtractingProgressDialog::onProgress);
     connect(m_job, &Audex::RipJob::trackStatus, this, &ExtractingProgressDialog::onTrackStatus);
     connect(m_job, &Audex::RipJob::cdgProgress, this, &ExtractingProgressDialog::onCdgProgress);
     connect(m_job, &Audex::RipJob::message, this, &ExtractingProgressDialog::onMessage);
     connect(m_job, &Audex::RipJob::finished, this, &ExtractingProgressDialog::onFinished);
     speed_timer.start();
+    m_clock.start();
+    m_clockTimer.start();
+    update_time();
     m_job->start();
 
     int rv = QDialog::exec();
@@ -264,6 +285,7 @@ void ExtractingProgressDialog::cancel()
     m_cancelRequested = true;
     if (cancelButton)
         cancelButton->setEnabled(false);
+    ui.label_status->setText(i18n("Canceling..."));
     show_info(i18n("Canceling..."));
     if (m_job)
         m_job->cancel();
@@ -278,13 +300,12 @@ void ExtractingProgressDialog::onProgress(qint64 doneSectors, qint64 totalSector
     const int pos = qMax(1, m_tracks.indexOf(trackNumber) + 1);
     current_track = pos;
 
-    if (p_image_file) {
-        ui.label_extracting->setText(i18n("Ripping whole CD as image file..."));
-    } else if (m_rereading.contains(trackNumber)) {
-        ui.label_extracting->setText(i18n("Reading track %1 again in secure mode...", pos));
-    } else {
-        ui.label_extracting->setText((1 == m_tracks.count()) ? i18n("Ripping track...") : i18n("Ripping track %1 of %2...", pos, m_tracks.count()));
-    }
+    if (p_image_file)
+        m_reading = i18n("Whole CD as image file");
+    else if (m_rereading.contains(trackNumber))
+        m_reading = i18n("Track %1 again in secure mode", pos);
+    else
+        m_reading = i18n("Track %1 of %2", pos, m_tracks.count());
 
     // speed: sectors per second / 75 sectors per second at 1x
     if (speed_timer.elapsed() >= 500) {
@@ -293,8 +314,6 @@ void ExtractingProgressDialog::onProgress(qint64 doneSectors, qint64 totalSector
         speed_ema = (speed_ema <= 0.0) ? speed : (0.3 * speed + 0.7 * speed_ema);
         last_sectors = doneSectors;
         speed_timer.restart();
-        // i18n: %1 is the read speed as a multiple of the normal playback speed of a CD
-        ui.label_speed_extracting->setText(i18n("<i>Speed: %1×</i>", QLocale().toString(speed_ema, 'f', 2)));
         // the read position on the disc: stays within the disc and follows
         // the drive back when a track is read again
         const QString sector = i18n("Sector %1 of %2", QLocale().toString(discPosition(trackNumber, trackSectors)), QLocale().toString(m_mapSectors));
@@ -305,6 +324,7 @@ void ExtractingProgressDialog::onProgress(qint64 doneSectors, qint64 totalSector
             ui.label_telemetry->setText(i18nc("sector, read errors", "%1 · %2", sector, errors));
     }
 
+    update_extraction_row();
     update_unity();
 }
 
@@ -340,6 +360,14 @@ void ExtractingProgressDialog::onTrackStatus(int trackNumber, int status)
         m_rereading.remove(trackNumber);
     }
     ui.discMap->setTrackState(trackNumber, state);
+
+    // Unconfirmed and Rereading are not final: the track comes back
+    if (state == State::Confirmed)
+        m_confirmedTracks.insert(trackNumber);
+    if (state == State::Confirmed || state == State::Done || state == State::Suspicious) {
+        m_finishedTracks.insert(trackNumber);
+        update_verification_row();
+    }
 }
 
 // After the audio: the sub-channel of the whole range, read twice. The disc
@@ -355,33 +383,31 @@ void ExtractingProgressDialog::onCdgProgress(int pass, qint64 doneSectors, qint6
         m_cdgPass = pass;
         last_sectors = doneSectors;
         speed_timer.restart();
-        speed_ema = 0.0;
-        if (pass == 3)
-            ui.label_speed_extracting->clear(); // single sectors: no meaningful speed
+        speed_ema = 0.0; // pass 3 reads single sectors: no meaningful speed, none shown
     }
     m_percent = std::max(m_percent, percent);
     ui.discMap->setPercent(m_percent);
 
     if (totalSectors > 0 && doneSectors >= totalSectors) {
         ui.discMap->setScanPosition(-1, 0);
-        ui.label_extracting->setText(i18n("Finishing..."));
-        ui.label_speed_extracting->clear();
+        m_reading = i18n("Finishing...");
+        speed_ema = 0.0;
+        update_extraction_row();
         update_unity();
         return;
     }
 
     ui.discMap->setScanPosition(trackNumber, trackSectors, i18nc("caption before the percentage on the disc map", "CD+G"));
     if (pass == 3)
-        ui.label_extracting->setText(i18n("Reading differing sectors of the CD+G graphics again..."));
+        m_reading = i18n("Differing sectors of the CD+G graphics again");
     else
-        ui.label_extracting->setText(i18n("Reading the CD+G graphics, pass %1 of 2...", pass));
+        m_reading = i18n("CD+G graphics, pass %1 of 2", pass);
 
     if (speed_timer.elapsed() >= 500) {
         if (pass < 3) {
             const double sps = (double)(doneSectors - last_sectors) / ((double)speed_timer.elapsed() / 1000.0);
             const double speed = sps / 75.0;
             speed_ema = (speed_ema <= 0.0) ? speed : (0.3 * speed + 0.7 * speed_ema);
-            ui.label_speed_extracting->setText(i18n("<i>Speed: %1×</i>", QLocale().toString(speed_ema, 'f', 2)));
         }
         last_sectors = doneSectors;
         speed_timer.restart();
@@ -390,6 +416,7 @@ void ExtractingProgressDialog::onCdgProgress(int pass, qint64 doneSectors, qint6
         ui.label_telemetry->setText(i18nc("sector, read errors", "%1 · %2", sector, errors));
     }
 
+    update_extraction_row();
     update_unity();
 }
 
@@ -462,129 +489,229 @@ void ExtractingProgressDialog::conclusion(const PostProcessResult &post)
         case JobStatus::Failed:
             return failure;
         case JobStatus::Canceled:
-            return i18n("Canceled.");
+            return i18n("Canceled");
         case JobStatus::Skipped:
-            return i18n("Not performed.");
+            return i18n("Not performed");
         }
         return QString();
     };
     const QString extraction = describe(
         m_summary.extraction.status,
-        i18np("%1 track extracted without read errors.", "%1 tracks extracted without read errors.", m_summary.tracks),
+        i18np("%1 track extracted without read errors", "%1 tracks extracted without read errors", m_summary.tracks),
         m_summary.suspiciousPositions > 0
-            ? i18np("Extracted with %1 unreliable position.", "Extracted with %1 unreliable positions.", m_summary.suspiciousPositions)
-            : i18n("Extracted with warnings. See rip log."),
-        m_summary.error.isEmpty() ? i18n("Extraction failed.") : m_summary.error);
+            ? i18np("Extracted with %1 unreliable position", "Extracted with %1 unreliable positions", m_summary.suspiciousPositions)
+            : i18n("Extracted with warnings, see rip log"),
+        m_summary.error.isEmpty() ? i18n("Extraction failed") : m_summary.error);
 
     QString verification;
     if (m_summary.verification.status == JobStatus::Skipped) {
-        verification = m_summary.verificationRequested ? i18n("Not performed.") : i18n("Not requested.");
+        verification = m_summary.verificationRequested ? i18n("Not performed") : i18n("Not requested");
     } else if (m_summary.verification.status == JobStatus::Failed) {
-        verification = i18n("The repaired image could not be verified.");
+        verification = i18n("The repaired image could not be verified");
     } else if (m_summary.verification.status == JobStatus::Success) {
         // i18n: AccurateRip and CTDB (CUETools database) are names of online databases
-        verification = i18np("%1 track confirmed by AccurateRip or CTDB.", "%1 tracks confirmed by AccurateRip or CTDB.", m_summary.verifiedTracks);
+        verification = i18np("%1 track confirmed by AccurateRip or CTDB", "%1 tracks confirmed by AccurateRip or CTDB", m_summary.verifiedTracks);
     } else {
         QStringList details;
         if (m_summary.verifiedTracks < m_summary.verifiableTracks)
-            details << i18np("%2 of %1 track confirmed.", "%2 of %1 tracks confirmed.", m_summary.verifiableTracks, m_summary.verifiedTracks);
+            details << i18np("%2 of %1 track confirmed", "%2 of %1 tracks confirmed", m_summary.verifiableTracks, m_summary.verifiedTracks);
         if (m_summary.accurateRipMismatches > 0 || m_summary.ctdbMismatches > 0)
-            details << i18n("Database mismatches detected.");
+            details << i18n("Database mismatches detected");
         if (!m_summary.accurateRipError.isEmpty() || !m_summary.ctdbError.isEmpty())
-            details << i18n("Database lookup failed.");
+            details << i18n("Database lookup failed");
         if (details.isEmpty())
-            details << i18n("Verification incomplete. See rip log.");
-        verification = details.join(u" "_s);
+            details << i18n("Verification incomplete, see rip log");
+        verification = details.join(u" · "_s);
     }
 
+    const QString folder = outputFolder();
     QString output;
     if (post.failedTasks > 0 && m_summary.output.status != JobStatus::Failed) {
-        output = i18np("%1 optional output task failed.", "%1 optional output tasks failed.", post.failedTasks);
+        output = i18np("%1 optional output task failed", "%1 optional output tasks failed", post.failedTasks);
     } else {
         output = describe(m_summary.output.status,
-                          i18n("Audio and requested files saved."),
-                          i18n("Audio saved; some output operations failed. See rip log."),
-                          m_summary.error.isEmpty() ? i18n("Audio output failed.") : m_summary.error);
+                          // i18n: %1 is the folder the audio files were written to
+                          i18n("Saved to %1", KShell::tildeCollapse(folder)),
+                          i18n("Audio saved, but some output operations failed, see rip log"),
+                          m_summary.error.isEmpty() ? i18n("Audio output failed") : m_summary.error);
     }
     if (post.hookPending)
-        output += u" "_s + i18n("External command running separately; result pending.");
+        output += u" · "_s + i18n("External command running separately, result pending");
 
-    const auto setResult = [](QLabel *icon, QLabel *label, JobStatus status, const QString &heading, const QString &message) {
-        QString name;
-        switch (status) {
-        case JobStatus::Success:
-            name = u"dialog-ok-apply"_s;
-            break;
-        case JobStatus::Warning:
-            name = u"dialog-warning"_s;
-            break;
-        case JobStatus::Failed:
-        case JobStatus::Canceled:
-            name = u"dialog-error"_s;
-            break;
-        case JobStatus::Skipped:
-            name = u"dialog-information"_s;
-            break;
-        }
-        icon->setPixmap(QIcon::fromTheme(name).pixmap(16, 16));
-        label->setText(u"<b>%1</b> %2"_s.arg(heading.toHtmlEscaped(), message.toHtmlEscaped()));
-    };
-    setResult(ui.extraction_icon, ui.extraction_result, m_summary.extraction.status, i18n("Extraction:"), extraction);
-    setResult(ui.verification_icon, ui.verification_result, m_summary.verification.status, i18n("Verification:"), verification);
-    setResult(ui.output_icon, ui.output_result, m_summary.output.status, i18n("Output:"), output);
-    ui.result_summary->show();
+    set_stage(Stage::Extraction, stageState(m_summary.extraction.status), extraction);
+    set_stage(Stage::Verification, stageState(m_summary.verification.status), verification);
+    set_stage(Stage::Output, stageState(m_summary.output.status), output);
 
     const JobStatus status = Audex::overallStatus(m_summary.extraction, m_summary.verification, m_summary.output);
-    const bool successful = status == JobStatus::Success || status == JobStatus::Warning;
-    const bool warnings = status == JobStatus::Warning;
 
-    // Remove the cancel button
+    // the cancel button gives way to Close, the log and the folder
     buttonBox->clear();
-    // Add the new close button
-    buttonBox->addButton(QDialogButtonBox::Close);
+    QPushButton *closeButton = buttonBox->addButton(QDialogButtonBox::Close);
+    closeButton->setDefault(true);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ExtractingProgressDialog::slotClose);
-
-    finished = true;
-
-    update_unity();
-
-    QPalette pal(ui.label_extracting->palette());
-    KColorScheme kcs(QPalette::Active);
-    if (successful && !warnings) {
-        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-ok-apply"), i18n("Extraction, verification and output finished successfully."));
-        ui.klistwidget->addItem(item);
-        ui.klistwidget->scrollToItem(item);
-        pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
-        ui.label_extracting->setText("<font style=\"font-weight:bold;\">" + i18n("Finished!") + "</font>");
-
-    } else if (successful) {
-        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-warning"), i18n("Finished with warnings. Please check the rip log."));
-        ui.klistwidget->addItem(item);
-        ui.klistwidget->scrollToItem(item);
-        pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NeutralText));
-        const QString color = kcs.foreground(KColorScheme::NeutralText).color().name();
-        const QString text = u"<font style=\"color:%1;font-weight:bold;\">%2</font>"_s.arg(color, i18n("Finished with warnings"));
-        ui.label_extracting->setText(text);
-
-    } else {
-        QListWidgetItem *item = new QListWidgetItem(QIcon::fromTheme("dialog-cancel"),
-                                                     status == JobStatus::Canceled ? i18n("Ripping canceled.") : i18n("At least one job failed."));
-        pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
-        ui.klistwidget->addItem(item);
-        ui.klistwidget->scrollToItem(item);
-        ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">"
-                                     + (status == JobStatus::Canceled ? i18n("Canceled") : i18n("Failed!")) + "</font>");
-    }
-
     if (m_summary.report.count() > 0) {
-        auto *logButton = new QPushButton();
-        logButton->setText(i18n("Show Rip Log..."));
-        logButton->setIcon(QIcon::fromTheme(u"media-optical"_s));
+        auto *logButton = new QPushButton(QIcon::fromTheme(u"media-optical"_s), i18n("Show Rip Log..."));
         buttonBox->addButton(logButton, QDialogButtonBox::HelpRole);
         connect(logButton, &QPushButton::clicked, this, &ExtractingProgressDialog::slotLog);
     }
-    ui.label_speed_extracting->setEnabled(false);
-    ui.label_extracting->setPalette(pal);
+    if (QDir(folder).exists()) {
+        auto *folderButton = new QPushButton(QIcon::fromTheme(u"folder-open"_s), i18n("Open Folder"));
+        buttonBox->addButton(folderButton, QDialogButtonBox::ActionRole);
+        connect(folderButton, &QPushButton::clicked, this, &ExtractingProgressDialog::open_output_folder);
+    }
+
+    finished = true;
+    m_clockTimer.stop();
+    update_time();
+    update_unity();
+
+    QString verdict;
+    KColorScheme::ForegroundRole role = KColorScheme::NegativeText;
+    switch (status) {
+    case JobStatus::Success:
+        verdict = i18n("Finished");
+        role = KColorScheme::PositiveText;
+        break;
+    case JobStatus::Warning:
+        verdict = i18n("Finished with warnings");
+        role = KColorScheme::NeutralText;
+        break;
+    case JobStatus::Canceled:
+        verdict = i18n("Canceled");
+        break;
+    case JobStatus::Failed:
+    case JobStatus::Skipped:
+        verdict = i18n("Failed");
+        break;
+    }
+    QPalette pal(ui.label_status->palette());
+    pal.setBrush(QPalette::WindowText, KColorScheme(QPalette::Active).foreground(role));
+    ui.label_status->setPalette(pal);
+    ui.label_status->setText(verdict);
+}
+
+void ExtractingProgressDialog::set_stage(Stage stage, StageState state, const QString &text)
+{
+    QLabel *icon = ui.stage_extraction_icon;
+    QLabel *name = ui.stage_extraction_name;
+    KSqueezedTextLabel *label = ui.stage_extraction_text;
+    switch (stage) {
+    case Stage::Extraction:
+        break;
+    case Stage::Verification:
+        icon = ui.stage_verification_icon;
+        name = ui.stage_verification_name;
+        label = ui.stage_verification_text;
+        break;
+    case Stage::Output:
+        icon = ui.stage_output_icon;
+        name = ui.stage_output_name;
+        label = ui.stage_output_text;
+        break;
+    }
+
+    QString iconName, fallback;
+    switch (state) {
+    case StageState::Pending:
+    case StageState::Running:
+        break;
+    case StageState::Success:
+        iconName = u"emblem-success"_s;
+        fallback = u"dialog-ok-apply"_s;
+        break;
+    case StageState::Warning:
+        iconName = u"emblem-warning"_s;
+        fallback = u"dialog-warning"_s;
+        break;
+    case StageState::Failed:
+    case StageState::Canceled:
+        iconName = u"emblem-error"_s;
+        fallback = u"dialog-error"_s;
+        break;
+    case StageState::Skipped:
+        iconName = u"emblem-information"_s;
+        fallback = u"dialog-information"_s;
+        break;
+    }
+    if (iconName.isEmpty())
+        icon->clear();
+    else
+        icon->setPixmap(QIcon::fromTheme(iconName, QIcon::fromTheme(fallback)).pixmap(QSize(22, 22), icon->devicePixelRatio()));
+
+    // only the extraction has a spinner; the other rows run quietly alongside
+    if (stage == Stage::Extraction) {
+        const bool running = state == StageState::Running;
+        icon->setVisible(!running);
+        m_busy->setVisible(running);
+    }
+
+    const bool pending = state == StageState::Pending;
+    name->setEnabled(!pending);
+    label->setEnabled(!pending);
+    label->setText(text);
+}
+
+ExtractingProgressDialog::StageState ExtractingProgressDialog::stageState(Audex::JobStatus status)
+{
+    using Audex::JobStatus;
+    switch (status) {
+    case JobStatus::Success:
+        return StageState::Success;
+    case JobStatus::Warning:
+        return StageState::Warning;
+    case JobStatus::Failed:
+        return StageState::Failed;
+    case JobStatus::Canceled:
+        return StageState::Canceled;
+    case JobStatus::Skipped:
+        break;
+    }
+    return StageState::Skipped;
+}
+
+void ExtractingProgressDialog::update_extraction_row()
+{
+    QString text = m_reading;
+    if (speed_ema > 0.0)
+        // i18n: %1 is what is being read, %2 the read speed as a multiple of the normal playback speed of a CD
+        text = i18nc("what is read, read speed", "%1 · %2×", m_reading, QLocale().toString(speed_ema, 'f', 1));
+    set_stage(Stage::Extraction, StageState::Running, text);
+}
+
+void ExtractingProgressDialog::update_verification_row()
+{
+    if (!m_verificationRequested) {
+        set_stage(Stage::Verification, StageState::Pending, i18n("Not requested"));
+        return;
+    }
+    if (m_finishedTracks.isEmpty()) {
+        set_stage(Stage::Verification, StageState::Running, i18n("Waiting for the first track"));
+        return;
+    }
+    set_stage(Stage::Verification,
+              StageState::Running,
+              i18np("%2 of %1 track confirmed so far", "%2 of %1 tracks confirmed so far", m_finishedTracks.count(), m_confirmedTracks.count()));
+}
+
+void ExtractingProgressDialog::update_time()
+{
+    const qint64 secs = m_clock.elapsed() / 1000;
+    ui.label_time->setText(QTime(0, 0).addSecs(int(secs)).toString(secs >= 3600 ? u"h:mm:ss"_s : u"m:ss"_s));
+}
+
+QString ExtractingProgressDialog::outputFolder() const
+{
+    // the audio files' folder: the name scheme may put them below the profile's output folder
+    if (!m_summary.files.isEmpty())
+        return QFileInfo(m_summary.files.first()).absolutePath();
+    if (!m_plan.trackFiles.isEmpty())
+        return QFileInfo(m_plan.trackFiles.first()).absolutePath();
+    return m_plan.outputDir;
+}
+
+void ExtractingProgressDialog::open_output_folder()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile(outputFolder()));
 }
 
 void ExtractingProgressDialog::show_info(const QString &message)

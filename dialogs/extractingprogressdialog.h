@@ -18,11 +18,13 @@
 #include <QElapsedTimer>
 #include <QPointer>
 #include <QSet>
+#include <QTimer>
 
 #include <memory>
 
-class QVBoxLayout;
+class KBusyIndicatorWidget;
 class QDialogButtonBox;
+class QVBoxLayout;
 
 class ExtractingProgressDialog : public QDialog
 {
@@ -73,8 +75,22 @@ private:
     QVBoxLayout *mainLayout = nullptr;
     QDialogButtonBox *buttonBox = nullptr;
     QPointer<QPushButton> cancelButton; // deleted by conclusion()
+    KBusyIndicatorWidget *m_busy = nullptr; // in the icon cell of the extraction row while it runs
+
+    // The three rows that stay in place from start to finish: extraction,
+    // verification, output. Pending rows are greyed, the running one spins,
+    // a finished one shows the outcome.
+    enum class Stage { Extraction, Verification, Output };
+    enum class StageState { Pending, Running, Success, Warning, Failed, Canceled, Skipped };
+    void set_stage(Stage stage, StageState state, const QString &text);
+    static StageState stageState(Audex::JobStatus status);
+    void update_extraction_row(); // m_reading and the speed
+    void update_verification_row(); // confirmed tracks so far
+    void update_time();
+    QString outputFolder() const; // where the audio files go
 
     void open_log_view_dialog();
+    void open_output_folder();
     qint64 discPosition(int trackNumber, qint64 trackSectors) const; // read position on the disc map
     void update_unity();
 
@@ -99,6 +115,12 @@ private:
     QElapsedTimer speed_timer;
     qint64 last_sectors;
     double speed_ema;
+    QString m_reading; // what the extraction row says is being read
+    QElapsedTimer m_clock; // since the job started
+    QTimer m_clockTimer;
+    bool m_verificationRequested = false;
+    QSet<int> m_finishedTracks; // tracks with a final state on the disc map
+    QSet<int> m_confirmedTracks; // of these, confirmed by a database
     int current_track;
     int m_errorCount = 0;
     int m_percent = 0; // for the launcher progress, the bars are gone
