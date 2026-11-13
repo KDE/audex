@@ -7,6 +7,8 @@
 
 #include "toc.h"
 
+#include "core/riplogformat.h"
+
 using namespace Qt::StringLiterals;
 
 namespace Audex::Cdda
@@ -130,29 +132,38 @@ int Toc::htoaSectorCount() const
     return first.firstLba;
 }
 
+// The table is the one EAC, XLD and fre:ac write, with the same five
+// columns, so that tools reading their logs (MusicBrainz Picard among them)
+// take ours as well: they stop at the first line that does not fit. What
+// the table cannot say about a track follows it as a note.
 QStringList Toc::describe() const
 {
     QStringList lines;
-    lines << u"     Track |   Start  |  Length  | Start sector | End sector | Type"_s;
-    lines << u"    -------+----------+----------+--------------+------------+----------------"_s;
+    lines << u"     Track |   Start  |  Length  | Start sector | End sector"_s;
+    lines << u"    -------+----------+----------+--------------+-----------"_s;
     for (const Track &t : tracks) {
-        QString type = t.audio ? u"audio"_s : u"data"_s;
-        if (t.session > 1)
-            type += u", session %1"_s.arg(t.session);
-        if (t.preEmphasis)
-            type += u", pre-emphasis"_s;
-        if (t.fourChannel)
-            type += u", 4 channels"_s;
-        lines << u"       %1  | %2 | %3 |    %4    |   %5   | %6"_s.arg(t.number, 2)
+        lines << u"       %1  | %2 | %3 |    %4    |   %5"_s.arg(t.number, 2)
                      .arg(sectorsToMsf(t.firstLba))
                      .arg(sectorsToMsf(t.sectorCount()))
                      .arg(t.firstLba, 6)
-                     .arg(t.lastLba, 6)
-                     .arg(type);
+                     .arg(t.lastLba, 6);
     }
-    lines << u"    Lead-out: %1 (%2)"_s.arg(leadOutLba).arg(sectorsToMsf(leadOutLba));
+    lines << RipLogFormat::tocLine(RipLogFormat::LeadOut, u"%1 (%2)"_s.arg(leadOutLba).arg(sectorsToMsf(leadOutLba)));
     if (htoaSectorCount() > 0)
         lines << u"    Hidden track one audio: %1 sectors (%2)"_s.arg(htoaSectorCount()).arg(sectorsToMsf(htoaSectorCount()));
+    for (const Track &t : tracks) {
+        QStringList notes;
+        if (!t.audio)
+            notes << u"data"_s;
+        if (t.session > 1)
+            notes << u"session %1"_s.arg(t.session);
+        if (t.preEmphasis)
+            notes << u"pre-emphasis"_s;
+        if (t.fourChannel)
+            notes << u"4 channels"_s;
+        if (!notes.isEmpty())
+            lines << RipLogFormat::tocLine(RipLogFormat::TrackNote, u"%1: %2"_s.arg(t.number).arg(notes.join(u", "_s)));
+    }
     if (!source.isEmpty())
         lines << u"    Source: %1"_s.arg(source);
     return lines;

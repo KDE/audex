@@ -8,6 +8,7 @@
 #include "ripverify.h"
 
 #include "core/ctdbparity.h"
+#include "core/riplogformat.h"
 #include "online/accuraterip.h"
 #include "online/ctdb.h"
 #include "utils/imagerepair.h"
@@ -17,9 +18,9 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
-#include <QRegularExpression>
 
 #include <algorithm>
+#include <optional>
 
 using namespace Qt::StringLiterals;
 
@@ -42,52 +43,101 @@ QString hex8(quint32 v)
 
 // ---- the rip log ------------------------------------------------------------
 
+namespace
+{
+
+using namespace RipLogFormat;
+
+// "data, session 2, pre-emphasis, 4 channels", as Toc::describe() writes it
+void applyTrackNotes(Cdda::Track &t, QStringView notes)
+{
+    const QList<QStringView> items = notes.split(u", "_s);
+    t.audio = !items.contains(u"data");
+    t.preEmphasis = items.contains(u"pre-emphasis");
+    t.fourChannel = items.contains(u"4 channels");
+    for (const QStringView item : items) {
+        if (item.startsWith(u"session "))
+            t.session = item.mid(8).toInt();
+    }
+}
+
+// the first blank-separated word, as a number; nullopt if it is not one
+std::optional<int> leadingInt(QStringView text)
+{
+    const QStringView word = text.trimmed().split(u' ').value(0);
+    bool ok = false;
+    const int value = word.toInt(&ok);
+    return ok ? std::optional(value) : std::nullopt;
+}
+
+// the text after a prefix, or nothing if the line does not start with it
+std::optional<QStringView> after(QStringView line, QStringView indent, QStringView key)
+{
+    if (!line.startsWith(indent) || !line.mid(indent.size()).startsWith(key))
+        return std::nullopt;
+    return line.mid(indent.size() + key.size());
+}
+
+// a row of the TOC table: "  1  | 00:02.00 | 00:12.00 |  150  |  1049" with,
+// in logs written before the table lost it, the type as a sixth column
+std::optional<Cdda::Track> tocRow(QStringView line)
+{
+    const QList<QStringView> columns = line.split(TocColumnSeparator);
+    if (columns.size() != 5 && columns.size() != 6)
+        return std::nullopt;
+    bool ok[3] = {false, false, false};
+    Cdda::Track t;
+    t.number = columns.at(0).trimmed().toInt(&ok[0]);
+    t.firstLba = columns.at(3).trimmed().toInt(&ok[1]);
+    t.lastLba = columns.at(4).trimmed().toInt(&ok[2]);
+    if (!ok[0] || !ok[1] || !ok[2])
+        return std::nullopt; // the table header
+    if (columns.size() == 6)
+        applyTrackNotes(t, columns.at(5).trimmed());
+    return t;
+}
+
+}
+
 std::optional<RipLog> parseRipLog(const QString &text, QString *error)
 {
-    // written by Rip::formatReport() and Cdda::Toc::describe()
-    static const QRegularExpression header(u"^(.+) extraction log from "_s);
-    static const QRegularExpression tocRow(u"^\\s+(\\d+)\\s+\\|\\s*[-\\d:.]+\\s*\\|\\s*[-\\d:.]+\\s*\\|\\s*(-?\\d+)\\s*\\|\\s*(-?\\d+)\\s*\\|\\s*(.*)$"_s);
-    static const QRegularExpression leadOut(u"^\\s+Lead-out:\\s*(\\d+)"_s);
-    static const QRegularExpression session(u"session (\\d+)"_s);
-    static const QRegularExpression trackHeader(u"^Track (\\d+)\\s*$"_s);
-    static const QRegularExpression fileName(u"^\\s+Filename (.*)$"_s);
-    static const QRegularExpression range(u"^\\s+Range LBA (-?\\d+) - (-?\\d+)"_s);
-    static const QRegularExpression copyCrc(u"^\\s+Copy CRC ([0-9A-Fa-f]{8})"_s);
-
     RipLog log;
     LoggedTrack *current = nullptr;
     const QStringList lines = text.split(u'\n');
     for (QString line : lines) {
         line.remove(u'\r');
         if (log.application.isEmpty()) {
-            const QRegularExpressionMatch m = header.match(line);
-            if (m.hasMatch())
-                log.application = m.captured(1).trimmed();
-        }
-        if (QRegularExpressionMatch m = tocRow.match(line); m.hasMatch() && log.tracks.isEmpty()) {
-            Cdda::Track t;
-            t.number = m.captured(1).toInt();
-            t.firstLba = m.captured(2).toInt();
-            t.lastLba = m.captured(3).toInt();
-            const QString type = m.captured(4);
-            t.audio = type.startsWith(u"audio"_s);
-            t.preEmphasis = type.contains(u"pre-emphasis"_s);
-            t.fourChannel = type.contains(u"4 channels"_s);
-            if (const QRegularExpressionMatch s = session.match(type); s.hasMatch())
-                t.session = s.captured(1).toInt();
-            log.toc.tracks.append(t);
-            continue;
-        }
-        if (QRegularExpressionMatch m = leadOut.match(line); m.hasMatch() && log.tracks.isEmpty()) {
-            log.toc.leadOutLba = m.captured(1).toInt();
-            continue;
+            if (const qsizetype at = line.indexOf(HeaderMark); at > 0)
+                log.application = line.first(at).trimmed();
         }
 
-        const bool hidden = line.trimmed() == u"Hidden track one audio"_s && !line.startsWith(u' ');
-        const QRegularExpressionMatch th = trackHeader.match(line);
-        if (hidden || th.hasMatch()) {
+        // the table of contents, before the first track section
+        if (log.tracks.isEmpty()) {
+            if (const auto t = tocRow(line)) {
+                log.toc.tracks.append(*t);
+                continue;
+            }
+            if (const auto rest = after(line, TocIndent, TrackNote)) {
+                const qsizetype colon = rest->indexOf(u':');
+                const auto number = colon > 0 ? leadingInt(rest->first(colon)) : std::nullopt;
+                for (Cdda::Track &t : log.toc.tracks) {
+                    if (number && t.number == *number)
+                        applyTrackNotes(t, rest->mid(colon + 1).trimmed());
+                }
+                continue;
+            }
+            if (const auto rest = after(line, TocIndent, LeadOut)) {
+                log.toc.leadOutLba = leadingInt(*rest).value_or(0);
+                continue;
+            }
+        }
+
+        // a track section: its heading starts the line
+        const bool hidden = line == HiddenTrackHeading;
+        const auto heading = line.startsWith(TrackHeading) ? leadingInt(QStringView(line).mid(TrackHeading.size())) : std::nullopt;
+        if (hidden || heading) {
             LoggedTrack t;
-            t.number = hidden ? 0 : th.captured(1).toInt();
+            t.number = hidden ? 0 : *heading;
             log.tracks.append(t);
             current = &log.tracks.last();
             continue;
@@ -96,13 +146,19 @@ std::optional<RipLog> parseRipLog(const QString &text, QString *error)
             current = nullptr; // the next section
         if (!current)
             continue;
-        if (QRegularExpressionMatch m = fileName.match(line); m.hasMatch()) {
-            current->file = m.captured(1);
-        } else if (QRegularExpressionMatch m = range.match(line); m.hasMatch()) {
-            current->firstLba = m.captured(1).toInt();
-            current->lastLba = m.captured(2).toInt();
-        } else if (QRegularExpressionMatch m = copyCrc.match(line); m.hasMatch()) {
-            current->copyCrc = m.captured(1).toUInt(nullptr, 16);
+        if (const auto rest = after(line, TrackIndent, Filename)) {
+            current->file = rest->toString();
+        } else if (const auto rest = after(line, TrackIndent, Range)) {
+            const QList<QStringView> words = rest->split(u' ');
+            if (words.size() >= 3 && words.at(1) == u"-") {
+                current->firstLba = words.at(0).toInt();
+                current->lastLba = words.at(2).toInt();
+            }
+        } else if (const auto rest = after(line, TrackIndent, CopyCrc)) {
+            bool ok = false;
+            const uint crc = rest->first(qMin<qsizetype>(8, rest->size())).toUInt(&ok, 16);
+            if (ok && rest->size() >= 8)
+                current->copyCrc = crc;
         }
     }
 

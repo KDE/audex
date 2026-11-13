@@ -154,6 +154,38 @@ AUDEX_TEST("verify: the log of a rip is read back")
     AUDEX_CHECK(t, !Verify::parseRipLog(u"some text"_s, &error).has_value());
 }
 
+AUDEX_TEST("verify: track notes under the TOC table and the old sixth column")
+{
+    Cdda::Toc mixed;
+    mixed.tracks = {Cdda::Track{1, 1, 0, 299}, Cdda::Track{2, 1, 300, 599}, Cdda::Track{3, 2, 12000, 20000, false}};
+    mixed.tracks[1].preEmphasis = true;
+    mixed.tracks[1].fourChannel = true;
+    mixed.leadOutLba = 20001;
+    QStringList lines = {u"Audex 1.0 extraction log from 2026-01-01T00:00:00"_s, QString()};
+    lines << mixed.describe();
+    for (int n = 1; n <= 2; ++n) // the parser wants a file and a range per ripped track
+        lines << QString() << u"Track 0%1"_s.arg(n) << QString() << u"     Filename /tmp/0%1.wav"_s.arg(n)
+              << u"     Range LBA %1 - %2"_s.arg((n - 1) * 300).arg(n * 300 - 1);
+    QString error;
+    const auto log = Verify::parseRipLog(lines.join(u'\n'), &error);
+    AUDEX_CHECK_MSG(t, log.has_value(), error);
+    AUDEX_CHECK(t, log->toc.tracks == mixed.tracks);
+
+    // logs written before the table lost its type column
+    const QString old =
+        u"Audex 1.0 extraction log from 2026-01-01T00:00:00\n"
+        "     Track |   Start  |  Length  | Start sector | End sector | Type\n"
+        "    -------+----------+----------+--------------+------------+-----\n"
+        "        1  | 00:00.00 | 00:04.00 |         0    |      299   | audio, pre-emphasis\n"
+        "        2  | 02:40.00 | 01:46.51 |     12000    |    20000   | data, session 2\n"
+        "    Lead-out: 20001 (04:26.51)\n"_s;
+    const auto oldLog = Verify::parseRipLog(old + u"\nTrack 01\n\n     Filename /tmp/01.wav\n     Range LBA 0 - 299\n"_s, &error);
+    AUDEX_CHECK_MSG(t, oldLog.has_value(), error);
+    AUDEX_EQUAL(t, qint64(oldLog->toc.tracks.size()), qint64(2));
+    AUDEX_CHECK(t, oldLog->toc.tracks.at(0).audio && oldLog->toc.tracks.at(0).preEmphasis);
+    AUDEX_CHECK(t, !oldLog->toc.tracks.at(1).audio && oldLog->toc.tracks.at(1).session == 2);
+}
+
 AUDEX_TEST("verify: unchanged track files, then a changed and a missing one")
 {
     QTemporaryDir dir;

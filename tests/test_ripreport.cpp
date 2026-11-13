@@ -5,7 +5,11 @@
 
 #include "test_framework.h"
 
+#include "core/discid.h"
 #include "core/ripreport.h"
+#include "core/toc.h"
+
+#include <QRegularExpression>
 
 using namespace Audex;
 using namespace Qt::StringLiterals;
@@ -52,4 +56,41 @@ AUDEX_TEST("rip log: the read line stands before the copy CRC")
     const qsizetype read = log.indexOf(u"     Read twice and compared: no differences"_s);
     AUDEX_CHECK(t, read > 0 && log.value(read + 1).startsWith(u"     Copy CRC"_s));
     AUDEX_CHECK(t, log.contains(u"     Read once, confirmed by AccurateRip"_s));
+}
+
+// MusicBrainz Picard reads the TOC table of EAC, XLD and fre:ac logs with two
+// expressions (picard/disc/eaclog.py): a header of five columns separated by
+// "|", one line to skip, then rows until the first that does not fit. The
+// disc ID comes from start sector + 150 and the last end sector + 151.
+AUDEX_TEST("rip log: the TOC table is the one Picard reads")
+{
+    Cdda::Toc toc;
+    toc.tracks = {Cdda::Track{1, 1, 150, 20366}, Cdda::Track{2, 1, 20367, 38129}, Cdda::Track{3, 1, 38130, 60000}};
+    toc.leadOutLba = 60001;
+    toc.source = u"simulation"_s;
+    const QStringList lines = toc.describe();
+
+    static const QRegularExpression header(u"^\\s*\\s*.+\\s+\\|\\s+.+\\s+\\|\\s+.+\\s+\\|\\s+.+\\s+\\|\\s+.+\\s*$"_s);
+    static const QRegularExpression row(u"^\\s*(\\d+)\\s*\\|\\s*([0-9:.]+)\\s*\\|\\s*([0-9:.]+)\\s*\\|\\s*(\\d+)\\s*\\|\\s*(\\d+)\\s*$"_s);
+    int i = 0;
+    while (i < lines.size() && !header.match(lines.at(i)).hasMatch())
+        ++i;
+    AUDEX_CHECK(t, i < lines.size());
+    i += 2; // the header and the separator line
+    QList<int> starts;
+    int lastEnd = -1;
+    for (; i < lines.size(); ++i) {
+        const QRegularExpressionMatch m = row.match(lines.at(i));
+        if (!m.hasMatch())
+            break;
+        AUDEX_EQUAL(t, qint64(m.captured(1).toInt()), qint64(starts.size() + 1));
+        starts << m.captured(4).toInt();
+        lastEnd = m.captured(5).toInt();
+    }
+    AUDEX_EQUAL(t, qint64(starts.size()), qint64(3));
+
+    QStringList picard = {u"1"_s, u"3"_s, QString::number(lastEnd + 150 + 1)};
+    for (const int start : std::as_const(starts))
+        picard << QString::number(start + 150);
+    AUDEX_EQUAL(t, picard.join(u' '), Cdda::musicBrainzTocString(toc));
 }

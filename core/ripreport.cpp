@@ -7,6 +7,8 @@
 
 #include "ripreport.h"
 
+#include "core/riplogformat.h"
+
 #include <QDateTime>
 
 using namespace Qt::StringLiterals;
@@ -60,7 +62,7 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
     const Rip::RipOptions &o = ctx.options;
     QStringList l;
 
-    l << u"%1 extraction log from %2"_s.arg(ctx.application, QDateTime::currentDateTime().toString(Qt::ISODate));
+    l << ctx.application % RipLogFormat::HeaderMark % QDateTime::currentDateTime().toString(Qt::ISODate);
     l << QString();
     l << u"Used drive  : %1"_s.arg(ctx.drive);
     l << u"Device      : %1"_s.arg(ctx.device);
@@ -103,10 +105,11 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
         const Rip::Segment &seg = s.segment;
         const int sectors = seg.lastLba - seg.firstLba + 1;
 
-        l << (seg.trackNumber == 0 ? u"Hidden track one audio"_s : u"Track %1"_s.arg(seg.trackNumber, 2, 10, QLatin1Char('0')));
+        l << (seg.trackNumber == 0 ? RipLogFormat::HiddenTrackHeading.toString()
+                                   : RipLogFormat::TrackHeading % QString::number(seg.trackNumber).rightJustified(2, QLatin1Char('0')));
         l << QString();
-        l << u"     Filename %1"_s.arg(ctx.fileNames.value(i));
-        l << u"     Range LBA %1 - %2 (%3)"_s.arg(seg.firstLba).arg(seg.lastLba).arg(Cdda::sectorsToMsf(sectors));
+        l << RipLogFormat::trackLine(RipLogFormat::Filename, ctx.fileNames.value(i));
+        l << RipLogFormat::trackLine(RipLogFormat::Range, u"%1 - %2 (%3)"_s.arg(seg.firstLba).arg(seg.lastLba).arg(Cdda::sectorsToMsf(sectors)));
         if (seg.firstLba < seg.checksumFirst())
             l << u"     Pregap LBA %1 - %2 (%3) at the start of the file"_s.arg(seg.firstLba)
                      .arg(seg.checksumFirst() - 1)
@@ -122,7 +125,7 @@ QStringList formatReport(const ReportContext &ctx, const Rip::RipResult &result)
                      .arg(p.reason.toEnglish());
         }
         l << u"     "_s + readDescription(o, s, ctx.confirmedBy.value(i));
-        l << u"     Copy CRC %1 (w/o null samples %2)"_s.arg(hex8(s.crc32), hex8(s.crc32NoNull));
+        l << RipLogFormat::trackLine(RipLogFormat::CopyCrc, u"%1 (w/o null samples %2)"_s.arg(hex8(s.crc32), hex8(s.crc32NoNull)));
         if (seg.accurateRip) {
             l << u"     AccurateRip v1 %1, v2 %2, frame 450 %3"_s.arg(hex8(s.accurateRipV1), hex8(s.accurateRipV2), hex8(s.accurateRipFrame450));
             for (const Rip::ShiftedChecksums &c : s.accurateRipShifted)
