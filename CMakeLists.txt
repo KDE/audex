@@ -406,8 +406,12 @@ endif()
 # example genres (users can add their own in ~/.local/share/audex/genres.json)
 install(FILES genres.json DESTINATION ${KDE_INSTALL_DATADIR}/audex)
 
-# add clang-format target for all our real source files
-file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
-kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+# add clang-format target for all our real source files; only with the tool:
+# without it ECM 6.9 to 6.19 set up a placeholder target that CMake >= 3.31
+# warns about (CMP0175)
+if(KDE_CLANG_FORMAT_EXECUTABLE)
+  file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+  kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES)
