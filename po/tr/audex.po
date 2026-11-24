@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 02:56+0000\n"
-"PO-Revision-Date: 2026-05-02 19:53+0300\n"
+"PO-Revision-Date: 2026-11-23 17:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -2036,7 +2036,7 @@ msgstr ""
 "td><td>sayı</td><td>Yer tutucu değerinin soldan n. karakterini alın.</td></"
 "tr><tr><td><tt>length</tt></td><td>sayı</td><td>Yer tutucu değeri bir "
 "sayıysa onu verilen uzunluğa genişletin. Dahası, ek <tt>fillchar</tt> "
-"anahtarıyla bir dolgu karakteri de tanımlayabilirsiniz. Öntanımlı fillchar "
+"anahtarıyla bir dolgu karakteri de tanımlayabilirsiniz. Varsayılan fillchar "
 "’0’dır.</td></tr><tr><td><tt>pre</tt></td><td>dizi</td><td>Değerden <b>önce</"
 "b> yerleştirilecek bir dizi. Özellikle değer boşsa hiçbir zaman "
 "ayarlanmaması gereken komut satırı parametreleri için yararlıdır.</td></"
@@ -2088,7 +2088,7 @@ msgstr ""
 "olur. Genelde <tt>pre</tt> parametresiyle birlikte kullanıldığında "
 "yararlıdır. Görsel, <tt>x</tt> ve <tt>y</tt> parametreleriyle "
 "ölçeklendirilebilir. Olası görsel <tt>biçimleri</tt> JPEG, PNG, GIF veya "
-"BMP’dir (Öntanımlı: JPEG). <i><b>Not:</b> LAME, 128 KiB’den büyük kapak "
+"BMP’dir (Varsayılan: JPEG). <i><b>Not:</b> LAME, 128 KiB’den büyük kapak "
 "dosyalarını atar.</i></td></tr></table>"
 
 #: utils/schemeparser.h:218
@@ -2133,7 +2133,7 @@ msgstr ""
 "desteklenen belirteçler için resmî Qt belgelendirmesine başvurun "
 "(<tt>https://doc.qt.io/qt-5/qtime.html#toString</tt>, <tt>https://doc.qt.io/"
 "qt-6/qdate.html#toString</tt>). Ek <tt>locale</tt> anahtarı ile bir dil "
-"ayarı belirtebilirsiniz. Öntanımlı olarak sistem yerel ayarlarınız "
+"ayarı belirtebilirsiniz. Varsayılan olarak sistem yerel ayarlarınız "
 "kullanılır. Yerel ayar, <tt>dil_BÖLGE</tt> biçimini kullanır; örneğin, "
 "<tt>tr_CY</tt>. <tt>dil</tt>, küçük harfli, iki harften oluşan bir ISO 639 "
 "dil kodu olup <tt>BÖLGE</tt>, BÜYÜK harfli, iki harften oluşan bir ISO 3166 "
