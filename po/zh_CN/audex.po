@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/audex/audex.pot\n"
-"X-Crowdin-File-ID: 49100\n"
+"X-Crowdin-File: /kf6-stable/messages/audex/audex.pot\n"
+"X-Crowdin-File-ID: 53382\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
