@@ -4,13 +4,13 @@
 # Translators:
 # obsoleteman <tulliana@gmail.com>, 2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-multimedia-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 00:12+0000\n"
-"PO-Revision-Date: 2026-05-02 19:53+0300\n"
+"PO-Revision-Date: 2026-11-26 18:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
@@ -154,7 +154,7 @@ msgstr "“%1” yolu bulunamıyor."
 #: core/audex.cpp:634 core/audex.cpp:697 core/audex.cpp:706 core/audex.cpp:1155
 #, kde-format
 msgid "Please check your path (write access?)"
-msgstr "Lütfen dizini gözden geçirin (yazma hakkınız var mı?)"
+msgstr "Lütfen yolu gözden geçirin (yazma hakkınız var mı?)"
 
 #: core/audex.cpp:647
 #, kde-format
@@ -1197,7 +1197,7 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
-"Bölme için bir dizi ayarla: Boşlukların farkında olun.\n"
+"Bölme için bir dizge ayarla: Boşlukların farkında olun.\n"
 "\n"
 "Bölücü:"
 
